@@ -19,9 +19,5 @@ public class HFrontController {
 	}
 	
 	//°´½Çµî·Ï
-	@RequestMapping("/main")
-	public String (Model model) {
-		System.out.println("main()");
-		return "/hotel/main";
-	}
+
 }

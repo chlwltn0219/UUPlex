@@ -73,7 +73,7 @@
         }
 
         #content {
-        	background:url("${resources}/images/dice.jpg") repeat;
+        	background:url("${resources}/hotelImages/dice.jpg") repeat;
             width:100%; height:500px;
         }
 
@@ -112,7 +112,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"><img src = "${resources}/images/hotellogo.png" width="150px;"></div>
+        <div class="logo"><img src = "${resources}/hotelImages/hotellogo.png" width="150px;"></div>
         <div class="hit_menu">
             <ul>
                 <li><a href="#" alt="">예약내역</a></li>
@@ -123,9 +123,9 @@
     </header>
     <div id="content">
         <div class="section1">
-            <div class="slide_banner"><img src = "${resources}/images/standard.jpg" width="400px" height="300px"><br><br> 스탠다드룸
+            <div class="slide_banner"><img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px"><br><br> 스탠다드룸
             <input class="inputButton" type="button" value="바로예약"></div>
-            <div class="side_banner"><img src = "${resources}/images/suite.jpg" width="400px" height="300px"><br><br> 스위트룸 
+            <div class="side_banner"><img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px"><br><br> 스위트룸 
             <input class="inputButton" type="button" value="바로예약"></div>
         </div>
     </div>
