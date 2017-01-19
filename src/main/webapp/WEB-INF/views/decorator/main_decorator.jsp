@@ -25,6 +25,17 @@
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<!-- JSP에 포함된 head 태그의 내용을 이곳에 넣습니다. -->
+	
+	<style type="text/css">
+		* {
+/* 			border: 1px solid red; */
+		}
+		
+		footer {
+			background: #efefef;
+		}
+	</style>
+	
 	<sitemesh:write property="head" />
 </head>
 <body>
@@ -95,6 +106,8 @@
 	
 	<!-- Footer Start -->
 	<footer>
+		<p class="pull-right"><a href="#">페이지 위로 가기</a></p> <br>
+		<p style="text-align: center;">&copy; 2017 UU Company, Inc.</p>
 	</footer>
 	<!-- Footer End -->
 	
