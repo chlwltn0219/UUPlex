@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -153,9 +154,25 @@ td {
 	height: 200px;
 	background-color: #4374D9;
 }
+.manager_menu{
+	margin-left:0;
+	float:left;
+	border:1px solid;
+
+}
+#sidebar{ float:left; width:170px; margin-top:50px;}
+#sidebar .test{ float:left; width:170px; background-color: #000; color:#FFF; font-size:16px; padding:4px 0;}
+#sidebar a{ display:block; float:left; width:150px; padding:4px 0 4px 20px; color:#666; text-decoration:none;}
+#sidebar a:hover{color:#FFF;}
+#sidebar .test1:hover{ background-color: #333;}
+#sidebar .test2:hover{ background-color: #666;}
+#sidebar .test3:hover{ background-color: #999;}
+#sidebar .test4:hover{ background-color: #CCC;}
+
 </style>
 </head>
 <body>
+	
 	<div class="top_menu">
 		<div class="a">
 			<img src="img/c-box.png">
@@ -174,7 +191,19 @@ td {
 			<div class="btn2">빠른예매</div>
 		</div>
 	</div>
-
+	
+	<c:if test="${sessionScope.id == 'admin'}">
+	<div id="sidebar">
+			<ul>
+				<li class="test">▶admin</li>
+				<li><a class="test1" href="ManageMovieInfo">&#8226; 영화정보 관리</a></li>
+				
+				<li><a class="test2" href="#">&#8226; 상영스케줄 관리</a></li>
+				<li><a class="test3" href="#">&#8226; 상영관 관리</a></li>
+				<li><a class="test4" href="#">&#8226; 매출관리</a></li>
+			</ul>
+	</div>
+	</c:if>
 	<div class="imgbox" align="center">
 		<img class="button" src="img/pre.png"> <img width="800px"
 			src="img/lala.jpg"> <img class="button" src="img/post.png">

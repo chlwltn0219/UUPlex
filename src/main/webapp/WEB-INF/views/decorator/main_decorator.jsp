@@ -26,6 +26,13 @@
 	<![endif]-->
 	<!-- JSP에 포함된 head 태그의 내용을 이곳에 넣습니다. -->
 	<sitemesh:write property="head" />
+	
+	<style type="text/css">
+		div.top {
+/* 			height: 30px; */
+		}
+	</style>
+	
 </head>
 <body>
 	
@@ -84,13 +91,15 @@
 	</header>
 	<!-- Menu End -->
 	
+<!-- 	<div class="top"></div> -->
+	
 	<!-- Section Start -->
-	<div class="container">
+<!-- 	<div class="container"> -->
 		<section>
 			<!-- JSP에 포함된 body 태그의 내용을 이곳에 넣습니다. -->
 			<sitemesh:write property="body" />
 		</section>
-	</div>
+<!-- 	</div> -->
 	<!-- Section End -->
 	
 	<!-- Footer Start -->

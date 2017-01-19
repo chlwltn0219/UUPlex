@@ -13,4 +13,26 @@ public class MFrontController{
 		
 		return viewPage;
 	}
+	@RequestMapping("/main")
+	public String main(){
+		
+		String viewPage = "c-box/main";
+		
+		return viewPage;
+	}
+	@RequestMapping("/ManageMovieInfo")
+	public String ManageMovieInfo(){
+		
+		String viewPage = "c-box/ManageMovieInfo";
+		
+		
+		return viewPage;
+	}
+	@RequestMapping("/youtube")
+	public String youtube(){
+		
+		String viewPage = "c-box/youtube";
+		
+		return viewPage;
+	}
 }
