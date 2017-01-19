@@ -22,22 +22,15 @@
      	nav.navbar {
 /*       		height: 100px; */
      	}
-     	
      	.menu, .carousel-inner {
      		text-align: center;
      	}
-     	
      	table.notice tbody th, table.notice tbody td{
      		text-align: center;
      	}
      	table.notice tbody th:first-child, table.notice tbody td:first-child{
      		width: 75%;
      	}
-     	
-     	div.fitmanu {
-     		
-     	}
-     	
     </style>
   </head>
   <body>
@@ -116,7 +109,7 @@
 						캐러셀 2면 입니다.
 					</div>
 				</div>
-			캐러셀 전체 설명
+				캐러셀 전체 설명
 			</div>
 		
 		  <!-- Controls -->
