@@ -13,6 +13,7 @@ INSERT INTO BOOLEAN
 VALUES ('Y');
 INSERT INTO BOOLEAN 
 VALUES ('N');
+COMMIT;
 
 -- 피트니스 종목 테이블
 DROP TABLE F_SPORTS;
@@ -28,36 +29,37 @@ CONSTRAINT f_sports_activated_fk FOREIGN KEY (activated)
 );
 
 -- 종목 ID 시퀀스
-DROP SEQUENCE SEQ_SPORTID;
+DROP SEQUENCE SEQ_SPORTS_SID;
 
-CREATE SEQUENCE SEQ_SPORTID
+CREATE SEQUENCE SEQ_SPORTS_SID
 START WITH 0
 INCREMENT BY 1
 NOCYCLE 
 MINVALUE 0;
 
 INSERT INTO F_SPORTS (sid, sname)
-VALUES (SEQ_SPORTID.nextval, '요가');
+VALUES (SEQ_SPORTS_SID.nextval, '요가');
 INSERT INTO F_SPORTS (sid, sname)
-VALUES (SEQ_SPORTID.nextval, '스쿼시');
+VALUES (SEQ_SPORTS_SID.nextval, '스쿼시');
 INSERT INTO F_SPORTS (sid, sname)
-VALUES (SEQ_SPORTID.nextval, '스피닝');
+VALUES (SEQ_SPORTS_SID.nextval, '스피닝');
 INSERT INTO F_SPORTS (sid, sname)
-VALUES (SEQ_SPORTID.nextval, '수영');
+VALUES (SEQ_SPORTS_SID.nextval, '수영');
+COMMIT;
 
 --피트니스 과목
 DROP TABLE F_PROGRAM;
 
 CREATE TABLE F_PROGRAM (
-pid			NUMBER,
-pname		VARCHAR2(20) CONSTRAINT f_program_pname_nn NOT NULL,
-pinfo		VARCHAR2(300),
-sid			NUMBER,
-tid			NUMBER,
-price		NUMBER CONSTRAINT f_program_price_nn NOT NULL,
-preparation	VARCHAR2(100),
+pid				NUMBER,	-- pk
+pname			VARCHAR2(20) CONSTRAINT f_program_pname_nn NOT NULL,
+pinfo			VARCHAR2(300),
+sid				NUMBER,	-- fk
+tid				NUMBER,	-- fk
+price			NUMBER CONSTRAINT f_program_price_nn NOT NULL,
+preparation		VARCHAR2(100),
 preparationCost NUMBER DEFAULT 0,
-activated	VARCHAR2(1) DEFAULT 'Y',
+activated		VARCHAR2(1) DEFAULT 'Y',
 CONSTRAINT f_program_pid_pk PRIMARY KEY (pid),
 CONSTRAINT f_program_sid_fk FOREIGN KEY (sid) 
 							REFERENCES F_SPORT(sid),
