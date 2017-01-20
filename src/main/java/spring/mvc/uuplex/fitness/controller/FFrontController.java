@@ -22,4 +22,11 @@ public class FFrontController{
 		return viewPage;
 	}
 	
+	// 김진우 : 피트니스 관리자 - 강사 등록
+	@RequestMapping("/manage/teacher/list")
+	public String manageTeacherList(Model model){
+		String viewPage = "fitness/manage/teacher_list";
+		return viewPage;
+	}
+	
 }
