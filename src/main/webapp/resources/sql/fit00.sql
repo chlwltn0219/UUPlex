@@ -49,15 +49,15 @@ VALUES (SEQ_SPORTID.nextval, '수영');
 DROP TABLE F_PROGRAM;
 
 CREATE TABLE F_PROGRAM (
-pid			NUMBER,
-pname		VARCHAR2(20) CONSTRAINT f_program_pname_nn NOT NULL,
-pinfo		VARCHAR2(300),
-sid			NUMBER,
-tid			NUMBER,
-price		NUMBER CONSTRAINT f_program_price_nn NOT NULL,
-preparation	VARCHAR2(100),
+pid				NUMBER,	-- pk
+pname			VARCHAR2(20) CONSTRAINT f_program_pname_nn NOT NULL,
+pinfo			VARCHAR2(300),
+sid				NUMBER,	-- fk
+tid				NUMBER,	-- fk
+price			NUMBER CONSTRAINT f_program_price_nn NOT NULL,
+preparation		VARCHAR2(100),
 preparationCost NUMBER DEFAULT 0,
-activated	VARCHAR2(1) DEFAULT 'Y',
+activated		VARCHAR2(1) DEFAULT 'Y',
 CONSTRAINT f_program_pid_pk PRIMARY KEY (pid),
 CONSTRAINT f_program_sid_fk FOREIGN KEY (sid) 
 							REFERENCES F_SPORT(sid),
