@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@ include file="setting.jsp"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,93 +9,74 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 나눔고딕;
 }
 
 .top_menu {
 	color: white;
 	min-width: 1500px;
-	padding-top: 50px;
 	width: 100%;
-	height: 70px;
-	background-color: #4374D9;
-	font-family: a치어리더;
-	font-size: 25px;
-	text-align: right;
+	height: 130px;
+	background-color: #000000;
+	
 }
 
-.a {
+.logo {
+	width: 200px;
+	margin: 0 45%;
+}
+
+.btn_div {
+	width: 250px;
 	position: absolute;
-	left: 150px;
-	top: 60px;
-}
-
-.a>img {
-	width: 280px;
-}
-
-.btn {
-	position: absolute;
-	right: 15%;
-	top: 140px;
-	width: 300px;
+	top: 190px;
+	right: 300px;
+	z-index: 1;
 }
 
 .btn1 {
-	margin: 0 5px;
 	float: left;
-	border: 2px solid #4374D9;
 	background-color: white;
-	font-family: a치어리더;
 	font-size: 20px;
-	color: #4374D9;
 	padding: 5px;
 	width: 120px;
 	text-align: center;
+	border: 2px solid black;
 }
 
 .btn2 {
-	margin: 0 5px;
-	float: left;
+	float: right;
 	border: 2px solid white;
-	background-color: #4374D9;
-	font-family: a치어리더;
 	font-size: 20px;
 	color: white;
+	background-color : #000000;
 	padding: 5px;
 	width: 120px;
 	text-align: center;
-}
-
-.b {
-	float: right;
-	padding-right: 150px;
-}
-
-.a>input {
-	color: white;
-	width: 500px;
-	font-family: a치어리더;
-	font-size: 90px;
-	text-align: center;
-	background-color: rgba(0, 0, 0, 0);
-	border: none;
 }
 
 .rate {
 	z-index: 1;
 	width: 20px;
-	margin-top: 8px;
-	margin-right: 5px;
+	margin-left: 5px;
 }
 
-.b>input {
+.menu {
+	width: 400px;
+	margin: 5px auto;
+}
+
+.menu td {
+	width: 100px;
+}
+
+.menu input {
 	color: white;
-	width: 150px;
-	font-family: a치어리더;
-	font-size: 23px;
+	font-family: 나눔고딕;
+	font-size: 20px;
 	text-align: center;
-	background-color: #4374D9;
 	border: none;
+	background-color: #000000;
 }
 
 .imgbox {
@@ -114,21 +95,20 @@
 	margin: 30px auto;
 }
 
-td>table {
+.content td>table {
 	width: 220px;
 	height: 100%;
 	padding: 10px;
 }
 
-td>input {
+.content td>input {
 	border: 1px solid #1F50B5;
-	background-color: #5586EB;
 	color: #ffffff;
 	padding: 3px 10px;
 	margin: 3px;
 }
 
-td>img {
+.content td>img {
 	width: 100%;
 }
 
@@ -152,72 +132,95 @@ td {
 	min-width: 1500px;
 	width: 100%;
 	height: 200px;
-	background-color: #4374D9;
 }
-.manager_menu{
-	margin-left:0;
-	float:left;
-	border:1px solid;
 
+.carousel-inner embed {
+	height: 400px;
+	width: 800px;
+	margin: 0 30%;
 }
-#sidebar{ float:left; width:170px; margin-top:50px;}
-#sidebar .test{ float:left; width:170px; background-color: #000; color:#FFF; font-size:16px; padding:4px 0;}
-#sidebar a{ display:block; float:left; width:150px; padding:4px 0 4px 20px; color:#666; text-decoration:none;}
-#sidebar a:hover{color:#FFF;}
-#sidebar .test1:hover{ background-color: #333;}
-#sidebar .test2:hover{ background-color: #666;}
-#sidebar .test3:hover{ background-color: #999;}
-#sidebar .test4:hover{ background-color: #CCC;}
+
+
 
 </style>
 </head>
 <body>
-	
+
 	<div class="top_menu">
-		<div class="a">
-			<img src="img/c-box.png">
+		<div>
+			<img class="logo" src="${img}etc/c-box_logo.png">
 		</div>
-		<div class="b">
-			<input type="text" value="영화" readonly="readonly" width="100px;"
-				onclick="location.href='http://www.megabox.co.kr/?menuId=movie'">|<input
-				type="text" value="예매" readonly="readonly" width="100px;">|<input
-				type="text" value="이벤트" readonly="readonly" width="100px;"
-				onclick="location.href='http://www.megabox.co.kr/?menuId=event'">|<input
-				type="text" value="로그인" readonly="readonly" width="100px;">
-		</div>
-		<div class="btn">
-			<div class="btn1"
-				onclick="location.href='http://www.megabox.co.kr/?menuId=timetable-movie'">상영시간표</div>
-			<div class="btn2">빠른예매</div>
+		<div class="menu">
+			<table>
+				<tr>
+					<td><input type="button" value="영화"
+						onclick="location.href='http://www.megabox.co.kr/?menuId=movie'"></td>
+					<td><input type="button" value="예매"></td>
+					<td><input type="button" value="이벤트"
+						onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
+					<td><input type="button" value="로그인"></td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	
+	<div class="btn_div">
+		<input class="btn1" type="button" value="상영시간표" onclick="location.href='http://www.megabox.co.kr/?menuId=timetable-movie'">
+		<input class="btn2" type="button" value="빠른예매">
+	</div>	
+
+	<!-- 슬라이드 쇼 : 캐러셀 -->
+
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 	
-	<div id="sidebar">
-			<ul>
-				<li class="test">▶admin</li>
-				<li><a class="test1" href="ManageMovieInfo">&#8226; 영화정보 관리</a></li>
-				
-				<li><a class="test2" href="#">&#8226; 상영스케줄 관리</a></li>
-				<li><a class="test3" href="#">&#8226; 상영관 관리</a></li>
-				<li><a class="test4" href="#">&#8226; 매출관리</a></li>
-			</ul>
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active"  style="background-image: url('${img}/etc/allied.jpg');">
+				<embed src="https://www.youtube.com/embed/Jlp94-C31cY"></embed>
+				<div class="carousel-caption"></div>
+			</div>
+			<div class="item" style="background-image: url('${img}/etc/lalaland.jpg');">
+				<embed src="https://www.youtube.com/embed/0pdqf4P9MB8"></embed>
+				<div class="carousel-caption"></div>
+			</div>
+
+			<div class="item" style="background-image: url('${img}/etc/Ghostbusters.jpg');">
+				<embed src="https://www.youtube.com/embed/w3ugHP-yZXw"></embed>
+				<div class="carousel-caption"></div>
+			</div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-example-generic"
+			role="button" data-slide="prev"> <span
+			class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="right carousel-control" href="#carousel-example-generic"
+			role="button" data-slide="next"> <span
+			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
 	</div>
-	
-	<div class="imgbox" align="center">
-		<img class="button" src="img/pre.png"> <img width="800px"
-			src="img/lala.jpg"> <img class="button" src="img/post.png">
-	</div>
+
+	<!-- 캐러셀 끝 -->
+
 	<div class="content">
 		<table>
 			<tr>
 				<td>
 					<table>
 						<tr>
-							<td colspan="2"><img src="img/너의 권력은.jpg"></td>
+							<td colspan="2"><img src="${img}movie_poster/너의 권력은.jpg"></td>
 						</tr>
 						<tr class="sub">
-							<th><img class="rate" src="img/12.png"></th>
+							<th><img class="rate" src="${img}mpaa_rating/12.png"></th>
 							<td>너의 권력은</td>
 						</tr>
 						<tr>
@@ -229,10 +232,10 @@ td {
 				<td>
 					<table>
 						<tr>
-							<td colspan="2"><img src="img/모아나.jpg"></td>
+							<td colspan="2"><img src="${img}movie_poster/모아나.jpg"></td>
 						</tr>
 						<tr class="sub">
-							<th><img class="rate" src="img/all.png"></th>
+							<th><img class="rate" src="${img}mpaa_rating/all.png"></th>
 							<td>모아나</td>
 						</tr>
 						<tr>
@@ -244,10 +247,10 @@ td {
 				<td>
 					<table>
 						<tr>
-							<td colspan="2"><img src="img/얼라이드.jpg"></td>
+							<td colspan="2"><img src="${img}movie_poster/얼라이드.jpg"></td>
 						</tr>
 						<tr class="sub">
-							<th><img class="rate" src="img/15.png"></th>
+							<th><img class="rate" src="${img}mpaa_rating/15.png"></th>
 							<td>얼라이드</td>
 						</tr>
 						<tr>
@@ -259,8 +262,7 @@ td {
 				</td>
 		</table>
 	</div>
-	<div class="footer">
-	</div>
+	<div class="footer"></div>
 
 </body>
 </html>

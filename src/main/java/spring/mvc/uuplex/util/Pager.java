@@ -94,14 +94,14 @@ public class Pager{
 		this.endPage = endPage;
 	}
 
-	public boolean isPrev() {
+	public boolean getPrev() {
 		return prev;
 	}
 	public void setPrev(boolean prev) {
 		this.prev = prev;
 	}
 
-	public boolean isNext() {
+	public boolean getNext() {
 		return next;
 	}
 	public void setNext(boolean next) {

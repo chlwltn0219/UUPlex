@@ -39,37 +39,44 @@
 				<th>종목 명</th>
 			</tr>
 		</thead>
-		<c:if test="${not empty list}">
-		<c:forEach items="${list}" var="dto">
+		<c:if test="${not empty dtos}">
+		<c:forEach items="${dtos}" var="dto">
 		<tr>
 			<td>${dto.sid}</td>
 			<td>${dto.sname}</td>
 		</tr>
 		</c:forEach>
 		</c:if>
-		<c:if test="${empty list}">
-<!-- 				<td colspan="2"><h4>데이터가 없습니다!</h4></td> -->
-		<tr>
-			<td>10</td>
-			<td><a data-toggle="modal" data-target="#sportInfo">요가</a></td>
-		</tr>
-		<tr>
-			<td>20</td>
-			<td><a data-toggle="modal" data-target="#sportInfo">스피닝</a></td>
-		</tr>
-		<tr>
-			<td>30</td>
-			<td><a data-toggle="modal" data-target="#sportInfo">스쿼시</a></td>
-		</tr>
-		<tr>
-			<td>40</td>
-			<td><a data-toggle="modal" data-target="#sportInfo">에어로빅</a></td>
-		</tr>
+		<c:if test="${empty dtos}">
+				<td colspan="2"><h4>데이터가 없습니다!</h4></td>
 		</c:if>
 		<tfoot>
 			<tr>
 				<td colspan="2" align="center">
-					pager
+					<c:if test="${prev == true}">
+						<ul class="pager"> 
+							<li><a href="#">&lt; prev</a></li>
+						</ul>
+					</c:if>
+				
+					<ul class="pagination">
+						<c:forEach begin="${startPage}" end="${startPage}" 
+								   var="page" varStatus="status">
+							<c:if test="${status.current == nowPage}">
+								<li class="active"><a href="">${page}</a></li>
+							</c:if>
+							<c:if test="${status.current != nowPage}">
+								<li><a href="">${page}</a></li>
+							</c:if>
+						</c:forEach>
+					</ul>
+					
+					<c:if test="${next == true}">
+						<ul class="pager"> 
+							<li><a href="#">next &gt;</a></li>
+						</ul>
+					</c:if>
+					
 				</td>
 			</tr>
 		</tfoot>

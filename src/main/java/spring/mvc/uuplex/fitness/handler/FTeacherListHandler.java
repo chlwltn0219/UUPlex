@@ -73,8 +73,8 @@ public class FTeacherListHandler implements FCommandHandler {
 			model.addAttribute("startPage", pager.getStartPage());
 			model.addAttribute("endPage", pager.getEndPage());
 			
-			model.addAttribute("prev", pager.isPrev());
-			model.addAttribute("next", pager.isNext());
+			model.addAttribute("prev", pager.getPrev());
+			model.addAttribute("next", pager.getNext());
 		}
 		
 		

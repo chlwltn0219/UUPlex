@@ -1,10 +1,13 @@
 package spring.mvc.uuplex.fitness.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
 
 @Repository
@@ -16,15 +19,17 @@ public class FSportsDAOImpl implements FSportsDAO{
 	@Override
 	public int sportsCount() {
 		int cnt = 0;
-		cnt = sqlSession.selectOne("spring.mvc.uuplex.fitness.dao.FSportDAO.sportsCount");
+		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
+		cnt = dao.sportsCount();
 		return cnt;
 	}
 	
-//	@Override
-//	public List<FSportsDTO> sportsList(int start, int end) {
-//		List<FSportsDTO> list = null; 
-//		list = sqlSession.selectList("spring.mvc.uuplex.fitness.dao.FSportDAO.sportsList");
-//		return list;
-//	}
+	@Override
+	public List<FSportsDTO> sportsList(Map<String, Integer> rangeMap) {
+		List<FSportsDTO> list = null;
+		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
+		list = dao.sportsList(rangeMap);
+		return list;
+	}
 
 }

@@ -19,6 +19,7 @@ public class FFrontController{
 	
 	@Autowired
 	FTeacherListHandler tListHandler;
+	FSportsListHandler sportsListHandler;
 
 	// 최지수: 피트니스 메인
 	@RequestMapping("")
@@ -29,8 +30,9 @@ public class FFrontController{
 	
 	// 최지수: 종목 리스트
 	@RequestMapping("/manage/sports/list")
-	public String manageSportsList(Model model){
-		String viewPage = sportsHandler.process(model);
+	public String manageSportsList(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		String viewPage = sportsListHandler.process(model);
 		return viewPage;
 	}
 	
