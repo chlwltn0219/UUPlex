@@ -8,8 +8,8 @@ import spring.mvc.uuplex.fitness.dao.FSportsDAO;
 @Service
 public class FSportsHandler implements FCommandHandler{
 	
-	@Autowired
-	FSportsDAO dao;
+//	@Autowired
+//	FSportsDAO dao;
 	
 	@Override
 	public String execute() {
