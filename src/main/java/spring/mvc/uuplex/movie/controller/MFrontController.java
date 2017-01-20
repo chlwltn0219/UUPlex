@@ -4,10 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/c-box")
 public class MFrontController{
 
-	@RequestMapping("/c-box")
+	@RequestMapping("")
 	public String list(){
+		
+		System.out.println("c-box main");
 		
 		String viewPage = "c-box/Movie_main";
 		

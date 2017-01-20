@@ -47,7 +47,9 @@
 					
 					</select></li>
 					
-					<input type="text" name="MPAARating" placeholder=관람등급 maxlength="50">
+					<li><input type="text" name="productionYear" placeholder=제작년도 maxlength="50"></li>
+					<li><input type="text" name="runTime" placeholder=러닝타임(분) maxlength="50"></li>
+					<li><input type="date" name="releaseDate" placeholder=개봉일 maxlength="50"></li>
 					</ul>
 					
 					<input type="button" class="btn btn-success" value="로그인" onclick="">

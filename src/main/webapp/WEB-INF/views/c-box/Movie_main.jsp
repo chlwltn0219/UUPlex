@@ -192,7 +192,7 @@ td {
 		</div>
 	</div>
 	
-	<c:if test="${sessionScope.id == 'admin'}">
+	
 	<div id="sidebar">
 			<ul>
 				<li class="test">▶admin</li>
@@ -203,7 +203,7 @@ td {
 				<li><a class="test4" href="#">&#8226; 매출관리</a></li>
 			</ul>
 	</div>
-	</c:if>
+	
 	<div class="imgbox" align="center">
 		<img class="button" src="img/pre.png"> <img width="800px"
 			src="img/lala.jpg"> <img class="button" src="img/post.png">
@@ -259,7 +259,7 @@ td {
 				</td>
 		</table>
 	</div>
-	<div class="footer"></div>
+	<div class="footer">
 	</div>
 
 </body>
