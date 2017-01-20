@@ -29,7 +29,7 @@
 						</div>
 						<div class="form-group pull-right">
 							<input type="button" class="btn btn-primary" value="등록하기"
-								data-toggle="modal" data-target="#sportInput">
+								data-toggle="modal" data-target="#teacherInput">
 						</div>
 					</form>
 				</td>
@@ -39,37 +39,42 @@
 				<th>강사명</th>
 			</tr>
 		</thead>
-		<c:if test="${not empty list}">
-		<c:forEach items="${list}" var="dto">
+		<c:if test="${not empty dtos}">
+		<c:forEach items="${dtos}" var="dto">
 		<tr>
-			<td>${dto.sid}</td>
-			<td>${dto.sname}</td>
+			<td>${dto.tid}</td>
+			<td>${dto.tname}</td>
 		</tr>
 		</c:forEach>
 		</c:if>
-		<c:if test="${empty list}">
-<!-- 				<td colspan="2"><h4>데이터가 없습니다!</h4></td> -->
-		<tr>
-			<td>1</td>
-			<td><a data-toggle="modal" data-target="#sportInfo">한고은</a></td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td><a data-toggle="modal" data-target="#sportInfo">서강준</a></td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td><a data-toggle="modal" data-target="#sportInfo">박해진</a></td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td><a data-toggle="modal" data-target="#sportInfo">펠프스</a></td>
-		</tr>
+		<c:if test="${empty dtos}">
+ 				<td colspan="2"><h4>데이터가 없습니다!</h4></td>
 		</c:if>
 		<tfoot>
 			<tr>
 				<td colspan="2" align="center">
-					pager
+					<c:if test="${prev == true}">
+						<ul class="pager">
+							<li><a href="#">&lt;prev</a></li>						
+						</ul>
+					</c:if>  				
+					<ul class="pagination">
+					<c:forEach var="page" begin="${startPage}" end="${endPage}" varStatus="status">			
+					<c:if test="${nowPage == status.current}">
+					  <li class="active"><a href="#">${page}</a></li>
+					</c:if>  
+					<c:if test="${nowPage != status.current}">
+					  <li><a href="#">${page}</a></li>
+					</c:if>  
+					</c:forEach>
+					</ul>					
+					<c:if test="${next == true}">
+						<ul class="pager">
+							<li><a href="#">next&gt;</a></li>						
+						</ul>
+					</c:if>  
+					
+					
 				</td>
 			</tr>
 		</tfoot>

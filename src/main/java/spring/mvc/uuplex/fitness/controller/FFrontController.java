@@ -1,11 +1,14 @@
 package spring.mvc.uuplex.fitness.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
+import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 
 @Controller
 @RequestMapping("/fitness")
@@ -13,26 +16,34 @@ public class FFrontController{
 
 	@Autowired
 	FSportsListHandler sportsHandler;
+	
+	@Autowired
+	FTeacherListHandler tListHandler;
 
-	// ìµœì§€ìˆ˜ : í”¼íŠ¸ë‹ˆìŠ¤ ë©”ì¸
+	// ÃÖÁö¼ö: ÇÇÆ®´Ï½º ¸ŞÀÎ
 	@RequestMapping("")
 	public String list(Model model){
 		String viewPage = "fitness/user/fit_main";
 		return viewPage;
 	}
 	
-	// ìµœì§€ìˆ˜ : í”¼íŠ¸ë‹ˆìŠ¤ ê´€ë¦¬ì - ì¢…ëª© ë“±ë¡
+	// ÃÖÁö¼ö: Á¾¸ñ ¸®½ºÆ®
 	@RequestMapping("/manage/sports/list")
 	public String manageSportsList(Model model){
-		String viewPage = sportsHandler.execute();
+		String viewPage = sportsHandler.process(model);
 		return viewPage;
 	}
 	
-	// ê¹€ì§„ìš° : í”¼íŠ¸ë‹ˆìŠ¤ ê´€ë¦¬ì - ê°•ì‚¬ ë“±ë¡
+	// ±èÁø¿ì : °­»ç ¸®½ºÆ®
 	@RequestMapping("/manage/teacher/list")
-	public String manageTeacherList(Model model){
-		String viewPage = "fitness/manage/teacher_list";
-		return viewPage;
+	   public String list(HttpServletRequest req, Model model) {
+	      System.out.println("list()");
+	      
+	      model.addAttribute("req", req);
+	      String viewPage = tListHandler.process(model);
+	      
+	      return viewPage;
+	  
 	}
 	
 }

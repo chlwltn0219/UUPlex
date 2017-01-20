@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
 @Repository
 public class FSportsDAOImpl implements FSportsDAO{
@@ -21,11 +20,11 @@ public class FSportsDAOImpl implements FSportsDAO{
 		return cnt;
 	}
 	
-	@Override
-	public List<FSportsDTO> sportsList(int start, int end) {
-		List<FSportsDTO> list = null; 
-		list = sqlSession.selectList("spring.mvc.uuplex.fitness.dao.FSportDAO.sportsList");
-		return list;
-	}
+//	@Override
+//	public List<FSportsDTO> sportsList(int start, int end) {
+//		List<FSportsDTO> list = null; 
+//		list = sqlSession.selectList("spring.mvc.uuplex.fitness.dao.FSportDAO.sportsList");
+//		return list;
+//	}
 
 }
