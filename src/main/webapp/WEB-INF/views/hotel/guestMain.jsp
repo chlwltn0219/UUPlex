@@ -84,7 +84,11 @@
             padding-top:50px;
             padding-left:100px;
         }
-
+        
+        #content .section1 .inputButton {
+        	font-size:0.8em;
+        }
+        
         #content .section1 div {
             height:400px; float:left; text-align:center;
             border:0px solid #cccccc;
@@ -115,9 +119,9 @@
         <div class="logo"><img src = "${resources}/hotelImages/hotellogo.png" width="150px;"></div>
         <div class="hit_menu">
             <ul>
-                <li><a href="#" alt="">예약내역</a></li>
-                <li><a href="#" alt="">예약하기</a></li>
-                <li><a href="#" alt="">객실정보</a></li>
+                <li><a href="#" >예약내역</a></li>
+                <li><a href="#" >예약하기</a></li>
+                <li><a href="#" >객실정보</a></li>
             </ul>
         </div>
     </header>
