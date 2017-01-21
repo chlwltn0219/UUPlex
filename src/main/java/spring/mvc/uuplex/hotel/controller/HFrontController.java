@@ -56,6 +56,7 @@ public class HFrontController {
 		return "/hotel/roomAddForm";
 	}
 	
+<<<<<<< HEAD
 	//°´½Çµî·Ï
 	@Autowired
 	RoomAddProHandler roomAddProHandler;
@@ -70,4 +71,6 @@ public class HFrontController {
 	}
 	
 
+=======
+>>>>>>> cf41f35c3fd7a3b6e34794d90ab3f1bc00a2a5e4
 }
