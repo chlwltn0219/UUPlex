@@ -10,5 +10,5 @@ public interface FTeacherDAO {
 	
 	int teacherCount();
 	public List<FTeacherDTO> list(Map<String, Integer> rangeMap);
-
+	public int tInsert(FTeacherDTO dto);
 }

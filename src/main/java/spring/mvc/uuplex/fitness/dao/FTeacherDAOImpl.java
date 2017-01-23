@@ -37,4 +37,16 @@ public class FTeacherDAOImpl implements FTeacherDAO{
 		return list;
 	}
 
+	@Override
+	public int tInsert(FTeacherDTO dto) {
+		
+		int cnt = 0;
+		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
+		
+		cnt = dao.tInsert(dto);
+			
+		
+		return cnt;
+	}
+
 }

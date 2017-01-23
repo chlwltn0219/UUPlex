@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
+import spring.mvc.uuplex.fitness.handler.FTeacherInputHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 
 @Controller
@@ -19,7 +20,12 @@ public class FFrontController{
 	
 	@Autowired
 	FTeacherListHandler tListHandler;
+	
+	@Autowired
 	FSportsListHandler sportsListHandler;
+	
+	@Autowired
+	FTeacherInputHandler tInputHandler;
 
 	// 최지수: 피트니스 메인
 	@RequestMapping("")
@@ -44,8 +50,18 @@ public class FFrontController{
 	      model.addAttribute("req", req);
 	      String viewPage = tListHandler.process(model);
 	      
-	      return viewPage;
-	  
+	      return viewPage;	  
+	}
+	
+	// 김진우 : 강사 정보 추가
+	@RequestMapping("/manage/teacher/input")
+	   public String input(HttpServletRequest req, Model model) {
+	      System.out.println("input()");
+	      
+	      model.addAttribute("req", req);
+	      String viewPage = tInputHandler.process(model);
+	      
+	      return viewPage;	  
 	}
 	
 }

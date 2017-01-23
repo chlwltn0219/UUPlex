@@ -43,7 +43,9 @@
 		<c:forEach items="${dtos}" var="dto">
 		<tr>
 			<td>${dto.tid}</td>
-			<td>${dto.tname}</td>
+			<td><a class="btn btn-link" 
+								data-toggle="modal" data-target="#tdeail">
+								${dto.tname}</a></td>
 		</tr>
 		</c:forEach>
 		</c:if>
@@ -80,8 +82,8 @@
 		</tfoot>
 	</table>
 	
-<%-- 	<%@ include file="teacher_input.jsp" %> --%>
-<%-- 	<%@ include file="teacher_list.jsp" %> --%>
+	 	<%@ include file="teacher_input.jsp" %> 
+ 		<%@ include file="teacher_detail.jsp" %> 
 		
 </body>
 </html>
