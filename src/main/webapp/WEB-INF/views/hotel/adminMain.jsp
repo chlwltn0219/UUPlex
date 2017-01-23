@@ -120,8 +120,9 @@
         <div class="hit_menu">
             <ul>
                 <li><a href="#" >예약관리</a></li>
-                <li><a href="roomList" >객실관리</a></li>
-                <li><a href="roomInfo" >객실정보</a></li>
+                <li><a href="hotel/roomAddForm" >객실등록</a></li>
+                <li><a href="hotel/roomList" >객실관리</a></li>
+                <li><a href="hotel/roomInfo" >객실정보</a></li>
             </ul>
         </div>
     </header>

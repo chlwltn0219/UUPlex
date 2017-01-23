@@ -17,8 +17,14 @@
 		  FROM ( SELECT s.* , rownum AS rnum 
 				   FROM ( SELECT * 
 			  		     	FROM F_SPORTS 
-			  			   ORDER BY sid) s )
+			  			   ORDER BY sid DESC ) s )
 		 WHERE rnum BETWEEN #{start} AND #{end}
-			
 	</select>
+	
+	<!-- 피트니스 종목 추가 -->
+	<insert id="addSports" parameterType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
+		INSERT INTO F_SPORTS (sid, sname, sinfo)
+		VALUES (SEQ_SPORTS_SID.nextval, #{sname}, #{sinfo})
+	</insert>
+	
 </mapper>
