@@ -30,11 +30,11 @@ public class HotelDAOImpl implements HotelDAO {
 
 	//객실목록조회
 	@Override
-	public ArrayList<HotelDTO> list(Map<String, Integer> daoMap) {
+	public ArrayList<HotelDTO> list() {
 		ArrayList<HotelDTO> dtos = null;
 		
 		HotelDAO dao = this.sqlsession.getMapper(HotelDAO.class);
-		dtos = dao.list(daoMap);
+		dtos = dao.list();
 		
 		return dtos;
 	}
