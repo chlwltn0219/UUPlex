@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../../setting.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
-<script type="text/javascript" src="${resources}/fitness/js/sports_detail.js"></script>
 <title>종목 목록</title>
 </head>
 <body>
@@ -46,7 +43,7 @@
 		<c:forEach items="${dtos}" var="dto">
 		<tr>
 			<td>${dto.sid}</td>
-			<td><a class="btn btn-link" onclick="sportsDetails(${dto.sid})"
+			<td><a class="btn btn-link"
 					data-toggle="modal" data-target="#sportInfo">
 				${dto.sname}</a>
 			</td>
@@ -90,7 +87,6 @@
 	
 	<%@ include file="sports_input.jsp" %>
 	<%@ include file="sports_detail.jsp" %>
-
 		
 </body>
 </html>

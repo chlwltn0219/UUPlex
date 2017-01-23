@@ -27,10 +27,4 @@
 		VALUES (SEQ_SPORTS_SID.nextval, #{sname}, #{sinfo})
 	</insert>
 	
-	<select id="sportsDetail" parameterType="int" resultType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
-		SELECT *
-		  FROM F_SPORTS
-		 WHERE sid=#{sid}
-	</select>
-	
 </mapper>

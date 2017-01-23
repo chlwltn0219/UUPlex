@@ -11,6 +11,7 @@ import spring.mvc.uuplex.hotel.handler.HCommandHandler;
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomListHandler;
 
+@Controller
 @RequestMapping("/hotel")
 public class HFrontController {
 
@@ -26,7 +27,7 @@ public class HFrontController {
 		return viewPage;
 	}
 	
-	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//¸ÞÀÎÆäÀÌÁö
 	@RequestMapping("/adminMain")
 	public String adminMain(Model model) {
 		System.out.println("adminMain()");
@@ -39,7 +40,7 @@ public class HFrontController {
 		return "/hotel/guestMain";
 	}
 	
-	//ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½
+	//°´½Ç¸ñ·Ï
 	@Autowired
 	RoomListHandler roomListHandler;
 	@RequestMapping("/roomList")
@@ -52,14 +53,14 @@ public class HFrontController {
 		return viewPage;
 	}
 	
-	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//°´½ÇÁ¤º¸
 	@RequestMapping("/roomInfo")
 	public String roomInfo(Model model) {
 		System.out.println("roomInfo()");
 		return "/hotel/roomInfo";
 	}
 	
-	//ï¿½ï¿½ï¿½Çµï¿½ï¿½
+	//°´½Çµî·Ï
 	@RequestMapping("/roomAddForm")
 	public String roomAddForm(Model model) {
 		System.out.println("roomAddForm()");
@@ -67,7 +68,7 @@ public class HFrontController {
 	}
 	
 
-	//ï¿½ï¿½ï¿½Çµï¿½ï¿½
+	//°´½Çµî·Ï
 	@Autowired
 	RoomAddProHandler roomAddProHandler;
 	@RequestMapping("/roomAddPro")
