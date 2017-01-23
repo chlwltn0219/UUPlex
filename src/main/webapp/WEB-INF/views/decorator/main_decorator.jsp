@@ -104,12 +104,12 @@
 					</ul>
 					<!-- 우측 메뉴 목록 -->
 					<ul class="nav navbar-nav navbar-right">
-						<c:if test="${empty id}">
+						<c:if test="${idCode != 105}">
 							<li><a href="input">회원가입</a></li>
 							<li><a href="loginForm">로그인</a></li>
 						</c:if>
 						
-						<c:if test="${not empty id}">
+						<c:if test="${idCode == 105}">
 							<li><a href="#">마이페이지</a></li>
 							<li><a href="logout">로그아웃</a></li>
 						</c:if>

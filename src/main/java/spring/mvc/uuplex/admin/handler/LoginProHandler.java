@@ -29,12 +29,18 @@ public class LoginProHandler implements CommandHandler{
 		daoMap.put("memId", memId);
 		daoMap.put("passwd", passwd);
 		
-		int cnt = dao.pwdCheck(daoMap);
-		System.out.println(cnt);
+		Map<String, Object> codeMap = new HashMap<String, Object>();
+		codeMap = dao.pwdCheck(daoMap);
+		int cnt = (Integer) codeMap.get("cnt");
+		int idCode = (Integer) codeMap.get("idCode");
+		
+		System.out.println(idCode);
 		
 		if(cnt == 1) {
 			req.getSession().setAttribute("id", memId);
+			req.getSession().setAttribute("idCode", idCode);
 			model.addAttribute("cnt", cnt);
+			
 			return "/main/login/loginPro";
 			
 		} else {

@@ -26,6 +26,14 @@
 	<select id="getQnA" parameterType="int" resultType="spring.mvc.uuplex.admin.dto.BoardDTO">
 		SELECT * FROM qna_board WHERE qnaNum= #{num}
 	</select>
+	
+	<select id="getMaxNum" resultType="int">
+		SELECT MAX(qnaNum) FROM qna_board
+	</select>
+	
+	<update id="updateRely" parameterType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		UPDATE qna_board SET ref_step = ref_step + 1 WHERE ref = #{ref} AND ref_step &gt; #{ref_step}
+	</update>
 
 </mapper>
     

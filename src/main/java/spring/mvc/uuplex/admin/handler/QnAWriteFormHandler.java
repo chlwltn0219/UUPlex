@@ -21,6 +21,13 @@ public class QnAWriteFormHandler implements CommandHandler {
 		int ref_step = 0;	//글순서
 		int ref_level = 0;	//글레벨
 		
+		if(req.getParameter("num") != null) {
+			num = Integer.parseInt(req.getParameter("num"));
+			ref = Integer.parseInt(req.getParameter("ref"));
+			ref_step = Integer.parseInt(req.getParameter("ref_step"));
+			ref_level = Integer.parseInt(req.getParameter("ref_level"));
+		}
+		
 		model.addAttribute("num", num);
 		model.addAttribute("ref", ref);
 		model.addAttribute("ref_step", ref_step);

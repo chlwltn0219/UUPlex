@@ -20,4 +20,10 @@
 	<select id="pwdCheck" parameterType="Map" resultType="int">
 		SELECT COUNT(*) FROM uu_member WHERE memId = #{memId} AND passwd = #{passwd}
 	</select>
+	
+	<!-- 코드값 가져오기 -->
+	<select id="idCode" parameterType="String" resultType="int">
+		SELECT idCode FROM uu_member WHERE memId = #{memId}
+	</select>
+	
 </mapper>   

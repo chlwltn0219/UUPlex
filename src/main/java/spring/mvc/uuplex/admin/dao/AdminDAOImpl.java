@@ -1,5 +1,6 @@
 package spring.mvc.uuplex.admin.dao;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -34,8 +35,10 @@ public class AdminDAOImpl implements AdminDAO{
 
 
 	@Override
-	public int pwdCheck(Map<String, Object> daoMap) {
+	public Map<String, Object> pwdCheck(Map<String, Object> daoMap) {
+		
 		int cnt = 0;
+		Map<String, Object> codeMap = new HashMap<String, Object>();
 		
 		int idCheck = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.idCheck", daoMap.get("memId"));
 		
@@ -44,15 +47,31 @@ public class AdminDAOImpl implements AdminDAO{
 		
 			if(pwdCheck == 1) {
 				cnt = 1;
+				int idCode = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.idCode", daoMap.get("memId"));
+				codeMap.put("cnt", cnt);
+				codeMap.put("idCode", idCode);
+				
 			} else {
 				cnt = -1;
+				codeMap.put("cnt", cnt);
 			}
 			
 		} else {
 			cnt = 0;
+			codeMap.put("cnt", cnt);
 		}
 
-		return cnt;
+		return codeMap;
+	}
+
+
+	@Override
+	public int idCode(String memId) {
+		int idCode = 0;
+		
+		idCode = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.idCode", memId);
+		
+		return idCode;
 	}
 
 

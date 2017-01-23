@@ -42,16 +42,40 @@
                <th width="5%">Count</th>
             </tr>   
             
+     <c:if test="${cnt > 0}">     
         <c:forEach var="dto" items="${dtos}">    
             <tr>
-               <td>${number}</td>
+               <td>${number}
                <c:set var="number" value="${number - 1}" />
-               <td colspan="3"><a href="contentForm?num=${dto.qnaNum}&pageNum=${pageNum}&number=${number + 1}">${dto.subject}</a></td>
+               </td>
+               
+               <td colspan="3">
+               <c:if test="${dto.ref_level > 1}">
+				   <c:set var="wid" value="${dto.ref_level - 1} * 10" />
+				   <img src="${resources}/board/level.gif" border="0" width="${wid}" height="15">
+			   </c:if>
+               
+               <c:if test="${dto.ref_level > 0}">
+					<img src="${resources}/board/re.gif" border="0" width="20" height="15">
+			   </c:if>	
+			   
+               <a href="contentForm?num=${dto.qnaNum}&pageNum=${pageNum}&number=${number + 1}">${dto.subject}</a>
+               
+               <c:if test="${dto.readCnt > 10}">
+				   <img src="${resources}/board/hot.gif" border="0" width="20" height="15">
+			   </c:if>
+               
+               </td>
+               
+               
                <td>${dto.memId}</td>
+               
                <td><fmt:formatDate type="both" pattern="yyyy-MM-dd HH:mm" value="${dto.qna_date}" /></td>
+               
                <td>${dto.readCnt}</td>
             </tr>
          </c:forEach>
+     </c:if>
            
          </tbody>
          <tfoot align="center">
