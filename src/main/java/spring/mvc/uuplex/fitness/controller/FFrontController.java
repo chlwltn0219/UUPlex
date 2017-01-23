@@ -12,7 +12,7 @@ import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 @Controller
 @RequestMapping("/fitness")
 public class FFrontController{
-
+//1111
 	@Autowired
 	FSportsListHandler sportsListHandler;
 
