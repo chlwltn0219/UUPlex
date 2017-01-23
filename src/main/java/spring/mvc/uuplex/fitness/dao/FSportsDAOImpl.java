@@ -30,5 +30,13 @@ public class FSportsDAOImpl implements FSportsDAO{
 		list = dao.sportsList(rangeMap);
 		return list;
 	}
+	
+	@Override
+	public int sportsAdd(FSportsDTO dto) {
+		int rtn = 0;
+		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
+		rtn = dao.sportsAdd(dto);
+		return rtn;
+	}
 
 }

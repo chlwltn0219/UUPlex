@@ -9,7 +9,7 @@
 		    		<h4 class="modal-title">종목 입력</h4>
 		    	</div>
 		    	
-	    		<form action="" name="" onsubmit="">
+	    		<form action="" name="sportInputForm" onsubmit="">
 			    	<div class="modal-body">
 						<div class="form-group">
 							<label>종목명</label>

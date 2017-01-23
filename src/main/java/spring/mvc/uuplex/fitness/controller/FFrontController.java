@@ -31,4 +31,11 @@ public class FFrontController{
 		return viewPage;
 	}
 	
+	@RequestMapping("/manage/sports/add")
+	public String sportsAdd(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		String viewPage = sportsListHandler.process(model);
+		return viewPage;
+	}
+	
 }
