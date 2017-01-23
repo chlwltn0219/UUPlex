@@ -8,10 +8,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%
 }
-*{
-	margin: 0;
-	padding: 0;
-}
+
 body {
 	margin: 0
 }
@@ -6402,7 +6399,8 @@ button.close {
 
 @media ( min-width :992px) {
 	.modal-lg {
-		width: 900px
+		width: 900px;
+		margin: 30px auto;
 	}
 }
 

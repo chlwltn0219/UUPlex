@@ -218,18 +218,15 @@ td {
 				<td>
 					<table style="border: 1px solid #EAEAEA;">
 						<tr>
-							<td><img src="${img}movie_poster/너의 권력은.jpg"></td>
+							<td colspan="2"><img src="${img}movie_poster/너의 권력은.jpg"></td>
 						</tr>
 						<tr class="sub">
-							<td>
-								<img id="rate" src="${img}mpaa_rating/12.png"> 너의 권력은
-							</td>
+							<th><img id="rate" src="${img}mpaa_rating/12.png"></th>
+							<td>너의 권력은</td>
 						</tr>
 						<tr>
-							<td>
-								<input type="button" value="상세정보" onclick="location.href='http://www.megabox.co.kr/?show=detail&rtnShowMovieCode=011523'">
-								<input type="button" value="예매하기">
-							</td>
+							<td colspan="2"><input type="button" value="상세정보"  data-toggle="modal" data-target="#myModal">
+							<input type="button" value="예매하기"></td>
 						</tr>
 					</table>
 				</td>
@@ -243,8 +240,8 @@ td {
 							<td>모아나</td>
 						</tr>
 						<tr>
-							<td colspan="2"><input type="button" value="상세정보"><input
-								type="button" value="예매하기"></td>
+							<td colspan="2"><input type="button" value="상세정보"  data-toggle="modal" data-target="#myModal">
+							<input type="button" value="예매하기"></td>
 						</tr>
 					</table>
 				</td>
@@ -258,14 +255,36 @@ td {
 							<td>얼라이드</td>
 						</tr>
 						<tr>
-							<td colspan="2"><input type="button" value="상세정보"
-								onclick="location.href='http://www.megabox.co.kr/?show=detail&rtnShowMovieCode=011574'"><input
-								type="button" value="예매하기"></td>
+							<td colspan="2"><input type="button" value="상세정보"  data-toggle="modal" data-target="#myModal">
+							<input type="button" value="예매하기"></td>
 						</tr>
 					</table>
 				</td>
 				</tr>
 		</table>
+		
+		<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">상세정보</h4>
+				</div>
+				<div class="modal-body">
+					<jsp:include page="movie_datail.jsp"/>
+				
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 모달 끝 -->
 	</div>
 	<div class="footer"></div>
 
