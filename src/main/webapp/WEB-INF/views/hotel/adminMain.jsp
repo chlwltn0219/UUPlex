@@ -73,8 +73,8 @@
         }
 
         #content {
-        	background:url("${resources}/images/dice.jpg") repeat;
-            width:100%; height:500px;
+        	background:url("${resources}/hotelImages/dice.jpg") repeat;
+            width:100%; height:550px;
         }
 
         #content .section1 {
@@ -83,6 +83,10 @@
             margin:auto;
             padding-top:50px;
             padding-left:100px;
+        }
+        
+        #content .section1 .inputButton {
+        	font-size:0.8em;
         }
 
         #content .section1 div {
@@ -101,7 +105,7 @@
         	font-weight: bolder;
         }
 
-/*         footer {
+        /* footer {
             width:100%; height:170px; margin:auto; background-color:#4B0025; color:#cccccc;
             text-align:center; line-height:50px;
             clear:both; border:0;
@@ -112,21 +116,20 @@
 </head>
 <body>
     <header>
-        <div class="logo"><img src = "${resources}/images/hotellogo.png" width="150px;"></div>
+        <div class="logo"><img src = "${resources}/hotelImages/hotellogo.png" width="150px;"></div>
         <div class="hit_menu">
             <ul>
-                <li><a href="#" alt="">예약내역</a></li>
-                <li><a href="#" alt="">예약하기</a></li>
-                <li><a href="#" alt="">객실정보</a></li>
+                <li><a href="#" >예약관리</a></li>
+                <li><a href="hotel/roomAddForm" >객실등록</a></li>
+                <li><a href="hotel/roomList" >객실관리</a></li>
+                <li><a href="hotel/roomInfo" >객실정보</a></li>
             </ul>
         </div>
     </header>
     <div id="content">
         <div class="section1">
-            <div class="slide_banner"><img src = "${resources}/images/standard.jpg" width="400px" height="300px"><br><br> 스탠다드룸
-            <input class="inputButton" type="button" value="바로예약"></div>
-            <div class="side_banner"><img src = "${resources}/images/suite.jpg" width="400px" height="300px"><br><br> 스위트룸 
-            <input class="inputButton" type="button" value="바로예약"></div>
+            <div class="slide_banner"><img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px"><br><br> 스탠다드룸 </div>
+            <div class="side_banner"><img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px"><br><br> 스위트룸 </div>
         </div>
     </div>
   </body>

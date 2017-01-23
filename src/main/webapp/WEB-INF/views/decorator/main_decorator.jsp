@@ -18,6 +18,7 @@
 	<title><sitemesh:write property="title" /></title>
 	<!-- 부트스트랩 -->
 	<link href="${resources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
 	<!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
 	<!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
 	<!--[if lt IE 9]>
@@ -25,22 +26,12 @@
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<!-- JSP에 포함된 head 태그의 내용을 이곳에 넣습니다. -->
-	
-	<style type="text/css">
-		* {
-/* 			border: 1px solid red; */
-		}
-		
-		footer {
-			background: #efefef;
-		}
-	</style>
-	
 	<sitemesh:write property="head" />
 	
-	<style type="text/css">
-		div.top {
-/* 			height: 30px; */
+	<style>
+		footer {
+			background-color:#efefef;
+			height:100px;
 		}
 	</style>
 	
@@ -61,39 +52,66 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Brand</a>
+					<a class="navbar-brand" href="main">UUPlex</a>
 				</div>
 				
 				<!-- 메뉴 목록 -->
 				<div class="collapse navbar-collapse" id="top-navbar">
 					<!-- 일반 메뉴 좌측에서 부터 정렬-->
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">메뉴1</a></li>
-						<li><a href="#">메뉴2</a></li>
+						<li><a href="#">회사소개</a></li>
+						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" 
 								data-toggle="dropdown" role="button" aria-expanded="false"> 
-								드롭다운 <span class="caret"></span>
+								매장소개 <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">드롭다운메뉴1</a></li>
-								<li><a href="#">드롭다운메뉴2</a></li>
+								<li><a href="introduce">UUPlex 소개</a></li>
 								<li class="divider"></li>
-								<li><a href="#">드롭다운메뉴3</a></li>
-								<li class="divider"></li>
-								<li><a href="#">드롭다운메뉴4</a></li>
+								<li><a href="roadMap">오시는길</a></li>
 							</ul>
 						</li>
+						
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" 
+								data-toggle="dropdown" role="button" aria-expanded="false"> 
+								매장안내 <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">층별안내</a></li>
+								<li class="divider"></li>
+								<li><a href="c-box">1층 영화관</a></li>
+								<li><a href="hotel">2층 호텔</a></li>
+								<li><a href="fitness">3층 휘트니스</a></li>
+							</ul>
+						</li>
+						
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" 
+								data-toggle="dropdown" role="button" aria-expanded="false"> 
+								고객센터 <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">공지사항</a></li>
+								<li class="divider"></li>
+								<li><a href="qna">Q&A</a></li>
+								<li class="divider"></li>
+								<li><a href="#">후기게시판</a></li>
+							</ul>
+						</li>
+						
 					</ul>
 					<!-- 우측 메뉴 목록 -->
 					<ul class="nav navbar-nav navbar-right">
-						<c:if test="${empty userid}">
-							<li><a href="#">로그인</a></li>
+						<c:if test="${empty id}">
+							<li><a href="input">회원가입</a></li>
+							<li><a href="loginForm">로그인</a></li>
 						</c:if>
 						
-						<c:if test="${not empty userid}">
+						<c:if test="${not empty id}">
 							<li><a href="#">마이페이지</a></li>
-							<li><a href="#">로그아웃</a></li>
+							<li><a href="logout">로그아웃</a></li>
 						</c:if>
 					</ul>
 				</div>
@@ -102,21 +120,39 @@
 	</header>
 	<!-- Menu End -->
 	
-<!-- 	<div class="top"></div> -->
-	
 	<!-- Section Start -->
-<!-- 	<div class="container"> -->
-		<section>
+	<div class="container">
+	
+<!-- 	<script type="text/javascript">
+		var link;
+		window.onload=function(){
+			document.getElementById("cenImg").onclick=function(){
+				if(link){
+					location.href = link;
+				}
+			}
+		};
+		
+		function ch(aa, bb){
+			document.getElementById("cenImg").src = aa;
+			link = bb;
+		}
+		
+	</script> -->
+	
+	<section>
 			<!-- JSP에 포함된 body 태그의 내용을 이곳에 넣습니다. -->
 			<sitemesh:write property="body" />
-		</section>
-<!-- 	</div> -->
+				
+	</section>
+	
+	</div>
 	<!-- Section End -->
 	
 	<!-- Footer Start -->
 	<footer>
-		<p class="pull-right"><a href="#">페이지 위로 가기</a></p> <br>
-		<p style="text-align: center;">&copy; 2017 UU Company, Inc.</p>
+		<p class="pull-right"><a href="#">페이지 위로 가기</a></p>
+		<p align="center">&copy; 2017 UU Company, Inc.</p>
 	</footer>
 	<!-- Footer End -->
 	

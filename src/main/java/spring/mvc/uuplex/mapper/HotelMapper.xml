@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="spring.mvc.uuplex.hotel.dao.HotelDAO">
+    
+    	<!-- 객실등록 -->
+    <insert id="insert" parameterType="spring.mvc.uuplex.hotel.dto.HotelDTO">
+    	INSERT INTO h_room(roomNum, shopCode, roomName, mainImg, detail_1, detail_2, detail_3, detail_4, detail_5,
+    						intro, roomType, bed, hotelView, capacity, charge)
+    	VALUES(roomNum.nextval, 102, #{roomName}, #{mainImg}, #{detail_1}, #{detail_2}, #{detail_3}, #{detail_4}, #{detail_5},
+    						#{intro}, #{roomType}, #{bed}, #{hotelView}, #{capacity}, #{charge})
+    </insert>
+    
+    	<!-- 객실목록 -->
+    <select id="list" resultType="spring.mvc.uuplex.hotel.dto.HotelDTO">
+		SELECT * FROM h_room
+	</select>
+    
+    
+    
+    
+    </mapper>

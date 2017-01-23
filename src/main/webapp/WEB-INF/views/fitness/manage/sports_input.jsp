@@ -7,17 +7,20 @@
 		    	<div class="modal-header">
 		    		<button type="button" class="close" data-dismiss="modal">&times;</button>
 		    		<h4 class="modal-title">종목 입력</h4>
-		    	</div>
-		    	
-	    		<form action="inputPro" name="" onsubmit="">
+		    	</div>		    	
+
+	    		<form action="/uuplex/fitness/manage/sports/add" method="post" name="sportInputForm" onsubmit="">
 			    	<div class="modal-body">
 						<div class="form-group">
 							<label>종목명</label>
-							<input type="text" class="form-control" name="sname" placeholder="종목명">
+							<input type="text" class="form-control" name="sname" 
+									placeholder="종목명" required>
 						</div>
 						<div class="form-group">
 							<label>종목 정보</label>
-							<textarea class="form-control" rows="10" name="sinfo"></textarea>
+							<textarea class="form-control" rows="10" name="sinfo" 
+									placeholder="강사 정보 입력">
+							</textarea>
 						</div>
 			    	</div>
 			    	<div class="modal-footer">
