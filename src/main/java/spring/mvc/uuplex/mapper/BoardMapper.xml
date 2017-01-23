@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="spring.mvc.uuplex.admin.dao.BoardDAO"> 
+
+	<select id="getCount" resultType="int">
+		SELECT count(*) FROM qna_board
+	</select>
+
+	<select id="getArticles" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		SELECT * FROM (SELECT qnaNum, memId, qnaPasswd, subject, content, readCnt, 
+						      ref, ref_step, ref_level, qna_date, ip, rownum rnum
+						FROM ( SELECT * FROM qna_board
+							   ORDER BY ref DESC, ref_step ASC )
+					  )
+				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+	</select>
+	
+	<insert id="qnaInsert" parameterType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		INSERT INTO qna_board(qnaNum, memId, qnaPasswd, subject, content, readCnt, ref, ref_step, ref_level, qna_date, ip)
+					VALUES(qna_seq.NEXTVAL, #{memId}, #{qnaPasswd}, #{subject}, #{content}, 0, qna_seq.currval, #{ref_step}, #{ref_level}, #{qna_date}, #{ip})
+	</insert>
+	
+	<select id="getQnA" parameterType="int" resultType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		SELECT * FROM qna_board WHERE qnaNum= #{num}
+	</select>
+
+</mapper>
+    

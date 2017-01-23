@@ -14,10 +14,8 @@
     </insert>
     
     	<!-- 객실목록 -->
-    <select id="list" parameterType="Map" resultType="spring.mvc.uuplex.hotel.dto.HotelDTO">
-		SELECT roomNum, shopCode, roomName, mainImg, detail_1, detail_2, detail_3, detail_4, detail_5,
-    			intro, roomType, bed, hotelView, capacity, charge
-		FROM h_room
+    <select id="list" resultType="spring.mvc.uuplex.hotel.dto.HotelDTO">
+		SELECT * FROM h_room
 	</select>
     
     
