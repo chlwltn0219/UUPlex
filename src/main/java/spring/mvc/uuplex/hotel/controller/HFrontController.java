@@ -56,21 +56,21 @@ public class HFrontController {
 		return "/hotel/roomAddForm";
 	}
 	
-<<<<<<< HEAD
-	//°´½Çµî·Ï
-	@Autowired
-	RoomAddProHandler roomAddProHandler;
-	@RequestMapping("/roomAddPro")
-	public String roomAddPro(HttpServletRequest req, Model model) {
-		System.out.println("roomAddPro()");
-		
-		model.addAttribute("req", req);
-		String viewPage = roomAddProHandler.process(model);
-		
-		return viewPage;
-	}
-	
-
-=======
->>>>>>> cf41f35c3fd7a3b6e34794d90ab3f1bc00a2a5e4
+//<<<<<<< HEAD
+//	//°´½Çµî·Ï
+//	@Autowired
+//	RoomAddProHandler roomAddProHandler;
+//	@RequestMapping("/roomAddPro")
+//	public String roomAddPro(HttpServletRequest req, Model model) {
+//		System.out.println("roomAddPro()");
+//		
+//		model.addAttribute("req", req);
+//		String viewPage = roomAddProHandler.process(model);
+//		
+//		return viewPage;
+//	}
+//	
+//
+//=======
+//>>>>>>> cf41f35c3fd7a3b6e34794d90ab3f1bc00a2a5e4
 }

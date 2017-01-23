@@ -16,6 +16,9 @@ public class MFrontController{
 		
 		return viewPage;
 	}
+	
+	
+	
 	@RequestMapping("/main")
 	public String main(){
 		
@@ -35,6 +38,16 @@ public class MFrontController{
 	public String youtube(){
 		
 		String viewPage = "c-box/youtube";
+		
+		return viewPage;
+	}
+	
+	@RequestMapping("/detail")
+	public String detail(){
+		
+		System.out.println("detail");
+		
+		String viewPage = "c-box/movie_datail";
 		
 		return viewPage;
 	}
