@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../../setting.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="${resources}/fitness/js/teacher_detail.js"></script>
+<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <title>강사 리스트</title>
 </head>
 <body>
@@ -44,7 +47,7 @@
 		<tr>
 			<td>${dto.tid}</td>
 			<td><a class="btn btn-link" 
-								data-toggle="modal" data-target="#tdeail">
+								data-toggle="modal" data-target="#tdeail" onclick="teacherDetails($[dto.tid])">
 								${dto.tname}</a></td>
 		</tr>
 		</c:forEach>

@@ -49,4 +49,14 @@ public class FTeacherDAOImpl implements FTeacherDAO{
 		return cnt;
 	}
 
+	@Override
+	public FTeacherDTO tdetail(int tid) {
+		FTeacherDTO dto = null;
+		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
+		
+		dto = dao.tdetail(tid);
+		
+		return dto;
+	}
+
 }

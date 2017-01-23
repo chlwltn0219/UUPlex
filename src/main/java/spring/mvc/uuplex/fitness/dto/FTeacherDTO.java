@@ -39,6 +39,4 @@ public class FTeacherDTO {
 		this.activated = activated;
 	}
 	  
-	  
-	
 }

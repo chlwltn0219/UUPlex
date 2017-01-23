@@ -13,24 +13,30 @@
           <h4 class="tdetail">강사 상세</h4>
         </div>
         <div class="modal-body">
-          <table>
+          <table class="table">
           	<tr>
           	<tr>
           		<td rowspan="5">${dto.timg}</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr>  
           		<th>강사 코드</th>
-          		<td>${dto.tid}</td>
+          		<td>
+          			<div id="tid"></div>
+          		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr> 
           	<tr>
           		<th>강사명</th>
-          		<td>${dto.tname}</td>
+          		<td>
+          			<div id="tname"></div>
+          		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr>  
             <tr>
           		<th>강사 상세</th>
-          		<td>${dto.tid}</td>
+          		<td>
+          			<div id="tinfo"></div>
+          		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr>  
           </table>

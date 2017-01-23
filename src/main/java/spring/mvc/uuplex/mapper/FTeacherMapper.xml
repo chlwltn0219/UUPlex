@@ -23,4 +23,12 @@
       	INSERT INTO F_TEACHER (tid, tname, tinfo)
         VALUES(SEQ_TEACHER_TID.nextval, #{tname}, #{tinfo})
 	</insert>
+	
+	<!-- 강사 리스트  detail -->
+	<select id="tdetail" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO" parameterType="int">
+		SELECT * 
+		 FROM f_teacher
+		WHERE tid=#{tid}
+	</select>
+	
 </mapper>
