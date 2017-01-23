@@ -17,7 +17,7 @@
 		  FROM ( SELECT s.* , rownum AS rnum 
 				   FROM ( SELECT * 
 			  		     	FROM F_SPORTS 
-			  			   ORDER BY sid) s )
+			  			   ORDER BY sid DESC ) s )
 		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	

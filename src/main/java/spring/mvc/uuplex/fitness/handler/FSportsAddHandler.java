@@ -1,5 +1,7 @@
 package spring.mvc.uuplex.fitness.handler;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +21,20 @@ public class FSportsAddHandler implements FCommandHandler{
 	public String process(Model model) {
 		
 		FSportsDTO dto = new FSportsDTO();
+		int cnt = 0;
+		
+		String viewPage = "/fitness/manage/sports_inputPro";
 		
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
 		dto.setSname(req.getParameter("sname"));
 		dto.setSinfo(req.getParameter("sinfo"));
 		
-		dao.sportsAdd(dto);
+		cnt = dao.addSports(dto);
 		
-		return "/manage/sports/addPro";
+		model.addAttribute("cnt", cnt);
+		
+		return viewPage;
 	}
 
 }
