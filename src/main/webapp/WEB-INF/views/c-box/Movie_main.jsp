@@ -55,10 +55,8 @@
 	text-align: center;
 }
 
-.rate {
-	z-index: 1;
+#rate {
 	width: 20px;
-	margin-left: 5px;
 }
 
 .menu {
@@ -98,18 +96,23 @@
 .content td>table {
 	width: 220px;
 	height: 100%;
-	padding: 10px;
+	margin: 10px;
 }
 
 .content td>input {
-	border: 1px solid #1F50B5;
-	color: #ffffff;
-	padding: 3px 10px;
+	color: #5A5A5A;
+	padding: 10px 13px;
 	margin: 3px;
+	border: none;
+	background-color: #EAEAEA;
 }
 
 .content td>img {
 	width: 100%;
+}
+
+.content>td>table{
+	border: 1px solid #EAEAEA;
 }
 
 td {
@@ -117,9 +120,7 @@ td {
 }
 
 .sub {
-	padding: 3px;
-	border: 1px solid #1F50B5;
-	font-family: a치어리더;
+	padding: 10px;
 	font-size: 20px;
 }
 
@@ -182,7 +183,7 @@ td {
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
-			<div class="item active"  style="background-image: url('${img}/etc/allied.jpg');">
+			<div class="item active"  style="background-image: url('${img}/etc/allied.jpg'); ">
 				<embed src="https://www.youtube.com/embed/Jlp94-C31cY"></embed>
 				<div class="carousel-caption"></div>
 			</div>
@@ -215,52 +216,75 @@ td {
 		<table>
 			<tr>
 				<td>
-					<table>
+					<table style="border: 1px solid #EAEAEA;">
 						<tr>
 							<td colspan="2"><img src="${img}movie_poster/너의 권력은.jpg"></td>
 						</tr>
 						<tr class="sub">
-							<th><img class="rate" src="${img}mpaa_rating/12.png"></th>
+							<th><img id="rate" src="${img}mpaa_rating/12.png"></th>
 							<td>너의 권력은</td>
 						</tr>
 						<tr>
-							<td colspan="2"><input type="button" value="상세정보"
-								onclick="location.href='http://www.megabox.co.kr/?show=detail&rtnShowMovieCode=011523'"><input
-								type="button" value="예매하기"></td>
+							<td colspan="2"><input type="button" value="상세정보"  data-toggle="modal" data-target="#myModal">
+							<input type="button" value="예매하기"></td>
 						</tr>
 					</table>
+				</td>
 				<td>
-					<table>
+					<table style="border: 1px solid #EAEAEA;">
 						<tr>
 							<td colspan="2"><img src="${img}movie_poster/모아나.jpg"></td>
 						</tr>
 						<tr class="sub">
-							<th><img class="rate" src="${img}mpaa_rating/all.png"></th>
+							<th><img id="rate" src="${img}mpaa_rating/all.png"></th>
 							<td>모아나</td>
 						</tr>
 						<tr>
-							<td colspan="2"><input type="button" value="상세정보"><input
-								type="button" value="예매하기"></td>
+							<td colspan="2"><input type="button" value="상세정보"  data-toggle="modal" data-target="#myModal">
+							<input type="button" value="예매하기"></td>
 						</tr>
 					</table>
 				</td>
 				<td>
-					<table>
+					<table style="border: 1px solid #EAEAEA;">
 						<tr>
 							<td colspan="2"><img src="${img}movie_poster/얼라이드.jpg"></td>
 						</tr>
 						<tr class="sub">
-							<th><img class="rate" src="${img}mpaa_rating/15.png"></th>
+							<th><img id="rate" src="${img}mpaa_rating/15.png"></th>
 							<td>얼라이드</td>
 						</tr>
 						<tr>
-							<td colspan="2"><input type="button" value="상세정보"
-								onclick="location.href='http://www.megabox.co.kr/?show=detail&rtnShowMovieCode=011574'"><input
-								type="button" value="예매하기"></td>
+							<td colspan="2"><input type="button" value="상세정보"  data-toggle="modal" data-target="#myModal">
+							<input type="button" value="예매하기"></td>
 						</tr>
 					</table>
 				</td>
+				</tr>
 		</table>
+		
+		<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">상세정보</h4>
+				</div>
+				<div class="modal-body">
+					<jsp:include page="movie_datail.jsp"/>
+				
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 모달 끝 -->
 	</div>
 	<div class="footer"></div>
 
