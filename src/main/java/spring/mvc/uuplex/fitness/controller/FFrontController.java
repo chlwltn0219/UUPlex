@@ -43,15 +43,26 @@ public class FFrontController{
 		return viewPage;
 	}
 	
+	// 최지수 : 피트니스 관리자 - 종목 추가
 	@RequestMapping("/manage/sports/add")
 	public String sportsAdd(HttpServletRequest req, Model model){
 		
 		try {
+			// 한글 인코딩
 			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		
+		model.addAttribute("req", req);
+		String viewPage = sportsAddHandler.process(model);
+		return viewPage;
+	}
+	
+	@RequestMapping("/sports/detail")
+	public String sportsDetail(HttpServletRequest req, Model model){
+		
+		System.out.println("details");
 		model.addAttribute("req", req);
 		String viewPage = sportsAddHandler.process(model);
 		return viewPage;

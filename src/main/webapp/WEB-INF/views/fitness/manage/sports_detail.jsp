@@ -14,17 +14,20 @@
 					<tr>
 						<th>종목 코드</th>
 						<td>
-<%-- 							<input type="hidden" name="sid" value="${dto.sid}"> --%>
-							${dto.sid}
+							<div id="sid"></div>
 						</td>
 					</tr>
 					<tr>
 						<th>종목 이름</th>
-						<td>${dto.sname}</td>
+						<td>
+							<div id="sname"></div>
+						</td>
 					</tr>
 					<tr>
 						<th>종목 정보</th>
-						<td>${dto.sinfo}</td>
+						<td>
+							<div id="sinfo"></div>
+						</td>
 					</tr>
 				</table>
 			</div>

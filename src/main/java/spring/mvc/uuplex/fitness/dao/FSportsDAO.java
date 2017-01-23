@@ -11,6 +11,8 @@ public interface FSportsDAO {
 	int sportsCount();
 	// 목록 리스트 호출
 	List<FSportsDTO> sportsList(Map<String,Integer> rangeMap);
-	// 추가
+	// 목록 추가
 	int addSports(FSportsDTO dto);
+	// 상세 정보 호출
+	FSportsDTO sportsDetail(int sid);
 }
