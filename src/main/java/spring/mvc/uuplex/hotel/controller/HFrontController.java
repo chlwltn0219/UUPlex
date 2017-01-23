@@ -67,8 +67,6 @@ public class HFrontController {
 		return "/hotel/roomAddForm";
 	}
 	
-
-	//°´½Çµî·Ï
 	@Autowired
 	RoomAddProHandler roomAddProHandler;
 	@RequestMapping("/roomAddPro")
@@ -81,6 +79,36 @@ public class HFrontController {
 		return viewPage;
 	}
 	
-
+	//°´½Ç¼öÁ¤
+	@RequestMapping("/roomModifyForm")
+	public String roomModifyForm(Model model) {
+		System.out.println("roomModifyForm()");
+		return "/hotel/roomModifyForm";
+	}
+	
+	@Autowired
+	RoomAddProHandler roomModifyProHandler;
+	@RequestMapping("/roomModifyPro")
+	public String roomModifyPro(HttpServletRequest req, Model model) {
+		System.out.println("roomModifyPro()");
+		
+		model.addAttribute("req", req);
+		String viewPage = roomModifyProHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//°´½Ç»èÁ¦
+	@Autowired
+	RoomAddProHandler roomDeleteProHandler;
+	@RequestMapping("/roomDeletePro")
+	public String roomDeletePro(HttpServletRequest req, Model model) {
+		System.out.println("roomDeletePro()");
+		
+		model.addAttribute("req", req);
+		String viewPage = roomDeleteProHandler.process(model);
+		
+		return viewPage;
+	}
 
 }

@@ -9,4 +9,5 @@ public interface HotelDAO {
 
 	public int insert(HotelDTO dto);  //∞¥Ω«µÓ∑œ
 	public ArrayList<HotelDTO> list();  //∞¥Ω«∏Ò∑œ¡∂»∏
+	public 
 }
