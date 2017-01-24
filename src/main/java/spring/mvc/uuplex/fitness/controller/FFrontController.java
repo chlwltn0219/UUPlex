@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
+import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherInputHandler;
@@ -20,33 +21,28 @@ import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 public class FFrontController{
 	
 	@Autowired
-	FSportsListHandler sportsHandler;
-	
-	@Autowired
 	FSportsListHandler sportsListHandler;
-	
-	
 	@Autowired
 	FSportsAddHandler sportsAddHandler;
+	@Autowired
+	FSportsDetailHandler sportsDetailHandler;
 	
 	@Autowired
 	FTeacherListHandler tListHandler;
-	
 	@Autowired
 	FTeacherInputHandler tInputHandler;
-	
 	@Autowired
 	FTeacherDetailHandler tDetailHandler;
 
 
-	// ÃÖÁö¼ö: ÇÇÆ®´Ï½º ¸ŞÀÎ
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™: å ì™ì˜™íŠ¸å ì‹¹ì™ì˜™ å ì™ì˜™å ì™ì˜™
 	@RequestMapping("")
 	public String list(Model model){
 		String viewPage = "fitness/user/fit_main";
 		return viewPage;
 	}
 	
-	// ÃÖÁö¼ö: Á¾¸ñ ¸®½ºÆ®
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™: å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™íŠ¸
 	@RequestMapping("/manage/sports/list")
 	public String manageSportsList(HttpServletRequest req, Model model){
 		
@@ -61,7 +57,21 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// ±èÁø¿ì : °­»ç ¸®½ºÆ®
+	@RequestMapping("/manage/sports/inputForm")
+	public String sportInputForm() {
+		String viewPage = "/fitness/manage/sports_input";
+		return viewPage;
+	}
+	
+	//ï§¤ì’–ï¿½ï¿½ë‹” : ï¿½ëµ¾ï¿½ë“ƒï¿½ë•²ï¿½ë’ª - é†«ë‚…ã‰ï¿½ê¸½ï¿½ê½­ï¿½ì ™è¹‚ï¿½
+	@RequestMapping("/sports/detail")
+	public String sportsDetail(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		String viewPage = sportsDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™ : å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™íŠ¸
 	@RequestMapping("/manage/teacher/list")
 	   public String list(HttpServletRequest req, Model model) {
 	      System.out.println("list()");
@@ -72,9 +82,9 @@ public class FFrontController{
 	      return viewPage;	  
 	}
 	
-	// ±èÁø¿ì : °­»ç Á¤º¸ Ãß°¡
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™ : å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ìŒ©ê³¤ì˜™
 	@RequestMapping("/manage/teacher/input")
-	   public String input(HttpServletRequest req, Model model) {
+	 public String input(HttpServletRequest req, Model model) {
 	      System.out.println("input()");
 	      
 	      model.addAttribute("req", req);
@@ -82,6 +92,12 @@ public class FFrontController{
 	      
 	      return viewPage;	  
 
+	}
+	
+	@RequestMapping("/manage/teacher/inputForm")
+	public String inputFrom(HttpServletRequest req, Model model) {
+	      String viewPage = "/fitness/manage/teacher_input";  
+	      return viewPage;	  
 	}
 	
 	@RequestMapping("/manage/sports/add")
@@ -98,7 +114,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	//±èÁø¿ì : °­»ç µğÅ×ÀÏ
+	//ê¹€ì§„ìš° : ê°•ì‚¬ ë””í…Œì¼
 	@RequestMapping("/teacher/detail")
 	public String teacherDetail(HttpServletRequest req, Model model){
 		

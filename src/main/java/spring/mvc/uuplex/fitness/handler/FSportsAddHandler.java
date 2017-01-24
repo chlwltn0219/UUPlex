@@ -1,7 +1,5 @@
 package spring.mvc.uuplex.fitness.handler;
 
-import java.io.UnsupportedEncodingException;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
