@@ -201,8 +201,8 @@
 	</div>
 	<!-- 영화리뷰 입력 모달 끝 -->
 	
-	<script src="/uuplex/resources/c-box/js/jquery-1.11.3.min.js"></script>
-	<script src="/uuplex/resources/c-box/js/star.js"></script>
+	<script src="/uuplex/resources/js/jquery-1.11.3.min.js"></script>
+	<script src="/uuplex/resources/js/star.js"></script>
 	
 </body>
 </html>

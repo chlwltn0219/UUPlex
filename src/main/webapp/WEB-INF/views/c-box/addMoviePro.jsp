@@ -18,7 +18,7 @@
 		<script type="text/javascript">
 			alert("영화정보가 추가되었습니다.");
 		</script>
-		<%-- <c:redirect url="ManageMovieInfo"/> --%>
+		history.back();
 	
 	</c:if>
 </body>

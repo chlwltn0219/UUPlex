@@ -16,7 +16,10 @@ public class MovieDAOImpl implements MovieDAO{
 	@Override
 	public int addMovieInfo(MovieInfoDTO dto) {
 		int cnt = 0;
-		return 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.addMovieInfo(dto);
+		
+		return cnt;
 	}
 
 }

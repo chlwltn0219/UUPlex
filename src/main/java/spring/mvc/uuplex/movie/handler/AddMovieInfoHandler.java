@@ -47,7 +47,7 @@ public class AddMovieInfoHandler implements MCommandHandler{
 				try {
 					MultipartRequest multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
 					
-					//占싼억옙占� 占쏙옙占쏙옙 占싱몌옙占쏙옙 占쌨아온댐옙.
+					//�뜝�떬�뼲�삕�뜝占� �뜝�룞�삕�뜝�룞�삕 �뜝�떛紐뚯삕�뜝�룞�삕 �뜝�뙣�븘�삩�뙋�삕.
 					Enumeration file = multi.getFileNames();
 					String str = (String)file.nextElement();
 					String fileName = multi.getFilesystemName(str);
@@ -106,7 +106,7 @@ public class AddMovieInfoHandler implements MCommandHandler{
 			e.printStackTrace();
 		}
 				
-		return "c-box/addMovieInfoPro";
+		return "c-box/addMoviePro";
 	
 
 }
