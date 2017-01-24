@@ -1,7 +1,6 @@
 package spring.mvc.uuplex.hotel.dao;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
@@ -11,4 +10,5 @@ public interface HotelDAO {
 	public ArrayList<HotelDTO> list();  //객실목록조회
 	public HotelDTO modify(int roomNum);  //수정내역
 	public int update(HotelDTO dto);  //객실수정
+	public void delete(int roomNum);  //객실삭제
 }

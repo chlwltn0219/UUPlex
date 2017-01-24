@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
+import spring.mvc.uuplex.fitness.handler.FSportsModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherInputHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
+import spring.mvc.uuplex.fitness.handler.FTeacherModifyHandler;
 
 @Controller
 @RequestMapping("/fitness")
@@ -26,6 +28,8 @@ public class FFrontController{
 	FSportsAddHandler sportsAddHandler;
 	@Autowired
 	FSportsDetailHandler sportsDetailHandler;
+	@Autowired
+	FSportsModifyHandler sportsModifyHandler;
 	
 	@Autowired
 	FTeacherListHandler tListHandler;
@@ -33,6 +37,8 @@ public class FFrontController{
 	FTeacherInputHandler tInputHandler;
 	@Autowired
 	FTeacherDetailHandler tDetailHandler;
+	@Autowired
+	FTeacherModifyHandler tmodifyHandler;
 
 
 	// 占쏙옙占쏙옙占쏙옙: 占쏙옙트占싹쏙옙 占쏙옙占쏙옙
@@ -70,6 +76,26 @@ public class FFrontController{
 		String viewPage = sportsDetailHandler.process(model);
 		return viewPage;
 	}
+	
+	// 최지수 : 피트니스 - 종목 정보 폼
+	@RequestMapping("/manage/sports/modify")
+	public String sportsModify(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		String viewPage = "/fitness/manage/sports_modify";
+		sportsDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	// 최지수 : 피트니스 - 종목 정보 수정
+	@RequestMapping("/manage/sports/modifyPro")
+	public String sportsModifyPro(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		sportsModifyHandler.process(model);
+		String viewPage = sportsDetail(req, model); 
+		return viewPage;
+	}
+	
+	
 	
 	// 占쏙옙占쏙옙占쏙옙 : 占쏙옙占쏙옙 占쏙옙占쏙옙트
 	@RequestMapping("/manage/teacher/list")
@@ -123,4 +149,24 @@ public class FFrontController{
 		return viewPage;
 	}
 	
+	//김진우 : 강사 상세 정보 수정 폼
+	@RequestMapping("/manage/teacher/modify")
+	public String teacherModify(HttpServletRequest req, Model model){
+		
+		model.addAttribute("req", req);
+		String viewPage = "/fitness/manage/teacher_modify";
+		tDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	//김진우 : 강사 상세 정보 수정
+	@RequestMapping("/manage/teacher/modifyPro")
+	public String teacherModifyPro(HttpServletRequest req, Model model){
+		
+		model.addAttribute("req", req);
+		tmodifyHandler.process(model);
+		String viewPage = teacherDetail(req, model);
+		
+		return viewPage;
+	}
 }

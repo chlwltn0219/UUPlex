@@ -10,24 +10,32 @@ import spring.mvc.uuplex.fitness.dao.FSportsDAO;
 import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
 @Service
-public class FSportsDetailHandler implements FCommandHandler{
+public class FSportsModifyHandler implements FCommandHandler{
 	
 	@Autowired
-	FSportsDAO  dao;
-	
+	FSportsDAO dao;
 	
 	@Override
 	public String process(Model model) {
+		String viewPage = null;
+		FSportsDTO dto = new FSportsDTO();
 		
-		FSportsDTO dto = null;
-		String viewPage = "/fitness/manage/sports_detail";
 		int sid = 0;
-		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
+		String sname = null;
+		String sinfo = null;
+		
+		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
 		try {
 			sid = Integer.parseInt(req.getParameter("sid"));
-			dto = dao.sportsDetail(sid);		
-			model.addAttribute("dto", dto);
+			sname = req.getParameter("sname");
+			sinfo = req.getParameter("sinfo");
+			
+			dto.setSid(sid);
+			dto.setSname(sname);
+			dto.setSinfo(sinfo);
+			
+			dao.modifySports(dto);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}

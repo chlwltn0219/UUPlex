@@ -64,8 +64,20 @@
 					</tr>
 					<tr>
 						<td colspan="2"><input type="button" value="상세정보"
-							data-toggle="modal" data-target="#movieDetail"> <input
-							type="button" value="예매하기"></td>
+							data-toggle="modal" data-target="#movieDetail">
+							
+							<!--  로그인 상태로 가정 -->
+							<c:set var = "memId" value= "101" scope = "session"/>
+							
+							<c:if test="${sessionScope.memId == '100' || sessionScope.memId == '101'}">
+							 <input type="button" value="수정하기" >
+							
+							</c:if>
+							<c:if test="${sessionScope.memId != '100' && sessionScope.memId != '101'}">
+							 <input type="button" value="예매하기">
+							
+							</c:if>
+							</td>
 					</tr>
 				</table>
 			</td>
@@ -80,8 +92,21 @@
 					</tr>
 					<tr>
 						<td colspan="2"><input type="button" value="상세정보"
-							data-toggle="modal" data-target="#myModal"> <input
-							type="button" value="예매하기"></td>
+							data-toggle="modal" data-target="#myModal"> 
+							
+							<!--  로그인 상태로 가정 -->
+							<c:set var = "memId" value= "101" scope = "session"/>
+							
+							<c:if test="${sessionScope.memId == '100' || sessionScope.memId == '101'}">
+							 <input type="button" value="수정하기">
+							
+							</c:if>
+							<c:if test="${sessionScope.memId != '100' && sessionScope.memId != '101'}">
+							 <input type="button" value="예매하기">
+							
+							</c:if>
+							
+							</td>
 					</tr>
 				</table>
 			</td>
@@ -96,8 +121,21 @@
 					</tr>
 					<tr>
 						<td colspan="2"><input type="button" value="상세정보"
-							data-toggle="modal" data-target="#myModal"> <input
-							type="button" value="예매하기"></td>
+							data-toggle="modal" data-target="#myModal"> 
+							
+							<!--  로그인 상태로 가정 -->
+							<c:set var = "memId" value= "101" scope = "session"/>
+							
+							<c:if test="${sessionScope.memId == '100' || sessionScope.memId == '101'}">
+							 <input type="button" value="수정하기">
+							
+							</c:if>
+							<c:if test="${sessionScope.memId != '100' && sessionScope.memId != '101'}">
+							 <input type="button" value="예매하기">
+							
+							</c:if>
+							
+							</td>
 					</tr>
 				</table>
 			</td>
@@ -105,6 +143,6 @@
 	</table>
 	
 	<%@ include file="movie_datail.jsp" %>
-	<%-- <%@ include file="movie_modify.jsp" %> --%>
+	<%@ include file="movie_modify.jsp" %>
 
 </div>
