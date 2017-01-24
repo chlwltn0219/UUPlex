@@ -178,7 +178,7 @@ min-width : 1700px;
 			<table>
 				<tr>
 					<td><input type="button" value="영화"
-						onclick="location.href='http://www.megabox.co.kr/?menuId=movie'"></td>
+						onclick="location.href='c-box/ManageMovieInfo'"></td>
 					<td><input type="button" value="이벤트"
 						onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
 					<td><input type="button" value="로그인"></td>

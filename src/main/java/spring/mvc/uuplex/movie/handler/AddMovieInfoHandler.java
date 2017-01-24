@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +64,22 @@ public class AddMovieInfoHandler implements MCommandHandler{
 		String title2 = multi.getParameter("title2");
 		String director = multi.getParameter("director");
 		String starring = multi.getParameter("starring");
-		String genre = multi.getParameter("genre");
+		
+		
+		
+		String[] genres = multi.getParameterValues("genre");
+		
+		String genre = "";
+		
+		for (int i = 0; i < genres.length; i++) {
+			
+			genre = genre + (i == 0? genres[i]:", "+genres[i]);
+		}
+		
+		
+
+		
+		
 		String MPAARating = multi.getParameter("MPAARating");
 		int productionYear = Integer.parseInt(multi.getParameter("productionYear"));
 		int runTime = Integer.parseInt(multi.getParameter("runTime"));

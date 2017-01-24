@@ -181,7 +181,7 @@
 								  	<br>
 								  	<output id="rating" for="star-input"><b>평점을 입력해주세요</b></output>						
 								</td>
-								<td><textarea></textarea></td>
+								<td><textarea style="width:250px; height:80px">로그인 후 이용가능한 서비스입니다.</textarea></td>
 								<td><input class="btn" type="submit" value="등록"></td>
 							</tr>
 							
