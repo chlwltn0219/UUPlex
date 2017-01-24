@@ -73,7 +73,8 @@
 							<td>평점</td>
 						</tr>
 						<tr>
-							<td>&nbsp;</td>
+							<td><input type="button" class="btn btn-primary" value="수정하기" onclick="modifyMovie(${dto.movie_num})">
+							<input type="button" class="btn btn-primary" value="삭제하기" onclick="deleteMovie(${dto.movie_num})"></td>
 						</tr>
 
 						<tr>

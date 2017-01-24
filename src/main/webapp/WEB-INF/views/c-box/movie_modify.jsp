@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>	
 <style>
 .moviedetail {
 	width: 850px;
@@ -37,10 +38,12 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">상세정보</h4>
+				<h4 class="modal-title">수정하기</h4>
 			</div>
+		<form action="movieModifyForm">
 			<div class="modal-body">
 				<div class="moviedetail">
+				
 					<table>
 						<tr>
 							<td rowspan="10"><img id="poster"
@@ -73,7 +76,8 @@
 							<td>평점</td>
 						</tr>
 						<tr>
-							<td>&nbsp;</td>
+							<td><input type="button" class="btn" value="수정하기" onclick="">
+							<input type="button" class="btn" value="삭제하기" onclick=""></td>
 						</tr>
 
 						<tr>
@@ -114,6 +118,7 @@
 				</div>
 
 			</div>
+			</form>
 			<div class="modal-footer">
 				<button class="btn btn-default" data-dismiss="modal">닫기</button>
 
