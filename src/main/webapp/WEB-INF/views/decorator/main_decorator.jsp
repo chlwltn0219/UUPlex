@@ -121,7 +121,7 @@
 	<!-- Menu End -->
 	
 	<!-- Section Start -->
-	<div class="container">
+	<!-- <div class="container"> -->
 	
 <!-- 	<script type="text/javascript">
 		var link;
@@ -146,7 +146,7 @@
 				
 	</section>
 	
-	</div>
+	<!-- </div> -->
 	<!-- Section End -->
 	
 	<!-- Footer Start -->

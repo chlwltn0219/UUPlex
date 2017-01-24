@@ -15,4 +15,9 @@
 		#{poster}, #{movie_img1}, #{movie_img2}, #{trailer}, #{status})
 	
 	</insert>
+	
+	<!-- 영화상세정보 불러오기 -->
+	<select id="getMovieInfo" parameterType="int">
+		SELECT * FROM m_movie_info WHERE movie_num = #{num}
+	</select>
 </mapper>

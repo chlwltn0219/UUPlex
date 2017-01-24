@@ -19,7 +19,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import spring.mvc.uuplex.movie.dao.MovieDAO;
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 
-@Service("addMovieInfoHandler")
+@Service
 public class AddMovieInfoHandler implements MCommandHandler{
 
 	@Autowired
