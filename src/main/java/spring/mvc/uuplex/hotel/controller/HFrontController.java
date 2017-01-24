@@ -100,7 +100,7 @@ public class HFrontController {
 	@Autowired
 	RoomModifyProHandler roomModifyProHandler;
 	@RequestMapping("/roomModifyPro")
-	public String roomModifyPro(HttpServletRequest req, Model model) {
+	public String roomModifyPro(HttpServletRequest req, Model model){
 		System.out.println("roomModifyPro()");
 		
 		model.addAttribute("req", req);
@@ -122,5 +122,8 @@ public class HFrontController {
 		return viewPage;
 	}*/
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2601e40914d47012967f75e9b73dc98ec22eb057
 }
