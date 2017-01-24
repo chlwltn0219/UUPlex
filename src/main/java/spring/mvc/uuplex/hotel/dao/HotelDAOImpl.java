@@ -17,8 +17,6 @@ public class HotelDAOImpl implements HotelDAO {
 	@Autowired
 	private SqlSession sqlsession;
 	
-	DataSource dataSource;
-	
 	//객실등록
 	@Override
 	public int insert(HotelDTO dto) {
@@ -37,6 +35,27 @@ public class HotelDAOImpl implements HotelDAO {
 		dtos = dao.list();
 		
 		return dtos;
+	}
+
+	//수정내역
+	@Override
+	public HotelDTO modify(int roomNum) {
+		HotelDTO dto = null;
+		
+		HotelDAO dao = this.sqlsession.getMapper(HotelDAO.class);
+		dto = dao.modify(roomNum);
+		
+		return dto;
+	}
+
+	//객실수정
+	@Override
+	public int update(HotelDTO dto) {
+		int cnt = 0;
+		HotelDAO dao = this.sqlsession.getMapper(HotelDAO.class);
+		cnt = dao.update(dto);
+		
+		return cnt;
 	}
 
 
