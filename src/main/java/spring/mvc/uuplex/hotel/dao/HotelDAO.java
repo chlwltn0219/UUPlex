@@ -9,5 +9,6 @@ public interface HotelDAO {
 
 	public int insert(HotelDTO dto);  //객실등록
 	public ArrayList<HotelDTO> list();  //객실목록조회
-	public 
+	public HotelDTO modify(int roomNum);  //수정내역
+	public int update(HotelDTO dto);  //객실수정
 }

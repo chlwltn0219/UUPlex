@@ -112,6 +112,7 @@
 
 </head>
 <body>
+<div class="container">
     <header>
         <div class="logo"><img src = "${resources}/hotelImages/hotellogo.png" width="150px;"></div>
         <div class="hit_menu">
@@ -127,6 +128,7 @@
             <div class="slide_banner"><img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px"><br><br> 스탠다드룸 </div>
             <div class="side_banner"><img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px"><br><br> 스위트룸 </div>
         </div>
+    </div>
     </div>
   </body>
 </html>

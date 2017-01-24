@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
+import spring.mvc.uuplex.hotel.handler.RoomDeleteProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomListHandler;
+import spring.mvc.uuplex.hotel.handler.RoomModifyFormHandler;
+import spring.mvc.uuplex.hotel.handler.RoomModifyProHandler;
 
 @Controller
 @RequestMapping("/hotel")
@@ -80,14 +83,20 @@ public class HFrontController {
 	}
 	
 	//按角荐沥
+	@Autowired
+	RoomModifyFormHandler roomModifyFormHandler;
 	@RequestMapping("/roomModifyForm")
-	public String roomModifyForm(Model model) {
+	public String roomModifyForm(HttpServletRequest req, Model model) {
 		System.out.println("roomModifyForm()");
-		return "/hotel/roomModifyForm";
+		
+		model.addAttribute("req", req);
+		String viewPage = roomModifyFormHandler.process(model);
+				
+		return viewPage;
 	}
 	
 	@Autowired
-	RoomAddProHandler roomModifyProHandler;
+	RoomModifyProHandler roomModifyProHandler;
 	@RequestMapping("/roomModifyPro")
 	public String roomModifyPro(HttpServletRequest req, Model model) {
 		System.out.println("roomModifyPro()");
@@ -98,9 +107,9 @@ public class HFrontController {
 		return viewPage;
 	}
 	
-	//按角昏力
+/*	//按角昏力
 	@Autowired
-	RoomAddProHandler roomDeleteProHandler;
+	RoomDeleteProHandler roomDeleteProHandler;
 	@RequestMapping("/roomDeletePro")
 	public String roomDeletePro(HttpServletRequest req, Model model) {
 		System.out.println("roomDeletePro()");
@@ -109,6 +118,6 @@ public class HFrontController {
 		String viewPage = roomDeleteProHandler.process(model);
 		
 		return viewPage;
-	}
+	}*/
 
 }

@@ -8,13 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.uuplex.admin.dao.BoardDAO;
+import spring.mvc.uuplex.hotel.dao.HotelDAO;
+import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
-@Service("modifyFormHandler")
+@Service("roomModifyFormHandler")
 public class RoomModifyFormHandler implements HCommandHandler {
 
 	@Autowired
-	BoardDAO dao;
+	HotelDAO dao;
 	
 	@Override
 	public String process(Model model) {
@@ -23,9 +24,12 @@ public class RoomModifyFormHandler implements HCommandHandler {
 		
 		int roomNum = Integer.parseInt(req.getParameter("roomNum"));
 		
-		model.addAttribute("roomNum", roomNum);
+		System.out.println(roomNum);
 		
-		return "/hotel/modifyForm";
+		HotelDTO dto = dao.modify(roomNum);
+		model.addAttribute("dto", dto);
+		
+		return "/hotel/roomModifyForm";
 	}
 
 }
