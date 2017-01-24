@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- 피트니스 강사 관련 -->
+<mapper namespace="spring.mvc.uuplex.fitness.dao.FTeacherDAO" >
+	<!-- 피트니스 강사 목록 총 수 -->
+	<select id="teacherCount" resultType="int">
+		SELECT COUNT(*) FROM F_TEACHER
+	</select>
+	<!-- 피트니스 강사 목록 리스트 반환 -->
+ 	<select id="list" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO" parameterType="Map">
+      SELECT * 
+        FROM (SELECT t.*, rownum rnum
+                FROM ( SELECT * 
+                		 FROM f_teacher
+                        ORDER BY tname ) t )
+       WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+	</select>
+	<!-- 피트니스 강사 추가 -->
+	 <insert id="tInsert" parameterType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
+      	INSERT INTO F_TEACHER (tid, tname, tinfo)
+        VALUES(SEQ_TEACHER_TID.nextval, #{tname}, #{tinfo})
+	</insert>
+	
+	<!-- 강사 리스트  detail -->
+	<select id="tdetail" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO" parameterType="int">
+		SELECT * 
+		 FROM f_teacher
+		WHERE tid=#{tid}
+	</select>
+	
+</mapper>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
+
 @Repository
 public class FSportsDAOImpl implements FSportsDAO{
 	
@@ -29,6 +30,14 @@ public class FSportsDAOImpl implements FSportsDAO{
 		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
 		list = dao.sportsList(rangeMap);
 		return list;
+	}
+	
+	@Override
+	public int addSports(FSportsDTO dto) {
+		int rtn = 0;
+		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
+		rtn = dao.addSports(dto);
+		return rtn;
 	}
 
 }
