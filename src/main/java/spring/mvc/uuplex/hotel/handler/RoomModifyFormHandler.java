@@ -1,6 +1,5 @@
 package spring.mvc.uuplex.hotel.handler;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +11,8 @@ import org.springframework.ui.Model;
 import spring.mvc.uuplex.hotel.dao.HotelDAO;
 import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
-@Service("roomListHandler")
-public class RoomListHandler implements HCommandHandler {
+@Service("roomModifyFormHandler")
+public class RoomModifyFormHandler implements HCommandHandler {
 
 	@Autowired
 	HotelDAO dao;
@@ -23,11 +22,14 @@ public class RoomListHandler implements HCommandHandler {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		
-		ArrayList<HotelDTO> dtos = dao.list();
+		int roomNum = Integer.parseInt(req.getParameter("roomNum"));
 		
-		model.addAttribute("dtos", dtos);
+		System.out.println(roomNum);
 		
-		return "/hotel/roomList";
+		HotelDTO dto = dao.modify(roomNum);
+		model.addAttribute("dto", dto);
+		
+		return "/hotel/roomModifyForm";
 	}
 
 }

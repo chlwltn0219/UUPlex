@@ -9,7 +9,6 @@
 
     <style>
     
-    @import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
     
     *{margin: 0;
     padding: 0;
@@ -23,7 +22,6 @@
             padding: 0;
             border: 0;
             font-size: 100%;
-			font-family: 'Jeju Myeongjo', serif;
             vertical-align: baseline;
         } 
 
