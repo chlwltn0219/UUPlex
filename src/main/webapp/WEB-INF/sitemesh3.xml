@@ -25,6 +25,9 @@
   <mapping path="/test/**" exclue="true"/>
   
   <mapping path="/fitness/manage/teacher/inputForm" exclue="true"/>
+  <mapping path="/fitness/teacher/detail" exclue="true"/>
+  <mapping path="/fitness/manage/teacher/modify" exclue="true"/>
+  <mapping path="/fitness/manage/teacher/modifyPro" exclue="true"/>
   
   <mapping path="/fitness/manage/sports/inputForm" exclue="true"/>
   <mapping path="/fitness/manage/sports/modify" exclue="true"/>

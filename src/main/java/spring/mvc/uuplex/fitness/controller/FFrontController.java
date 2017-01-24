@@ -16,6 +16,7 @@ import spring.mvc.uuplex.fitness.handler.FSportsModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherInputHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
+import spring.mvc.uuplex.fitness.handler.FTeacherModifyHandler;
 
 @Controller
 @RequestMapping("/fitness")
@@ -36,6 +37,8 @@ public class FFrontController{
 	FTeacherInputHandler tInputHandler;
 	@Autowired
 	FTeacherDetailHandler tDetailHandler;
+	@Autowired
+	FTeacherModifyHandler tmodifyHandler;
 
 
 	// 占쏙옙占쏙옙占쏙옙: 占쏙옙트占싹쏙옙 占쏙옙占쏙옙
@@ -146,4 +149,24 @@ public class FFrontController{
 		return viewPage;
 	}
 	
+	//김진우 : 강사 상세 정보 수정 폼
+	@RequestMapping("/manage/teacher/modify")
+	public String teacherModify(HttpServletRequest req, Model model){
+		
+		model.addAttribute("req", req);
+		String viewPage = "/fitness/manage/teacher_modify";
+		tDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	//김진우 : 강사 상세 정보 수정
+	@RequestMapping("/manage/teacher/modifyPro")
+	public String teacherModifyPro(HttpServletRequest req, Model model){
+		
+		model.addAttribute("req", req);
+		tmodifyHandler.process(model);
+		String viewPage = teacherDetail(req, model);
+		
+		return viewPage;
+	}
 }

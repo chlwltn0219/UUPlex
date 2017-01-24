@@ -10,25 +10,35 @@ import spring.mvc.uuplex.fitness.dao.FTeacherDAO;
 import spring.mvc.uuplex.fitness.dto.FTeacherDTO;
 
 @Service
-public class FTeacherDetailHandler implements FCommandHandler{
-	
+public class FTeacherModifyHandler implements FCommandHandler{
+
 	@Autowired
-	FTeacherDAO  dao;
-	
+	FTeacherDAO dao;
 	
 	@Override
 	public String process(Model model) {
+		String viewPage = null;
+		FTeacherDTO dto = new FTeacherDTO();
 		
-		FTeacherDTO dto = null;
 		int tid = 0;
+		String tname = null;
+		String tinfo = null;
 		
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
-		System.out.println(req.getParameter("tid"));
-		tid = Integer.parseInt(req.getParameter("tid"));
-		dto = dao.tdetail(tid);		
-		model.addAttribute("dto", dto);
 		
-		return "/fitness/manage/teacher_detail";
+		tid = Integer.parseInt(req.getParameter("tid"));
+		tname = req.getParameter("tname"); 
+		tinfo = req.getParameter("tinfo");	
+		
+		dto.setTid(Integer.parseInt(req.getParameter("tid")));
+		dto.setTname(req.getParameter("tname"));
+		dto.setTinfo(req.getParameter("tinfo"));	
+		
+		dao.teacherModify(dto);		
+		
+
+		
+		return viewPage;
 	}
 
 }
