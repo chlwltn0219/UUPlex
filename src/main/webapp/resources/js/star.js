@@ -28,7 +28,7 @@ var $star = $(".star-input"),
     .on("mouseleave", ".star-input>.input", function(){
     	var $checked = $star.find(":checked");
     		if($checked.length === 0){
-     	 		$result.text("0");
+     	 		$result.text("평점을 입력해주세요!");
    		 	} else {
      	 		$result.text($checked.next().text());
     		}
