@@ -6,11 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+    #content {
+        width:100%; height:820px;
+    }
+</style>
 </head>
 <body>
+<div id="content">
+	<br><h3>객실정보 수정</h3><br>
 	<form action="roomModifyPro" method="post" name="roomModifyPro">
 		<input type="hidden" name="roomNum" value="${dto.roomNum}">
-		<table border="1">
+		<table class="table">
 			<tr>
 				<th>객실이름</th>
 				<td><input class="input" type="text" name="roomName" maxlength="20" value="${dto.roomName}"></td>
@@ -88,10 +95,11 @@
 				<td><input class="input" type="text" name="charge" value="${dto.charge}"></td>
 			</tr>
 		</table>
-		<input class="inputButton" type="submit" value="수정">
-		<input class="inputButton" type="reset" value="재작성">
-		<input class="inputButton" type="button" value="취소"
-			onclick="/hotel/adminMain">
-	</form> 
+		<br><br><center><input class="btn btn-default" type="submit" value="수정">
+		<input class="btn btn-default" type="reset" value="재작성">
+		<input class="btn btn-default" type="button" value="취소"
+			onclick="location.href='roomList'"></center>
+	</form>
+	</div>
 </body>
 </html>

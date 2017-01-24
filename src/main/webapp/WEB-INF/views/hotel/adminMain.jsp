@@ -125,8 +125,12 @@
     </header>
     <div id="content">
         <div class="section1">
-            <div class="slide_banner"><img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px"><br><br> 스탠다드룸 </div>
-            <div class="side_banner"><img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px"><br><br> 스위트룸 </div>
+            <div class="slide_banner">
+            <img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px">
+            <br><br> 스탠다드룸 <button type="button" class="btn btn-default btn-sm">바로예약</button></div>
+            <div class="side_banner">
+            <img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px">
+            <br><br> 스위트룸  <button type="button" class="btn btn-default btn-sm">바로예약</button></div>
         </div>
     </div>
     </div>
