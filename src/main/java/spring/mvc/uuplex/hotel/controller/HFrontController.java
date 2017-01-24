@@ -11,9 +11,20 @@ import spring.mvc.uuplex.hotel.handler.HCommandHandler;
 import spring.mvc.uuplex.hotel.handler.RoomListHandler;
 
 @Controller
+@RequestMapping("/hotel")
 public class HFrontController {
 
 	HCommandHandler command;
+	
+	@RequestMapping("")
+	public String list(){
+		
+		System.out.println("hotel main");
+		
+		String viewPage = "hotel/adminMain";
+		
+		return viewPage;
+	}
 	
 	//메인페이지
 	@RequestMapping("/adminMain")
@@ -54,5 +65,25 @@ public class HFrontController {
 		System.out.println("roomAddForm()");
 		return "/hotel/roomAddForm";
 	}
+<<<<<<< HEAD
 
+=======
+	
+
+	//객실등록
+	@Autowired
+	RoomAddProHandler roomAddProHandler;
+	@RequestMapping("/roomAddPro")
+	public String roomAddPro(HttpServletRequest req, Model model) {
+		System.out.println("roomAddPro()");
+		
+		model.addAttribute("req", req);
+		String viewPage = roomAddProHandler.process(model);
+		
+		return viewPage;
+	}
+	
+
+
+>>>>>>> 5176935857f6fa874d0eb4ed7ae5b3a0832c65db
 }

@@ -8,5 +8,5 @@ import spring.mvc.uuplex.hotel.dto.HotelDTO;
 public interface HotelDAO {
 
 	public int insert(HotelDTO dto);  //객실등록
-	public ArrayList<HotelDTO> list(Map<String, Integer> daoMap);  //객실목록조회
+	public ArrayList<HotelDTO> list();  //객실목록조회
 }

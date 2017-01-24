@@ -43,7 +43,10 @@
 		<c:forEach items="${dtos}" var="dto">
 		<tr>
 			<td>${dto.sid}</td>
-			<td>${dto.sname}</td>
+			<td><a class="btn btn-link"
+					data-toggle="modal" data-target="#sportInfo">
+				${dto.sname}</a>
+			</td>
 		</tr>
 		</c:forEach>
 		</c:if>
@@ -83,7 +86,7 @@
 	</table>
 	
 	<%@ include file="sports_input.jsp" %>
-	<%@ include file="sports_modal.jsp" %>
+	<%@ include file="sports_detail.jsp" %>
 		
 </body>
 </html>

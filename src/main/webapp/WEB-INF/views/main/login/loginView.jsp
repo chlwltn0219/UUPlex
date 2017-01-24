@@ -4,14 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>강사 리스트</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-<table class="table table-hover">
-
-</table>
-
-
+로그인 하세요!!!!
 </body>
 </html>
