@@ -14,4 +14,6 @@ public interface FSportsDAO {
 	List<FSportsDTO> sportsList(Map<String,Integer> rangeMap);
 	// 추가
 	int addSports(FSportsDTO dto);
+	// 상세정보 조회
+	FSportsDTO sportsDetail(int sid);
 }

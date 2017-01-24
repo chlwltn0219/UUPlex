@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
+import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherInputHandler;
@@ -20,33 +21,28 @@ import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 public class FFrontController{
 	
 	@Autowired
-	FSportsListHandler sportsHandler;
-	
-	@Autowired
 	FSportsListHandler sportsListHandler;
-	
-	
 	@Autowired
 	FSportsAddHandler sportsAddHandler;
+	@Autowired
+	FSportsDetailHandler sportsDetailHandler;
 	
 	@Autowired
 	FTeacherListHandler tListHandler;
-	
 	@Autowired
 	FTeacherInputHandler tInputHandler;
-	
 	@Autowired
 	FTeacherDetailHandler tDetailHandler;
 
 
-	// ÃÖÁö¼ö: ÇÇÆ®´Ï½º ¸ŞÀÎ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½Æ®ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("")
 	public String list(Model model){
 		String viewPage = "fitness/user/fit_main";
 		return viewPage;
 	}
 	
-	// ÃÖÁö¼ö: Á¾¸ñ ¸®½ºÆ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	@RequestMapping("/manage/sports/list")
 	public String manageSportsList(HttpServletRequest req, Model model){
 		
@@ -61,7 +57,35 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// ±èÁø¿ì : °­»ç ¸®½ºÆ®
+	@RequestMapping("/manage/sports/inputForm")
+	public String sportInputForm() {
+		String viewPage = "/fitness/manage/sports_input";
+		return viewPage;
+	}
+	
+	//ìµœì§€ìˆ˜ : í”¼íŠ¸ë‹ˆìŠ¤ - ì¢…ëª©ì¶”ê°€
+	@RequestMapping("/manage/sports/add")
+	public String sportsAdd(HttpServletRequest req, Model model){
+		String viewPage = null;
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("req", req);
+		viewPage = sportsAddHandler.process(model);
+		return viewPage;
+	}
+	
+	//ìµœì§€ìˆ˜ : í”¼íŠ¸ë‹ˆìŠ¤ - ì¢…ëª©ìƒì„¸ì •ë³´
+	@RequestMapping("/sports/detail")
+	public String sportsDetail(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		String viewPage = sportsDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	@RequestMapping("/manage/teacher/list")
 	   public String list(HttpServletRequest req, Model model) {
 	      System.out.println("list()");
@@ -72,7 +96,7 @@ public class FFrontController{
 	      return viewPage;	  
 	}
 	
-	// ±èÁø¿ì : °­»ç Á¤º¸ Ãß°¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	@RequestMapping("/manage/teacher/input")
 	   public String input(HttpServletRequest req, Model model) {
 	      System.out.println("input()");
@@ -84,21 +108,7 @@ public class FFrontController{
 
 	}
 	
-	@RequestMapping("/manage/sports/add")
-	public String sportsAdd(HttpServletRequest req, Model model){
-		
-		try {
-			req.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		
-		model.addAttribute("req", req);
-		String viewPage = sportsAddHandler.process(model);
-		return viewPage;
-	}
-	
-	//±èÁø¿ì : °­»ç µğÅ×ÀÏ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/teacher/detail")
 	public String teacherDetail(HttpServletRequest req, Model model){
 		

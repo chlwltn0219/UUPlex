@@ -1,11 +1,14 @@
 package spring.mvc.uuplex.fitness.dto;
 
+import java.sql.Timestamp;
+
 public class FSportsDTO {
 	
 	private int sid;
 	private String sname;
 	private String sinfo;
 	private String activated;
+	private Timestamp reg_date;
 	
 	public int getSid() {
 		return sid;
@@ -31,5 +34,10 @@ public class FSportsDTO {
 	public void setActivated(String activated) {
 		this.activated = activated;
 	}
-	
+	public Timestamp getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(Timestamp reg_date) {
+		this.reg_date = reg_date;
+	}
 }
