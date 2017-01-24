@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+<mapper namespace="spring.mvc.uuplex.movie.dao.MovieDAO" >
+
+	<!-- 영화정보 추가 -->
+	<insert id="addMovieInfo" parameterType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
+		INSERT INTO m_movie_info(movie_num, title1, title2, director, starring, 
+		genre, MPAARating, productionYear, runTime, releaseDate, poster, 
+		movie_img1, movie_img2, trailer, status) VALUES(m_movie_info_seq.NEXTVAL, #{title1}, #{title2}, 
+		#{director}, #{starring}, #{genre}, #{MPAARating}, #{productionYear}, #{runTIme}, #{releaseDate},
+		#{poster}, #{movie_img1}, #{movie_img2}, #{trailer}, #{status})
+	
+	</insert>
+</mapper>
