@@ -21,10 +21,10 @@ function sportsCallBack() {
 			tid.innerHTML = httpRequest.responseText;
 			
 		} else {
-			tid.innerHTML = "에러발생!@!!!!!!!대피하라!!!!!!!!";
+			sid.innerHTML = "에러발생!@!!!!!!!대피하라!!!!!!!!";
 		}
 		
 	} else {
-		tid.innerHTML="상태 : " + httpRequest.readyState;
+		sid.innerHTML="상태 : " + httpRequest.readyState;
 	}
 }
