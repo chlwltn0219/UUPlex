@@ -16,12 +16,13 @@
           <table class="table">
           	<tr>
           	<tr>
-          		<td rowspan="5">${dto.timg}</td>
+          		<td rowspan="6">${dto.timg}</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr>  
           		<th>강사 코드</th>
           		<td>
-          			<div id="tid"></div>
+          			<input type="text" name="" class="input-form" readonly>
+          			<div name="tid"></div>
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr> 
@@ -32,17 +33,33 @@
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr>  
+          	<tr>
+          	<th>입사일</th>          		
+          		<td>
+          			<div id="reg_date"></div>
+          		</td>
+     <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
+          	</tr> 
+          	<tr>
+          		<th>재직 여부</th>
+          		<td>
+          			<div id="activated"></div>
+          		</td>
+          	</tr> 
             <tr>
-          		<th>강사 상세</th>
+            
+          		<th>강사 정보</th>
           		<td>
           			<div id="tinfo"></div>
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
-          	</tr>  
+          	</tr> 
+
           </table>
-        </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+							<input type="button" class="btn btn-primary" value="등록하기"
+								data-toggle="modal" data-target="#teacherInput">
+          <button type="submit" class="btn btn-default btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> 닫기</button>
         </div>
       </div>
     </div>

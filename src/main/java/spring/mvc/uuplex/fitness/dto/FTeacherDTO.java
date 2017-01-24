@@ -1,5 +1,7 @@
 package spring.mvc.uuplex.fitness.dto;
 
+import java.sql.Timestamp;
+
 public class FTeacherDTO {
 
 	private int tid; 
@@ -7,7 +9,14 @@ public class FTeacherDTO {
 	private String tinfo;
 	private String tpicture;
 	private String activated;
+	private Timestamp reg_date;
 	  
+	public Timestamp getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(Timestamp reg_date) {
+		this.reg_date = reg_date;
+	}
 	public int getTid() {
 		return tid;
 	}

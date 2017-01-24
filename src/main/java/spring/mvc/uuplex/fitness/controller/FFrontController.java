@@ -74,7 +74,7 @@ public class FFrontController{
 	
 	// 김진우 : 강사 정보 추가
 	@RequestMapping("/manage/teacher/input")
-	   public String input(HttpServletRequest req, Model model) {
+	 public String input(HttpServletRequest req, Model model) {
 	      System.out.println("input()");
 	      
 	      model.addAttribute("req", req);
@@ -82,6 +82,12 @@ public class FFrontController{
 	      
 	      return viewPage;	  
 
+	}
+	
+	@RequestMapping("/manage/teacher/inputForm")
+	public String inputFrom(HttpServletRequest req, Model model) {
+	      String viewPage = "/fitness/manage/teacher_input";  
+	      return viewPage;	  
 	}
 	
 	@RequestMapping("/manage/sports/add")

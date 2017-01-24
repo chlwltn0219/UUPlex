@@ -15,7 +15,7 @@
         FROM (SELECT t.*, rownum rnum
                 FROM ( SELECT * 
                 		 FROM f_teacher
-                        ORDER BY tname ) t )
+                        ORDER BY activated DESC , reg_date DESC) t )
        WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
 	</select>
 	<!-- 피트니스 강사 추가 -->
