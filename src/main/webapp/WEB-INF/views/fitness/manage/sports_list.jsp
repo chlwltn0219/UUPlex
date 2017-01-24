@@ -10,7 +10,7 @@
 <title>종목 목록</title>
 </head>
 <body>
-
+<div class="container">
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -109,6 +109,6 @@
 	</div>
 <%-- 	<%@ include file="sports_input.jsp" %> --%>
 <%-- 	<%@ include file="sports_detail.jsp" %> --%>
-		
+</div>	
 </body>
 </html>

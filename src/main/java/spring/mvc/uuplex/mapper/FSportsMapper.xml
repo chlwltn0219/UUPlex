@@ -34,4 +34,12 @@
 		WHERE sid=#{sid}
 	</select>
 	
+	<!-- 종목 정보 수정 -->
+	<update id="modifySports" parameterType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
+		UPDATE F_SPORTS
+		   SET sname = #{sname},
+			   sinfo = #{sinfo}
+		 WHERE sid = #{sid}
+	</update>
+	
 </mapper>
