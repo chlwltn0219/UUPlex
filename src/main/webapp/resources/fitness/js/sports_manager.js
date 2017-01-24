@@ -44,9 +44,6 @@ function sportsModal() {
 	if(httpRequest.readyState == 4 ) {
 		if(httpRequest.status == 200) {
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
-			
-			alert(httpRequest.responseText);
-			
 			modal.innerHTML = httpRequest.responseText;
 		} else {
 			modal.innerHTML = httpRequest.status + "에러 발생";
