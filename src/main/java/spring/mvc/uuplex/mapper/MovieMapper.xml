@@ -20,4 +20,9 @@
 	<select id="getMovieInfo" parameterType="int">
 		SELECT * FROM m_movie_info WHERE movie_num = #{num}
 	</select>
+	
+	<!--영화목록-->
+	<select id="moviesList" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
+		SELECT * FROM m_movie_info
+	</select>
 </mapper>

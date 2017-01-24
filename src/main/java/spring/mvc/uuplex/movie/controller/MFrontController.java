@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.GetMovieInfoHandler;
+import spring.mvc.uuplex.movie.handler.MovieListHandler;
 
 @Controller
 @RequestMapping("/c-box")
@@ -36,7 +37,7 @@ public class MFrontController {
 	// 유영원 >영화정보관리>>영화정보추가
 	@Autowired
 	AddMovieInfoHandler addMovieInfoHandler;
-	
+
 	@RequestMapping("/AddMovieInfo")
 	public String AddMovieInfo(HttpServletRequest req, Model model) {
 		System.out.println("AddMovieInfo");
@@ -63,6 +64,7 @@ public class MFrontController {
 	// 박주은>영화정보가져오기
 	@Autowired
 	GetMovieInfoHandler getMovieInfoHandler;
+
 	@RequestMapping("/getMovieInfo")
 	public String getMovieInfo(HttpServletRequest req, Model model) {
 		System.out.println("getMovieInfo");
@@ -74,5 +76,17 @@ public class MFrontController {
 
 		return viewPage;
 	}
+	
+	// 박주은>영화목록
+	@Autowired
+	MovieListHandler movieListHandler;
+	@RequestMapping("/movie_list")
+	public String movieList(Model model) {
+		System.out.println("movie_list");
 
+		model.addAttribute("contentPage", "movie_list.jsp");
+		String viewPage = movieListHandler.process(model);
+
+		return viewPage;
+	}
 }

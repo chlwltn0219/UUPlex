@@ -1,5 +1,7 @@
 package spring.mvc.uuplex.movie.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,6 +30,14 @@ public class MovieDAOImpl implements MovieDAO{
 		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
 		dto = dao.getMovieInfo(num);
 		return dto;
+	}
+
+	@Override
+	public List<MovieInfoDTO> moviesList() {
+		List<MovieInfoDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.moviesList();
+		return list;
 	}
 
 
