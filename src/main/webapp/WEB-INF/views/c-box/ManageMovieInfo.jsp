@@ -40,10 +40,7 @@
 					
 					<form action="AddMovieInfo" method="post" name="addform" enctype="multipart/form-data">
 						<table class="table">
-							<tr>
-								<th>MovieNO.</th>
-								<td colspan="4"><input type="text" name="movie_num" placeholder="영화번호" maxlength="10" required></td>
-							</tr>
+							
 							<tr>
 								<th>Title1</th>
 								<td colspan="4"><input type="text" name="title1" placeholder="영화제목(한글)" maxlength="50" required></td>

@@ -8,10 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
-<<<<<<< HEAD
-=======
 
->>>>>>> 2601e40914d47012967f75e9b73dc98ec22eb057
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomDeleteProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomListHandler;
@@ -125,8 +122,4 @@ public class HFrontController {
 		return viewPage;
 	}*/
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2601e40914d47012967f75e9b73dc98ec22eb057
 }

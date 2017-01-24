@@ -17,8 +17,8 @@
 	<c:if test="${cnt != 0}">
 		<script type="text/javascript">
 			alert("영화정보가 추가되었습니다.");
+			history.back();
 		</script>
-		history.back();
 	
 	</c:if>
 </body>
