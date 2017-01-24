@@ -10,11 +10,11 @@
 <title>강사 리스트</title>
 </head>
 <body>
-
+	<div class="container">
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td colspan="2">
+				<td colspan="3">
 					<form action="" method="get" onsubmit=""
 						 class="form-inline" name="searchForm">
 						<div class="input-group">
@@ -101,6 +101,6 @@
 		</div>
 <%-- 	 	<%@ include file="teacher_input.jsp" %> 
  		<%@ include file="teacher_detail.jsp" %>  --%>
-		
+	</div>	
 </body>
 </html>
