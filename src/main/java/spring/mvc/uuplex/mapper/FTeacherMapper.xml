@@ -15,7 +15,7 @@
         FROM (SELECT t.*, rownum rnum
                 FROM ( SELECT * 
                 		 FROM f_teacher
-                        ORDER BY tname ) t )
+                        ORDER BY activated DESC , reg_date DESC) t )
        WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
 	</select>
 	<!-- 피트니스 강사 추가 -->
@@ -30,5 +30,12 @@
 		 FROM f_teacher
 		WHERE tid=#{tid}
 	</select>
+	
+	<update id="teacherModify" parameterType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
+		UPDATE f_teacher 
+			SET tname=#{tname}, 
+				tinfo=#{tinfo}
+			WHERE tid=#{tid}	
+	</update>
 	
 </mapper>

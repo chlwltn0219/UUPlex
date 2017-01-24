@@ -39,5 +39,21 @@ public class FSportsDAOImpl implements FSportsDAO{
 		rtn = dao.addSports(dto);
 		return rtn;
 	}
+	
+	@Override
+	public FSportsDTO sportsDetail(int sid) {
+		FSportsDTO dto = null;
+		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
+		dto = dao.sportsDetail(sid);
+		return dto;
+	}
 
+	@Override
+	public int modifySports(FSportsDTO dto) {
+		int rtn = 0;
+		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
+		rtn = dao.modifySports(dto);
+		return rtn;
+	}
+	
 }

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
+
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomDeleteProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomListHandler;
@@ -69,6 +70,7 @@ public class HFrontController {
 		System.out.println("roomAddForm()");
 		return "/hotel/roomAddForm";
 	}
+
 	
 	@Autowired
 	RoomAddProHandler roomAddProHandler;
@@ -98,7 +100,7 @@ public class HFrontController {
 	@Autowired
 	RoomModifyProHandler roomModifyProHandler;
 	@RequestMapping("/roomModifyPro")
-	public String roomModifyPro(HttpServletRequest req, Model model) {
+	public String roomModifyPro(HttpServletRequest req, Model model){
 		System.out.println("roomModifyPro()");
 		
 		model.addAttribute("req", req);

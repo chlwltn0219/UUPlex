@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
     
-  <!-- Modal -->
-  <div class="modal fade" id="tdeail" role="dialog">
-    <div class="modal-dialog">
 
       <!-- Modal content-->
       <div class="modal-content">
@@ -15,36 +13,49 @@
         <div class="modal-body">
           <table class="table">
           	<tr>
-          	<tr>
-          		<td rowspan="5">${dto.timg}</td>
+<%--           	<tr>
+          		<td rowspan="6">${dto.timg}</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
-          	</tr>  
+          	</tr>   --%>
           		<th>강사 코드</th>
           		<td>
-          			<div id="tid"></div>
+          			${dto.tid}
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr> 
           	<tr>
           		<th>강사명</th>
           		<td>
-          			<div id="tname"></div>
+          			${dto.tname}
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr>  
-            <tr>
-          		<th>강사 상세</th>
+          	<tr>
+          	<th>입사일</th>          		
           		<td>
-          			<div id="tinfo"></div>
+          			${fn:substring(dto.reg_date, 0, 10)}
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
-          	</tr>  
+          	</tr> 
+          	<tr>
+          		<th>재직 여부</th>
+          		<td>
+          			${dto.activated}
+          		</td>
+          	</tr> 
+            <tr>
+            
+          		<th>강사 정보</th>
+          		<td>
+          			<pre>${dto.tinfo}</pre>
+          		</td>
+     <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
+          	</tr> 
+
           </table>
-        </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+			<input type="button" class="btn btn-primary" value="수정" onclick="teacherModify(${dto.tid})">
+        	<button type="submit" class="btn btn-default btn-default" data-dismiss="modal">닫기</button>
         </div>
       </div>
     </div>
-  </div> 
-</div>

@@ -59,4 +59,14 @@ public class FTeacherDAOImpl implements FTeacherDAO{
 		return dto;
 	}
 
+	@Override
+	public int teacherModify(FTeacherDTO dto) {
+		int cnt = 0;
+		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
+		
+		cnt = dao.teacherModify(dto);
+		
+		return cnt;
+	}
+
 }

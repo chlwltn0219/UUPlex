@@ -23,12 +23,12 @@ public class FTeacherDetailHandler implements FCommandHandler{
 		int tid = 0;
 		
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
-		
+		System.out.println(req.getParameter("tid"));
 		tid = Integer.parseInt(req.getParameter("tid"));
 		dto = dao.tdetail(tid);		
 		model.addAttribute("dto", dto);
 		
-		return null;
+		return "/fitness/manage/teacher_detail";
 	}
 
 }

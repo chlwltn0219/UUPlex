@@ -15,4 +15,6 @@ public interface FTeacherDAO {
 	public int tInsert(FTeacherDTO dto);
 	//강사 상세 정보
 	public FTeacherDTO tdetail(int tid);
+	//강사 상세 정보 수정
+	public int teacherModify(FTeacherDTO dto);
 }
