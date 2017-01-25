@@ -23,16 +23,19 @@ public class FTeacherModifyHandler implements FCommandHandler{
 		int tid = 0;
 		String tname = null;
 		String tinfo = null;
+		String activated = null;
 		
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
 		
 		tid = Integer.parseInt(req.getParameter("tid"));
 		tname = req.getParameter("tname"); 
 		tinfo = req.getParameter("tinfo");	
+		activated = req.getParameter("activated");
 		
 		dto.setTid(Integer.parseInt(req.getParameter("tid")));
 		dto.setTname(req.getParameter("tname"));
 		dto.setTinfo(req.getParameter("tinfo"));	
+		dto.setActivated(activated);
 		
 		dao.teacherModify(dto);		
 		
