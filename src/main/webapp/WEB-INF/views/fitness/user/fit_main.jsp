@@ -12,48 +12,48 @@
     <link href="../resources/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style type="text/css">
-    	div.top {
-    		height: 50px;
+    	div.carousel {
+/*     		margin: 30px 0 ; */
     	}
-    	div.box {
-    		margin-top: 25px;
-    		margin-bottom: 25px;
+    	
+    	div.carousel-inner img {
+    		width: 100%;
     	}
-     	nav.navbar {
-/*       		height: 100px; */
-     	}
-     	.menu, .carousel-inner {
-     		text-align: center;
-     	}
-     	table.notice tbody th, table.notice tbody td{
-     		text-align: center;
-     	}
-     	table.notice tbody th:first-child, table.notice tbody td:first-child{
+    	div.menu img {
+    		width: 60%;
+    	}
+     	.board th:first-child, 
+     	.board td:first-child{
      		width: 75%;
      	}
+    	
+     	.content {
+     		text-align: center;
+     	}
+     	
+     	div.row {
+     		margin-bottom: 60px;
+     	}
+     	
     </style>
   </head>
   <body>
   	
-<!-- NAVBAR ================================================== -->
-  	
-  	<div class="top"></div>
-  	
-    <!-- Carousel ================================================== -->
-	<div class="container box">
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div class="container content">
+    <!-- 캐러셀 ================================================== -->
+		<div id="fitness-carousel" class="carousel slide row" data-ride="carousel">
 			<!-- Indicators -->
 			<!-- 하단 버튼 -->
 			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#fitness-carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#fitness-carousel" data-slide-to="1"></li>
 			<!--     <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
 			</ol>
 		
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="http://placehold.it/1200x400" alt="...">
+					<img src="http://placehold.it/900x300" alt="...">
 					<div class="carousel-caption">
 						캐러셀 1면 입니다.
 					</div>
@@ -64,48 +64,40 @@
 						캐러셀 2면 입니다.
 					</div>
 				</div>
-				캐러셀 전체 설명
+<!-- 				캐러셀 전체 설명 -->
 			</div>
 		
 		  <!-- Controls -->
-		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		  <a class="left carousel-control" href="#fitness-carousel" role="button" data-slide="prev">
 		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 		    <span class="sr-only">Previous</span>
 		  </a>
-		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		  <a class="right carousel-control" href="#fitness-carousel" role="button" data-slide="next">
 		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-	</div>
-<!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-	<div class="container box menu">
-	  <!-- Three columns of text below the carousel -->
-		<div class="row">
+		
+	  <!-- 3열 메뉴 -->
+		<div class="row menu">
 			<div class="col-sm-4">
-				<img class="img-circle" src="http://placehold.it/140?text=Program" alt="Generic placeholder image" width="140" height="140">
+				<img class="img-circle" src="http://placehold.it/140?text=Program" alt="Generic placeholder image">
 				<h2>프로그램 안내</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
-				<img class="img-circle" src="http://placehold.it/140?text=Register" alt="Generic placeholder image" width="140" height="140">
+				<img class="img-circle" src="http://placehold.it/140?text=Register" alt="Generic placeholder image">
 				<h2>수강 신청</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
-				<img class="img-circle" src="http://placehold.it/140?text=Refund" alt="Generic placeholder image" width="140" height="140">
+				<img class="img-circle" src="http://placehold.it/140?text=Refund" alt="Generic placeholder image">
 				<h2>환불</h2>
 			</div><!-- /.col-lg-4 -->
 		</div><!-- /.row -->
   
-       <!-- START THE FEATURETTES -->
-
-		<hr>
-		
+       <!-- 미니 게시판 -->
 		<div class="row featurette">
 			<div class="col-sm-6">
-				<table class="table table-condensed notice">
+				<table class="table table-condensed board">
 					<thead>
 						<tr>
 							<th colspan="3"> 공지사항 </th>
@@ -141,7 +133,7 @@
 				</table>
 			</div>
 			<div class="col-sm-6">
-				<table class="table table-condensed notice">
+				<table class="table table-condensed board">
 					<thead>
 						<tr>
 							<th colspan="3"> FAQ </th>
@@ -177,10 +169,7 @@
 				</table>
 			</div>
 		</div>
-
-      <!-- /END THE FEATURETTES -->
-
-    </div><!-- /.container -->
+    </div>
   
 
     <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->

@@ -10,11 +10,11 @@
 <title>종목 목록</title>
 </head>
 <body>
-<div class="container">
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<td colspan="2">
+				<!-- 검색 -->
 					<form action="" method="get" onsubmit=""
 						 class="form-inline" name="searchForm">
 						<div class="input-group">
@@ -31,12 +31,12 @@
 						</div>
 					</form>
 				<td>
+				<!-- 등록 -->
 					<div class="form-group pull-right">
 						<input type="button" class="btn btn-primary" 
 							value="등록하기" onclick="sportsInput()"
 							data-toggle="modal" data-target="#modalPage">
 					</div>
-				</td>
 				</td>
 			</tr>
 			<tr>
@@ -106,6 +106,5 @@
 	</div>
 <%-- 	<%@ include file="sports_input.jsp" %> --%>
 <%-- 	<%@ include file="sports_detail.jsp" %> --%>
-</div>	
 </body>
 </html>

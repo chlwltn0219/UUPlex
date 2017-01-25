@@ -11,15 +11,18 @@
 <html lang="ko">
 <head>
 	<sitemesh:write property="head" />
+	<title><sitemesh:write property="title"/></title>
 	<style type="text/css">
-    	div.top {
-    		height: 50px;
-    	}
+		.affix {
+			top: 0;
+			width: 100%;
+      		z-index: 100;
+		}
 	</style>
 </head>
 <body>
 	<!-- Fitness NAVBAR ================================================== -->
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50">
 		<div class="navbar-header">
 			<!-- 모바일 메뉴 버튼 -->
 			<button type="button" class="navbar-toggle collapsed"
@@ -35,8 +38,9 @@
 		</div>
 	
 		<div id="navbar" class="navbar-collapse collapse">
+<!-- 			일반 메뉴 -->
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">휘트니스</a></li>
+				<li><a href="/uuplex/fitness">휘트니스</a></li>
 				<li><a href="#">프로그램 안내</a></li>
 				<li><a href="#">강사 안내</a></li>
 				<li><a href="#">수강 신청</a></li>
@@ -49,6 +53,7 @@
 						<li><a href="#">문의 내역</a></li>
 					</ul>
 				</li>
+<!-- 				관리자 메뉴 -->
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 관리자 페이지 <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">

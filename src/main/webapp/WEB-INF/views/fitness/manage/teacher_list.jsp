@@ -10,7 +10,6 @@
 <title>강사 리스트</title>
 </head>
 <body>
-	<div class="container">
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -101,6 +100,5 @@
 		</div>
 <%-- 	 	<%@ include file="teacher_input.jsp" %> 
  		<%@ include file="teacher_detail.jsp" %>  --%>
-	</div>	
 </body>
 </html>
