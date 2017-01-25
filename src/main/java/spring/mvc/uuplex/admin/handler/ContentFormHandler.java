@@ -26,6 +26,7 @@ public class ContentFormHandler implements CommandHandler {
 		int num = Integer.parseInt(req.getParameter("num"));
 		int pageNum = Integer.parseInt(req.getParameter("pageNum"));
 		int number = Integer.parseInt(req.getParameter("number"));
+		int shopCode = Integer.parseInt(req.getParameter("shopCode"));
 		
 		BoardDTO dto = dao.getQnA(num);
 		
@@ -33,9 +34,12 @@ public class ContentFormHandler implements CommandHandler {
 			
 		}
 		
+		System.out.println(req.getSession().getAttribute("idCode"));
+		
 		model.addAttribute("dto", dto);
 		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("number", number);
+		model.addAttribute("shopCode", shopCode);
 		
 		return "/main/board/contentForm";
 	}

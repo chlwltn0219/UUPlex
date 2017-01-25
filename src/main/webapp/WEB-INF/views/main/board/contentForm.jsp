@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <html>
 <head>
 
@@ -14,7 +15,7 @@
 	<div class="form-group">
     	<label for="boardSubject" class="col-sm-2 control-label">작성자</label>
     	<div class="col-sm-2">
-			<input type="text" name="memId" class="form-control" value="${sessionScope.id}" readonly>
+			<input type="text" name="memId" class="form-control" value="${dto.memId}" readonly>
 		</div>
 	</div>	
 	
@@ -35,6 +36,9 @@
 	<div class="form-group" align="center">
     	<div class="col-sm-offset-2 col-sm-10">
       		<input type="button" class="btn btn-default" value="목록보기" onclick="window.location='qna?pageNum=${pageNum}'">
+      		<c:if test="${idCode==101}">
+      		<input type="button" class="btn btn-default" value="답글쓰기" onclick="window.location='qnAWriteForm?num=${dto.qnaNum}&ref=${pageNum}&ref_step=${dto.ref_step}&ref_level=${dto.ref_level}&shopCode=${shopCode}'">
+      		</c:if>
     	</div>
   	</div>	
 

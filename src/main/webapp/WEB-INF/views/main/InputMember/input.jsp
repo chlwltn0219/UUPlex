@@ -8,6 +8,7 @@
 <%@ include file="../../setting.jsp" %>
 <html lang="ko">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <meta name="robots" content="ALL"> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -187,6 +188,39 @@ p.error { /* 에러메시지 */
 	<div class="row">
 		<div class="col-sm-offset-2 col-sm-8">
 			<form role="form" id="joinForm" method="post" action="/join.php" autocomplete="off">
+=======
+	<style>
+		.row {
+			margin:30px;
+		}
+	
+	</style>
+	
+	<script type="text/javascript">
+	function checkbox() {
+		if(!document.agree.join_user_agree.checked) {
+			alert("회원가입 약관에 동의하세요");
+			return false;
+		} else if (!document.agree.join_priv_agree.checked) {
+			alert("개인정보 처리방침에 동의하세요");
+			return false;
+		}
+		
+		window.location="inputForm";
+	}
+	
+</script>
+
+</head>
+
+
+<!-- Body -->
+<div class="join-agree-layout">
+
+	<div class="row">
+		<div class="col-sm-offset-2 col-sm-8">
+			<form name="agree" role="form" id="joinForm" method="post" action="/join.php" autocomplete="off">
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Create Account
@@ -399,8 +433,14 @@ p.error { /* 에러메시지 */
 							<div class="col-xs-12">
 								<div class="checkbox pull-right">
 									<label for="join_user_agree">
+<<<<<<< HEAD
 										<input type="checkbox" name="join_user_agree" id="join_user_agree" value="1"/>
 										회원가입 약관에 동의합니다.									</label>
+=======
+										<input type="checkbox" name="join_user_agree" id="join_user_agree" />
+										회원가입 약관에 동의합니다.									
+									</label>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 								</div>
 							</div>
 							<!-- <p class="error col-xs-12" style="display: block;" for="join_user_agree">회원가입 약관에 동의하셔야 회원가입 하실 수 있습니다.</p> -->
@@ -437,18 +477,30 @@ p.error { /* 에러메시지 */
 							<div class="col-xs-12">
 								<div class="checkbox pull-right">
 									<label for="join_priv_agree">
+<<<<<<< HEAD
 										<input type="checkbox" name="join_priv_agree" id="join_priv_agree" value="1"/>
+=======
+										<input type="checkbox" name="join_priv_agree" id="join_priv_agree">
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 										개인정보 처리방침에 동의합니다.									
 									</label>
 								</div>
 							</div>
 						</div>
 					</div><!-- panel body -->
+<<<<<<< HEAD
 					
 					<div class="panel-footer">
 						<div style="overflow: hidden">
 							<div class="col-sm-offset-3 col-sm-6">
 								<button type="button" class="btn btn-lg btn-primary btn-block" onclick="window.location='inputForm'">Next Step</button>
+=======
+				
+					<div class="panel-footer">
+						<div style="overflow: hidden">
+							<div class="col-sm-offset-3 col-sm-6">
+								<button type="button" class="btn btn-lg btn-primary btn-block" onclick="checkbox()">Next Step</button>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 								<input type="hidden" name="rq_url" value="/">
 							</div>
 						</div>
@@ -460,6 +512,7 @@ p.error { /* 에러메시지 */
 
 </div>
 
+<<<<<<< HEAD
 </div><!-- Modal -->
 <div class="modal" id="img_sum_modal" tabindex="-1" aria-hidden="true" style="display: none;">
 
@@ -736,6 +789,8 @@ p.error { /* 에러메시지 */
 </div>
 		</div>
 
+=======
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 
 </body>
 </html>

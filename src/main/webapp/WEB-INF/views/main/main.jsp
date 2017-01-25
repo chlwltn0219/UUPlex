@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+=======
 <%@ include file="../setting.jsp" %>
     
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 <html>
 <head>
 
@@ -17,10 +20,20 @@
   		}
   		
   		section {
+<<<<<<< HEAD
   			margin:auto 0;
   			/* background:url(../images/logo2.jpg); */
   			padding:50px;
   		}
+=======
+  			margin:0px 30px;
+  			/* background:url(../images/logo2.jpg); */
+  			padding:50px;
+  			/* background:url(/uuplex/resources/main_images/back.png); */
+  			
+  		}
+
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
   	
 	  	/* footer {
 	       	 width:auto; height:100px;
@@ -80,6 +93,14 @@ link = bb;
 
 </script>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<div class="container">
+=======
+>>>>>>> a1981011c64e4988ec7d4453f65aa5acfc684469
+
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 <section>
 
 <table border="1">
@@ -87,39 +108,61 @@ link = bb;
 <tr>
 	<td rowspan="2">
 		영화 <br>
+<<<<<<< HEAD
+		<button type="button" class="btn btn-default" onclick="ch('/uuplex/resources/main_images/movie2.png','movie.html')">Movie</button>
+=======
 		<button type="button" class="btn btn-default" onclick="ch('/uuplex/resources/main_images/movie2.png','c-box')">Movie</button>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 	</td>
 	<td>
 		로고
 	</td>
 	<td colspan="2">
 		식당 <br>
+<<<<<<< HEAD
+		<button type="button" class="btn btn-default" onclick="ch('/uuplex/resources/main_images/movie2.png','movie.html')">Food</button>
+=======
 		<button type="button" class="btn btn-default" onclick="ch('/uuplex/resources/main_images/movie2.png','movie')">Food</button>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 	</td>	
 </tr>
 
 <tr>	
 	<td colspan="2" rowspan="2">
+<<<<<<< HEAD
+=======
 		<c:if test="${empty id}">
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 		로그인 <br><br>
 		<button type="button" class="btn btn-default" onclick="window.location='loginForm'">Login</button>
 		
 		<!-- <div id="result"></div> -->
 		
 		<button type="button" class="btn btn-default" onclick="window.location='input'">회원가입</button> <br> <br>
+<<<<<<< HEAD
+=======
 		</c:if>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 		<img src="/uuplex/resources/main_images/m.png" id="cenImg" class="img-thumbnail" width="200px">
 	</td>
 	<td rowspan="3">
 		호텔 <br>
+<<<<<<< HEAD
+		<button type="button" class="btn btn-default" onclick="ch('/uuplex/resources/main_images/ho.jpg','hotel.html')">Hotel</button>
+=======
 		<button type="button" class="btn btn-default" onclick="ch('/uuplex/resources/main_images/ho.jpg','hotel')">Hotel</button>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 	</td>
 </tr>
 
 <tr>	
 	<td>
 		휘트니스 <br>
+<<<<<<< HEAD
+		<button type="button" class="btn btn-default" onclick="ch('/uuplex/resources/main_images/fit2.png','fit_main.jsp')">Hotel</button>
+=======
 		<button type="button" class="btn btn-default" onclick="ch('/uuplex/resources/main_images/fit2.png','fitness')">Fitness</button>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 	</td>
 	
 
@@ -133,8 +176,18 @@ link = bb;
 </tr>
 
 </table> 
+<<<<<<< HEAD
   
 </section> 
+=======
+
+<<<<<<< HEAD
+=======
+  
+>>>>>>> a1981011c64e4988ec7d4453f65aa5acfc684469
+</section> 
+</div> 
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 
 </body>
 </html>

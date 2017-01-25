@@ -25,7 +25,11 @@
 
 <div class="aa">
 
+<<<<<<< HEAD
+<p>${memId}는 사용 가능한 아이디 입니다.</p>
+=======
 <h4>${memId}는 사용 가능한 아이디 입니다.</h4> <br>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 
 
  <!-- Modal -->
@@ -59,8 +63,13 @@
 
 <div class="aa">
 
+<<<<<<< HEAD
+ <p>${memId}는 이미 등록된 아이디 입니다.</p>
+ <p>다른 ID를 입력하세요.</p>
+=======
  <h4>${memId}는 이미 등록된 아이디 입니다.</h4>
  <h4>다른 ID를 입력하세요.</h4>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
  <!-- Modal -->
  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">

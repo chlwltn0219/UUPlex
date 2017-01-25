@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../../setting.jsp" %>    
+<%@ include file="../../setting.jsp" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+   
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,6 +27,39 @@
     	<div class="col-sm-2">
 			<input type="text" name="memId" class="form-control" value="${sessionScope.id}" readonly>
 		</div>
+	</div>	
+	
+	<div class="form-group">
+    	<label for="boardSubject" class="col-sm-2 control-label">분류</label>
+    	
+    	<c:if test="${shopCode == 100}">
+	    	<div class="col-sm-2">
+				<select name="shopCode" class="form-control">
+	  				<option>영화</option>
+	  				<option>호텔</option>
+	  				<option>휘트니스</option>
+				</select>
+			</div>
+		</c:if>	
+    	
+    	<c:if test="${shopCode == 101}">
+			<div class="col-sm-2">
+				<input type="text" name="shopCode" class="form-control" value="영화" readonly>
+			</div>    	
+		</c:if>
+		
+		<c:if test="${shopCode == 102}">
+			<div class="col-sm-2">
+				<input type="text" name="shopCode" class="form-control" value="호텔" readonly>
+			</div>    	
+		</c:if>
+		
+		<c:if test="${shopCode == 103}">
+			<div class="col-sm-2">
+				<input type="text" name="shopCode" class="form-control" value="휘트니스" readonly>
+			</div>    	
+		</c:if>
+		
 	</div>	
 	
 	<div class="form-group">
