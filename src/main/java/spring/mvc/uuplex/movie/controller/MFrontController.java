@@ -21,25 +21,11 @@ public class MFrontController {
 		System.out.println("c-box main");
 
 		String viewPage = "c-box/Movie_main";
-<<<<<<< HEAD
-		
-		return viewPage;
-	}
-	
-	
-	
-	@RequestMapping("/main")
-	public String main(){
-		
-		String viewPage = "c-box/main";
-		
-=======
 
->>>>>>> 44392597ed2235cfc137e1c30f94033e7e03f210
 		return viewPage;
 	}
 
-	// 占쏙옙占쏙옙占쏙옙 >占쏙옙占쏙옙>>占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙
+	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 >�뜝�룞�삕�뜝�룞�삕>>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
 	@RequestMapping("/ManageMovieInfo")
 	public String ManageMovieInfo() {
 		System.out.println("ManageMovieInfo");
@@ -49,7 +35,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// 占쏙옙占쏙옙占쏙옙 >占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙>>占쏙옙화占쏙옙占쏙옙占쌩곤옙
+	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 >�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�뙥怨ㅼ삕
 	@Autowired
 	AddMovieInfoHandler addMovieInfoHandler;
 
@@ -57,16 +43,16 @@ public class MFrontController {
 	public String AddMovieInfo(HttpServletRequest req, Model model) {
 		System.out.println("AddMovieInfo");
 
-		// 占쏜델울옙 占쏙옙청 占쏙옙占�
+		// �뜝�룣�뜽�슱�삕 �뜝�룞�삕泥� �뜝�룞�삕�뜝占�
 		model.addAttribute("req", req);
 
-		// 占쌘들러占쏙옙 占쏙옙 占쏙옙占쏙옙占쏙옙
+		// �뜝�뙓�뱾�윭�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
 		String viewPage = addMovieInfoHandler.process(model);
 
 		return viewPage;
 	}
 
-	// 占쏙옙占쏙옙占쏙옙>占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙>>占쏙옙화占쏙옙占쏙옙占쌩곤옙처占쏙옙
+	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�뙥怨ㅼ삕泥섇뜝�룞�삕
 	@RequestMapping("/addMoviePro")
 	public String addMovieInfoPro() {
 		System.out.println("addMoviePro");
@@ -76,7 +62,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// 占쏙옙占쏙옙占쏙옙>占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙
+	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
 	@Autowired
 	GetMovieInfoHandler getMovieInfoHandler;
 
@@ -86,13 +72,13 @@ public class MFrontController {
 
 		model.addAttribute("req", req);
 
-		// 占쌘들러占쏙옙 占쏙옙 占쏙옙占쏙옙占쏙옙
+		// �뜝�뙓�뱾�윭�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
 		String viewPage = getMovieInfoHandler.process(model);
 
 		return viewPage;
 	}
 	
-	// 占쏙옙占쏙옙占쏙옙>占쏙옙화占쏙옙占�
+	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>�뜝�룞�삕�솕�뜝�룞�삕�뜝占�
 	@Autowired
 	MovieListHandler movieListHandler;
 	@RequestMapping("/movie_list")

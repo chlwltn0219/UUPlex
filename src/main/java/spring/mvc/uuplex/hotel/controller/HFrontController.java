@@ -83,8 +83,6 @@ public class HFrontController {
 		
 		return viewPage;
 	}
-<<<<<<< HEAD
-=======
 	
 	//°´½Ç¼öÁ¤
 	@Autowired
@@ -123,6 +121,5 @@ public class HFrontController {
 		
 		return viewPage;
 	}
->>>>>>> 44392597ed2235cfc137e1c30f94033e7e03f210
 
 }
