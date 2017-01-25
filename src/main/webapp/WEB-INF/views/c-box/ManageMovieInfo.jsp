@@ -106,6 +106,10 @@
 								<td colspan="4"><input type="date" name="releaseDate"placeholder=개봉일 maxlength="50" required></td>
 							</tr>
 							<tr>
+								<th>Synopsis</th>
+								<td colspan="4"><textarea name="synopsis" style="width:100%">줄거리를 입력해주세요</textarea></td>
+							</tr>
+							<tr>
 								<th>Poster</th>
 								<td colspan="4"><input type="file" class="form-control" name="poster" ></td>
 							</tr>

@@ -25,7 +25,7 @@ var $star = $(".star-input"),
     .on("mouseover", ".star-input label", function(){
     	$result.text($(this).text());
     })
-    .on("mouseleave", ".star-input>.input", function(){
+    .on("mouseleave", ".star-input>.input", function(){1
     	var $checked = $star.find(":checked");
     		if($checked.length === 0){
      	 		$result.text("평점을 입력해주세요!");

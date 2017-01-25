@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
+import spring.mvc.uuplex.movie.dto.ReviewDTO;
 
 @Repository //저장소 역할
 public class MovieDAOImpl implements MovieDAO{
@@ -50,6 +51,16 @@ public class MovieDAOImpl implements MovieDAO{
 		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
 		dto = dao.movieDetail(mnum);
 		return dto;
+	}
+
+	//리뷰추가
+	@Override
+	public int addReview(ReviewDTO dto) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.addReview(dto);
+		
+		return cnt;
 	}
 
 

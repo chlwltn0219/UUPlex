@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,9 +63,9 @@ public class AddMovieInfoHandler implements MCommandHandler{
 		String title2 = multi.getParameter("title2");
 		String director = multi.getParameter("director");
 		String starring = multi.getParameter("starring");
+		String synopsis = multi.getParameter("synopsis");
 		
-		
-		
+		//체크박스 값 가져오기
 		String[] genres = multi.getParameterValues("genre");
 		
 		String genre = "";
@@ -76,16 +75,13 @@ public class AddMovieInfoHandler implements MCommandHandler{
 			genre = genre + (i == 0? genres[i]:", "+genres[i]);
 		}
 		
-		
-
-		
-		
 		String MPAARating = multi.getParameter("MPAARating");
 		int productionYear = Integer.parseInt(multi.getParameter("productionYear"));
 		int runTime = Integer.parseInt(multi.getParameter("runTime"));
 		String trailer = multi.getParameter("trailer");
 		String status = multi.getParameter("status");
 		
+		//String타입을 Date타입으로 가져오기
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		
 			try {
@@ -111,6 +107,7 @@ public class AddMovieInfoHandler implements MCommandHandler{
 		dto.setMovie_img2(filePath);
 		dto.setTrailer(trailer);
 		dto.setStatus(status);
+		dto.setSynopsis(synopsis);
 		
 		int cnt = dao.addMovieInfo(dto);	
 		
