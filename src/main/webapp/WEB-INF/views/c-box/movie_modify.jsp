@@ -49,10 +49,11 @@
 							<td rowspan="10"><img id="poster"
 								src="${img}movie_poster/너의 권력은.jpg"></td>
 							<th><img class="rate" src="${img}mpaa_rating/12.png">
-								너의 권력은.</th>
+								
+								<input type="text" name="title1" value="너의 권력은." maxlength="50"></th>
 						</tr>
 						<tr>
-							<td>your name.</td>
+							<td><input type="text" name="title1" value="your name." maxlength="50"></td>
 						</tr>
 						<tr>
 							<td>타입 :디지털</td>

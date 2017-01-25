@@ -180,12 +180,8 @@ width: 40px;
 		<div class="menu">
 			<table>
 				<tr>
-					<td><input type="button" value="영화"
-<<<<<<< HEAD
-						onclick="location.href='c-box/movie_list'"></td>
-=======
-						onclick="location.href='c-box/ManageMovieInfo'"></td>
->>>>>>> dc9b16689b253a5b8fce0cdd4adc93b898cb8f06
+					<td><input type="button" value="영화" onclick="location.href='c-box/movie_list'"></td>
+
 					<td><input type="button" value="이벤트"
 						onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
 					<td><input type="button" value="로그인"></td>

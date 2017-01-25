@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
+import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.GetMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 
@@ -88,5 +89,28 @@ public class MFrontController {
 		String viewPage = movieListHandler.process(model);
 
 		return viewPage;
+	}
+	
+	// 유영원 >영화상세정보>>리뷰추가(사용자)
+	@Autowired
+	AddReviewHandler addReviewHandler;
+
+	@RequestMapping("/addReview")
+	public String addReview(HttpServletRequest req, Model model) {
+		System.out.println("addReview");
+
+		model.addAttribute("req", req);
+
+		String viewPage = addReviewHandler.process(model);
+
+		return viewPage;
+	}
+	
+	@RequestMapping("/addReviewPro")
+	public String addReviewPro(HttpServletRequest req, Model model) {
+		System.out.println("addReviewPro");
+
+
+		return "c-box/addReviewPro";
 	}
 }
