@@ -39,4 +39,5 @@
 			
 		<sitemesh:write property="body" />
 	</div>
+	
 </body>

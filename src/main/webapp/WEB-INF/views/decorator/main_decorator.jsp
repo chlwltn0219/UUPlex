@@ -197,5 +197,6 @@
 	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
 	
 	<script type="text/javascript" src="${resources}/js/slowTop.js"></script>
+	<script type="text/javascript" src="${resources}/js/menuActive.js"></script>
 </body>
 </html>
