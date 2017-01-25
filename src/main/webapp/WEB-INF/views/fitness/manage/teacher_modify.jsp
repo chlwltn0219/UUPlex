@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
     
 
       <!-- Modal content-->
@@ -8,7 +9,7 @@
       
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="tdetail">강사 상세</h4>
+          <h4 class="tdetail">상세 정보 수정</h4>
         </div>
         
         <form action="" method="post" name="tModifyForm" onsubmit="return default">
@@ -45,8 +46,24 @@
           	<tr>
           		<th>재직 여부</th>
           		<td>
-          			<input type="text" class="form-control"
-          				name="activated" value="${dto.activated}" readonly>
+          			<label class="radio-inline">
+	          			<c:if test="${dto.activated=='Y'}">
+	         			<input type="radio" name="activated" value="Y" checked>
+	          			</c:if>
+	          			<c:if test="${dto.activated!='Y'}">
+	         			<input type="radio" name="activated" value="Y">
+	          			</c:if>
+          				재직중
+          			</label>
+          			<label class="radio-inline">
+	          			<c:if test="${dto.activated=='N'}">
+	         			<input type="radio" name="activated" value="N" checked>
+	          			</c:if>
+	          			<c:if test="${dto.activated!='N'}">
+	         			<input type="radio" name="activated" value="N">
+	          			</c:if>
+          				퇴사
+          			</label>
           		</td>
           	</tr> 
             <tr>
@@ -66,7 +83,7 @@
 			<input type="reset" class="btn btn-warning" 
 							value="초기화">
         	<input type="button" class="btn btn-primary" 
-							value="취소" onclick="teacherDetail({dto.tid})">
+							value="취소" onclick="teacherDetail(${dto.tid})">
         </div>
       </div>
       </form>

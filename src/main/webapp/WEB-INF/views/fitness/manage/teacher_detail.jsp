@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>       
     
 
       <!-- Modal content-->
@@ -40,7 +41,12 @@
           	<tr>
           		<th>재직 여부</th>
           		<td>
-          			${dto.activated}
+          			<c:if test="${dto.activated=='Y'}">
+          				재직중
+          			</c:if>
+          			<c:if test="${dto.activated=='N'}">
+          				퇴사
+          			</c:if>
           		</td>
           	</tr> 
             <tr>
@@ -55,7 +61,7 @@
           </table>
         <div class="modal-footer">
 			<input type="button" class="btn btn-primary" value="수정" onclick="teacherModify(${dto.tid})">
-        	<button type="submit" class="btn btn-default btn-default" data-dismiss="modal">닫기</button>
+        	<button type="submit" class="btn btn-default btn-default" data-dismiss="modal" onclick="location.reload();">닫기</button>
         </div>
       </div>
     </div>

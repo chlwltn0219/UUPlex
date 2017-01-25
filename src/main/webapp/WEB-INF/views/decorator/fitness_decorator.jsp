@@ -16,16 +16,16 @@
 		.affix {
 			top: 0;
 			width: 100%;
-      		z-index: 100;
+       		z-index: 999;
 		}
 		 nav.fitmenu {
-    		background: #bc8f8f;
+    		background: #524139;
     	}
 	</style>
 </head>
 <body>
 	<!-- Fitness NAVBAR ================================================== -->
-	<nav class="navbar navbar-default fitmenu" data-spy="affix" data-offset-top="50">
+	<nav class="navbar navbar-inverse fitmenu" data-spy="affix" data-offset-top="50">
 		<div class="navbar-header">
 			<!-- 모바일 메뉴 버튼 -->
 			<button type="button" class="navbar-toggle collapsed"
