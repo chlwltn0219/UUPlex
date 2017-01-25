@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../../setting.jsp" %>  
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -35,6 +36,18 @@
      		margin-bottom: 60px;
      	}
      	
+     	img {
+      		background: #bc8f8f; 
+     	}
+     	
+     	.container {
+     		width: 50%;
+     	}
+/*      	
+     	* {
+     		border: 1px solid red;
+     	}
+     	 */
     </style>
   </head>
   <body>
@@ -53,15 +66,15 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="http://placehold.it/900x300" alt="...">
+					<img src="${resources}/fitness/img/1.jpg" alt="...">
 					<div class="carousel-caption">
-						캐러셀 1면 입니다.
+						<h4>연인과 함께 멋진 몸 만들기!</4>
 					</div>
 			  	</div>
 				<div class="item">
-					<img src="http://placehold.it/1200x400" alt="...">
+					<img src="${resources}/fitness/img/2.jpg" alt="...">
 					<div class="carousel-caption">
-						캐러셀 2면 입니다.
+						<h3></h3>
 					</div>
 				</div>
 <!-- 				캐러셀 전체 설명 -->
@@ -81,15 +94,15 @@
 	  <!-- 3열 메뉴 -->
 		<div class="row menu">
 			<div class="col-sm-4">
-				<a href="#"><img class="img-circle" src="http://placehold.it/140?text=Program Info" alt="Program Info"></a>
+				<a href="#"><img class="img-circle" src="${resources}/fitness/img/noun_645979_cc.png" alt="Program Info"></a>
 				<h2>프로그램 안내</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
-				<a href="#"><img class="img-circle" src="http://placehold.it/140?text=Student Regist" alt="Student Regist"></a>
+				<a href="#"><img class="img-circle" src="${resources}/fitness/img/noun_667847_cc.png" alt="Program Info"></a>
 				<h2>수강 신청</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
-				<a href="#"><img class="img-circle" src="http://placehold.it/140?text=Refund" alt="Refund"></a>
+				<a href="#"><img class="img-circle" src="${resources}/fitness/img/noun_99372_cc.png" alt="Program Info"></a>
 				<h2>환불</h2>
 			</div><!-- /.col-lg-4 -->
 		</div><!-- /.row -->

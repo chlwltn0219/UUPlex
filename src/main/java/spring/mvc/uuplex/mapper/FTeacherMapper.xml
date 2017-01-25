@@ -34,7 +34,8 @@
 	<update id="teacherModify" parameterType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
 		UPDATE f_teacher 
 			SET tname=#{tname}, 
-				tinfo=#{tinfo}
+				tinfo=#{tinfo},
+				activated=#{activated}
 			WHERE tid=#{tid}	
 	</update>
 	
