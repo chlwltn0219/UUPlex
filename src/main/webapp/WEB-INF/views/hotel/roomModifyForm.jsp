@@ -4,47 +4,54 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
     #content {
-        width:100%; height:820px;
+        width:100%; height:800px;
+        margin: 100px;
+    }
+    #updateTable {
+    	width: 1500px;
+		margin-left: 50px;
     }
 </style>
 </head>
 <body>
 <div id="content">
-	<br><h3>객실정보 수정</h3><br>
-	<form action="roomModifyPro" method="post" name="roomModifyPro">
+	<h3>객실정보 수정</h3><br>
+	<form action="roomModifyPro" method="post" name="roomModifyPro" enctype="multipart/form-data" onsubmit="return modifyChk()">
 		<input type="hidden" name="roomNum" value="${dto.roomNum}">
-		<table class="table">
+		<%-- <input type="hidden" name="mainImg" value="${dto.mainImg}"> --%>
+		<table class="table" id="updateTable">
 			<tr>
 				<th>객실이름</th>
 				<td><input class="input" type="text" name="roomName" maxlength="20" value="${dto.roomName}"></td>
 			</tr>
 			<tr>
 				<th>메인이미지</th>
-				<td><input class="input" type="text" name="mainImg" value="${dto.mainImg}"></td>
+				<td><input class="input" type="file" name="mainImg" accept="image/*"></td>			
 			</tr>
 			<tr>
 				<th>상세이미지1</th>
-				<td><input class="input" type="text" name="detail_1" value="${dto.detail_1}"></td>
+				<td><input class="input" type="file" name="detail_1" accept="image/*"></td>
 			</tr>
 			<tr>
 				<th>상세이미지2</th>
-				<td><input class="input" type="text" name="detail_2" value="${dto.detail_2}"></td>
+				<td><input class="input" type="file" name="detail_2" accept="image/*"></td>
 			</tr>
 			<tr>
 				<th>상세이미지3</th>
-				<td><input class="input" type="text" name="detail_3" value="${dto.detail_3}"></td>
+				<td><input class="input" type="file" name="detail_3" accept="image/*"></td>
 			</tr>
 			<tr>
 				<th>상세이미지4</th>
-				<td><input class="input" type="text" name="detail_4" value="${dto.detail_4}"></td>
+				<td><input class="input" type="file" name="detail_4" accept="image/*"></td>
 			</tr>
 			<tr>
 				<th>상세이미지5</th>
-				<td><input class="input" type="text" name="detail_5" value="${dto.detail_5}"></td>
+				<td><input class="input" type="file" name="detail_5" accept="image/*"></td>
 			</tr>
 			<tr>
 				<th>객실소개</th>

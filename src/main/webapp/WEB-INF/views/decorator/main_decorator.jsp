@@ -65,7 +65,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="main">UUPlex</a>
+					<a class="navbar-brand" href="/uuplex/main">UUPlex</a>
 				</div>
 				
 				<!-- 메뉴 목록 -->
@@ -80,9 +80,9 @@
 								매장소개 <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="introduce">UUPlex 소개</a></li>
+								<li><a href="/uuplex/introduce">UUPlex 소개</a></li>
 								<li class="divider"></li>
-								<li><a href="roadMap">오시는길</a></li>
+								<li><a href="/uuplex/roadMap">오시는길</a></li>
 							</ul>
 						</li>
 						
@@ -94,9 +94,9 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">층별안내</a></li>
 								<li class="divider"></li>
-								<li><a href="c-box">1층 영화관</a></li>
-								<li><a href="hotel">2층 호텔</a></li>
-								<li><a href="fitness">3층 휘트니스</a></li>
+								<li><a href="/uuplex/c-box">1층 영화관</a></li>
+								<li><a href="/uuplex/hotel">2층 호텔</a></li>
+								<li><a href="/uuplex/fitness">3층 휘트니스</a></li>
 							</ul>
 						</li>
 						
@@ -108,7 +108,7 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">공지사항</a></li>
 								<li class="divider"></li>
-								<li><a href="qna">Q&A</a></li>
+								<li><a href="/uuplex/qna?shopCode=100">Q&A</a></li>
 								<li class="divider"></li>
 								<li><a href="#">후기게시판</a></li>
 							</ul>
@@ -117,15 +117,35 @@
 					</ul>
 					<!-- 우측 메뉴 목록 -->
 					<ul class="nav navbar-nav navbar-right">
-						<c:if test="${empty id}">
-							<li><a href="input">회원가입</a></li>
-							<li><a href="loginForm">로그인</a></li>
+						<c:if test="${idCode == null}">
+							<li><a href="/uuplex/input">회원가입</a></li>
+							<li><a href="/uuplex/loginForm">로그인</a></li>
 						</c:if>
 						
-						<c:if test="${not empty id}">
+						<!-- 회원 -->
+						<c:if test="${idCode == 105}">
 							<li><a href="#">마이페이지</a></li>
-							<li><a href="logout">로그아웃</a></li>
+							<li><a href="/uuplex/logout">로그아웃</a></li>
 						</c:if>
+						
+						<!-- 전체관리자 -->
+						<c:if test="${idCode == 101}">
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
+								전체관리자 <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">매장관리</a></li>
+								<li><a href="/uuplex/memberList">회원관리</a></li>
+								<li class="divider"></li>
+								<li><a href="">영화관 관리</a></li>
+								<li><a href="">호텔 관리</a></li>
+								<li><a href="">휘트니스 관리</a></li>
+							</ul>
+						</li>
+							<li><a href="/uuplex/logout">로그아웃</a></li>
+						</c:if>
+						
 					</ul>
 				</div>
 			</div>

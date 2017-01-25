@@ -1,12 +1,18 @@
 package spring.mvc.uuplex.hotel.handler;
 
+import java.io.IOException;
+import java.util.Enumeration;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import spring.mvc.uuplex.hotel.dao.HotelDAO;
 import spring.mvc.uuplex.hotel.dto.HotelDTO;
@@ -17,32 +23,51 @@ public class RoomModifyProHandler implements HCommandHandler {
 	@Autowired
 	HotelDAO dao;
 	
+	@Autowired
+	ServletContext content;
+	
 	@Override
 	public String process(Model model) {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		System.out.println(req.getParameter("roomNum"));
-		int roomNum = Integer.parseInt(req.getParameter("roomNum"));
-		
+		//int roomNum = Integer.parseInt(req.getParameter("roomNum"));
+		//String path = content.getRealPath("resources/hotelImages");
+		String path = "C:\\Dev\\uuplexImg\\";
+
+		int size = 1024 * 1024 * 10; // 10MB
+
+		MultipartRequest multi = null;
+		try {
+			multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
+
+			Enumeration file = multi.getFileNames();
+			String str = (String) file.nextElement();
+			String fileName = multi.getFilesystemName(str);
+
 		HotelDTO dto = new HotelDTO();
 		
-		dto.setRoomNum(roomNum);
-		dto.setRoomName(req.getParameter("roomName"));
-		dto.setMainImg(req.getParameter("mainImg"));
-		dto.setDetail_1(req.getParameter("detail_1"));
-		dto.setDetail_2(req.getParameter("detail_2"));
-		dto.setDetail_3(req.getParameter("detail_3"));
-		dto.setDetail_4(req.getParameter("detail_4"));
-		dto.setDetail_5(req.getParameter("detail_5"));
-		dto.setIntro(req.getParameter("intro"));
-		dto.setRoomType(req.getParameter("roomType"));
-		dto.setBed(req.getParameter("bed"));
-		dto.setHotelView(req.getParameter("hotelView"));
-		dto.setCapacity(req.getParameter("capacity"));
-		dto.setCharge(Integer.parseInt(req.getParameter("charge")));
+		dto.setRoomNum(Integer.parseInt(multi.getParameter("roomNum")));
+		dto.setRoomName(multi.getParameter("roomName"));
+		dto.setMainImg(fileName);
+		dto.setDetail_1(multi.getParameter("detail_1"));
+		dto.setDetail_2(multi.getParameter("detail_2"));
+		dto.setDetail_3(multi.getParameter("detail_3"));
+		dto.setDetail_4(multi.getParameter("detail_4"));
+		dto.setDetail_5(multi.getParameter("detail_5"));
+		dto.setIntro(multi.getParameter("intro"));
+		dto.setRoomType(multi.getParameter("roomType"));
+		dto.setBed(multi.getParameter("bed"));
+		dto.setHotelView(multi.getParameter("hotelView"));
+		dto.setCapacity(multi.getParameter("capacity"));
+		dto.setCharge(Integer.parseInt(multi.getParameter("charge")));
 		
 		int cnt = dao.update(dto);
 		model.addAttribute("cnt", cnt);
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		return "/hotel/roomModifyPro";
 	}

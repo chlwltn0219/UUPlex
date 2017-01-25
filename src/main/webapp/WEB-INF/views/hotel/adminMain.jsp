@@ -71,25 +71,29 @@
 
         #content {
         	background:url("${resources}/hotelImages/dice.jpg") repeat;
-            width:100%; height:550px;
+            width:100%; height:515px;
         }
 
         #content .section1 {
             overflow:hidden;
             width:1000px;
             margin:auto;
-            padding-top:50px;
-            padding-left:100px;
+			padding-top:10px;
+            /* padding-left:100px; */
         }
         
         #content .section1 .inputButton {
         	font-size:0.8em;
         }
+        
+        div.carousel img{
+    		width: 70%;
+        	margin: 0 auto;
+        }
 
-        #content .section1 div {
+      /*   #content .section1 div {
             height:400px; float:left; text-align:center;
             border:0px solid #cccccc;
-            /* box-sizing:border-box; */
         }
 
         #content .slide_banner {
@@ -102,17 +106,16 @@
         	font-weight: bolder;
         }
 
-        /* footer {
+        footer {
             width:100%; height:170px; margin:auto; background-color:#4B0025; color:#cccccc;
             text-align:center; line-height:50px;
             clear:both; border:0;
-        } */
+        }  */
 
     </style>
 
 </head>
 <body>
-<div class="container">
     <header>
         <div class="logo"><img src = "${resources}/hotelImages/hotellogo.png" width="150px;"></div>
         <div class="hit_menu">
@@ -124,15 +127,52 @@
         </div>
     </header>
     <div id="content">
-        <div class="section1">
-            <div class="slide_banner">
+    	<div class="section1">
+            
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="${resources}/hotelImages/standard.jpg" alt="" width="700px">
+      <div class="carousel-caption">
+        <h3>스탠다드룸</h3>
+    	<p><br><button type="button" class="btn btn-default btn-sm">바로예약</button></p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="${resources}/hotelImages/suite.jpg" alt="" width="700px">
+      <div class="carousel-caption">
+        <h3>스위트룸</h3>
+    	<p><br><button type="button" class="btn btn-default btn-sm">바로예약</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+    
+        <%-- <div class="slide_banner">
             <img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px">
             <br><br> 스탠다드룸 <button type="button" class="btn btn-default btn-sm">바로예약</button></div>
             <div class="side_banner">
             <img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px">
             <br><br> 스위트룸  <button type="button" class="btn btn-default btn-sm">바로예약</button></div>
+        --%>
         </div>
-    </div>
     </div>
   </body>
 </html>

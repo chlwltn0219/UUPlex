@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
+import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.GetMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
@@ -25,7 +26,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// 占쏙옙占쏙옙占쏙옙 >占쏙옙占쏙옙>>占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 >占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 	@RequestMapping("/ManageMovieInfo")
 	public String ManageMovieInfo() {
 		System.out.println("ManageMovieInfo");
@@ -35,7 +36,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// 占쏙옙占쏙옙占쏙옙 >占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙>>占쏙옙화占쏙옙占쏙옙占쌩곤옙
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 >占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈솯�ⓦ끉�굲
 	@Autowired
 	AddMovieInfoHandler addMovieInfoHandler;
 
@@ -43,16 +44,16 @@ public class MFrontController {
 	public String AddMovieInfo(HttpServletRequest req, Model model) {
 		System.out.println("AddMovieInfo");
 
-		// 占쏜델울옙 占쏙옙청 占쏙옙占�
+		// 占쎈쐻占쎈＃占쎈쑞占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
 		model.addAttribute("req", req);
 
-		// 占쌘들러占쏙옙 占쏙옙 占쏙옙占쏙옙占쏙옙
+		// 占쎈쐻占쎈솓占쎈굶占쎌쑎占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 		String viewPage = addMovieInfoHandler.process(model);
 
 		return viewPage;
 	}
 
-	// 占쏙옙占쏙옙占쏙옙>占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙>>占쏙옙화占쏙옙占쏙옙占쌩곤옙처占쏙옙
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈솯�ⓦ끉�굲筌ｌ꼪�쐻占쎈짗占쎌굲
 	@RequestMapping("/addMoviePro")
 	public String addMovieInfoPro() {
 		System.out.println("addMoviePro");
@@ -62,7 +63,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// 占쏙옙占쏙옙占쏙옙>占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 	@Autowired
 	GetMovieInfoHandler getMovieInfoHandler;
 
@@ -72,13 +73,13 @@ public class MFrontController {
 
 		model.addAttribute("req", req);
 
-		// 占쌘들러占쏙옙 占쏙옙 占쏙옙占쏙옙占쏙옙
+		// 占쎈쐻占쎈솓占쎈굶占쎌쑎占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 		String viewPage = getMovieInfoHandler.process(model);
 
 		return viewPage;
 	}
 	
-	// 占쏙옙占쏙옙占쏙옙>占쏙옙화占쏙옙占�
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
 	@Autowired
 	MovieListHandler movieListHandler;
 	@RequestMapping("/movie_list")
@@ -98,6 +99,16 @@ public class MFrontController {
 	public String sportsDetail(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
 		String viewPage = movieDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	@RequestMapping("/detail")
+	public String detail(){
+		
+		System.out.println("detail");
+		
+		String viewPage = "c-box/movie_datail";
+		
 		return viewPage;
 	}
 }

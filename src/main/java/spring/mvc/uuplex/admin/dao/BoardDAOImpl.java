@@ -24,6 +24,17 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		return cnt;
 	}
+	
+	@Override
+	public int getSubCount(int shopCode) {
+		
+		int cnt = 0;
+		
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class); 
+		cnt = dao.getSubCount(shopCode);
+		
+		return cnt;
+	}
 
 	@Override
 	public ArrayList<BoardDTO> getArticles(Map<String, Integer> daoMap) {
@@ -37,9 +48,56 @@ public class BoardDAOImpl implements BoardDAO {
 		return dtos;
 	}
 
+	
+	
+	public int getMaxNum() {
+		int maxNum = 0;
+		
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
+		maxNum = dao.getMaxNum();
+		
+		return maxNum;
+	}
+
+	
+	public void updateRely(BoardDTO dto) {
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
+		dao.updateRely(dto);
+	}
+
+	
 	@Override
 	public int qnaInsert(BoardDTO dto) {
 		int cnt = 0;
+		int num = dto.getQnaNum();
+		System.out.println("num2 : " + num);
+		int ref = dto.getRef();
+		System.out.println("ref : " + ref);
+		int ref_step = dto.getRef_step();
+		int ref_level = dto.getRef_level();
+		
+		if(num == 0){
+			cnt = getCount();
+			
+			if(cnt > 0) {
+				int maxNum = getMaxNum();
+				ref = maxNum +1;
+			} else {
+				ref = 1;
+			}
+			
+			dto.setRef(ref);
+			ref_step = 0;
+			ref_level = 0;
+		
+		} else {
+			updateRely(dto);
+			ref_step++;
+			ref_level++;
+		}
+		
+		dto.setRef_step(ref_step);
+		dto.setRef_level(ref_level);
 		
 		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
 		cnt = dao.qnaInsert(dto);
@@ -56,6 +114,17 @@ public class BoardDAOImpl implements BoardDAO {
 		dto = dao.getQnA(num);
 		
 		return dto;
+	}
+
+	@Override
+	public ArrayList<BoardDTO> getArticlesSub(Map<String, Integer> daoMap) {
+		ArrayList<BoardDTO> dtos = null;
+		
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
+		dtos = dao.getArticlesSub(daoMap);
+		
+		
+		return dtos;
 	}
 	
 }

@@ -30,7 +30,9 @@ public class RoomAddProHandler implements HCommandHandler {
 	public String process(Model model) {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
-		String path = content.getRealPath("resources/hotelImages");
+		//String path = content.getRealPath("resources/hotelImages");
+		String path = "C:\\Dev\\uuplexImg\\";
+		System.out.println("p " + path );
 
 		int size = 1024 * 1024 * 10; // 10MB
 
@@ -52,11 +54,11 @@ public class RoomAddProHandler implements HCommandHandler {
 			// 2단계. dto 바구니에 담는다.
 			dto.setRoomName(multi.getParameter("roomName"));
 			dto.setMainImg(fileName);
-			dto.setDetail_1(multi.getParameter("detail_1"));
-			dto.setDetail_2(multi.getParameter("detail_2"));
-			dto.setDetail_3(multi.getParameter("detail_3"));
-			dto.setDetail_4(multi.getParameter("detail_4"));
-			dto.setDetail_5(multi.getParameter("detail_5"));
+			dto.setDetail_1(fileName);
+			dto.setDetail_2(fileName);
+			dto.setDetail_3(fileName);
+			dto.setDetail_4(fileName);
+			dto.setDetail_5(fileName);
 			dto.setIntro(multi.getParameter("intro"));
 			dto.setRoomType(multi.getParameter("roomType"));
 			dto.setBed(multi.getParameter("bed"));

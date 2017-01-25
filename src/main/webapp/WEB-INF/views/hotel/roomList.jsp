@@ -4,14 +4,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
 #content {
-	width: 100%;
-	height: 820px;
+	width: 1500px;
+	height: 800px;
+	margin: 100px;
 }
 
+#listTable {
+	width: 1500px;
+	margin-left: 50px;
+}
 #listTable th {
 	font-size: 0.8em;
 }
@@ -20,7 +26,6 @@
 </head>
 <body>
 	<div id="content">
-		<br>
 		<h3>객실목록</h3>
 		<br> <br>
 		<form action="roomDeletePro" method="post">
@@ -49,12 +54,12 @@
 							value="${dto.roomNum}"></td>
 						<td>${dto.roomNum}</td>
 						<td>${dto.roomName}</td>
-						<%-- <td><img src="<%=request.getServletContext().getContextPath()%>/resources/hotelImages/${dto.mainImg}"></td> --%>
-						<td>${dto.detail_1}</td>
-						<td>${dto.detail_2}</td>
-						<td>${dto.detail_3}</td>
-						<td>${dto.detail_4}</td>
-						<td>${dto.detail_5}</td>
+						<td><img src="/uuplexImg/${dto.mainImg}" width="100px"></td>
+						<td><img src="/uuplexImg/${dto.detail_1}" width="100px"></td>
+						<td><img src="/uuplexImg/${dto.detail_2}" width="100px"></td>
+						<td><img src="/uuplexImg/${dto.detail_3}" width="100px"></td>
+						<td><img src="/uuplexImg/${dto.detail_4}" width="100px"></td>
+						<td><img src="/uuplexImg/${dto.detail_5}" width="100px"></td>
 						<td>${dto.intro}</td>
 						<td>${dto.roomType}</td>
 						<td>${dto.bed}</td>
@@ -77,8 +82,9 @@
 				<button type="submit" class="btn btn-default">객실삭제</button>
 			</center>
 		</form>
+		
 		<!-- Modal -->
-		<form action="roomAddPro" method="post" enctype="multipart/form-data">
+		<form action="roomAddPro" method="post" enctype="multipart/form-data" onsubmit="return addCheck()">
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -100,28 +106,27 @@
 								</tr>
 								<tr>
 									<th>메인이미지</th>
-									<td><input class="input" type="file" name="mainImg"
-										accept="image/*"></td>
+									<td><input class="input" type="file" name="mainImg" accept="image/*"></td>
 								</tr>
 								<tr>
 									<th>상세이미지1</th>
-									<td><input class="input" type="text" name="detail_1"></td>
+									<td><input class="input" type="file" name="detail_1" accept="image/*"></td>
 								</tr>
 								<tr>
 									<th>상세이미지2</th>
-									<td><input class="input" type="text" name="detail_2"></td>
+									<td><input class="input" type="file" name="detail_2" accept="image/*"></td>
 								</tr>
 								<tr>
 									<th>상세이미지3</th>
-									<td><input class="input" type="text" name="detail_3"></td>
+									<td><input class="input" type="file" name="detail_3" accept="image/*"></td>
 								</tr>
 								<tr>
 									<th>상세이미지4</th>
-									<td><input class="input" type="text" name="detail_4"></td>
+									<td><input class="input" type="file" name="detail_4" accept="image/*"></td>
 								</tr>
 								<tr>
 									<th>상세이미지5</th>
-									<td><input class="input" type="text" name="detail_5"></td>
+									<td><input class="input" type="file" name="detail_5" accept="image/*"></td>
 								</tr>
 								<tr>
 									<th>객실소개</th>
