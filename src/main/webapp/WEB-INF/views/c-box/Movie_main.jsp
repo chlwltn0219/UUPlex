@@ -13,12 +13,12 @@
 }
 
 body{
-	min-width: 1900px;
+	min-width: 1690px;
 }
 
 .top_menu {
 	color: white;
-	min-width: 1900px;
+	min-width: 1690px;
 	width: 100%;
 	height: 130px;
 	background-color: #000000;
@@ -82,8 +82,7 @@ body{
 }
 
 .imgbox {
-	background-color: black;
-	min-width: 1700px;
+	min-width: 1690px;
 }
 
 .button {
@@ -94,7 +93,6 @@ body{
 
 .content {
 	width: 660px;
-	margin: 30px auto;
 }
 
 .content td>table {
@@ -123,37 +121,26 @@ body{
 
 .sub>th {
 	padding-left: 10px;
-width: 40px;
+	width: 40px;
 }
 
 .footer {
 	color: white;
-	min-width: 1900px;
+	min-width: 1690px;
 	width: 100%;
 	height: 200px;
 }
 
-.carousel-inner embed {
+embed {
 	height: 400px;
 	width: 800px;
-	opacity: 0;
-	transition: 1s;
-	margin: 0 560px;
-}
-
-.carousel-inner embed:HOVER {
-	opacity: 1;
+	visibility: hidden;
 }
 
 .contain {
-	min-width : 1900px;
+	min-width : 1690px;
 	background-color: black;
 	width: 100%; 
-}
-
-#carousel-example-generic {
-	background-color: black;
-	margin: 0 auto;
 }
 
 .carousel-inner {
@@ -161,10 +148,42 @@ width: 40px;
 }
 
 .item {
-	min-width : 1900px;
+	min-width : 1690px;
 	background-attachment : fixed;
 	background-size: 100%;
+	width: 100%;
+	height: 400px;
 }
+
+.item #img{
+	position : absolute;
+	top : 170px;
+	left : 48%;
+	width: 70px;
+	height: 70px;
+	opacity: 0;
+	transition : 0.3s;
+}
+
+.item:HOVER #img{
+	opacity: 0.5;
+	transiton :0.5s;
+}
+
+#img:ACTIVE ~embed{
+	visibility: visible;
+}
+
+#img:ACTIVE{
+	display: none;
+}
+
+
+#img:HOVER{
+	opacity: 1;
+	cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -175,19 +194,13 @@ width: 40px;
 
 	<div class="top_menu">
 		<div>
-			<img class="logo" src="${img}etc/c-box_logo.png" onclick="location.href='/uuplex/c-box'">
+			<img class="logo center-block" src="${img}etc/c-box_logo.png" onclick="location.href='/uuplex/c-box'">
 		</div>
 		<div class="menu">
 			<table>
 				<tr>
-					<td><input type="button" value="영화"
-<<<<<<< HEAD
-						onclick="location.href='c-box/movie_list'"></td>
-=======
-						onclick="location.href='c-box/ManageMovieInfo'"></td>
->>>>>>> dc9b16689b253a5b8fce0cdd4adc93b898cb8f06
-					<td><input type="button" value="이벤트"
-						onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
+					<td><input type="button" value="영화" onclick="location.href='c-box/movie_list'"></td>
+					<td><input type="button" value="이벤트" onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
 					<td><input type="button" value="로그인"></td>
 				</tr>
 			</table>

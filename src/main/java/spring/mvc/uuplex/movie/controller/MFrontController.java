@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.GetMovieInfoHandler;
+import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 
 @Controller
@@ -24,7 +25,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// À¯¿µ¿ø >¸ŞÀÎ>>¿µÈ­Á¤º¸°ü¸®
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™ >å ì™ì˜™å ì™ì˜™>>å ì™ì˜™í™”å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™
 	@RequestMapping("/ManageMovieInfo")
 	public String ManageMovieInfo() {
 		System.out.println("ManageMovieInfo");
@@ -34,7 +35,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// À¯¿µ¿ø >¿µÈ­Á¤º¸°ü¸®>>¿µÈ­Á¤º¸Ãß°¡
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™ >å ì™ì˜™í™”å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™>>å ì™ì˜™í™”å ì™ì˜™å ì™ì˜™å ìŒ©ê³¤ì˜™
 	@Autowired
 	AddMovieInfoHandler addMovieInfoHandler;
 
@@ -42,16 +43,16 @@ public class MFrontController {
 	public String AddMovieInfo(HttpServletRequest req, Model model) {
 		System.out.println("AddMovieInfo");
 
-		// ¸ğµ¨¿¡ ¿äÃ» ´ã±â
+		// å ìœë¸ìš¸ì˜™ å ì™ì˜™ì²­ å ì™ì˜™å ï¿½
 		model.addAttribute("req", req);
 
-		// ÇÚµé·¯¿¡ ¸ğµ¨ º¸³»±â
+		// å ìŒ˜ë“¤ëŸ¬å ì™ì˜™ å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™
 		String viewPage = addMovieInfoHandler.process(model);
 
 		return viewPage;
 	}
 
-	// À¯¿µ¿ø>¿µÈ­Á¤º¸°ü¸®>>¿µÈ­Á¤º¸Ãß°¡Ã³¸®
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™>å ì™ì˜™í™”å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™>>å ì™ì˜™í™”å ì™ì˜™å ì™ì˜™å ìŒ©ê³¤ì˜™ì²˜å ì™ì˜™
 	@RequestMapping("/addMoviePro")
 	public String addMovieInfoPro() {
 		System.out.println("addMoviePro");
@@ -61,7 +62,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// ¹ÚÁÖÀº>¿µÈ­Á¤º¸°¡Á®¿À±â
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™>å ì™ì˜™í™”å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™
 	@Autowired
 	GetMovieInfoHandler getMovieInfoHandler;
 
@@ -71,13 +72,13 @@ public class MFrontController {
 
 		model.addAttribute("req", req);
 
-		// ÇÚµé·¯¿¡ ¸ğµ¨ º¸³»±â
+		// å ìŒ˜ë“¤ëŸ¬å ì™ì˜™ å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™
 		String viewPage = getMovieInfoHandler.process(model);
 
 		return viewPage;
 	}
 	
-	// ¹ÚÁÖÀº>¿µÈ­¸ñ·Ï
+	// å ì™ì˜™å ì™ì˜™å ì™ì˜™>å ì™ì˜™í™”å ì™ì˜™å ï¿½
 	@Autowired
 	MovieListHandler movieListHandler;
 	@RequestMapping("/movie_list")
@@ -87,6 +88,16 @@ public class MFrontController {
 		model.addAttribute("contentPage", "movie_list.jsp");
 		String viewPage = movieListHandler.process(model);
 
+		return viewPage;
+	}
+	
+	@Autowired
+	MovieDetailHandler movieDetailHandler;
+	
+	@RequestMapping("/movie_detail")
+	public String sportsDetail(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		String viewPage = movieDetailHandler.process(model);
 		return viewPage;
 	}
 }
