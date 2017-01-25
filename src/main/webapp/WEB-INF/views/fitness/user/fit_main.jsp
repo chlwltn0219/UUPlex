@@ -81,15 +81,15 @@
 	  <!-- 3열 메뉴 -->
 		<div class="row menu">
 			<div class="col-sm-4">
-				<img class="img-circle" src="http://placehold.it/140?text=Program" alt="Generic placeholder image">
+				<a href="#"><img class="img-circle" src="http://placehold.it/140?text=Program Info" alt="Program Info"></a>
 				<h2>프로그램 안내</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
-				<img class="img-circle" src="http://placehold.it/140?text=Register" alt="Generic placeholder image">
+				<a href="#"><img class="img-circle" src="http://placehold.it/140?text=Student Regist" alt="Student Regist"></a>
 				<h2>수강 신청</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
-				<img class="img-circle" src="http://placehold.it/140?text=Refund" alt="Generic placeholder image">
+				<a href="#"><img class="img-circle" src="http://placehold.it/140?text=Refund" alt="Refund"></a>
 				<h2>환불</h2>
 			</div><!-- /.col-lg-4 -->
 		</div><!-- /.row -->

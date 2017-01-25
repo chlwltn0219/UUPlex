@@ -30,18 +30,18 @@
 	
 	<style>
 		html {
-		  position: relative;
-		  min-height: 100%;
+			position: relative;
+			min-height: 100%;
 		}
 		body {
-		  margin-bottom: 60px;
+			margin-bottom: 60px;
 		}
 		.footer {
-		  position: absolute;
-		  bottom: 0;
-		  width: 100%;
-		  height: 60px;
-		  background-color: #f5f5f5;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 60px;
+			background-color: #f5f5f5;
 		}
     	div.top {
     		height: 50px;
@@ -53,7 +53,7 @@
 	
 	<!-- Menu Start -->
 	<header>
-		<nav class="navbar navbar-default navbar-fixed-tip">
+		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<!-- 모바일 디스플레이에서 메뉴가 collapse 버전으로 적용 됩니다. -->
 				<div class="navbar-header">
