@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class MemberDTO {
 
+	private int idCode;
 	private String memId;
 	private String passwd;
 	private String name;
@@ -16,6 +17,14 @@ public class MemberDTO {
 	private String email;
 	private Timestamp reg_date;
 	private String grade;
+	
+	
+	public int getIdCode() {
+		return idCode;
+	}
+	public void setIdCode(int idCode) {
+		this.idCode = idCode;
+	}
 	
 	
 	public String getMemId() {

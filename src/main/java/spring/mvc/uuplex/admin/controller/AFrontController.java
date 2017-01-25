@@ -7,14 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import spring.mvc.uuplex.admin.handler.CommandHandler;
 import spring.mvc.uuplex.admin.handler.ConfirmIdHandler;
 import spring.mvc.uuplex.admin.handler.InputProHandler;
 
 @Controller
 public class AFrontController {
-	
-	CommandHandler command;
 	
 	@RequestMapping("/main")
 	public String main(Model model) {
@@ -66,6 +63,14 @@ public class AFrontController {
 		String viewPage = confirmIdHandler.process(model);
 
 		return viewPage;
+	}
+	
+	@RequestMapping("noneSM/pwdChk")
+	public String pwdChk(Model model) {
+		
+		System.out.println("pwdChk()");
+		
+		return "/main/InputMember/pwdChk";
 	}
 
 }

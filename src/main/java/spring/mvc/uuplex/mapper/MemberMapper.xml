@@ -10,8 +10,30 @@
 		SELECT COUNT(*) FROM uu_member WHERE memId = #{memId}
 	</select>
 
+	<!-- 회원가입 -->
 	<insert id="insert" parameterType="spring.mvc.uuplex.admin.dto.MemberDTO">
-		INSERT INTO uu_member(memId, passwd, name, jumin1, jumin2, age, gender, address, phone, email, reg_date, grade)
-		VALUES(#{memId}, #{passwd}, #{name}, #{jumin1}, #{jumin2}, #{age}, #{gender}, #{address}, #{phone}, #{email}, #{reg_date}, '일반회원')
+		INSERT INTO uu_member(idCode, memId, passwd, name, jumin1, jumin2, age, gender, address, phone, email, reg_date, grade)
+		VALUES('105', #{memId}, #{passwd}, #{name}, #{jumin1}, #{jumin2}, #{age}, #{gender}, #{address}, #{phone}, #{email}, #{reg_date}, '일반회원')
 	</insert>
+	
+	<!-- 로그인 -->
+	<select id="pwdCheck" parameterType="Map" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE memId = #{memId} AND passwd = #{passwd}
+	</select>
+	
+	<!-- 코드값 가져오기 -->
+	<select id="idCode" parameterType="String" resultType="int">
+		SELECT idCode FROM uu_member WHERE memId = #{memId}
+	</select>
+	
+	<!-- 회원 리스트 가져오기 -->
+	<select id="memberList" resultType="spring.mvc.uuplex.admin.dto.MemberDTO">
+		SELECT * FROM uu_member WHERE idCode = '105' ORDER BY reg_date desc
+	</select>
+	
+	<!-- 회원 정보(1명) 가져오기 -->
+	<select id="memberView" parameterType="String" resultType="spring.mvc.uuplex.admin.dto.MemberDTO">
+		SELECT * FROM uu_member WHERE memId = #{memId}
+	</select>
+	
 </mapper>   

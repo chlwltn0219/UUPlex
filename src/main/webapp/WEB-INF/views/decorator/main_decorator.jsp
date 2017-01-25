@@ -29,10 +29,23 @@
 	<sitemesh:write property="head" />
 	
 	<style>
-		footer {
-			background-color:#efefef;
-			height:100px;
+		html {
+			position: relative;
+			min-height: 100%;
 		}
+		body {
+			margin-bottom: 60px;
+		}
+		.footer {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 60px;
+			background-color: #f5f5f5;
+		}
+    	div.top {
+    		height: 50px;
+    	}
 	</style>
 	
 </head>
@@ -40,7 +53,7 @@
 	
 	<!-- Menu Start -->
 	<header>
-		<nav class="navbar navbar-default navbar-fixed-tip">
+		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<!-- 모바일 디스플레이에서 메뉴가 collapse 버전으로 적용 됩니다. -->
 				<div class="navbar-header">
@@ -52,7 +65,11 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
+<<<<<<< HEAD
 					<a class="navbar-brand" href="main">UUPlex</a>
+=======
+					<a class="navbar-brand" href="/uuplex/main">UUPlex</a>
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 				</div>
 				
 				<!-- 메뉴 목록 -->
@@ -67,9 +84,9 @@
 								매장소개 <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="introduce">UUPlex 소개</a></li>
+								<li><a href="/uuplex/introduce">UUPlex 소개</a></li>
 								<li class="divider"></li>
-								<li><a href="roadMap">오시는길</a></li>
+								<li><a href="/uuplex/roadMap">오시는길</a></li>
 							</ul>
 						</li>
 						
@@ -81,9 +98,9 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">층별안내</a></li>
 								<li class="divider"></li>
-								<li><a href="#">1층 영화관</a></li>
-								<li><a href="#">2층 호텔</a></li>
-								<li><a href="#">3층 휘트니스</a></li>
+								<li><a href="/uuplex/c-box">1층 영화관</a></li>
+								<li><a href="/uuplex/hotel">2층 호텔</a></li>
+								<li><a href="/uuplex/fitness">3층 휘트니스</a></li>
 							</ul>
 						</li>
 						
@@ -95,7 +112,7 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">공지사항</a></li>
 								<li class="divider"></li>
-								<li><a href="qna">Q&A</a></li>
+								<li><a href="/uuplex/qna?shopCode=100">Q&A</a></li>
 								<li class="divider"></li>
 								<li><a href="#">후기게시판</a></li>
 							</ul>
@@ -104,24 +121,45 @@
 					</ul>
 					<!-- 우측 메뉴 목록 -->
 					<ul class="nav navbar-nav navbar-right">
-						<c:if test="${empty memId}">
-							<li><a href="input">회원가입</a></li>
-							<li><a href="loginForm">로그인</a></li>
+						<c:if test="${idCode == null}">
+							<li><a href="/uuplex/input">회원가입</a></li>
+							<li><a href="/uuplex/loginForm">로그인</a></li>
 						</c:if>
 						
-						<c:if test="${not empty memId}">
+						<!-- 회원 -->
+						<c:if test="${idCode == 105}">
 							<li><a href="#">마이페이지</a></li>
-							<li><a href="#">로그아웃</a></li>
+							<li><a href="/uuplex/logout">로그아웃</a></li>
 						</c:if>
+						
+						<!-- 전체관리자 -->
+						<c:if test="${idCode == 101}">
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
+								전체관리자 <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">매장관리</a></li>
+								<li><a href="/uuplex/memberList">회원관리</a></li>
+								<li class="divider"></li>
+								<li><a href="">영화관 관리</a></li>
+								<li><a href="">호텔 관리</a></li>
+								<li><a href="">휘트니스 관리</a></li>
+							</ul>
+						</li>
+							<li><a href="/uuplex/logout">로그아웃</a></li>
+						</c:if>
+						
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
+	
 	<!-- Menu End -->
 	
 	<!-- Section Start -->
-	<div class="container">
+	<!-- <div class="container"> -->
 	
 <!-- 	<script type="text/javascript">
 		var link;
@@ -146,14 +184,16 @@
 				
 	</section>
 	
-	</div>
+	<!-- </div> -->
 	<!-- Section End -->
 	
 	<!-- Footer Start -->
-	<footer>
+	<footer class="footer">
+      <div class="container">
+		<p class="text-muted" align="center">&copy; 2017 UU Company, Inc.</p>
 		<p class="pull-right"><a href="#">페이지 위로 가기</a></p>
-		<p align="center">&copy; 2017 UU Company, Inc.</p>
-	</footer>
+      </div>
+    </footer>
 	<!-- Footer End -->
 	
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->

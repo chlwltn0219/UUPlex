@@ -44,4 +44,23 @@
     <filter-name>sitemesh</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MFrontController</display-name>
+    <servlet-name>MFrontController</servlet-name>
+    <servlet-class>spring.mvc.uuplex.movie.controller.MFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MFrontController</servlet-name>
+    <url-pattern>/MFrontController</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error/error404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error/error500.jsp</location>
+  </error-page>
 </web-app>
