@@ -10,6 +10,8 @@
 <title>종목 목록</title>
 </head>
 <body>
+
+	<h3>종목 관리</h3>
 	<table class="table table-hover">
 		<thead>
 			<tr>

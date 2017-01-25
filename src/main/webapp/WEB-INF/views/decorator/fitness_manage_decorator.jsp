@@ -26,13 +26,17 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-2 sidemenu">
-				메뉴 부분입니다.
-			</div>
-			<div class="col-sm-10">
-				<sitemesh:write property="body" />
-			</div>
+		<div class="hidden-xs inner-menu">
+			<ul class="nav nav-tabs">
+				<li><a href="/uuplex/fitness/manage/sports/list">종목 관리</a></li>
+				<li><a href="/uuplex/fitness/manage/teacher/list">강사 관리</a></li>
+				<li><a>강의실 관리</a></li>
+				<li><a>프로그램 관리</a></li>
+				<li><a>시간표 관리</a></li>
+				<li><a>명세 내역</a></li>
+			</ul>
 		</div>
+			
+		<sitemesh:write property="body" />
 	</div>
 </body>
