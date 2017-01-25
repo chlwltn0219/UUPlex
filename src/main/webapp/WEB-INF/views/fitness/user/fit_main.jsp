@@ -40,6 +40,14 @@
       		background: #bc8f8f; 
      	}
      	
+     	.container {
+     		width: 50%;
+     	}
+/*      	
+     	* {
+     		border: 1px solid red;
+     	}
+     	 */
     </style>
   </head>
   <body>
