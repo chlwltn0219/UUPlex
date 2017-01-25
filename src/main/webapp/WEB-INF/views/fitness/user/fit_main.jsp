@@ -53,7 +53,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="C:\Users\Administrator\Desktop\김진우\팀플젝\image/1.jpg" alt="...">
+					<img src="http://placehold.it/1200x400" alt="...">
 					<div class="carousel-caption">
 						캐러셀 1면 입니다.
 					</div>
