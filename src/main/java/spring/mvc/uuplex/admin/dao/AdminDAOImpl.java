@@ -1,12 +1,8 @@
 package spring.mvc.uuplex.admin.dao;
 
-<<<<<<< HEAD
-import javax.sql.DataSource;
-=======
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
->>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +15,6 @@ public class AdminDAOImpl implements AdminDAO{
 	
 	@Autowired
 	private SqlSession sqlsession;	//servlet-context.xml에 등록 (컨넥션풀 접근, Mapper위치 등록)
-	
-<<<<<<< HEAD
-	DataSource dataSource;
-
-=======
->>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 	
 	@Override
 	public int idCheck(String memId) {
@@ -42,9 +32,6 @@ public class AdminDAOImpl implements AdminDAO{
 		cnt = this.sqlsession.insert("spring.mvc.uuplex.admin.dao.AdminDAO.insert", dto);
 		return cnt;
 	}
-<<<<<<< HEAD
-
-=======
 	
 	
 	@Override
@@ -113,6 +100,5 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return dto;
 	}
->>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 
 }
