@@ -2,7 +2,6 @@
  * 
  */
 //======================== Input Modal
-
 function sportsInput() {
 	
 	var url = "/uuplex/fitness/manage/sports/inputForm";
@@ -11,14 +10,14 @@ function sportsInput() {
 }
 
 //======================== Detail Modal
-
-function sportsDetails(sid) {
+function sportsDetail(sid) {
 	var url = "/uuplex/fitness/sports/detail";
 	var method = "GET";
 	var params = "sid=" + sid;
 	sendRequest(sportsModal, url, method, params);
 }
 
+//======================== Modify Modal
 function sportsModify(sid){
 	var url = "/uuplex/fitness/manage/sports/modify";
 	var method = "GET";
@@ -26,17 +25,20 @@ function sportsModify(sid){
 	sendRequest(sportsModal, url, method, params);
 }
 
+//======================== Modify Pro
 function sportsModifyPro(){
 	var sid = document.sportsModifyForm.sid.value;
 	var sname = document.sportsModifyForm.sname.value;
 	var sinfo = document.sportsModifyForm.sinfo.value;
+	var activated = document.sportsModifyForm.activated.value;
 	
 	var url = "/uuplex/fitness/manage/sports/modifyPro";
 	var method = "POST";
-	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo;
+	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo + "&activated=" + activated;
 	sendRequest(sportsModal, url, method, params);
 }
 
+//======================== Write Modal Dialog
 function sportsModal() {
 	
 	var modal = document.getElementById("dialog");

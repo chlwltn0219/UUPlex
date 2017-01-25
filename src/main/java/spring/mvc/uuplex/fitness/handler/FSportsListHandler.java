@@ -71,6 +71,8 @@ public class FSportsListHandler implements FCommandHandler{
 			model.addAttribute("dtos", dtos);
 			// ▲ 게시글 목록 데이터
 			// ▼ 페이저 생성 데이터
+			model.addAttribute("contentCnt", pager.getDisplayContentCnt());
+			
 			model.addAttribute("nowPage", pager.getNowPage());
 			model.addAttribute("startPage", pager.getStartPage());
 			model.addAttribute("endPage", pager.getEndPage());
