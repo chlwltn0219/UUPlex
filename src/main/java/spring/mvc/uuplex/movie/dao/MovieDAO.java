@@ -9,4 +9,5 @@ public interface MovieDAO {
 	public int addMovieInfo(MovieInfoDTO dto);
 	public MovieInfoDTO getMovieInfo(int num);
 	public List<MovieInfoDTO> moviesList();
+	public MovieInfoDTO movieDetail(int mnum);
 }

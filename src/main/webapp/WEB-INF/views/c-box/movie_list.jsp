@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="setting.jsp"%>
+
+<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
+<script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 <style>
 
 .container{
@@ -53,9 +56,9 @@ float: left;
 					<td>${dto.title1}</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="상세정보"
-							data-toggle="modal" data-target="#movieDetail"> <input
-							type="button" value="예매하기"></td>
+					<td colspan="2">
+					<input type="button" value="상세정보" data-toggle="modal" data-target="#modalPage" onclick="movieDetail(${dto.movie_num})">
+					<input type="button" value="예매하기"></td>
 				</tr>
 			</table>
 			</div>
@@ -67,5 +70,7 @@ float: left;
 		</h3>
 	</c:if>
 	
-	<%@ include file="movie_datail.jsp" %>
+	<div class="modal fade" id="modalPage" role="dialog">
+	   	<div class="modal-dialog" id="dialog"></div>
+	</div>
 </div>
