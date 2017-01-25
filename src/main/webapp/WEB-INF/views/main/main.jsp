@@ -83,7 +83,10 @@ link = bb;
 
 </script>
 
+<<<<<<< HEAD
 <div class="container">
+=======
+>>>>>>> a1981011c64e4988ec7d4453f65aa5acfc684469
 
 <section>
 
@@ -139,6 +142,10 @@ link = bb;
 
 </table> 
 
+<<<<<<< HEAD
+=======
+  
+>>>>>>> a1981011c64e4988ec7d4453f65aa5acfc684469
 </section> 
 </div> 
 
