@@ -18,6 +18,20 @@
 			width: 100%;
        		z-index: 999;
 		}
+		.btnTop {
+			position: fixed;
+			bottom: 50px;
+			right: 50px;
+			z-index: 100;
+/* 			float:right; */
+/* 			background-color:white; */
+		}
+		
+		.btnTop img{
+			border: 1px solid black;
+			width:70px;
+			height:70px;
+		}
 	</style>
 </head>
 <body>
@@ -72,5 +86,10 @@
 	<div class="top"></div>
 
 	<sitemesh:write property="body" />
+	
+	<div class="btnTop">
+		<a href="#"><img class="img-circle" src="${resources}/fitness/img/top.png" alt="top"></a>
+	</div>
+
 	
 </body>

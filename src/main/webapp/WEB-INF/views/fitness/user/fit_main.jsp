@@ -36,7 +36,7 @@
      		margin-bottom: 60px;
      	}
      	
-     	img {
+     	.menu img {
       		background: #C0C0C0; 
      	}
      	

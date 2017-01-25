@@ -15,12 +15,14 @@ public class FTeacherInputHandler implements FCommandHandler{
 	@Autowired
 	FTeacherDAO dao;
 	
+		
 	@Override
 	public String process(Model model) {
 		
 		FTeacherDTO dto = new FTeacherDTO();
 		int cnt = 0;
-		
+	
+				
 		String viewPage = "fitness/manage/teacher_inputPro";
 		
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
@@ -35,6 +37,7 @@ public class FTeacherInputHandler implements FCommandHandler{
 		model.addAttribute("cnt", cnt);
 		
 		return viewPage;
+		
 	}
 
 }

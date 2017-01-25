@@ -10,6 +10,7 @@ public class FTeacherDTO {
 	private String tpicture;
 	private String activated;
 	private Timestamp reg_date;
+	
 	  
 	public Timestamp getReg_date() {
 		return reg_date;
