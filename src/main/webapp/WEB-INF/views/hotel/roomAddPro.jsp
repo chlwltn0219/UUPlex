@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	객실이 등록되었습니다.
-
+	<script type="text/javascript">
+			alert("객실이 등록되었습니다.");
+			window.location='roomList?roomNum=${roomNum}';
+		</script>
 </body>
 </html>

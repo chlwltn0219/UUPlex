@@ -17,10 +17,13 @@
   		}
   		
   		section {
-  			margin:auto 0;
+  			margin:0px 30px;
   			/* background:url(../images/logo2.jpg); */
   			padding:50px;
+  			/* background:url(/uuplex/resources/main_images/back.png); */
+  			
   		}
+
   	
 	  	/* footer {
 	       	 width:auto; height:100px;
@@ -80,6 +83,8 @@ link = bb;
 
 </script>
 
+<div class="container">
+
 <section>
 
 <table border="1">
@@ -133,8 +138,9 @@ link = bb;
 </tr>
 
 </table> 
-  
+
 </section> 
+</div> 
 
 </body>
 </html>

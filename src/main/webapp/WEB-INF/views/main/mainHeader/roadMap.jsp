@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<div class="container">
+
 <section style="text-align:center">
 
  <h2> 오시는 길 </h2>
@@ -14,6 +16,6 @@
  <img src="${resources}/main_images/gil.png">
   
 </section>
- 
+</div> 
 </body>
 </html>

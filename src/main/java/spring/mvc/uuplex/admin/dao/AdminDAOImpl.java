@@ -1,5 +1,6 @@
 package spring.mvc.uuplex.admin.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +33,16 @@ public class AdminDAOImpl implements AdminDAO{
 		cnt = this.sqlsession.insert("spring.mvc.uuplex.admin.dao.AdminDAO.insert", dto);
 		return cnt;
 	}
+	
+	
+	@Override
+	public int idCode(String memId) {
+		int idCode = 0;
+		
+		idCode = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.idCode", memId);
+		
+		return idCode;
+	}
 
 
 	@Override
@@ -43,17 +54,18 @@ public class AdminDAOImpl implements AdminDAO{
 		int idCheck = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.idCheck", daoMap.get("memId"));
 		
 		if(idCheck == 1) {
+			int idCode = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.idCode", daoMap.get("memId"));
 			int pwdCheck = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.pwdCheck", daoMap);
 		
 			if(pwdCheck == 1) {
 				cnt = 1;
-				int idCode = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.idCode", daoMap.get("memId"));
 				codeMap.put("cnt", cnt);
 				codeMap.put("idCode", idCode);
 				
 			} else {
 				cnt = -1;
 				codeMap.put("cnt", cnt);
+				codeMap.put("idCode", idCode);
 			}
 			
 		} else {
@@ -66,13 +78,28 @@ public class AdminDAOImpl implements AdminDAO{
 
 
 	@Override
-	public int idCode(String memId) {
-		int idCode = 0;
+	public ArrayList<MemberDTO> memberList() {
 		
-		idCode = this.sqlsession.selectOne("spring.mvc.uuplex.admin.dao.AdminDAO.idCode", memId);
+		ArrayList<MemberDTO> dtos = null;
 		
-		return idCode;
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.memberList();
+		
+		return dtos;
 	}
 
+
+	@Override
+	public MemberDTO memberView(String memId) {
+		
+		MemberDTO dto = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dto = dao.memberView(memId);
+		
+		return dto;
+	}
 
 }

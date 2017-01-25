@@ -27,7 +27,7 @@ public class RoomListHandler implements HCommandHandler {
 		
 		model.addAttribute("dtos", dtos);
 		
-		return "hotel/roomList";
+		return "/hotel/roomList";
 	}
 
 }

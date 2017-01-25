@@ -23,6 +23,7 @@ sid			NUMBER,
 sname		VARCHAR2(20) CONSTRAINT f_sports_sname_nn NOT NULL,
 sinfo		VARCHAR2(300),
 activated	VARCHAR2(1) DEFAULT 'Y',
+reg_date	TIMESTAMP DEFAULT SYSDATE,
 CONSTRAINT f_sports_sid_pk PRIMARY KEY (sid),
 CONSTRAINT f_sports_activated_fk FOREIGN KEY (activated) 
 								 REFERENCES BOOLEAN(value) 
@@ -45,6 +46,8 @@ INSERT INTO F_SPORTS (sid, sname)
 VALUES (SEQ_SPORTS_SID.nextval, '스피닝');
 INSERT INTO F_SPORTS (sid, sname)
 VALUES (SEQ_SPORTS_SID.nextval, '수영');
+INSERT INTO F_SPORTS (sid, sname, activated)
+VALUES (SEQ_SPORTS_SID.nextval, '클라이밍', 'N');
 COMMIT;
 
 --피트니스 과목

@@ -37,7 +37,7 @@
     	<div class="col-sm-offset-2 col-sm-10">
       		<input type="button" class="btn btn-default" value="목록보기" onclick="window.location='qna?pageNum=${pageNum}'">
       		<c:if test="${idCode==101}">
-      		<input type="button" class="btn btn-default" value="답글쓰기" onclick="window.location='qnAWriteForm?num=${dto.qnaNum}&ref=${pageNum}&ref_step=${dto.ref_step}&ref_level=${dto.ref_level}'">
+      		<input type="button" class="btn btn-default" value="답글쓰기" onclick="window.location='qnAWriteForm?num=${dto.qnaNum}&ref=${pageNum}&ref_step=${dto.ref_step}&ref_level=${dto.ref_level}&shopCode=${shopCode}'">
       		</c:if>
     	</div>
   	</div>	

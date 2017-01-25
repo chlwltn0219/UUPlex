@@ -9,8 +9,6 @@
 
     <style>
     
-    @import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
-    
     *{margin: 0;
     padding: 0;
     }
@@ -23,7 +21,6 @@
             padding: 0;
             border: 0;
             font-size: 100%;
-			font-family: 'Jeju Myeongjo', serif;
             vertical-align: baseline;
         } 
 
@@ -115,12 +112,12 @@
 
 </head>
 <body>
+<div class="container">
     <header>
         <div class="logo"><img src = "${resources}/hotelImages/hotellogo.png" width="150px;"></div>
         <div class="hit_menu">
             <ul>
                 <li><a href="#" >예약관리</a></li>
-                <li><a href="hotel/roomAddForm" >객실등록</a></li>
                 <li><a href="hotel/roomList" >객실관리</a></li>
                 <li><a href="hotel/roomInfo" >객실정보</a></li>
             </ul>
@@ -128,9 +125,14 @@
     </header>
     <div id="content">
         <div class="section1">
-            <div class="slide_banner"><img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px"><br><br> 스탠다드룸 </div>
-            <div class="side_banner"><img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px"><br><br> 스위트룸 </div>
+            <div class="slide_banner">
+            <img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px">
+            <br><br> 스탠다드룸 <button type="button" class="btn btn-default btn-sm">바로예약</button></div>
+            <div class="side_banner">
+            <img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px">
+            <br><br> 스위트룸  <button type="button" class="btn btn-default btn-sm">바로예약</button></div>
         </div>
+    </div>
     </div>
   </body>
 </html>

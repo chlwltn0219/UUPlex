@@ -3,4 +3,5 @@
 .project 
 .settings 
 .springBeans 
-target 
+target/ 
+.DS_Store
