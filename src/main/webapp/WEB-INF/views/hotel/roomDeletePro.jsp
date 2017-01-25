@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-roomDeletePro
+	<script type="text/javascript">
+			alert("객실이 삭제되었습니다.");
+			window.location='roomList?roomNum=${roomNum}';
+	</script>
 </body>
 </html>

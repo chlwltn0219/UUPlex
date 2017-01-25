@@ -1,9 +1,6 @@
 package spring.mvc.uuplex.hotel.dao;
 
 import java.util.ArrayList;
-import java.util.Map;
-
-import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +53,13 @@ public class HotelDAOImpl implements HotelDAO {
 		cnt = dao.update(dto);
 		
 		return cnt;
+	}
+
+	//∞¥Ω«ªË¡¶
+	@Override
+	public void delete(int roomNum) {
+		HotelDAO dao = this.sqlsession.getMapper(HotelDAO.class);
+		dao.delete(roomNum);
 	}
 
 

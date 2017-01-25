@@ -12,9 +12,13 @@
 	font-family: 나눔고딕;
 }
 
+body{
+	min-width: 1900px;
+}
+
 .top_menu {
 	color: white;
-	min-width: 1500px;
+	min-width: 1900px;
 	width: 100%;
 	height: 130px;
 	background-color: #000000;
@@ -65,6 +69,7 @@
 
 .menu td {
 	width: 100px;
+	text-align: center;
 }
 
 .menu input {
@@ -78,7 +83,7 @@
 
 .imgbox {
 	background-color: black;
-	min-width: 1100px;
+	min-width: 1700px;
 }
 
 .button {
@@ -93,15 +98,16 @@
 }
 
 .content td>table {
-	width: 220px;
+	width: 200px;
 	height: 100%;
 	margin: 10px;
+	border: 1px solid #EAEAEA;
 }
 
 .content td>input {
 	color: #5A5A5A;
 	padding: 10px 13px;
-	margin: 3px;
+	margin: 10px 0 10px 10px;
 	border: none;
 	background-color: #EAEAEA;
 }
@@ -110,26 +116,19 @@
 	width: 100%;
 }
 
-.content>td>table {
-	border: 1px solid #EAEAEA;
-}
-
-td {
-	text-align: center;
-}
-
-.sub {
-	padding: 10px;
-	font-size: 20px;
+.sub>td{
+	padding: 10px 20px;
+	font-size: 15px;
 }
 
 .sub>th {
-	width: 25px;
+	padding-left: 10px;
+width: 40px;
 }
 
 .footer {
 	color: white;
-	min-width: 1500px;
+	min-width: 1900px;
 	width: 100%;
 	height: 200px;
 }
@@ -147,7 +146,7 @@ td {
 }
 
 .contain {
-min-width : 1700px;
+	min-width : 1900px;
 	background-color: black;
 	width: 100%; 
 }
@@ -162,7 +161,7 @@ min-width : 1700px;
 }
 
 .item {
-	min-width : 1700px;
+	min-width : 1900px;
 	background-attachment : fixed;
 	background-size: 100%;
 }
@@ -170,15 +169,23 @@ min-width : 1700px;
 </head>
 <body>
 
+<c:if test="${contentPage==null}">
+	<c:set var="contentPage" value="main.jsp"/>
+</c:if>
+
 	<div class="top_menu">
 		<div>
-			<img class="logo" src="${img}etc/c-box_logo.png">
+			<img class="logo" src="${img}etc/c-box_logo.png" onclick="location.href='/uuplex/c-box'">
 		</div>
 		<div class="menu">
 			<table>
 				<tr>
 					<td><input type="button" value="영화"
+<<<<<<< HEAD
+						onclick="location.href='c-box/movie_list'"></td>
+=======
 						onclick="location.href='c-box/ManageMovieInfo'"></td>
+>>>>>>> dc9b16689b253a5b8fce0cdd4adc93b898cb8f06
 					<td><input type="button" value="이벤트"
 						onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
 					<td><input type="button" value="로그인"></td>
@@ -193,7 +200,7 @@ min-width : 1700px;
 		<input class="btn2" type="button" value="빠른예매">
 	</div>
 
-	<jsp:include page="main.jsp"></jsp:include>
+	<jsp:include page="${contentPage}"/>
 	
 	<div class="footer"></div>
 

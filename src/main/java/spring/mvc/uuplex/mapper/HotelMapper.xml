@@ -7,10 +7,10 @@
     
   <!-- 객실등록 -->
     <insert id="insert" parameterType="spring.mvc.uuplex.hotel.dto.HotelDTO">
-    	INSERT INTO h_room(roomNum, shopCode, roomName, mainImg, detail_1, detail_2, detail_3, detail_4, detail_5,
-    						intro, roomType, bed, hotelView, capacity, charge)
-    	VALUES(roomNum.nextval, 102, #{roomName}, #{mainImg}, #{detail_1}, #{detail_2}, #{detail_3}, #{detail_4}, #{detail_5},
-    						#{intro}, #{roomType}, #{bed}, #{hotelView}, #{capacity}, #{charge})
+    	INSERT INTO h_room(roomNum, shopCode, roomName, mainImg, detail_1, detail_2, detail_3, detail_4, detail_5, 
+    	intro, roomType, bed, hotelView, capacity, charge) 
+    	VALUES(roomNum.nextval, 102, #{roomName}, #{mainImg}, #{detail_1}, #{detail_2}, #{detail_3}, #{detail_4}, #{detail_5}, 
+    	#{intro}, #{roomType}, #{bed}, #{hotelView}, #{capacity}, #{charge})
     </insert>
     
   <!-- 객실목록 -->
@@ -30,6 +30,9 @@
     			intro=#{intro}, roomType=#{roomType}, bed=#{bed}, hotelView=#{hotelView},
     			capacity=#{capacity}, charge=#{charge} WHERE roomNum=#{roomNum}
     </update>
-    
-    
+ 
+  <!-- 객실삭제 -->
+ 	<delete id="delete" parameterType="int">
+ 		DELETE FROM h_room WHERE roomNum=#{roomNum}
+ 	</delete>
     </mapper>

@@ -109,7 +109,7 @@ public class HFrontController {
 		return viewPage;
 	}
 	
-/*	//按角昏力
+	//按角昏力
 	@Autowired
 	RoomDeleteProHandler roomDeleteProHandler;
 	@RequestMapping("/roomDeletePro")
@@ -120,6 +120,6 @@ public class HFrontController {
 		String viewPage = roomDeleteProHandler.process(model);
 		
 		return viewPage;
-	}*/
+	}
 
 }
