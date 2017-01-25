@@ -38,7 +38,8 @@
 	<update id="modifySports" parameterType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
 		UPDATE F_SPORTS
 		   SET sname = #{sname},
-			   sinfo = #{sinfo}
+			   sinfo = #{sinfo},
+			   activated = #{activated}
 		 WHERE sid = #{sid}
 	</update>
 	

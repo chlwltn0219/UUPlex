@@ -23,6 +23,7 @@ public class FSportsModifyHandler implements FCommandHandler{
 		int sid = 0;
 		String sname = null;
 		String sinfo = null;
+		String activated = null;
 		
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
@@ -30,10 +31,12 @@ public class FSportsModifyHandler implements FCommandHandler{
 			sid = Integer.parseInt(req.getParameter("sid"));
 			sname = req.getParameter("sname");
 			sinfo = req.getParameter("sinfo");
+			activated = req.getParameter("activated");
 			
 			dto.setSid(sid);
 			dto.setSname(sname);
 			dto.setSinfo(sinfo);
+			dto.setActivated(activated);
 			
 			dao.modifySports(dto);
 		} catch (NumberFormatException e) {

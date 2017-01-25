@@ -29,10 +29,23 @@
 	<sitemesh:write property="head" />
 	
 	<style>
-		footer {
-			background-color:#efefef;
-			height:100px;
+		html {
+		  position: relative;
+		  min-height: 100%;
 		}
+		body {
+		  margin-bottom: 60px;
+		}
+		.footer {
+		  position: absolute;
+		  bottom: 0;
+		  width: 100%;
+		  height: 60px;
+		  background-color: #f5f5f5;
+		}
+    	div.top {
+    		height: 50px;
+    	}
 	</style>
 	
 </head>
@@ -118,6 +131,7 @@
 			</div>
 		</nav>
 	</header>
+	
 	<!-- Menu End -->
 	
 	<!-- Section Start -->
@@ -150,10 +164,12 @@
 	<!-- Section End -->
 	
 	<!-- Footer Start -->
-	<footer>
+	<footer class="footer">
+      <div class="container">
+		<p class="text-muted" align="center">&copy; 2017 UU Company, Inc.</p>
 		<p class="pull-right"><a href="#">페이지 위로 가기</a></p>
-		<p align="center">&copy; 2017 UU Company, Inc.</p>
-	</footer>
+      </div>
+    </footer>
 	<!-- Footer End -->
 	
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->

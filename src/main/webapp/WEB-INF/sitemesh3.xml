@@ -8,6 +8,20 @@
   <!-- Sitemesh 데코레이션을 매핑 할 패턴을 지정합니다. -->
   <mapping path="/*" decorator="/WEB-INF/views/decorator/main_decorator.jsp"/>
   
+  <mapping>
+    <path>/fitness</path>
+    <path>/fitness/*</path>
+    <decorator>/WEB-INF/views/decorator/fitness_decorator.jsp</decorator>
+    <decorator>/WEB-INF/views/decorator/main_decorator.jsp</decorator>
+  </mapping>
+  
+    <mapping>
+    <path>/fitness/manage/*</path>
+    <decorator>/WEB-INF/views/decorator/fitness_manage_decorator.jsp</decorator>
+    <decorator>/WEB-INF/views/decorator/fitness_decorator.jsp</decorator>
+    <decorator>/WEB-INF/views/decorator/main_decorator.jsp</decorator>
+  </mapping>
+  
 <!--   <mapping path="/*.special.jsp" decorator="/special-decorator.html"/> -->
 
 <!-- 여러개의 데코레이터를 적용 할 수도 있습니다. -->

@@ -10,11 +10,13 @@
 <title>종목 목록</title>
 </head>
 <body>
-<div class="container">
+
+	<h3>종목 관리</h3>
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td colspan="3">
+				<td colspan="2">
+				<!-- 검색 -->
 					<form action="" method="get" onsubmit=""
 						 class="form-inline" name="searchForm">
 						<div class="input-group">
@@ -22,19 +24,21 @@
 <!-- 								<option>코드</option> -->
 <!-- 								<option>종목 명</option> -->
 <!-- 							</select> -->
-							<input class="form-control" type="search" placeholder="검색">
+							<input class="form-control" type="search" placeholder="검색 구현 필요">
 							<div class="input-group-btn">
 								<button type="submit" class="btn btn-info">
 									<i class="glyphicon glyphicon-search"></i>
 								</button>
 							</div>
 						</div>
-						<div class="form-group pull-right">
-							<input type="button" class="btn btn-primary" 
-								value="등록하기" onclick="sportsInput()"
-								data-toggle="modal" data-target="#modalPage">
-						</div>
 					</form>
+				<td>
+				<!-- 등록 -->
+					<div class="form-group pull-right">
+						<input type="button" class="btn btn-primary" 
+							value="등록하기" onclick="sportsInput()"
+							data-toggle="modal" data-target="#modalPage">
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -44,33 +48,28 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:if test="${not empty dtos}">
 			<c:forEach items="${dtos}" var="dto">
-			<c:if test="${dto.activated == 'Y'}">
-			<tr class="success">
-			</c:if>
-			<c:if test="${dto.activated == 'N'}">
-			<tr>
-			</c:if>
-				<td>${dto.sid}</td>
-				<td><a class="btn btn-link" onclick="sportsDetails(${dto.sid})"
-						data-toggle="modal" data-target="#modalPage">
-					${dto.sname}</a>
-				</td>
-				<td>
-					<c:if test="${dto.activated == 'Y'}">
+				<c:if test="${dto.activated == 'Y'}">
+				<tr class="success">
+				</c:if>
+				<c:if test="${dto.activated == 'N'}">
+				<tr>
+				</c:if>
+					<td>${dto.sid}</td>
+					<td>
+						<a class="btn btn-link" onclick="sportsDetail(${dto.sid})"
+							data-toggle="modal" data-target="#modalPage">${dto.sname}</a>
+					</td>
+					<td>
+						<c:if test="${dto.activated == 'Y'}">
 						운영중
-					</c:if>
-					<c:if test="${dto.activated == 'N'}">
-						비 운영중
-					</c:if>
-				</td>
-			</tr>
+						</c:if>
+						<c:if test="${dto.activated == 'N'}">
+						폐지
+						</c:if>
+					</td>
+				</tr>
 			</c:forEach>
-			</c:if>
-			<c:if test="${empty dtos}">
-					<td colspan="2"><h4>데이터가 없습니다!</h4></td>
-			</c:if>
 		</tbody>
 		<tfoot>
 			<tr>
@@ -85,10 +84,10 @@
 						<c:forEach begin="${startPage}" end="${endPage}" 
 								   var="page" varStatus="status">
 							<c:if test="${status.current == nowPage}">
-								<li class="active"><a href="/uuplex/fitness/manage/sports/list?page=${page}">${page}</a></li>
+								<li class="active"><a>${page}</a></li>
 							</c:if>
 							<c:if test="${status.current != nowPage}">
-								<li><a href="">${page}</a></li>
+								<li><a href="/uuplex/fitness/manage/sports/list?page=${page}">${page}</a></li>
 							</c:if>
 						</c:forEach>
 					</ul>
@@ -109,6 +108,5 @@
 	</div>
 <%-- 	<%@ include file="sports_input.jsp" %> --%>
 <%-- 	<%@ include file="sports_detail.jsp" %> --%>
-</div>	
 </body>
 </html>
