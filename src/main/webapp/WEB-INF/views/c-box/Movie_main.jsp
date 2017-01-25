@@ -12,9 +12,13 @@
 	font-family: 나눔고딕;
 }
 
+body{
+	min-width: 1690px;
+}
+
 .top_menu {
 	color: white;
-	min-width: 1500px;
+	min-width: 1690px;
 	width: 100%;
 	height: 130px;
 	background-color: #000000;
@@ -59,12 +63,13 @@
 }
 
 .menu {
-	width: 400px;
-	margin: 5px auto;
+	width: 300px;
+	margin: 10px auto;
 }
 
 .menu td {
 	width: 100px;
+	text-align: center;
 }
 
 .menu input {
@@ -77,8 +82,7 @@
 }
 
 .imgbox {
-	background-color: black;
-	min-width: 1100px;
+	min-width: 1690px;
 }
 
 .button {
@@ -89,19 +93,19 @@
 
 .content {
 	width: 660px;
-	margin: 30px auto;
 }
 
 .content td>table {
-	width: 220px;
+	width: 200px;
 	height: 100%;
 	margin: 10px;
+	border: 1px solid #EAEAEA;
 }
 
 .content td>input {
 	color: #5A5A5A;
 	padding: 10px 13px;
-	margin: 3px;
+	margin: 10px 0 10px 10px;
 	border: none;
 	background-color: #EAEAEA;
 }
@@ -110,50 +114,33 @@
 	width: 100%;
 }
 
-.content>td>table {
-	border: 1px solid #EAEAEA;
-}
-
-td {
-	text-align: center;
-}
-
-.sub {
-	padding: 10px;
-	font-size: 20px;
+.sub>td{
+	padding: 10px 20px;
+	font-size: 15px;
 }
 
 .sub>th {
-	width: 25px;
+	padding-left: 10px;
+	width: 40px;
 }
 
 .footer {
 	color: white;
-	min-width: 1500px;
+	min-width: 1690px;
 	width: 100%;
 	height: 200px;
 }
 
-.carousel-inner embed {
+embed {
 	height: 400px;
 	width: 800px;
-	opacity: 0;
-	transition: 1s;
-	margin: 0 560px;
-}
-
-.carousel-inner embed:HOVER {
-	opacity: 1;
+	visibility: hidden;
 }
 
 .contain {
+	min-width : 1690px;
 	background-color: black;
-	width: 1910px; 
-}
-
-#carousel-example-generic {
-	background-color: black;
-	margin: 0 auto;
+	width: 100%; 
 }
 
 .carousel-inner {
@@ -161,26 +148,59 @@ td {
 }
 
 .item {
-	width: 1910px; 
+	min-width : 1690px;
 	background-attachment : fixed;
-	background-size: 1910px; 
+	background-size: 100%;
+	width: 100%;
+	height: 400px;
 }
+
+.item #img{
+	position : absolute;
+	top : 170px;
+	left : 48%;
+	width: 70px;
+	height: 70px;
+	opacity: 0;
+	transition : 0.3s;
+}
+
+.item:HOVER #img{
+	opacity: 0.5;
+	transiton :0.5s;
+}
+
+#img:ACTIVE ~embed{
+	visibility: visible;
+}
+
+#img:ACTIVE{
+	display: none;
+}
+
+
+#img:HOVER{
+	opacity: 1;
+	cursor: pointer;
+}
+
 </style>
 </head>
 <body>
 
+<c:if test="${contentPage==null}">
+	<c:set var="contentPage" value="main.jsp"/>
+</c:if>
+
 	<div class="top_menu">
 		<div>
-			<img class="logo" src="${img}etc/c-box_logo.png">
+			<img class="logo center-block" src="${img}etc/c-box_logo.png" onclick="location.href='/uuplex/c-box'">
 		</div>
 		<div class="menu">
 			<table>
 				<tr>
-					<td><input type="button" value="영화"
-						onclick="location.href='http://www.megabox.co.kr/?menuId=movie'"></td>
-					<td><input type="button" value="예매"></td>
-					<td><input type="button" value="이벤트"
-						onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
+					<td><input type="button" value="영화" onclick="location.href='c-box/movie_list'"></td>
+					<td><input type="button" value="이벤트" onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
 					<td><input type="button" value="로그인"></td>
 				</tr>
 			</table>
@@ -193,133 +213,8 @@ td {
 		<input class="btn2" type="button" value="빠른예매">
 	</div>
 
-	<!-- 슬라이드 쇼 : 캐러셀 -->
-	<div class="contain">
-		<div id="carousel-example-generic" class="carousel slide"
-			data-ride="carousel">
-
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0"
-					class="active"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-			</ol>
-
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active"
-					style="background-image: url('${img}/etc/allied.jpg');">
-					<embed src="https://www.youtube.com/embed/Jlp94-C31cY"></embed>
-					<div class="carousel-caption"></div>
-				</div>
-				<div class="item"
-					style="background-image: url('${img}/etc/lalaland.jpg');">
-					<embed src="https://www.youtube.com/embed/0pdqf4P9MB8"></embed>
-					<div class="carousel-caption"></div>
-				</div>
-
-				<div class="item"
-					style="background-image: url('${img}/etc/Ghostbusters.jpg');">
-					<embed src="https://www.youtube.com/embed/w3ugHP-yZXw"></embed>
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-
-			<!-- Controls -->
-			<a class="left carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
-
-	<!-- 캐러셀 끝 -->
-
-	<div class="content">
-		<table>
-			<tr>
-				<td>
-					<table style="border: 1px solid #EAEAEA;">
-						<tr>
-							<td colspan="2"><img src="${img}movie_poster/너의 권력은.jpg"></td>
-						</tr>
-						<tr class="sub">
-							<th><img id="rate" src="${img}mpaa_rating/12.png"></th>
-							<td>너의 권력은</td>
-						</tr>
-						<tr>
-							<td colspan="2"><input type="button" value="상세정보"
-								data-toggle="modal" data-target="#myModal"> <input
-								type="button" value="예매하기"></td>
-						</tr>
-					</table>
-				</td>
-				<td>
-					<table style="border: 1px solid #EAEAEA;">
-						<tr>
-							<td colspan="2"><img src="${img}movie_poster/모아나.jpg"></td>
-						</tr>
-						<tr class="sub">
-							<th><img id="rate" src="${img}mpaa_rating/all.png"></th>
-							<td>모아나</td>
-						</tr>
-						<tr>
-							<td colspan="2"><input type="button" value="상세정보"
-								data-toggle="modal" data-target="#myModal"> <input
-								type="button" value="예매하기"></td>
-						</tr>
-					</table>
-				</td>
-				<td>
-					<table style="border: 1px solid #EAEAEA;">
-						<tr>
-							<td colspan="2"><img src="${img}movie_poster/얼라이드.jpg"></td>
-						</tr>
-						<tr class="sub">
-							<th><img id="rate" src="${img}mpaa_rating/15.png"></th>
-							<td>얼라이드</td>
-						</tr>
-						<tr>
-							<td colspan="2"><input type="button" value="상세정보"
-								data-toggle="modal" data-target="#myModal"> <input
-								type="button" value="예매하기"></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">상세정보</h4>
-					</div>
-					<div class="modal-body">
-						<jsp:include page="movie_datail.jsp" />
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<!— 모달 끝 —>
-	</div>
+	<jsp:include page="${contentPage}"/>
+	
 	<div class="footer"></div>
 
 </body>

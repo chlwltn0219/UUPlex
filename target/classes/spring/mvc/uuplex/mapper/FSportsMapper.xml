@@ -17,7 +17,7 @@
 		  FROM ( SELECT s.* , rownum AS rnum 
 				   FROM ( SELECT * 
 			  		     	FROM F_SPORTS 
-			  			   ORDER BY sid DESC ) s )
+			  			   ORDER BY activated DESC, reg_date DESC ) s )
 		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	
@@ -26,5 +26,21 @@
 		INSERT INTO F_SPORTS (sid, sname, sinfo)
 		VALUES (SEQ_SPORTS_SID.nextval, #{sname}, #{sinfo})
 	</insert>
+	
+	<!-- 종목 상세 정보 -->
+	<select id="sportsDetail" resultType="spring.mvc.uuplex.fitness.dto.FSportsDTO" parameterType="int">
+		SELECT * 
+		 FROM F_SPORTS
+		WHERE sid=#{sid}
+	</select>
+	
+	<!-- 종목 정보 수정 -->
+	<update id="modifySports" parameterType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
+		UPDATE F_SPORTS
+		   SET sname = #{sname},
+			   sinfo = #{sinfo},
+			   activated = #{activated}
+		 WHERE sid = #{sid}
+	</update>
 	
 </mapper>

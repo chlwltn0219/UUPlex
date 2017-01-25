@@ -29,10 +29,23 @@
 	<sitemesh:write property="head" />
 	
 	<style>
-		footer {
-			background-color:#efefef;
-			height:100px;
+		html {
+			position: relative;
+			min-height: 100%;
 		}
+		body {
+			margin-bottom: 60px;
+		}
+		.footer {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 60px;
+			background-color: #f5f5f5;
+		}
+    	div.top {
+    		height: 50px;
+    	}
 	</style>
 	
 </head>
@@ -40,7 +53,7 @@
 	
 	<!-- Menu Start -->
 	<header>
-		<nav class="navbar navbar-default navbar-fixed-tip">
+		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<!-- 모바일 디스플레이에서 메뉴가 collapse 버전으로 적용 됩니다. -->
 				<div class="navbar-header">
@@ -138,10 +151,11 @@
 			</div>
 		</nav>
 	</header>
+	
 	<!-- Menu End -->
 	
 	<!-- Section Start -->
-	<div class="container">
+	<!-- <div class="container"> -->
 	
 <!-- 	<script type="text/javascript">
 		var link;
@@ -166,14 +180,16 @@
 				
 	</section>
 	
-	</div>
+	<!-- </div> -->
 	<!-- Section End -->
 	
 	<!-- Footer Start -->
-	<footer>
+	<footer class="footer">
+      <div class="container">
+		<p class="text-muted" align="center">&copy; 2017 UU Company, Inc.</p>
 		<p class="pull-right"><a href="#">페이지 위로 가기</a></p>
-		<p align="center">&copy; 2017 UU Company, Inc.</p>
-	</footer>
+      </div>
+    </footer>
 	<!-- Footer End -->
 	
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
