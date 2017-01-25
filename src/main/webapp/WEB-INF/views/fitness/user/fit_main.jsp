@@ -37,7 +37,7 @@
      	}
      	
      	img {
-      		background: #bc8f8f; 
+      		background: #C0C0C0; 
      	}
      	
      	.container {
@@ -74,7 +74,7 @@
 				<div class="item">
 					<img src="${resources}/fitness/img/2.jpg" alt="...">
 					<div class="carousel-caption">
-						<h3></h3>
+						<h4>점심 종이 울린 후의 나</h4>
 					</div>
 				</div>
 <!-- 				캐러셀 전체 설명 -->
