@@ -40,9 +40,12 @@
       		background: #C0C0C0; 
      	}
      	
-     	.container {
-     		width: 50%;
-     	}
+     	
+     	@media screen and (min-width: 480px) {
+	     	.container {
+	     		width: 50%;
+	     	}
+		}
 /*      	
      	* {
      		border: 1px solid red;

@@ -187,7 +187,6 @@
 	<footer class="footer">
       <div class="container">
 		<p class="text-muted" align="center">&copy; 2017 UU Company, Inc.</p>
-		<p class="pull-right"><a href="#">페이지 위로 가기</a></p>
       </div>
     </footer>
 	<!-- Footer End -->
@@ -196,5 +195,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="${resources}/js/slowTop.js"></script>
 </body>
 </html>
