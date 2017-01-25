@@ -10,7 +10,6 @@
 <style>
 #content {
 	width: 1500px;
-	height: 800px;
 	margin: 100px;
 }
 
