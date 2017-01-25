@@ -65,11 +65,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-<<<<<<< HEAD
-					<a class="navbar-brand" href="main">UUPlex</a>
-=======
 					<a class="navbar-brand" href="/uuplex/main">UUPlex</a>
->>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 				</div>
 				
 				<!-- 메뉴 목록 -->

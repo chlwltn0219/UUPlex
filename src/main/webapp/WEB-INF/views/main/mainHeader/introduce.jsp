@@ -7,11 +7,8 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-=======
 <div class="container">
 
->>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 <section>
 
 <div id="main">
@@ -70,10 +67,6 @@
 </div>
  
 </section>  
-<<<<<<< HEAD
-
-=======
 </div>
->>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 </body>
 </html>
