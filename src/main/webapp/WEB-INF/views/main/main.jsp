@@ -20,7 +20,10 @@
   			margin:auto 0;
   			/* background:url(../images/logo2.jpg); */
   			padding:50px;
+  			/* background:url(/uuplex/resources/main_images/back.png); */
+  			
   		}
+
   	
 	  	/* footer {
 	       	 width:auto; height:100px;
@@ -80,6 +83,7 @@ link = bb;
 
 </script>
 
+
 <section>
 
 <table border="1">
@@ -133,6 +137,7 @@ link = bb;
 </tr>
 
 </table> 
+
   
 </section> 
 

@@ -9,7 +9,9 @@ public interface BoardDAO {
 	
 	// Q&A 게시판
 	public int getCount(); // 글개수 구하기
+	public int getSubCount(int shopCode); // 카테고리별 글개수 구하기
 	public ArrayList<BoardDTO> getArticles(Map<String, Integer> daoMap); // 게시글 목록조회
+	public ArrayList<BoardDTO> getArticlesSub(Map<String, Integer> daoMap); // 세부 게시글 목록조회
 	public int qnaInsert(BoardDTO dto); // 	QnA 글추가
 	public BoardDTO getQnA(int num); // 상세조회, 수정내역
 	

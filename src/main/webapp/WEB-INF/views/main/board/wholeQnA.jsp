@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../../setting.jsp" %>   
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
  
 <html lang="ko">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
     <title>Q&A</title>
-  
+    <!-- 부트스트랩 -->
+	<link href="${resources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
        div.top {
           height: 100px;
@@ -18,62 +22,9 @@
        }
     </style>
   </head>
-  <body>
-  
- <script type="text/javascript">
- 	  $('#myTab a').click(function (e) {
-		  e.preventDefault()
-	 	  $(this).tab('show')
-	  })
-  
-
-	  $(function () {
-	    $('#myTab a:last').tab('show')
-	  })
-
-  </script>
-  
-  <div class="head" role="tabpanel">
-
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-  	<c:if test="${shopCode == 100}">
-    <li role="presentation" class="active"><a href="qna?shopCode=100">전체</a></li>
-    </c:if>
-    
-    <c:if test="${shopCode != 100}">
-    <li role="presentation"><a href="qna?shopCode=100">전체</a></li>
-    </c:if>
-    
-    <c:if test="${shopCode == 101}">
-    	<li role="presentation" class="active"><a href="qna?shopCode=101">영화</a></li>
-    </c:if>
-    <c:if test="${shopCode != 101}">
-   		 <li role="presentation"><a href="qna?shopCode=101">영화</a></li>
-    </c:if>
-    
-    <c:if test="${shopCode == 102}">
-    <li role="presentation" class="active"><a href="qna?shopCode=102">호텔</a></li>
-    </c:if>
-    
-    <c:if test="${shopCode != 102}">
-    <li role="presentation"><a href="qna?shopCode=102">호텔</a></li>
-    </c:if>
-    
-    <c:if test="${shopCode == 103}">
-    <li role="presentation" class="active"><a href="qna?shopCode=103">휘트니스</a></li>
-    </c:if>
-    
-    <c:if test="${shopCode != 103}">
-    <li role="presentation"><a href="qna?shopCode=103">휘트니스</a></li>
-    </c:if>
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
-       
-     <div style="height:10px"></div>
+ <body>
+ 
+    <div style="height:10px"></div>
      <!-- 메뉴 넣어 주세요 -->
   
      <div class="container">
@@ -81,7 +32,7 @@
          <thead>
             <tr>
                <th colspan="6"><h1> Q & A </h1></th>
-               <th align="right"><c:if test="${not empty id}"><input type="button" class="btn btn-default" value="글쓰기" onclick="window.location='qnAWriteForm?shopCode=${shopCode}'"></c:if></th>
+               <th align="right"><c:if test="${not empty id}"><input type="button" class="btn btn-default" value="글쓰기" onclick="window.location='qnAWriteForm'"></c:if></th>
                
             </tr>
          </thead>
@@ -95,8 +46,7 @@
             </tr>   
             
      <c:if test="${cnt > 0}">     
-        <c:forEach var="dto" items="${dtos}">
-          
+        <c:forEach var="dto" items="${dtos}">    
             <tr>
                <td>${number}
                	  <c:set var="number" value="${number - 1}" />
@@ -112,16 +62,10 @@
 					<img src="${resources}/board/re.gif" border="0" width="20" height="15">
 			     </c:if>	
 			   
-                 <a href="contentForm?num=${dto.qnaNum}&pageNum=${pageNum}&number=${number + 1}&shopCode=${shopCode}">
-                 
-                 <c:if test="${dto.shopCode==101}">[영화]</c:if>
-                 <c:if test="${dto.shopCode==102}">[호텔]</c:if>
-                 <c:if test="${dto.shopCode==103}">[휘트니스]</c:if>
-                 
-                 ${dto.subject}</a>
+                 <a href="contentForm?num=${dto.qnaNum}&pageNum=${pageNum}&number=${number + 1}">${dto.subject}</a>
                
                  <c:if test="${dto.readCnt > 10}">
-				    <img src="${resources}/board/hot.gif" border="0" width="20" height="15">
+				   <img src="${resources}/board/hot.gif" border="0" width="20" height="15">
 			     </c:if>
                
                </td>
@@ -133,7 +77,6 @@
                
                <td>${dto.readCnt}</td>
             </tr>
-         
          </c:forEach>
      </c:if>
            
@@ -145,7 +88,7 @@
                   <nav>
                      <ul class="pagination pager">
                   		<c:if test="${startPage > pageBlock}">
-                      	  <li><a href="qna?pageNum=${startPage - pageBlock}&shopCode=${shopCode}">Previous</a></li>
+                      	  <li><a href="qna?pageNum=${startPage - pageBlock}">Previous</a></li>
                         </c:if>     
                         
                         <c:forEach var="i" begin="${startPage}" end="${endPage}"> 
@@ -153,12 +96,12 @@
                         		<li><a href="">${i} <span class="sr-only">(current)</span></a></li>
                         	</c:if>
                         	<c:if test="${i != currentPage}">
-                       			 <li><a href="qna?pageNum=${i}&shopCode=${shopCode}">${i} <span class="sr-only">(current)</span></a></li>
+                       			 <li><a href="qna?pageNum=${i}">${i} <span class="sr-only">(current)</span></a></li>
                        		</c:if>
                         </c:forEach>
                         
                         <c:if test="${pageCount > endPage}">
-                        <li><a href="qna?pageNum=${startPage + pageBlock}&shopCode=${shopCode}">Next</a></li>
+                        <li><a href="qna?pageNum=${startPage + pageBlock}">Next</a></li>
                         </c:if>  
                      </ul>
                   </nav>
@@ -170,12 +113,6 @@
       </table>
 
     </div><!-- /.container -->
-    
-    </div>
-    
-  </div>
 
-</div>
-
-  </body>
+</body>
 </html>

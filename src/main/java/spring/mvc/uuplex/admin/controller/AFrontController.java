@@ -64,6 +64,14 @@ public class AFrontController {
 
 		return viewPage;
 	}
+	
+	@RequestMapping("noneSM/pwdChk")
+	public String pwdChk(Model model) {
+		
+		System.out.println("pwdChk()");
+		
+		return "/main/InputMember/pwdChk";
+	}
 
 
 }
