@@ -31,6 +31,7 @@
 	padding: 10px 0;
 }
 </style>
+<link type="text/css" rel="stylesheet" href="/uuplex/resources/c-box/css/rating.css"> 
 
 <div class="modal fade" id="movieDetail" role="dialog">
 	<div class="modal-lg">
@@ -73,7 +74,8 @@
 							<td>평점</td>
 						</tr>
 						<tr>
-							<td>&nbsp;</td>
+							<td><input type="button" class="btn btn-primary" value="수정하기" onclick="modifyMovie(${dto.movie_num})">
+							<input type="button" class="btn btn-primary" value="삭제하기" onclick="deleteMovie(${dto.movie_num})"></td>
 						</tr>
 
 						<tr>
@@ -96,24 +98,60 @@
 							<td colspan="2" class="con"></td>
 						</tr>
 						<tr>
-							<td colspan="2" class="tit">한줄평(0)</td>
+							<td colspan="2" class="tit"></td>
 						</tr>
 						<tr>
-							<td colspan="2" class="con"></td>
+							<td colspan="2" class="tit"></td>
 						</tr>
-						<tr>
-							<td colspan="2" class="con"></td>
-						</tr>
-						<tr>
-							<td colspan="2" class="con"></td>
-						</tr>
-						<tr>
-							<td colspan="2" class="con"></td>
-						</tr>
+						
 					</table>
+					<br><br><br><br>
+					
+					<form class="form-inline" action="c-box/addReview" method="post" name="reviewform" >
+						<%-- <input type="hidden" name="movie_num" value="${dto.movie_num}"> --%>
+						<input type="hidden" name="movie_num" value=12>
+						
+						<table class="table">
+							<tr><td colspan="2" style="font-size:20px">한줄평(0)</td>
+							
+								<td></td>
+								<td>0/100</td>
+							</tr>
+							<tr>
+								<th style="font-size:20px">memId</th>
+								<%-- <th  class="tit">${sessionScope.memId }</th> --%>
+								
+								<td class="star-input">
+									<span class="input">
+								    	<input type="radio" name="rating" value=1 id="p1">
+								    	<label for="p1">괜히봤어요</label>
+								    	<input type="radio" name="rating" value=2 id="p2">
+								    	<label for="p2">기대하진 말아요</label>
+								    	<input type="radio" name="rating" value=3 id="p3">
+								    	<label for="p3">무난했어요</label>
+								    	<input type="radio" name="rating" value=4 id="p4">
+								    	<label for="p4">기대해도 좋아요!</label>
+								    	<input type="radio" name="rating" value=5 id="p5">
+								    	<label for="p5">정말 멋진 영화였어요!</label>
+								  	</span>
+								  	<br>
+								  	<output id="rating" for="star-input"><b>평점을 입력해주세요</b></output>						
+								</td>
+								<td><textarea name="review_content" placeholder ="로그인 후 이용가능한 서비스입니다." style="width:300px; height:80px" required></textarea></td>
+								<td><input class=" btn btn-lg btn-info" type="submit" value="등록"></td>
+							</tr>
+							
+						</table>
+					</form>
+					
+					
 				</div>
 
 			</div>
+			
+			<script src="/uuplex/resources/js/jquery-1.11.3.min.js"></script>
+			<script src="/uuplex/resources/js/star.js"></script>
+			
 			<div class="modal-footer">
 				<button class="btn btn-default" data-dismiss="modal">닫기</button>
 

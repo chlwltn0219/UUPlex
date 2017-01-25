@@ -17,6 +17,7 @@ public class LogoutProHandler implements CommandHandler {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		
 		req.getSession().setAttribute("id", null);
+		req.getSession().setAttribute("idCode", null);
 		
 		return "/main/login/logout";
 	}

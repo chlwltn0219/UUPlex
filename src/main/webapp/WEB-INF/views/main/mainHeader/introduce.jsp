@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<div class="container">
+
 <section>
 
 <div id="main">
@@ -65,6 +67,6 @@
 </div>
  
 </section>  
-
+</div>
 </body>
 </html>

@@ -1,11 +1,11 @@
 DROP TABLE f_teacher;
 CREATE TABLE f_teacher(
-  tid             NUMBER(5),                 -- »óÇ°¹øÈ£
-  tname           VARCHAR2(20) NOT NULL,     -- »óÇ°ÀÌ¸§
+  tid             NUMBER(5),                 -- ï¿½ï¿½Ç°ï¿½ï¿½È£
+  tname           VARCHAR2(20) NOT NULL,     -- ï¿½ï¿½Ç°ï¿½Ì¸ï¿½
   tinfo           VARCHAR2(300),
   tpicture        VARCHAR2(100),
   reg_date        TIMESTAMP DEFAULT SYSDATE,
-  activated       VARCHAR2(1) DEFAULT 'Y',     -- »óÇ°°¡°Ý
+  activated       VARCHAR2(1) DEFAULT 'Y',     -- ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
   CONSTRAINT f_teachert_teacherid_pk PRIMARY KEY(tid),
   CONSTRAINT f_teacher_activated_fk FOREIGN KEY(activated) references BOOLEAN(value)
 );
@@ -36,19 +36,19 @@ VALUES ('N');
 COMMIT;
 
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '¼­°­ÁØ', 'Y');
+VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'Y');
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '¹ÚÇØÁø', 'Y');
+VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'Y');
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ÇÑ°íÀº', 'Y');
+VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½Ñ°ï¿½ï¿½ï¿½', 'Y');
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ÆçÇÁ½º', 'Y');
+VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'Y');
 
 
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ÃÖÁö¼ö', 'N');
+VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'N');
 commit;
 
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'À¯±â¹Î', 'N');
+VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½', 'N');
 commit;

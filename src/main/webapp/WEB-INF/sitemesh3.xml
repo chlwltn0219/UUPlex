@@ -8,6 +8,20 @@
   <!-- Sitemesh 데코레이션을 매핑 할 패턴을 지정합니다. -->
   <mapping path="/*" decorator="/WEB-INF/views/decorator/main_decorator.jsp"/>
   
+  <mapping>
+    <path>/fitness</path>
+    <path>/fitness/*</path>
+    <decorator>/WEB-INF/views/decorator/fitness_decorator.jsp</decorator>
+    <decorator>/WEB-INF/views/decorator/main_decorator.jsp</decorator>
+  </mapping>
+  
+    <mapping>
+    <path>/fitness/manage/*</path>
+    <decorator>/WEB-INF/views/decorator/fitness_manage_decorator.jsp</decorator>
+    <decorator>/WEB-INF/views/decorator/fitness_decorator.jsp</decorator>
+    <decorator>/WEB-INF/views/decorator/main_decorator.jsp</decorator>
+  </mapping>
+  
 <!--   <mapping path="/*.special.jsp" decorator="/special-decorator.html"/> -->
 
 <!-- 여러개의 데코레이터를 적용 할 수도 있습니다. -->
@@ -24,6 +38,8 @@
   <!-- Sitemesh에 데코레이션을 적용하지 않을 예외페이지/패턴을 지정합니다. context Path 이후로 지정합니다.-->
   <mapping path="/test/**" exclue="true"/>
   
+  <mapping path="/noneSM/**" exclue="true"/>
+  
   <mapping path="/fitness/manage/teacher/inputForm" exclue="true"/>
   <mapping path="/fitness/teacher/detail" exclue="true"/>
   <mapping path="/fitness/manage/teacher/modify" exclue="true"/>
@@ -33,6 +49,6 @@
   <mapping path="/fitness/manage/sports/modify" exclue="true"/>
   <mapping path="/fitness/manage/sports/modifyPro" exclue="true"/>
   <mapping path="/fitness/sports/detail" exclue="true"/>
+  <mapping path="/c-box/movie_detail" exclue="true"/>
   
-
 </sitemesh>

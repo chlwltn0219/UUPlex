@@ -11,7 +11,6 @@ import spring.mvc.uuplex.admin.handler.ConfirmIdHandler;
 import spring.mvc.uuplex.admin.handler.LoginProHandler;
 import spring.mvc.uuplex.admin.handler.LogoutProHandler;
 
-
 @Controller
 public class AHeaderController {
 	
@@ -32,19 +31,29 @@ public class AHeaderController {
 	}
 	
 	/*@RequestMapping("/qna")
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 	public String qna(Model model) {
 		
 		System.out.println("Q&A");
 		
 		return "/main/board/qna";
+<<<<<<< HEAD
+	}
+	
+	@RequestMapping("/loginView")
+=======
 	}*/
 	
 	/*@RequestMapping("/loginView")
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 	public String loginView(Model model) {
 		
 		System.out.println("로그인화면");
 
 		return "/main/login/loginView";
+<<<<<<< HEAD
+	}
+=======
 	}*/
 	
 	@RequestMapping("/loginForm")

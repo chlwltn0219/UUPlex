@@ -1,4 +1,76 @@
 
+function inputCheck() {
+	if(!document.inputform.memId.value) {
+		alert("아이디 입력하세요");
+		document.inputform.memId.focus();
+		return false;
+	// id 중복확인을 하지 않은 경우	
+	// 체크전제조건 : inputForm.jsp의 form안에 <input type="hidden" name="hiddenId" value="0"> 추가	
+	} else if(document.inputform.hiddenId.value == "0") {
+		alert("아이디 중복확인을 하세요");
+		document.inputform.memId.focus();
+		return false;
+	} else if(!document.inputform.passwd.value){
+		alert("비밀번호를 입력하세요");
+		document.inputform.passwd.focus();
+		return false;
+	} else if(!document.inputform.passwdChk.value){
+		alert("비밀번호를 확인하세요");
+		document.inputform.passwdChk.focus();
+		return false;
+	} else if(document.inputform.passwd.value != document.inputform.passwdChk.value) {
+		alert("비밀번호가 일치하지 않습니다");
+		document.inputform.passwdChk.focus();
+		return false;
+	} else if(!document.inputform.name.value){
+		alert("이름을 입력하세요");
+		document.inputform.name.focus();
+		return false;
+	} else if(!document.inputform.jumin1.value){
+		alert("주민등록번호를 입력하세요");
+		document.inputform.jumin1.focus();
+		return false;
+	} else if(!document.inputform.jumin2.value){
+		alert("주민등록번호를 입력하세요");
+		document.inputform.jumin2.focus();
+		return false;
+	} else if(!document.inputform.roadAddress.value){
+		alert("주소를 입력하세요");
+		document.inputform.roadAddress.focus();
+		return false;
+	} else if(!document.inputform.tel1.value){
+		alert("전화번호를 입력하세요");
+		document.inputform.tel1.focus();
+		return false;
+	} else if(!document.inputform.tel2.value){
+		alert("전화번호를 입력하세요");
+		document.inputform.tel2.focus();
+		return false;
+	} else if(!document.inputform.tel3.value){
+		alert("전화번호를 입력하세요");
+		document.inputform.tel3.focus();
+		return false;
+	} else if(!document.inputform.email.value){
+		alert("이메일을 입력하세요");
+		document.inputform.email.focus();
+		return false;
+	} 	
+	
+}
+
+function confirmId() {
+	if(!document.inputform.memId.value) {
+		alert("아이디를 입력하세요");
+		document.inputform.memId.focus();
+		return false;
+		
+	} 
+		
+		window.open("confirmId?memId=" + document.inputform.memId.value, "confirm", "left=700px, top=100px, width=500px, height=500px");
+	
+}
+
+
 function tel_1() {
 	if(document.inputform.tel1.value.length == 3){
 		document.inputform.tel2.focus();
@@ -112,76 +184,6 @@ function sample4_execDaumPostcode() {
 
             }
         }).open();   
-}
-       
-
-function confirmId() {
-	if(!document.inputform.memId.value) {
-		alert("아이디를 입력하세요");
-		document.inputform.memId.focus();
-		return false;
-		
-	} 
-		
-		window.open("confirmId?memId=" + document.inputform.memId.value, "confirm", "left=700px, top=100px, width=500px, height=500px");
-
-	
-}
-
-
-function inputCheck() {
-	if(!document.inputform.memId.value) {
-		alert("아이디 입력하세요");
-		document.inputform.memId.focus();
-		return false;
-	// id 중복확인을 하지 않은 경우	
-	// 체크전제조건 : inputForm.jsp의 form안에 <input type="hidden" name="hiddenId" value="0"> 추가	
-	} else if(document.inputform.hiddenId.value == "0") {
-		alert("아이디 중복확인을 하세요");
-		document.inputform.memId.focus();
-		return false;
-	} else if(!document.inputform.passwd.value){
-		alert("비밀번호를 입력하세요");
-		document.inputform.passwd.focus();
-		return false;
-	} else if(!document.inputform.passwdChk.value){
-		alert("비밀번호를 확인하세요");
-		document.inputform.passwdChk.focus();
-		return false;
-	} else if(!document.inputform.name.value){
-		alert("이름을 입력하세요");
-		document.inputform.name.focus();
-		return false;
-	} else if(!document.inputform.jumin1.value){
-		alert("주민등록번호를 입력하세요");
-		document.inputform.jumin1.focus();
-		return false;
-	} else if(!document.inputform.jumin2.value){
-		alert("주민등록번호를 입력하세요");
-		document.inputform.jumin2.focus();
-		return false;
-	} else if(!document.inputform.roadAddress.value){
-		alert("주소를 입력하세요");
-		document.inputform.roadAddress.focus();
-		return false;
-	} else if(!document.inputform.tel1.value){
-		alert("전화번호를 입력하세요");
-		document.inputform.tel1.focus();
-		return false;
-	} else if(!document.inputform.tel2.value){
-		alert("전화번호를 입력하세요");
-		document.inputform.tel2.focus();
-		return false;
-	} else if(!document.inputform.tel3.value){
-		alert("전화번호를 입력하세요");
-		document.inputform.tel3.focus();
-		return false;
-	} else if(!document.inputform.email.value){
-		alert("이메일을 입력하세요");
-		document.inputform.email.focus();
-		return false;
-	} 	
-	
 }
 
 

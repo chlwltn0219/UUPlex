@@ -17,21 +17,20 @@
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
-			<div class="item active"
-				style="background-image: url('${img}/etc/allied.jpg');">
-				<embed src="https://www.youtube.com/embed/Jlp94-C31cY"></embed>
-				<div class="carousel-caption"></div>
+			
+			<div class="item active" style="background-image: url('${img}/etc/allied.jpg');">
+				<a id="img"><img class="center-block" src="${img}/etc/play.png" aria-hidden="true"></a>
+				<embed class="center-block" src="https://www.youtube.com/embed/Jlp94-C31cY"></embed>
+				
 			</div>
-			<div class="item"
-				style="background-image: url('${img}/etc/lalaland.jpg');">
-				<embed src="https://www.youtube.com/embed/0pdqf4P9MB8"></embed>
-				<div class="carousel-caption"></div>
+			<div class="item" style="background-image: url('${img}/etc/lalaland.jpg');">
+				<a id="img"><img class="center-block" src="${img}/etc/play.png" aria-hidden="true"></a>
+				<embed class="center-block" src="https://www.youtube.com/embed/0pdqf4P9MB8"></embed>
 			</div>
 
-			<div class="item"
-				style="background-image: url('${img}/etc/Ghostbusters.jpg');">
-				<embed src="https://www.youtube.com/embed/w3ugHP-yZXw"></embed>
-				<div class="carousel-caption"></div>
+			<div class="item" style="background-image: url('${img}/etc/Ghostbusters.jpg');">
+				<a id="img"><img class="center-block" src="${img}/etc/play.png" aria-hidden="true"></a>
+				<embed class="center-block" src="https://www.youtube.com/embed/w3ugHP-yZXw"></embed>
 			</div>
 		</div>
 
@@ -40,7 +39,9 @@
 			role="button" data-slide="prev"> <span
 			class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
 			class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#carousel-example-generic"
+		</a>
+
+		<a class="right carousel-control" href="#carousel-example-generic"
 			role="button" data-slide="next"> <span
 			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
@@ -50,7 +51,7 @@
 
 <!-- 캐러셀 끝 -->
 
-<div class="content">
+<div class="content center-block">
 	<table>
 		<tr>
 			<td>
@@ -141,8 +142,5 @@
 			</td>
 		</tr>
 	</table>
-	
-	<%@ include file="movie_datail.jsp" %>
-	<%@ include file="movie_modify.jsp" %>
 
 </div>

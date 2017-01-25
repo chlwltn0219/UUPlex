@@ -10,11 +10,12 @@
 <title>강사 리스트</title>
 </head>
 <body>
-	<div class="container">
+
+	<h3>강사 관리</h3>
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td colspan="3">
+				<td colspan="2">
 					<form action="" method="get" onsubmit=""
 						 class="form-inline" name="searchForm">
 						<div class="input-group">
@@ -29,13 +30,15 @@
 								</button>
 							</div>
 						</div>
+					</form>
+					</td>
+					<td>
 						<div class="form-group pull-right">
 							<input type="button" class="btn btn-primary" 
 								value="등록하기" onclick="teacherInput()" 
 								data-toggle="modal" data-target="#modalPage">
 						</div>
-					</form>
-				</td>
+					</td>	
 			</tr>
 			<tr>
 				<th>강사 코드</th>
@@ -55,7 +58,7 @@
 
 				<td>${dto.tid}</td>
 				<td><a class="btn btn-link" 
-									data-toggle="modal" data-target="#modalPage" onclick="teacherDetails(${dto.tid})">
+									data-toggle="modal" data-target="#modalPage" onclick="teacherDetail(${dto.tid})">
 									${dto.tname}</a></td>
 				<td>
 				<c:if test="${dto.activated=='Y'}"> 재직중</c:if>
@@ -96,11 +99,11 @@
 		
 		</tfoot>
 	</table>
-		<div class="modal fade" id="modalPage" role="dialog">
-			<div class="modal-dialog" id="dialog"></div>
-		</div>
+	
+	<div class="modal fade" id="modalPage" role="dialog">
+		<div class="modal-dialog" id="dialog"></div>
+	</div>
 <%-- 	 	<%@ include file="teacher_input.jsp" %> 
  		<%@ include file="teacher_detail.jsp" %>  --%>
-	</div>	
 </body>
 </html>
