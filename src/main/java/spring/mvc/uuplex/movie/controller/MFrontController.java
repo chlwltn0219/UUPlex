@@ -28,7 +28,7 @@ public class MFrontController {
 
 	// 영화 등록
 	@RequestMapping("/manage/movie/inputForm")
-	public String inputForm() {
+	public String movieInputForm() {
 		System.out.println("movie_input");
 		String viewPage = "/c-box/manage/movie_input";
 

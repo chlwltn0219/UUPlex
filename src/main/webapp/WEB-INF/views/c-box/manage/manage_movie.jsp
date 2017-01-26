@@ -31,8 +31,9 @@
 				<td>
 					<!-- 등록 -->
 					<div class="form-group pull-right">
-						<input type="button" class="btn btn-primary" value="등록하기" onclick="movieInput()"
-							data-toggle="modal" data-target="#modalPage">
+						<input type="button" class="btn btn-primary" value="등록하기"
+							onclick="movieInput()" data-toggle="modal"
+							data-target="#modalPage">
 					</div>
 				</td>
 			</tr>
@@ -50,8 +51,9 @@
 			<c:forEach items="${dtos}" var="dto">
 				<tr>
 					<td>${dto.movie_num}</td>
-					<td><a class="btn btn-link" onclick="movieDetail(${dto.movie_num})"
-							data-toggle="modal" data-target="#modalPage">${dto.title1}</a></td>
+					<td><a class="btn btn-link"
+						onclick="movieDetail(${dto.movie_num})" data-toggle="modal"
+						data-target="#modalPage">${dto.title1}</a></td>
 					<td>${dto.director}</td>
 					<td>${dto.genre}</td>
 					<td>${dto.releaseDate}</td>
@@ -63,8 +65,7 @@
 			<tr>
 				<td colspan="6" align="center"><c:if test="${prev == true}">
 						<ul class="pager">
-							<li><a
-								href="/uuplex/c-box/manage_movie?page=${startPage-1}">&lt;
+							<li><a href="/uuplex/c-box/manage_movie?page=${startPage-1}">&lt;
 									prev</a></li>
 						</ul>
 					</c:if>
@@ -76,8 +77,7 @@
 								<li class="active"><a>${page}</a></li>
 							</c:if>
 							<c:if test="${status.current != nowPage}">
-								<li><a
-									href="/uuplex/c-box/manage_movie?page=${page}">${page}</a></li>
+								<li><a href="/uuplex/c-box/manage_movie?page=${page}">${page}</a></li>
 							</c:if>
 						</c:forEach>
 					</ul> <c:if test="${next == true}">
@@ -88,12 +88,14 @@
 					</c:if></td>
 			</tr>
 		</tfoot>
+
 	</table>
 
 	<div class="modal fade" id="modalPage" role="dialog">
-		<div class="modal-dialog" id="dialog"></div>
+		<div class="modal-dialog modal-lg" id="dialog"></div>
 	</div>
-	<%-- 	<%@ include file="sports_input.jsp" %> --%>
-	<%-- 	<%@ include file="sports_detail.jsp" %> --%>
+
 </div>
+
+
 

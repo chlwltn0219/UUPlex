@@ -149,13 +149,8 @@
 
 			</div>
 			
-			<script src="/uuplex/resources/js/jquery-1.11.3.min.js"></script>
-			<script src="/uuplex/resources/js/star.js"></script>
-			
-			<div class="modal-footer">
-				<button class="btn btn-default" data-dismiss="modal">닫기</button>
-
-			</div>
+			<script src="${resources}/js/jquery-1.11.3.min.js"></script>
+			<script src="${resources}/js/star.js"></script>
 		</div>
 	</div>
 </div>
