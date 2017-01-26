@@ -33,6 +33,8 @@
 
   </script>
   
+  <div class="container">
+  
   <div class="head" role="tabpanel">
 
   <!-- Nav tabs -->
@@ -176,6 +178,6 @@
   </div>
 
 </div>
-
+</div>
   </body>
 </html>

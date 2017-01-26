@@ -14,6 +14,7 @@ public class MovieDetailHandler implements MCommandHandler {
 	
 	@Autowired
 	MovieDAO dao;
+	
 
 	@Override
 	public String process(Model model) {
