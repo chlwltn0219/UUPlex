@@ -17,7 +17,7 @@
 	<c:if test="${cnt != 0}">
 		<script type="text/javascript">
 			alert("영화정보가 추가되었습니다.");
-			history.back();
+			window.location='/uuplex/c-box/manage_movie';
 		</script>
 	
 	</c:if>
