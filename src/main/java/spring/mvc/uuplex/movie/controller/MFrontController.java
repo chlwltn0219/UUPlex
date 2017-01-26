@@ -26,7 +26,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 >�뜝�룞�삕�뜝�룞�삕>>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 >占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 	@RequestMapping("/ManageMovieInfo")
 	public String ManageMovieInfo() {
 		System.out.println("ManageMovieInfo");
@@ -36,7 +36,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 >�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�뙥怨ㅼ삕
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 >占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈솯�ⓦ끉�굲
 	@Autowired
 	AddMovieInfoHandler addMovieInfoHandler;
 
@@ -44,16 +44,16 @@ public class MFrontController {
 	public String AddMovieInfo(HttpServletRequest req, Model model) {
 		System.out.println("AddMovieInfo");
 
-		// �뜝�룣�뜽�슱�삕 �뜝�룞�삕泥� �뜝�룞�삕�뜝占�
+		// 占쎈쐻占쎈＃占쎈쑞占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
 		model.addAttribute("req", req);
 
-		// �뜝�뙓�뱾�윭�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+		// 占쎈쐻占쎈솓占쎈굶占쎌쑎占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 		String viewPage = addMovieInfoHandler.process(model);
 
 		return viewPage;
 	}
 
-	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�뙥怨ㅼ삕泥섇뜝�룞�삕
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈솯�ⓦ끉�굲筌ｌ꼪�쐻占쎈짗占쎌굲
 	@RequestMapping("/addMoviePro")
 	public String addMovieInfoPro() {
 		System.out.println("addMoviePro");
@@ -63,7 +63,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>�뜝�룞�삕�솕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 	@Autowired
 	GetMovieInfoHandler getMovieInfoHandler;
 
@@ -73,13 +73,13 @@ public class MFrontController {
 
 		model.addAttribute("req", req);
 
-		// �뜝�뙓�뱾�윭�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+		// 占쎈쐻占쎈솓占쎈굶占쎌쑎占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 		String viewPage = getMovieInfoHandler.process(model);
 
 		return viewPage;
 	}
 	
-	// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕>�뜝�룞�삕�솕�뜝�룞�삕�뜝占�
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲>占쎈쐻占쎈짗占쎌굲占쎌넅占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
 	@Autowired
 	MovieListHandler movieListHandler;
 	@RequestMapping("/movie_list")
@@ -92,29 +92,6 @@ public class MFrontController {
 		return viewPage;
 	}
 	
-<<<<<<< HEAD
-	// ������ >��ȭ������>>�����߰�(�����)
-	@Autowired
-	AddReviewHandler addReviewHandler;
-
-	@RequestMapping("/addReview")
-	public String addReview(HttpServletRequest req, Model model) {
-		System.out.println("addReview");
-
-		model.addAttribute("req", req);
-
-		String viewPage = addReviewHandler.process(model);
-
-		return viewPage;
-	}
-	
-	@RequestMapping("/addReviewPro")
-	public String addReviewPro(HttpServletRequest req, Model model) {
-		System.out.println("addReviewPro");
-
-
-		return "c-box/addReviewPro";
-=======
 	@Autowired
 	MovieDetailHandler movieDetailHandler;
 	
@@ -133,6 +110,5 @@ public class MFrontController {
 		String viewPage = "c-box/movie_datail";
 		
 		return viewPage;
->>>>>>> 8149e23b0760a8022850150552777270f27ff254
 	}
 }

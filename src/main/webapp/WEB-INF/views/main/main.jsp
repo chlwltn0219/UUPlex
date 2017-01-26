@@ -83,6 +83,8 @@ link = bb;
 
 </script>
 
+<div class="container">
+
 <section>
 
 <table border="1">
@@ -137,5 +139,6 @@ link = bb;
 
 </table> 
 </section>
+</div>
 </body>
 </html>

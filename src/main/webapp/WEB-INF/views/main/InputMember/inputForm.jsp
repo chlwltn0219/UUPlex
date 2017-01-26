@@ -19,7 +19,10 @@
 </head>
 <body>
 
+<div class="container">
+
 <h2>회원가입</h2> <br><br>
+
 
 <form action="inputPro" name="inputform" class="form-horizontal" method="post" onsubmit="return inputCheck()">
 
@@ -135,6 +138,6 @@
   </div>
 </form>
 
-
+</div>
 </body>
 </html>

@@ -6,10 +6,7 @@
 <c:if test="${cnt == 0}">
 	<script type="text/javascript">
 		errorAlert("회원가입에 실패하였습니다");
-<<<<<<< HEAD
-=======
 		window.history.back();
->>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 	</script>
 </c:if>
 
