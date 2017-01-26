@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<link type="text/css" rel="stylesheet"
-	href="/uuplex/resources/c-box/css/rating.css">
-
 <style>
 li {
 	list-style-type: none;
