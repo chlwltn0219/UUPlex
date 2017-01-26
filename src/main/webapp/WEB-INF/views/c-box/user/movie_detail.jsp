@@ -34,6 +34,9 @@
 }
 </style>
 
+<link type="text/css" rel="stylesheet"
+	href="/uuplex/resources/c-box/css/rating.css">
+	
 <div class="modal-content">
 	<div class="modal-header">
 		<button class="close" data-dismiss="modal">&times;</button>
