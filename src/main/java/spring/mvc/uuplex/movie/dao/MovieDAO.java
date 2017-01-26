@@ -1,6 +1,7 @@
 package spring.mvc.uuplex.movie.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.movie.dto.ReviewDTO;
@@ -12,4 +13,6 @@ public interface MovieDAO {
 	public List<MovieInfoDTO> moviesList();
 	public int addReview(ReviewDTO dto);		//∏Æ∫‰√ﬂ∞°
 	public MovieInfoDTO movieDetail(int mnum);
+	public int moviesCount();
+	public List<MovieInfoDTO> manageMoviesList(Map<String, Integer> rangeMap);
 }
