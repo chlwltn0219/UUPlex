@@ -68,10 +68,7 @@ public class ManageMovieHandler implements MCommandHandler {
 
 			dtos = dao.manageMoviesList(rangeMap);
 
-<<<<<<< HEAD
 			
-=======
->>>>>>> 922177c49298a89f37fa04a120a4a80c4c2b2e58
 			model.addAttribute("dtos", dtos);
 			
 			// �뼯 寃뚯떆湲� 紐⑸줉 �뜲�씠�꽣

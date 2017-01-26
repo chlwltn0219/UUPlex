@@ -32,11 +32,7 @@ public class AddMovieInfoHandler implements MCommandHandler {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 
 		// String path = req.getServletContext().getRealPath("saveImage");
-<<<<<<< HEAD
 		String path = "C:\\Dev\\uuplexImg\\c-box";
-=======
-		String path = "C:\\Dev\\uploadImages\\uuplex\\c-box";
->>>>>>> 922177c49298a89f37fa04a120a4a80c4c2b2e58
 
 		java.io.File f = new java.io.File(path);
 
@@ -51,10 +47,6 @@ public class AddMovieInfoHandler implements MCommandHandler {
 			MultipartRequest multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
 			Enumeration file = multi.getFileNames();
-<<<<<<< HEAD
-=======
-			
->>>>>>> 922177c49298a89f37fa04a120a4a80c4c2b2e58
 			String[] str = new String[3];
 			String[] fileName = new String[3];
 			
@@ -64,10 +56,7 @@ public class AddMovieInfoHandler implements MCommandHandler {
 					fileName[i] = multi.getFilesystemName(str[i]);
 				}
 			}
-<<<<<<< HEAD
-=======
 			
->>>>>>> 922177c49298a89f37fa04a120a4a80c4c2b2e58
 
 			/* <%=request.getServletContext().getContextPath()%>${dto.image} */
 
