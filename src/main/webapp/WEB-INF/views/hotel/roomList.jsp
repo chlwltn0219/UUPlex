@@ -10,7 +10,6 @@
 <style>
 #content {
 	width: 1500px;
-	height: 800px;
 	margin: 100px;
 }
 
@@ -80,6 +79,8 @@
 				<button type="button" class="btn btn-default" data-toggle="modal"
 					data-target="#myModal">객실등록</button>
 				<button type="submit" class="btn btn-default">객실삭제</button>
+				<input class="btn btn-default" type="button" value="메인으로"
+			onclick="location.href='/uuplex/hotel'"></center>
 			</center>
 		</form>
 		

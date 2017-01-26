@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="setting.jsp"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,7 +13,7 @@
 	font-family: 나눔고딕;
 }
 
-body{
+body {
 	min-width: 1690px;
 }
 
@@ -93,6 +94,7 @@ body{
 
 .content {
 	width: 660px;
+	margin: 50px auto;
 }
 
 .content td>table {
@@ -114,7 +116,7 @@ body{
 	width: 100%;
 }
 
-.sub>td{
+.sub>td {
 	padding: 10px 20px;
 	font-size: 15px;
 }
@@ -138,9 +140,9 @@ embed {
 }
 
 .contain {
-	min-width : 1690px;
+	min-width: 1690px;
 	background-color: black;
-	width: 100%; 
+	width: 100%;
 }
 
 .carousel-inner {
@@ -148,59 +150,90 @@ embed {
 }
 
 .item {
-	min-width : 1690px;
-	background-attachment : fixed;
+	min-width: 1690px;
+	background-attachment: fixed;
 	background-size: 100%;
 	width: 100%;
 	height: 400px;
 }
 
-.item #img{
-	position : absolute;
-	top : 170px;
-	left : 48%;
+.item #img {
+	position: absolute;
+	top: 170px;
+	left: 48%;
 	width: 70px;
 	height: 70px;
 	opacity: 0;
-	transition : 0.3s;
+	transition: 0.3s;
 }
 
-.item:HOVER #img{
+.item:HOVER #img {
 	opacity: 0.5;
-	transiton :0.5s;
+	transiton: 0.5s;
 }
 
-#img:ACTIVE ~embed{
+#img:ACTIVE ~embed {
 	visibility: visible;
 }
 
-#img:ACTIVE{
+#img:ACTIVE {
 	display: none;
 }
 
-
-#img:HOVER{
+#img:HOVER {
 	opacity: 1;
 	cursor: pointer;
 }
 
+#setting {
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	left: 90px;
+	bottom: 70px;
+	z-index: 3;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+#setting:HOVER ~.mmanagermenu, .mmanagermenu:HOVER {
+	display: block;
+}
+
+.mmanagermenu {
+	position: fixed;
+	left: 50px;
+	bottom: 100px;
+	z-index: 3;
+	transition: 0.3s;
+	cursor: default;
+	display: none;
+}
+
+.mmanagermenu table * {
+	font-size: 20px;
+	padding: 5px;
+}
 </style>
 </head>
 <body>
 
-<c:if test="${contentPage==null}">
-	<c:set var="contentPage" value="main.jsp"/>
-</c:if>
+	<c:if test="${contentPage==null}">
+		<c:set var="contentPage" value="user/main.jsp" />
+	</c:if>
 
 	<div class="top_menu">
 		<div>
-			<img class="logo center-block" src="${img}etc/c-box_logo.png" onclick="location.href='/uuplex/c-box'">
+			<img class="logo center-block" src="${img}etc/c-box_logo.png"
+				onclick="location.href='/uuplex/c-box'">
 		</div>
 		<div class="menu">
 			<table>
 				<tr>
-					<td><input type="button" value="영화" onclick="location.href='c-box/movie_list'"></td>
-					<td><input type="button" value="이벤트" onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
+					<td><input type="button" value="영화"
+						onclick="location.href='/uuplex/c-box/user/movie_list'"></td>
+					<td><input type="button" value="이벤트"
+						onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
 					<td><input type="button" value="로그인"></td>
 				</tr>
 			</table>
@@ -213,9 +246,26 @@ embed {
 		<input class="btn2" type="button" value="빠른예매">
 	</div>
 
-	<jsp:include page="${contentPage}"/>
-	
-	<div class="footer"></div>
+	<jsp:include page="${contentPage}" />
 
+	<img id="setting" src="${img}etc/setting.png">
+
+	<div class="mmanagermenu">
+		<table class="table table-hover text-center">
+			<tr>
+				<td><a href="c-box/manage_movie">영화관리</a></td>
+			</tr>
+			<tr>
+				<td>상영일정관리</td>
+			</tr>
+			<tr>
+				<td>상영관 관리</td>
+			</tr>
+			<tr>
+				<td>예매관리</td>
+			</tr>
+		</table>
+
+	</div>
 </body>
 </html>

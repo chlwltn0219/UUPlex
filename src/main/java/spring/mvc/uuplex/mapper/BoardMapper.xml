@@ -35,7 +35,7 @@
 	
 	<insert id="qnaInsert" parameterType="spring.mvc.uuplex.admin.dto.BoardDTO">
 		INSERT INTO qna_board(shopCode, qnaNum, memId, qnaPasswd, subject, content, readCnt, ref, ref_step, ref_level, qna_date, ip)
-					VALUES(#{shopCode}, qna_seq.NEXTVAL, #{memId}, #{qnaPasswd}, #{subject}, #{content}, 0, #{qnaNum}, #{ref_step}, #{ref_level}, #{qna_date}, #{ip})
+					VALUES(#{shopCode}, qna_seq.NEXTVAL, #{memId}, #{qnaPasswd}, #{subject}, #{content}, 0, #{ref}, #{ref_step}, #{ref_level}, #{qna_date}, #{ip})
 	</insert>
 	
 	<select id="getQnA" parameterType="int" resultType="spring.mvc.uuplex.admin.dto.BoardDTO">

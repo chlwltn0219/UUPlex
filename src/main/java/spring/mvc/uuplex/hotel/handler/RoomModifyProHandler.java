@@ -42,19 +42,27 @@ public class RoomModifyProHandler implements HCommandHandler {
 			multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
 			Enumeration file = multi.getFileNames();
-			String str = (String) file.nextElement();
-			String fileName = multi.getFilesystemName(str);
+			
+			String[] str = new String[6];
+			String[] fileName = new String[6];
+			
+			if (file.hasMoreElements()) {
+				for (int i = 0; i <6; i++) {
+					str[i] = (String) file.nextElement();
+					fileName[i] = multi.getFilesystemName(str[i]);
+				}
+			}
 
 		HotelDTO dto = new HotelDTO();
 		
 		dto.setRoomNum(Integer.parseInt(multi.getParameter("roomNum")));
 		dto.setRoomName(multi.getParameter("roomName"));
-		dto.setMainImg(fileName);
-		dto.setDetail_1(multi.getParameter("detail_1"));
-		dto.setDetail_2(multi.getParameter("detail_2"));
-		dto.setDetail_3(multi.getParameter("detail_3"));
-		dto.setDetail_4(multi.getParameter("detail_4"));
-		dto.setDetail_5(multi.getParameter("detail_5"));
+		dto.setMainImg(fileName[0]);
+		dto.setDetail_1(fileName[1]);
+		dto.setDetail_2(fileName[2]);
+		dto.setDetail_3(fileName[3]);
+		dto.setDetail_4(fileName[4]);
+		dto.setDetail_5(fileName[5]);
 		dto.setIntro(multi.getParameter("intro"));
 		dto.setRoomType(multi.getParameter("roomType"));
 		dto.setBed(multi.getParameter("bed"));

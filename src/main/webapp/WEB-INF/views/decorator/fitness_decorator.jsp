@@ -88,7 +88,7 @@
 	<sitemesh:write property="body" />
 	
 	<div class="btnTop">
-		<a href="#"><img class="img-circle" src="${resources}/fitness/img/top.png" alt="top"></a>
+		<a href="#top"><img class="img-circle" src="${resources}/fitness/img/top.png" alt="top"></a>
 	</div>
 
 	

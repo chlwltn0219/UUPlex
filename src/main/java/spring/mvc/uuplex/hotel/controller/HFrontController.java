@@ -31,12 +31,6 @@ public class HFrontController {
 		return viewPage;
 	}
 	
-	//메인페이지
-	@RequestMapping("/adminMain")
-	public String adminMain(Model model) {
-		System.out.println("adminMain()");
-		return "/hotel/adminMain";
-	}
 	
 	@RequestMapping("/guestMain")
 	public String guestMain(Model model) {

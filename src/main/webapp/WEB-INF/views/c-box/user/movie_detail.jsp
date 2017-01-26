@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="setting.jsp"%>
+<%@ include file="../setting.jsp"%>
+
+<link type="text/css" rel="stylesheet"
+	href="/uuplex/resources/c-box/css/rating.css">
 
 <style>
 .moviedetail {
@@ -34,7 +37,10 @@
 }
 </style>
 
-<div class="modal-content  modal-lg">
+<link type="text/css" rel="stylesheet"
+	href="/uuplex/resources/c-box/css/rating.css">
+	
+<div class="modal-content">
 	<div class="modal-header">
 		<button class="close" data-dismiss="modal">&times;</button>
 		<h4 class="modal-title">상세정보</h4>
@@ -97,7 +103,35 @@
 					<td colspan="2" class="tit">한줄평(0)</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="con"></td>
+					<td colspan="2" class="con">
+						<form action="/uuplex/c-box/user/add_review" method="post" name="reviewform" enctype="multipart/form-data">
+							<table class="table">
+								<tr>
+									<th>memId</th>
+									<td class="star-input">
+										<span class="input">
+											<input type="radio" name="star-input" value="1" id="p1">
+												<label for="p1">괜히봤어요</label>
+												<input type="radio" name="star-input" value="2" id="p2">
+												<label for="p2">기대하진 말아요</label>
+												<input type="radio" name="star-input" value="3" id="p3">
+												<label for="p3">무난했어요</label>
+												<input type="radio" name="star-input" value="4" id="p4">
+												<label for="p4">기대해도 좋아요!</label>
+												<input type="radio" name="star-input" value="5" id="p5">
+												<label for="p5">정말 멋진 영화였어요!</label>
+										</span><br>
+										<output id="rating" for="star-input">
+											<b>평점을 입력해주세요</b>
+										</output>
+									</td>
+									<td><textarea style="width: 250px; height: 80px" name="">로그인 후 이용가능한 서비스입니다.</textarea></td>
+									<td><input class="btn" type="submit" value="등록"></td>
+								</tr>
+
+							</table>
+						</form>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2" class="con"></td>
@@ -113,3 +147,5 @@
 
 	</div>
 </div>
+<script src="${js}jquery-1.11.3.min.js"></script>
+<script src="${js}star.js""></script>

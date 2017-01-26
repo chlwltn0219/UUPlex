@@ -13,6 +13,8 @@
 </head>
 <body>
 
+<div class="container">
+
 <h2>QnA 작성</h2> <br><br>
 
 <form action="qnAWritePro" name="boardQnA" class="form-horizontal" method="post" onsubmit="return boardCheck()">
@@ -86,11 +88,11 @@
 	<div class="form-group" align="center">
     	<div class="col-sm-offset-2 col-sm-10">
       		<button type="submit" class="btn btn-default">글작성</button>
-      		<button type="reset" class="btn btn-default">작성취소</button> <br><br>
+      		<input type="button" class="btn btn-default" value="작성취소" onclick="window.history.back()"> <br><br>
     	</div>
   	</div>	
 	
 </form>	
-
+</div>
 </body>
 </html>
