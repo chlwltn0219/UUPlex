@@ -164,8 +164,8 @@ public class FFrontController{
 	public String teacherModifyPro(HttpServletRequest req, Model model){
 		
 		model.addAttribute("req", req);
-		tmodifyHandler.process(model);
-		String viewPage = teacherDetail(req, model);
+		String viewPage = tmodifyHandler.process(model);
+		
 		
 		return viewPage;
 	}
