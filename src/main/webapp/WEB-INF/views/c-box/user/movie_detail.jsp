@@ -3,6 +3,9 @@
 
 <%@ include file="../setting.jsp"%>
 
+<link type="text/css" rel="stylesheet"
+	href="/uuplex/resources/c-box/css/rating.css">
+
 <style>
 .moviedetail {
 	width: 850px;

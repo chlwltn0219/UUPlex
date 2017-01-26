@@ -24,7 +24,7 @@ public class ManageMovieHandler implements MCommandHandler {
 	MovieDAO dao;
 
 	Pager pager = Pager.getInstance();
-	private static final Logger logger = LoggerFactory.getLogger(FSportsListHandler.class);
+	private static final Logger logger = LoggerFactory.getLogger(ManageMovieHandler.class);
 
 	@Override
 	public String process(Model model) {

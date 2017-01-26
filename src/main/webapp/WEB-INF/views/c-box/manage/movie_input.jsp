@@ -98,6 +98,12 @@ li {
 					</td>
 				</tr>
 				<tr>
+					<th>synopsis</th>
+					<td colspan="4">
+						<textarea style="width: 100%" name="synopsis" placeholder=줄거리 maxlength="2000" required></textarea>
+					</td>
+				</tr>
+				<tr>
 					<th>Poster</th>
 					<td colspan="4">
 						<input type="file" class="form-control" name="poster">
