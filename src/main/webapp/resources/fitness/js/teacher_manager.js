@@ -38,10 +38,12 @@ function teacherModifyPro() {
 	var tname = document.tModifyForm.tname.value;
 	var tinfo = document.tModifyForm.tinfo.value;
 	var activated = document.tModifyForm.activated.value;
-		
+	var initPic = document.tModifyForm.initPic.value
+	
 	var url = "/uuplex/fitness/manage/teacher/modifyPro"
 	var method = "POST"
-	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + "&activated=" + activated;
+	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + 
+				 "&activated=" + activated + "&initPic=" + initPic ;
 	
 	sendRequest(teacherModal, url, method, params);
 
@@ -56,7 +58,7 @@ function teacherModal() {
 	if(httpRequest.readyState == 4 ) {
 		if(httpRequest.status == 200) {
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다	
-			modal.innerHTML = httpRequest.responseText;			
+			modal.innerHTML = httpRequest.responseText;
 		} else {
 			modal.innerHTML = "에러발생!@!!!!!!!대피하라!!!!!!!!";
 		}		

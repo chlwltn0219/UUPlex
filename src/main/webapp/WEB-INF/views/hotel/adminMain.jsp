@@ -91,27 +91,6 @@
         	margin: 0 auto;
         }
 
-      /*   #content .section1 div {
-            height:400px; float:left; text-align:center;
-            border:0px solid #cccccc;
-        }
-
-        #content .slide_banner {
-        	padding-right: 5px;
-        	font-weight: bolder;
-        }
-        
-        #content .side_banner {
-        	padding-left: 5px;
-        	font-weight: bolder;
-        }
-
-        footer {
-            width:100%; height:170px; margin:auto; background-color:#4B0025; color:#cccccc;
-            text-align:center; line-height:50px;
-            clear:both; border:0;
-        }  */
-
     </style>
 
 </head>
@@ -164,14 +143,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-    
-        <%-- <div class="slide_banner">
-            <img src = "${resources}/hotelImages/standard.jpg" width="400px" height="300px">
-            <br><br> 스탠다드룸 <button type="button" class="btn btn-default btn-sm">바로예약</button></div>
-            <div class="side_banner">
-            <img src = "${resources}/hotelImages/suite.jpg" width="400px" height="300px">
-            <br><br> 스위트룸  <button type="button" class="btn btn-default btn-sm">바로예약</button></div>
-        --%>
         </div>
     </div>
   </body>

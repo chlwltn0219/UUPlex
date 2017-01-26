@@ -19,7 +19,7 @@
 	<c:if test="${cnt != 0}">
 		<script type="text/javascript">
 			alert("글이 등록되었습니다.");
-			window.location="qna?shopCode=100";
+			window.location="qna?shopCode=" + ${shopCode};
 		</script>	
 	</c:if>
 

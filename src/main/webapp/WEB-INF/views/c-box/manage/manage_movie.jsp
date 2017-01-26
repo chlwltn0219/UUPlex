@@ -31,9 +31,11 @@
 				<td>
 					<!-- 등록 -->
 					<div class="form-group pull-right">
+
 						<input type="button" class="btn btn-primary" value="등록하기"
 							onclick="movieInput()" data-toggle="modal"
 							data-target="#modalPage">
+
 					</div>
 				</td>
 			</tr>
@@ -94,6 +96,10 @@
 	<div class="modal fade" id="modalPage" role="dialog">
 		<div class="modal-dialog modal-lg" id="dialog"></div>
 	</div>
+	
+	
+	<%-- 	<%@ include file="sports_input.jsp" %> --%>
+	<%-- 	<%@ include file="sports_detail.jsp" %> --%>
 
 </div>
 

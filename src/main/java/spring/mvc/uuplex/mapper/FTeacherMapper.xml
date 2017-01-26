@@ -20,8 +20,8 @@
 	</select>
 	<!-- 피트니스 강사 추가 -->
 	 <insert id="tInsert" parameterType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
-      	INSERT INTO F_TEACHER (tid, tname, tinfo)
-        VALUES(SEQ_TEACHER_TID.nextval, #{tname}, #{tinfo})
+      	INSERT INTO F_TEACHER (tid, tname, tinfo, tpicture)
+        VALUES(SEQ_TEACHER_TID.nextval, #{tname}, #{tinfo}, #{tpicture})
 	</insert>
 	
 	<!-- 강사 리스트  detail -->
@@ -35,6 +35,7 @@
 		UPDATE f_teacher 
 			SET tname=#{tname}, 
 				tinfo=#{tinfo},
+				tpicture=#{tpicture},
 				activated=#{activated}
 			WHERE tid=#{tid}	
 	</update>
