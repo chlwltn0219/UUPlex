@@ -5,10 +5,10 @@
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 <style>
-
-.list{
-margin: 100px auto;
+.list {
+	margin: 100px auto;
 }
+
 .movie {
 	width: 200px;
 	height: 100%;
@@ -28,51 +28,52 @@ margin: 100px auto;
 	width: 100%;
 }
 
-.sub>td{
+.sub>td {
 	padding: 10px 20px;
 	font-size: 15px;
 }
 
-.sub>th{
-padding-left: 10px;
-width: 40px;
+.sub>th {
+	padding-left: 10px;
+	width: 40px;
 }
 
-.aa{
-float: left;
+.aa {
+	float: left;
 }
 </style>
 <div class="container">
 	<div class="list">
-	<c:if test="${dtos!=null}">
+		<c:if test="${dtos!=null}">
 
-		<c:forEach var="dto" items="${dtos}">
-			<div class="aa">
-			<table class="movie" style="border: 1px solid #EAEAEA;">
-				<tr>
-					<td colspan="2"><img src="${img}movie_poster/얼라이드.jpg"></td>
-				</tr>
-				<tr class="sub">
-					<th><img id="rate" src="${img}mpaa_rating/15.png"></th>
-					<td>${dto.title1}</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-					<input type="button" value="상세정보" data-toggle="modal" data-target="#modalPage" onclick="movieDetail(${dto.movie_num})">
-					<input type="button" value="예매하기"></td>
-				</tr>
-			</table>
-			</div>
-		</c:forEach>
-	</c:if>
-	<c:if test="${dtos==null}">
-		<h3>
-			<center>영화가 아직 준비되지 않았습니다.</center>
-		</h3>
-	</c:if>
-	
-	<div class="modal fade" id="modalPage" role="dialog">
-	   	<div class="modal-dialog modal-lg" id="dialog"></div>
-	</div>
+			<c:forEach var="dto" items="${dtos}">
+				<div class="aa">
+					<table class="movie" style="border: 1px solid #EAEAEA;">
+						<tr>
+							<td colspan="2"><img src="${img}movie_poster/얼라이드.jpg"></td>
+						</tr>
+						<tr class="sub">
+							<th><img id="rate" src="${img}mpaa_rating/15.png"></th>
+							<td>${dto.title1}</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="button" value="상세정보" data-toggle="modal" data-target="#modalPage" onclick="movieDetail(${dto.movie_num})">
+								<input type="button" value="예매하기">
+							</td>
+						</tr>
+					</table>
+				</div>
+			</c:forEach>
+		</c:if>
+		<c:if test="${dtos==null}">
+			<h3>
+				<center>영화가 아직 준비되지 않았습니다.</center>
+			</h3>
+		</c:if>
+
+		<div class="modal fade" id="modalPage" role="dialog">
+			<div class="modal-dialog modal-lg" id="dialog"></div>
+		</div>
 	</div>
 </div>
