@@ -1,14 +1,11 @@
 package spring.mvc.uuplex.movie.dao;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.movie.dto.ReviewDTO;
@@ -46,11 +43,27 @@ public class MovieDAOImpl implements MovieDAO{
 	}
 	
 	@Override
+	public List<MovieInfoDTO> manageMoviesList(Map<String, Integer> rangeMap) {
+		List<MovieInfoDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.manageMoviesList(rangeMap);
+		return list;
+	}
+	
+	@Override
 	public MovieInfoDTO movieDetail(int mnum) {
 		MovieInfoDTO dto = null;
 		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
 		dto = dao.movieDetail(mnum);
 		return dto;
+	}
+
+	@Override
+	public int moviesCount() {
+		int cnt = 0;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.moviesCount();
+		return cnt;
 	}
 
 	//∏Æ∫‰√ﬂ∞°
@@ -62,6 +75,5 @@ public class MovieDAOImpl implements MovieDAO{
 		
 		return cnt;
 	}
-
 
 }

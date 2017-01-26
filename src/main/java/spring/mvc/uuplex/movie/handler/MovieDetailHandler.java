@@ -18,7 +18,7 @@ public class MovieDetailHandler implements MCommandHandler {
 	@Override
 	public String process(Model model) {
 		MovieInfoDTO dto = null;
-		String viewPage = "/c-box/movie_detail";
+		String viewPage = "/c-box/user/movie_detail";
 		int mnum = 0;
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
 		

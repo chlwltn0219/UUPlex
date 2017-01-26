@@ -6,7 +6,19 @@
 
 <mapper namespace="spring.mvc.uuplex.movie.dao.MovieDAO" >
 
-	<!-- 영화정보 추가 -->
+	<!-- 영화 목록 총 수 -->
+	<select id="moviesCount" resultType="int">
+		SELECT COUNT(*) FROM m_movie_info
+	</select>
+	
+	<!-- 관리자 : 영화 목록 리스트 반환 -->
+	<select id="manageMoviesList" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
+		SELECT *
+		FROM (SELECT m.* , rownum AS rnum FROM m_movie_info m)
+		WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
+
+	<!-- 관리자 : 영화정보 추가 -->
 	<insert id="addMovieInfo" parameterType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		INSERT INTO m_movie_info(movie_num, title1, title2, director, starring, 
 		genre, MPAARating, productionYear, runTime, releaseDate, poster, 
@@ -21,11 +33,11 @@
 		SELECT * FROM m_movie_info WHERE movie_num = #{movie_num}
 	</select>
 	
-	<!--영화목록-->
+	<!--고객 : 영화목록-->
 	<select id="moviesList" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		SELECT * FROM m_movie_info
 	</select>
-	
+
 	<!-- 리뷰 추가-->
 	<insert id="addReview" parameterType="spring.mvc.uuplex.movie.dto.ReviewDTO">
 		INSERT INTO m_review(review_num, memId, movie_num, rating, review_content, reg_date)
