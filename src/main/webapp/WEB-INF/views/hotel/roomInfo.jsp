@@ -37,7 +37,7 @@ pre {
 		<tr>
 			<td>
 				<h3>객실소개</h3>
-				객실전체사진<br><br>
+				(객실전체사진 추가예정)<br><br>
 				<img alt="" src="${resources}/hotelImages/main.jpg" width="500px" height="300px">
 				<br><br>
 			</td>
@@ -48,7 +48,7 @@ pre {
 					<br>
 				<table id="subTable" class="table table-bordered">
 					<tr class="active">
-						<th colspan="3">이용요금</th>
+						<th colspan="3"><h4>이용요금</h4></th>
 					</tr>
 					<tr>
 						<th></th>
@@ -66,7 +66,7 @@ pre {
 						<td>200,000원</td>
 					</tr>
 					<tr class="active">
-						<th colspan="3">이용시간</th>
+						<th colspan="3"><h4>이용시간</h4></th>
 					</tr>
 					<tr>
 						<th></th>
@@ -91,6 +91,7 @@ pre {
 		<tr>
 			<td>
 				<h3>이용안내</h3>
+				<br>
 				UU-HOTEL은 인천과 김포국제공항에서 가까운 지리적 이점을 가진 럭셔리 호텔입니다.<br>
 				두 개의 지하철 노선과 버스 터미널을 쉽게 이용할 수 있어 시전체는 물론이고 근교 지역까지의 연계성이 탁월합니다.<br>
 				뛰어난 경치와 광대하게 펼쳐진 스카이라인의 황홀한 풍경을 감상할 수 있는 UU-HOTEL은<br>
