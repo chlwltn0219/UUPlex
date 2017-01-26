@@ -7,12 +7,17 @@
     		<h4 class="modal-title">강사 입력</h4>
     	</div>
     	
-   		<form action="input" name="tInputForm" method="post" onsubmit="">
+   		<form action="input" name="tInputForm" enctype="multipart/form-data" method="post" onsubmit="" >
 	    	<div class="modal-body">
 				<div class="form-group">
 					<label>강사명</label>
 					<input type="text" class="form-control" name="tname" 
 							placeholder="강사 이름" required>
+				</div>
+				<div class="form-group">
+					<label>강사 이미지</label>
+					<input type="file" class="form-control" name="tpicture" 
+							accept="image/*">
 				</div>
 				<div class="form-group">
 					<label>강사 정보</label>
