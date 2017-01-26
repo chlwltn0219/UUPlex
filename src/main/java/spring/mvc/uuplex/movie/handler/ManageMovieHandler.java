@@ -35,7 +35,7 @@ public class ManageMovieHandler implements MCommandHandler {
 		String viewPage = "/c-box/Movie_main";
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 
-		// 현재 페이지 정보 설정
+		// �쁽�옱 �럹�씠吏� �젙蹂� �꽕�젙
 		if (req.getParameter("page") == null) {
 			nowPage = 1;
 		} else {
@@ -47,19 +47,19 @@ public class ManageMovieHandler implements MCommandHandler {
 				nowPage = 1;
 			}
 		}
-		// 목록 총 개수 계산
+		// 紐⑸줉 珥� 媛쒖닔 怨꾩궛
 		total = dao.moviesCount();
 
 		logger.info("total : " + total);
 
 		/*
-		 * 페이지 정보 계산
+		 * �럹�씠吏� �젙蹂� 怨꾩궛
 		 */
-		// 한 페이지에 보여주는 게시글 수
+		// �븳 �럹�씠吏��뿉 蹂댁뿬二쇰뒗 寃뚯떆湲� �닔
 		pager.setDisplayContentCnt(15);
-		// 한번에 보여줄 페이지 개수
+		// �븳踰덉뿉 蹂댁뿬以� �럹�씠吏� 媛쒖닔
 		pager.setDisplayPageCnt(10);
-		// page 정보 계산해주는 객체
+		// page �젙蹂� 怨꾩궛�빐二쇰뒗 媛앹껜
 		pager.calcPage(total, nowPage);
 
 		if (total > 0) {
@@ -69,11 +69,10 @@ public class ManageMovieHandler implements MCommandHandler {
 
 			dtos = dao.manageMoviesList(rangeMap);
 
-			model.addAttribute("contentPage", "manage/manage_movie.jsp");
 			model.addAttribute("dtos", dtos);
 			
-			// ▲ 게시글 목록 데이터
-			// ▼ 페이저 생성 데이터
+			// �뼯 寃뚯떆湲� 紐⑸줉 �뜲�씠�꽣
+			// �뼹 �럹�씠�� �깮�꽦 �뜲�씠�꽣
 			model.addAttribute("contentCnt", pager.getDisplayContentCnt());
 
 			model.addAttribute("nowPage", pager.getNowPage());
@@ -84,6 +83,7 @@ public class ManageMovieHandler implements MCommandHandler {
 			model.addAttribute("next", pager.getNext());
 		}
 
+		model.addAttribute("contentPage", "manage/manage_movie.jsp");
 		return viewPage;
 	}
 
