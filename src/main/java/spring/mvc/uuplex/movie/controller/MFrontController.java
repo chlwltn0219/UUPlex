@@ -1,5 +1,7 @@
 package spring.mvc.uuplex.movie.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +42,15 @@ public class MFrontController {
 
 	@RequestMapping("/manage/movie/add")
 	public String AddMovieInfo(HttpServletRequest req, Model model) {
-		System.out.println("movie_inputPro");
-
-		model.addAttribute("req", req);
+		System.out.println("movie_input");
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		
+		model.addAttribute("req", req);
 		String viewPage = addMovieInfoHandler.process(model);
-
 		return viewPage;
 	}
 

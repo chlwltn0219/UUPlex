@@ -113,7 +113,7 @@ public class AddMovieInfoHandler implements MCommandHandler {
 			e.printStackTrace();
 		}
 
-		return "c-box/addMoviePro";
+		return "c-box/manage/movie_inputPro";
 
 	}
 }
