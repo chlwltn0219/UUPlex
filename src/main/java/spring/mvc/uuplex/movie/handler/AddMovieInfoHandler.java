@@ -48,11 +48,11 @@ public class AddMovieInfoHandler implements MCommandHandler {
 
 			Enumeration file = multi.getFileNames();
 			
-			String[] str = new String[2];
-			String[] fileName = new String[2];
+			String[] str = new String[3];
+			String[] fileName = new String[3];
 			
 			if (file.hasMoreElements()) {
-				for (int i = 0; i <2; i++) {
+				for (int i = 0; i <3; i++) {
 					str[i] = (String) file.nextElement();
 					fileName[i] = multi.getFilesystemName(str[i]);
 				}
