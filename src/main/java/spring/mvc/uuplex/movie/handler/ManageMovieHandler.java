@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 import spring.mvc.uuplex.movie.dao.MovieDAO;
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.util.Pager;
@@ -69,7 +68,7 @@ public class ManageMovieHandler implements MCommandHandler {
 
 			dtos = dao.manageMoviesList(rangeMap);
 
-			model.addAttribute("contentPage", "manage/manage_movie.jsp");
+			
 			model.addAttribute("dtos", dtos);
 			
 			// ▲ 게시글 목록 데이터
@@ -84,6 +83,7 @@ public class ManageMovieHandler implements MCommandHandler {
 			model.addAttribute("next", pager.getNext());
 		}
 
+		model.addAttribute("contentPage", "manage/manage_movie.jsp");
 		return viewPage;
 	}
 

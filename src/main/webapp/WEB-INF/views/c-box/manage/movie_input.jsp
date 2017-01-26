@@ -109,19 +109,19 @@ li {
 				<tr>
 					<th>Poster</th>
 					<td colspan="4">
-						<input type="file" class="form-control" name="poster">
+						<input type="file" class="form-control" name="poster" accept="image/*">
 					</td>
 				</tr>
 				<tr>
 					<th>Still-cut1</th>
 					<td colspan="4">
-						<input type="file" class="form-control" name="movie_img1">
+						<input type="file" class="form-control" name="movie_img1" accept="image/*">
 					</td>
 				</tr>
 				<tr>
 					<th>Still-cut2</th>
 					<td colspan="4">
-						<input type="file" class="form-control" name="movie_img2">
+						<input type="file" class="form-control" name="movie_img2" accept="image/*">
 					</td>
 				</tr>
 				<tr>
