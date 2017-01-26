@@ -2,9 +2,10 @@
  * 
  */
 //======================== Input Modal
-function moiveInput() {
+function movieInput() {
 	
 	var url = "/uuplex/c-box/manage/movie/inputForm";
+	alert("/uuplex/c-box/manage/movie/inputForm");
 	sendRequest(movieModal, url);
 	
 }

@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="setting.jsp"%>
+<%@ include file="../setting.jsp"%>
 
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 <style>
 
-.container{
-	padding-top: 100px;
+.list{
+margin: 100px auto;
 }
 .movie {
 	width: 200px;
@@ -43,6 +43,7 @@ float: left;
 }
 </style>
 <div class="container">
+	<div class="list">
 	<c:if test="${dtos!=null}">
 
 		<c:forEach var="dto" items="${dtos}">
@@ -72,5 +73,6 @@ float: left;
 	
 	<div class="modal fade" id="modalPage" role="dialog">
 	   	<div class="modal-dialog" id="dialog"></div>
+	</div>
 	</div>
 </div>

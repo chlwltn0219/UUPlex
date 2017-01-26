@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="setting.jsp"%>
+<%@ include file="../setting.jsp"%>
 
 <!-- 슬라이드 쇼 : 캐러셀 -->
 <div class="contain">
 	<div id="carousel-example-generic" class="carousel slide"
 		data-ride="carousel">
-
-		
-		
-			
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-example-generic" data-slide-to="0"

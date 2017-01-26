@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
+import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.GetMovieInfoHandler;
+import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 
@@ -26,11 +28,11 @@ public class MFrontController {
 	}
 
 	// 占쏙옙占쏙옙占쏙옙 >占쏙옙占쏙옙>>占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙
-	@RequestMapping("/ManageMovieInfo")
-	public String ManageMovieInfo() {
-		System.out.println("ManageMovieInfo");
+	@RequestMapping("/manage/movie/inputForm")
+	public String inputForm() {
+		System.out.println("movie_input");
 
-		String viewPage = "c-box/ManageMovieInfo";
+		String viewPage = "/c-box/manage/movie_input";
 
 		return viewPage;
 	}
@@ -38,10 +40,10 @@ public class MFrontController {
 	// 占쏙옙占쏙옙占쏙옙 >占쏙옙화占쏙옙占쏙옙占쏙옙占쏙옙>>占쏙옙화占쏙옙占쏙옙占쌩곤옙
 	@Autowired
 	AddMovieInfoHandler addMovieInfoHandler;
-
-	@RequestMapping("/AddMovieInfo")
+	
+	@RequestMapping("/manage/movie/add")
 	public String AddMovieInfo(HttpServletRequest req, Model model) {
-		System.out.println("AddMovieInfo");
+		System.out.println("movie_inputPro");
 
 		// 占쏜델울옙 占쏙옙청 占쏙옙占�
 		model.addAttribute("req", req);
@@ -57,7 +59,7 @@ public class MFrontController {
 	public String addMovieInfoPro() {
 		System.out.println("addMoviePro");
 
-		String viewPage = "c-box/addMoviePro";
+		String viewPage = "c-box/manage/addMoviePro";
 
 		return viewPage;
 	}
@@ -81,16 +83,17 @@ public class MFrontController {
 	// 占쏙옙占쏙옙占쏙옙>占쏙옙화占쏙옙占�
 	@Autowired
 	MovieListHandler movieListHandler;
-	@RequestMapping("/movie_list")
+	@RequestMapping("/user/movie_list")
 	public String movieList(Model model) {
 		System.out.println("movie_list");
 
-		model.addAttribute("contentPage", "movie_list.jsp");
+		model.addAttribute("contentPage", "user/movie_list.jsp");
 		String viewPage = movieListHandler.process(model);
 
 		return viewPage;
 	}
 	
+	//박주은 : 영화 상세정보
 	@Autowired
 	MovieDetailHandler movieDetailHandler;
 	
@@ -98,6 +101,29 @@ public class MFrontController {
 	public String sportsDetail(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
 		String viewPage = movieDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	//박주은 : 관리자 영화 목록
+	@Autowired
+	ManageMovieHandler manageMovieHandler;
+	
+	@RequestMapping("/manage_movie")
+	public String manage_movie(HttpServletRequest req, Model model){
+		System.out.println("manage_movie");
+		
+		model.addAttribute("req", req);
+		String viewPage = manageMovieHandler.process(model);
+		return viewPage;
+	}
+
+
+	@Autowired
+	AddReviewHandler addReviewHandler;
+	
+	@RequestMapping("/user/add_review")
+	public String add_review() {
+		String viewPage = "/c-box/manage/movie_input";
 		return viewPage;
 	}
 }
