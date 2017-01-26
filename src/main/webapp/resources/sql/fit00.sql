@@ -65,7 +65,7 @@ preparationCost NUMBER DEFAULT 0,
 activated		VARCHAR2(1) DEFAULT 'Y',
 CONSTRAINT f_program_pid_pk PRIMARY KEY (pid),
 CONSTRAINT f_program_sid_fk FOREIGN KEY (sid) 
-							REFERENCES F_SPORT(sid),
+							REFERENCES F_SPORTS(sid),
 CONSTRAINT f_program_tid_fk FOREIGN KEY (tid) 
 							REFERENCES F_TEACHER(tid),
 CONSTRAINT f_program_activated_fk FOREIGN KEY (activated) 
