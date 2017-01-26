@@ -37,14 +37,11 @@
 	<select id="moviesList" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		SELECT * FROM m_movie_info
 	</select>
-	
-<<<<<<< HEAD
-=======
+
 	<!-- 리뷰 추가-->
 	<insert id="addReview" parameterType="spring.mvc.uuplex.movie.dto.ReviewDTO">
 		INSERT INTO m_review(review_num, memId, movie_num, rating, review_content, reg_date)
 		VALUES(m_review_seq.NEXTVAL, #{memId}, #{movie_num}, #{rating}, #{review_content}, sysdate)
 		
 	</insert>
->>>>>>> 7a5850533ded6377adfd19ff75739d07e90a043a
 </mapper>

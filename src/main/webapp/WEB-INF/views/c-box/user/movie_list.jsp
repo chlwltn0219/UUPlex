@@ -72,7 +72,7 @@ float: left;
 	</c:if>
 	
 	<div class="modal fade" id="modalPage" role="dialog">
-	   	<div class="modal-dialog" id="dialog"></div>
+	   	<div class="modal-dialog modal-lg" id="dialog"></div>
 	</div>
 	</div>
 </div>

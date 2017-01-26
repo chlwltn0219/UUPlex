@@ -152,8 +152,8 @@ li {
 							</tr>
 							<tr>
 								<td colspan="5" align="center"><input type="submit"
-									class="btn btn-success" value="확인"> <input
-									type="reset" class="btn" value="다시입력"></td>
+									class="btn btn-success" value="확인"> <input type="reset"
+									class="btn" value="다시입력"></td>
 							</tr>
 						</table>
 					</form>
@@ -198,8 +198,8 @@ li {
 										value="4" id="p4"> <label for="p4">기대해도 좋아요!</label> <input
 										type="radio" name="star-input" value="5" id="p5"> <label
 										for="p5">정말 멋진 영화였어요!</label>
-								</span> <br> <output id="rating" for="star-input">
-									<b>평점을 입력해주세요</b></output></td>
+								</span> <br> <output id="rating" for="star-input"> <b>평점을
+										입력해주세요</b></output></td>
 								<td><textarea style="width: 250px; height: 80px">로그인 후 이용가능한 서비스입니다.</textarea></td>
 								<td><input class="btn" type="submit" value="등록"></td>
 							</tr>

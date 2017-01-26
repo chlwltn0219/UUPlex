@@ -58,7 +58,6 @@ public class MovieDAOImpl implements MovieDAO{
 		return dto;
 	}
 
-<<<<<<< HEAD
 	@Override
 	public int moviesCount() {
 		int cnt = 0;
@@ -67,9 +66,6 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	
-
-=======
 	//¸®ºäÃß°¡
 	@Override
 	public int addReview(ReviewDTO dto) {
@@ -79,7 +75,5 @@ public class MovieDAOImpl implements MovieDAO{
 		
 		return cnt;
 	}
-
->>>>>>> 7a5850533ded6377adfd19ff75739d07e90a043a
 
 }

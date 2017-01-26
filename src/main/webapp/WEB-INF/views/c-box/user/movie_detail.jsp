@@ -34,7 +34,7 @@
 }
 </style>
 
-<div class="modal-content  modal-lg">
+<div class="modal-content">
 	<div class="modal-header">
 		<button class="close" data-dismiss="modal">&times;</button>
 		<h4 class="modal-title">상세정보</h4>
@@ -141,3 +141,5 @@
 
 	</div>
 </div>
+<script src="${js}jquery-1.11.3.min.js"></script>
+<script src="${js}star.js""></script>
