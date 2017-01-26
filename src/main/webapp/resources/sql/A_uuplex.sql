@@ -1,6 +1,6 @@
 DROP TABLE uu_admin;
 
--- ÀÌ°Ç ¾È¾¸
+-- ï¿½Ì°ï¿½ ï¿½È¾ï¿½
 CREATE TABLE uu_admin(
   idCode    NUMBER(5) NOT NULL,
   memId     VARCHAR2(20),
@@ -20,7 +20,7 @@ commit;
 SELECT idCode FROM uu_member WHERE memId = 'aa';
 
 
--- È¸¿ø Å×ÀÌºí
+-- È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
 DROP TABLE uu_member;
 
 CREATE TABLE uu_member(
@@ -40,10 +40,10 @@ CREATE TABLE uu_member(
   CONSTRAINT uu_member_memId_pk PRIMARY KEY(memId)
 );
 
-INSERT INTO uu_member VALUES('101', 'admin', '11', 'ÀüÃ¼°ü¸®ÀÚ', '111111', '1111111', '30', '³²¼º', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
-INSERT INTO uu_member VALUES('102', 'madmin', '11', '¿µÈ­°ü¸®ÀÚ', '111111', '1111111', '30', '¿©¼º', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
-INSERT INTO uu_member VALUES('103', 'hadmin', '11', 'È£ÅÚ°ü¸®ÀÚ', '111111', '1111111', '30', '¿©¼º', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
-INSERT INTO uu_member VALUES('104', 'fadmin', '11', 'ÈÖÆ®´Ï½º°ü¸®ÀÚ', '111111', '1111111', '30', '¿©¼º', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
+INSERT INTO uu_member VALUES('101', 'admin', '11', 'ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '111111', '1111111', '30', 'ï¿½ï¿½ï¿½ï¿½', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
+INSERT INTO uu_member VALUES('102', 'madmin', '11', 'ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '111111', '1111111', '30', 'ï¿½ï¿½ï¿½ï¿½', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
+INSERT INTO uu_member VALUES('103', 'hadmin', '11', 'È£ï¿½Ú°ï¿½ï¿½ï¿½ï¿½ï¿½', '111111', '1111111', '30', 'ï¿½ï¿½ï¿½ï¿½', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
+INSERT INTO uu_member VALUES('104', 'fadmin', '11', 'ï¿½ï¿½Æ®ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '111111', '1111111', '30', 'ï¿½ï¿½ï¿½ï¿½', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
 
 
 DESC uu_member;
@@ -60,33 +60,33 @@ DELETE FROM uu_member;
 
 
 
--- °Ô½ÃÆÇ
+-- ï¿½Ô½ï¿½ï¿½ï¿½
 DROP TABLE qna_board;
 CREATE TABLE qna_board(
-  shopCode    NUMBER(5) NOT NULL,    -- ¸ÅÀåÄÚµå
-  qnaNum      NUMBER(5),             -- ±Û¹øÈ£
-  memId       VARCHAR2(20) NOT NULL, -- ÀÛ¼ºÀÚ
-  qnaPasswd   VARCHAR2(10) NOT NULL, -- ºñ¹Ð¹øÈ£
-  subject     VARCHAR2(50) NOT NULL, -- ±ÛÁ¦¸ñ
-  content     VARCHAR2(1000),         -- ±Û³»¿ë
-  readCnt     NUMBER(5) DEFAULT 0,   -- Á¶È¸¼ö
-  ref         NUMBER(5) DEFAULT 0,   -- ±×·ì
-  ref_step    NUMBER(5) DEFAULT 0,   -- ±×·ì ½ºÅÜ
-  ref_level   NUMBER(5) DEFAULT 0,   -- ±×·ì ·¹º§
-  qna_date    TIMESTAMP DEFAULT sysdate, -- ÀÛ¼ºÀÏ
+  shopCode    NUMBER(5) NOT NULL,    -- ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+  qnaNum      NUMBER(5),             -- ï¿½Û¹ï¿½È£
+  memId       VARCHAR2(20) NOT NULL, -- ï¿½Û¼ï¿½ï¿½ï¿½
+  qnaPasswd   VARCHAR2(10) NOT NULL, -- ï¿½ï¿½Ð¹ï¿½È£
+  subject     VARCHAR2(50) NOT NULL, -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  content     VARCHAR2(1000),         -- ï¿½Û³ï¿½ï¿½ï¿½
+  readCnt     NUMBER(5) DEFAULT 0,   -- ï¿½ï¿½È¸ï¿½ï¿½
+  ref         NUMBER(5) DEFAULT 0,   -- ï¿½×·ï¿½
+  ref_step    NUMBER(5) DEFAULT 0,   -- ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½
+  ref_level   NUMBER(5) DEFAULT 0,   -- ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½
+  qna_date    TIMESTAMP DEFAULT sysdate, -- ï¿½Û¼ï¿½ï¿½ï¿½
   ip          VARCHAR2(15),           -- IP
   CONSTRAINT qna_board_qnaNum_pk PRIMARY KEY(qnaNum),
   CONSTRAINT qna_board_memId_fk FOREIGN KEY(memId) REFERENCES uu_member(memId)
 );
 
 INSERT INTO qna_board(shopCode, qnaNum, memId, qnaPasswd, subject, content, readCnt, ref, ref_step, ref_level, qna_date, ip)
-  VALUES(101, qna_seq.nextval, 'aa', '1234', 'Ã¹±Û', '°Ô½ÃÆÇ °Ô½Ã', 0, qna_seq.currval, 0, 0, sysdate, '127.0.0.1');
+  VALUES(101, qna_seq.nextval, 'aa', '1234', 'Ã¹ï¿½ï¿½', 'ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½', 0, qna_seq.currval, 0, 0, sysdate, '127.0.0.1');
  
 INSERT INTO qna_board(shopCode, qnaNum, memId, qnaPasswd, subject, content, readCnt, ref, ref_step, ref_level, qna_date, ip)
-  VALUES(102, qna_seq.nextval, 'aa', '1234', 'µÎ¹øÂ°±Û', '°Ô½ÃÆÇ °Ô½Ã', 0, qna_seq.currval, 0, 0, sysdate, '127.0.0.1'); 
+  VALUES(102, qna_seq.nextval, 'aa', '1234', 'ï¿½Î¹ï¿½Â°ï¿½ï¿½', 'ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½', 0, qna_seq.currval, 0, 0, sysdate, '127.0.0.1'); 
   
 INSERT INTO qna_board(shopCode, qnaNum, memId, qnaPasswd, subject, content, readCnt, ref, ref_step, ref_level, qna_date, ip)
-  VALUES(103, qna_seq.nextval, 'aa', '1234', '¼¼¹øÂ°±Û', '°Ô½ÃÆÇ °Ô½Ã3', 0, qna_seq.currval, 0, 0, sysdate, '127.0.0.1');  
+  VALUES(103, qna_seq.nextval, 'aa', '1234', 'ï¿½ï¿½ï¿½ï¿½Â°ï¿½ï¿½', 'ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½3', 0, qna_seq.currval, 0, 0, sysdate, '127.0.0.1');  
 
 SELECT * FROM qna_board;
 DELETE FROM qna_board WHERE shopcode='0';
