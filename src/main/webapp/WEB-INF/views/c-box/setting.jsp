@@ -13,5 +13,5 @@
 <c:set var="resources" value="/uuplex/resources"/>
 <c:set var="js" value="/uuplex/resources/c-box/js/"/>
 
-<%-- <script type="text/javascript" src="${cbox}css/script.js"></script>
-<link type="text/css" rel="stylesheet" href="${cbox}css/style.css"> --%>
+<%-- <script type="text/javascript" src="${cbox}css/script.js"></script>--%>
+<%-- <link type="text/css" rel="stylesheet" href="${cbox}css/c-box.css"> --%>
