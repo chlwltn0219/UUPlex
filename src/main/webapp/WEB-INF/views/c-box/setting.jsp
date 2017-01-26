@@ -14,5 +14,3 @@
 
 <%-- <script type="text/javascript" src="${cbox}css/script.js"></script>
 <link type="text/css" rel="stylesheet" href="${cbox}css/style.css"> --%>
-
- 

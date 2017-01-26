@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
+import spring.mvc.uuplex.movie.dto.ReviewDTO;
 
 @Repository //저장소 역할
 public class MovieDAOImpl implements MovieDAO{
@@ -57,6 +58,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return dto;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int moviesCount() {
 		int cnt = 0;
@@ -67,5 +69,17 @@ public class MovieDAOImpl implements MovieDAO{
 
 	
 
+=======
+	//리뷰추가
+	@Override
+	public int addReview(ReviewDTO dto) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.addReview(dto);
+		
+		return cnt;
+	}
+
+>>>>>>> 7a5850533ded6377adfd19ff75739d07e90a043a
 
 }

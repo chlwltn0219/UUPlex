@@ -12,6 +12,8 @@
 
 <form action="loginPro" name="loginForm" class="form-horizontal" method="post">
 
+<<<<<<< HEAD
+=======
 			<c:if test="${cnt == -1}">
 				<script type="text/javascript">
 					alert("비밀번호가 다릅니다. 다시 확인하세요!");
@@ -24,6 +26,7 @@
 				</script>
 			</c:if>
 		
+>>>>>>> 90c2d9b60fd3946f415ec7a82d5f3e83c377561a
 
 <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">아이디</label> 

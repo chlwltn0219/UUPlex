@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.javassist.expr.NewArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -30,7 +31,9 @@ public class RoomAddProHandler implements HCommandHandler {
 	public String process(Model model) {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
-		String path = content.getRealPath("resources/hotelImages");
+		// String path = content.getRealPath("resources/hotelImages");
+		String path = "C:\\Dev\\uuplexImg\\";
+		System.out.println("p " + path);
 
 		int size = 1024 * 1024 * 10; // 10MB
 
@@ -39,8 +42,16 @@ public class RoomAddProHandler implements HCommandHandler {
 			multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
 			Enumeration file = multi.getFileNames();
-			String str = (String) file.nextElement();
-			String fileName = multi.getFilesystemName(str);
+
+			String[] str = new String[6];
+			String[] fileName = new String[6];
+			
+			if (file.hasMoreElements()) {
+				for (int i = 0; i <6; i++) {
+					str[i] = (String) file.nextElement();
+					fileName[i] = multi.getFilesystemName(str[i]);
+				}
+			}
 
 			int charge = Integer.parseInt(multi.getParameter("charge"));
 
@@ -51,12 +62,12 @@ public class RoomAddProHandler implements HCommandHandler {
 
 			// 2단계. dto 바구니에 담는다.
 			dto.setRoomName(multi.getParameter("roomName"));
-			dto.setMainImg(fileName);
-			dto.setDetail_1(multi.getParameter("detail_1"));
-			dto.setDetail_2(multi.getParameter("detail_2"));
-			dto.setDetail_3(multi.getParameter("detail_3"));
-			dto.setDetail_4(multi.getParameter("detail_4"));
-			dto.setDetail_5(multi.getParameter("detail_5"));
+			dto.setMainImg(fileName[0]);
+			dto.setDetail_1(fileName[1]);
+			dto.setDetail_2(fileName[2]);
+			dto.setDetail_3(fileName[3]);
+			dto.setDetail_4(fileName[4]);
+			dto.setDetail_5(fileName[5]);
 			dto.setIntro(multi.getParameter("intro"));
 			dto.setRoomType(multi.getParameter("roomType"));
 			dto.setBed(multi.getParameter("bed"));

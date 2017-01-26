@@ -16,13 +16,27 @@
 		.affix {
 			top: 0;
 			width: 100%;
-      		z-index: 100;
+       		z-index: 999;
+		}
+		.btnTop {
+			position: fixed;
+			bottom: 50px;
+			right: 50px;
+			z-index: 100;
+/* 			float:right; */
+/* 			background-color:white; */
+		}
+		
+		.btnTop img{
+			border: 1px solid black;
+			width:70px;
+			height:70px;
 		}
 	</style>
 </head>
 <body>
 	<!-- Fitness NAVBAR ================================================== -->
-	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50">
+	<nav class="navbar navbar-inverse fitmenu" data-spy="affix" data-offset-top="50">
 		<div class="navbar-header">
 			<!-- 모바일 메뉴 버튼 -->
 			<button type="button" class="navbar-toggle collapsed"
@@ -72,5 +86,10 @@
 	<div class="top"></div>
 
 	<sitemesh:write property="body" />
+	
+	<div class="btnTop">
+		<a href="#top"><img class="img-circle" src="${resources}/fitness/img/top.png" alt="top"></a>
+	</div>
+
 	
 </body>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/main/webapp/WEB-INF/views/c-box/user/main.jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>

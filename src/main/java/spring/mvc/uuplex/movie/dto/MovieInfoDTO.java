@@ -20,7 +20,14 @@ public class MovieInfoDTO {
 			String movie_img2; /* 스틸컷2 */
 			String trailer; /* 예고편링크 */
 			String status; /* 현재상영여부 */
+			String synopsis; /* 줄거리 */
 			
+			public String getSynopsis() {
+				return synopsis;
+			}
+			public void setSynopsis(String synopsis) {
+				this.synopsis = synopsis;
+			}
 			public int getMovie_num() {
 				return movie_num;
 			}

@@ -11,7 +11,7 @@ function teacherInput() {
 //=====================================Detail Modal
 
 
-function teacherDetails(tid) {
+function teacherDetail(tid) {
 	
 	var url = "/uuplex/fitness/teacher/detail"
 		var method = "GET"
@@ -19,6 +19,8 @@ function teacherDetails(tid) {
 	
 	sendRequest(teacherModal, url, method, params);
 }
+
+//=====================================Modify Modal
 
 function teacherModify(tid) {
 	
@@ -29,21 +31,23 @@ function teacherModify(tid) {
 	sendRequest(teacherModal, url, method, params);
 }
 
+//=====================================Modify Pro
+
 function teacherModifyPro() {
 	var tid = document.tModifyForm.tid.value;
 	var tname = document.tModifyForm.tname.value;
 	var tinfo = document.tModifyForm.tinfo.value;
+	var activated = document.tModifyForm.activated.value;
 		
 	var url = "/uuplex/fitness/manage/teacher/modifyPro"
 	var method = "POST"
-	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo;
+	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + "&activated=" + activated;
 	
 	sendRequest(teacherModal, url, method, params);
 
 }
 
-
-
+//=====================================Write Modal Dialog
 
 function teacherModal() {
 

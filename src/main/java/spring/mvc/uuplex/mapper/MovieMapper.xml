@@ -22,9 +22,9 @@
 	<insert id="addMovieInfo" parameterType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		INSERT INTO m_movie_info(movie_num, title1, title2, director, starring, 
 		genre, MPAARating, productionYear, runTime, releaseDate, poster, 
-		movie_img1, movie_img2, trailer, status) VALUES(m_movie_info_seq.NEXTVAL, #{title1}, #{title2}, 
+		movie_img1, movie_img2, trailer, status, synopsis) VALUES(m_movie_info_seq.NEXTVAL, #{title1}, #{title2}, 
 		#{director}, #{starring}, #{genre}, #{MPAARating}, #{productionYear}, #{runTime}, #{releaseDate},
-		#{poster}, #{movie_img1}, #{movie_img2}, #{trailer}, #{status})
+		#{poster}, #{movie_img1}, #{movie_img2}, #{trailer}, #{status}, #{synopsis})
 	
 	</insert>
 	
@@ -38,4 +38,13 @@
 		SELECT * FROM m_movie_info
 	</select>
 	
+<<<<<<< HEAD
+=======
+	<!-- 리뷰 추가-->
+	<insert id="addReview" parameterType="spring.mvc.uuplex.movie.dto.ReviewDTO">
+		INSERT INTO m_review(review_num, memId, movie_num, rating, review_content, reg_date)
+		VALUES(m_review_seq.NEXTVAL, #{memId}, #{movie_num}, #{rating}, #{review_content}, sysdate)
+		
+	</insert>
+>>>>>>> 7a5850533ded6377adfd19ff75739d07e90a043a
 </mapper>

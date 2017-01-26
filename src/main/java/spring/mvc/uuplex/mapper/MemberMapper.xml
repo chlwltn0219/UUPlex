@@ -20,4 +20,20 @@
 	<select id="pwdCheck" parameterType="Map" resultType="int">
 		SELECT COUNT(*) FROM uu_member WHERE memId = #{memId} AND passwd = #{passwd}
 	</select>
+	
+	<!-- 코드값 가져오기 -->
+	<select id="idCode" parameterType="String" resultType="int">
+		SELECT idCode FROM uu_member WHERE memId = #{memId}
+	</select>
+	
+	<!-- 회원 리스트 가져오기 -->
+	<select id="memberList" resultType="spring.mvc.uuplex.admin.dto.MemberDTO">
+		SELECT * FROM uu_member WHERE idCode = '105' ORDER BY reg_date desc
+	</select>
+	
+	<!-- 회원 정보(1명) 가져오기 -->
+	<select id="memberView" parameterType="String" resultType="spring.mvc.uuplex.admin.dto.MemberDTO">
+		SELECT * FROM uu_member WHERE memId = #{memId}
+	</select>
+	
 </mapper>   

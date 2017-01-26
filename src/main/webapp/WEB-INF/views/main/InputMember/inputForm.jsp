@@ -13,6 +13,8 @@
 	
 	<script src="/uuplex/resources/main_script/inputform.js"></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script src="/uuplex/resources/admin_ajax/request.js"></script> 
+	<script src="/uuplex/resources/admin_ajax/password.js"></script> 
 	
 </head>
 <body>
@@ -38,15 +40,21 @@
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">비밀번호</label>
     <div class="col-sm-6">
-      <input type="password" name="passwd" class="form-control" id="inputPassword3" placeholder="비밀번호를 입력하세요">
+      <input type="password" name="passwd" class="form-control" id="inputPassword3" maxlength="16" placeholder="문자 숫자 특수문자 조합하여 16자리까지 입력">
     </div>
   </div>
   
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">비밀번호 확인</label>
     <div class="col-sm-6">
-      <input type="password" name="passwdChk" class="form-control" id="inputPassword3" placeholder="비밀번호를 확인하세요">
+      <input type="password" name="passwdChk" class="form-control" id="inputPassword3" maxlength="16" placeholder="비밀번호를 확인하세요" onkeyup="pwdChk()">
     </div>
+  </div>
+  <div class="form-group">
+  	<label for="inputPassword3" class="col-sm-2 control-label"></label>
+  	<div class="col-sm-6">
+  		<div id="result"></div>
+  	</div>
   </div>
   
   <div class="form-group">
