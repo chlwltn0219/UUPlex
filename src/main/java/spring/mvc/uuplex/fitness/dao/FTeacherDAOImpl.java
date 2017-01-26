@@ -1,7 +1,5 @@
 package spring.mvc.uuplex.fitness.dao;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +40,7 @@ public class FTeacherDAOImpl implements FTeacherDAO{
 		
 		int cnt = 0;
 		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
-		
+		System.out.println("ega : " + dto.getTname());
 		cnt = dao.tInsert(dto);
 			
 		

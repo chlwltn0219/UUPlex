@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ include file="../../setting.jsp" %>    
     
 
       <!-- Modal content-->
@@ -12,14 +13,17 @@
           <h4 class="tdetail">상세 정보 수정</h4>
         </div>
         
-        <form action="" method="post" name="tModifyForm" onsubmit="return default">
+        <form action="modifyPro" enctype="multipart/form-data" method="post" name="tModifyForm" onsubmit="return default">
         <div class="modal-body">
           <table class="table">
-          	<tr>
-<%--           	<tr>
-          		<td rowspan="6">${dto.timg}</td>
-     <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
-          	</tr>   --%>
+           	<tr>
+           		<th>강사 이미지</th>
+           		<td>
+           			<input type="hidden" name="initPic" value="${dto.tpicture}">
+           			<input type="file" class="form-control" name="tpicture" accept="image/*"></td>
+          		<td rowspan="6"><img src="/teacherImg/${dto.tpicture}" width="100px"></td>
+          	</tr>  
+          	<tr>          		
           		<th>강사 코드</th>
           		<td>
           			<input type="text" class="form-control"
@@ -78,8 +82,8 @@
 
           </table>
         <div class="modal-footer">
-			<input type="button" class="btn btn-primary" 
-							value="수정" onclick="teacherModifyPro()">
+			<input type="submit" class="btn btn-primary" 
+							value="수정">
 			<input type="reset" class="btn btn-warning" 
 							value="초기화">
         	<input type="button" class="btn btn-primary" 
