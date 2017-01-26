@@ -13,9 +13,6 @@ public interface MovieDAO {
 	public List<MovieInfoDTO> moviesList();
 	public int addReview(ReviewDTO dto);		//∏Æ∫‰√ﬂ∞°
 	public MovieInfoDTO movieDetail(int mnum);
-<<<<<<< HEAD
-=======
 	public int moviesCount();
 	public List<MovieInfoDTO> manageMoviesList(Map<String, Integer> rangeMap);
->>>>>>> 0db1decd60e9febb3bca9a0a4041e599c576d2cd
 }
