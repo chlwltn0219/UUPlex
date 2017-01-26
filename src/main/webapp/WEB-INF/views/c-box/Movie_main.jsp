@@ -7,10 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>씨박스</title>
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 * {
 	margin: 0;
 	padding: 0;
-	font-family: 나눔고딕;
+	font-family: 'Jeju Gothic', sans-serif;
 }
 
 body {
@@ -75,7 +76,6 @@ body {
 
 .menu input {
 	color: white;
-	font-family: 나눔고딕;
 	font-size: 20px;
 	text-align: center;
 	border: none;
@@ -172,17 +172,17 @@ embed {
 	transiton: 0.5s;
 }
 
-#img:ACTIVE ~embed {
+#img:HOVER{
+	visibility: hidden;
+}
+
+#img:HOVER ~embed, embed:HOVER{
 	visibility: visible;
 }
 
-#img:ACTIVE {
-	display: none;
-}
 
-#img:HOVER {
-	opacity: 1;
-	cursor: pointer;
+embed:HOVER ~{
+	
 }
 
 #setting {

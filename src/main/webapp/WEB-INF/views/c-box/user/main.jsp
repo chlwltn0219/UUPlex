@@ -59,7 +59,7 @@
 						<td colspan="2"><img src="${img}movie_poster/너의 권력은.jpg"></td>
 					</tr>
 					<tr class="sub">
-						<th><img id="rate" src="${img}mpaa_rating/12.png"></th>
+						<th><img id="rate" src="${img}mpaa_rating/12세 관람가.png"></th>
 						<td>너의 권력은</td>
 					</tr>
 					<tr>
@@ -87,7 +87,7 @@
 						<td colspan="2"><img src="${img}movie_poster/모아나.jpg"></td>
 					</tr>
 					<tr class="sub">
-						<th><img id="rate" src="${img}mpaa_rating/all.png"></th>
+						<th><img id="rate" src="${img}mpaa_rating/전체관람가.png"></th>
 						<td>모아나</td>
 					</tr>
 					<tr>
@@ -116,7 +116,7 @@
 						<td colspan="2"><img src="${img}movie_poster/얼라이드.jpg"></td>
 					</tr>
 					<tr class="sub">
-						<th><img id="rate" src="${img}mpaa_rating/15.png"></th>
+						<th><img id="rate" src="${img}mpaa_rating/15세 관람가.png"></th>
 						<td>얼라이드</td>
 					</tr>
 					<tr>

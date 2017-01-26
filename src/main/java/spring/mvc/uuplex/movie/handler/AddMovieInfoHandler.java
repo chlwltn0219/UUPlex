@@ -46,6 +46,7 @@ public class AddMovieInfoHandler implements MCommandHandler {
 		try {
 			MultipartRequest multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
+			// �뜝�떬�뼲�삕�뜝占� �뜝�룞�삕�뜝�룞�삕 �뜝�떛紐뚯삕�뜝�룞�삕 �뜝�뙣�븘�삩�뙋�삕.
 			Enumeration file = multi.getFileNames();
 			String[] str = new String[3];
 			String[] fileName = new String[3];
@@ -101,9 +102,9 @@ public class AddMovieInfoHandler implements MCommandHandler {
 			dto.setMPAARating(MPAARating);
 			dto.setProductionYear(productionYear);
 			dto.setRunTime(runTime);
-			dto.setPoster(fileName[0]);
+			dto.setPoster(fileName[2]);
 			dto.setMovie_img1(fileName[1]);
-			dto.setMovie_img2(fileName[2]);
+			dto.setMovie_img2(fileName[0]);
 			dto.setTrailer(trailer);
 			dto.setStatus(status);
 			dto.setSynopsis(synopsis);

@@ -15,13 +15,13 @@
           <table class="table">
           	<tr>
           	<tr>
-          		<td rowspan="6">
-	          		<img src="/teacherImg/${dto.tpicture}" width="80px">
+          		<td rowspan="6" width="30%">
+	          		<img src="/teacherImg/${dto.tpicture}" width="100%" align="middle">
           		</td>
           	</tr> 
           	<tr>
-          		<th>강사 코드</th>
-          		<td>
+          		<th width="20%">강사 코드</th>
+          		<td width="50%">
           			${dto.tid}
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
