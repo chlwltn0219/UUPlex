@@ -49,7 +49,15 @@
   <mapping path="/fitness/manage/sports/modify" exclue="true"/>
   <mapping path="/fitness/manage/sports/modifyPro" exclue="true"/>
   <mapping path="/fitness/sports/detail" exclue="true"/>
+  
+  <mapping path="/fitness/classroom/detail" exclue="true"/>
+  <mapping path="/fitness/manage/classroom/inputForm" exclue="true"/>
+  <mapping path="/fitness/manage/classroom/modify" exclue="true"/>
+  <mapping path="/fitness/manage/classroom/modifyPro" exclue="true"/>
+    
   <mapping path="/c-box/movie_detail" exclue="true"/>
   <mapping path="/c-box/manage/movie/inputForm" exclue="true"/>
+  <mapping path="/c-box/manage/theater/inputForm" exclue="true"/>
+  <mapping path="/c-box/manage/schedule/inputForm" exclue="true"/>
   
 </sitemesh>

@@ -15,7 +15,6 @@ public class FTeacherDetailHandler implements FCommandHandler{
 	@Autowired
 	FTeacherDAO  dao;
 	
-	
 	@Override
 	public String process(Model model) {
 		

@@ -32,7 +32,7 @@ public class AddMovieInfoHandler implements MCommandHandler {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 
 		// String path = req.getServletContext().getRealPath("saveImage");
-		String path = "C:\\Dev\\uploadImages\\uuplex\\c-box";
+		String path = "C:\\Dev\\uuplexImg\\c-box";
 
 		java.io.File f = new java.io.File(path);
 
@@ -46,18 +46,17 @@ public class AddMovieInfoHandler implements MCommandHandler {
 		try {
 			MultipartRequest multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
+			// �뜝�떬�뼲�삕�뜝占� �뜝�룞�삕�뜝�룞�삕 �뜝�떛紐뚯삕�뜝�룞�삕 �뜝�뙣�븘�삩�뙋�삕.
 			Enumeration file = multi.getFileNames();
-			
-			String[] str = new String[2];
-			String[] fileName = new String[2];
+			String[] str = new String[3];
+			String[] fileName = new String[3];
 			
 			if (file.hasMoreElements()) {
-				for (int i = 0; i <2; i++) {
+				for (int i = 0; i <3; i++) {
 					str[i] = (String) file.nextElement();
 					fileName[i] = multi.getFilesystemName(str[i]);
 				}
 			}
-			
 
 			/* <%=request.getServletContext().getContextPath()%>${dto.image} */
 
@@ -102,9 +101,9 @@ public class AddMovieInfoHandler implements MCommandHandler {
 			dto.setMPAARating(MPAARating);
 			dto.setProductionYear(productionYear);
 			dto.setRunTime(runTime);
-			dto.setPoster(fileName[0]);
+			dto.setPoster(fileName[2]);
 			dto.setMovie_img1(fileName[1]);
-			dto.setMovie_img2(fileName[2]);
+			dto.setMovie_img2(fileName[0]);
 			dto.setTrailer(trailer);
 			dto.setStatus(status);
 			dto.setSynopsis(synopsis);

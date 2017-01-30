@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 import spring.mvc.uuplex.movie.dao.MovieDAO;
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.util.Pager;
@@ -68,7 +67,7 @@ public class ManageMovieHandler implements MCommandHandler {
 			rangeMap.put("end", pager.getEndContent());
 
 			dtos = dao.manageMoviesList(rangeMap);
-
+			
 			model.addAttribute("dtos", dtos);
 			
 			// �뼯 寃뚯떆湲� 紐⑸줉 �뜲�씠�꽣

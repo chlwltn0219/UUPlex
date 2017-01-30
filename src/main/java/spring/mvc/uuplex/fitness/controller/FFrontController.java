@@ -9,6 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
@@ -39,7 +43,15 @@ public class FFrontController{
 	FTeacherDetailHandler tDetailHandler;
 	@Autowired
 	FTeacherModifyHandler tmodifyHandler;
-
+	
+	@Autowired
+	FClassroomListHandler cListHandler;
+	@Autowired
+	FClassroomInputHandler cinputHandler;
+	@Autowired
+	FClassroomDetailHandler cDetailHandler;
+	@Autowired
+	FClassModifyHandler cModifyHandler;
 
 	// 占쏙옙占쏙옙占쏙옙: 占쏙옙트占싹쏙옙 占쏙옙占쏙옙
 	@RequestMapping("")
@@ -169,4 +181,66 @@ public class FFrontController{
 		
 		return viewPage;
 	}
+	
+	//김진우 : 강의실 리스트
+	@RequestMapping("/manage/classroom/list")
+	   public String clist(HttpServletRequest req, Model model) {
+	      System.out.println("clist()");
+	      
+	      model.addAttribute("req", req);
+	      String viewPage = cListHandler.process(model);
+	      
+	      return viewPage;	  
+	}
+	
+	//김진우 : 강의실 등록
+	@RequestMapping("/manage/classroom/inputForm")
+	 public String cinputForm(HttpServletRequest req, Model model) {
+	      String viewPage = "/fitness/manage/classroom_input";  
+
+	      return viewPage;	  
+
+	}
+	
+	//강의실 추가
+	@RequestMapping("/manage/classroom/input")
+	 public String cinput(HttpServletRequest req, Model model) {
+	      System.out.println("cinput()");
+	      
+	      model.addAttribute("req", req);
+	      String viewPage = cinputHandler.process(model);
+	      
+	      return viewPage;	 
+	}
+	
+	//김진우 : 강의실 디테일
+	@RequestMapping("/classroom/detail")
+	public String classroomDetail(HttpServletRequest req, Model model){
+		
+		model.addAttribute("req", req);
+		String viewPage = cDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	//김진우 : 강의실 상세 정보 수정 폼
+	@RequestMapping("/manage/classroom/modify")
+	public String classroomModify(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		String viewPage = "/fitness/manage/classroom_modify";
+		cDetailHandler.process(model);
+		return viewPage;
+	}
+	
+	// 최지수 : 피트니스 - 종목 정보 수정
+	@RequestMapping("/manage/classroom/modifyPro")
+	public String classroomModifyPro(HttpServletRequest req, Model model){
+
+		model.addAttribute("req", req);
+		String viewPage = cModifyHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	
+	
 }

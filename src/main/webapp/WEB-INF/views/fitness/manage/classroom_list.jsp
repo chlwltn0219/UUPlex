@@ -6,12 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
-<script type="text/javascript" src="${resources}/fitness/js/teacher_manager.js"></script>
-<title>강사 리스트</title>
+<script type="text/javascript" src="${resources}/fitness/js/classroom_manager.js"></script> 
+<title>강의실 리스트</title>
 </head>
 <body>
 
-	<h3>강사 관리</h3>
+
+<h3>강의실 관리</h3>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -19,10 +20,6 @@
 					<form action="" method="get" onsubmit=""
 						 class="form-inline" name="searchForm">
 						<div class="input-group">
-<!-- 							<select class="form-control"> -->
-<!-- 								<option>코드</option> -->
-<!-- 								<option>종목 명</option> -->
-<!-- 							</select> -->
 							<input class="form-control" type="search" placeholder="검색">
 							<div class="input-group-btn">
 								<button type="submit" class="btn btn-info">
@@ -35,15 +32,15 @@
 					<td>
 						<div class="form-group pull-right">
 							<input type="button" class="btn btn-primary" 
-								value="등록하기" onclick="teacherInput()" 
+								value="등록하기" onclick="classroomInput()" 
 								data-toggle="modal" data-target="#modalPage">
 						</div>
 					</td>	
 			</tr>
-			<tr>
-				<th>강사 코드</th>
-				<th>강사명</th>
-				<th>재직 여부</th>
+			<tr> 
+				<th>강의실 코드</th>
+				<th>강의실명</th>
+				<th>사용 여부</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -52,17 +49,16 @@
 			<c:if test="${dto.activated == 'Y'}">
 			<tr class="success">
 			</c:if>
-<%-- 			<c:if test="${dto.activated == 'N'}">
-			<tr class="danger">
-			</c:if> --%>
+			<c:if test="${dto.activated == 'N'}">
+			</c:if>
 
-				<td>${dto.tid}</td>
+				<td>${dto.crid}</td>
 				<td><a class="btn btn-link" 
-									data-toggle="modal" data-target="#modalPage" onclick="teacherDetail(${dto.tid})">
-									${dto.tname}</a></td>
+									data-toggle="modal" data-target="#modalPage" onclick="classroomDetail(${dto.crid})">
+									${dto.crname}</a></td>
 				<td>
-				<c:if test="${dto.activated=='Y'}"> 재직중</c:if>
-				<c:if test="${dto.activated=='N'}"> 퇴사</c:if>
+				<c:if test="${dto.activated=='Y'}"> 운영중</c:if>
+				<c:if test="${dto.activated=='N'}"> 비운영</c:if>
 				</td>
 			</tr>
 			</c:forEach>
@@ -76,22 +72,22 @@
 				<td colspan="3" align="center">
 					<c:if test="${prev == true}">
 						<ul class="pager">
-							<li><a href="/uuplex/fitness/manage/teacher/list?page=${startPage-1}">&lt;prev</a></li>						
+							<li><a href="/uuplex/fitness/manage/classroom/list?page=${startPage-1}">&lt;prev</a></li>						
 						</ul>
 					</c:if>  				
 					<ul class="pagination">
 					<c:forEach var="page" begin="${startPage}" end="${endPage}" varStatus="status">			
 					<c:if test="${nowPage == status.current}">
-					  <li class="active"><a href="/uuplex/fitness/manage/teacher/list?page=${page}">${page}</a></li>
+					  <li class="active"><a href="/uuplex/fitness/manage/classroom/list?page=${page}">${page}</a></li>
 					</c:if>  
 					<c:if test="${nowPage != status.current}">
-					  <li><a href="/uuplex/fitness/manage/teacher/list?page=${page}">${page}</a></li>
+					  <li><a href="/uuplex/fitness/manage/classroom/list?page=${page}">${page}</a></li>
 					</c:if>  
 					</c:forEach>
 					</ul>					
 					<c:if test="${next == true}">
 						<ul class="pager">
-							<li><a href="/uuplex/fitness/manage/teacher/list?page=${endPage+1}">next&gt;</a></li>						
+							<li><a href="/uuplex/fitness/manage/classroom/list?page=${endPage+1}">next&gt;</a></li>						
 						</ul>
 					</c:if>  					
 				</td>
@@ -102,8 +98,8 @@
 	
 	<div class="modal fade" id="modalPage" role="dialog">
 		<div class="modal-dialog" id="dialog"></div>
-	</div>
-<%-- 	 	<%@ include file="teacher_input.jsp" %> 
- 		<%@ include file="teacher_detail.jsp" %>  --%>
+	</div> 
+<%-- 	 	<%@ include file="classroom_input.jsp" %> 
+ 		<%@ include file="classroom_detail.jsp" %>  --%>
 </body>
 </html>

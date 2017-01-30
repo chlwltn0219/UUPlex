@@ -4,20 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>영화정보추가처리</title>
+<title>상영일정추가처리</title>
 </head>
 <body>
 	
 	<c:if test="${cnt == 0}">
 		<script type="text/javascript">
-			alert("영화정보추가에 실패했습니다. 잠시후 다시 시도해주세요");
+			alert("상영일정추가에 실패했습니다. 잠시후 다시 시도해주세요");
 		</script>
 	
 	</c:if>
 	<c:if test="${cnt != 0}">
 		<script type="text/javascript">
-			alert("영화정보가 추가되었습니다.");
-			window.location='/uuplex/c-box/manage_movie';
+			alert("상영일정이 추가되었습니다.");
+			window.location='/uuplex/c-box/manage_schedule';
 		</script>
 	
 	</c:if>

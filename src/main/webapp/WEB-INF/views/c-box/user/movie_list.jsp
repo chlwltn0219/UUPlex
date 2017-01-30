@@ -26,6 +26,7 @@
 
 .movie td>img {
 	width: 100%;
+	height: 283px;
 }
 
 .sub>td {
@@ -50,10 +51,10 @@
 				<div class="aa">
 					<table class="movie" style="border: 1px solid #EAEAEA;">
 						<tr>
-							<td colspan="2"><img src="${img}movie_poster/얼라이드.jpg"></td>
+							<td colspan="2"><img src="/uuplexImg/c-box/${dto.poster}"></td>
 						</tr>
 						<tr class="sub">
-							<th><img id="rate" src="${img}mpaa_rating/15.png"></th>
+							<th><img id="rate" src="${img}mpaa_rating/${dto.MPAARating}.png"></th>
 							<td>${dto.title1}</td>
 						</tr>
 						<tr>

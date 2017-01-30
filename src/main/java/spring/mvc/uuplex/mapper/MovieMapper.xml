@@ -2,46 +2,62 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
 
-<mapper namespace="spring.mvc.uuplex.movie.dao.MovieDAO" >
+
+<mapper namespace="spring.mvc.uuplex.movie.dao.MovieDAO">
 
 	<!-- 영화 목록 총 수 -->
 	<select id="moviesCount" resultType="int">
-		SELECT COUNT(*) FROM m_movie_info
+		SELECT COUNT(*) FROM
+		m_movie_info
 	</select>
-	
+
 	<!-- 관리자 : 영화 목록 리스트 반환 -->
-	<select id="manageMoviesList" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
+	<select id="manageMoviesList" parameterType="Map"
+		resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		SELECT *
-		FROM (SELECT m.* , rownum AS rnum FROM m_movie_info m)
+		FROM (SELECT m.* , rownum AS rnum FROM m_movie_info
+		m)
 		WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 
 	<!-- 관리자 : 영화정보 추가 -->
 	<insert id="addMovieInfo" parameterType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
-		INSERT INTO m_movie_info(movie_num, title1, title2, director, starring, 
-		genre, MPAARating, productionYear, runTime, releaseDate, poster, 
-		movie_img1, movie_img2, trailer, status, synopsis) VALUES(m_movie_info_seq.NEXTVAL, #{title1}, #{title2}, 
-		#{director}, #{starring}, #{genre}, #{MPAARating}, #{productionYear}, #{runTime}, #{releaseDate},
-		#{poster}, #{movie_img1}, #{movie_img2}, #{trailer}, #{status}, #{synopsis})
-	
+		INSERT INTO
+		m_movie_info(movie_num, title1, title2, director, starring,
+		genre, MPAARating, productionYear, runTime, releaseDate, poster,
+		movie_img1, movie_img2, trailer, status, synopsis)
+		VALUES(m_movie_info_seq.NEXTVAL, #{title1}, #{title2},
+		#{director}, #{starring}, #{genre}, #{MPAARating}, #{productionYear}, #{runTime},
+		#{releaseDate},
+		#{poster}, #{movie_img1}, #{movie_img2}, #{trailer},
+		#{status}, #{synopsis})
+
 	</insert>
-	
+
 	<!-- 영화상세정보 불러오기 -->
-	<select id="movieDetail" parameterType="int" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
+	<select id="movieDetail" parameterType="int"
+		resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		SELECT * FROM m_movie_info WHERE movie_num = #{movie_num}
 	</select>
-	
-	<!--고객 : 영화목록-->
+
+	<!--고객 : 영화목록 -->
 	<select id="moviesList" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		SELECT * FROM m_movie_info
 	</select>
 
-	<!-- 리뷰 추가-->
+	<!-- 리뷰 추가 -->
 	<insert id="addReview" parameterType="spring.mvc.uuplex.movie.dto.ReviewDTO">
-		INSERT INTO m_review(review_num, memId, movie_num, rating, review_content, reg_date)
-		VALUES(m_review_seq.NEXTVAL, #{memId}, #{movie_num}, #{rating}, #{review_content}, sysdate)
-		
+		INSERT INTO
+		m_review(review_num, memId, movie_num, rating, review_content,
+		reg_date)
+		VALUES(m_review_seq.NEXTVAL, #{memId}, #{movie_num},
+		#{rating}, #{review_content}, sysdate)
+
 	</insert>
+	
+	<!-- 상영중인 영화 -->
+	<select id="getScreening" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
+		SELECT * FROM M_MOVIE_INFO WHERE STATUS='상영중'
+	</select>
 </mapper>
