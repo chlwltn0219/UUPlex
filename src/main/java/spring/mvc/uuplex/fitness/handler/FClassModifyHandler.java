@@ -6,41 +6,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.uuplex.fitness.dao.FSportsDAO;
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
+import spring.mvc.uuplex.fitness.dao.FClassroomDAO;
+import spring.mvc.uuplex.fitness.dto.FClassroomDTO;
 
 @Service
-public class FSportsModifyHandler implements FCommandHandler{
+public class FClassModifyHandler implements FCommandHandler{
 	
 	@Autowired
-	FSportsDAO dao;
+	FClassroomDAO dao;
 	
 	@Override
 	public String process(Model model) {
 		String viewPage = null;
-		FSportsDTO dto = new FSportsDTO();
+		FClassroomDTO dto = new FClassroomDTO();
 		
-		int sid = 0;
-		String sname = null;
-		String sinfo = null;
+		int crid = 0;
+		String crname = null;
 		String activated = null;
 		
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
 		try {
-			sid = Integer.parseInt(req.getParameter("sid"));
-			sname = req.getParameter("sname");
-			sinfo = req.getParameter("sinfo");
+			crid = Integer.parseInt(req.getParameter("crid"));
+			crname = req.getParameter("crname");
 			activated = req.getParameter("activated");
 			
-
 			
-			dto.setSid(sid);
-			dto.setSname(sname);
-			dto.setSinfo(sinfo);
+			System.out.println("sag : " + crid + crname + activated);
+			
+			dto.setCrid(crid);
+			dto.setCrname(crname);;
 			dto.setActivated(activated);
 			
-			dao.modifySports(dto);
+			dao.modifyClassroom(dto);
+			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
