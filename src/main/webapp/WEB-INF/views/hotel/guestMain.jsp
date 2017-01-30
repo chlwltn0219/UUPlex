@@ -99,9 +99,9 @@
         <div class="logo"><img src = "${resources}/hotelImages/hotellogo.png" width="150px;"></div>
         <div class="hit_menu">
             <ul>
-                <li><a href="#" >예약관리</a></li>
-                <li><a href="hotel/roomList">객실관리</a></li>
-                <li><a href="hotel/hotelInfo">호텔안내</a></li>
+                <li><a href="#" >예약내역</a></li>
+                <li><a href="hotel/reservation">객실예약</a></li>
+                <li><a href="hotelInfo">호텔안내</a></li>
             </ul>
         </div>
     </header>
