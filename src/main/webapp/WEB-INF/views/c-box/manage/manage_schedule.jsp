@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
     pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
 
@@ -68,8 +67,6 @@
 		<div class="modal-dialog modal-lg" id="dialog"></div>
 	</div>
 	
-=======
-	pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
 <%@page import="java.util.Date"%>
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>

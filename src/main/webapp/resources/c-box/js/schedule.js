@@ -1,7 +1,6 @@
 /**
  * 
  */
-<<<<<<< HEAD
 //======================== InputSchedule Modal
 function scheduleInput() {
 	
@@ -9,14 +8,6 @@ function scheduleInput() {
 	sendRequest(scheduleModal, url);
 	
 }
-//======================== Write Modal Dialog
-function scheduleModal() {
-	
-	var modal = document.getElementById("dialog");
-	
-	if(httpRequest.readyState == 4 ) {
-		if(httpRequest.status == 200) {
-=======
 
 //======================== Input Modal
 function scheduleInput() {
@@ -54,7 +45,6 @@ function scheduleModal() {
 
 	if (httpRequest.readyState == 4) {
 		if (httpRequest.status == 200) {
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
 			modal.innerHTML = httpRequest.responseText;
 		} else {
@@ -63,9 +53,6 @@ function scheduleModal() {
 	} else {
 		modal.innerHTML = "상태 : " + httpRequest.readyState;
 	}
-<<<<<<< HEAD
 	
-=======
 
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 }

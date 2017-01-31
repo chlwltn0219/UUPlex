@@ -11,18 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
-<<<<<<< HEAD
-import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
-import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
-import spring.mvc.uuplex.movie.handler.ModifyMovieHandler;
-=======
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
+import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ManageTheaterHandler;
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
+import spring.mvc.uuplex.movie.handler.ModifyMovieHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
@@ -156,10 +152,7 @@ public class MFrontController {
 
 		return viewPage;
 	}
-<<<<<<< HEAD
-	
-	
-=======
+
 
 	// 박주은 : 상영관 관리
 	@Autowired
@@ -249,5 +242,5 @@ public class MFrontController {
 		return viewPage;
 	}
 
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
+
 }
