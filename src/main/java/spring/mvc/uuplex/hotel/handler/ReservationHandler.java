@@ -12,22 +12,22 @@ import org.springframework.ui.Model;
 import spring.mvc.uuplex.hotel.dao.HotelDAO;
 import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
-@Service("roomListHandler")
-public class RoomListHandler implements HCommandHandler {
+@Service("reservationHandler")
+public class ReservationHandler implements HCommandHandler {
 
 	@Autowired
 	HotelDAO dao;
 	
 	@Override
 	public String process(Model model) {
-		/*Map<String, Object> map = model.asMap();
-		HttpServletRequest req = (HttpServletRequest) map.get("req");*/
+		 Map<String, Object> map = model.asMap();
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		
 		ArrayList<HotelDTO> dtos = dao.list();
 		
 		model.addAttribute("dtos", dtos);
 		
-		return "/hotel/roomList";
+		return "/hotel/reservation";
 	}
 
 }

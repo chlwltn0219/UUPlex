@@ -33,7 +33,8 @@ public class RoomAddProHandler implements HCommandHandler {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		// String path = content.getRealPath("resources/hotelImages");
 		String path = "C:\\Dev\\uuplexImg\\";
-		System.out.println("p " + path);
+		
+		if(!new java.io.File(path).exists())new java.io.File(path).mkdirs();
 
 		int size = 1024 * 1024 * 10; // 10MB
 
@@ -72,7 +73,7 @@ public class RoomAddProHandler implements HCommandHandler {
 			dto.setRoomType(multi.getParameter("roomType"));
 			dto.setBed(multi.getParameter("bed"));
 			dto.setHotelView(multi.getParameter("hotelView"));
-			dto.setCapacity(multi.getParameter("capacity"));
+			/*dto.setCapacity(multi.getParameter("capacity"));*/
 			dto.setCharge(charge);
 
 			int cnt = dao.insert(dto);

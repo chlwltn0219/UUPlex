@@ -67,7 +67,7 @@ public class RoomModifyProHandler implements HCommandHandler {
 		dto.setRoomType(multi.getParameter("roomType"));
 		dto.setBed(multi.getParameter("bed"));
 		dto.setHotelView(multi.getParameter("hotelView"));
-		dto.setCapacity(multi.getParameter("capacity"));
+		/*dto.setCapacity(multi.getParameter("capacity"));*/
 		dto.setCharge(Integer.parseInt(multi.getParameter("charge")));
 		
 		int cnt = dao.update(dto);

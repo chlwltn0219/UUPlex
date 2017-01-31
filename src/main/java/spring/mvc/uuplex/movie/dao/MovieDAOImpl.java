@@ -76,4 +76,12 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
+	@Override
+	public List<MovieInfoDTO> getScreening() {
+		List<MovieInfoDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.getScreening();
+		return list;
+	}
+
 }

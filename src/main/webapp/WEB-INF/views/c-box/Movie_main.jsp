@@ -163,26 +163,21 @@ embed {
 	left: 48%;
 	width: 70px;
 	height: 70px;
-	opacity: 0;
+	opacity: 0.3;
 	transition: 0.3s;
 }
 
-.item:HOVER #img {
-	opacity: 0.5;
-	transiton: 0.5s;
+.item:HOVER #img{
+opacity: 0.7;
 }
 
 #img:HOVER{
-	visibility: hidden;
+	opacity: 1;
+	cursor: pointer;
 }
 
 #img:HOVER ~embed, embed:HOVER{
 	visibility: visible;
-}
-
-
-embed:HOVER ~{
-	
 }
 
 #setting {
@@ -253,13 +248,13 @@ embed:HOVER ~{
 	<div class="mmanagermenu">
 		<table class="table table-hover text-center">
 			<tr>
-				<td><a href="c-box/manage_movie">영화관리</a></td>
+				<td><a href="/uuplex/c-box/manage_movie">영화관리</a></td>
 			</tr>
 			<tr>
-				<td>상영일정관리</td>
+				<td><a href="/uuplex/c-box/manage_schedule">상영일정관리</a></td>
 			</tr>
 			<tr>
-				<td>상영관 관리</td>
+				<td><a href="/uuplex/c-box/manage_theater">상영관 관리</a></td>
 			</tr>
 			<tr>
 				<td>예매관리</td>
