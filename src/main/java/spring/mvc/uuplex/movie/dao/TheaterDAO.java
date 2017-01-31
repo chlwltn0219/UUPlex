@@ -7,7 +7,7 @@ import spring.mvc.uuplex.movie.dto.TheaterDTO;
 public interface TheaterDAO {
 
 	public int addTheater(TheaterDTO dto);
-	public List<TheaterDTO> TheatersList();		//�����߰�
-	public TheaterDTO TheaterDetail(int THEATER_NUM);
+	public List<TheaterDTO> TheatersList();
 	public int TheatersCount();
+	public TheaterDTO getTheater(int theater_num);
 }

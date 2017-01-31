@@ -3,6 +3,26 @@
 	<%@ include file="../setting.jsp"%>
 
 <script>
+
+$(function() {
+	$("#time td").click(function() {
+		var url = "/uuplex/c-box/manage/schedule/inputForm";
+
+		var day = $(this).parent().prevAll().length;
+		var date = $("#date thead tr").children().eq(day).text();
+
+		var method = "GET";
+		var params = "date=" + date + "&time=" + $(this).prevAll().length;
+		sendRequest(scheduleModal, url, method, params);
+	});
+
+	$(".btn").click(function() {
+		if (confirm($(this).val()+"상영일정을 삭제하시겠습니까?")) {
+			window.location="/uuplex/c-box/manage/schedule/delete?num="+$(this).val();
+		}
+	});
+
+});
 	
 </script>
 
@@ -77,283 +97,37 @@
 				</tr>
 				<tr>
 					<th>A</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
+					<td><input type="checkbox"></td>
 				</tr>
-				<tr>
-					<th>B</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>C</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>D</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>E</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>F</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>G</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>H</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>I</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>J</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>K</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
-				<tr>
-					<th>L</th>
-					<td><input type="checkbox" class="seatcheck seat1" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat2" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat3" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat4" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat5" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat6" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat7" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat8" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat9" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat10" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat11" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat12" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat13" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat14" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat15" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat16" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat17" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat18" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat19" name="seat" value=""></td>
-					<td><input type="checkbox" class="seatcheck seat20" name="seat" value=""></td>
-				</tr>
+				<c:forEach items="${row}" var="row">
+				<tr><th>${row}</th>
+					<c:forEach items="${seat}" var="seat">
+						<td><input type="checkbox" value="${seat}"></td>
+					</c:forEach>
+				</c:forEach>
+				
 				<tr>
 					<td colspan="20" align="center"><input type="submit"
-						class="btn btn-primary" value="입력"> <input type="reset"
+						class="btn btn-primary" value="수정"> <input type="reset"
 						class="btn btn-warning" value="초기화"> <input type="button"
 						class="btn btn-danger" data-dismiss="modal" value="취소"></td>
 				</tr>
@@ -364,6 +138,3 @@
 </div>
 <script src="${js}jquery-1.12.4.min.js"></script>
 		<script src="${js}seat.js"></script>
-
-
-<!-- 영화정보 입력 모달 끝 -->

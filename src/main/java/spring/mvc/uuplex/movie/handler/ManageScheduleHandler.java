@@ -27,7 +27,7 @@ public class ManageScheduleHandler implements MCommandHandler {
 		int total = dao.SchedulesCount();
 		
 		if (total > 0) {
-			dtos = dao.SchedulesList();
+			dtos = dao.getSchedule();
 			
 			model.addAttribute("dtos", dtos);
 			

@@ -22,10 +22,7 @@ public class AddScheduleHandler implements MCommandHandler {
 	public String process(Model model) {
 		Map<String, Object> map = model.asMap();
 
-		HttpServletRequest req = (HttpServletRequest) map.get("req");
-
-		// String path = req.getServletContext().getRealPath("saveImage");
-		
+		HttpServletRequest req = (HttpServletRequest) map.get("req");		
 
 			ScheduleDTO dto = new ScheduleDTO();
 			String title1 = req.getParameter("title1");
@@ -33,8 +30,6 @@ public class AddScheduleHandler implements MCommandHandler {
 			int movie_num =  Integer.parseInt(req.getParameter("movie_num"));
 			String schedule_Date = req.getParameter("schedule_Date");
 			String schedule_Time = req.getParameter("schedule_Time");
-			
-			System.out.println(schedule_Date+" "+schedule_Time+":00");
 			
 			Timestamp showtime = Timestamp.valueOf(schedule_Date+" "+schedule_Time+":00");
 

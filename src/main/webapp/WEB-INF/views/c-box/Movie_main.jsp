@@ -8,6 +8,7 @@
 <title>씨박스</title>
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
 * {
 	margin: 0;
 	padding: 0;
@@ -167,16 +168,16 @@ embed {
 	transition: 0.3s;
 }
 
-.item:HOVER #img{
-opacity: 0.7;
+.item:HOVER #img {
+	opacity: 0.7;
 }
 
-#img:HOVER{
+#img:HOVER {
 	opacity: 1;
 	cursor: pointer;
 }
 
-#img:HOVER ~embed, embed:HOVER{
+#img:HOVER ~embed, embed:HOVER {
 	visibility: visible;
 }
 
@@ -212,7 +213,6 @@ opacity: 0.7;
 </style>
 </head>
 <body>
-
 	<c:if test="${contentPage==null}">
 		<c:set var="contentPage" value="user/main.jsp" />
 	</c:if>

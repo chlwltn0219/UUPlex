@@ -24,7 +24,12 @@
 	</insert>
 	<!-- 상영 스케줄 반환 -->
 	<select id="getSchedule" resultType="spring.mvc.uuplex.movie.dto.ScheduleDTO">
-		SELECT s.*, m.title1, M.RUNTIME FROM m_Schedule s, m_movie_info m WHERE S.MOVIE_NUM=M.MOVIE_NUM and S.SHOWTIME&gt;sysdate and S.SHOWTIME&lt;SYSDATE + 6
+		SELECT s.*, m.title1, M.RUNTIME FROM m_Schedule s, m_movie_info m WHERE S.MOVIE_NUM=M.MOVIE_NUM and S.SHOWTIME&gt;=sysdate and S.SHOWTIME&lt;SYSDATE + 6
 	</select>
+	
+	<!-- 상영 일정 삭제 -->
+	<delete id="deleteSchedule" parameterType="int">
+		DELETE FROM M_SCHEDULE WHERE SCHEDULE_NUM=#{schedule_num}
+	</delete>
 	
 </mapper>

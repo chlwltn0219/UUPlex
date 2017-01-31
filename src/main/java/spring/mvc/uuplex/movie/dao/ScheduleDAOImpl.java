@@ -48,4 +48,14 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 		return list;
 	}
 
+	@Override
+	public int deleteSchedule(int schedule_num) {
+		int cnt = 0;
+		ScheduleDAO dao = sqlSession.getMapper(ScheduleDAO.class);
+		cnt = dao.deleteSchedule(schedule_num);
+		return cnt;
+		
+		
+	}
+
 }
