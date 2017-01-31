@@ -14,6 +14,7 @@ import spring.mvc.uuplex.hotel.handler.RoomDeleteProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomListHandler;
 import spring.mvc.uuplex.hotel.handler.RoomModifyFormHandler;
 import spring.mvc.uuplex.hotel.handler.RoomModifyProHandler;
+import spring.mvc.uuplex.hotel.handler.TestHandler;
 
 @Controller
 @RequestMapping("/hotel")
@@ -27,17 +28,20 @@ public class HFrontController {
 		
 		System.out.println("hotel main");
 		
-		String viewPage = "hotel/adminMain";
+		String viewPage = "hotel/hotelMain";
 		
 		return viewPage;
 	}
 	
-	
-	@RequestMapping("/guestMain")
-	public String guestMain(Model model) {
-		System.out.println("guestMain()");
-		return "/hotel/guestMain";
-	}
+	/*@Autowired
+	HotelMainHandler hotelMainHandler;
+	@RequestMapping("")
+	public String hotelMain(HttpServletRequest req, Model model) {
+		System.out.println("hotelMain()");
+		String viewPage = hotelMainHandler.process(model);
+		
+		return viewPage;
+	}*/
 	
 	//°´½Ç¸ñ·Ï
 	@Autowired
@@ -125,6 +129,18 @@ public class HFrontController {
 		
 		model.addAttribute("req", req);
 		String viewPage = roomDeleteProHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	@Autowired
+	TestHandler testHandler;
+	@RequestMapping("/test")
+	public String test(HttpServletRequest req, Model model) {
+		System.out.println("test");
+		
+		model.addAttribute("req", req);
+		String viewPage = testHandler.process(model);
 		
 		return viewPage;
 	}

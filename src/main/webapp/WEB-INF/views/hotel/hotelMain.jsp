@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../setting.jsp" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -99,9 +100,16 @@
         <div class="logo"><img src = "${resources}/hotelImages/hotellogo.png" width="150px;"></div>
         <div class="hit_menu">
             <ul>
+             <c:if test="${idCode == 101}">
                 <li><a href="#" >예약관리</a></li>
                 <li><a href="hotel/roomList">객실관리</a></li>
                 <li><a href="hotel/hotelInfo">호텔안내</a></li>
+             </c:if>
+             <c:if test="${idCode != 101}">
+	             <li><a href="#" >예약내역</a></li>
+                <li><a href="hotel/reservation">객실예약</a></li>
+                <li><a href="hotel/hotelInfo">호텔안내</a></li>
+             </c:if>
             </ul>
         </div>
     </header>

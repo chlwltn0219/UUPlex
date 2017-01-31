@@ -40,6 +40,8 @@
   
   <mapping path="/noneSM/**" exclue="true"/>
   
+  <mapping path="/hotel/test" exclue="true"/>
+  
   <mapping path="/fitness/manage/teacher/inputForm" exclue="true"/>
   <mapping path="/fitness/teacher/detail" exclue="true"/>
   <mapping path="/fitness/manage/teacher/modify" exclue="true"/>
