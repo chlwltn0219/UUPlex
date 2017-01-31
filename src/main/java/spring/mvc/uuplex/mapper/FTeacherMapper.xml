@@ -47,5 +47,4 @@
          ORDER BY tname
 	</select>
 	
-	
 </mapper>
