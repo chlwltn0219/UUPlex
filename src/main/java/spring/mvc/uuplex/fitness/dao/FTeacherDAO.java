@@ -9,11 +9,13 @@ public interface FTeacherDAO {
 	
 	
 	public int teacherCount();
-	//¸®½ºÆ® °ü·Ã
+	//ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	public List<FTeacherDTO> list(Map<String, Integer> rangeMap);
 	public int tInsert(FTeacherDTO dto);
-	//°­»ç »ó¼¼ Á¤º¸
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public FTeacherDTO tdetail(int tid);
-	//°­»ç »ó¼¼ Á¤º¸ ¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int teacherModify(FTeacherDTO dto);
+	
+	public List<FTeacherDTO> activatedList();
 }

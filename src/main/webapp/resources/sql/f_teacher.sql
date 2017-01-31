@@ -1,13 +1,15 @@
 DROP TABLE f_teacher;
 CREATE TABLE f_teacher(
-  tid             NUMBER(5),                 -- ï¿½ï¿½Ç°ï¿½ï¿½È£
-  tname           VARCHAR2(20) NOT NULL,     -- ï¿½ï¿½Ç°ï¿½Ì¸ï¿½
+  tid             NUMBER(5),                 -- »óÇ°¹øÈ£
+  tname           VARCHAR2(20) NOT NULL,     -- »óÇ°ÀÌ¸§
+  sid             NUMBER(5),
   tinfo           VARCHAR2(300),
   tpicture        VARCHAR2(100),
   reg_date        TIMESTAMP DEFAULT SYSDATE,
-  activated       VARCHAR2(1) DEFAULT 'Y',     -- ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+  activated       VARCHAR2(1) DEFAULT 'Y',     -- »óÇ°°¡°Ý
   CONSTRAINT f_teachert_teacherid_pk PRIMARY KEY(tid),
-  CONSTRAINT f_teacher_activated_fk FOREIGN KEY(activated) references BOOLEAN(value)
+  CONSTRAINT f_teacher_activated_fk FOREIGN KEY(activated) references BOOLEAN(value),
+  CONSTRAINT f_teacher_sid_fk FOREIGN KEY(sid) references f_sports(sid)
 );
 
 
@@ -36,19 +38,22 @@ VALUES ('N');
 COMMIT;
 
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'Y');
+VALUES (SEQ_TEACHER_TID.nextval, '¼­°­ÁØ', 'Y');
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'Y');
+VALUES (SEQ_TEACHER_TID.nextval, '¹ÚÇØÁø', 'Y');
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½Ñ°ï¿½ï¿½ï¿½', 'Y');
+VALUES (SEQ_TEACHER_TID.nextval, 'ÇÑ°íÀº', 'Y');
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'Y');
+VALUES (SEQ_TEACHER_TID.nextval, 'ÆçÇÁ½º', 'Y');
 
 
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'N');
+VALUES (SEQ_TEACHER_TID.nextval, 'ÃÖÁö¼ö', 'N');
 commit;
 
 INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½', 'N');
+VALUES (SEQ_TEACHER_TID.nextval, 'À¯±â¹Î', 'N');
 commit;
+
+DELETE FROM f_teacher; 
+COMMIT;

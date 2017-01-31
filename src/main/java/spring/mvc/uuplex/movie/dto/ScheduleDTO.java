@@ -12,8 +12,8 @@ public class ScheduleDTO {
 	String title1;
 	int time;
 	int day;
-
 	int schedule_num; 
+	
 	public int getSchedule_num() {
 		return schedule_num;
 	}
@@ -25,7 +25,13 @@ public class ScheduleDTO {
 	}
 	public void setShowtime(Timestamp showtime) {
 		this.showtime = showtime;
-		this.day = (showtime.getDate()-new Date().getDate())*94+5;
+		
+		int between= showtime.getDay()-new Date().getDay();
+		if(between<0){
+			between+=7;
+		}
+		this.day =between*141+5;
+		
 		this.time=(showtime.getHours()-9)*60+showtime.getMinutes();
 	}
 	public int getMovie_num() {

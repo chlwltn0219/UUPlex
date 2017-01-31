@@ -31,14 +31,6 @@ public class TheaterDAOImpl implements TheaterDAO{
 		list = dao.TheatersList();
 		return list;
 	}
-	
-	@Override
-	public TheaterDTO TheaterDetail(int THEATER_NUM) {
-		TheaterDTO dto = null;
-		TheaterDAO dao = sqlSession.getMapper(TheaterDAO.class);
-		dto = dao.TheaterDetail(THEATER_NUM);
-		return dto;
-	}
 
 	@Override
 	public int TheatersCount() {
@@ -46,6 +38,14 @@ public class TheaterDAOImpl implements TheaterDAO{
 		TheaterDAO dao = sqlSession.getMapper(TheaterDAO.class);
 		cnt = dao.TheatersCount();
 		return cnt;
+	}
+
+	@Override
+	public TheaterDTO getTheater(int theater_num) {
+		TheaterDTO dto = null;
+		TheaterDAO dao = sqlSession.getMapper(TheaterDAO.class);
+		dto = dao.getTheater(theater_num);
+		return dto;
 	}
 
 }

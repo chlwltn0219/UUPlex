@@ -1,24 +1,16 @@
 /**
  * 
  */
+
 //======================== Input Modal
 function scheduleInput() {
-	
+
 	var url = "/uuplex/c-box/manage/schedule/inputForm";
 	sendRequest(scheduleModal, url);
-	
-}
 
-//======================== Detail Modal
-function scheduleDetail(mnum) {
-	var url = "/uuplex/c-box/schedule_detail";
-	var method = "GET";
-	var params = "mnum=" + mnum;
-	sendRequest(scheduleModal, url, method, params);
 }
-
 //======================== Modify Modal
-function scheduleModify(sid){
+function scheduleModify(sid) {
 	var url = "/uuplex/c-box/manage/schedule/modify";
 	var method = "GET";
 	var params = "sid=" + sid;
@@ -26,25 +18,26 @@ function scheduleModify(sid){
 }
 
 //======================== Modify Pro
-function scheduleModifyPro(){
+function scheduleModifyPro() {
 	var sid = document.movieModifyForm.sid.value;
 	var sname = document.movieModifyForm.sname.value;
 	var sinfo = document.movieModifyForm.sinfo.value;
 	var activated = document.movieModifyForm.activated.value;
-	
+
 	var url = "/uuplex/c-box/manage/schedule/modifyPro";
 	var method = "POST";
-	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo + "&activated=" + activated;
+	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo
+			+ "&activated=" + activated;
 	sendRequest(movieModal, url, method, params);
 }
 
 //======================== Write Modal Dialog
 function scheduleModal() {
-	
+
 	var modal = document.getElementById("dialog");
-	
-	if(httpRequest.readyState == 4 ) {
-		if(httpRequest.status == 200) {
+
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
 			modal.innerHTML = httpRequest.responseText;
 		} else {
@@ -53,5 +46,5 @@ function scheduleModal() {
 	} else {
 		modal.innerHTML = "상태 : " + httpRequest.readyState;
 	}
-	
+
 }

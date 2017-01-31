@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- 피트니스 프로그램 관련 -->
+<mapper namespace="spring.mvc.uuplex.fitness.dao.FProgramDAO" >
+
+	<!-- 피트니스 프로그램 목록 총 수 -->
+	<select id="programCount" resultType="int">
+		SELECT COUNT(*) FROM F_PROGRAM
+	</select>
+	
+	<!-- 피트니스 프로그램 리스트 반환 -->
+	<select id="programList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
+		SELECT *
+		  FROM ( SELECT p.* , rownum AS rnum 
+				   FROM ( SELECT pid, pname, 
+				   				(SELECT sname FROM F_SPORTS s WHERE s.sid=i.sid) AS sname, 
+				   				(SELECT tname FROM F_TEACHER t WHERE t.tid=i.tid) AS tname, 
+				   				activated 
+			  		     	FROM F_PROGRAM i
+			  			   ORDER BY activated DESC, pid DESC ) p )
+		 WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 피트니스 프로그램 추가 -->
+	<insert id="addProgram" parameterType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
+		INSERT INTO F_PROGRAM (pid, pname, pinfo, sid, tid, price, preparationCost, preparation)
+		VALUES (SEQ_PROGRAM_PID.nextval, #{pname}, #{pinfo}, #{sid}, #{tid}, #{price}, #{preparationCost}, #{preparation})
+	</insert>
+	
+	<!-- 프로그램 상세 정보 -->
+	<select id="programDetail" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO" parameterType="int">
+		SELECT p.*, 
+			   (SELECT sname FROM F_SPORTS s WHERE s.sid=p.sid) AS sname, 
+			   (SELECT tname FROM F_TEACHER t WHERE t.tid=p.tid) AS tname 
+		 FROM F_PROGRAM p 
+		WHERE pid=#{pid}
+	</select>
+	
+	<!-- 종목 정보 수정 -->
+	<update id="modifyProgram" parameterType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
+		UPDATE F_PROGRAM
+		   SET pname = #{pname},
+			   pinfo = #{pinfo},
+			   activated = #{activated},
+			   sid = #{sid},
+			   tid = #{tid},
+			   price = #{price},
+			   preparationCost = #{preparationCost},
+			   preparation = #{preparation}
+		 WHERE pid = #{pid}
+	</update>
+	
+</mapper>

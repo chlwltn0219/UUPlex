@@ -10,4 +10,5 @@ public interface ScheduleDAO {
 	public List<ScheduleDTO> SchedulesList();
 	public int SchedulesCount();
 	public List<ScheduleDTO> getSchedule();
+	public int deleteSchedule(int schedule_num);
 }

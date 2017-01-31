@@ -50,24 +50,3 @@ INSERT INTO F_SPORTS (sid, sname, activated)
 VALUES (SEQ_SPORTS_SID.nextval, '클라이밍', 'N');
 COMMIT;
 
---피트니스 과목
-DROP TABLE F_PROGRAM;
-
-CREATE TABLE F_PROGRAM (
-pid				NUMBER,	-- pk
-pname			VARCHAR2(20) CONSTRAINT f_program_pname_nn NOT NULL,
-pinfo			VARCHAR2(300),
-sid				NUMBER,	-- fk
-tid				NUMBER,	-- fk
-price			NUMBER CONSTRAINT f_program_price_nn NOT NULL,
-preparation		VARCHAR2(100),
-preparationCost NUMBER DEFAULT 0,
-activated		VARCHAR2(1) DEFAULT 'Y',
-CONSTRAINT f_program_pid_pk PRIMARY KEY (pid),
-CONSTRAINT f_program_sid_fk FOREIGN KEY (sid) 
-							REFERENCES F_SPORTS(sid),
-CONSTRAINT f_program_tid_fk FOREIGN KEY (tid) 
-							REFERENCES F_TEACHER(tid),
-CONSTRAINT f_program_activated_fk FOREIGN KEY (activated) 
-								 REFERENCES BOOLEAN(value) 
-);

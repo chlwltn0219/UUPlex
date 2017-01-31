@@ -3,11 +3,12 @@
  */
 
 //======================== Input Modal
-function theater() {
+function theater(theater_num) {
 	
 	var url = "/uuplex/c-box/manage/theater/inputForm";
-	sendRequest(theaterModal, url);
-	
+	var method = "GET";
+	var params = "theater_num=" + theater_num;
+	sendRequest(theaterModal, url, method, params);	
 }
 
 //======================== Modify Modal

@@ -40,6 +40,17 @@
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
           	</tr>  
           	<tr>
+          		<th>종목명</th>
+          		<td>
+					<select class="form-control" name="sid">
+						<c:forEach items="${sports}" var="s">
+					  <option value="${s.sid}">${s.sname}</option>
+					  </c:forEach>
+					</select>  
+          		</td>
+     <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
+          	</tr>  
+          	<tr>
           	<th>입사일</th>          		
           		<td>
           		   <input type="text" class="form-control"

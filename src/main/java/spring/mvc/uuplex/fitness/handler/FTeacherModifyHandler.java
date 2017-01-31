@@ -2,6 +2,7 @@ package spring.mvc.uuplex.fitness.handler;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,9 @@ import org.springframework.ui.Model;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import spring.mvc.uuplex.fitness.dao.FSportsDAO;
 import spring.mvc.uuplex.fitness.dao.FTeacherDAO;
+import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 import spring.mvc.uuplex.fitness.dto.FTeacherDTO;
 
 @Service
@@ -21,6 +24,8 @@ public class FTeacherModifyHandler implements FCommandHandler{
 
 	@Autowired
 	FTeacherDAO dao;
+	
+
 	
 	@Autowired
 	ServletContext content;
@@ -51,6 +56,7 @@ public class FTeacherModifyHandler implements FCommandHandler{
 			String tinfo = multi.getParameter("tinfo");	
 			String activated = multi.getParameter("activated");
 			String tpicture = null;
+			int sid = Integer.parseInt(multi.getParameter("sid"));
 			
 			if(fileName != null) {
 				tpicture = fileName;
@@ -66,12 +72,14 @@ public class FTeacherModifyHandler implements FCommandHandler{
 			dto.setTinfo(tinfo);	
 			dto.setTpicture(tpicture);
 			dto.setActivated(activated);
-		
+			dto.setSid(sid);
+			
 			System.out.println(tpicture);
 			
 			int cnt = dao.teacherModify(dto);	
-		
+				
 			model.addAttribute("tid", tid);
+
 			
 		} catch (IOException e) {
 			e.printStackTrace();

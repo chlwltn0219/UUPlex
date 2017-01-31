@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
-import spring.mvc.uuplex.movie.handler.GetTheaterScheduleHandler;
+import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
+import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ManageTheaterHandler;
@@ -129,16 +130,21 @@ public class MFrontController {
 		String viewPage = manageTheaterHandler.process(model);
 		return viewPage;
 	}
-	
-	//박주은 : 상영관 등록
+
+	// 박주은 : 상영관 등록
+	@Autowired
+	GetTheaterHandler getTheaterHandler;
+
 	@RequestMapping("/manage/theater/inputForm")
-	public String theaterInputForm() {
+	public String theaterInputForm(HttpServletRequest req, Model model) {
 		System.out.println("theater_input");
-		String viewPage = "/c-box/manage/theater_input";
+
+		model.addAttribute("req", req);
+		String viewPage = getTheaterHandler.process(model);
 
 		return viewPage;
 	}
-	
+
 	// 박주은 : 상영스케줄 관리
 	@Autowired
 	ManageScheduleHandler manageScheduleHandler;
@@ -151,10 +157,11 @@ public class MFrontController {
 		String viewPage = manageScheduleHandler.process(model);
 		return viewPage;
 	}
-	
-	//박주은 : 상영일정 등록폼
+
+	// 박주은 : 상영일정 등록폼
 	@Autowired
 	MovieScheduleHandler movieScheduleHandler;
+
 	@RequestMapping("/manage/schedule/inputForm")
 	public String scheduleInputForm(HttpServletRequest req, Model model) {
 		System.out.println("schedule_input");
@@ -163,7 +170,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	//박주은 : 상영일정 등록
+	// 박주은 : 상영일정 등록
 	@Autowired
 	AddScheduleHandler addScheduleHandler;
 
@@ -180,5 +187,23 @@ public class MFrontController {
 		String viewPage = addScheduleHandler.process(model);
 		return viewPage;
 	}
-	
+
+	// 박주은 : 상영일정 삭제
+	@Autowired
+	DeleteScheduleHandler deleteScheduleHandler;
+
+	@RequestMapping("/manage/schedule/delete")
+	public String DeleteSchedule(HttpServletRequest req, Model model) {
+		System.out.println("Schedule_delete");
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		model.addAttribute("req", req);
+		String viewPage = deleteScheduleHandler.process(model);
+		return viewPage;
+	}
+
 }
