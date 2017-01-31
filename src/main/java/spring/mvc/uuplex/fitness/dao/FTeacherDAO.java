@@ -18,4 +18,6 @@ public interface FTeacherDAO {
 	public int teacherModify(FTeacherDTO dto);
 	
 	public List<FTeacherDTO> activatedList();
+	
+	public List<FTeacherDTO> suitableList(int sid);
 }

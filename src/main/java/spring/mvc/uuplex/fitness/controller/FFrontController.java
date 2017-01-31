@@ -27,6 +27,7 @@ import spring.mvc.uuplex.fitness.handler.FTeacherInputHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FTeacherSuitableListHandler;
 
 @Controller
 @RequestMapping("/fitness")
@@ -51,6 +52,8 @@ public class FFrontController{
 	FTeacherDetailHandler tDetailHandler;
 	@Autowired
 	FTeacherModifyHandler tmodifyHandler;
+	@Autowired
+	FTeacherSuitableListHandler tSuitableListHandler;
 	
 	@Autowired
 	FClassroomListHandler cListHandler;
@@ -198,6 +201,13 @@ public class FFrontController{
 		String viewPage = tmodifyHandler.process(model);
 		
 		
+		return viewPage;
+	}
+	
+	@RequestMapping("/teacher/suitable")
+	public String suitableTeacher(HttpServletRequest req, Model model){
+		model.addAttribute("req", req);
+		String viewPage = tSuitableListHandler.process(model);
 		return viewPage;
 	}
 	
