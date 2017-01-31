@@ -46,12 +46,12 @@
 							value="${dto.roomNum}"></td>
 						<td>${dto.roomNum}</td>
 						<td>${dto.roomName}</td>
-						<td><img src="/uuplexImg/${dto.mainImg}" width="100px"></td>
-						<td><img src="/uuplexImg/${dto.detail_1}" width="100px"></td>
-						<td><img src="/uuplexImg/${dto.detail_2}" width="100px"></td>
-						<td><img src="/uuplexImg/${dto.detail_3}" width="100px"></td>
-						<td><img src="/uuplexImg/${dto.detail_4}" width="100px"></td>
-						<td><img src="/uuplexImg/${dto.detail_5}" width="100px"></td>
+						<td><img src="/uuplexImg/${dto.mainImg}" width="100px" height="65px"></td>
+						<td><img src="/uuplexImg/${dto.detail_1}" width="100px" height="65px"></td>
+						<td><img src="/uuplexImg/${dto.detail_2}" width="100px" height="65px"></td>
+						<td><img src="/uuplexImg/${dto.detail_3}" width="100px" height="65px"></td>
+						<td><img src="/uuplexImg/${dto.detail_4}" width="100px" height="65px"></td>
+						<td><img src="/uuplexImg/${dto.detail_5}" width="100px" height="65px"></td>
 						<td>${dto.intro}</td>
 						<td>${dto.roomType}</td>
 						<td>${dto.bed}</td>
