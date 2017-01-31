@@ -76,6 +76,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
+<<<<<<< HEAD
 	// 사용자 - 리뷰 리스트 가져오기
 	@Override
 	public List<ReviewDTO> reviewList(Map<String, Integer> rangeMap) {
@@ -105,4 +106,14 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
+=======
+	@Override
+	public List<MovieInfoDTO> getScreening() {
+		List<MovieInfoDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.getScreening();
+		return list;
+	}
+
+>>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 }

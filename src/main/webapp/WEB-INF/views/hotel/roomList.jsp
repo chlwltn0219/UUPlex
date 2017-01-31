@@ -9,17 +9,10 @@
 <title>Insert title here</title>
 <style>
 #content {
-	width: 1500px;
+	width: 1700px;
 	margin: 100px;
 }
 
-#listTable {
-	width: 1500px;
-	margin-left: 50px;
-}
-#listTable th {
-	font-size: 0.8em;
-}
 </style>
 
 </head>
@@ -39,11 +32,11 @@
 					<th>상세이미지3</th>
 					<th>상세이미지4</th>
 					<th>상세이미지5</th>
-					<th>객실소개</th>
+					<th width="400px">객실소개</th>
 					<th>객실규모</th>
 					<th>침대유형</th>
 					<th>전망형태</th>
-					<th>수용인원</th>
+					<!-- <th>수용인원</th> -->
 					<th>이용요금</th>
 					<th>객실정보수정</th>
 				</tr>
@@ -63,7 +56,7 @@
 						<td>${dto.roomType}</td>
 						<td>${dto.bed}</td>
 						<td>${dto.hotelView}</td>
-						<td>${dto.capacity}</td>
+						<%-- <td>${dto.capacity}</td> --%>
 						<td>${dto.charge}</td>
 						<td>
 							<button type="button" class="btn btn-default"
@@ -80,7 +73,7 @@
 					data-target="#myModal">객실등록</button>
 				<button type="submit" class="btn btn-default">객실삭제</button>
 				<input class="btn btn-default" type="button" value="메인으로"
-			onclick="location.href='/uuplex/hotel'"></center>
+			onclick="location.href='/uuplex/hotel'">
 			</center>
 		</form>
 		
@@ -131,7 +124,7 @@
 								</tr>
 								<tr>
 									<th>객실소개</th>
-									<td><input class="input" type="text" name="intro"></td>
+									<td><textarea name="intro" cols="60" rows="5"></textarea></td>
 								</tr>
 								<tr>
 									<th>객실규모</th>
@@ -143,7 +136,7 @@
 								<tr>
 									<th>침대유형</th>
 									<td><select name="bed">
-											<option value="single">싱글베드</option>
+											<option value="double">더블베드</option>
 											<option value="twin">트윈베드</option>
 									</select></td>
 								</tr>
@@ -151,14 +144,14 @@
 									<th>전망형태</th>
 									<td><select name="hotelView">
 											<option value="city">시티뷰</option>
-											<option value="ocean">오션뷰</option>
+											<option value="river">리버뷰</option>
 									</select></td>
 								</tr>
-								<tr>
+								<!-- <tr>
 									<th>수용인원</th>
 									<td><input class="input" type="number" name="capacity"
 										placeholder="0" min="2" max="10" step="2"></td>
-								</tr>
+								</tr> -->
 								<tr>
 									<th>이용요금</th>
 									<td><input class="input" type="text" name="charge"></td>

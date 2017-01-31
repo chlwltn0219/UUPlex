@@ -8,12 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
-
+import spring.mvc.uuplex.hotel.handler.ReservationHandler;
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomDeleteProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomListHandler;
 import spring.mvc.uuplex.hotel.handler.RoomModifyFormHandler;
 import spring.mvc.uuplex.hotel.handler.RoomModifyProHandler;
+import spring.mvc.uuplex.hotel.handler.TestHandler;
 
 @Controller
 @RequestMapping("/hotel")
@@ -21,22 +22,26 @@ public class HFrontController {
 
 	HCommandHandler command;
 	
+	//∏ﬁ¿Œ
 	@RequestMapping("")
 	public String list(){
 		
 		System.out.println("hotel main");
 		
-		String viewPage = "hotel/adminMain";
+		String viewPage = "hotel/hotelMain";
 		
 		return viewPage;
 	}
 	
-	
-	@RequestMapping("/guestMain")
-	public String guestMain(Model model) {
-		System.out.println("guestMain()");
-		return "/hotel/guestMain";
-	}
+	/*@Autowired
+	HotelMainHandler hotelMainHandler;
+	@RequestMapping("")
+	public String hotelMain(HttpServletRequest req, Model model) {
+		System.out.println("hotelMain()");
+		String viewPage = hotelMainHandler.process(model);
+		
+		return viewPage;
+	}*/
 	
 	//∞¥Ω«∏Ò∑œ
 	@Autowired
@@ -45,17 +50,29 @@ public class HFrontController {
 	public String roomList(HttpServletRequest req, Model model) {
 		System.out.println("roomList()");
 		
-		model.addAttribute("req", req);
+		/*model.addAttribute("req", req);*/
 		String viewPage = roomListHandler.process(model);
 		
 		return viewPage;
 	}
 	
+	@Autowired
+	ReservationHandler reservationHandler;
+	@RequestMapping("/reservation")
+	public String reservation(HttpServletRequest req, Model model) {
+		System.out.println("reservation()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservationHandler.process(model);
+		
+		return viewPage;
+	}
+	
 	//∞¥Ω«¡§∫∏
-	@RequestMapping("/roomInfo")
+	@RequestMapping("/hotelInfo")
 	public String roomInfo(Model model) {
-		System.out.println("roomInfo()");
-		return "/hotel/roomInfo";
+		System.out.println("hotelInfo()");
+		return "/hotel/hotelInfo";
 	}
 	
 	//∞¥Ω«µÓ∑œ
@@ -112,6 +129,18 @@ public class HFrontController {
 		
 		model.addAttribute("req", req);
 		String viewPage = roomDeleteProHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	@Autowired
+	TestHandler testHandler;
+	@RequestMapping("/test")
+	public String test(HttpServletRequest req, Model model) {
+		System.out.println("test");
+		
+		model.addAttribute("req", req);
+		String viewPage = testHandler.process(model);
 		
 		return viewPage;
 	}

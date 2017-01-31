@@ -18,7 +18,7 @@ public class AFrontController {
 		
 		System.out.println("mainÆäÀÌÁö");
 		
-		return "/main/main";
+		return "/main/main3";
 	}
 	
 	@RequestMapping("/input")

@@ -8,6 +8,7 @@ import spring.mvc.uuplex.movie.dto.ReviewDTO;
 
 public interface MovieDAO {
 
+<<<<<<< HEAD
 	public int addMovieInfo(MovieInfoDTO dto); 	//관리자 - 영화추가
 	public MovieInfoDTO getMovieInfo(int num);	//영화상세페이지
 	public List<MovieInfoDTO> moviesList();		//영화리스트
@@ -19,4 +20,14 @@ public interface MovieDAO {
 	public int reviewCount(int mnum);			//리뷰 개수
 	public int deleteReview(int review_num);
 	
+=======
+	public int addMovieInfo(MovieInfoDTO dto); 	//��ȭ�����߰�
+	public MovieInfoDTO getMovieInfo(int num);
+	public List<MovieInfoDTO> moviesList();
+	public int addReview(ReviewDTO dto);		//�����߰�
+	public MovieInfoDTO movieDetail(int mnum);
+	public int moviesCount();
+	public List<MovieInfoDTO> manageMoviesList(Map<String, Integer> rangeMap);
+	public List<MovieInfoDTO> getScreening();
+>>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 }

@@ -5,13 +5,29 @@ import java.sql.Timestamp;
 public class FTeacherDTO {
 
 	private int tid; 
+	private int sid;
 	private String tname;
 	private String tinfo;
 	private String tpicture;
 	private String activated;
 	private Timestamp reg_date;
 	
+	//테이블에 없는 값
+	private String sname;
+	
 	  
+	public int getSid() {
+		return sid;
+	}
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	public String getSname() {
+		return sname;
+	}
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
 	public Timestamp getReg_date() {
 		return reg_date;
 	}

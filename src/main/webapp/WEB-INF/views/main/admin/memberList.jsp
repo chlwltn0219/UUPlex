@@ -41,7 +41,7 @@
       			<th><input type="button" class="btn btn-default" value="예약현황"></th>  
       		</tr>
       		</c:forEach>
-      		
+     		<tr><th colspan="7"></th></tr>
       	  </tbody>	
        </table>
      </div> 

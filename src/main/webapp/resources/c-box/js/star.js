@@ -5,9 +5,7 @@ var $star = $("rating"),
     //$result = $star.find("output");
 	$result = $star.find("output");
 	
-  	$(document)
-	.on("focusin", ".star-input>.input", 
-		function(){
+  	$(document).on("focusin", ".star-input>.input", function(){
    		 $(this).addClass("focus");
  	})
 		 

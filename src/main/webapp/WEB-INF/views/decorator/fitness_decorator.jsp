@@ -20,15 +20,24 @@
 		}
 		.btnTop {
 			position: fixed;
-			bottom: 50px;
+			bottom: 60px;
 			right: 50px;
 			z-index: 100;
 /* 			float:right; */
 /* 			background-color:white; */
 		}
 		
-		.btnTop img{
-			border: 1px solid black;
+		.dropup {
+			position: fixed;
+			bottom: 60px;
+			right: 140px;
+			z-index: 100;
+/* 			float:right; */
+/* 			background-color:white; */
+		}
+		
+		.btnTop img, .dropup img{
+			border: 1.5px dashed black;
 			width:70px;
 			height:70px;
 		}
@@ -56,7 +65,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="/uuplex/fitness">휘트니스</a></li>
 				<li><a href="#">프로그램 안내</a></li>
-				<li><a href="#">강사 안내</a></li>
+				<li><a href="/uuplex/fitness/user/teacher/list">강사 안내</a></li>
 				<li><a href="#">수강 신청</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 마이 페이지 <span class="caret"></span></a>
@@ -73,8 +82,8 @@
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="/uuplex/fitness/manage/sports/list">종목 관리</a></li>
 						<li><a href="/uuplex/fitness/manage/teacher/list">강사 관리</a></li>
-						<li><a href="#">강의실 관리</a></li>
-						<li><a href="#">프로그램 관리</a></li>
+						<li><a href="/uuplex/fitness/manage/program/list">프로그램 관리</a></li>
+						<li><a href="/uuplex/fitness/manage/classroom/list">강의실 관리</a></li>
 						<li><a href="#">시간표 관리</a></li>
 						<li><a href="#">명세 내역</a></li>
 					</ul>
@@ -89,7 +98,22 @@
 	
 	<div class="btnTop">
 		<a href="#top"><img class="img-circle" src="${resources}/fitness/img/top.png" alt="top"></a>
+	</div>	
+	
+	<!-- 관리자 메뉴 -->
+	
+	<div class="dropup">
+	  <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+	    <img class="img-circle" src="${resources}/fitness/img/manage.png" alt="manage">
+	  </a>
+	  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+	    <li role="presentation"><a role="menuitem" tabindex="-1" href="/uuplex/fitness/manage/sports/list">종목 관리</a></li>
+	    <li role="presentation"><a role="menuitem" tabindex="-1" href="/uuplex/fitness/manage/teacher/list">강사 관리</a></li>
+	    <li role="presentation"><a role="menuitem" tabindex="-1" href="/uuplex/fitness/manage/classroom/list">강의실 관리</a></li>
+	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">프로그램 관리</a></li>
+	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">시간표 관리</a></li>
+	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">명세 내역</a></li>
+	  </ul>
 	</div>
-
 	
 </body>

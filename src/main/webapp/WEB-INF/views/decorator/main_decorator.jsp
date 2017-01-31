@@ -92,7 +92,7 @@
 								매장안내 <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">층별안내</a></li>
+								<li><a href="/uuplex/floor">층별안내</a></li>
 								<li class="divider"></li>
 								<li><a href="/uuplex/c-box">1층 영화관</a></li>
 								<li><a href="/uuplex/hotel">2층 호텔</a></li>
@@ -106,11 +106,11 @@
 								고객센터 <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">공지사항</a></li>
+								<li><a href="/uuplex/notice?shopCode=100">공지사항</a></li>
 								<li class="divider"></li>
 								<li><a href="/uuplex/qna?shopCode=100">Q&A</a></li>
 								<li class="divider"></li>
-								<li><a href="#">후기게시판</a></li>
+								<li><a href="#">이벤트 게시판</a></li>
 							</ul>
 						</li>
 						

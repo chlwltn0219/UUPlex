@@ -2,6 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
 
+<script type="text/javascript">
+	function showhide() {
+			$("#img").hide();
+			if('.carousel')
+			$('.carousel').carousel('pause');
+		}
+	}
+  </script>
+
 <!-- 슬라이드 쇼 : 캐러셀 -->
 <div class="contain">
 	<div id="carousel-example-generic" class="carousel slide"
@@ -18,7 +27,7 @@
 		<div class="carousel-inner" role="listbox">
 			
 			<div class="item active" style="background-image: url('${img}/etc/allied.jpg');">
-				<a id="img"><img class="center-block" src="${img}/etc/play.png" aria-hidden="true"></a>
+				<a id="img" onclick="showhide();"><img class="center-block" src="${img}/etc/play.png" aria-hidden="true"></a>
 				<embed class="center-block" src="https://www.youtube.com/embed/Jlp94-C31cY"></embed>
 				
 			</div>

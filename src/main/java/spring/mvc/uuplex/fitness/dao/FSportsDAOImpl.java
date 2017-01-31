@@ -56,4 +56,12 @@ public class FSportsDAOImpl implements FSportsDAO{
 		return rtn;
 	}
 	
+	@Override
+	public List<FSportsDTO> sportsActivatedList() {
+		List<FSportsDTO> list = null;
+		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
+		list = dao.sportsActivatedList();
+		return list;
+	}
+	
 }
