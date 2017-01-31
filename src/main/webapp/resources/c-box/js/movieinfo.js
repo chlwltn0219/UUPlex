@@ -18,11 +18,13 @@ function movieDetail(mnum) {
 }
 
 //======================== Modify Modal
-function movieModify(sid){
+function movieModify(movie_num){
 	var url = "/uuplex/c-box/manage/movie/modify";
 	var method = "GET";
-	var params = "sid=" + sid;
+	var params = "movie_num=" + movie_num;
+	
 	sendRequest(movieModal, url, method, params);
+	
 }
 
 //======================== Modify Pro
@@ -47,6 +49,7 @@ function movieModal() {
 		if(httpRequest.status == 200) {
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
 			modal.innerHTML = httpRequest.responseText;
+			
 		} else {
 			modal.innerHTML = httpRequest.status + "에러 발생";
 		}

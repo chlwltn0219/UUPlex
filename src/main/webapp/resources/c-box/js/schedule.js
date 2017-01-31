@@ -1,17 +1,15 @@
 /**
  * 
  */
-function modifyMovie(movie_num){
-	var url = "/uuplex/c_box/movie_modify";
-	var method = "GET";
-	var params = "movie_num=" + movie_num;
-	sendRequest(movieModal, url, method, params);
+//======================== InputSchedule Modal
+function scheduleInput() {
+	
+	var url = "/uuplex/c-box/manage/schedule/inputForm";
+	sendRequest(scheduleModal, url);
+	
 }
-
-
-
-//callback
-function movieModal() {
+//======================== Write Modal Dialog
+function scheduleModal() {
 	
 	var modal = document.getElementById("dialog");
 	
