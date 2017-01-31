@@ -18,7 +18,7 @@ INCREMENT BY 1
 NOCYCLE 
 MINVALUE 0;
 
-SELECT * FROM f_classroom;
+SELECT * FROM f_teacher;
 
 DROP TABLE BOOLEAN;
 
@@ -42,5 +42,5 @@ INSERT INTO f_classroom (crid, crname, activated)
 VALUES (SEQ_classroom_crid.nextval, '다목적실', 'Y');
 COMMIT;
 
-DELETE FROM f_classroom; 
+DELETE FROM f_teacher; 
 COMMIT;
