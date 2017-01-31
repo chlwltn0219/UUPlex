@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
+import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ManageTheaterHandler;
+import spring.mvc.uuplex.movie.handler.ModifyMovieHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
@@ -34,7 +36,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// 영화 등록
+	// 유영원 : 영화 등록
 	@RequestMapping("/manage/movie/inputForm")
 	public String movieInputForm() {
 		System.out.println("movie_input");
@@ -43,6 +45,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
+	// 유영원 : 영화 등록
 	@Autowired
 	AddMovieInfoHandler addMovieInfoHandler;
 
@@ -89,6 +92,8 @@ public class MFrontController {
 
 	@RequestMapping("/movie_detail")
 	public String sportsDetail(HttpServletRequest req, Model model) {
+		
+		System.out.println("detail");
 		model.addAttribute("req", req);
 		String viewPage = movieDetailHandler.process(model);
 		return viewPage;
@@ -107,16 +112,47 @@ public class MFrontController {
 		return viewPage;
 	}
 
+	//유영원 : 리뷰 추가
 	@Autowired
 	AddReviewHandler addReviewHandler;
 
 	@RequestMapping("/user/add_review")
-	public String add_review() {
-		String viewPage = "/c-box/manage/movie_input";
+	public String add_review(HttpServletRequest req, Model model) {
+		
+		model.addAttribute("req", req);
+		String viewPage = addReviewHandler.process(model);
 
-		System.out.println("detail");
 		return viewPage;
 	}
+	
+	
+	//관리자 영화 정보 수정
+	@Autowired
+	ModifyMovieHandler modifyMovieHandler;
+
+	@RequestMapping("/manage/movie/modify")
+	public String modifyMovie(HttpServletRequest req, Model model) {
+		System.out.println("movie_modify");
+				
+		model.addAttribute("req", req);
+		String viewPage = modifyMovieHandler.process(model);
+				
+		return viewPage;
+	}
+	
+	//유영원 : 리뷰 삭제
+	@Autowired
+	DeleteReviewHandler deleteReviewHandler;
+
+	@RequestMapping("/user/delete_review")
+	public String deleteReview(HttpServletRequest req, Model model) {
+			
+		model.addAttribute("req", req);
+		String viewPage = deleteReviewHandler.process(model);
+
+		return viewPage;
+	}
+
 
 	// 박주은 : 상영관 관리
 	@Autowired
@@ -205,5 +241,6 @@ public class MFrontController {
 		String viewPage = deleteScheduleHandler.process(model);
 		return viewPage;
 	}
+
 
 }

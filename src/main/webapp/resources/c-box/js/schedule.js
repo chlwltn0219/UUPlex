@@ -1,6 +1,13 @@
 /**
  * 
  */
+//======================== InputSchedule Modal
+function scheduleInput() {
+	
+	var url = "/uuplex/c-box/manage/schedule/inputForm";
+	sendRequest(scheduleModal, url);
+	
+}
 
 //======================== Input Modal
 function scheduleInput() {
@@ -46,5 +53,6 @@ function scheduleModal() {
 	} else {
 		modal.innerHTML = "상태 : " + httpRequest.readyState;
 	}
+	
 
 }

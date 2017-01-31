@@ -67,6 +67,7 @@ public class ManageMovieHandler implements MCommandHandler {
 			rangeMap.put("end", pager.getEndContent());
 
 			dtos = dao.manageMoviesList(rangeMap);
+
 			
 			model.addAttribute("dtos", dtos);
 			

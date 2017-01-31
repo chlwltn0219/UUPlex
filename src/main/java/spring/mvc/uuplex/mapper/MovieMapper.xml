@@ -46,7 +46,7 @@
 		SELECT * FROM m_movie_info
 	</select>
 
-	<!-- 리뷰 추가 -->
+	<!-- 사용자 : 리뷰 추가-->
 	<insert id="addReview" parameterType="spring.mvc.uuplex.movie.dto.ReviewDTO">
 		INSERT INTO
 		m_review(review_num, memId, movie_num, rating, review_content,
@@ -55,6 +55,24 @@
 		#{rating}, #{review_content}, sysdate)
 
 	</insert>
+	
+	<!-- 사용자 : 리뷰 리스트 -->
+	<select id="reviewList" parameterType="Map"  resultType="spring.mvc.uuplex.movie.dto.ReviewDTO">
+		SELECT *
+		FROM (SELECT m.* , rownum AS rnum FROM m_review m WHERE movie_num = #{mnum})
+		WHERE rnum BETWEEN #{start} AND #{end} ORDER BY reg_date DESC
+	</select>
+	
+	
+	<!-- 영화 목록 총 수 -->
+	<select id="reviewCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM m_review WHERE movie_num = #{mnum}
+	</select>
+	
+	<!-- 리뷰 삭제-->
+	<delete id="deleteReview" parameterType="int" >
+		DELETE FROM m_review WHERE review_num = #{review_num}
+	</delete>
 	
 	<!-- 상영중인 영화 -->
 	<select id="getScreening" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">

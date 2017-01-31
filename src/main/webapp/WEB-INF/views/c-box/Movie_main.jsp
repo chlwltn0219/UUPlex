@@ -228,7 +228,7 @@ embed {
 					<td><input type="button" value="영화"
 						onclick="location.href='/uuplex/c-box/user/movie_list'"></td>
 					<td><input type="button" value="이벤트"
-						onclick="location.href='http://www.megabox.co.kr/?menuId=event'"></td>
+						onclick="location.href='/uuplex/c-box/user/schedule_list'"></td>
 					<td><input type="button" value="로그인"></td>
 				</tr>
 			</table>
@@ -237,7 +237,7 @@ embed {
 
 	<div class="btn_div">
 		<input class="btn1" type="button" value="상영시간표"
-			onclick="location.href='http://www.megabox.co.kr/?menuId=timetable-movie'">
+			onclick="location.href='/uuplex/c-box/user/schedule_list'">
 		<input class="btn2" type="button" value="빠른예매">
 	</div>
 
@@ -251,7 +251,11 @@ embed {
 				<td><a href="/uuplex/c-box/manage_movie">영화관리</a></td>
 			</tr>
 			<tr>
+<<<<<<< HEAD
+				<td><a href="c-box/manage/manage_schedule">상영일정관리</a></td>
+=======
 				<td><a href="/uuplex/c-box/manage_schedule">상영일정관리</a></td>
+>>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 			</tr>
 			<tr>
 				<td><a href="/uuplex/c-box/manage_theater">상영관 관리</a></td>

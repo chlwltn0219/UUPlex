@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<style>
-li {
-	list-style-type: none;
-}
-</style>
 
 <!-- 영화정보 입력 모달 시작 -->
 <div class="modal-content">
@@ -82,13 +77,13 @@ li {
 				<tr>
 					<th>ProductionYear</th>
 					<td colspan="4">
-						<input type="text" name="productionYear" placeholder=제작년도 maxlength="50">년
+						<input type="text" name="productionYear" placeholder=제작년도 maxlength="50" required>년
 					</td>
 				</tr>
 				<tr>
 					<th>RunTime</th>
 					<td colspan="4">
-						<input type="text" name="runTime" placeholder=러닝타임(분) maxlength="50">분
+						<input type="text" name="runTime" placeholder=러닝타임(분) maxlength="50" required>분
 					</td>
 				</tr>
 				<tr>
@@ -106,19 +101,19 @@ li {
 				<tr>
 					<th>Poster</th>
 					<td colspan="4">
-						<input type="file" class="form-control" name="poster" accept="image/*">
+						<input type="file" class="form-control" name="poster" accept="image/*" required>
 					</td>
 				</tr>
 				<tr>
 					<th>Still-cut1</th>
 					<td colspan="4">
-						<input type="file" class="form-control" name="movie_img1" accept="image/*">
+						<input type="file" class="form-control" name="movie_img1" accept="image/*" required>
 					</td>
 				</tr>
 				<tr>
 					<th>Still-cut2</th>
 					<td colspan="4">
-						<input type="file" class="form-control" name="movie_img2" accept="image/*">
+						<input type="file" class="form-control" name="movie_img2" accept="image/*" required>
 					</td>
 				</tr>
 				<tr>

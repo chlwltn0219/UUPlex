@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.movie.dto.ReviewDTO;
 
-@Repository //ÀúÀå¼Ò ¿ªÇÒ
+@Repository 
 public class MovieDAOImpl implements MovieDAO{
 
 	@Autowired
-	private SqlSession sqlSession; //servlet-context.xml¿¡ ÀÖ´Â°Å ºÒ·¯¿Â´Ù.
+	private SqlSession sqlSession; //servlet-context.xmlï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½Ò·ï¿½ï¿½Â´ï¿½.
 	
-	//¿µÈ­Á¤º¸Ãß°¡
+	//ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½
 	@Override
 	public int addMovieInfo(MovieInfoDTO dto) {
 		int cnt = 0;
@@ -66,13 +66,42 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//¸®ºäÃß°¡
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½
 	@Override
 	public int addReview(ReviewDTO dto) {
 		int cnt = 0;
 		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
 		cnt = dao.addReview(dto);
 		
+		return cnt;
+	}
+
+	// ì‚¬ìš©ì - ë¦¬ë·° ë¦¬ìŠ¤íŠ¸ ê°€ì ¸ì˜¤ê¸°
+	@Override
+	public List<ReviewDTO> reviewList(Map<String, Integer> rangeMap) {
+		List<ReviewDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.reviewList(rangeMap);
+		
+		return list;
+	}
+
+	//ê° ì˜í™”ë‹¹ ë¦¬ë·° ê°œìˆ˜
+	@Override
+	public int reviewCount(int mnum) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.reviewCount(mnum);
+		
+		return cnt;
+	}
+
+	//ë¦¬ë·° ì‚­ì œ
+	@Override
+	public int deleteReview(int review_num) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.deleteReview(review_num);
 		return cnt;
 	}
 
