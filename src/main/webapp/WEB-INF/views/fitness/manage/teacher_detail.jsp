@@ -15,7 +15,7 @@
           <table class="table">
           	<tr>
           	<tr>
-          		<td rowspan="6" width="30%">
+          		<td rowspan="7" width="30%">
 	          		<img src="/teacherImg/${dto.tpicture}" width="100%" align="middle">
           		</td>
           	</tr> 
@@ -32,7 +32,15 @@
           			${dto.tname}
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
-          	</tr>  
+          	</tr>
+          	<tr>
+          		<th>종목명</th>
+          		<td>
+          			${dto.sname}
+          		</td>
+     <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->
+          	</tr>
+          	  
           	<tr>
           	<th>입사일</th>          		
           		<td>

@@ -15,7 +15,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td colspan="2">
+				<td colspan="3">
 					<form action="" method="get" onsubmit=""
 						 class="form-inline" name="searchForm">
 						<div class="input-group">
@@ -43,6 +43,7 @@
 			<tr>
 				<th>강사 코드</th>
 				<th>강사명</th>
+				<th>종목명</th>
 				<th>재직 여부</th>
 			</tr>
 		</thead>
@@ -60,6 +61,7 @@
 				<td><a class="btn btn-link" 
 									data-toggle="modal" data-target="#modalPage" onclick="teacherDetail(${dto.tid})">
 									${dto.tname}</a></td>
+				<td>${dto.sname}</td>
 				<td>
 				<c:if test="${dto.activated=='Y'}"> 재직중</c:if>
 				<c:if test="${dto.activated=='N'}"> 퇴사</c:if>
@@ -68,12 +70,12 @@
 			</c:forEach>
 			</c:if>
 			<c:if test="${empty dtos}">
-	 				<td colspan="2"><h5>등록된 내용이 없습니다.</h5></td>
+	 				<td colspan="4"><h5>등록된 내용이 없습니다.</h5></td>
 			</c:if>
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="3" align="center">
+				<td colspan="4" align="center">
 					<c:if test="${prev == true}">
 						<ul class="pager">
 							<li><a href="/uuplex/fitness/manage/teacher/list?page=${startPage-1}">&lt;prev</a></li>						
