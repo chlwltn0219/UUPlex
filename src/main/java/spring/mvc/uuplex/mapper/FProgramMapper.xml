@@ -3,21 +3,24 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<!-- 피트니스 종목 관련 -->
-<mapper namespace="spring.mvc.uuplex.fitness.dao.FSportsDAO" >
+<!-- 피트니스 프로그램 관련 -->
+<mapper namespace="spring.mvc.uuplex.fitness.dao.FProgramDAO" >
 
-	<!-- 피트니스 종목 목록 총 수 -->
-	<select id="sportsCount" resultType="int">
-		SELECT COUNT(*) FROM F_SPORTS
+	<!-- 피트니스 프로그램 목록 총 수 -->
+	<select id="programCount" resultType="int">
+		SELECT COUNT(*) FROM F_PROGRAM
 	</select>
 	
-	<!-- 피트니스 종목 목록 리스트 반환 -->
-	<select id="sportsList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
+	<!-- 피트니스 종목 프로그램 리스트 반환 -->
+	<select id="programList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
 		SELECT *
-		  FROM ( SELECT s.* , rownum AS rnum 
-				   FROM ( SELECT * 
-			  		     	FROM F_SPORTS 
-			  			   ORDER BY activated DESC, sid DESC ) s )
+		  FROM ( SELECT p.* , rownum AS rnum 
+				   FROM ( SELECT pid, pname, 
+				   				(SELECT sname FROM F_SPORTS s WHERE s.sid=i.sid) AS sname, 
+				   				(SELECT tname FROM F_TEACHER t WHERE t.tid=i.tid) AS tname, 
+				   				activated 
+			  		     	FROM F_PROGRAM i
+			  			   ORDER BY activated DESC, pid DESC ) p )
 		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	
@@ -42,13 +45,5 @@
 			   activated = #{activated}
 		 WHERE sid = #{sid}
 	</update>
-	
-	<!-- 피트니스 활성 종목 목록 리스트 반환 -->
-	<select id="sportsActivatedList" resultType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
-		SELECT sid, sname
-		  FROM F_SPORTS 
-		 WHERE activated = 'Y'
-		 ORDER BY sname
-	</select>
 	
 </mapper>

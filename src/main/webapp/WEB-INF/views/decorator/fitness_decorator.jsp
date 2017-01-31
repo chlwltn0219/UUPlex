@@ -74,7 +74,7 @@
 						<li><a href="/uuplex/fitness/manage/sports/list">종목 관리</a></li>
 						<li><a href="/uuplex/fitness/manage/teacher/list">강사 관리</a></li>
 						<li><a href="#">강의실 관리</a></li>
-						<li><a href="#">프로그램 관리</a></li>
+						<li><a href="/uuplex/fitness/manage/program/list">프로그램 관리</a></li>
 						<li><a href="#">시간표 관리</a></li>
 						<li><a href="#">명세 내역</a></li>
 					</ul>
