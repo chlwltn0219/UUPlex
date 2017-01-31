@@ -13,6 +13,11 @@ import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
+import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
+import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
+import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
+import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
+import spring.mvc.uuplex.fitness.handler.FProgramModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
@@ -52,6 +57,17 @@ public class FFrontController{
 	FClassroomDetailHandler cDetailHandler;
 	@Autowired
 	FClassModifyHandler cModifyHandler;
+	
+	@Autowired
+	FProgramListHandler programListHandler;
+	@Autowired
+	FProgramInputFormHandler programInputFromHandler;
+	@Autowired
+	FProgramInputProHandler programInputProHandler;
+	@Autowired
+	FProgramDetailHandler programDetailHandler;
+	@Autowired
+	FProgramModifyHandler programModifyHandler;
 
 	// 占쏙옙占쏙옙占쏙옙: 占쏙옙트占싹쏙옙 占쏙옙占쏙옙
 	@RequestMapping("")
@@ -138,7 +154,7 @@ public class FFrontController{
 	      return viewPage;	  
 	}
 	
-	@RequestMapping("/manage/sports/add")
+	@RequestMapping("/manage/sports/inputPro")
 	public String sportsAdd(HttpServletRequest req, Model model){
 		
 		try {
@@ -242,6 +258,67 @@ public class FFrontController{
 	}
 	
 	
+	
+	// 占쏙옙占쏙옙占쏙옙: 占쏙옙占쏙옙 占쏙옙占쏙옙트
+		@RequestMapping("/manage/program/list")
+		public String manageProgramList(HttpServletRequest req, Model model){
+			
+			try {
+				req.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			
+			model.addAttribute("req", req);
+			String viewPage = programListHandler.process(model);
+			return viewPage;
+		}
+		
+		@RequestMapping("/manage/program/inputForm")
+		public String programInputForm(HttpServletRequest req, Model model) {
+			String viewPage = programInputFromHandler.process(model);
+			return viewPage;
+		}
+		
+		@RequestMapping("/manage/program/inputPro")
+		public String programInputPro(HttpServletRequest req, Model model){
+			
+			try {
+				req.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			
+			model.addAttribute("req", req);
+			String viewPage = programInputProHandler.process(model);
+			return viewPage;
+		}
+		
+		//理쒖��닔 : �뵾�듃�땲�뒪 - 醫낅ぉ�긽�꽭�젙蹂�
+		@RequestMapping("/program/detail")
+		public String programDetail(HttpServletRequest req, Model model){
+			model.addAttribute("req", req);
+			String viewPage = sportsDetailHandler.process(model);
+			return viewPage;
+		}
+		
+		// 최지수 : 피트니스 - 종목 정보 폼
+		@RequestMapping("/manage/program/modify")
+		public String programModify(HttpServletRequest req, Model model){
+			model.addAttribute("req", req);
+			String viewPage = "/fitness/manage/program_modify";
+			sportsDetailHandler.process(model);
+			return viewPage;
+		}
+		
+		// 최지수 : 피트니스 - 종목 정보 수정
+		@RequestMapping("/manage/program/modifyPro")
+		public String programModifyPro(HttpServletRequest req, Model model){
+			model.addAttribute("req", req);
+			sportsModifyHandler.process(model);
+			String viewPage = sportsDetail(req, model); 
+			return viewPage;
+		}
 	
 	
 }
