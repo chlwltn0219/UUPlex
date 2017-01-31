@@ -48,6 +48,6 @@
           FROM f_teacher
          WHERE activated = 'Y'
          ORDER BY tname
-	</select>
+	</select> 
 	
 </mapper>
