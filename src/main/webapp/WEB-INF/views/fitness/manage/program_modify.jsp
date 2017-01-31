@@ -6,32 +6,61 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">종목 내용</h4>
+				<h4 class="modal-title">프로그램 수정</h4>
 			</div>
 			
-			<form name="sportsModifyForm" onsubmit="return default">
+			<form name="programModifyForm" onsubmit="return default">
 				<div class="modal-body">
 					<table class="table">
 						<tr>
-							<th>종목 코드</th>
+							<th>프로그램 코드</th>
 							<td>
 								<input type="text" class="form-control" 
-									name="sid" value="${dto.sid}" readonly>
+									name="pid" value="${dto.pid}" readonly>
+							</td>
+						</tr>
+						<tr>
+							<th>프로그램 이름</th>
+							<td>
+								<input type="text" class="form-control" 
+									name="pname" value="${dto.pname}" required>
 							</td>
 						</tr>
 						<tr>
 							<th>종목 이름</th>
 							<td>
-								<input type="text" class="form-control" 
-									name="sname" value="${dto.sname}" required>
+								<select class="form-control" name ="sid">
+									<c:forEach items="${sports}" var="s">
+										<c:if test="${s.sid == dto.sid}">
+										<option value="${s.sid}" selected>${s.sname}</option>
+										</c:if>
+										<c:if test="${s.sid != dto.sid}">
+										<option value="${s.sid}">${s.sname}</option>
+										</c:if>
+									</c:forEach>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>강사 이름</th>
+							<td>
+								<select class="form-control" name ="tid">
+									<c:forEach items="${teacher}" var="t">
+										<c:if test="${t.tid == dto.tid}">
+										<option value="${t.tid}" selected>${t.tname}</option>
+										</c:if>
+										<c:if test="${t.tid != dto.tid}">
+										<option value="${t.tid}">${t.tname}</option>
+										</c:if>
+									</c:forEach>
+								</select> 
 							</td>
 						</tr>
 						<tr>
 							<th>등록일</th>
 							<td>
 								<input type="text" class="form-control" 
-									name="reg_date" value="${fn:substring(dto.reg_date, 0, 10)}" readonly>
-								
+									value="${fn:substring(dto.reg_date, 0, 10)}" readonly>
 							</td>
 						</tr>
 						<tr>
@@ -58,21 +87,42 @@
 							</td>
 						</tr>
 						<tr>
-							<th>종목 정보</th>
+							<th>강의료</th>
 							<td>
-								<textarea class="form-control" rows="5" name="sinfo" 
-								placeholder="종목 정보">${dto.sinfo}</textarea>
+								<input class="form-control" type="number" min="0" 
+										name="price" value="${dto.price}">
+							</td>
+						</tr>
+						<tr>
+							<th>재료비</th>
+							<td>
+								<input class="form-control" type="number" min="0" 
+										name="preparationCost" value="${dto.preparationCost}">
+							</td>
+						</tr>
+						<tr>
+							<th>개인 준비물</th>
+							<td>
+								<textarea class="form-control" rows="5" name="preparation" 
+								placeholder="종목 정보">${dto.preparation}</textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>프로그램 정보</th>
+							<td>
+								<textarea class="form-control" rows="5" name="pinfo" 
+								placeholder="종목 정보">${dto.pinfo}</textarea>
 							</td>
 						</tr>
 					</table>
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-primary" 
-						value="수정" onclick="sportsModifyPro()">
+						value="수정" onclick="programModifyPro()">
 					<input type="reset" class="btn btn-warning" 
 						value="초기화">
 					<input type="button" class="btn btn-default" 
-						value="취소" onclick="sportsDetail(${dto.sid});">
+						value="취소" onclick="programDetail(${dto.pid});">
 				</div>
 			</form>
 		</div>

@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 
 import spring.mvc.uuplex.fitness.dao.FProgramDAO;
 import spring.mvc.uuplex.fitness.dto.FProgramDTO;
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
 @Service
 public class FProgramInputProHandler implements FCommandHandler{
@@ -33,7 +32,7 @@ public class FProgramInputProHandler implements FCommandHandler{
 			dto.setPrice(Integer.parseInt(req.getParameter("price")));
 			dto.setPreparationCost(Integer.parseInt(req.getParameter("preparationCost")));
 			dto.setPreparation(req.getParameter("preparation"));
-			dto.setPinfo(req.getParameter("preparation"));
+			dto.setPinfo(req.getParameter("pinfo"));
 			
 		} catch (NumberFormatException e) {
 			// TODO: handle exception

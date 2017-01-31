@@ -15,7 +15,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import spring.mvc.uuplex.fitness.dao.FTeacherDAO;
 import spring.mvc.uuplex.fitness.dto.FTeacherDTO;
-import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
 @Service
 public class FTeacherInputHandler implements FCommandHandler{
@@ -54,9 +53,9 @@ public class FTeacherInputHandler implements FCommandHandler{
 
 			System.out.println("wgew : " + tname + tinfo);
 				
-			// 1´Ü°è. dto ¹Ù±¸´Ï »ý¼º			
+			// 1ï¿½Ü°ï¿½. dto ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			
 
-			// 2´Ü°è. dto ¹Ù±¸´Ï¿¡ ´ã´Â´Ù.
+			// 2ï¿½Ü°ï¿½. dto ï¿½Ù±ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Â´ï¿½.
 			dto.setTname(tname);
 			dto.setTinfo(tinfo);
 			if(fileName == null){

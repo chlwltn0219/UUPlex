@@ -298,7 +298,7 @@ public class FFrontController{
 		@RequestMapping("/program/detail")
 		public String programDetail(HttpServletRequest req, Model model){
 			model.addAttribute("req", req);
-			String viewPage = sportsDetailHandler.process(model);
+			String viewPage = programDetailHandler.process(model);
 			return viewPage;
 		}
 		
@@ -307,7 +307,7 @@ public class FFrontController{
 		public String programModify(HttpServletRequest req, Model model){
 			model.addAttribute("req", req);
 			String viewPage = "/fitness/manage/program_modify";
-			sportsDetailHandler.process(model);
+			programDetailHandler.process(model);
 			return viewPage;
 		}
 		
@@ -315,8 +315,8 @@ public class FFrontController{
 		@RequestMapping("/manage/program/modifyPro")
 		public String programModifyPro(HttpServletRequest req, Model model){
 			model.addAttribute("req", req);
-			sportsModifyHandler.process(model);
-			String viewPage = sportsDetail(req, model); 
+			programModifyHandler.process(model);
+			String viewPage = programDetail(req, model); 
 			return viewPage;
 		}
 	

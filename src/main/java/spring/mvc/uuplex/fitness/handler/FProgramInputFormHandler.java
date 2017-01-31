@@ -1,8 +1,6 @@
 package spring.mvc.uuplex.fitness.handler;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +22,6 @@ public class FProgramInputFormHandler implements FCommandHandler{
 	@Override
 	public String process(Model model) {
 		String viewPage = "/fitness/manage/program_input";
-		Map<String, Integer> rangeMap =  new HashMap<String, Integer>();
-		int total = 0;
 		
 		List<FSportsDTO> sList = null;
 		List<FTeacherDTO> tList = null;

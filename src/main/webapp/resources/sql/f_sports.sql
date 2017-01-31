@@ -49,3 +49,4 @@ VALUES (SEQ_SPORTS_SID.nextval, '수영');
 INSERT INTO F_SPORTS (sid, sname, activated)
 VALUES (SEQ_SPORTS_SID.nextval, '클라이밍', 'N');
 COMMIT;
+

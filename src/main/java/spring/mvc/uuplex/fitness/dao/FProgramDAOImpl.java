@@ -35,20 +35,26 @@ public class FProgramDAOImpl implements FProgramDAO{
 
 	@Override
 	public int addProgram(FProgramDTO dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		int cnt = 0;
+		FProgramDAO dao = sqlSession.getMapper(FProgramDAO.class);
+		cnt = dao.addProgram(dto);
+		return cnt;
 	}
 
 	@Override
-	public FProgramDTO programDetail(int sid) {
-		// TODO Auto-generated method stub
-		return null;
+	public FProgramDTO programDetail(int pid) {
+		FProgramDTO dto = null;
+		FProgramDAO dao = sqlSession.getMapper(FProgramDAO.class);
+		dto = dao.programDetail(pid);
+		return dto;
 	}
 
 	@Override
 	public int modifyProgram(FProgramDTO dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		int cnt = 0;
+		FProgramDAO dao = sqlSession.getMapper(FProgramDAO.class);
+		cnt = dao.modifyProgram(dto);
+		return cnt;
 	}
 	
 }

@@ -1,33 +1,52 @@
 package spring.mvc.uuplex.fitness.handler;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import spring.mvc.uuplex.fitness.dao.FProgramDAO;
 import spring.mvc.uuplex.fitness.dao.FSportsDAO;
+import spring.mvc.uuplex.fitness.dao.FTeacherDAO;
+import spring.mvc.uuplex.fitness.dto.FProgramDTO;
 import spring.mvc.uuplex.fitness.dto.FSportsDTO;
+import spring.mvc.uuplex.fitness.dto.FTeacherDTO;
 
 @Service
 public class FProgramDetailHandler implements FCommandHandler{
 	
 	@Autowired
-	FSportsDAO  dao;
+	FProgramDAO  dao;
+	@Autowired
+	FSportsDAO  sDao;
+	@Autowired
+	FTeacherDAO  tDao;
 	
 	
 	@Override
 	public String process(Model model) {
 		
-		FSportsDTO dto = null;
-		String viewPage = "/fitness/manage/sports_detail";
-		int sid = 0;
+		FProgramDTO dto = null;
+		String viewPage = "/fitness/manage/program_detail";
+		int pid = 0;
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
+		List<FSportsDTO> sports = null;
+		List<FTeacherDTO> teacher = null;
 		
 		try {
-			sid = Integer.parseInt(req.getParameter("sid"));
-			dto = dao.sportsDetail(sid);		
+			pid = Integer.parseInt(req.getParameter("pid"));
+			dto = dao.programDetail(pid);		
 			model.addAttribute("dto", dto);
+			
+			sports = sDao.sportsActivatedList();
+			model.addAttribute("sports", sports);
+			
+			teacher = tDao.activatedList();
+			model.addAttribute("teacher", teacher);
+			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}

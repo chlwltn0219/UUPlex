@@ -9,15 +9,17 @@
 </head>
 <body>
 
-<h1>등록 완료 되었습니다.</h1>
+
 
 	<c:if test="${cnt == 0}">
+		<h1>등록 실패 하셨습니다.</h1>
 		<script type="text/javascript">
 			// error 스크립트
 		</script>
 	</c:if>
 
 	<c:if test="${cnt != 0}">
+		<h1>등록 완료 되었습니다.</h1>
 		<c:redirect url="/fitness/manage/program/list"/>
 	</c:if>
 

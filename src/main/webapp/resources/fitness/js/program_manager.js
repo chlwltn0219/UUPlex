@@ -10,32 +10,39 @@ function programInput() {
 }
 
 //======================== Detail Modal
-function programDetail(sid) {
+function programDetail(pid) {
 	var url = "/uuplex/fitness/program/detail";
 	var method = "GET";
-	var params = "sid=" + sid;
+	var params = "pid=" + pid;
 	sendRequest(programModal, url, method, params);
 }
 
 //======================== Modify Modal
-function programModify(sid){
+function programModify(pid){
 	var url = "/uuplex/fitness/manage/program/modify";
 	var method = "GET";
-	var params = "sid=" + sid;
+	var params = "pid=" + pid;
 	sendRequest(programModal, url, method, params);
 }
 
 //======================== Modify Pro
 function programModifyPro(){
-	var sid = document.programModifyForm.sid.value;
-	var sname = document.programModifyForm.sname.value;
-	var sinfo = document.programModifyForm.sinfo.value;
+	var pid = document.programModifyForm.pid.value;
+	var pname = document.programModifyForm.pname.value;
+	var pinfo = document.programModifyForm.pinfo.value;
 	var activated = document.programModifyForm.activated.value;
 	
-	var url = "/uuplex/fitness/manage/sports/modifyPro";
+	var sid = document.programModifyForm.sid.value;
+	var tid = document.programModifyForm.tid.value;
+	var price = document.programModifyForm.price.value;
+	var preparationCost = document.programModifyForm.preparationCost.value;
+	var preparation = document.programModifyForm.preparation.value;
+	
+	var url = "/uuplex/fitness/manage/program/modifyPro";
 	var method = "POST";
-	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo + "&activated=" + activated;
-	sendRequest(sportsModal, url, method, params);
+	var params = "pid=" + pid + "&pname=" + pname + "&pinfo=" + pinfo + "&activated=" + activated +
+				 "&sid=" + sid + "&tid=" + tid + "&price=" + price + "&preparationCost=" + preparationCost + "&preparation=" + preparation ;
+	sendRequest(programModal, url, method, params);
 }
 
 //======================== Write Modal Dialog

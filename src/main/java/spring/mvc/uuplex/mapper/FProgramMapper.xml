@@ -11,7 +11,7 @@
 		SELECT COUNT(*) FROM F_PROGRAM
 	</select>
 	
-	<!-- 피트니스 종목 프로그램 리스트 반환 -->
+	<!-- 피트니스 프로그램 리스트 반환 -->
 	<select id="programList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
 		SELECT *
 		  FROM ( SELECT p.* , rownum AS rnum 
@@ -24,26 +24,33 @@
 		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	
-	<!-- 피트니스 종목 추가 -->
-	<insert id="addSports" parameterType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
-		INSERT INTO F_SPORTS (sid, sname, sinfo)
-		VALUES (SEQ_SPORTS_SID.nextval, #{sname}, #{sinfo})
+	<!-- 피트니스 프로그램 추가 -->
+	<insert id="addProgram" parameterType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
+		INSERT INTO F_PROGRAM (pid, pname, pinfo, sid, tid, price, preparationCost, preparation)
+		VALUES (SEQ_PROGRAM_PID.nextval, #{pname}, #{pinfo}, #{sid}, #{tid}, #{price}, #{preparationCost}, #{preparation})
 	</insert>
 	
-	<!-- 종목 상세 정보 -->
-	<select id="sportsDetail" resultType="spring.mvc.uuplex.fitness.dto.FSportsDTO" parameterType="int">
-		SELECT * 
-		 FROM F_SPORTS
-		WHERE sid=#{sid}
+	<!-- 프로그램 상세 정보 -->
+	<select id="programDetail" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO" parameterType="int">
+		SELECT p.*, 
+			   (SELECT sname FROM F_SPORTS s WHERE s.sid=p.sid) AS sname, 
+			   (SELECT tname FROM F_TEACHER t WHERE t.tid=p.tid) AS tname 
+		 FROM F_PROGRAM p 
+		WHERE pid=#{pid}
 	</select>
 	
 	<!-- 종목 정보 수정 -->
-	<update id="modifySports" parameterType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
-		UPDATE F_SPORTS
-		   SET sname = #{sname},
-			   sinfo = #{sinfo},
-			   activated = #{activated}
-		 WHERE sid = #{sid}
+	<update id="modifyProgram" parameterType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
+		UPDATE F_PROGRAM
+		   SET pname = #{pname},
+			   pinfo = #{pinfo},
+			   activated = #{activated},
+			   sid = #{sid},
+			   tid = #{tid},
+			   price = #{price},
+			   preparationCost = #{preparationCost},
+			   preparation = #{preparation}
+		 WHERE pid = #{pid}
 	</update>
 	
 </mapper>

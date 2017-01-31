@@ -16,7 +16,7 @@ public interface FProgramDAO {
 	// 추가
 	int addProgram(FProgramDTO dto);
 	// 상세정보 조회
-	FProgramDTO programDetail(int sid);
+	FProgramDTO programDetail(int pid);
 	
 	int modifyProgram (FProgramDTO dto);
 }

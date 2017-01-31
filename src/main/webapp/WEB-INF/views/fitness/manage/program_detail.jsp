@@ -17,21 +17,21 @@
 						</td>
 					</tr>
 					<tr>
+						<th>프로그램 이름</th>
+						<td>
+							${dto.pname}
+						</td>
+					</tr>
+					<tr>
 						<th>종목 이름</th>
 						<td>
-							${dto.sid} 이름으로 바꿀 것
+							${dto.sname}
 						</td>
 					</tr>
 					<tr>
 						<th>강사 이름</th>
 						<td>
-							${dto.tid} 이름으로 바꿀 것
-						</td>
-					</tr>
-					<tr>
-						<th>프로그램 이름</th>
-						<td>
-							${dto.pname}
+							#${dto.tid} ${dto.tname}  
 						</td>
 					</tr>
 					<tr>
@@ -72,14 +72,14 @@
 					<tr>
 						<th>종목 정보</th>
 						<td>
-							<pre>${dto.sinfo}</pre>
+							<pre>${dto.pinfo}</pre>
 						</td>
 					</tr>
 				</table>
 			</div>
 			<div class="modal-footer">
 				<input type="button" class="btn btn-primary" 
-					value="수정" onclick="programModify(${dto.sid})">
+					value="수정" onclick="programModify(${dto.pid})">
 				<button class="btn btn-default" data-dismiss="modal" onclick="location.reload();">닫기</button>
 			</div>
 		</div>

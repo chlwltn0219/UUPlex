@@ -13,9 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import spring.mvc.uuplex.fitness.dao.FProgramDAO;
-import spring.mvc.uuplex.fitness.dao.FSportsDAO;
 import spring.mvc.uuplex.fitness.dto.FProgramDTO;
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 import spring.mvc.uuplex.util.Pager;
 
 @Service

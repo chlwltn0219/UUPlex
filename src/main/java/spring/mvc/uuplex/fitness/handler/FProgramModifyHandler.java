@@ -6,41 +6,58 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.uuplex.fitness.dao.FSportsDAO;
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
+import spring.mvc.uuplex.fitness.dao.FProgramDAO;
+import spring.mvc.uuplex.fitness.dto.FProgramDTO;
 
 @Service
 public class FProgramModifyHandler implements FCommandHandler{
 	
 	@Autowired
-	FSportsDAO dao;
+	FProgramDAO dao;
 	
 	@Override
 	public String process(Model model) {
 		String viewPage = null;
-		FSportsDTO dto = new FSportsDTO();
+		FProgramDTO dto = new FProgramDTO();
+		
+		int pid = 0;
+		String pname = null;
+		String pinfo = null;
+		String activated = null;
 		
 		int sid = 0;
-		String sname = null;
-		String sinfo = null;
-		String activated = null;
+		int tid = 0;
+		int price = 0;
+		int preparationCost = 0;
+		String preparation = null;
 		
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
 		try {
-			sid = Integer.parseInt(req.getParameter("sid"));
-			sname = req.getParameter("sname");
-			sinfo = req.getParameter("sinfo");
+			pid = Integer.parseInt(req.getParameter("pid"));
+			pname = req.getParameter("pname");
+			pinfo = req.getParameter("pinfo");
 			activated = req.getParameter("activated");
 			
+			sid = Integer.parseInt(req.getParameter("sid"));
+			tid = Integer.parseInt(req.getParameter("tid"));
+			price = Integer.parseInt(req.getParameter("price"));
+			preparationCost = Integer.parseInt(req.getParameter("preparationCost"));
+			preparation = req.getParameter("preparation");
 
 			
-			dto.setSid(sid);
-			dto.setSname(sname);
-			dto.setSinfo(sinfo);
+			dto.setPid(pid);
+			dto.setPname(pname);
+			dto.setPinfo(pinfo);
 			dto.setActivated(activated);
 			
-			dao.modifySports(dto);
+			dto.setSid(sid);
+			dto.setTid(tid);
+			dto.setPrice(price);
+			dto.setPreparationCost(preparationCost);
+			dto.setPreparation(preparation);
+			
+			dao.modifyProgram(dto);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
