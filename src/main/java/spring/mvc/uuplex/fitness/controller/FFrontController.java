@@ -231,7 +231,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 최지수 : 피트니스 - 종목 정보 수정
+	// 김진우 : 강의실 - 종목 정보 수정
 	@RequestMapping("/manage/classroom/modifyPro")
 	public String classroomModifyPro(HttpServletRequest req, Model model){
 
@@ -240,6 +240,7 @@ public class FFrontController{
 		
 		return viewPage;
 	}
+	
 	
 	
 	

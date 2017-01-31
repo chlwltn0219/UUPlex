@@ -39,11 +39,14 @@ function classroomModifyPro() {
 	var activated = document.classroomModifyForm.activated.value;
 	
 	var url = "/uuplex/fitness/manage/classroom/modifyPro"
+		
 	var method = "POST"
 	var params = "crid=" + crid + "&crname=" + crname + 
 				 "&activated=" + activated ;
 	
 	sendRequest(classroomModal, url, method, params);
+	
+	window.location.reload();
 
 }
 
