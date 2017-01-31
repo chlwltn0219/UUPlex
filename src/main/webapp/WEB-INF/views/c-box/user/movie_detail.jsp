@@ -36,9 +36,6 @@
 	padding: 10px 0;
 }
 </style>
-
-<link type="text/css" rel="stylesheet"
-	href="/uuplex/resources/c-box/css/rating.css">
 	
 <div class="modal-content">
 	<div class="modal-header">
@@ -142,4 +139,4 @@
 	</div>
 </div>
 <script src="${js}jquery-1.11.3.min.js"></script>
-<script src="${js}star.js""></script>
+<script src="${js}star.js"></script>

@@ -38,12 +38,13 @@ function teacherModifyPro() {
 	var tname = document.tModifyForm.tname.value;
 	var tinfo = document.tModifyForm.tinfo.value;
 	var activated = document.tModifyForm.activated.value;
-	var initPic = document.tModifyForm.initPic.value
+	var initPic = document.tModifyForm.initPic.value;
+	var sid = document.tModifyForm.sid.value;
 	
 	var url = "/uuplex/fitness/manage/teacher/modifyPro"
 	var method = "POST"
 	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + 
-				 "&activated=" + activated + "&initPic=" + initPic ;
+				 "&activated=" + activated + "&initPic=" + initPic + "&sid=" + sid;
 	
 	sendRequest(teacherModal, url, method, params);
 

@@ -14,7 +14,7 @@ public class HotelDTO {
 	private String roomType;
 	private String bed;
 	private String hotelView;
-	private String capacity;
+	/*private String capacity;*/
 	private int charge;
 	
 	public int getRoomNum() {
@@ -95,12 +95,12 @@ public class HotelDTO {
 	public void setHotelView(String hotelView) {
 		this.hotelView = hotelView;
 	}
-	public String getCapacity() {
+	/*public String getCapacity() {
 		return capacity;
 	}
 	public void setCapacity(String Capacity) {
 		this.capacity = Capacity;
-	}
+	}*/
 	public int getCharge() {
 		return charge;
 	}

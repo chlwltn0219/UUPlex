@@ -8,11 +8,12 @@ import spring.mvc.uuplex.movie.dto.ReviewDTO;
 
 public interface MovieDAO {
 
-	public int addMovieInfo(MovieInfoDTO dto); 	//¿µÈ­Á¤º¸Ãß°¡
+	public int addMovieInfo(MovieInfoDTO dto); 	//ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½
 	public MovieInfoDTO getMovieInfo(int num);
 	public List<MovieInfoDTO> moviesList();
-	public int addReview(ReviewDTO dto);		//¸®ºäÃß°¡
+	public int addReview(ReviewDTO dto);		//ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½
 	public MovieInfoDTO movieDetail(int mnum);
 	public int moviesCount();
 	public List<MovieInfoDTO> manageMoviesList(Map<String, Integer> rangeMap);
+	public List<MovieInfoDTO> getScreening();
 }

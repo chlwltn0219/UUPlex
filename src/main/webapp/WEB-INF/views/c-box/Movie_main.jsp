@@ -7,10 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>씨박스</title>
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
 * {
 	margin: 0;
 	padding: 0;
-	font-family: 나눔고딕;
+	font-family: 'Jeju Gothic', sans-serif;
 }
 
 body {
@@ -75,7 +77,6 @@ body {
 
 .menu input {
 	color: white;
-	font-family: 나눔고딕;
 	font-size: 20px;
 	text-align: center;
 	border: none;
@@ -163,26 +164,21 @@ embed {
 	left: 48%;
 	width: 70px;
 	height: 70px;
-	opacity: 0;
+	opacity: 0.3;
 	transition: 0.3s;
 }
 
 .item:HOVER #img {
-	opacity: 0.5;
-	transiton: 0.5s;
-}
-
-#img:ACTIVE ~embed {
-	visibility: visible;
-}
-
-#img:ACTIVE {
-	display: none;
+	opacity: 0.7;
 }
 
 #img:HOVER {
 	opacity: 1;
 	cursor: pointer;
+}
+
+#img:HOVER ~embed, embed:HOVER {
+	visibility: visible;
 }
 
 #setting {
@@ -217,7 +213,6 @@ embed {
 </style>
 </head>
 <body>
-
 	<c:if test="${contentPage==null}">
 		<c:set var="contentPage" value="user/main.jsp" />
 	</c:if>
@@ -253,13 +248,13 @@ embed {
 	<div class="mmanagermenu">
 		<table class="table table-hover text-center">
 			<tr>
-				<td><a href="c-box/manage_movie">영화관리</a></td>
+				<td><a href="/uuplex/c-box/manage_movie">영화관리</a></td>
 			</tr>
 			<tr>
-				<td>상영일정관리</td>
+				<td><a href="/uuplex/c-box/manage_schedule">상영일정관리</a></td>
 			</tr>
 			<tr>
-				<td>상영관 관리</td>
+				<td><a href="/uuplex/c-box/manage_theater">상영관 관리</a></td>
 			</tr>
 			<tr>
 				<td>예매관리</td>

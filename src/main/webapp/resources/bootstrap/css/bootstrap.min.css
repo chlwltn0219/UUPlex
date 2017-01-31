@@ -3,6 +3,14 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */ /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+ 
+ @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Jeju Gothic', sans-serif;
+}
+
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;

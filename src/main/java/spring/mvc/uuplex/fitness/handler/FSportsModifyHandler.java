@@ -33,6 +33,8 @@ public class FSportsModifyHandler implements FCommandHandler{
 			sinfo = req.getParameter("sinfo");
 			activated = req.getParameter("activated");
 			
+
+			
 			dto.setSid(sid);
 			dto.setSname(sname);
 			dto.setSinfo(sinfo);

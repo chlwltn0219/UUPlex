@@ -12,6 +12,7 @@
 <c:set var="img" value="/uuplex/resources/c-box/img/"/>
 <c:set var="resources" value="/uuplex/resources"/>
 <c:set var="js" value="/uuplex/resources/c-box/js/"/>
+<c:set var="test" value="/uuplex/resources/test/"/>
 
-<%-- <script type="text/javascript" src="${cbox}css/script.js"></script>
-<link type="text/css" rel="stylesheet" href="${cbox}css/style.css"> --%>
+<%-- <script type="text/javascript" src="${cbox}css/script.js"></script>--%>
+<%-- <link type="text/css" rel="stylesheet" href="${cbox}css/c-box.css"> --%>

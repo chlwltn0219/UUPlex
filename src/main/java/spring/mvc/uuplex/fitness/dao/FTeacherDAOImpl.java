@@ -27,7 +27,7 @@ public class FTeacherDAOImpl implements FTeacherDAO{
 	@Override
 	public List<FTeacherDTO> list(Map<String, Integer> rangeMap) {
 		
-		//ÀÛÀº ¹Ù±¸´Ï
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½Ù±ï¿½ï¿½ï¿½
 		List<FTeacherDTO> list = null;		
 		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
 		list = dao.list(rangeMap);
@@ -65,6 +65,17 @@ public class FTeacherDAOImpl implements FTeacherDAO{
 		cnt = dao.teacherModify(dto);
 		
 		return cnt;
+	}
+	
+	@Override
+	public List<FTeacherDTO> activatedList() {
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½Ù±ï¿½ï¿½ï¿½
+		List<FTeacherDTO> list = null;		
+		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
+		list = dao.activatedList();
+				
+		return list;
+
 	}
 
 }

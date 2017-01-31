@@ -20,8 +20,8 @@ public class RoomListHandler implements HCommandHandler {
 	
 	@Override
 	public String process(Model model) {
-		Map<String, Object> map = model.asMap();
-		HttpServletRequest req = (HttpServletRequest) map.get("req");
+		/*Map<String, Object> map = model.asMap();
+		HttpServletRequest req = (HttpServletRequest) map.get("req");*/
 		
 		ArrayList<HotelDTO> dtos = dao.list();
 		
