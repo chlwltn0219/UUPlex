@@ -18,74 +18,75 @@ import spring.mvc.uuplex.fitness.dao.FSportsDAO;
 import spring.mvc.uuplex.fitness.dao.FTeacherDAO;
 import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 import spring.mvc.uuplex.fitness.dto.FTeacherDTO;
+import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
 @Service
-public class FTeacherModifyHandler implements FCommandHandler{
+public class FTeacherInputProHandler implements FCommandHandler{
 
 	@Autowired
 	FTeacherDAO dao;
 	
-
+	@Autowired
+	ServletContext content;	
 	
 	@Autowired
-	ServletContext content;
+	FSportsDAO sdao;
 	
 	@Override
 	public String process(Model model) {
 		
-		String viewPage = "fitness/manage/teacher_modifyPro";
 		FTeacherDTO dto = new FTeacherDTO();
-		
+		int cnt = 0;
+	
+				
+		String viewPage = "fitness/manage/teacher_inputPro";
 		String path = "C:\\Dev\\teacherImg\\";
+		System.out.println("p " + path );
+		
 		int size = 1024 * 1024 * 10; // 10MB
 		MultipartRequest multi = null;
 		
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
 		
 		try {
-			
 			multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
-			
+
 			Enumeration file = multi.getFileNames();
-			
 			String str = (String) file.nextElement();
 			String fileName = multi.getFilesystemName(str);
 			
-			int tid = Integer.parseInt(multi.getParameter("tid"));
-			String tname = multi.getParameter("tname"); 
-			String tinfo = multi.getParameter("tinfo");	
-			String activated = multi.getParameter("activated");
-			String tpicture = null;
-			int sid = Integer.parseInt(multi.getParameter("sid"));
-			
-			if(fileName != null) {
-				tpicture = fileName;
-			} else {
-				tpicture = multi.getParameter("initPic");
-			}
+			int sid = Integer.parseInt(multi.getParameter("sid"));			
+			String tname =  multi.getParameter("tname");
+			String tinfo = multi.getParameter("tinfo");
+
+			System.out.println("wgew : " + tname + tinfo);
 				
-			System.out.println(tname + tinfo + tpicture + activated + "dgawgw");
-			
-			dto.setTid(tid);
-			System.out.println(tid);
+			// 1단계. dto 바구니 생성			
+
+			// 2단계. dto 바구니에 담는다.
 			dto.setTname(tname);
-			dto.setTinfo(tinfo);	
-			dto.setTpicture(tpicture);
-			dto.setActivated(activated);
+			dto.setTinfo(tinfo);
 			dto.setSid(sid);
 			
-			System.out.println(tpicture);
+			System.out.println("sid =" + sid);
 			
-			int cnt = dao.teacherModify(dto);	
-				
-			model.addAttribute("tid", tid);
+			if(fileName == null){
+				dto.setTpicture("no_picture.jpg");
+			} else {
+				dto.setTpicture(fileName);
+			}
 
+			cnt = dao.tInsert(dto);
+			
+			model.addAttribute("cnt", cnt);
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		return viewPage;
+		
 	}
 
 }

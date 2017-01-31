@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 	<div class="modal-content">
     	<div class="modal-header">
@@ -13,6 +15,14 @@
 					<label>강사명</label>
 					<input type="text" class="form-control" name="tname" 
 							placeholder="강사 이름" required>
+				</div>
+				<div class="form-group">
+					<label>종목명</label>
+					<select class="form-control" name="sid">
+						<c:forEach items="${sports}" var="s">
+					  <option value="${s.sid}">${s.sname}</option>
+					  </c:forEach>
+					</select>
 				</div>
 				<div class="form-group">
 					<label>강사 이미지</label>

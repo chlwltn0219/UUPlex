@@ -13,9 +13,9 @@ import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
-import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
+import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
@@ -24,6 +24,7 @@ import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherInputHandler;
+import spring.mvc.uuplex.fitness.handler.FTeacherInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherModifyHandler;
 
@@ -44,6 +45,8 @@ public class FFrontController{
 	FTeacherListHandler tListHandler;
 	@Autowired
 	FTeacherInputHandler tInputHandler;
+	@Autowired
+	FTeacherInputProHandler tInputProHandler;
 	@Autowired
 	FTeacherDetailHandler tDetailHandler;
 	@Autowired
@@ -142,7 +145,7 @@ public class FFrontController{
 	      System.out.println("input()");
 	      
 	      model.addAttribute("req", req);
-	      String viewPage = tInputHandler.process(model);
+	      String viewPage = tInputProHandler.process(model);
 	      
 	      return viewPage;	  
 
@@ -150,7 +153,7 @@ public class FFrontController{
 	
 	@RequestMapping("/manage/teacher/inputForm")
 	public String inputFrom(HttpServletRequest req, Model model) {
-	      String viewPage = "/fitness/manage/teacher_input";  
+	      String viewPage = tInputHandler.process(model);
 	      return viewPage;	  
 	}
 	
@@ -317,6 +320,15 @@ public class FFrontController{
 			model.addAttribute("req", req);
 			sportsModifyHandler.process(model);
 			String viewPage = sportsDetail(req, model); 
+			return viewPage;
+		}
+	
+		// 김진우 : 피트니스 - 종목 정보 수정
+		@RequestMapping("/user/teacher/list")
+		public String uTeacherList(HttpServletRequest req, Model model){
+			model.addAttribute("req", req);
+
+			String viewPage = "/fitness/user/teacher_list"; 
 			return viewPage;
 		}
 	
