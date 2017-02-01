@@ -17,13 +17,13 @@
 				</div>
 				<div class="form-group">
 					<label>종목</label>
-					<select class="form-control" name="sid">
+					<select class="form-control" name="sid" onchange="suitableTeacher()">
 						<c:forEach items="${sports}" var="s">
 						<option value="${s.sid}">${s.sname}</option>
 						</c:forEach>
 					</select>
 				</div>
-				<div class="form-group">
+				<div class="form-group" id="teacher">
 					<label>강사</label>
 					<select class="form-control" name="tid">
 						<c:forEach items="${teacher}" var="t">

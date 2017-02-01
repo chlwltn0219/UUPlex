@@ -47,7 +47,6 @@
 	</select>
 
 	<!-- 사용자 : 리뷰 추가-->
-	<!-- 리뷰 추가 -->
 	<insert id="addReview" parameterType="spring.mvc.uuplex.movie.dto.ReviewDTO">
 		INSERT INTO
 		m_review(review_num, memId, movie_num, rating, review_content,

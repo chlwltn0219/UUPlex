@@ -27,14 +27,6 @@ public class MovieDAOImpl implements MovieDAO{
 	}
 
 	@Override
-	public MovieInfoDTO getMovieInfo(int num) {
-		MovieInfoDTO dto = null;
-		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
-		dto = dao.getMovieInfo(num);
-		return dto;
-	}
-
-	@Override
 	public List<MovieInfoDTO> moviesList() {
 		List<MovieInfoDTO> list = null;
 		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
@@ -75,8 +67,8 @@ public class MovieDAOImpl implements MovieDAO{
 		
 		return cnt;
 	}
-	
-	// �ъ�⑹�� - 由щ럭 由ъ�ㅽ�� 媛��몄�ㅺ린
+
+	// 사용자 - 리뷰 리스트 가져오기
 	@Override
 	public List<ReviewDTO> reviewList(Map<String, Integer> rangeMap) {
 		List<ReviewDTO> list = null;

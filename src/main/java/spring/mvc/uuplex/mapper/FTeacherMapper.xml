@@ -50,4 +50,12 @@
          ORDER BY tname
 	</select> 
 	
+	<select id="suitableList" parameterType="int" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
+        SELECT tid, tname
+          FROM f_teacher
+         WHERE activated = 'Y'
+           AND sid=#{sid}
+         ORDER BY tname
+	</select> 
+	
 </mapper>

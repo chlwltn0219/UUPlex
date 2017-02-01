@@ -31,7 +31,7 @@ public class Pager{
 	public void calcPage(int totalCount, int nowPage) {
 		
 		int pageGroup = (nowPage - 1) / displayPageCnt;
-		int maxPage = (int) Math.ceil(totalCount*1.0 / displayContentCnt);
+		int maxPage = totalCount == 0 ? 1 : (int) Math.ceil(totalCount*1.0 / displayContentCnt);
 
 		prev = (pageGroup != 0);
 		next = (pageGroup != (maxPage - 1) / displayPageCnt);

@@ -256,5 +256,4 @@ public class MFrontController {
 		String viewPage = deleteScheduleHandler.process(model);
 		return viewPage;
 	}
-
 }

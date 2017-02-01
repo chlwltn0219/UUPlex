@@ -36,7 +36,7 @@ public class RoomModifyProHandler implements HCommandHandler {
 		String path = "C:\\Dev\\uuplexImg\\";
 
 		int size = 1024 * 1024 * 10; // 10MB
-
+		
 		MultipartRequest multi = null;
 		try {
 			multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
@@ -47,12 +47,28 @@ public class RoomModifyProHandler implements HCommandHandler {
 			String[] fileName = new String[6];
 			
 			if (file.hasMoreElements()) {
-				for (int i = 0; i <6; i++) {
-					str[i] = (String) file.nextElement();
-					fileName[i] = multi.getFilesystemName(str[i]);
+				for (int i = 0; i < 6; i++) {
+					if(i==0){
+						str[i] = (String) file.nextElement();
+						fileName[i] = multi.getFilesystemName(str[i]);
+						System.out.println("elementName" + i + ": " + str[i]);
+					}
+					if(i != 0){
+						int j = 6-i;
+						str[j] = (String) file.nextElement();
+						fileName[j] = multi.getFilesystemName(str[j]);
+						System.out.println("elementName" + j + ": " + str[j]);
+					}
 				}
 			}
-
+			
+			for (int i = 0; i < 6; i++) {
+				if(fileName[i]==null) {
+					fileName[i] = multi.getParameterValues("old_img")[i];
+					System.out.println(i + " " + str[i]);
+				}
+			}
+			
 		HotelDTO dto = new HotelDTO();
 		
 		dto.setRoomNum(Integer.parseInt(multi.getParameter("roomNum")));
