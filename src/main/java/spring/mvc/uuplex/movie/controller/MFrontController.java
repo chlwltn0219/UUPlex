@@ -19,6 +19,7 @@ import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ManageTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ModifyMovieHandler;
+import spring.mvc.uuplex.movie.handler.ModifyMovieProHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
@@ -126,7 +127,7 @@ public class MFrontController {
 	}
 	
 	
-	//관리자 영화 정보 수정
+	//유영원 : 관리자 영화 정보 수정
 	@Autowired
 	ModifyMovieHandler modifyMovieHandler;
 
@@ -241,6 +242,19 @@ public class MFrontController {
 		String viewPage = deleteScheduleHandler.process(model);
 		return viewPage;
 	}
+	
+	//유영원 : 관리자 영화 정보 수정 처리
+		@Autowired
+		ModifyMovieProHandler modifyMovieProHandler;
 
+		@RequestMapping("/manage/movie/modifyPro")
+		public String modifyMoviePro(HttpServletRequest req, Model model) {
+			System.out.println("movie_modifyPro");
+					
+			model.addAttribute("req", req);
+			String viewPage = modifyMovieProHandler.process(model);
+					
+			return viewPage;
+		}
 
 }

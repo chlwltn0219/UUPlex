@@ -113,4 +113,14 @@ public class MovieDAOImpl implements MovieDAO{
 		return list;
 	}
 
+	//영화정보 수정
+	@Override
+	public int modifyMovie(MovieInfoDTO dto) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.modifyMovie(dto);
+		
+		return cnt;
+	}
+
 }

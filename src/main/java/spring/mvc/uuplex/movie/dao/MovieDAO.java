@@ -17,6 +17,7 @@ public interface MovieDAO {
 	public List<MovieInfoDTO> manageMoviesList(Map<String, Integer> rangeMap);	// 관리자 - 영화리스트
 	public List<ReviewDTO> reviewList(Map<String, Integer> rangeMap);		//사용자 - 리뷰리스트
 	public int reviewCount(int mnum);			//리뷰 개수
-	public int deleteReview(int review_num);
+	public int deleteReview(int review_num);	//사용자 - 리뷰삭제
 	public List<MovieInfoDTO> getScreening();
+	public int modifyMovie(MovieInfoDTO dto);	//관리자 - 영화정보 수정
 }

@@ -29,15 +29,7 @@ function movieModify(movie_num){
 
 //======================== Modify Pro
 function movieModifyPro(){
-	var sid = document.movieModifyForm.sid.value;
-	var sname = document.movieModifyForm.sname.value;
-	var sinfo = document.movieModifyForm.sinfo.value;
-	var activated = document.movieModifyForm.activated.value;
 	
-	var url = "/uuplex/c-box/manage/movie/modifyPro";
-	var method = "POST";
-	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo + "&activated=" + activated;
-	sendRequest(movieModal, url, method, params);
 }
 
 //======================== Write Modal Dialog

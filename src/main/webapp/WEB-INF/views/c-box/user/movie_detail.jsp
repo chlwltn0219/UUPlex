@@ -34,7 +34,6 @@
 	padding: 10px 0;
 }
 </style>
-<<<<<<< HEAD
 
 <link type="text/css" rel="stylesheet"
 	href="/uuplex/resources/c-box/css/rating.css">
@@ -42,9 +41,7 @@
 </head>
 
 <body>	
-=======
 	
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 <div class="modal-content">
 	<div class="modal-header">
 		<button class="close" data-dismiss="modal">&times;</button>

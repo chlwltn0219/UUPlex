@@ -2,13 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
+
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
-</head>
-<body>
+
 
 <div class="container">
 	<h3>영화 관리</h3>
@@ -107,8 +104,8 @@
 	<%-- 	<%@ include file="sports_detail.jsp" %> --%>
 
 </div>
-</body>
-</html>
+
+
 
 
 
