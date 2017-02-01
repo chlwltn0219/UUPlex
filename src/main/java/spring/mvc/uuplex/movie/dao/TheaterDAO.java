@@ -10,4 +10,5 @@ public interface TheaterDAO {
 	public List<TheaterDTO> TheatersList();
 	public int TheatersCount();
 	public TheaterDTO getTheater(int theater_num);
+	public int modifyTheater(TheaterDTO dto);
 }

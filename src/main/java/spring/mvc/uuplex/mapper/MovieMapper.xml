@@ -46,11 +46,8 @@
 		SELECT * FROM m_movie_info
 	</select>
 
-<<<<<<< HEAD
 	<!-- 사용자 : 리뷰 추가-->
-=======
 	<!-- 리뷰 추가 -->
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 	<insert id="addReview" parameterType="spring.mvc.uuplex.movie.dto.ReviewDTO">
 		INSERT INTO
 		m_review(review_num, memId, movie_num, rating, review_content,
@@ -60,7 +57,6 @@
 
 	</insert>
 	
-<<<<<<< HEAD
 	<!-- 사용자 : 리뷰 리스트 -->
 	<select id="reviewList" parameterType="Map"  resultType="spring.mvc.uuplex.movie.dto.ReviewDTO">
 		SELECT *
@@ -79,11 +75,8 @@
 		DELETE FROM m_review WHERE review_num = #{review_num}
 	</delete>
 	
-	
-=======
 	<!-- 상영중인 영화 -->
 	<select id="getScreening" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		SELECT * FROM M_MOVIE_INFO WHERE STATUS='상영중'
 	</select>
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 </mapper>

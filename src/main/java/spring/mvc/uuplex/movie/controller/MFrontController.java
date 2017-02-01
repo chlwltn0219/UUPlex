@@ -11,18 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
-<<<<<<< HEAD
-import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
-import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
-import spring.mvc.uuplex.movie.handler.ModifyMovieHandler;
-=======
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
+import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ManageTheaterHandler;
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
+import spring.mvc.uuplex.movie.handler.ModifyMovieHandler;
+import spring.mvc.uuplex.movie.handler.ModifyTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
@@ -156,10 +153,6 @@ public class MFrontController {
 
 		return viewPage;
 	}
-<<<<<<< HEAD
-	
-	
-=======
 
 	// 박주은 : 상영관 관리
 	@Autowired
@@ -174,7 +167,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// 박주은 : 상영관 등록
+	// 박주은 : 상영관 등록==============================
 	@Autowired
 	GetTheaterHandler getTheaterHandler;
 
@@ -187,6 +180,21 @@ public class MFrontController {
 
 		return viewPage;
 	}
+	
+	// 박주은 : 상영관 수정
+	@Autowired
+	ModifyTheaterHandler modifyTheaterHandler;
+
+	@RequestMapping("/manage/theater/modify")
+	public String modifytheater(HttpServletRequest req, Model model) {
+		System.out.println("theater_modify");
+
+		model.addAttribute("req", req);
+		String viewPage = modifyTheaterHandler.process(model);
+
+		return viewPage;
+	}
+	
 
 	// 박주은 : 상영스케줄 관리
 	@Autowired
@@ -249,5 +257,4 @@ public class MFrontController {
 		return viewPage;
 	}
 
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 }

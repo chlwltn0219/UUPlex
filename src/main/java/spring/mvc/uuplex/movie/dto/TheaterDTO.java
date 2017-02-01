@@ -6,6 +6,7 @@ public class TheaterDTO {
 	int shopcode;
 	int seatCnt;
 	String seat_arrange;
+	String[] seats;
 	
 	public int getTheater_num() {
 		return theater_num;
@@ -30,6 +31,11 @@ public class TheaterDTO {
 	}
 	public void setSeat_arrange(String seat_arrange) {
 		this.seat_arrange = seat_arrange;
+		this.seats = getSeat_arrange().split("");
+	}
+	
+	public String[] getSeats(){
+		return seats;
 	}
 
 }
