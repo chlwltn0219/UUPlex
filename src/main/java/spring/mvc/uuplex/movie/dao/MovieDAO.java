@@ -23,21 +23,10 @@ public interface MovieDAO {
 
 	public int reviewCount(int mnum); // 리뷰 개수
 
-<<<<<<< HEAD
-	public int addMovieInfo(MovieInfoDTO dto); 	//관리자 - 영화추가
-	public MovieInfoDTO getMovieInfo(int num);	//영화상세페이지
-	public List<MovieInfoDTO> moviesList();		//영화리스트
-	public int addReview(ReviewDTO dto);		//사용자 - 리뷰추가
-	public MovieInfoDTO movieDetail(int mnum);	//영화상세페이지
-	public int moviesCount();					//영화개수
-	public List<MovieInfoDTO> manageMoviesList(Map<String, Integer> rangeMap);	// 관리자 - 영화리스트
-	public List<ReviewDTO> reviewList(Map<String, Integer> rangeMap);		//사용자 - 리뷰리스트
-	public int reviewCount(int mnum);			//리뷰 개수
-	public int deleteReview(int review_num);	//사용자 - 리뷰삭제
-=======
-	public int deleteReview(int review_num);
 	
->>>>>>> d939b60e491e02d96ece9e5ccf9810eb3a921d06
+	public int deleteReview(int review_num);	//사용자 - 리뷰삭제
+	
 	public List<MovieInfoDTO> getScreening();
+	
 	public int modifyMovie(MovieInfoDTO dto);	//관리자 - 영화정보 수정
 }
