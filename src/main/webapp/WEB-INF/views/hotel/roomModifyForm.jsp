@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
+<!-- <script src="/uuplex/resources/hotel_script/hotelScript.js"></script> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
@@ -31,27 +31,45 @@
 			</tr>
 			<tr>
 				<th>메인이미지</th>
-				<td><input class="input" type="file" name="mainImg" accept="image/*"></td>			
+				<td>
+					<input type="hidden" name="old_img" value="${dto.mainImg}">
+					<input class="input" type="file" name="mainImg" accept="image/*">
+				</td>			
 			</tr>
 			<tr>
 				<th>상세이미지1</th>
-				<td><input class="input" type="file" name="detail_1" accept="image/*"></td>
+				<td>
+					<input type="hidden" name="old_img" value="${dto.detail_1}">
+					<input class="input" type="file" name="detail_1" accept="image/*">
+				</td>
 			</tr>
 			<tr>
 				<th>상세이미지2</th>
-				<td><input class="input" type="file" name="detail_2" accept="image/*"></td>
+				<td>
+					<input type="hidden" name="old_img" value="${dto.detail_2}">
+					<input class="input" type="file" name="detail_2" accept="image/*">
+				</td>
 			</tr>
 			<tr>
 				<th>상세이미지3</th>
-				<td><input class="input" type="file" name="detail_3" accept="image/*"></td>
+				<td>
+					<input type="hidden" name="old_img" value="${dto.detail_3}">
+					<input class="input" type="file" name="detail_3" accept="image/*">
+				</td>
 			</tr>
 			<tr>
 				<th>상세이미지4</th>
-				<td><input class="input" type="file" name="detail_4" accept="image/*"></td>
+				<td>
+					<input type="hidden" name="old_img" value="${dto.detail_4}">
+					<input class="input" type="file" name="detail_4" accept="image/*">
+				</td>
 			</tr>
 			<tr>
 				<th>상세이미지5</th>
-				<td><input class="input" type="file" name="detail_5" accept="image/*"></td>
+				<td>
+					<input type="hidden" name="old_img" value="${dto.detail_5}">
+					<input class="input" type="file" name="detail_5" accept="image/*">
+				</td>
 			</tr>
 			<tr>
 				<th>객실소개</th>
@@ -60,12 +78,13 @@
 			<tr>
 				<th>객실규모</th>
 				<td><select name="roomType">
-					<c:if test="${dto.roomType == 'standard'}">
+				<c:if test="${dto.roomType == 'standard'}">
 					<option value="standard">스탠다드룸</option>
 					<option value="suite">스위트룸</option></c:if>
 					<c:if test="${dto.roomType == 'suite'}">
 					<option value="suite">스위트룸</option>
 					<option value="standard">스탠다드룸</option></c:if>
+					
 					</select>
 				</td>
 			</tr>
@@ -87,7 +106,7 @@
 					<c:if test="${dto.hotelView == 'city'}">
 					<option value="city">시티뷰</option>
 					<option value="river">리버뷰</option></c:if>
-					<c:if test="${dto.hotelView == 'ocean'}">
+					<c:if test="${dto.hotelView == 'river'}">
 					<option value="river">리버뷰</option>
 					<option value="city">시티뷰</option></c:if>
 					</select>

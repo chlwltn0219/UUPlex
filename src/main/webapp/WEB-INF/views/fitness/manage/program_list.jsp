@@ -74,6 +74,9 @@
 					</td>
 				</tr>
 			</c:forEach>
+			<c:if test="${empty dtos}">
+	 				<td colspan="4"><h5>등록된 내용이 없습니다.</h5></td>
+			</c:if>
 		</tbody>
 		<tfoot>
 			<tr>

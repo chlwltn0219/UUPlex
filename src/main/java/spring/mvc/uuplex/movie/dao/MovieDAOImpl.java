@@ -14,9 +14,9 @@ import spring.mvc.uuplex.movie.dto.ReviewDTO;
 public class MovieDAOImpl implements MovieDAO{
 
 	@Autowired
-	private SqlSession sqlSession; //servlet-context.xml�� �ִ°� �ҷ��´�.
+	private SqlSession sqlSession; //servlet-context.xml占쏙옙 占쌍는곤옙 占쌀뤄옙占승댐옙.
 	
-	//��ȭ�����߰�
+	//占쏙옙화占쏙옙占쏙옙占쌩곤옙
 	@Override
 	public int addMovieInfo(MovieInfoDTO dto) {
 		int cnt = 0;
@@ -24,14 +24,6 @@ public class MovieDAOImpl implements MovieDAO{
 		cnt = dao.addMovieInfo(dto);
 		
 		return cnt;
-	}
-
-	@Override
-	public MovieInfoDTO getMovieInfo(int num) {
-		MovieInfoDTO dto = null;
-		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
-		dto = dao.getMovieInfo(num);
-		return dto;
 	}
 
 	@Override
@@ -66,7 +58,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//�����߰�
+	//占쏙옙占쏙옙占쌩곤옙
 	@Override
 	public int addReview(ReviewDTO dto) {
 		int cnt = 0;
@@ -86,7 +78,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return list;
 	}
 
-	//각 영화당 리뷰 개수
+	//媛� ������ 由щ럭 媛���
 	@Override
 	public int reviewCount(int mnum) {
 		int cnt = 0;
@@ -96,7 +88,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//리뷰 삭제
+	//由щ럭 ����
 	@Override
 	public int deleteReview(int review_num) {
 		int cnt = 0;
