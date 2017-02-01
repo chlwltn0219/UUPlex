@@ -2,20 +2,26 @@
  * 
  */
 function getReview(movie_num){
-	var url = "/uuplex/c_box/user/review_list";
-	var method = "GET";
-	var params = "movie_num=" + movie_num;
-	sendRequest(movieModal, url, method, params);
-	sendRequest(review, url);
+	
 }
 
-function deleteReview(review_num){
+/*function deleteReview(review_num){
 	var url = "/uuplex/c_box/user/delete_review";
 	var method = "GET";
 	var params = "review_num=" + review_num;
-	alert(review_num);
+	
 	sendRequest(review, url, method, params);
+}*/
+
+/*function paging(page,mnum){
+	var url = "/uuplex/c-box/user/review/list";
+	var method = "GET";
+	var params = "page=" + page + "&mnum="+mnum;
+	sendRequest(review, url, method, params);
+	
+	
 }
+*/
 
 //callback
 function review() {

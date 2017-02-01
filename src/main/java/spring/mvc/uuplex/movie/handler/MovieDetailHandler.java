@@ -1,5 +1,6 @@
 package spring.mvc.uuplex.movie.handler;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class MovieDetailHandler implements MCommandHandler {
 		}
 		
 		
-		//리뷰리스트 불러오기
+		//리뷰리스트 불러오기&리뷰리스트  페이징하기
 		if (req.getParameter("page") == null) {
 			nowPage = 1;
 		} else {
@@ -70,7 +71,7 @@ public class MovieDetailHandler implements MCommandHandler {
 
 		
 		// 
-		pager.setDisplayContentCnt(10);
+		pager.setDisplayContentCnt(3);
 		// 
 		pager.setDisplayPageCnt(5);
 		// 
@@ -99,6 +100,26 @@ public class MovieDetailHandler implements MCommandHandler {
 			
 			model.addAttribute("total",total);
 		}
+		
+		//평균 별점 구하기
+		
+		double avg = 0;
+		
+		if(total == 0){
+			avg = 0;
+			model.addAttribute("avg",avg);
+		}else{
+			avg = dao.getAvg(mnum);
+			
+			String pattern = "#.#";
+			DecimalFormat dformat = new DecimalFormat(pattern);
+			
+			String avg1 = dformat.format(avg);
+			model.addAttribute("avg",avg1);
+		}
+		
+		System.out.println(avg);
+		
 		
 		
 		

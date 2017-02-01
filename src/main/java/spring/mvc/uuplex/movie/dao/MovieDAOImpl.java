@@ -125,4 +125,12 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
+	@Override
+	public double getAvg(int movie_num) {
+		double avg = 0;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		avg = dao.getAvg(movie_num);
+		return avg;
+	}
+
 }

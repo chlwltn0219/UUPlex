@@ -64,6 +64,16 @@
 	<table class="table">
 		<div class="option"><a>최신순</a> | <a>추천순</a> | <a>평점순</a></div>
 		<tbody>
+			
+			<c:if test="${dtos==null}">
+				<tr>
+					<h3>
+						<center>영화가 아직 준비되지 않았습니다.</center>
+					</h3>
+				</tr>
+			</c:if>
+			
+			<c:if test="${dtos!=null}">
 			<c:forEach items="${dtos}" var="dto">
 				<tr style="border-bottom: none">
 					<c:set var="id" value="${dto.memId}"></c:set>
@@ -95,7 +105,7 @@
 						<!-- 본인이 작성한 글일 경우에만 삭제가능 -->
 						<%-- <c:if test="${id == sessionScope.memId}"> --%>
 						<input type="button" class="btn btn-primary" value="글삭제"
-							onclick="deleteReview(${dto.review_num});" >
+							onclick="window.location='/uuplex/c-box/user/review/delete?review_num=${dto.review_num}'" >
 						<%-- </c:if> --%>
 						
 					</div>
@@ -117,9 +127,10 @@
 				</tr>
 				
 			</c:forEach>
+			</c:if>
 		</tbody>
 		
-		<tfoot>
+		<%-- <tfoot>
 			<tr>
 				<td colspan="3" align="center">
 					<c:if test="${prev == true}">
@@ -142,16 +153,16 @@
 					
 					<c:if test="${next == true}">
 						<ul class="pager"> 
-							<li><a href="/uuplex/c-box/movie_detail?page=${endPage+1}">next &gt;</a></li>
+							<li><span onclick = "paging(${endPage+1})">next &gt;</span></li>
 						</ul>
 					</c:if>
 					
 				</td>
 			</tr>
-		</tfoot>
+		</tfoot> --%>
 	</table>
 	
-	
+
 	
 	
 </body>

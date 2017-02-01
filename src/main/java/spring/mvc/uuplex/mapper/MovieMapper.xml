@@ -94,4 +94,9 @@
 		DELETE FROM m_movie_info WHERE movie_num = #{movie_num}
 	</delete>
 	
+	<!-- 평균 별점 구하기 -->
+	<select id="getAvg" parameterType="int" resultType="double">
+		SELECT AVG(rating) FROM m_review WHERE movie_num = #{movie_num}
+	</select>
+	
 </mapper>

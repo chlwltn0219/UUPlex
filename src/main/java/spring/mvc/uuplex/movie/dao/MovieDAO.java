@@ -31,4 +31,6 @@ public interface MovieDAO {
 	public int modifyMovie(MovieInfoDTO dto);	//관리자 - 영화정보 수정
 	
 	public int deleteMovie(int movie_num);		//관리자 - 영화 삭제
+	
+	public double getAvg(int movie_num);		//평균 별점 구하기
 }

@@ -25,6 +25,7 @@ import spring.mvc.uuplex.movie.handler.ModifyTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
+import spring.mvc.uuplex.movie.handler.ReviewListHandler;
 
 @Controller
 @RequestMapping("/c-box")
@@ -147,9 +148,9 @@ public class MFrontController {
 	@Autowired
 	DeleteReviewHandler deleteReviewHandler;
 
-	@RequestMapping("/user/delete_review")
+	@RequestMapping("/user/review/delete")
 	public String deleteReview(HttpServletRequest req, Model model) {
-			
+		System.out.println("review_delete");	
 		model.addAttribute("req", req);
 		String viewPage = deleteReviewHandler.process(model);
 
@@ -284,6 +285,20 @@ public class MFrontController {
 		model.addAttribute("req", req);
 		String viewPage = deleteMovieHandler.process(model);
 						
+		return viewPage;
+	}
+	
+	//유영원 : 리뷰 리스트
+	@Autowired
+	ReviewListHandler reviewListHandler;
+
+	@RequestMapping("/user/review/list")
+	public String reviewList(HttpServletRequest req, Model model) {
+		System.out.println("review_list");
+							
+		model.addAttribute("req", req);
+		String viewPage = reviewListHandler.process(model);
+							
 		return viewPage;
 	}
 

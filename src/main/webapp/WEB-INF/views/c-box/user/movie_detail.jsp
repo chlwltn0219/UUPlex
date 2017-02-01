@@ -5,7 +5,7 @@
 <html>
 <head>
 <style>
-.moviedetail,.reviewList {
+.moviedetail,.reviewList,.pageNum {
 	width: 850px;
 	padding: 40px;
 }
@@ -38,6 +38,7 @@
 <link type="text/css" rel="stylesheet"
 	href="/uuplex/resources/c-box/css/rating.css">
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
+<script type="text/javascript" src="${resources}/c-box/js/review.js"></script>
 </head>
 
 <body>	
@@ -86,9 +87,30 @@
 				<tr>
 					<td><b>러닝타임</b> : ${dto.runTime}분</td>
 				</tr>
+				
 				<tr>
-					<td><b>평점</b></td>
+					<td><b>평점</b> : ${avg}
+					<c:choose>
+						<c:when test="${avg <= 1.5}">
+							<img title="괜히봤어요" src="${img}/etc/star_01.png">
+						</c:when>
+						<c:when test="${avg <= 2.5}">
+							<img title="기대하진 말아요" src="${img}/etc/star_02.png">
+						</c:when>
+						<c:when test="${avg <= 3.5}">
+							<img title="무난했어요" src="${img}/etc/star_03.png">
+						</c:when>
+						<c:when test="${avg <= 4.5}">
+							<img title="기대해도 좋아요!" src="${img}/etc/star_04.png">
+						</c:when>
+						<c:otherwise>
+							<img title="정말 멋진 영화였어요!" src="${img}/etc/star_05.png">
+						</c:otherwise>
+					</c:choose>
+					</td>
 				</tr>
+				
+				
 				<tr>
 					<td>&nbsp;</td>
 				</tr>
@@ -154,10 +176,52 @@
 		</div>
 		
 		<!--  리뷰 리스트  -->
-		<div class="reviewList">
-			<jsp:include page="review_list.jsp"></jsp:include>
-		</div>
 		
+		<c:if test="${reviewPage==null}">
+			<c:set var="reviewPage" value="review_list.jsp"/>
+		</c:if>
+		
+		<div class="reviewList">
+			<jsp:include page="${reviewPage}"/>
+		</div> 
+		
+		
+		<!--  페이지   시작 -->
+		<div>
+		<table class="pageNum">
+		 <tfoot>
+			<tr>
+				<td colspan="3" align="center">
+					<c:if test="${prev == true}">
+						<ul class="pager"> 
+							<li><a href="/uuplex/c-box/movie_detail?page=${startPage-1}">&lt; prev</a></li>
+						</ul>
+					</c:if>
+				
+					<ul class="pagination">
+						<c:forEach begin="${startPage}" end="${endPage}" 
+								   var="page" varStatus="status">
+							<c:if test="${status.current == nowPage}">
+								<li class="active"><a>${page}</a></li>
+							</c:if>
+							<c:if test="${status.current != nowPage}">
+								<li><a href="/uuplex/c-box/movie_detail?page=${page}">${page}</a></li>
+							</c:if>
+						</c:forEach>
+					</ul>
+					
+					<c:if test="${next == true}">
+						<ul class="pager"> 
+							<li><span onclick = "paging(${endPage+1},${dto.movie_num})">next &gt;</span></li>
+						</ul>
+					</c:if>
+					
+				</td>
+			</tr>
+		</tfoot>
+		</table>
+		</div>
+		<!--  페이지   끝 -->
 		
 	</div>
 </div>
