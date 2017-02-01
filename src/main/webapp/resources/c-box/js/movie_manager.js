@@ -8,9 +8,7 @@ function modifyMovie(movie_num){
 	sendRequest(movieModal, url, method, params);
 }
 
-function deleteMovie(){
-	
-}
+
 
 //callback
 function movieModal() {

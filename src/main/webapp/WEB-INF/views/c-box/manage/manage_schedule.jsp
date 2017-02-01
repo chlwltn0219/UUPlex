@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
 <%@page import="java.util.Date"%>
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
@@ -19,11 +18,14 @@
 			sendRequest(scheduleModal, url, method, params);
 		});
 
-		$(".glyphicon-trash").click(function() {
-			if (confirm($(this).val()+"상영일정을 삭제하시겠습니까?")) {
-				window.location="/uuplex/c-box/manage/schedule/delete?num="+$(this).val();
-			}
-		});
+		$(".glyphicon-trash")
+				.click(
+						function() {
+							if (confirm($(this).val() + "상영일정을 삭제하시겠습니까?")) {
+								window.location = "/uuplex/c-box/manage/schedule/delete?num="
+										+ $(this).val();
+							}
+						});
 
 	});
 </script>
@@ -51,9 +53,9 @@
 	background-color: #cccccc;
 }
 
-#dsche{
-	margin : 30px auto 0 auto;
-	display : block;
+#dsche {
+	margin: 30px auto 0 auto;
+	display: block;
 	opacity: 0;
 }
 
@@ -67,11 +69,11 @@
 	transition: 0.5s;
 }
 
-.sche:HOVER{
+.sche:HOVER {
 	opacity: 1;
 }
 
-.sche:HOVER #dsche{
+.sche:HOVER #dsche {
 	opacity: 1;
 }
 
@@ -409,9 +411,12 @@ thead td {
 							<div role="tabpanel" class="tab-pane active" id="home">
 								<c:forEach items="${dtos}" var="sdto">
 									<c:if test="${sdto.theater_num==1}">
-										<div class="sche" style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
+										<div class="sche"
+											style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
 											${sdto.title1}
-											<button id="dsche" type="button" class="btn btn-default glyphicon glyphicon-trash" value="${sdto.schedule_num}">삭제</button>
+											<button id="dsche" type="button"
+												class="btn btn-default glyphicon glyphicon-trash"
+												value="${sdto.schedule_num}">삭제</button>
 										</div>
 									</c:if>
 								</c:forEach>
@@ -419,9 +424,12 @@ thead td {
 							<div role="tabpanel" class="tab-pane" id="profile">
 								<c:forEach items="${dtos}" var="sdto">
 									<c:if test="${sdto.theater_num==2}">
-										<div class="sche" style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
+										<div class="sche"
+											style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
 											${sdto.title1}
-											<button id="dsche" type="button" class="btn btn-default glyphicon glyphicon-trash" value="${sdto.schedule_num}">삭제</button>
+											<button id="dsche" type="button"
+												class="btn btn-default glyphicon glyphicon-trash"
+												value="${sdto.schedule_num}">삭제</button>
 										</div>
 									</c:if>
 								</c:forEach>
@@ -429,9 +437,12 @@ thead td {
 							<div role="tabpanel" class="tab-pane" id="messages">
 								<c:forEach items="${dtos}" var="sdto">
 									<c:if test="${sdto.theater_num==3}">
-										<div class="sche" style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
+										<div class="sche"
+											style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
 											${sdto.title1}
-											<button id="dsche" type="button" class="btn btn-default glyphicon glyphicon-trash" value="${sdto.schedule_num}">삭제</button>
+											<button id="dsche" type="button"
+												class="btn btn-default glyphicon glyphicon-trash"
+												value="${sdto.schedule_num}">삭제</button>
 										</div>
 									</c:if>
 								</c:forEach>
@@ -439,29 +450,24 @@ thead td {
 							<div role="tabpanel" class="tab-pane" id="settings">
 								<c:forEach items="${dtos}" var="sdto">
 									<c:if test="${sdto.theater_num==4}">
-										<div class="sche" style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
+										<div class="sche"
+											style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
 											${sdto.title1}
-											<button id="dsche" type="button" class="btn btn-default glyphicon glyphicon-trash" value="${sdto.schedule_num}">삭제</button>
+											<button id="dsche" type="button"
+												class="btn btn-default glyphicon glyphicon-trash"
+												value="${sdto.schedule_num}">삭제</button>
 										</div>
 									</c:if>
 								</c:forEach>
 							</div>
 						</div>
-
 					</div>
 				</td>
-
-
 			</tr>
-
 		</table>
-
-
 	</div>
-
 	<div class="modal fade" id="modalPage" role="dialog">
 		<div class="modal-dialog" id="dialog"></div>
 	</div>
-
 </div>
 

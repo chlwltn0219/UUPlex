@@ -25,6 +25,16 @@ function programModify(pid){
 	sendRequest(programModal, url, method, params);
 }
 
+//======================== suitable teacher list
+function suitableTeacher(){
+	var sid = $("select[name=sid] option:selected").val();
+	
+	var url = "/uuplex/fitness/teacher/suitable";
+	var method = "GET";
+	var params = "sid=" + sid; 
+	sendRequest(teacherSelect, url, method, params);
+}
+
 //======================== Modify Pro
 function programModifyPro(){
 	var pid = document.programModifyForm.pid.value;
@@ -59,6 +69,24 @@ function programModal() {
 		}
 	} else {
 		modal.innerHTML = "상태 : " + httpRequest.readyState;
+	}
+	
+}
+
+//======================== change select
+function teacherSelect() {
+	
+	var select = document.getElementById("teacher");
+	
+	if(httpRequest.readyState == 4 ) {
+		if(httpRequest.status == 200) {
+			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
+			select.innerHTML = httpRequest.responseText;
+		} else {
+			select.innerHTML = httpRequest.status + "에러 발생";
+		}
+	} else {
+		select.innerHTML = "상태 : " + httpRequest.readyState;
 	}
 	
 }

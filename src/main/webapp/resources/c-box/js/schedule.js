@@ -1,7 +1,24 @@
 /**
  * 
  */
+//======================== InputSchedule Modal
+function scheduleInput() {
+	
+	var url = "/uuplex/c-box/manage/schedule/inputForm";
+	sendRequest(scheduleModal, url);
+	
+}
 
+// ======================== Write Modal Dialog
+function scheduleModal() {
+	
+	var modal = document.getElementById("dialog");
+	
+	if(httpRequest.readyState == 4 ) {
+		if(httpRequest.status == 200) {
+		}
+	}
+}
 //======================== Input Modal
 function scheduleInput() {
 
@@ -9,7 +26,7 @@ function scheduleInput() {
 	sendRequest(scheduleModal, url);
 
 }
-//======================== Modify Modal
+// ======================== Modify Modal
 function scheduleModify(sid) {
 	var url = "/uuplex/c-box/manage/schedule/modify";
 	var method = "GET";
@@ -17,7 +34,7 @@ function scheduleModify(sid) {
 	sendRequest(scheduleModal, url, method, params);
 }
 
-//======================== Modify Pro
+// ======================== Modify Pro
 function scheduleModifyPro() {
 	var sid = document.movieModifyForm.sid.value;
 	var sname = document.movieModifyForm.sname.value;
@@ -31,7 +48,7 @@ function scheduleModifyPro() {
 	sendRequest(movieModal, url, method, params);
 }
 
-//======================== Write Modal Dialog
+// ======================== Write Modal Dialog
 function scheduleModal() {
 
 	var modal = document.getElementById("dialog");
@@ -46,5 +63,4 @@ function scheduleModal() {
 	} else {
 		modal.innerHTML = "상태 : " + httpRequest.readyState;
 	}
-
 }

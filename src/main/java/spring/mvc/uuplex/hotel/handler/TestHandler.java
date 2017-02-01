@@ -19,11 +19,11 @@ public class TestHandler implements HCommandHandler {
 		 Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		
-		String roomNum = req.getParameter("roomNum");
+		String roomName = req.getParameter("roomName");
 		
-		System.out.println(roomNum);
+		System.out.println(roomName);
 		
-		model.addAttribute("roomNum", roomNum);
+		model.addAttribute("roomName", roomName);
 		
 		return "/hotel/test";
 	}

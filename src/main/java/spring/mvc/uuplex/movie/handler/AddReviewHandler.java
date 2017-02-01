@@ -33,9 +33,11 @@ public class AddReviewHandler implements MCommandHandler{
 		
 		dto.setMovie_num(Integer.parseInt(req.getParameter("movie_num")));
 		
+		
 		dto.setRating(Integer.parseInt(req.getParameter("rating")));
 		
 		String review_content = req.getParameter("review_content");
+		
 		dto.setReview_content(review_content);
 		
 		

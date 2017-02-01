@@ -29,11 +29,11 @@
 }
 
 #thumb li img {
-   width:200px;      
+   width:200px; height:120px;
 }
 
 #view img {
-	width:500px;
+	width:500px; height:300px;
 	padding:5px;
 }
 
@@ -120,7 +120,7 @@
 <body>
 <div class="container">
 <div id="content">
-<h3>객실예약</h3><br><br>
+<h3>객실예약</h3><br>
 
 <c:forEach var="dto" items="${dtos}">
 	<div class="panel panel-default">
@@ -153,7 +153,7 @@
 		  상세정보</button>
 		<!-- <button type="button" class="btn btn-default" data-toggle="modal"
 					data-target="#myModal" >예약하기</button> -->
-		<a data-toggle="modal" class="btn btn-default" data-target="#modal" href="test?roomNum=${dto.roomNum}">예약하기</a>	
+		<a data-toggle="modal" class="btn btn-default" data-target="#modal" href="./test?roomName=${dto.roomName}">예약하기</a>	
 		<div class="collapse" id="${dto.roomNum}">
 		  <div class="well">
 			<mark>요금</mark> ${dto.charge} 원<br>
@@ -179,7 +179,7 @@
 		    </div>
 		  </div>
 		</div>
-	</div><br><br>
+	</div><br>
 	
 	<%-- <form action="reservConfirm" method="post" enctype="multipart/form-data" onsubmit="return reservCheck()">
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"

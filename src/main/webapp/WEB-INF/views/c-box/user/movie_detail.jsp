@@ -2,12 +2,10 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="../setting.jsp"%>
-
-<link type="text/css" rel="stylesheet"
-	href="/uuplex/resources/c-box/css/rating.css">
-
+<html>
+<head>
 <style>
-.moviedetail {
+.moviedetail,.reviewList {
 	width: 850px;
 	padding: 40px;
 }
@@ -36,7 +34,17 @@
 	padding: 10px 0;
 }
 </style>
+<<<<<<< HEAD
+
+<link type="text/css" rel="stylesheet"
+	href="/uuplex/resources/c-box/css/rating.css">
+<script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
+</head>
+
+<body>	
+=======
 	
+>>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 <div class="modal-content">
 	<div class="modal-header">
 		<button class="close" data-dismiss="modal">&times;</button>
@@ -47,7 +55,18 @@
 			<table>
 				<tr>
 					<td class="col-md-2" rowspan="10"><img id="poster" src="/uuplexImg/c-box/${dto.poster}"></td>
-					<th><img class="rate" src="${img}mpaa_rating/${dto.MPAARating}.png">${dto.title1}</th>
+					<th><img class="rate" src="${img}mpaa_rating/${dto.MPAARating}.png">${dto.title1}
+					
+					
+					
+						<div class="form-group pull-right">
+
+						<input type="button" class="btn btn-primary" value="수정하기"
+							onclick="movieModify(${dto.movie_num});">
+						</div>
+						
+					
+					</th>
 				</tr>
 				<tr>
 					<td>${dto.title2}</td>
@@ -91,52 +110,65 @@
 					<td colspan="2" class="con"></td>
 				</tr>
 				<tr>
-					<td colspan="2" class="tit">한줄평(0)</td>
+					<td colspan="2" class="tit">한줄평(<c:if test="${total == null}">0</c:if>
+													<c:if test="${total != null}">${total}</c:if>)</td>
 				</tr>
 				<tr>
 					<td colspan="2" class="con">
-						<form action="/uuplex/c-box/user/add_review" method="post" name="reviewform" enctype="multipart/form-data">
+				</tr>
+				</table>
+					
+						<form action="/uuplex/c-box/user/add_review" onsubmit="" method="post" name="reviewform">
+							
+							
+							<input type="hidden" name="movie_num" value="${dto.movie_num}">
+							<input type="hidden" name="memId" value="memId">
+							
 							<table class="table">
 								<tr>
 									<th>memId</th>
 									<td class="star-input">
 										<span class="input">
-											<input type="radio" name="star-input" value="1" id="p1">
+											<!-- <input type="radio" name="rating" value=1 id="p1"> -->
+											<input type="radio" name="rating" value=1 id="p1">
 												<label for="p1">괜히봤어요</label>
-												<input type="radio" name="star-input" value="2" id="p2">
+												<input type="radio" name="rating" value=2 id="p2">
 												<label for="p2">기대하진 말아요</label>
-												<input type="radio" name="star-input" value="3" id="p3">
+												<input type="radio" name="rating" value=3 id="p3">
 												<label for="p3">무난했어요</label>
-												<input type="radio" name="star-input" value="4" id="p4">
+												<input type="radio" name="rating" value=4 id="p4">
 												<label for="p4">기대해도 좋아요!</label>
-												<input type="radio" name="star-input" value="5" id="p5">
+												<input type="radio" name="rating" value=5 id="p5">
 												<label for="p5">정말 멋진 영화였어요!</label>
 										</span><br>
-										<output id="rating" for="star-input">
-											<b>평점을 입력해주세요</b>
+										<output for="rating" id="outText">
+<!-- 										<output for="rating"> -->
+											평점을 입력해주세요
 										</output>
 									</td>
-									<td><textarea style="width: 250px; height: 80px" name="">로그인 후 이용가능한 서비스입니다.</textarea></td>
+									<td><textarea placeholder="로그인 후 이용가능한 서비스입니다." style="width: 250px; height: 80px" name="review_content" required></textarea></td>
 									<td><input class="btn" type="submit" value="등록"></td>
 								</tr>
 
 							</table>
 						</form>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" class="con"></td>
-				</tr>
-				<tr>
-					<td colspan="2" class="con"></td>
-				</tr>
-				<tr>
-					<td colspan="2" class="con"></td>
-				</tr>
-			</table>
+					
+			
 		</div>
-
+		
+		<!--  리뷰 리스트  -->
+		<div class="reviewList">
+			<jsp:include page="review_list.jsp"></jsp:include>
+		</div>
+		
+		
 	</div>
 </div>
+<<<<<<< HEAD
+
+</body>
+</html>
+=======
 <script src="${js}jquery-1.11.3.min.js"></script>
 <script src="${js}star.js"></script>
+>>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678

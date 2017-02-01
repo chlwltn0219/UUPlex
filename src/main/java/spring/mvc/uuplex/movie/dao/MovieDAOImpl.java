@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.movie.dto.ReviewDTO;
 
-@Repository //����� ����
+@Repository 
 public class MovieDAOImpl implements MovieDAO{
 
 	@Autowired
-	private SqlSession sqlSession; //servlet-context.xml�� �ִ°� �ҷ��´�.
+	private SqlSession sqlSession; //servlet-context.xml占쏙옙 占쌍는곤옙 占쌀뤄옙占승댐옙.
 	
-	//��ȭ�����߰�
+	//占쏙옙화占쏙옙占쏙옙占쌩곤옙
 	@Override
 	public int addMovieInfo(MovieInfoDTO dto) {
 		int cnt = 0;
@@ -24,14 +24,6 @@ public class MovieDAOImpl implements MovieDAO{
 		cnt = dao.addMovieInfo(dto);
 		
 		return cnt;
-	}
-
-	@Override
-	public MovieInfoDTO getMovieInfo(int num) {
-		MovieInfoDTO dto = null;
-		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
-		dto = dao.getMovieInfo(num);
-		return dto;
 	}
 
 	@Override
@@ -66,13 +58,42 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//�����߰�
+	//占쏙옙占쏙옙占쌩곤옙
 	@Override
 	public int addReview(ReviewDTO dto) {
 		int cnt = 0;
 		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
 		cnt = dao.addReview(dto);
 		
+		return cnt;
+	}
+
+	// 사용자 - 리뷰 리스트 가져오기
+	@Override
+	public List<ReviewDTO> reviewList(Map<String, Integer> rangeMap) {
+		List<ReviewDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.reviewList(rangeMap);
+		
+		return list;
+	}
+
+	//媛� ������ 由щ럭 媛���
+	@Override
+	public int reviewCount(int mnum) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.reviewCount(mnum);
+		
+		return cnt;
+	}
+
+	//由щ럭 ����
+	@Override
+	public int deleteReview(int review_num) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.deleteReview(review_num);
 		return cnt;
 	}
 

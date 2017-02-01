@@ -57,6 +57,7 @@ public class AddMovieInfoHandler implements MCommandHandler {
 					fileName[i] = multi.getFilesystemName(str[i]);
 				}
 			}
+			
 
 			/* <%=request.getServletContext().getContextPath()%>${dto.image} */
 
