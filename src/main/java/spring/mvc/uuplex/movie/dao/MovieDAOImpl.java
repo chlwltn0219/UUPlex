@@ -115,4 +115,14 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
+	//영화정보 삭제
+	@Override
+	public int deleteMovie(int movie_num) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.deleteMovie(movie_num);
+		
+		return cnt;
+	}
+
 }

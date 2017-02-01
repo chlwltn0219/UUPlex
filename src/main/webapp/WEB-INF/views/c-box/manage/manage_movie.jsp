@@ -37,6 +37,8 @@
 						<input type="button" class="btn btn-primary" value="등록하기"
 							onclick="movieInput();" data-toggle="modal"
 							data-target="#modalPage">
+						
+						
 
 					</div>
 				</td>
@@ -48,6 +50,7 @@
 				<th>장르</th>
 				<th>개봉일</th>
 				<th>상영여부</th>
+				<th>삭제</th>
 
 			</tr>
 		</thead>
@@ -62,6 +65,9 @@
 					<td>${dto.genre}</td>
 					<td>${dto.releaseDate}</td>
 					<td>${dto.status}</td>
+					
+					<td><input type="button" class="btn btn-danger" name="deleteButton" value="삭제"
+							onclick="window.location='/uuplex/c-box/manage/movie/delete?movie_num=${dto.movie_num}'"></td>
 				</tr>
 			</c:forEach>
 		</tbody>

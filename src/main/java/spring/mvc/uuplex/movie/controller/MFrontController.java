@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
+import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
@@ -259,17 +260,31 @@ public class MFrontController {
 	}
 	
 	//유영원 : 관리자 영화 정보 수정 처리
-		@Autowired
-		ModifyMovieProHandler modifyMovieProHandler;
+	@Autowired
+	ModifyMovieProHandler modifyMovieProHandler;
 
-		@RequestMapping("/manage/movie/modifyPro")
-		public String modifyMoviePro(HttpServletRequest req, Model model) {
-			System.out.println("movie_modifyPro");
+	@RequestMapping("/manage/movie/modifyPro")
+	public String modifyMoviePro(HttpServletRequest req, Model model) {
+		System.out.println("movie_modifyPro");
 					
-			model.addAttribute("req", req);
-			String viewPage = modifyMovieProHandler.process(model);
+		model.addAttribute("req", req);
+		String viewPage = modifyMovieProHandler.process(model);
 					
-			return viewPage;
-		}
+		return viewPage;
+	}
+	
+	//유영원 : 관리자 영화 정보 수정 처리
+	@Autowired
+	DeleteMovieHandler deleteMovieHandler;
+
+	@RequestMapping("/manage/movie/delete")
+	public String deleteMovie(HttpServletRequest req, Model model) {
+		System.out.println("movie_delete");
+						
+		model.addAttribute("req", req);
+		String viewPage = deleteMovieHandler.process(model);
+						
+		return viewPage;
+	}
 
 }

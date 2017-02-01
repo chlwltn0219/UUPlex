@@ -161,11 +161,8 @@
 		
 	</div>
 </div>
-<<<<<<< HEAD
 
 </body>
 </html>
-=======
 <script src="${js}jquery-1.11.3.min.js"></script>
 <script src="${js}star.js"></script>
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678

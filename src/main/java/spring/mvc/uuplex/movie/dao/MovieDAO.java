@@ -29,4 +29,6 @@ public interface MovieDAO {
 	public List<MovieInfoDTO> getScreening();
 	
 	public int modifyMovie(MovieInfoDTO dto);	//관리자 - 영화정보 수정
+	
+	public int deleteMovie(int movie_num);		//관리자 - 영화 삭제
 }

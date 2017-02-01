@@ -89,4 +89,9 @@
 
 	</update>
 	
+	<!-- 영화 삭제-->
+	<delete id="deleteMovie" parameterType="int" >
+		DELETE FROM m_movie_info WHERE movie_num = #{movie_num}
+	</delete>
+	
 </mapper>
