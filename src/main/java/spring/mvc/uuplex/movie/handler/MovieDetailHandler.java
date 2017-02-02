@@ -73,7 +73,7 @@ public class MovieDetailHandler implements MCommandHandler {
 		// 
 		pager.setDisplayContentCnt(3);
 		// 
-		pager.setDisplayPageCnt(5);
+		pager.setDisplayPageCnt(3);
 		// 
 		pager.calcPage(total, nowPage);
 

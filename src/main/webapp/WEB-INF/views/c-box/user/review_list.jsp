@@ -62,7 +62,7 @@
 <body>
 	
 	<table class="table">
-		<div class="option"><a>최신순</a> | <a>추천순</a> | <a>평점순</a></div>
+		
 		<tbody>
 			
 			<c:if test="${dtos==null}">

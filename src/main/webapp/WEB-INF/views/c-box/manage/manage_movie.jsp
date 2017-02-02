@@ -74,7 +74,8 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="6" align="center"><c:if test="${prev == true}">
+				<td colspan="6" align="center">
+				<c:if test="${prev == true}">
 						<ul class="pager">
 							<li><a href="/uuplex/c-box/manage_movie?page=${startPage-1}">&lt;
 									prev</a></li>
@@ -91,12 +92,14 @@
 								<li><a href="/uuplex/c-box/manage_movie?page=${page}">${page}</a></li>
 							</c:if>
 						</c:forEach>
-					</ul> <c:if test="${next == true}">
+					</ul>
+					<c:if test="${next == true}">
 						<ul class="pager">
 							<li><a href="/uuplex/c-box/manage_movie?page=${endPage+1}">next
 									&gt;</a></li>
 						</ul>
-					</c:if></td>
+					</c:if>
+				</td>
 			</tr>
 		</tfoot>
 
