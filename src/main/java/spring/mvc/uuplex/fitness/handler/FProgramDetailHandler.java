@@ -44,7 +44,7 @@ public class FProgramDetailHandler implements FCommandHandler{
 			sports = sDao.sportsActivatedList();
 			model.addAttribute("sports", sports);
 			
-			teacher = tDao.activatedList();
+			teacher = tDao.suitableList(dto.getSid());
 			model.addAttribute("teacher", teacher);
 			
 		} catch (NumberFormatException e) {

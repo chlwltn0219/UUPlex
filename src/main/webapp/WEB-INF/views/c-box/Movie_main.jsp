@@ -237,8 +237,14 @@ embed {
 
 	<div class="btn_div">
 		<input class="btn1" type="button" value="상영시간표"
+<<<<<<< HEAD
 			onclick="location.href='/uuplex/c-box/schedule'">
 		<input class="btn2" type="button" value="빠른예매">
+=======
+			onclick="location.href='/uuplex/c-box/user/schedule_list'">
+		<input class="btn2" type="button" value="빠른예매"
+			onclick="location.href='/uuplex/c-box/user/reserve/main'">
+>>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
 	</div>
 
 	<jsp:include page="${contentPage}" />

@@ -43,4 +43,11 @@
 		 WHERE crid = #{crid}
 	</update>
 	
+	<select id="activatedList" resultType="spring.mvc.uuplex.fitness.dto.FClassroomDTO">
+		SELECT crid, crname
+		  FROM F_CLASSROOM 
+		 WHERE activated = 'Y'
+		 ORDER BY crid
+	</select>
+	
 </mapper>

@@ -58,5 +58,13 @@ public class FClassroomDAOImpl implements FClassroomDAO {
 		cnt = dao.modifyClassroom(dto);
 		return cnt;
 	}
+	
+	@Override
+	public List<FClassroomDTO> activatedList() {
+		List<FClassroomDTO> list = null;
+		FClassroomDAO dao = this.sqlSession.getMapper(FClassroomDAO.class);
+		list = dao.activatedList();
+		return list;
+	}
 
 }

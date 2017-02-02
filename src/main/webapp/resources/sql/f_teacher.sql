@@ -14,46 +14,22 @@ CREATE TABLE f_teacher(
 
 
 DROP SEQUENCE SEQ_TEACHER_TID;
-
 CREATE SEQUENCE SEQ_TEACHER_TID
 START WITH 0
 INCREMENT BY 1
 NOCYCLE 
 MINVALUE 0;
 
-SELECT * FROM f_teacher;
-
-DROP TABLE BOOLEAN;
-
-CREATE TABLE BOOLEAN (
-value		VARCHAR2(1),
-CONSTRAINT boolean_value_pk PRIMARY KEY (value)
-);
-
-INSERT INTO BOOLEAN 
-VALUES ('Y');
-INSERT INTO BOOLEAN 
-VALUES ('N');
-
-COMMIT;
-
-INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '������', 'Y');
-INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '������', 'Y');
-INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '�Ѱ���', 'Y');
-INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '������', 'Y');
-
-
-INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '������', 'N');
-commit;
-
-INSERT INTO f_teacher (tid, tname, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '�����', 'N');
-commit;
-
-DELETE FROM f_teacher; 
-COMMIT;
+--INSERT INTO f_teacher (tid, tname, activated)
+--VALUES (SEQ_TEACHER_TID.nextval, '������', 'Y');
+--INSERT INTO f_teacher (tid, tname, activated)
+--VALUES (SEQ_TEACHER_TID.nextval, '������', 'Y');
+--INSERT INTO f_teacher (tid, tname, activated)
+--VALUES (SEQ_TEACHER_TID.nextval, '�Ѱ���', 'Y');
+--INSERT INTO f_teacher (tid, tname, activated)
+--VALUES (SEQ_TEACHER_TID.nextval, '������', 'Y');
+--INSERT INTO f_teacher (tid, tname, activated)
+--VALUES (SEQ_TEACHER_TID.nextval, '������', 'N');
+--INSERT INTO f_teacher (tid, tname, activated)
+--VALUES (SEQ_TEACHER_TID.nextval, '�����', 'N');
+--commit;
