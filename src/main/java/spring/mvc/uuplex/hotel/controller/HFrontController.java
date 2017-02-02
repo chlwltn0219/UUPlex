@@ -8,13 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
+import spring.mvc.uuplex.hotel.handler.ReservFormHandler;
 import spring.mvc.uuplex.hotel.handler.ReservationHandler;
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomDeleteProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomListHandler;
 import spring.mvc.uuplex.hotel.handler.RoomModifyFormHandler;
 import spring.mvc.uuplex.hotel.handler.RoomModifyProHandler;
-import spring.mvc.uuplex.hotel.handler.TestHandler;
 
 @Controller
 @RequestMapping("/hotel")
@@ -133,16 +133,22 @@ public class HFrontController {
 		return viewPage;
 	}
 	
+	//°´½Ç¿¹¾à
 	@Autowired
-	TestHandler testHandler;
-	@RequestMapping("/test")
+	ReservFormHandler reservFormHandler;
+	@RequestMapping("/reservForm")
 	public String test(HttpServletRequest req, Model model) {
-		System.out.println("test");
+		System.out.println("reservForm");
 		
 		model.addAttribute("req", req);
-		String viewPage = testHandler.process(model);
+		String viewPage = reservFormHandler.process(model);
 		
 		return viewPage;
 	}
-
+	
+	@RequestMapping("/calculation")
+	public String calculation(Model model) {
+		System.out.println("calculation()");
+		return "/hotel/calculation";
+	}
 }

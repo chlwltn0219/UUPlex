@@ -22,14 +22,9 @@ public class GetTheaterHandler implements MCommandHandler {
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
 		int theater_num = 0;
 		theater_num = Integer.parseInt(req.getParameter("theater_num"));
-		
-		System.out.println(theater_num);
-		
 		dto = dao.getTheater(theater_num);
 		String[] seat = dto.getSeat_arrange().split("");
-		String[] row = {"A","B","C","D","E","F","G","H","I","J","K"};
-		
-		System.out.println(dto.getSeat_arrange()+"===");
+		String[] row = {"A","B","C","D","E","F","G","H","I","J","K","L"};
 		model.addAttribute("seat", seat);
 		model.addAttribute("row", row);
 		model.addAttribute("dto", dto);

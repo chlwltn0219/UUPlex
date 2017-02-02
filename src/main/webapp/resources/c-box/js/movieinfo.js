@@ -29,15 +29,7 @@ function movieModify(movie_num){
 
 //======================== Modify Pro
 function movieModifyPro(){
-	var sid = document.movieModifyForm.sid.value;
-	var sname = document.movieModifyForm.sname.value;
-	var sinfo = document.movieModifyForm.sinfo.value;
-	var activated = document.movieModifyForm.activated.value;
 	
-	var url = "/uuplex/c-box/manage/movie/modifyPro";
-	var method = "POST";
-	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo + "&activated=" + activated;
-	sendRequest(movieModal, url, method, params);
 }
 
 //======================== Write Modal Dialog
@@ -49,7 +41,6 @@ function movieModal() {
 		if(httpRequest.status == 200) {
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
 			modal.innerHTML = httpRequest.responseText;
-			
 		} else {
 			modal.innerHTML = httpRequest.status + "에러 발생";
 		}
@@ -58,3 +49,46 @@ function movieModal() {
 	}
 	
 }
+
+//리뷰 페이지 넘기기
+
+function pageChange(mnum,page){
+	var url = "/uuplex/c-box/user/review/list";
+	var method = "GET";
+	var params = "mnum=" + mnum +"&page="+page;
+	sendRequest(reviewDiv, url, method, params);
+}
+
+function changeclass(page) {
+	$(".pagination").find("li").eq(page-1).attr('class','active');
+	$(".pagination").find("li").not($(".pagination").find("li").eq(page-1)).attr('class','');
+}
+
+function reopen(mnum,page) {
+	var url = "/uuplex/c-box/movie_detail";
+	var method = "GET";
+	var params = "mnum=" + mnum+"&page="+page;
+	sendRequest(movieModal, url, method, params);
+}
+
+//call back
+function reviewDiv() {
+	
+	var review = document.getElementById("review");
+	
+	if(httpRequest.readyState == 4 ) {
+		if(httpRequest.status == 200) {
+			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
+			review.innerHTML = httpRequest.responseText;
+			
+		} else {
+			review.innerHTML = httpRequest.status + "에러 발생";
+		}
+	} else {
+		review.innerHTML = "상태 : " + httpRequest.readyState;
+	}
+	
+}
+
+//추천하기
+

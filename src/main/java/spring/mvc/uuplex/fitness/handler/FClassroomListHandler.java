@@ -63,11 +63,11 @@ public class FClassroomListHandler implements FCommandHandler{
 			rangeMap.put("start", start);
 			rangeMap.put("end", end);
 			
-			dtos = dao.list(rangeMap); //¸®½ºÆ® dao¿¡¼­ ºÒ·¯¿À±â
+			dtos = dao.list(rangeMap); //ï¿½ï¿½ï¿½ï¿½Æ® daoï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			model.addAttribute("dtos", dtos); //º¸³»ÁÖ´Â°Å, ±×·³ ÀÌÁ¦ ¹Û¿¡¼­ ¾µ ¼ö ÀÖÀ½
-			//---------------------------¡è °Ô½Ã±Û ¸®½ºÆ® °ü·Ã
-			//---------------------------¡é ÆäÀÌÀú »ý¼º °ü·Ã
+			model.addAttribute("dtos", dtos); //ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½, ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			//---------------------------ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+			//---------------------------ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			model.addAttribute("nowPage", pager.getNowPage());
 			model.addAttribute("startPage", pager.getStartPage());
 			model.addAttribute("endPage", pager.getEndPage());

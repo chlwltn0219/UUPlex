@@ -22,12 +22,15 @@ public class FProgramInputFormHandler implements FCommandHandler{
 	@Override
 	public String process(Model model) {
 		String viewPage = "/fitness/manage/program_input";
+		int sid = 0;
 		
 		List<FSportsDTO> sList = null;
 		List<FTeacherDTO> tList = null;
 		
 		sList = sDao.sportsActivatedList();
-		tList = tDao.activatedList();
+		
+		sid = sList.get(0).getSid();
+		tList = tDao.suitableList(sid);
 		
 		model.addAttribute("sports", sList);
 		model.addAttribute("teacher", tList);

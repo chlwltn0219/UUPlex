@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
+<head>
+	<style>
+		.modal-content {
+			margin : 200px;
+		}
+	</style>
+</head>    
 
-<div class="modal fade" id="sportInfo" role="dialog">
-	<div class="modal-dialog">
+<div class="modal modal-center fade" id="deleteModal" role="dialog">
+	<div class="modal-dialog modal-ls" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button class="close" data-dismiss="modal">&times;</button>
@@ -17,4 +24,3 @@
 		</div>
 	</div>
 </div>
-

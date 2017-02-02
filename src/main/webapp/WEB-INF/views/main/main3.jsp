@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../setting.jsp" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en" class="no-js">
 
 <head>
-	<link href="${resources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +12,7 @@
     <meta name="description" content="Card Expansion Effect with SVG clipPath" />
     <meta name="keywords" content="clipPath, svg, effect, layout, expansion, images, grid, polygon" />
     <meta name="author" content="Claudio Calautti for Codrops" />
+	<link href="${resources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="/uuplex/resources/main_script/mainCss/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/uuplex/resources/main_script/mainCss/font-awesome.min.css" />
@@ -45,7 +46,7 @@
             </c:if>
             
             <c:if test="${idCode == 105}">
-				<a href="#">마이페이지</a>
+				<a href="/uuplex/memInfo">마이페이지</a>
 				<a href="/uuplex/logout">로그아웃</a>
 				<a href="/uuplex/notice?shopCode=100">고객센터</a>
 			</c:if>
@@ -88,7 +89,7 @@
 								<p>BEST Movie</p>
 								<p>C-Box는 여러분들에게 최상의 서비스로 찾아갑니다.</p>
 								<img width="500" height="300" src="/uuplex/resources/main_images/movie3.png"> <br><br>
-								<button type="button" class="btn btn-default" onclick="window.location='/uuplex/c-box'">바로가기</button>
+								<button type="button" class="btn btn-danger" onclick="window.location='/uuplex/c-box'">바로가기</button>
 							
 							</div>
 						</div>
@@ -117,11 +118,11 @@
 								</div>
 								<p>최상의 서비스를 약속드립니다.</p>
 								<p>대한민국 No.1 복합쇼핑몰 W-PLEX! 타임스퀘어는 단순한 쇼핑 공간을 넘어 백화점, 멀티플렉스, 쇼핑몰, 레스토랑 등 도시적이고 세련된 공간과 휴식광장, 테라스, 분수와 정원 등 유롭고 친근한 자연의 공간이 어우러진 선진국형 라이프스타일센터입니다.</p>
-								<img width="500" height="300" src="/uuplex/resources/main_images/uplex1.png"> <br><br>
 								<p>UUPlex 소개</p>
-								<button type="button" class="btn btn-default" onclick="window.location='/uuplex/introduce'">소개</button>
+								<button type="button" class="btn btn-default" onclick="window.location='/uuplex/introduce'">소개</button><br><br>
 								<p>UUPlex 오시는길</p>
-								<button type="button" class="btn btn-default" onclick="window.location='/uuplex/roadMap'">오시는길</button>
+								<button type="button" class="btn btn-default" onclick="window.location='/uuplex/roadMap'">오시는길</button><br><br>
+								<img width="500" height="300" src="/uuplex/resources/main_images/uplex1.png"> <br><br>
 				
 							</div>
 						</div>
@@ -151,7 +152,7 @@
 								<p>BEST Hotel</p>
 								<p>최고의 룸서비스로 찾아갑니다.</p>
 								<img width="500" height="300" src="/uuplex/resources/main_images/hotel3.png"><br><br>
-								<button type="button" class="btn btn-default" onclick="window.location='/uuplex/hotel'">바로가기</button>
+								<button type="button" class="btn btn-warning" onclick="window.location='/uuplex/hotel'">바로가기</button>
 							</div>
 						</div>
 					</div>
@@ -180,7 +181,7 @@
 								<p>BEST Fitness</p>
 								<p>최고의 휘트니스 강사진과 프로그램이 여러분을 찾아갑니다.</p>
 								<img width="500" height="300" src="/uuplex/resources/main_images/fit2.png"><br><br>
-								<button type="button" class="btn btn-default" onclick="window.location='/uuplex/fitness'">바로가기</button>
+								<button type="button" class="btn btn-success" onclick="window.location='/uuplex/fitness'">바로가기</button>
 							</div>
 						</div>
 					</div>
@@ -209,7 +210,7 @@
 								</div>
 								<p>층별 안내도</p>
 								<img width="500" height="300" src="/uuplex/resources/main_images/1.png"><br><br>
-								<button type="button" class="btn btn-default" onclick="window.location='/uuplex/floor'">바로가기</button>
+								<button type="button" class="btn btn-info" onclick="window.location='/uuplex/floor'">바로가기</button>
 							</div>
 						</div>
 					</div>    
@@ -233,16 +234,10 @@
 							</div>
 							<div class="card__copy">
 								<div class="meta">
-									<img class="meta__avatar" src="img/authors/6.png" alt="author06" />
-									<span class="meta__author">Tom Goldman</span>
 									<span class="meta__date">06/10/2015</span>
 								</div>
 								<p>Business model canvas bootstrapping deployment startup. In A/B testing pivot niche market alpha conversion startup down monetization partnership business-to-consumer success for investor mass market business-to-business.</p>
-								<p>Release creative social proof influencer iPad crowdsource gamification learning curve network effects monetization. Gamification business plan mass market www.discoverartisans.com direct mailing ecosystem seed round sales long tail vesting period.</p>
-								<p>Product management ramen bootstrapping seed round venture holy grail technology backing partner network entrepreneur beta marketing value proposition. Android stealth conversion scrum project network effects. Creative alpha long tail conversion stealth growth hacking iteration investor A/B testing prototype customer. Startup www.discoverartisans.com direct mailing launch party partnership market ramen metrics focus value proposition.</p>
-								<p>Stock infrastructure seed round sales paradigm shift technology user experience focus gamification. Partnership metrics business plan stealth business-to-business. Deployment graphical user interface monetization. Twitter incubator scrum project entrepreneur branding burn rate ramen backing paradigm shift virality crowdsource.</p>
-								<p>Social proof MVP ecosystem. Ramen launch party pitch deployment stealth. Vesting period MVP equity. Focus creative partnership founders iteration agile development infographic.</p>
-								<p>Low hanging fruit burn rate innovator user experience niche market A/B testing creative launch party product management release. Www.discoverartisans.com influencer business model canvas user experience gamification paradigm shift startup research &amp; development iPad agile development. Strategy incubator infographic success marketing buzz A/B testing responsive web design. Traction research &amp; development pitch seed money venture niche market accelerator network effects.</p>
+								<button type="button" class="btn btn-primary" onclick="window.location='/uuplex/event?shopCode=100'">이벤트 바로가기</button>
 							</div>
 						</div>
 					</div>

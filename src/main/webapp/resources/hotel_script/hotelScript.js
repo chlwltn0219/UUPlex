@@ -15,9 +15,6 @@ function addCheck() {
 	} else if(!document.roomAddPro.hotelView.value) {
 		alert("전망형태를 선택하세요.");
 		return false;
-	} else if(!document.roomAddPro.capacity.value) {
-		alert("수용인원을 입력하세요.");
-		return false;
 	} else if(!document.roomAddPro.charge.value) {
 		alert("이용요금을 입력하세요.");
 		return false;
@@ -25,23 +22,46 @@ function addCheck() {
 }
 
 function modifyChk() {
-	if(!document.roomModifyPro.mainImg.value) {
-		alert("메인이미지를 선택하세요.");
-		return false;
-	} else if(!document.roomModifyPro.detail_1.value) {
-		alert("상세이미지1 을 선택하세요.");
-		return false;
-	} else if(!document.roomModifyPro.detail_2.value) {
-		alert("상세이미지2 를 선택하세요.");
-		return false;
-	} else if(!document.roomModifyPro.detail_3.value) {
-		alert("상세이미지3 을 선택하세요.");
-		return false;
-	} else if(!document.roomModifyPro.detail_4.value) {
-		alert("상세이미지4 를 선택하세요.");
-		return false;
-	} else if(!document.roomModifyPro.detail_5.value) {
-		alert("상세이미지5 를 선택하세요.");
-		return false;
-	}
+	document.roomModifyPro.roomName.focus();
 }
+	
+function reservChk() {
+	if(!document.reservConfirm.checkIn.value) {
+		alert("체크인 날짜를 선택하세요.")
+		return false;
+	} else if(!document.reservConfirm.checkOut.value) {
+		alert("체크아웃 날짜를 선택하세요.")
+		return false;
+	} else if(!document.reservConfirm.capacity.value) {
+		alert("입실인원을 입력하세요.")
+		return false;
+	}  else if(!document.reservConfirm.name.value) {
+		alert("한글 성명을 작성하세요.")
+		return false;
+	}  else if(!document.reservConfirm.firstName.value) {
+		alert("영문 이름(first name)을 작성하세요.")
+		return false;
+	}  else if(!document.reservConfirm.lastName.value) {
+		alert("영문 성(last name)을 작성하세요.")
+		return false;
+	}  else if(!document.reservConfirm.country.value) {
+		alert("출신 국가를 작성하세요.")
+		return false;
+	}  else if(!document.reservConfirm.phone.value) {
+		alert("연락처를 작성하세요.")
+		return false;
+	} else if(!document.reservConfirm.email.value) {
+		alert("이메일 주소를 작성하세요.");
+		return false;
+	}  else if(!document.reservConfirm.card.value) {
+		alert("카드종류를 선택하세요.")
+		return false;
+	}  else if(!document.reservConfirm.cardNum.value) {
+		alert("카드번호를 입력하세요.")
+		return false;
+	}  else if(!document.reservConfirm.cardEndM.value) {
+		alert("카드 만기일을 선택하세요.")
+		return false;
+	}	
+}
+

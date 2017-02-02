@@ -4,15 +4,24 @@
 
 <html>
 <head>
+<style>
 
+	.jb-cell {
+		align:center;
+		width: 900px;
+  		margin: 100px;
+  		padding: 70px 100px 100px 100px;
+  		border: 3px solid #cccccc;
+	}
+	
+</style>
 
 </head>
 <body>
 
+
 <div class="container">
-
-<h1> 로그인 </h1>
-
+<div class="jb-cell">
 
 <form action="loginPro" name="loginForm" class="form-horizontal" method="post">
 
@@ -28,30 +37,40 @@
 				alert("등록된 아이디가 아닙니다. 다시 확인하세요!");
 			</script>
 		</c:if>
-		
+	
+	<div class="form-group">
+    	<label for="inputEmail3" class="col-sm-5 control-label"></label> 
+    	<div class="col-sm-4">
+    	<h1> 로그인 </h1>
+    	</div>
+  	</div>	
 
-
-<div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">아이디</label> 
-    <div class="col-sm-6">
-      <input type="text" name="memId" class="form-control" id="memId" placeholder="아이디를 입력하세요">
-    </div>
-  </div>	
+	<div class="form-group">
+    	<label for="inputEmail3" class="col-sm-4 control-label">아이디</label> 
+    	<div class="col-sm-4">
+      		<input type="text" name="memId" class="form-control" id="memId" placeholder="아이디를 입력하세요" style="font-family:'함초롱바탕'">
+    	</div>
+  	</div>	
   
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">비밀번호</label>
-    <div class="col-sm-6">
-      <input type="password" name="passwd" class="form-control" id="inputPassword3" placeholder="비밀번호를 입력하세요">
-    </div>
-  </div>
+ 	<div class="form-group">
+    	<label for="inputPassword3" class="col-sm-4 control-label">비밀번호</label>
+    	<div class="col-sm-4">
+      		<input type="password" name="passwd" class="form-control" id="inputPassword3" maxlength="16" placeholder="비밀번호를 입력하세요" style="font-family:'함초롱바탕'">
+    	</div>
+  	</div>
   
-  <div class="form-group" align="left">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Login</button>
-      <button type="reset" class="btn btn-default">취소</button> <br><br>
-    </div>
-  </div>
+  	<div class="form-group" align="left">
+  		<label for="inputPassword3" class="col-sm-4 control-label"></label>
+    	<div class="col-sm-4">
+      		<button type="submit" class="btn btn-default">Login</button>
+      		<button type="reset" class="btn btn-default">취소</button>
+      		<input type="button" class="btn btn-default" value="회원가입" onclick="window.location='input'">
+    	</div>
+  	</div>
+  
+   
 </form>
+</div>
 </div>
 </body>
 </html>

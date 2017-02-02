@@ -4,17 +4,18 @@ import java.util.List;
 import java.util.Map;
 
 import spring.mvc.uuplex.fitness.dto.FClassroomDTO;
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
 public interface FClassroomDAO {
 
 	public int classroomCount();
-	//¸®½ºÆ® °ü·Ã
+	//ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	public List<FClassroomDTO> list(Map<String, Integer> rangeMap);
-	//°­ÀÇ½Ç Ãß°¡
+	//ï¿½ï¿½ï¿½Ç½ï¿½ ï¿½ß°ï¿½
 	int insertClass(FClassroomDTO dto);
-	//°­ÀÇ½Ç »ó¼¼ Á¤º¸
+	//ï¿½ï¿½ï¿½Ç½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	FClassroomDTO classroomDetail(int crid);
-	//°­ÀÇ½Ç Á¤º¸ ¼öÁ¤
+	//ï¿½ï¿½ï¿½Ç½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int modifyClassroom(FClassroomDTO dto);
+	
+	public List<FClassroomDTO> activatedList();
 }

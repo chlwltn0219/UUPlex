@@ -118,9 +118,9 @@
 			   
                  <a href="contentNotiForm?num=${dto.notiNum}&pageNum=${pageNum}&number=${number + 1}&shopCode=${shopCode}" style="color:red">
                  
-                 <c:if test="${dto.shopCode==101}"><img src="${resources}/board/notice.png" border="0" width="30" height="15"> [영화]</c:if>
-                 <c:if test="${dto.shopCode==102}"><img src="${resources}/board/notice.png" border="0" width="30" height="15"> [호텔]</c:if>
-                 <c:if test="${dto.shopCode==103}"><img src="${resources}/board/notice.png" border="0" width="30" height="15"> [휘트니스]</c:if>
+                 <c:if test="${dto.shopCode==101}"><img src="${resources}/board/notice.png" border="0" width="30" height="18"> [영화]</c:if>
+                 <c:if test="${dto.shopCode==102}"><img src="${resources}/board/notice.png" border="0" width="30" height="18"> [호텔]</c:if>
+                 <c:if test="${dto.shopCode==103}"><img src="${resources}/board/notice.png" border="0" width="30" height="18"> [휘트니스]</c:if>
                  
                  ${dto.subject}</a>
                

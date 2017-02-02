@@ -49,8 +49,15 @@ public class RoomAddProHandler implements HCommandHandler {
 			
 			if (file.hasMoreElements()) {
 				for (int i = 0; i <6; i++) {
-					str[i] = (String) file.nextElement();
-					fileName[i] = multi.getFilesystemName(str[i]);
+					if(i==0){
+						str[i] = (String) file.nextElement();
+						fileName[i] = multi.getFilesystemName(str[i]);
+					}
+					if(i != 0) {
+						int j = 6-i;
+						str[j] = (String) file.nextElement();
+						fileName[j] = multi.getFilesystemName(str[j]);
+					}
 				}
 			}
 

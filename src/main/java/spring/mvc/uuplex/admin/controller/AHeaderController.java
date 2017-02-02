@@ -7,9 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import spring.mvc.uuplex.admin.handler.ConfirmIdHandler;
+import spring.mvc.uuplex.admin.handler.DeleteProHandler;
 import spring.mvc.uuplex.admin.handler.LoginProHandler;
 import spring.mvc.uuplex.admin.handler.LogoutProHandler;
+import spring.mvc.uuplex.admin.handler.MemInfoHandler;
+import spring.mvc.uuplex.admin.handler.MemModifyFormHandler;
+import spring.mvc.uuplex.admin.handler.MemModifyProHandler;
 
 @Controller
 public class AHeaderController {
@@ -71,6 +74,72 @@ public class AHeaderController {
 		model.addAttribute("req", req);
 		
 		String viewPage = logoutProHandler.process(model);
+
+		return viewPage;
+	}
+	
+	
+	@Autowired
+	MemInfoHandler memInfoHandler;
+	@RequestMapping("/memInfo")
+	public String memInfo(HttpServletRequest req, Model model) {
+		
+		System.out.println("내정보페이지");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = memInfoHandler.process(model);
+
+		return viewPage;
+	}
+	
+	
+	@Autowired
+	MemModifyFormHandler memModifyFormHandler;
+	@RequestMapping("/memModifyForm")
+	public String memModifyForm(HttpServletRequest req, Model model) {
+		
+		System.out.println("내정보수정");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = memModifyFormHandler.process(model);
+
+		return viewPage;
+	}
+	
+	@Autowired
+	MemModifyProHandler memModifyProHandler;
+	@RequestMapping("/memModifyPro")
+	public String memModifyPro(HttpServletRequest req, Model model) {
+		
+		System.out.println("내정보수정");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = memModifyProHandler.process(model);
+
+		return viewPage;
+	}
+	
+	@RequestMapping("/noneSM/deleteForm")
+	public String deleteForm(Model model) {
+		
+		System.out.println("회원탈퇴 비밀번호 확인");
+		
+		return "/main/mainHeader/deletePWChk";
+	}
+	
+	@Autowired
+	DeleteProHandler deleteProHandler;
+	@RequestMapping("/deletePro")
+	public String deletePro(HttpServletRequest req, Model model) {
+		
+		System.out.println("내정보수정");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = deleteProHandler.process(model);
 
 		return viewPage;
 	}

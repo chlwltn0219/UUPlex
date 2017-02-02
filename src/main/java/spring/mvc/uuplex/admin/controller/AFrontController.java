@@ -16,7 +16,7 @@ public class AFrontController {
 	@RequestMapping("/main")
 	public String main(Model model) {
 		
-		System.out.println("mainÆäÀÌÁö");
+		System.out.println("mainå ì™ì˜™å ì™ì˜™å ì™ì˜™");
 		
 		return "/main/main3";
 	}
@@ -24,7 +24,7 @@ public class AFrontController {
 	@RequestMapping("/input")
 	public String input(Model model) {
 		
-		System.out.println("È¸¿ø°¡ÀÔ¾à°üÆäÀÌÁö");
+		System.out.println("íšŒå ì™ì˜™å ì™ì˜™å ìŒ‰ì–µì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ï¿½");
 
 		return "/main/InputMember/input";
 	}
@@ -32,7 +32,7 @@ public class AFrontController {
 	@RequestMapping("/inputForm")
 	public String inputForm(Model model) {
 		
-		System.out.println("È¸¿ø°¡ÀÔÆäÀÌÁö");
+		System.out.println("íšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™");
 
 		return "/main/InputMember/inputForm";
 	}
@@ -42,7 +42,7 @@ public class AFrontController {
 	@RequestMapping("/inputPro")
 	public String inputPro(HttpServletRequest req, Model model) {
 		
-		System.out.println("È¸¿ø°¡ÀÔÃ³¸®");
+		System.out.println("íšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™ì²˜å ì™ì˜™");
 		
 		model.addAttribute("req", req);
 		
@@ -56,7 +56,7 @@ public class AFrontController {
 	@RequestMapping("/confirmId")
 	public String confirmId(HttpServletRequest req, Model model) {
 		
-		System.out.println("Áßº¹È®ÀÎÆäÀÌÁö");
+		System.out.println("å ìŒ©ë¸ì˜™í™•å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™");
 		
 		model.addAttribute("req", req);
 		

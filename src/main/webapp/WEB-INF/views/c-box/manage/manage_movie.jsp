@@ -2,13 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
+
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
-</head>
-<body>
+
 
 <div class="container">
 	<h3>영화 관리</h3>
@@ -40,6 +37,8 @@
 						<input type="button" class="btn btn-primary" value="등록하기"
 							onclick="movieInput();" data-toggle="modal"
 							data-target="#modalPage">
+						
+						
 
 					</div>
 				</td>
@@ -51,6 +50,7 @@
 				<th>장르</th>
 				<th>개봉일</th>
 				<th>상영여부</th>
+				<th>삭제</th>
 
 			</tr>
 		</thead>
@@ -65,12 +65,16 @@
 					<td>${dto.genre}</td>
 					<td>${dto.releaseDate}</td>
 					<td>${dto.status}</td>
+					
+					<td><input type="button" class="btn btn-danger" name="deleteButton" value="삭제"
+							onclick="window.location='/uuplex/c-box/manage/movie/delete?movie_num=${dto.movie_num}'"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="6" align="center"><c:if test="${prev == true}">
+				<td colspan="6" align="center">
+				<c:if test="${prev == true}">
 						<ul class="pager">
 							<li><a href="/uuplex/c-box/manage_movie?page=${startPage-1}">&lt;
 									prev</a></li>
@@ -87,12 +91,14 @@
 								<li><a href="/uuplex/c-box/manage_movie?page=${page}">${page}</a></li>
 							</c:if>
 						</c:forEach>
-					</ul> <c:if test="${next == true}">
+					</ul>
+					<c:if test="${next == true}">
 						<ul class="pager">
 							<li><a href="/uuplex/c-box/manage_movie?page=${endPage+1}">next
 									&gt;</a></li>
 						</ul>
-					</c:if></td>
+					</c:if>
+				</td>
 			</tr>
 		</tfoot>
 
@@ -107,8 +113,8 @@
 	<%-- 	<%@ include file="sports_detail.jsp" %> --%>
 
 </div>
-</body>
-</html>
+
+
 
 
 

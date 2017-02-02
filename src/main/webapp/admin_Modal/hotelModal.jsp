@@ -6,10 +6,10 @@
       <div class="modal-content">
          <div class="modal-header">
             <button class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">모달 제목</h4>
+            <h4 class="modal-title"></h4>
          </div>
          <div class="modal-body">
-            <p>모달이에요</p>
+            <p></p>
          </div>
          <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal">닫기</button>

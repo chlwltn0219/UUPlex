@@ -110,7 +110,7 @@
 								<li class="divider"></li>
 								<li><a href="/uuplex/qna?shopCode=100">Q&A</a></li>
 								<li class="divider"></li>
-								<li><a href="#">이벤트 게시판</a></li>
+								<li><a href="/uuplex/event?shopCode=100">이벤트 게시판</a></li>
 							</ul>
 						</li>
 						
@@ -124,7 +124,17 @@
 						
 						<!-- 회원 -->
 						<c:if test="${idCode == 105}">
-							<li><a href="#">마이페이지</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" 
+									data-toggle="dropdown" role="button" aria-expanded="false"> 
+									마이페이지 <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="/uuplex/memInfo">나의회원정보</a></li>
+									<li class="divider"></li>
+									<li><a href="">예약확인</a></li>
+								</ul>
+							</li>
 							<li><a href="/uuplex/logout">로그아웃</a></li>
 						</c:if>
 						

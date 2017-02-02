@@ -26,6 +26,7 @@ public class FProgramInputProHandler implements FCommandHandler{
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
 		try {
+			
 			dto.setPname(req.getParameter("pname"));
 			dto.setSid(Integer.parseInt(req.getParameter("sid")));
 			dto.setTid(Integer.parseInt(req.getParameter("tid")));
@@ -35,7 +36,7 @@ public class FProgramInputProHandler implements FCommandHandler{
 			dto.setPinfo(req.getParameter("pinfo"));
 			
 		} catch (NumberFormatException e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		cnt = dao.addProgram(dto);

@@ -46,11 +46,7 @@
 		SELECT * FROM m_movie_info
 	</select>
 
-<<<<<<< HEAD
 	<!-- 사용자 : 리뷰 추가-->
-=======
-	<!-- 리뷰 추가 -->
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 	<insert id="addReview" parameterType="spring.mvc.uuplex.movie.dto.ReviewDTO">
 		INSERT INTO
 		m_review(review_num, memId, movie_num, rating, review_content,
@@ -60,7 +56,6 @@
 
 	</insert>
 	
-<<<<<<< HEAD
 	<!-- 사용자 : 리뷰 리스트 -->
 	<select id="reviewList" parameterType="Map"  resultType="spring.mvc.uuplex.movie.dto.ReviewDTO">
 		SELECT *
@@ -79,11 +74,29 @@
 		DELETE FROM m_review WHERE review_num = #{review_num}
 	</delete>
 	
-	
-=======
 	<!-- 상영중인 영화 -->
 	<select id="getScreening" resultType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
 		SELECT * FROM M_MOVIE_INFO WHERE STATUS='상영중'
 	</select>
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
+	
+	<!-- 관리자 : 영화정보 수정 -->
+	<update id="modifyMovie" parameterType="spring.mvc.uuplex.movie.dto.MovieInfoDTO">
+		UPDATE m_movie_info SET title1 = #{title1}, title2 = #{title2}, director = #{director},
+		starring = #{starring}, genre = #{genre}, MPAARating = #{MPAARating}, 
+		productionYear = #{productionYear}, runTime = #{runTime}, releaseDate = #{releaseDate},
+		poster = #{poster}, movie_img1 = #{movie_img1}, movie_img2 = #{movie_img2}, trailer = #{trailer},
+		status = #{status}, synopsis = #{synopsis} where movie_num = #{movie_num}
+
+	</update>
+	
+	<!-- 영화 삭제-->
+	<delete id="deleteMovie" parameterType="int" >
+		DELETE FROM m_movie_info WHERE movie_num = #{movie_num}
+	</delete>
+	
+	<!-- 평균 별점 구하기 -->
+	<select id="getAvg" parameterType="int" resultType="double">
+		SELECT AVG(rating) FROM m_review WHERE movie_num = #{movie_num}
+	</select>
+	
 </mapper>

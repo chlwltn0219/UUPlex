@@ -68,14 +68,20 @@ public class FTeacherDAOImpl implements FTeacherDAO{
 	}
 	
 	@Override
-	public List<FTeacherDTO> activatedList() {
+	public List<FTeacherDTO> listAll() {
 		//���� �ٱ���
 		List<FTeacherDTO> list = null;		
 		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
-		list = dao.activatedList();
-				
+		list = dao.listAll();
 		return list;
-
+	}
+	
+	@Override
+	public List<FTeacherDTO> suitableList(int sid) {
+		List<FTeacherDTO> list = null;		
+		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
+		list = dao.suitableList(sid);
+		return list;
 	}
 
 }

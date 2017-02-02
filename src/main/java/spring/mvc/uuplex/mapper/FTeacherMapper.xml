@@ -43,10 +43,17 @@
 			WHERE tid=#{tid}	
 	</update>
 	
-	<select id="activatedList" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
+	<select id="listAll" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
+        SELECT tid, tname
+          FROM f_teacher
+         ORDER BY tid
+	</select> 
+	
+	<select id="suitableList" parameterType="int" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
         SELECT tid, tname
           FROM f_teacher
          WHERE activated = 'Y'
+           AND sid=#{sid}
          ORDER BY tname
 	</select> 
 	

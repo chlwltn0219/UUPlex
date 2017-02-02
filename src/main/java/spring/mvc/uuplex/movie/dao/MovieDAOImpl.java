@@ -14,9 +14,9 @@ import spring.mvc.uuplex.movie.dto.ReviewDTO;
 public class MovieDAOImpl implements MovieDAO{
 
 	@Autowired
-	private SqlSession sqlSession; //servlet-context.xml�� �ִ°� �ҷ��´�.
+	private SqlSession sqlSession; //servlet-context.xml占쏙옙 占쌍는곤옙 占쌀뤄옙占승댐옙.
 	
-	//��ȭ�����߰�
+	//占쏙옙화占쏙옙占쏙옙占쌩곤옙
 	@Override
 	public int addMovieInfo(MovieInfoDTO dto) {
 		int cnt = 0;
@@ -24,14 +24,6 @@ public class MovieDAOImpl implements MovieDAO{
 		cnt = dao.addMovieInfo(dto);
 		
 		return cnt;
-	}
-
-	@Override
-	public MovieInfoDTO getMovieInfo(int num) {
-		MovieInfoDTO dto = null;
-		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
-		dto = dao.getMovieInfo(num);
-		return dto;
 	}
 
 	@Override
@@ -66,7 +58,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//�����߰�
+	//占쏙옙占쏙옙占쌩곤옙
 	@Override
 	public int addReview(ReviewDTO dto) {
 		int cnt = 0;
@@ -76,7 +68,6 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-<<<<<<< HEAD
 	// 사용자 - 리뷰 리스트 가져오기
 	@Override
 	public List<ReviewDTO> reviewList(Map<String, Integer> rangeMap) {
@@ -87,7 +78,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return list;
 	}
 
-	//각 영화당 리뷰 개수
+	//媛� ������ 由щ럭 媛���
 	@Override
 	public int reviewCount(int mnum) {
 		int cnt = 0;
@@ -97,7 +88,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//리뷰 삭제
+	//由щ럭 ����
 	@Override
 	public int deleteReview(int review_num) {
 		int cnt = 0;
@@ -106,7 +97,6 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-=======
 	@Override
 	public List<MovieInfoDTO> getScreening() {
 		List<MovieInfoDTO> list = null;
@@ -115,5 +105,32 @@ public class MovieDAOImpl implements MovieDAO{
 		return list;
 	}
 
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
+	//영화정보 수정
+	@Override
+	public int modifyMovie(MovieInfoDTO dto) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.modifyMovie(dto);
+		
+		return cnt;
+	}
+
+	//영화정보 삭제
+	@Override
+	public int deleteMovie(int movie_num) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.deleteMovie(movie_num);
+		
+		return cnt;
+	}
+
+	@Override
+	public double getAvg(int movie_num) {
+		double avg = 0;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		avg = dao.getAvg(movie_num);
+		return avg;
+	}
+
 }

@@ -1,9 +1,9 @@
 DROP TABLE f_classroom;
 CREATE TABLE f_classroom(
-  shopcode        NUMBER(5),                 -- ¼¥ÄÚµå
-  crid            NUMBER(5),     -- °­ÀÇ½ÇÈ£¼ö
-  crname          VARCHAR2(300), --°­ÀÇ½Ç ÀÌ¸§
-  activated       VARCHAR2(1) DEFAULT 'Y',     -- °­ÀÇ½Ç Æó¼è¿©ºÎ
+  shopcode        NUMBER,                 -- ï¿½ï¿½ï¿½Úµï¿½
+  crid            NUMBER,     -- ï¿½ï¿½ï¿½Ç½ï¿½È£ï¿½ï¿½
+  crname          VARCHAR2(300), --ï¿½ï¿½ï¿½Ç½ï¿½ ï¿½Ì¸ï¿½
+  activated       VARCHAR2(1) DEFAULT 'Y',     -- ï¿½ï¿½ï¿½Ç½ï¿½ ï¿½ï¿½è¿©ï¿½ï¿½
   CONSTRAINT f_f_classroom_crid_pk PRIMARY KEY(crid),
   CONSTRAINT f_f_classroom_activated_fk FOREIGN KEY(activated) references BOOLEAN(value),
   CONSTRAINT f_f_classroom_shopcode_fk FOREIGN KEY(shopcode) references uu_shopcode(shopcode)
@@ -18,29 +18,11 @@ INCREMENT BY 1
 NOCYCLE 
 MINVALUE 0;
 
-SELECT * FROM f_teacher;
+--INSERT INTO f_classroom (crid, crname, activated)
+--VALUES (SEQ_classroom_crid.nextval, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'Y');
+--INSERT INTO f_classroom (crid, crname, activated)
+--VALUES (SEQ_classroom_crid.nextval, 'ï¿½×´Ï½ï¿½ï¿½ï¿½', 'Y');
+--INSERT INTO f_classroom (crid, crname, activated)
+--VALUES (SEQ_classroom_crid.nextval, 'ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½', 'Y');
+--COMMIT;
 
-DROP TABLE BOOLEAN;
-
-CREATE TABLE BOOLEAN (
-value		VARCHAR2(1),
-CONSTRAINT boolean_value_pk PRIMARY KEY (value)
-);
-
-INSERT INTO BOOLEAN 
-VALUES ('Y');
-INSERT INTO BOOLEAN 
-VALUES ('N');
-
-COMMIT;
-
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '¼ö¿µÀå', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, 'Å×´Ï½ºÀå', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '´Ù¸ñÀû½Ç', 'Y');
-COMMIT;
-
-DELETE FROM f_teacher; 
-COMMIT;

@@ -14,5 +14,12 @@ public interface AdminDAO {
 	
 	public ArrayList<MemberDTO> memberList(); // 회원리스트
 	public MemberDTO memberView(String memId); // 회원개인정보
+	
+	public int memUpdate(MemberDTO dto); // 회원개인정보 수정
+	public int deletepwdCheck(Map<String, Object> daoMap); // 회원탈퇴 비밀번호 체크
+	public int deleteMember(String memId); // 회원탈퇴
+	
+	public int upgrade(Map<String, Object> daoMap); // 등업
+	
 
 }
