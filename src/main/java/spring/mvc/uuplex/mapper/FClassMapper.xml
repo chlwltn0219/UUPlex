@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- 피트니스 강의 관련 -->
+<mapper namespace="spring.mvc.uuplex.fitness.dao.FClassDAO" >
+
+	<!-- 피트니스 강의 목록 총 수 -->
+	<select id="classCount" resultType="int">
+		SELECT COUNT(*) FROM F_CLASS
+	</select>
+	
+	<!-- 피트니스 강의 목록 리스트 반환 -->
+	<select id="classList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		SELECT *
+		  FROM ( SELECT c.* , rownum AS rnum 
+				   FROM ( SELECT cid, subName, activated,
+				   				 register_start, register_end,
+				   				 start_date, end_date,
+				   				 (SELECT pname 
+				   				    FROM F_PROGRAM p 
+				   				   WHERE p.pid=i.pid ) AS pname,
+				   				 (SELECT sname 
+				   				    FROM F_SPORTS s 
+				   				   WHERE s.sid=(SELECT sid 
+				   				   				  FROM F_PROGRAM p
+				   				   				 WHERE p.pid=i.pid ) ) AS sname,
+				   				 (SELECT tname 
+				   				    FROM F_TEACHER t 
+				   				   WHERE t.tid=(SELECT tid 
+				   				   				  FROM F_PROGRAM p
+				   				   				 WHERE p.pid=i.pid ) ) AS tname
+			  		     	FROM F_CLASS i
+			  			   ORDER BY activated DESC, cid DESC) c )
+		 WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 피트니스 강의 추가 -->
+	<insert id="addClass" parameterType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		INSERT INTO F_CLASS (cid, pid, subname, crid, limit,
+							 register_start, register_end,
+							 start_date, end_date,
+							 start_time, end_time)
+		VALUES (SEQ_CLASS_CID.nextval, #{pid} ,#{subname}, #{crid}, #{limit},
+				#{register_start}, #{register_end},
+				#{start_date}, #{end_date},
+				#{start_time}, #{end_time})
+	</insert>
+	
+	<!-- 피트니스 강의 요일 추가 -->
+	<insert id="addClassWeek" parameterType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+		VALUES (SEQ_CLASS_CID.currval, #{sun}, #{mon}, #{tue}, #{wed}, #{thu}, #{fri}, #{sat})
+	</insert>
+	
+	<!-- 강의 상세 정보 -->
+	<select id="classDetail" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO" parameterType="int">
+		SELECT cid, crid, subName, 
+			   activated, reg_date,
+			   limit, current_people,
+			   register_start, register_end,
+			   start_date, end_date,
+			   start_time, end_time,
+			   (SELECT pname 
+			      FROM F_PROGRAM p 
+			     WHERE p.pid=c.pid ) AS pname,
+			   (SELECT sname 
+			      FROM F_SPORTS s 
+			     WHERE s.sid=(SELECT sid 
+			   				  FROM F_PROGRAM p
+			   				 WHERE p.pid=c.pid ) ) AS sname,
+			   (SELECT tname 
+			      FROM F_TEACHER t 
+			     WHERE t.tid=(SELECT tid 
+			   				  FROM F_PROGRAM p
+			   				 WHERE p.pid=c.pid ) ) AS tname,
+			   (SELECT crname 
+			      FROM F_CLASSROOM cr 
+			     WHERE cr.crid=c.crid) AS crname 
+		 FROM F_CLASS c
+		WHERE cid=#{cid}
+		
+		
+	</select>
+	
+	<!-- 강의 정보 수정 -->
+	<update id="modifyClass" parameterType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		UPDATE F_CLASS
+		   SET pid = #{pid},
+			   subname = #{subname},
+			   limit = #{limit},
+			   register_start = #{register_start},
+			   register_end = #{register_end},
+			   start_date = #{start_date},
+			   end_date = #{end_date},
+			   start_time = #{start_time},
+			   end_time = #{end_time}
+		 WHERE cid = #{cid}
+	</update>
+	
+	<!-- 피트니스 활성 강의 목록 리스트 반환 -->
+	<select id="classActivatedList" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		SELECT sid, sname
+		  FROM F_CLASS 
+		 WHERE activated = 'Y'
+		 ORDER BY sname
+	</select>
+	
+</mapper>

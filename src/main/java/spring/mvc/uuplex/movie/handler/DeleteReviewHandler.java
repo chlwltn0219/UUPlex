@@ -15,6 +15,7 @@ public class DeleteReviewHandler implements MCommandHandler{
 
 	@Autowired
 	MovieDAO dao;
+	
 	@Override
 	public String process(Model model) {
 		

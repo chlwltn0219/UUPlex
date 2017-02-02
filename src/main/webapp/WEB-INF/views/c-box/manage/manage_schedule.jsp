@@ -1,72 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../setting.jsp"%>
-
-<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
-<script type="text/javascript" src="${resources}/c-box/js/schedule.js"></script>
-<style>
-.list {
-	margin: 100px auto;
-}
-
-</style>
-
-<div class="container">
-	<div class="list">
-		<h2>상영 일정 관리</h2>
-		<table>
-			<tr>
-				<td style="width:500px">
-					<!-- 검색 -->
-					<form action="" method="get" onsubmit="" class="form-inline"
-						name="searchForm">
-						<div class="input-group">
-							<!-- 							<select class="form-control"> -->
-							<!-- 								<option>코드</option> -->
-							<!-- 								<option>종목 명</option> -->
-							<!-- 							</select> -->
-							<input class="form-control" type="search" placeholder="검색 구현 필요">
-							<div class="input-group-btn">
-								<button type="submit" class="btn btn-info">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
-				</td>	
-				<td>
-					<!-- 등록 -->
-					<div class="form-group pull-right">
-
-						<input type="button" class="btn btn-primary" value="등록하기"
-							onclick="scheduleInput();" data-toggle="modal"
-							data-target="#modalPage">
-					</div>
-				</td>
-			</tr>
-		</table>
-		
-
-	
-	
-		<table class="table">
-			<tr>
-				<th>더킹</th><td>1관</td><td><input type="datetime-local">17:55</td><td>20:35</td>
-			</tr>
-			<tr>
-				<th>모아나</th><td>2관</td><td>17:55</td><td>20:35</td>
-			</tr>	
-			<tr>
-				<th>라라랜드</th><td>3관</td><td>17:55</td><td>20:35</td>
-			</tr>	
-			
-		</table>
-	</div>
-	
-	<div class="modal fade" id="modalPage" role="dialog">
-		<div class="modal-dialog modal-lg" id="dialog"></div>
-	</div>
-	
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
 <%@page import="java.util.Date"%>
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
@@ -86,11 +18,14 @@
 			sendRequest(scheduleModal, url, method, params);
 		});
 
-		$(".glyphicon-trash").click(function() {
-			if (confirm($(this).val()+"상영일정을 삭제하시겠습니까?")) {
-				window.location="/uuplex/c-box/manage/schedule/delete?num="+$(this).val();
-			}
-		});
+		$(".glyphicon-trash")
+				.click(
+						function() {
+							if (confirm($(this).val() + "상영일정을 삭제하시겠습니까?")) {
+								window.location = "/uuplex/c-box/manage/schedule/delete?num="
+										+ $(this).val();
+							}
+						});
 
 	});
 </script>
@@ -118,9 +53,9 @@
 	background-color: #cccccc;
 }
 
-#dsche{
-	margin : 30px auto 0 auto;
-	display : block;
+#dsche {
+	margin: 30px auto 0 auto;
+	display: block;
 	opacity: 0;
 }
 
@@ -134,11 +69,11 @@
 	transition: 0.5s;
 }
 
-.sche:HOVER{
+.sche:HOVER {
 	opacity: 1;
 }
 
-.sche:HOVER #dsche{
+.sche:HOVER #dsche {
 	opacity: 1;
 }
 
@@ -476,9 +411,12 @@ thead td {
 							<div role="tabpanel" class="tab-pane active" id="home">
 								<c:forEach items="${dtos}" var="sdto">
 									<c:if test="${sdto.theater_num==1}">
-										<div class="sche" style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
+										<div class="sche"
+											style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
 											${sdto.title1}
-											<button id="dsche" type="button" class="btn btn-default glyphicon glyphicon-trash" value="${sdto.schedule_num}">삭제</button>
+											<button id="dsche" type="button"
+												class="btn btn-default glyphicon glyphicon-trash"
+												value="${sdto.schedule_num}">삭제</button>
 										</div>
 									</c:if>
 								</c:forEach>
@@ -486,9 +424,12 @@ thead td {
 							<div role="tabpanel" class="tab-pane" id="profile">
 								<c:forEach items="${dtos}" var="sdto">
 									<c:if test="${sdto.theater_num==2}">
-										<div class="sche" style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
+										<div class="sche"
+											style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
 											${sdto.title1}
-											<button id="dsche" type="button" class="btn btn-default glyphicon glyphicon-trash" value="${sdto.schedule_num}">삭제</button>
+											<button id="dsche" type="button"
+												class="btn btn-default glyphicon glyphicon-trash"
+												value="${sdto.schedule_num}">삭제</button>
 										</div>
 									</c:if>
 								</c:forEach>
@@ -496,9 +437,12 @@ thead td {
 							<div role="tabpanel" class="tab-pane" id="messages">
 								<c:forEach items="${dtos}" var="sdto">
 									<c:if test="${sdto.theater_num==3}">
-										<div class="sche" style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
+										<div class="sche"
+											style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
 											${sdto.title1}
-											<button id="dsche" type="button" class="btn btn-default glyphicon glyphicon-trash" value="${sdto.schedule_num}">삭제</button>
+											<button id="dsche" type="button"
+												class="btn btn-default glyphicon glyphicon-trash"
+												value="${sdto.schedule_num}">삭제</button>
 										</div>
 									</c:if>
 								</c:forEach>
@@ -506,30 +450,24 @@ thead td {
 							<div role="tabpanel" class="tab-pane" id="settings">
 								<c:forEach items="${dtos}" var="sdto">
 									<c:if test="${sdto.theater_num==4}">
-										<div class="sche" style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
+										<div class="sche"
+											style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">
 											${sdto.title1}
-											<button id="dsche" type="button" class="btn btn-default glyphicon glyphicon-trash" value="${sdto.schedule_num}">삭제</button>
+											<button id="dsche" type="button"
+												class="btn btn-default glyphicon glyphicon-trash"
+												value="${sdto.schedule_num}">삭제</button>
 										</div>
 									</c:if>
 								</c:forEach>
 							</div>
 						</div>
-
 					</div>
 				</td>
-
-
 			</tr>
-
 		</table>
-
-
 	</div>
-
 	<div class="modal fade" id="modalPage" role="dialog">
 		<div class="modal-dialog" id="dialog"></div>
 	</div>
-
->>>>>>> 21259d5f70f2eb2a6c237d9f6350557c4e495678
 </div>
 

@@ -48,4 +48,12 @@ public class TheaterDAOImpl implements TheaterDAO{
 		return dto;
 	}
 
+	@Override
+	public int modifyTheater(TheaterDTO dto) {
+		int cnt = 0;
+		TheaterDAO dao = sqlSession.getMapper(TheaterDAO.class);
+		cnt = dao.modifyTheater(dto);
+		return cnt;
+	}
+
 }
