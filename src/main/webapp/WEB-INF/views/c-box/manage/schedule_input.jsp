@@ -39,11 +39,11 @@
 				</tr>
 				<tr>
 					<th>상영일</th>
-					<td><input type="date" name="schedule_Date" min="<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000)%>" pattern="YYYY-MM-dd" />" max="<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 *6)%>" pattern="YYYY-MM-dd" />" required="required"></td>
+					<td><input type="date" name="schedule_Date" min="<fmt:formatDate value="<%=new Date()%>" pattern="YYYY-MM-dd" />" max="<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 *6)%>" pattern="YYYY-MM-dd" />" required="required"></td>
 				</tr>
 				<tr>
 					<th>상영시각</th>
-					<td><input type="time" name="schedule_Time" value="09:00" required="required" step="300"></td>
+					<td><input type="time" name="schedule_Time" value="<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 1000)%>" pattern="YYYY-MM-dd" />" required="required" step="300"></td>
 				</tr>
 				<tr>
 					<td colspan="5" align="center"><input type="submit"

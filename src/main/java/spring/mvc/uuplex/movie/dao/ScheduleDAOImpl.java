@@ -1,6 +1,7 @@
 package spring.mvc.uuplex.movie.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,14 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 		return cnt;
 		
 		
+	}
+
+	@Override
+	public List<ScheduleDTO> schedules(Map<String, String> map) {
+		List<ScheduleDTO> list = null;
+		ScheduleDAO dao = sqlSession.getMapper(ScheduleDAO.class);
+		list = dao.schedules(map);
+		return list;
 	}
 
 }

@@ -8,16 +8,18 @@
 
 <script>
 	$(function() {
+		
 		var seatclass = [ 'btn-default', 'btn-primary', 'btn-success' ];//클래스 이름 지정
 
 		var type = $(':radio[name="type"]:checked').val();//라디오 현재값
 
-		
-		for (var i = 0; i < 960; i++) {
-			$(".seat").eq(i).addClass(seatclass[$(".seat").eq(i).val()]);
+		for (var j = 0; j < 4; j++) {
+			for (var i = 0; i < 240; i++) {
+				$(".seatarrange").eq(j).find(".seat").eq(i).addClass(seatclass[$(".seatarrange").eq(j).find(".seat").eq(i).val()]);
+			}
 		}
 		
-		$(".seat").click(function() {
+		$(".seat").click(function() {			
 			
 			$(this).attr('class', 'seat btn btn-sm ' + seatclass[type]);
 			$(this).val(type);
@@ -29,7 +31,7 @@
 			type = $(':radio[name="type"]:checked').val();
 
 			$(".seat").click(function() {
-
+				
 				$(this).attr('class', 'seat btn btn-sm ' + seatclass[type]);
 				$(this).val(type);
 				$(this).next().val(type);
@@ -111,9 +113,8 @@
 										<th>${row}</th>
 										<c:forEach items="${dto.seats}" var="seat" begin="${begin}" varStatus="status" end="${end}">
 											<td>
-												<button type="button" class="seat btn btn-sm" value="${seat}" style="padding: 5px 1px; width: 30px;">
-													${row}${status.count}</button> <input type="hidden" name="seat"
-												value="${seat}">
+												<button type="button" class="seat btn btn-sm" value="${seat}" style="padding: 5px 1px; width: 30px;">${row}${status.count}</button>
+												<input type="hidden" name="seat" value="${seat}">
 											</td>
 										</c:forEach>
 										<c:set var="begin" value="${begin+20}" />
@@ -242,11 +243,9 @@
 									</tr>
 								</c:forEach>
 								<tr>
-									<td colspan="20" align="center"><input type="submit"
-										class="btn btn-primary" value="수정"> <input
-										type="button" class="btn btn-warning"
-										onclick="window.location='/uuplex/c-box/manage_theater'"
-										value="초기화">
+									<td colspan="20" align="center">
+									<input type="submit" class="btn btn-primary" value="수정">
+									<input type="button" class="btn btn-warning" onclick="window.location='/uuplex/c-box/manage_theater'" value="초기화">
 								</tr>
 							</table>
 						</form>
