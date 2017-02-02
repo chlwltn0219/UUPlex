@@ -95,8 +95,7 @@
 							<table class="table">
 								<tr>
 									<th>객실이름</th>
-									<td><input class="input" type="text" name="roomName"
-										maxlength="20"></td>
+									<td><input class="input" type="text" name="roomName" placeholder="공백없이 영문으로 입력"></td>
 								</tr>
 								<tr>
 									<th>메인이미지</th>

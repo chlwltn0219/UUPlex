@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import spring.mvc.uuplex.admin.dto.MemberDTO;
 import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
 @Repository
@@ -60,6 +61,16 @@ public class HotelDAOImpl implements HotelDAO {
 	public void delete(int roomNum) {
 		HotelDAO dao = this.sqlsession.getMapper(HotelDAO.class);
 		dao.delete(roomNum);
+	}
+
+	@Override
+	public MemberDTO reserView(String memId) {
+		MemberDTO dto = null;
+		
+		HotelDAO dao = this.sqlsession.getMapper(HotelDAO.class);
+		dto = dao.reserView(memId);
+		
+		return dto;
 	}
 
 

@@ -35,4 +35,10 @@
  	<delete id="delete" parameterType="int">
  		DELETE FROM h_room WHERE roomNum=#{roomNum}
  	</delete>
+ 	
+  <!-- 회원정보조회 -->
+    <select id="reserView" parameterType="String" resultType="spring.mvc.uuplex.admin.dto.MemberDTO">
+		SELECT * FROM uu_member WHERE memId=#{memId}
+	</select>
+ 	
     </mapper>
