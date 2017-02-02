@@ -25,6 +25,7 @@ import spring.mvc.uuplex.movie.handler.ModifyTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
+import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
 
 @Controller
@@ -299,6 +300,20 @@ public class MFrontController {
 		model.addAttribute("req", req);
 		String viewPage = reviewListHandler.process(model);
 							
+		return viewPage;
+	}
+	
+	//유영원 : 빠른 예매 페이지
+	@Autowired
+	ReserveMainHandler reserveMainHandler;
+
+	@RequestMapping("/user/reserve/main")
+	public String reserve(Model model) {
+		System.out.println("reserve_main");
+								
+		model.addAttribute("contentPage", "user/reserve_main.jsp");
+		String viewPage = reserveMainHandler.process(model);
+								
 		return viewPage;
 	}
 
