@@ -1,7 +1,7 @@
 DROP TABLE f_classroom;
 CREATE TABLE f_classroom(
-  shopcode        NUMBER(5),                 -- ���ڵ�
-  crid            NUMBER(5),     -- ���ǽ�ȣ��
+  shopcode        NUMBER,                 -- ���ڵ�
+  crid            NUMBER,     -- ���ǽ�ȣ��
   crname          VARCHAR2(300), --���ǽ� �̸�
   activated       VARCHAR2(1) DEFAULT 'Y',     -- ���ǽ� ��迩��
   CONSTRAINT f_f_classroom_crid_pk PRIMARY KEY(crid),
