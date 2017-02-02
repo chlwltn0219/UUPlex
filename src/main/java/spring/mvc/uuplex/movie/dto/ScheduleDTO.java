@@ -13,6 +13,15 @@ public class ScheduleDTO {
 	int time;
 	int day;
 	int schedule_num; 
+	String MPAARating;
+	
+	
+	public String getMPAARating() {
+		return MPAARating;
+	}
+	public void setMPAARating(String mPAARating) {
+		MPAARating = mPAARating;
+	}
 	
 	public int getSchedule_num() {
 		return schedule_num;

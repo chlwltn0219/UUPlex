@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import spring.mvc.uuplex.fitness.dto.FProgramDTO;
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
 
 public interface FProgramDAO {
@@ -19,4 +18,7 @@ public interface FProgramDAO {
 	FProgramDTO programDetail(int pid);
 	
 	int modifyProgram (FProgramDTO dto);
+
+	List<FProgramDTO> programActivatedList();
+	
 }

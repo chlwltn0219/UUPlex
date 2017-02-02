@@ -30,16 +30,15 @@ CONSTRAINT f_program_activated_fk FOREIGN KEY (activated)
 								 REFERENCES BOOLEAN(value) 
 );
 
-INSERT INTO F_PROGRAM (pid, pname, pinfo, sid, tid, price, preparationCost, preparation)
-VALUES (SEQ_PROGRAM_PID.nextval, '요가 최상급', null, 1, 1, 1100000, 20000, null);
-
-INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
-VALUES (SEQ_PROGRAM_PID.nextval, '요가 초급 교실', 1, 1, 10000);
-INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
-VALUES (SEQ_PROGRAM_PID.nextval, '요가 중급 교실', 1, 2, 20000);
-INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
-VALUES (SEQ_PROGRAM_PID.nextval, '요가 고급 교실', 1, 3, 30000);
-INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
-VALUES (SEQ_PROGRAM_PID.nextval, '요가 자유 교실', 1, 4, 40000);
-COMMIT;
+--INSERT INTO F_PROGRAM (pid, pname, pinfo, sid, tid, price, preparationCost, preparation)
+--VALUES (SEQ_PROGRAM_PID.nextval, '요가 최상급', null, 1, 1, 1100000, 20000, null);
+--INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
+--VALUES (SEQ_PROGRAM_PID.nextval, '요가 초급 교실', 1, 1, 10000);
+--INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
+--VALUES (SEQ_PROGRAM_PID.nextval, '요가 중급 교실', 1, 2, 20000);
+--INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
+--VALUES (SEQ_PROGRAM_PID.nextval, '요가 고급 교실', 1, 3, 30000);
+--INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
+--VALUES (SEQ_PROGRAM_PID.nextval, '요가 자유 교실', 1, 4, 40000);
+--COMMIT;
 

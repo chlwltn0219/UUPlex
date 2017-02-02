@@ -15,7 +15,7 @@
 	<select id="programList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
 		SELECT *
 		  FROM ( SELECT p.* , rownum AS rnum 
-				   FROM ( SELECT pid, pname, 
+				   FROM ( SELECT pid, pname,
 				   				(SELECT sname FROM F_SPORTS s WHERE s.sid=i.sid) AS sname, 
 				   				(SELECT tname FROM F_TEACHER t WHERE t.tid=i.tid) AS tname, 
 				   				activated 
@@ -52,5 +52,13 @@
 			   preparation = #{preparation}
 		 WHERE pid = #{pid}
 	</update>
+	
+		<!-- 피트니스 프로그램 리스트 반환 -->
+	<select id="programActivatedList" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
+	   SELECT pid, pname, sid, tid
+  		 FROM F_PROGRAM
+  		WHERE activated='Y'
+  		ORDER BY sid
+	</select>
 	
 </mapper>
