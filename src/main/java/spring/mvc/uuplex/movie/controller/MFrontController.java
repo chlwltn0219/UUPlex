@@ -25,12 +25,9 @@ import spring.mvc.uuplex.movie.handler.ModifyTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
-<<<<<<< HEAD
-import spring.mvc.uuplex.movie.handler.ScheduleHandler;
-=======
 import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
->>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
+import spring.mvc.uuplex.movie.handler.ScheduleHandler;
 
 @Controller
 @RequestMapping("/c-box")
@@ -133,14 +130,11 @@ public class MFrontController {
 
 		return viewPage;
 	}
-<<<<<<< HEAD
 
 	// 관리자 영화 정보 수정
-=======
 	
 	
 	//유영원 : 관리자 영화 정보 수정
->>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
 	@Autowired
 	ModifyMovieHandler modifyMovieHandler;
 
@@ -160,11 +154,7 @@ public class MFrontController {
 
 	@RequestMapping("/user/review/delete")
 	public String deleteReview(HttpServletRequest req, Model model) {
-<<<<<<< HEAD
-
-=======
 		System.out.println("review_delete");	
->>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
 		model.addAttribute("req", req);
 		String viewPage = deleteReviewHandler.process(model);
 
@@ -267,7 +257,6 @@ public class MFrontController {
 		String viewPage = deleteScheduleHandler.process(model);
 		return viewPage;
 	}
-<<<<<<< HEAD
 
 	// 박주은 : 상영시간표
 	@Autowired
@@ -282,7 +271,6 @@ public class MFrontController {
 		String viewPage = scheduleHandler.process(model);
 		return viewPage;
 	}
-=======
 	
 	//유영원 : 관리자 영화 정보 수정 처리
 	@Autowired
@@ -340,5 +328,4 @@ public class MFrontController {
 		return viewPage;
 	}
 
->>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
 }
