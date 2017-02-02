@@ -11,25 +11,23 @@ import org.springframework.ui.Model;
 import spring.mvc.uuplex.movie.dao.MovieDAO;
 
 @Service
-public class DeleteReviewHandler implements MCommandHandler{
+public class DeleteMovieHandler implements MCommandHandler{
 
 	@Autowired
 	MovieDAO dao;
 	
 	@Override
 	public String process(Model model) {
-		
 		Map<String,Object> map = model.asMap();
 		
 		HttpServletRequest req = (HttpServletRequest)map.get("req");
 		
-		int review_num = Integer.parseInt(req.getParameter("review_num"));
+		int movie_num = Integer.parseInt(req.getParameter("movie_num"));
 		
-		int cnt = dao.deleteReview(review_num);	
+		int cnt = dao.deleteMovie(movie_num);	
 		
 		model.addAttribute("cnt",cnt);
 		
-		return "/c-box/user/review_delete";
+		return "/c-box/manage/movie_delete";
 	}
-
 }

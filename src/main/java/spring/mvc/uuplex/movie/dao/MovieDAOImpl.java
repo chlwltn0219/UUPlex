@@ -105,4 +105,32 @@ public class MovieDAOImpl implements MovieDAO{
 		return list;
 	}
 
+	//영화정보 수정
+	@Override
+	public int modifyMovie(MovieInfoDTO dto) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.modifyMovie(dto);
+		
+		return cnt;
+	}
+
+	//영화정보 삭제
+	@Override
+	public int deleteMovie(int movie_num) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.deleteMovie(movie_num);
+		
+		return cnt;
+	}
+
+	@Override
+	public double getAvg(int movie_num) {
+		double avg = 0;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		avg = dao.getAvg(movie_num);
+		return avg;
+	}
+
 }

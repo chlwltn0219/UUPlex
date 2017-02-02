@@ -23,7 +23,14 @@ public interface MovieDAO {
 
 	public int reviewCount(int mnum); // 리뷰 개수
 
-	public int deleteReview(int review_num);
+	
+	public int deleteReview(int review_num);	//사용자 - 리뷰삭제
 	
 	public List<MovieInfoDTO> getScreening();
+	
+	public int modifyMovie(MovieInfoDTO dto);	//관리자 - 영화정보 수정
+	
+	public int deleteMovie(int movie_num);		//관리자 - 영화 삭제
+	
+	public double getAvg(int movie_num);		//평균 별점 구하기
 }
