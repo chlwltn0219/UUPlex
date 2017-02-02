@@ -18,29 +18,11 @@ INCREMENT BY 1
 NOCYCLE 
 MINVALUE 0;
 
-SELECT * FROM f_teacher;
+--INSERT INTO f_classroom (crid, crname, activated)
+--VALUES (SEQ_classroom_crid.nextval, '������', 'Y');
+--INSERT INTO f_classroom (crid, crname, activated)
+--VALUES (SEQ_classroom_crid.nextval, '�״Ͻ���', 'Y');
+--INSERT INTO f_classroom (crid, crname, activated)
+--VALUES (SEQ_classroom_crid.nextval, '�ٸ�����', 'Y');
+--COMMIT;
 
-DROP TABLE BOOLEAN;
-
-CREATE TABLE BOOLEAN (
-value		VARCHAR2(1),
-CONSTRAINT boolean_value_pk PRIMARY KEY (value)
-);
-
-INSERT INTO BOOLEAN 
-VALUES ('Y');
-INSERT INTO BOOLEAN 
-VALUES ('N');
-
-COMMIT;
-
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '������', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '�״Ͻ���', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '�ٸ�����', 'Y');
-COMMIT;
-
-DELETE FROM f_teacher; 
-COMMIT;

@@ -38,15 +38,15 @@ INCREMENT BY 1
 NOCYCLE 
 MINVALUE 0;
 
-INSERT INTO F_SPORTS (sid, sname)
-VALUES (SEQ_SPORTS_SID.nextval, '요가');
-INSERT INTO F_SPORTS (sid, sname)
-VALUES (SEQ_SPORTS_SID.nextval, '스쿼시');
-INSERT INTO F_SPORTS (sid, sname)
-VALUES (SEQ_SPORTS_SID.nextval, '스피닝');
-INSERT INTO F_SPORTS (sid, sname)
-VALUES (SEQ_SPORTS_SID.nextval, '수영');
-INSERT INTO F_SPORTS (sid, sname, activated)
-VALUES (SEQ_SPORTS_SID.nextval, '클라이밍', 'N');
-COMMIT;
+--INSERT INTO F_SPORTS (sid, sname)
+--VALUES (SEQ_SPORTS_SID.nextval, '요가');
+--INSERT INTO F_SPORTS (sid, sname)
+--VALUES (SEQ_SPORTS_SID.nextval, '스쿼시');
+--INSERT INTO F_SPORTS (sid, sname)
+--VALUES (SEQ_SPORTS_SID.nextval, '스피닝');
+--INSERT INTO F_SPORTS (sid, sname)
+--VALUES (SEQ_SPORTS_SID.nextval, '수영');
+--INSERT INTO F_SPORTS (sid, sname, activated)
+--VALUES (SEQ_SPORTS_SID.nextval, '클라이밍', 'N');
+--COMMIT;
 
