@@ -39,7 +39,8 @@ public class AddScheduleHandler implements MCommandHandler {
 			dto.setShowtime(showtime);
 			
 			int cnt = sdao.addSchedule(dto);
-
+			
+			
 			model.addAttribute("cnt", cnt);
 
 		return "c-box/manage/schedule_inputPro";

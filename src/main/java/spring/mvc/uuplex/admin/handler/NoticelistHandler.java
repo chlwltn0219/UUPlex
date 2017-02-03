@@ -110,6 +110,8 @@ public class NoticelistHandler implements CommandHandler {
 			model.addAttribute("pageBlock", pageBlock);
 		}
 		
+		model.addAttribute("shopCode", shopCode);
+		
 		return "/main/board/notice";
 	}
 

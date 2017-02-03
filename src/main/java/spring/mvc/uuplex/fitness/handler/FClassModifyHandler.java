@@ -28,7 +28,7 @@ public class FClassModifyHandler implements FCommandHandler{
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 
 		
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		DateFormat timeFormat = new SimpleDateFormat("HH:mm");
 		
 		try {

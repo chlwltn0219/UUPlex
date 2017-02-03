@@ -110,7 +110,7 @@
 								<li class="divider"></li>
 								<li><a href="/uuplex/qna?shopCode=100">Q&A</a></li>
 								<li class="divider"></li>
-								<li><a href="#">이벤트 게시판</a></li>
+								<li><a href="/uuplex/event?shopCode=100">이벤트 게시판</a></li>
 							</ul>
 						</li>
 						
@@ -119,12 +119,22 @@
 					<ul class="nav navbar-nav navbar-right">
 						<c:if test="${idCode == null}">
 							<li><a href="/uuplex/input">회원가입</a></li>
-							<li><a href="/uuplex/loginForm">로그인</a></li>
+							<li><a data-toggle="modal" data-target="#loginModal" href="/uuplex/noneSM/loginForm">로그인</a></li>
 						</c:if>
 						
 						<!-- 회원 -->
 						<c:if test="${idCode == 105}">
-							<li><a href="#">마이페이지</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" 
+									data-toggle="dropdown" role="button" aria-expanded="false"> 
+									마이페이지 <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="/uuplex/memInfo">나의회원정보</a></li>
+									<li class="divider"></li>
+									<li><a href="">예약확인</a></li>
+								</ul>
+							</li>
 							<li><a href="/uuplex/logout">로그아웃</a></li>
 						</c:if>
 						
@@ -136,7 +146,7 @@
 							</a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">매장관리</a></li>
-								<li><a href="/uuplex/memberList">회원관리</a></li>
+								<li><a href="/uuplex/memberList?grade=전체">회원관리</a></li>
 								<li class="divider"></li>
 								<li><a href="">영화관 관리</a></li>
 								<li><a href="">호텔 관리</a></li>
@@ -151,6 +161,8 @@
 			</div>
 		</nav>
 	</header>
+	
+	<%@ include file="/admin_Modal/login_modal.jsp" %>
 	
 	<!-- Menu End -->
 	
@@ -191,12 +203,9 @@
     </footer>
 	<!-- Footer End -->
 	
-	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
-	
-	<script type="text/javascript" src="${resources}/js/slowTop.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="${resources}/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${resources}/js/menuActive.js"></script>
+
 </body>
 </html>

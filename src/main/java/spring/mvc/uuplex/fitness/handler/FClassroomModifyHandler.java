@@ -10,24 +10,36 @@ import spring.mvc.uuplex.fitness.dao.FClassroomDAO;
 import spring.mvc.uuplex.fitness.dto.FClassroomDTO;
 
 @Service
-public class FClassRoomDetailHandler implements FCommandHandler{
-
-	@Autowired
-	FClassroomDAO  dao;
+public class FClassroomModifyHandler implements FCommandHandler{
 	
+	@Autowired
+	FClassroomDAO dao;
 	
 	@Override
 	public String process(Model model) {
+		String viewPage = null;
+		FClassroomDTO dto = new FClassroomDTO();
 		
-		FClassroomDTO dto = null;
-		String viewPage = "/fitness/manage/classroom_detail";
 		int crid = 0;
-		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
+		String crname = null;
+		String activated = null;
+		
+		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
 		try {
 			crid = Integer.parseInt(req.getParameter("crid"));
-			dto = dao.classroomDetail(crid);		
-			model.addAttribute("dto", dto);
+			crname = req.getParameter("crname");
+			activated = req.getParameter("activated");
+			
+			
+			System.out.println("sag : " + crid + crname + activated);
+			
+			dto.setCrid(crid);
+			dto.setCrname(crname);;
+			dto.setActivated(activated);
+			
+			dao.modifyClassroom(dto);
+			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}

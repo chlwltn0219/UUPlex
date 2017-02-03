@@ -1,5 +1,4 @@
 package spring.mvc.uuplex.hotel.handler;
-import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +24,7 @@ public class ReservFormHandler implements HCommandHandler {
 		String memId = (String) req.getSession().getAttribute("id");
 		String roomName = req.getParameter("roomName");
 		int charge = Integer.parseInt(req.getParameter("charge"));
+		
 		if(memId != null) {
 			MemberDTO dto = dao.reserView(memId);
 			model.addAttribute("dto", dto);

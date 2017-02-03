@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
+import spring.mvc.uuplex.hotel.handler.ReservConfirmHandler;
 import spring.mvc.uuplex.hotel.handler.ReservFormHandler;
 import spring.mvc.uuplex.hotel.handler.ReservationHandler;
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
@@ -150,5 +151,18 @@ public class HFrontController {
 	public String calculation(Model model) {
 		System.out.println("calculation()");
 		return "/hotel/calculation";
+	}
+	
+	//예약전확인
+	@Autowired
+	ReservConfirmHandler reservConfirmHandler;
+	@RequestMapping("/reservConfirm")
+	public String confirm(HttpServletRequest req, Model model) {
+		System.out.println("reservConfirm");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservConfirmHandler.process(model);
+		
+		return viewPage;
 	}
 }

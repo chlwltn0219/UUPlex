@@ -27,9 +27,9 @@
 							</td>
 						</tr>
 						<tr>
-							<th>종목 이름</th>
+							<th>종목</th>
 							<td>
-								<select class="form-control" name ="sid">
+								<select class="form-control" name ="sid" onchange="suitableTeacher()">
 									<c:forEach items="${sports}" var="s">
 										<c:if test="${s.sid == dto.sid}">
 										<option value="${s.sid}" selected>${s.sname}</option>
@@ -44,7 +44,7 @@
 						<tr>
 							<th>강사 이름</th>
 							<td>
-								<select class="form-control" name ="tid">
+								<select class="form-control" name ="tid" id="teacher">
 									<c:forEach items="${teacher}" var="t">
 										<c:if test="${t.tid == dto.tid}">
 										<option value="${t.tid}" selected>${t.tname}</option>
@@ -120,7 +120,7 @@
 					<input type="button" class="btn btn-primary" 
 						value="수정" onclick="programModifyPro()">
 					<input type="reset" class="btn btn-warning" 
-						value="초기화">
+						value="초기화"  onclick="resetTeacher()">
 					<input type="button" class="btn btn-default" 
 						value="취소" onclick="programDetail(${dto.pid});">
 				</div>

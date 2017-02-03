@@ -87,6 +87,19 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return dtos;
 	}
+	
+	
+	@Override
+	public ArrayList<MemberDTO> memberListSub(String grade) {
+		
+		ArrayList<MemberDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.memberListSub(grade);
+		
+		return dtos;
+	}
 
 
 	@Override
@@ -100,5 +113,59 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return dto;
 	}
+
+
+	@Override
+	public int upgrade(Map<String, Object> daoMap) {
+		
+		int cnt = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		cnt = dao.upgrade(daoMap);
+		
+		return cnt;	
+	}
+
+
+	@Override
+	public int memUpdate(MemberDTO dto) {
+		
+		int cnt = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		cnt = dao.memUpdate(dto);
+		
+		return cnt;	
+		
+	}
+
+
+	@Override
+	public int deletepwdCheck(Map<String, Object> daoMap) {
+		
+		int cnt = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		cnt = dao.deletepwdCheck(daoMap);
+		
+		return cnt;	
+	}
+
+
+	@Override
+	public int deleteMember(String memId) {
+		
+		int cnt = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		cnt = dao.deleteMember(memId);
+		
+		return cnt;
+	}
+
 
 }

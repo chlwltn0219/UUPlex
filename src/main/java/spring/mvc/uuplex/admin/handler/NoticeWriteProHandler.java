@@ -25,7 +25,6 @@ public class NoticeWriteProHandler implements CommandHandler {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		
 		int shopCode = 100;
-		
 		String code = req.getParameter("shopCode");
 		if(code.equals("¿µÈ­")) {
 			shopCode = 101;

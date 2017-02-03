@@ -62,7 +62,8 @@ public class HotelDAOImpl implements HotelDAO {
 		HotelDAO dao = this.sqlsession.getMapper(HotelDAO.class);
 		dao.delete(roomNum);
 	}
-
+	
+	//(예약)회원정보조회
 	@Override
 	public MemberDTO reserView(String memId) {
 		MemberDTO dto = null;
