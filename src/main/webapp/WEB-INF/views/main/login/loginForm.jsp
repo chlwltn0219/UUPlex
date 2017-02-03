@@ -37,7 +37,7 @@
 
 <div class="jb-cell">
 
-<form action="loginPro" name="loginForm" class="form-horizontal" method="post">
+<form action="/uuplex/loginPro" name="loginForm" class="form-horizontal" method="post">
 
 <%-- <c:if test="${cnt != 1}">
 	<script type="text/javascript">
