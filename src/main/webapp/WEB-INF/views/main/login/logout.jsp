@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 		alert("로그아웃 되었습니다.");
 		
-		window.location="main";
+		window.history.back();
 	</script>
 
 </body>
