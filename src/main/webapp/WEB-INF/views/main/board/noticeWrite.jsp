@@ -10,13 +10,26 @@
 
 <script src="/uuplex/resources/main_script/board.js"></script>
 
+<style>
+
+	.jb-cell {
+		align:center;
+		width: 900px;
+  		margin: 50px 100px 50px 100px;
+  		padding: 30px 0px 0px 30px;
+  		border: 3px solid #cccccc;
+	}
+	
+</style>
+
 </head>
 <body>
 
 <div class="container">
 
-<h2>공지사항 작성</h2> <br><br>
+<h1 align="center">공지사항 작성</h1>
 
+<div class="jb-cell">
 <form action="noticeWritePro" name="boardQnA" class="form-horizontal" method="post" onsubmit="return boardCheck()">
 	
 	<input type="hidden" name="num" value="${num}">
@@ -62,7 +75,7 @@
 			</div>    	
 		</c:if>
 		
-		<label for="boardSubject" class="col-sm-1 control-label">공지</label>
+		<label for="boardSubject" class="col-sm-5 control-label">공지</label>
     		<div class="col-sm-1">
 				<input type="checkbox" name="important" class="form-control" value="공지">
 			</div>
@@ -74,33 +87,34 @@
 	
 	<div class="form-group">
     	<label for="boardSubject" class="col-sm-2 control-label">글제목</label>
-    	<div class="col-sm-6">
-			<input type="text" name="subject" class="form-control" placeholder="제목을 입력하세요">
+    	<div class="col-sm-8">
+			<input type="text" name="subject" class="form-control" placeholder="제목을 입력하세요" style="font-family:'함초롱바탕'">
 		</div>
 	</div>	
 	
 	<div class="form-group">
     	<label for="boardPassword" class="col-sm-2 control-label">비밀번호</label>
-    	<div class="col-sm-6">
-     	  <input type="password" name="passwd" class="form-control" id="inputPassword" placeholder="비밀번호를 입력하세요">
+    	<div class="col-sm-8">
+     	  <input type="password" name="passwd" class="form-control" id="inputPassword" placeholder="비밀번호를 입력하세요" maxlength="16" style="font-family:'함초롱바탕'">
    	 	</div>
   	</div>
 	
 	<div class="form-group">
     	<label for="boardContents" class="col-sm-2 control-label">글내용</label>
-    	<div class="col-sm-6">
+    	<div class="col-sm-8">
 			<textarea class="form-control" name="content" rows="20"></textarea>
 		</div>
 	</div>	
 	
 	<div class="form-group" align="center">
-    	<div class="col-sm-offset-2 col-sm-10">
+    	<div class="col-sm-offset-2 col-sm-8">
       		<button type="submit" class="btn btn-default">글작성</button>
       		<input type="button" class="btn btn-default" value="작성취소" onclick="window.history.back()"> <br><br>
     	</div>
   	</div>	
 	
-</form>	
+</form>
+</div>	
 </div>
 </body>
 </html>

@@ -58,6 +58,49 @@ function inputCheck() {
 	
 }
 
+// 개인정보 수정
+function modifyCheck() {
+	if(!document.inputform.passwd.value){
+		alert("비밀번호를 입력하세요");
+		document.inputform.passwd.focus();
+		return false;
+	} else if(!document.inputform.passwdChk.value){
+		alert("비밀번호를 확인하세요");
+		document.inputform.passwdChk.focus();
+		return false;
+	} else if(!document.inputform.name.value){
+		alert("이름을 입력하세요");
+		document.inputform.name.focus();
+		return false;
+	} else if(document.inputform.passwd.value != document.inputform.passwdChk.value) {
+		alert("비밀번호가 일치하지 않습니다");
+		document.inputform.passwdChk.focus();
+		return false;
+	} else if(!document.inputform.roadAddress.value){
+		alert("주소를 입력하세요");
+		document.inputform.roadAddress.focus();
+		return false;
+	} else if(!document.inputform.tel1.value){
+		alert("전화번호를 입력하세요");
+		document.inputform.tel1.focus();
+		return false;
+	} else if(!document.inputform.tel2.value){
+		alert("전화번호를 입력하세요");
+		document.inputform.tel2.focus();
+		return false;
+	} else if(!document.inputform.tel3.value){
+		alert("전화번호를 입력하세요");
+		document.inputform.tel3.focus();
+		return false;
+	} else if(!document.inputform.email.value){
+		alert("이메일을 입력하세요");
+		document.inputform.email.focus();
+		return false;
+	} 	
+	
+}
+
+
 function confirmId() {
 	if(!document.inputform.memId.value) {
 		alert("아이디를 입력하세요");

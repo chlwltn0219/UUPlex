@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
@@ -28,6 +28,22 @@
 					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 				})();
 			</script>
+			
+		<style>
+			.main {
+				margin:60px 0 0 0;
+			}
+			
+			.container {
+				height:0px;
+			}
+			
+			section {
+				height:920px;
+			}
+			
+			
+		</style>	
 		
 		
 	</head>
@@ -280,7 +296,7 @@
 								<rect data-space="1.02" x="49.12" y="11.57" width="254.49" height="400.85" class="map__space" />
 			
 								<polygon data-space="1.01" points="12.72 685.56 153.78 685.56 153.78 747.64 215.44 747.64 215.44 712.85 263.89 712.85 263.89 787.41 12.72 787.41 12.72 685.56" class="map__space" />
-								
+								 
 								<polygon points="410.01 601.42 358.8 778.44 320.06 767.07 372.92 591.6 410.01 601.42" class="map__space" />
 								<polygon points="561.3,603.9 624,777 661.9,763.2 597.7,591.5" class="map__space" /> -->
 							</svg>
@@ -577,9 +593,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 6:30AM &mdash; 11:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 5738902</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 5738902</span><br><br>
+								<img src="/uuplex/resources/main_images/movie2.png" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/movie2.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="1.02" data-category="1">
@@ -587,9 +603,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7822786</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7822786</span><br><br>
+								<img src="/uuplex/resources/main_images/movie3.png" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/movie3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="1.03" data-category="1">
@@ -597,9 +613,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 2385641</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 2385641</span><br><br>
+								<img src="/uuplex/resources/main_images/movie4.png" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/movie4.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="1.04" data-category="1">
@@ -607,9 +623,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7830091</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7830091</span><br><br>
+								<img src="/uuplex/resources/main_images/movie5.png" width="370px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/movie5.png" width="370px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="1.05" data-category="1">
@@ -617,9 +633,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6653929</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6653929</span><br><br>
+								<img src="/uuplex/resources/main_images/movie3.png" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/movie3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="1.06" data-category="1">

@@ -2,7 +2,6 @@ package spring.mvc.uuplex.fitness.handler;
 
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +13,7 @@ import org.springframework.ui.Model;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import spring.mvc.uuplex.fitness.dao.FSportsDAO;
 import spring.mvc.uuplex.fitness.dao.FTeacherDAO;
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 import spring.mvc.uuplex.fitness.dto.FTeacherDTO;
 
 @Service
