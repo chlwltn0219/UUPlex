@@ -90,7 +90,8 @@ public class FFrontController{
 	FClassInputHandler classInputHandler; 
 	@Autowired
 	FClassModifyHandler classModifyHandler; 
-	
+/*	@Autowired
+	FTeacherInfoListHandler teacherInfoHandler;*/
 
 	// 占쏙옙占쏙옙占쏙옙: 占쏙옙트占싹쏙옙 占쏙옙占쏙옙
 	@RequestMapping("")
@@ -415,7 +416,7 @@ public class FFrontController{
 	public String uTeacherList(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
 
-		String viewPage = "/fitness/user/teacher_list"; 
+		String viewPage = "/fitness/manage/teacher_list"; 
 		return viewPage;
 	}
 	
