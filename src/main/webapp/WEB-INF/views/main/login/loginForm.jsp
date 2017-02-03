@@ -8,11 +8,11 @@
 <style>
 
 	.jb-cell {
-		align: center;
-		width: 900px;
-  		margin: 0px;
-  		padding: 100px;
-  		border: 0px solid #cccccc;
+		background-color:#f9f9f9;
+		width: 888px;
+  		margin: 5px;
+  		padding: 100px 50px;
+  		border: 3px solid #cccccc;
 	}
 	
 </style>
@@ -35,8 +35,6 @@
 </head>
 <body>
 
-
-<div class="container">
 <div class="jb-cell">
 
 <form action="loginPro" name="loginForm" class="form-horizontal" method="post">
@@ -68,7 +66,8 @@
     	<h1> 로그인 </h1>
     	</div>
   	</div>	
-
+	
+	
 	<div class="form-group">
     	<label for="inputEmail3" class="col-sm-4 control-label">아이디</label> 
     	<div class="col-sm-4">
@@ -91,10 +90,9 @@
       		<input type="button" class="btn btn-default" value="회원가입" onclick="window.location='input'">
     	</div>
   	</div>
-  
+  	
    
 </form>
-</div>
 </div>
 </body>
 </html>

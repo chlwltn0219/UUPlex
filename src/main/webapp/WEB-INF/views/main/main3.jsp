@@ -267,15 +267,8 @@
     <script src="/uuplex/resources/main_script/mainView/ScrollToPlugin.min.js"></script>
     <script src="/uuplex/resources/main_script/mainView/cash.min.js"></script>
     <script src="/uuplex/resources/main_script/mainView/Card-polygon-4.js"></script>
-    <script src="/uuplex/resources/main_script/mainView/demo-4.js"></script>
-    
-    <!-- 부트스트랩 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
-	
-	<script type="text/javascript" src="${resources}/js/slowTop.js"></script>
-	<script type="text/javascript" src="${resources}/js/menuActive.js"></script>
+    <script src="/uuplex/resources/main_script/mainView/demo-4.js"></script>  
+
 </body>
 
 </html>
