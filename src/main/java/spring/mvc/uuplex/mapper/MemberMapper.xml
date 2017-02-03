@@ -28,7 +28,12 @@
 	
 	<!-- 회원 리스트 가져오기 -->
 	<select id="memberList" resultType="spring.mvc.uuplex.admin.dto.MemberDTO">
-		SELECT * FROM uu_member WHERE idCode = '105' ORDER BY reg_date desc
+		SELECT * FROM uu_member WHERE idCode = '105' ORDER BY grade
+	</select>
+	
+	<!-- 등급별 회원 리스트 가져오기 -->
+	<select id="memberListSub" resultType="spring.mvc.uuplex.admin.dto.MemberDTO">
+		SELECT * FROM uu_member WHERE idCode = '105' and grade = #{grade} ORDER BY reg_date
 	</select>
 	
 	<!-- 회원 정보(1명) 가져오기 -->

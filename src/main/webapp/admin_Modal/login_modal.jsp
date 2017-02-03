@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
-<head>
-	<style>
-		.modal-content {
-			margin : 200px;
-		}
-	</style>
-</head>    
-
-<div class="modal modal-center fade" id="deleteModal" role="dialog">
-	<div class="modal-dialog modal-ls" role="document">
+    pageEncoding="UTF-8"%>
+    
+<div class="modal fade" id="loginModal" role="dialog">
+	<div class="modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button class="close" data-dismiss="modal">&times;</button>

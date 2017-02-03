@@ -13,6 +13,7 @@ public interface AdminDAO {
 	public int idCode(String memId); // 코드값 가져오기
 	
 	public ArrayList<MemberDTO> memberList(); // 회원리스트
+	public ArrayList<MemberDTO> memberListSub(String grade); // 등급별 회원리스트 
 	public MemberDTO memberView(String memId); // 회원개인정보
 	
 	public int memUpdate(MemberDTO dto); // 회원개인정보 수정

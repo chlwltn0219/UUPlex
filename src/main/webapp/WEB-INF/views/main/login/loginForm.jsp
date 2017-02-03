@@ -4,17 +4,33 @@
 
 <html>
 <head>
+
 <style>
 
 	.jb-cell {
-		align:center;
+		align: center;
 		width: 900px;
-  		margin: 100px;
-  		padding: 70px 100px 100px 100px;
-  		border: 3px solid #cccccc;
+  		margin: 0px;
+  		padding: 100px;
+  		border: 0px solid #cccccc;
 	}
 	
 </style>
+
+
+<!-- <script type="text/javascript" src="/uuplex/resources/js/jquery-1.12.4.js"></script>
+
+<script type="text/javascript">
+	function login() {
+		
+		var id = document.loginForm.memId.value;
+		var passwd = document.loginForm.passwd.value;
+		
+		window.location='loginPro?memId=' + id + '&passwd=' + passwd;
+		
+	}
+
+</script> -->
 
 </head>
 <body>
@@ -25,16 +41,24 @@
 
 <form action="loginPro" name="loginForm" class="form-horizontal" method="post">
 
+<%-- <c:if test="${cnt != 1}">
+	<script type="text/javascript">
+		alert("로그인오류");
+		window.location.reload();
+	</script>
+</c:if> --%>
 
 		<c:if test="${cnt == -1}">
 			<script type="text/javascript">
 				alert("비밀번호가 다릅니다. 다시 확인하세요!");
+				history.back();
 			</script>
 		</c:if>
 		
 		<c:if test="${cnt == 0}">
 			<script type="text/javascript">
 				alert("등록된 아이디가 아닙니다. 다시 확인하세요!");
+				history.back();
 			</script>
 		</c:if>
 	
@@ -63,7 +87,7 @@
   		<label for="inputPassword3" class="col-sm-4 control-label"></label>
     	<div class="col-sm-4">
       		<button type="submit" class="btn btn-default">Login</button>
-      		<button type="reset" class="btn btn-default">취소</button>
+      		<input type="button" class="btn btn-default" value="취소" onclick="window.location.reload()">
       		<input type="button" class="btn btn-default" value="회원가입" onclick="window.location='input'">
     	</div>
   	</div>

@@ -119,7 +119,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<c:if test="${idCode == null}">
 							<li><a href="/uuplex/input">회원가입</a></li>
-							<li><a href="/uuplex/loginForm">로그인</a></li>
+							<li><a data-toggle="modal" data-target="#loginModal" href="/uuplex/noneSM/loginForm">로그인</a></li>
 						</c:if>
 						
 						<!-- 회원 -->
@@ -146,7 +146,7 @@
 							</a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">매장관리</a></li>
-								<li><a href="/uuplex/memberList">회원관리</a></li>
+								<li><a href="/uuplex/memberList?grade=전체">회원관리</a></li>
 								<li class="divider"></li>
 								<li><a href="">영화관 관리</a></li>
 								<li><a href="">호텔 관리</a></li>
@@ -161,6 +161,8 @@
 			</div>
 		</nav>
 	</header>
+	
+	<%@ include file="/admin_Modal/login_modal.jsp" %>
 	
 	<!-- Menu End -->
 	

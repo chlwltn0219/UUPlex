@@ -41,7 +41,7 @@
             <nav class="codrops-demos">
             <c:if test="${idCode == null}">
                 <a href="/uuplex/input">회원가입</a>
-                <a href="/uuplex/loginForm">로그인</a>
+                <a data-toggle="modal" data-target="#loginModal" href="/uuplex/noneSM/loginForm">로그인</a>
                 <a href="/uuplex/notice?shopCode=100">고객센터</a>
             </c:if>
             
@@ -52,7 +52,7 @@
 			</c:if>
 			
 			<c:if test="${idCode == 101}">
-				<a href="/uuplex/memberList">회원관리</a>
+				<a href="/uuplex/memberList?grade=전체">회원관리</a>
 				<a href="/uuplex/logout">로그아웃</a>
 				<a href="/uuplex/notice?shopCode=100">고객센터</a>
 			</c:if>
@@ -258,6 +258,8 @@
 			</a>
 		</section>
     </div>
+    
+    <%@ include file="/admin_Modal/login_modal.jsp" %>
     <!-- /container -->
     <!-- JS -->
     <script src="/uuplex/resources/main_script/mainView/trianglify.min.js"></script>
@@ -266,6 +268,14 @@
     <script src="/uuplex/resources/main_script/mainView/cash.min.js"></script>
     <script src="/uuplex/resources/main_script/mainView/Card-polygon-4.js"></script>
     <script src="/uuplex/resources/main_script/mainView/demo-4.js"></script>
+    
+    <!-- 부트스트랩 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="${resources}/js/slowTop.js"></script>
+	<script type="text/javascript" src="${resources}/js/menuActive.js"></script>
 </body>
 
 </html>

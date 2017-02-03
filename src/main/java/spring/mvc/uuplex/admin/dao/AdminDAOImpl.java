@@ -87,6 +87,19 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return dtos;
 	}
+	
+	
+	@Override
+	public ArrayList<MemberDTO> memberListSub(String grade) {
+		
+		ArrayList<MemberDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.memberListSub(grade);
+		
+		return dtos;
+	}
 
 
 	@Override
@@ -153,5 +166,6 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return cnt;
 	}
+
 
 }

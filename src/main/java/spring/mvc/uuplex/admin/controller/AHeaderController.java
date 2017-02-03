@@ -42,7 +42,7 @@ public class AHeaderController {
 	}
 	
 	
-	@RequestMapping("/loginForm")
+	@RequestMapping("noneSM/loginForm")
 	public String loginForm(Model model) {
 		
 		System.out.println("로그인페이지");
