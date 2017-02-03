@@ -14,9 +14,9 @@ import spring.mvc.uuplex.fitness.handler.FClassInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
-import spring.mvc.uuplex.fitness.handler.FClassRoomDetailHandler;
-import spring.mvc.uuplex.fitness.handler.FClassRoomInputHandler;
-import spring.mvc.uuplex.fitness.handler.FClassRoomListHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassRoomModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
@@ -61,11 +61,11 @@ public class FFrontController{
 	FTeacherSuitableListHandler tSuitableListHandler;
 	
 	@Autowired
-	FClassRoomListHandler cListHandler;
+	FClassroomListHandler cListHandler;
 	@Autowired
-	FClassRoomInputHandler cinputHandler;
+	FClassroomInputHandler cinputHandler;
 	@Autowired
-	FClassRoomDetailHandler cDetailHandler;
+	FClassroomDetailHandler cDetailHandler;
 	@Autowired
 	FClassRoomModifyHandler cModifyHandler;
 	

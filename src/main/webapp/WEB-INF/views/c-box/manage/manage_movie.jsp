@@ -5,7 +5,6 @@
 
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
-<script type="text/javascript" src="${resources}/c-box/js/review.js"></script>
 
 
 <div class="container">

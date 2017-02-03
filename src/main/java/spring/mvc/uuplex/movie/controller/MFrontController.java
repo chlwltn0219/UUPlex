@@ -130,6 +130,8 @@ public class MFrontController {
 
 		return viewPage;
 	}
+
+	// 관리자 영화 정보 수정
 	
 	
 	//유영원 : 관리자 영화 정보 수정

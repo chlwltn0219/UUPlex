@@ -35,7 +35,7 @@ function load() {
 		charge = charge + (30000 * extraBedcnt.value);
 	} else if(!extraBed.checked) {
 		charge = charge;
-	} 
+	}
 	
 	if(laundry.checked) {
 		charge = charge + 10000;
@@ -113,7 +113,7 @@ function loadPage() {
 			</select> &nbsp;&nbsp;
 			
 			<button type="button" class="btn btn-xs btn-warning" data-toggle="popover" title="Extra bed" data-content="30,000원 /1 bed">추가금액 확인</button>
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>(추가할 개수를 선택한 후 체크해 주세요.)</small><br><br>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>(추가할 개수를 먼저 선택한 후 체크해 주세요.)</small><br><br>
 			<input type="checkbox" name="laundry" id="laundry" onclick="load()"> 드라이클리닝/세탁 &nbsp;&nbsp;
 			<button type="button" class="btn btn-xs btn-warning" data-toggle="popover" title="laundry" data-content="10,000원 /1회">추가금액 확인</button>
 			<br><br>
@@ -177,7 +177,7 @@ function loadPage() {
 	</table>
 	<hr>
 	<div id="result" style="text-align:right">
-	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"> ${charge}원 </font>
+	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"> ${charge} 원 </font>
 	</div>
 	
 	<div class="modal-footer">

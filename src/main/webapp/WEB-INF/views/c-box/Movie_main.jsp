@@ -237,7 +237,7 @@ embed {
 
 	<div class="btn_div">
 		<input class="btn1" type="button" value="상영시간표"
-			onclick="location.href='/uuplex/c-box/user/schedule_list'">
+			onclick="location.href='/uuplex/c-box/schedule'">
 		<input class="btn2" type="button" value="빠른예매"
 			onclick="location.href='/uuplex/c-box/user/reserve/main'">
 	</div>
