@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     
 	<div class="modal-content">
 	   	<div class="modal-header">
@@ -14,13 +15,13 @@
 					<label>프로그램</label>
 					<select class="form-control" name="pid" required>
 						<c:forEach items="${sports}" var="s">
+							<c:if test="${fn:length(program[s.sid]) > 0}">
 							<optgroup label="${s.sname}">
-							<c:forEach items="${program}" var="p">
-							<c:if test="${s.sid == p.sid}">
-								<option value="${p.pid}">${p.pname} : ${teacher[p.tid].tname} 강사님</option>
-							</c:if>
-							</c:forEach>
+								<c:forEach items="${program[s.sid]}" var="p">
+								<option value="${p.pid}"> ${p.pname} : ${teacher[p.tid].tname} 강사님</option>
+								</c:forEach>
 							</optgroup>
+							</c:if>
 						</c:forEach>
 					</select>
 				</div>
