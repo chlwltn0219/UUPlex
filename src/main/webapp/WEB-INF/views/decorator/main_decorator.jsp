@@ -202,6 +202,10 @@
       </div>
     </footer>
 	<!-- Footer End -->
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="${resources}/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${resources}/js/menuActive.js"></script>
 
 </body>
 </html>
