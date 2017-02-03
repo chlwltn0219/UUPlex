@@ -72,7 +72,7 @@
 
         #content {
         	background:url("${resources}/hotelImages/dice.jpg") repeat;
-            width:100%; height:515px;
+            width:100%; height:555px;
         }
 
         #content .section1 {
