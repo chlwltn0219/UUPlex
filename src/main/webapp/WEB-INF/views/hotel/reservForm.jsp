@@ -77,7 +77,7 @@ function loadPage() {
 <c:if test="${memId == null}">
 	<script type="text/javascript">
 		alert("로그인 후에 이용하실 수 있습니다.");
-		window.location='/uuplex/loginForm';
+		window.location='reservation';
 	</script>
 </c:if>
 <div class="container">
@@ -190,6 +190,7 @@ function loadPage() {
 	</div>
 	
 	<%@ include file="/admin_Modal/hotelModal.jsp" %>
+	<%@ include file="/admin_Modal/login_modal.jsp" %>
 </form>
 </div>					
 </body>
