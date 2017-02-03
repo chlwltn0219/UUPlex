@@ -27,6 +27,7 @@ import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
+import spring.mvc.uuplex.movie.handler.ScheduleHandler;
 
 @Controller
 @RequestMapping("/c-box")
@@ -97,7 +98,7 @@ public class MFrontController {
 
 	@RequestMapping("/movie_detail")
 	public String sportsDetail(HttpServletRequest req, Model model) {
-		
+
 		System.out.println("detail");
 		model.addAttribute("req", req);
 		String viewPage = movieDetailHandler.process(model);
@@ -117,18 +118,20 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	//유영원 : 리뷰 추가
+	// 유영원 : 리뷰 추가
 	@Autowired
 	AddReviewHandler addReviewHandler;
 
 	@RequestMapping("/user/add_review")
 	public String add_review(HttpServletRequest req, Model model) {
-		
+
 		model.addAttribute("req", req);
 		String viewPage = addReviewHandler.process(model);
 
 		return viewPage;
 	}
+
+	// 관리자 영화 정보 수정
 	
 	
 	//유영원 : 관리자 영화 정보 수정
@@ -138,14 +141,14 @@ public class MFrontController {
 	@RequestMapping("/manage/movie/modify")
 	public String modifyMovie(HttpServletRequest req, Model model) {
 		System.out.println("movie_modify");
-				
+
 		model.addAttribute("req", req);
 		String viewPage = modifyMovieHandler.process(model);
-				
+
 		return viewPage;
 	}
-	
-	//유영원 : 리뷰 삭제
+
+	// 유영원 : 리뷰 삭제
 	@Autowired
 	DeleteReviewHandler deleteReviewHandler;
 
@@ -184,7 +187,7 @@ public class MFrontController {
 
 		return viewPage;
 	}
-	
+
 	// 박주은 : 상영관 수정
 	@Autowired
 	ModifyTheaterHandler modifyTheaterHandler;
@@ -198,7 +201,6 @@ public class MFrontController {
 
 		return viewPage;
 	}
-	
 
 	// 박주은 : 상영스케줄 관리
 	@Autowired
@@ -248,16 +250,25 @@ public class MFrontController {
 	DeleteScheduleHandler deleteScheduleHandler;
 
 	@RequestMapping("/manage/schedule/delete")
-	public String DeleteSchedule(HttpServletRequest req, Model model) {
+	public String deleteSchedule(HttpServletRequest req, Model model) {
 		System.out.println("Schedule_delete");
-		try {
-			req.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
 
 		model.addAttribute("req", req);
 		String viewPage = deleteScheduleHandler.process(model);
+		return viewPage;
+	}
+
+	// 박주은 : 상영시간표
+	@Autowired
+	ScheduleHandler scheduleHandler;
+
+	@RequestMapping("/schedule")
+	public String getschedule(HttpServletRequest req, Model model) {
+		System.out.println("Schedule");
+
+		model.addAttribute("req", req);
+
+		String viewPage = scheduleHandler.process(model);
 		return viewPage;
 	}
 	
