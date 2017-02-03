@@ -1,5 +1,6 @@
 package spring.mvc.uuplex.fitness.handler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +39,7 @@ public class FClassInputFormHandler implements FCommandHandler{
 		List<FClassroomDTO> crList = null;
 		List<FTeacherDTO> tList = null;
 		Map<Integer, FTeacherDTO> tMap = new HashMap<Integer, FTeacherDTO>();
+		Map<Integer, List<FProgramDTO>> pMap = new HashMap<Integer, List<FProgramDTO>>();
 		
 		pList = pDao.programActivatedList();
 		sList = sDao.sportsActivatedList();
@@ -48,7 +50,18 @@ public class FClassInputFormHandler implements FCommandHandler{
 			tMap.put(tDto.getTid(), tDto);
 		}
 		
-		model.addAttribute("program", pList);
+		
+		for (FSportsDTO sDto : sList) {
+			List<FProgramDTO> spList = new ArrayList<FProgramDTO>();
+			for (FProgramDTO pDto : pList) {
+				if(pDto.getSid() == sDto.getSid()) {
+					spList.add(pDto);
+				}
+			}
+			pMap.put(sDto.getSid(), spList);
+		}
+		
+		model.addAttribute("program", pMap);
 		model.addAttribute("sports", sList);
 		model.addAttribute("classroom", crList);
 		model.addAttribute("teacher", tMap);

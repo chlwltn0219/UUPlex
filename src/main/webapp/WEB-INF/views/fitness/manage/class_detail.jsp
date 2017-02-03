@@ -92,8 +92,13 @@
 					<tr>
 						<th>수업 요일</th>
 						<td>
-							<c:if test="${dto.sun != null}">${dto.sun}
-							</c:if>
+							<c:if test="${dto.sun == 'Y'}">일 </c:if>
+							<c:if test="${dto.mon == 'Y'}">월 </c:if>
+							<c:if test="${dto.tue == 'Y'}">화 </c:if>
+							<c:if test="${dto.wed == 'Y'}">수 </c:if>
+							<c:if test="${dto.thu == 'Y'}">목 </c:if>
+							<c:if test="${dto.fri == 'Y'}">금 </c:if>
+							<c:if test="${dto.sat == 'Y'}">토 </c:if>
 						</td>
 					</tr>
 					<tr>

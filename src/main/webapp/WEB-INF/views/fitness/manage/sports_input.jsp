@@ -7,7 +7,7 @@
 	   		<h4 class="modal-title">종목 입력</h4>
 	   	</div>		    	
 	
-  		<form action="/uuplex/fitness/manage/sports/add" method="post" name="sportInputForm" onsubmit="">
+  		<form action="/uuplex/fitness/manage/sports/inputPro" method="post" name="sportInputForm" onsubmit="">
 	    	<div class="modal-body">
 				<div class="form-group">
 					<label>종목명</label>

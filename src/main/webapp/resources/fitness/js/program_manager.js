@@ -1,6 +1,8 @@
 /**
  * 
  */
+var teacherInitOptions = '';
+
 //======================== Input Modal
 function programInput() {
 	
@@ -64,6 +66,11 @@ function programModal() {
 		if(httpRequest.status == 200) {
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
 			modal.innerHTML = httpRequest.responseText;
+			
+			var select = document.getElementById("teacher");
+			if(select != null) {
+				teacherInitOptions = select.innerHTML; 
+			}
 		} else {
 			modal.innerHTML = httpRequest.status + "에러 발생";
 		}
@@ -89,4 +96,10 @@ function teacherSelect() {
 		select.innerHTML = "상태 : " + httpRequest.readyState;
 	}
 	
+}
+
+//======================== resetTeacher
+function resetTeacher() {
+	var select = document.getElementById("teacher");
+	select.innerHTML = teacherInitOptions;
 }

@@ -56,31 +56,24 @@
 	
 	<!-- 강의 상세 정보 -->
 	<select id="classDetail" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO" parameterType="int">
-		SELECT cid, crid, subName, 
-			   activated, reg_date,
-			   limit, current_people,
-			   register_start, register_end,
-			   start_date, end_date,
-			   start_time, end_time,
-			   (SELECT pname 
-			      FROM F_PROGRAM p 
-			     WHERE p.pid=c.pid ) AS pname,
-			   (SELECT sname 
-			      FROM F_SPORTS s 
-			     WHERE s.sid=(SELECT sid 
-			   				  FROM F_PROGRAM p
-			   				 WHERE p.pid=c.pid ) ) AS sname,
-			   (SELECT tname 
-			      FROM F_TEACHER t 
-			     WHERE t.tid=(SELECT tid 
-			   				  FROM F_PROGRAM p
-			   				 WHERE p.pid=c.pid ) ) AS tname,
-			   (SELECT crname 
-			      FROM F_CLASSROOM cr 
-			     WHERE cr.crid=c.crid) AS crname 
-		 FROM F_CLASS c
-		WHERE cid=#{cid}
-		
+		SELECT c.*, p.pname, s.sname, cr.crname,  
+			   w.sun, w.mon, w.tue, w.wed, w.thu, w.fri, w.sat      
+		 FROM F_CLASS c 
+		 	  INNER JOIN F_CLASSWEEK w
+		   	     ON c.cid = w.cid
+		   	  INNER JOIN F_PROGRAM p 
+			     ON p.pid = c.pid
+			  INNER JOIN F_SPORTS s 
+			     ON s.sid = (SELECT sid 
+			   				   FROM F_PROGRAM p
+			   				  WHERE p.pid=c.pid )
+			  INNER JOIN F_TEACHER t 
+			     ON t.tid = (SELECT tid 
+			   				   FROM F_PROGRAM p
+			   				  WHERE p.pid=c.pid )
+			  INNER JOIN F_CLASSROOM cr 
+			     ON cr.crid=c.crid
+		WHERE c.cid = #{cid}
 		
 	</select>
 	
