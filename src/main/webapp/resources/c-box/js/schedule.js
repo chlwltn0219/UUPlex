@@ -5,26 +5,10 @@
 function scheduleInput() {
 	
 	var url = "/uuplex/c-box/manage/schedule/inputForm";
-	sendRequest(scheduleModal, url);
+	var method = "GET";
+	var params = "d=1&t=0&theater_num=1";
+	sendRequest(scheduleModal, url, method, params);
 	
-}
-
-// ======================== Write Modal Dialog
-function scheduleModal() {
-	
-	var modal = document.getElementById("dialog");
-	
-	if(httpRequest.readyState == 4 ) {
-		if(httpRequest.status == 200) {
-		}
-	}
-}
-//======================== Input Modal
-function scheduleInput() {
-
-	var url = "/uuplex/c-box/manage/schedule/inputForm";
-	sendRequest(scheduleModal, url);
-
 }
 // ======================== Modify Modal
 function scheduleModify(sid) {

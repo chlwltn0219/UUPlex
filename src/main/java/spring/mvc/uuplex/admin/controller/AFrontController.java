@@ -16,15 +16,15 @@ public class AFrontController {
 	@RequestMapping("/main")
 	public String main(Model model) {
 		
-		System.out.println("main������");
+		System.out.println("main占쏙옙占쏙옙占쏙옙");
 		
-		return "/main/main2";
+		return "/main/main3";
 	}
 	
 	@RequestMapping("/input")
 	public String input(Model model) {
 		
-		System.out.println("ȸ�����Ծ��������");
+		System.out.println("회占쏙옙占쏙옙占쌉억옙占쏙옙占쏙옙占쏙옙占�");
 
 		return "/main/InputMember/input";
 	}
@@ -32,7 +32,7 @@ public class AFrontController {
 	@RequestMapping("/inputForm")
 	public String inputForm(Model model) {
 		
-		System.out.println("ȸ������������");
+		System.out.println("회占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙");
 
 		return "/main/InputMember/inputForm";
 	}
@@ -42,7 +42,7 @@ public class AFrontController {
 	@RequestMapping("/inputPro")
 	public String inputPro(HttpServletRequest req, Model model) {
 		
-		System.out.println("ȸ������ó��");
+		System.out.println("회占쏙옙占쏙옙占쏙옙처占쏙옙");
 		
 		model.addAttribute("req", req);
 		
@@ -56,7 +56,7 @@ public class AFrontController {
 	@RequestMapping("/confirmId")
 	public String confirmId(HttpServletRequest req, Model model) {
 		
-		System.out.println("�ߺ�Ȯ��������");
+		System.out.println("占쌩븝옙확占쏙옙占쏙옙占쏙옙占쏙옙");
 		
 		model.addAttribute("req", req);
 		

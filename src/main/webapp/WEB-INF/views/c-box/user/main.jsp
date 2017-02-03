@@ -2,14 +2,25 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
 
-<script type="text/javascript">
-	function showhide() {
-			$("#img").hide();
-			if('.carousel')
-			$('.carousel').carousel('pause');
-		}
-	}
-  </script>
+<script src="${js}jquery-1.11.3.min.js"></script>
+
+<script>
+	$(function() {
+		$("embed").hide();
+		
+		$("#img img").click(function() {
+			$(this).hide();
+			$(this).parent().next().show();
+			$(this).parent().hide();
+		});
+		
+		$( "embed" ).mouseout(function() {
+		    $( this ).hide();
+		  });
+		
+	});
+	
+</script>
 
 <!-- 슬라이드 쇼 : 캐러셀 -->
 <div class="contain">
@@ -27,7 +38,7 @@
 		<div class="carousel-inner" role="listbox">
 			
 			<div class="item active" style="background-image: url('${img}/etc/allied.jpg');">
-				<a id="img" onclick="showhide();"><img class="center-block" src="${img}/etc/play.png" aria-hidden="true"></a>
+				<a id="img"><img class="center-block" src="${img}/etc/play.png" aria-hidden="true"></a>
 				<embed class="center-block" src="https://www.youtube.com/embed/Jlp94-C31cY"></embed>
 				
 			</div>

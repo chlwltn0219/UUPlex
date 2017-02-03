@@ -15,7 +15,7 @@ import spring.mvc.uuplex.fitness.dto.FClassroomDTO;
 import spring.mvc.uuplex.util.Pager;
 
 @Service
-public class FClassRoomListHandler implements FCommandHandler{
+public class FClassroomListHandler implements FCommandHandler{
 
 	@Autowired
 	FClassroomDAO dao;

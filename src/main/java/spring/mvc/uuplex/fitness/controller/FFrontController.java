@@ -14,10 +14,10 @@ import spring.mvc.uuplex.fitness.handler.FClassInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
-import spring.mvc.uuplex.fitness.handler.FClassRoomDetailHandler;
-import spring.mvc.uuplex.fitness.handler.FClassRoomInputHandler;
-import spring.mvc.uuplex.fitness.handler.FClassRoomListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassRoomModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
@@ -61,11 +61,11 @@ public class FFrontController{
 	FTeacherSuitableListHandler tSuitableListHandler;
 	
 	@Autowired
-	FClassRoomListHandler cListHandler;
+	FClassroomListHandler cListHandler;
 	@Autowired
-	FClassRoomInputHandler cinputHandler;
+	FClassroomInputHandler cinputHandler;
 	@Autowired
-	FClassRoomDetailHandler cDetailHandler;
+	FClassroomDetailHandler cDetailHandler;
 	@Autowired
 	FClassRoomModifyHandler cModifyHandler;
 	
@@ -92,14 +92,14 @@ public class FFrontController{
 	FClassModifyHandler classModifyHandler; 
 	
 
-	// 占쏙옙占쏙옙占쏙옙: 占쏙옙트占싹쏙옙 占쏙옙占쏙옙
+	// ������������������: �������멨���뱀���� ������������
 	@RequestMapping("")
 	public String list(Model model){
 		String viewPage = "fitness/user/fit_main";
 		return viewPage;
 	}
 	
-	// 占쏙옙占쏙옙占쏙옙: 占쏙옙占쏙옙 占쏙옙占쏙옙트
+	// ������������������: ������������ ��������������
 	@RequestMapping("/manage/sports/list")
 	public String manageSportsList(HttpServletRequest req, Model model){
 		
@@ -134,7 +134,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	//理쒖��닔 : �뵾�듃�땲�뒪 - 醫낅ぉ�긽�꽭�젙蹂�
+	//筌ㅼ��占쏙옙�� : 占쎈돗占쎈��占쎈�뀐옙�� - �ル����占쎄맒占쎄쉭占쎌��癰�占�
 	@RequestMapping("/sports/detail")
 	public String sportsDetail(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -142,7 +142,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 최지수 : 피트니스 - 종목 정보 폼
+	// 理�吏��� : �쇳�몃���� - 醫�紐� ��蹂� ��
 	@RequestMapping("/manage/sports/modify")
 	public String sportsModify(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -151,7 +151,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 최지수 : 피트니스 - 종목 정보 수정
+	// 理�吏��� : �쇳�몃���� - 醫�紐� ��蹂� ����
 	@RequestMapping("/manage/sports/modifyPro")
 	public String sportsModifyPro(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -162,7 +162,7 @@ public class FFrontController{
 	
 	
 	
-	// 占쏙옙占쏙옙占쏙옙 : 占쏙옙占쏙옙 占쏙옙占쏙옙트
+	// ������������������ : ������������ ��������������
 	@RequestMapping("/manage/teacher/list")
 	   public String list(HttpServletRequest req, Model model) {
 	      System.out.println("list()");
@@ -173,7 +173,7 @@ public class FFrontController{
 	      return viewPage;	  
 	}
 	
-	// 占쏙옙占쏙옙占쏙옙 : 占쏙옙占쏙옙 占쏙옙占쏙옙 占쌩곤옙
+	// ������������������ : ������������ ������������ ���⑷낀��
 	@RequestMapping("/manage/teacher/input")
 	 public String input(HttpServletRequest req, Model model) {
 	      System.out.println("input()");
@@ -191,7 +191,7 @@ public class FFrontController{
 	      return viewPage;	  
 	}
 	
-	//김진우 : 강사 디테일
+	//源�吏��� : 媛��� ������
 	@RequestMapping("/teacher/detail")
 	public String teacherDetail(HttpServletRequest req, Model model){
 		
@@ -200,7 +200,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	//김진우 : 강사 상세 정보 수정 폼
+	//源�吏��� : 媛��� ���� ��蹂� ���� ��
 	@RequestMapping("/manage/teacher/modify")
 	public String teacherModify(HttpServletRequest req, Model model){
 		
@@ -210,7 +210,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	//김진우 : 강사 상세 정보 수정
+	//源�吏��� : 媛��� ���� ��蹂� ����
 	@RequestMapping("/manage/teacher/modifyPro")
 	public String teacherModifyPro(HttpServletRequest req, Model model){
 		
@@ -227,7 +227,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	//김진우 : 강의실 리스트
+	//源�吏��� : 媛����� 由ъ�ㅽ��
 	@RequestMapping("/manage/classroom/list")
 	   public String clist(HttpServletRequest req, Model model) {
 	      System.out.println("clist()");
@@ -238,7 +238,7 @@ public class FFrontController{
 	      return viewPage;	  
 	}
 	
-	//김진우 : 강의실 등록
+	//源�吏��� : 媛����� �깅�
 	@RequestMapping("/manage/classroom/inputForm")
 	 public String cinputForm(HttpServletRequest req, Model model) {
 	      String viewPage = "/fitness/manage/classroom_input";  
@@ -247,7 +247,7 @@ public class FFrontController{
 
 	}
 	
-	//강의실 추가
+	//媛����� 異�媛�
 	@RequestMapping("/manage/classroom/input")
 	 public String cinput(HttpServletRequest req, Model model) {
 	      System.out.println("cinput()");
@@ -258,7 +258,7 @@ public class FFrontController{
 	      return viewPage;	 
 	}
 	
-	//김진우 : 강의실 디테일
+	//源�吏��� : 媛����� ������
 	@RequestMapping("/classroom/detail")
 	public String classroomDetail(HttpServletRequest req, Model model){
 		
@@ -267,7 +267,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	//김진우 : 강의실 상세 정보 수정 폼
+	//源�吏��� : 媛����� ���� ��蹂� ���� ��
 	@RequestMapping("/manage/classroom/modify")
 	public String classroomModify(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -276,7 +276,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 김진우 : 강의실 - 종목 정보 수정
+	// 源�吏��� : 媛����� - 醫�紐� ��蹂� ����
 	@RequestMapping("/manage/classroom/modifyPro")
 	public String classroomModifyPro(HttpServletRequest req, Model model){
 
@@ -286,7 +286,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 占쏙옙占쏙옙占쏙옙: 占쏙옙占쏙옙 占쏙옙占쏙옙트
+	// ������������������: ������������ ��������������
 	@RequestMapping("/manage/class/list")
 	public String manageClassList(HttpServletRequest req, Model model){
 		
@@ -322,7 +322,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	//理쒖��닔 : �뵾�듃�땲�뒪 - 醫낅ぉ�긽�꽭�젙蹂�
+	//筌ㅼ��占쏙옙�� : 占쎈돗占쎈��占쎈�뀐옙�� - �ル����占쎄맒占쎄쉭占쎌��癰�占�
 	@RequestMapping("/class/detail")
 	public String classDetail(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -330,7 +330,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 최지수 : 피트니스 - 종목 정보 폼
+	// 理�吏��� : �쇳�몃���� - 醫�紐� ��蹂� ��
 	@RequestMapping("/manage/class/modify")
 	public String classModify(HttpServletRequest req, Model model){
 		String viewPage = "/fitness/manage/class_modify";
@@ -340,7 +340,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 최지수 : 피트니스 - 종목 정보 수정
+	// 理�吏��� : �쇳�몃���� - 醫�紐� ��蹂� ����
 	@RequestMapping("/manage/class/modifyPro")
 	public String classModifyPro(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -349,7 +349,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 占쏙옙占쏙옙占쏙옙: 占쏙옙占쏙옙 占쏙옙占쏙옙트
+	// ������������������: ������������ ��������������
 	@RequestMapping("/manage/program/list")
 	public String manageProgramList(HttpServletRequest req, Model model){
 		
@@ -384,7 +384,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	//理쒖��닔 : �뵾�듃�땲�뒪 - 醫낅ぉ�긽�꽭�젙蹂�
+	//筌ㅼ��占쏙옙�� : 占쎈돗占쎈��占쎈�뀐옙�� - �ル����占쎄맒占쎄쉭占쎌��癰�占�
 	@RequestMapping("/program/detail")
 	public String programDetail(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -392,7 +392,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 최지수 : 피트니스 - 종목 정보 폼
+	// 理�吏��� : �쇳�몃���� - 醫�紐� ��蹂� ��
 	@RequestMapping("/manage/program/modify")
 	public String programModify(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -401,7 +401,7 @@ public class FFrontController{
 		return viewPage;
 	}
 	
-	// 최지수 : 피트니스 - 종목 정보 수정
+	// 理�吏��� : �쇳�몃���� - 醫�紐� ��蹂� ����
 	@RequestMapping("/manage/program/modifyPro")
 	public String programModifyPro(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);
@@ -410,7 +410,7 @@ public class FFrontController{
 		return viewPage;
 	}
 
-	// 김진우 : 피트니스 - 종목 정보 수정
+	// 源�吏��� : �쇳�몃���� - 醫�紐� ��蹂� ����
 	@RequestMapping("/user/teacher/list")
 	public String uTeacherList(HttpServletRequest req, Model model){
 		model.addAttribute("req", req);

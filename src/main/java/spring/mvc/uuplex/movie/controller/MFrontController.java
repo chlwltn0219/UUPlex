@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
+import spring.mvc.uuplex.movie.handler.AddTheaterHandler;
 import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
-import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
+import spring.mvc.uuplex.movie.handler.DeleteTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ManageTheaterHandler;
@@ -25,12 +26,9 @@ import spring.mvc.uuplex.movie.handler.ModifyTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
-<<<<<<< HEAD
-import spring.mvc.uuplex.movie.handler.ScheduleHandler;
-=======
 import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
->>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
+import spring.mvc.uuplex.movie.handler.ScheduleHandler;
 
 @Controller
 @RequestMapping("/c-box")
@@ -133,14 +131,8 @@ public class MFrontController {
 
 		return viewPage;
 	}
-<<<<<<< HEAD
-
-	// 관리자 영화 정보 수정
-=======
-	
 	
 	//유영원 : 관리자 영화 정보 수정
->>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
 	@Autowired
 	ModifyMovieHandler modifyMovieHandler;
 
@@ -160,11 +152,7 @@ public class MFrontController {
 
 	@RequestMapping("/user/review/delete")
 	public String deleteReview(HttpServletRequest req, Model model) {
-<<<<<<< HEAD
-
-=======
 		System.out.println("review_delete");	
->>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
 		model.addAttribute("req", req);
 		String viewPage = deleteReviewHandler.process(model);
 
@@ -186,14 +174,15 @@ public class MFrontController {
 
 	// 박주은 : 상영관 등록==============================
 	@Autowired
-	GetTheaterHandler getTheaterHandler;
+	AddTheaterHandler addTheaterHandler;
 
-	@RequestMapping("/manage/theater/inputForm")
-	public String theaterInputForm(HttpServletRequest req, Model model) {
+	@RequestMapping("/manage/theater/input")
+	public String add_theater(HttpServletRequest req, Model model) {
 		System.out.println("theater_input");
 
 		model.addAttribute("req", req);
-		String viewPage = getTheaterHandler.process(model);
+		String viewPage = addTheaterHandler.process(model);
+		System.out.println(viewPage);
 
 		return viewPage;
 	}
@@ -209,6 +198,18 @@ public class MFrontController {
 		model.addAttribute("req", req);
 		String viewPage = modifyTheaterHandler.process(model);
 
+		return viewPage;
+	}
+	// 박주은 : 상영관 삭제
+	@Autowired
+	DeleteTheaterHandler deleteTheaterHandler;
+
+	@RequestMapping("/manage/theater/delete")
+	public String deleteTheater(HttpServletRequest req, Model model) {
+		System.out.println("Theater_delete");
+
+		model.addAttribute("req", req);
+		String viewPage = deleteTheaterHandler.process(model);
 		return viewPage;
 	}
 
@@ -267,7 +268,6 @@ public class MFrontController {
 		String viewPage = deleteScheduleHandler.process(model);
 		return viewPage;
 	}
-<<<<<<< HEAD
 
 	// 박주은 : 상영시간표
 	@Autowired
@@ -282,7 +282,6 @@ public class MFrontController {
 		String viewPage = scheduleHandler.process(model);
 		return viewPage;
 	}
-=======
 	
 	//유영원 : 관리자 영화 정보 수정 처리
 	@Autowired
@@ -340,5 +339,4 @@ public class MFrontController {
 		return viewPage;
 	}
 
->>>>>>> 91a9e4f35e0e83608b2db4319514cc4c46aa367b
 }

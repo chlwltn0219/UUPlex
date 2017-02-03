@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import spring.mvc.uuplex.movie.dao.ScheduleDAO;
+import spring.mvc.uuplex.movie.dao.TheaterDAO;
 import spring.mvc.uuplex.movie.dto.ScheduleDTO;
 
 @Service
@@ -15,11 +16,18 @@ public class ManageScheduleHandler implements MCommandHandler {
 	@Autowired
 	ScheduleDAO dao;
 	
+	@Autowired
+	TheaterDAO tdao;
+	
 
 	@Override
 	public String process(Model model) {
 
 		List<ScheduleDTO> dtos = null;
+		
+		int theatercount = tdao.TheatersCount();
+		model.addAttribute("theatercount",theatercount);
+
 		
 		String viewPage = "/c-box/Movie_main";
 		//HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
