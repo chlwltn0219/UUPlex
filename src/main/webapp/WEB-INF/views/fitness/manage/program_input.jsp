@@ -23,9 +23,9 @@
 						</c:forEach>
 					</select>
 				</div>
-				<div class="form-group" id="teacher">
+				<div class="form-group">
 					<label>강사</label>
-					<select class="form-control" name="tid">
+					<select class="form-control" name="tid" id="teacher">
 						<c:forEach items="${teacher}" var="t">
 						<option value="${t.tid}">${t.tname}</option>
 						</c:forEach>

@@ -11,14 +11,14 @@
 	<c:if test="${idCode == 101}">
 		<script type="text/javascript">
 			alert("[전체관리자] 님 로그인하셨습니다.");
-			window.location="main";
+			location.href = document.referrer;
 		</script>
 	</c:if>
 	
 	<c:if test="${idCode == 105}">
 		<script type="text/javascript">
 			alert("로그인 되었습니다. ${id} 님 반갑습니다.");
-			window.location="main";
+			location.href = document.referrer;
 		</script>
 	</c:if>
 </c:if>

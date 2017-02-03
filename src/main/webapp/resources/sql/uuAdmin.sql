@@ -12,8 +12,6 @@ INSERT INTO uu_shopcode(shopCode, shopName) VALUES (101, '영화관');
 INSERT INTO uu_shopcode(shopCode, shopName) VALUES (102, '호텔');
 INSERT INTO uu_shopcode(shopCode, shopName) VALUES (103, '휘트니스');
 
-select * from uu_shopcode;
-
 commit;
 
 SELECT idCode FROM uu_member WHERE memId = 'aa';

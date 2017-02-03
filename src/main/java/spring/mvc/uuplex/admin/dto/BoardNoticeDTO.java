@@ -16,6 +16,8 @@ public class BoardNoticeDTO {
 	private Timestamp noti_date;    //작성일
 	private String ip;              //IP
 	private String important;       //중요도
+	
+	
 	public int getShopCode() {
 		return shopCode;
 	}

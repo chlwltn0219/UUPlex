@@ -7,8 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.mvc.uuplex.admin.handler.ContentEventFormHandler;
 import spring.mvc.uuplex.admin.handler.ContentFormHandler;
 import spring.mvc.uuplex.admin.handler.ContentNotiFormHandler;
+import spring.mvc.uuplex.admin.handler.EventWriteFormHandler;
+import spring.mvc.uuplex.admin.handler.EventWriteProHandler;
+import spring.mvc.uuplex.admin.handler.EventlistHandler;
 import spring.mvc.uuplex.admin.handler.NoticeWriteFormHandler;
 import spring.mvc.uuplex.admin.handler.NoticeWriteProHandler;
 import spring.mvc.uuplex.admin.handler.NoticelistHandler;
@@ -137,5 +141,66 @@ public class ABoardController {
 		return viewPage;
 	}
 	
+	
+	// 이벤트 게시판
+	
+	@Autowired
+	EventlistHandler eventlistHandler;
+	@RequestMapping("/event")
+	public String eventlist(HttpServletRequest req, Model model) {
+		
+		System.out.println("이벤트 게시판 페이지");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = eventlistHandler.process(model);
+
+		return viewPage;
+	}
+	
+	
+	@Autowired
+	ContentEventFormHandler contentEventFormHandler;
+	@RequestMapping("/contentEventForm")
+	public String contentEventForm(HttpServletRequest req, Model model) {
+		
+		System.out.println("이벤트 글보기");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = contentEventFormHandler.process(model);
+
+		return viewPage;
+	}
+	
+	
+	@Autowired
+	EventWriteFormHandler eventWriteFormHandler;
+	@RequestMapping("/eventWriteForm")
+	public String eventWriteForm(HttpServletRequest req, Model model) {
+		
+		System.out.println("이벤트 글쓰기");
+
+		model.addAttribute("req", req);
+		
+		String viewPage = eventWriteFormHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	
+	@Autowired
+	EventWriteProHandler eventWriteProHandler;
+	@RequestMapping("/eventWritePro")
+	public String eventWritePro(HttpServletRequest req, Model model) {
+		
+		System.out.println("이벤트 글쓰기 처리");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = eventWriteProHandler.process(model);
+
+		return viewPage;
+	}
 	
 }

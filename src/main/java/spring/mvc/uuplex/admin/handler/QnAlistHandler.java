@@ -110,6 +110,8 @@ public class QnAlistHandler implements CommandHandler {
 			model.addAttribute("pageBlock", pageBlock);
 		}
 		
+		model.addAttribute("shopCode", shopCode);
+		
 		return "/main/board/qna";
 	}
 

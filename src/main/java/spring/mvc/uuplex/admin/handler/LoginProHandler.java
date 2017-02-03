@@ -41,6 +41,7 @@ public class LoginProHandler implements CommandHandler{
 			req.getSession().setAttribute("idCode", idCode);
 		}
 		
+		System.out.println("cnt : " + cnt);
 		
 		if(cnt == 1) {
 			req.getSession().setAttribute("id", memId);

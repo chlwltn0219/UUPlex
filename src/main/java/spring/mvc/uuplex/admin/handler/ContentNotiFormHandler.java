@@ -40,6 +40,7 @@ public class ContentNotiFormHandler implements CommandHandler {
 		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("number", number);
 		model.addAttribute("shopCode", shopCode);
+		model.addAttribute("num", num);
 		
 		return "/main/board/contentNotiForm";
 	}

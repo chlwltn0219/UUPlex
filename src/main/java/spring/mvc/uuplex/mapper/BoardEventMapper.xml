@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="spring.mvc.uuplex.admin.dao.BoardEventDAO"> 
+
+	<select id="getCount" resultType="int">
+		SELECT count(*) FROM event_board
+	</select>
+	
+	<select id="getSubCount" parameterType="int" resultType="int">
+		SELECT count(*) FROM event_board WHERE shopCode = #{shopCode}
+	</select>
+
+	<select id="getArticles" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.BoardEventDTO">
+		SELECT * FROM (SELECT shopCode, eventNum, memId, eventPasswd, subject, eventImg, content, readCnt, 
+						      ref, ref_step, ref_level, event_date, ip, rownum rnum
+						FROM ( SELECT * FROM event_board
+							   ORDER BY ref DESC, ref_step ASC )
+					  )
+				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+	</select>
+	
+	
+	<select id="getArticlesSub" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.BoardEventDTO">
+		SELECT * FROM (SELECT shopCode, eventNum, memId, eventPasswd, subject, eventImg, content, readCnt, 
+						      ref, ref_step, ref_level, event_date, ip, rownum rnum
+						FROM ( SELECT * FROM event_board WHERE shopCode = #{shopCode}
+							   ORDER BY ref DESC, ref_step ASC )
+					  )
+				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+	</select>
+	
+	
+	<insert id="EventInsert" parameterType="spring.mvc.uuplex.admin.dto.BoardEventDTO">
+		INSERT INTO event_board(shopCode, eventNum, memId, eventPasswd, subject, eventImg, content, readCnt, ref, ref_step, ref_level, event_date, ip)
+					VALUES(#{shopCode}, event_seq.NEXTVAL, #{memId}, #{eventPasswd}, #{subject}, #{eventImg}, #{content}, 0, #{ref}, #{ref_step}, #{ref_level}, #{event_date}, #{ip})
+	</insert>
+	
+	<select id="getEvent" parameterType="int" resultType="spring.mvc.uuplex.admin.dto.BoardEventDTO">
+		SELECT * FROM event_board WHERE eventNum= #{num}
+	</select>
+	
+	<select id="getMaxNum" resultType="int">
+		SELECT MAX(eventNum) FROM event_board
+	</select>
+
+</mapper>
+    
