@@ -31,7 +31,10 @@ function load() {
 
 	var charge = ${charge};
 	
-	if(extraBed.checked) {
+	if(extraBed.checked && !extraBedcnt.value) {
+		alert("Extra bed 개수를 먼저 선택해 주세요.");
+		return false;
+	} else if (extraBed.checked && extraBedcnt.value) {
 		charge = charge + (30000 * extraBedcnt.value);
 	} else if(!extraBed.checked) {
 		charge = charge;
