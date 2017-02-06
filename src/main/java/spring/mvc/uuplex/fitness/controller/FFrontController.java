@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.mvc.uuplex.fitness.handler.FActivatedSportsListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputHandler;
@@ -33,6 +34,7 @@ import spring.mvc.uuplex.fitness.handler.FTeacherInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherSuitableListHandler;
+import spring.mvc.uuplex.fitness.handler.FUserReserveHandler;
 
 @Controller
 @RequestMapping("/fitness")
@@ -92,6 +94,8 @@ public class FFrontController{
    @Autowired
    FClassModifyHandler classModifyHandler; 
    
+   @Autowired
+   FUserReserveHandler userReserveHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -418,9 +422,19 @@ public class FFrontController{
 
 		String viewPage = "/fitness/manage/teacher_list"; 
 		return viewPage;
-	}
+   }
 	
+   
+   // 예약 화면 호출
+   @RequestMapping("/user/program/reserve")
+   public String programReserve(HttpServletRequest req, Model model){
+	   String viewPage = null;
+	   
+	   model.addAttribute("req", req);
+	   viewPage = userReserveHandler.process(model);
 
+	   return viewPage;
+   }
    
 }
 
