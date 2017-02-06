@@ -56,6 +56,8 @@ public class TheaterDAOImpl implements TheaterDAO{
 		return cnt;
 	}
 
+<<<<<<< HEAD
+=======
 	@Override
 	public int deleteTheater(int theater_num) {
 		int cnt = 0;
@@ -64,4 +66,5 @@ public class TheaterDAOImpl implements TheaterDAO{
 		return cnt;
 	}
 
+>>>>>>> origin/master
 }

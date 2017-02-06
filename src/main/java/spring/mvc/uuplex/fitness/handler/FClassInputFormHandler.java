@@ -41,6 +41,10 @@ public class FClassInputFormHandler implements FCommandHandler{
 		Map<Integer, FTeacherDTO> tMap = new HashMap<Integer, FTeacherDTO>();
 		Map<Integer, List<FProgramDTO>> pMap = new HashMap<Integer, List<FProgramDTO>>();
 		
+<<<<<<< HEAD
+=======
+		
+>>>>>>> origin/master
 		pList = pDao.programActivatedList();
 		sList = sDao.sportsActivatedList();
 		crList = crDao.activatedList();

@@ -56,7 +56,11 @@
 	
 	<!-- 강의 상세 정보 -->
 	<select id="classDetail" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO" parameterType="int">
+<<<<<<< HEAD
+		SELECT c.*, p.pname, s.sname, cr.crname,  
+=======
 		SELECT c.*, p.pname, t.tname, s.sname, cr.crname,  
+>>>>>>> origin/master
 			   w.sun, w.mon, w.tue, w.wed, w.thu, w.fri, w.sat      
 		 FROM F_CLASS c 
 		 	  INNER JOIN F_CLASSWEEK w

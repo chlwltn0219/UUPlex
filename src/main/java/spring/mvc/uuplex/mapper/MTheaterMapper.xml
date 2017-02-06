@@ -13,21 +13,32 @@
 	
 	<!-- 관리자 : 상영관 목록 리스트 반환 -->
 	<select id="TheatersList" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.TheaterDTO">
+<<<<<<< HEAD
+		SELECT * FROM m_Theater
+=======
 		SELECT * FROM m_Theater ORDER BY THEATER_NUM
+>>>>>>> origin/master
 	</select>
 
 	<!-- 관리자 : 상영관 추가 -->
 	<insert id="addTheater" parameterType="spring.mvc.uuplex.movie.dto.TheaterDTO">
+<<<<<<< HEAD
+		INSERT INTO m_Theater VALUES(#{theater_num}, #{shopcode}, #{seatCnt}, 
+=======
 		INSERT INTO m_Theater VALUES(theater_num_seq.nextval, 101, #{seatCnt}, 
+>>>>>>> origin/master
 		#{seat_arrange})
 	
 	</insert>
 	
+<<<<<<< HEAD
+=======
 	<!-- 상영관 삭제 -->
 	<delete id="deleteTheater" parameterType="int">
 		DELETE FROM m_Theater WHERE THEATER_NUM=#{theater_num}
 	</delete>
 	
+>>>>>>> origin/master
 	<!-- 상영관정보 불러오기 -->
 	<select id="getTheater" parameterType="int" resultType="spring.mvc.uuplex.movie.dto.TheaterDTO">
 		SELECT * FROM m_Theater WHERE THEATER_NUM = #{theater_num}

@@ -27,7 +27,11 @@ public class FClassInputHandler implements FCommandHandler{
 		int ccnt = 0;
 		int wcnt = 0;
 		
+<<<<<<< HEAD
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+=======
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+>>>>>>> origin/master
 		DateFormat timeFormat = new SimpleDateFormat("HH:mm");
 		
 		String viewPage = "/fitness/manage/class_inputPro";
@@ -59,10 +63,13 @@ public class FClassInputHandler implements FCommandHandler{
 			crid = Integer.parseInt(req.getParameter("crid"));
 			limit = Integer.parseInt(req.getParameter("limit"));
 			
+<<<<<<< HEAD
+=======
 
 			System.out.println(req.getParameter("start_date"));
 			System.out.println(req.getParameter("end_date"));
 			
+>>>>>>> origin/master
 			subname = req.getParameter("subname");
 			register_start = new Timestamp(dateFormat.parse(req.getParameter("register_start")).getTime());
 			register_end = new Timestamp(dateFormat.parse(req.getParameter("register_end")).getTime());
@@ -71,9 +78,12 @@ public class FClassInputHandler implements FCommandHandler{
 			start_time = new Timestamp(timeFormat.parse(req.getParameter("start_time")).getTime());
 			end_time = new Timestamp(timeFormat.parse(req.getParameter("end_time")).getTime());
 			
+<<<<<<< HEAD
+=======
 			System.out.println(start_date);
 			System.out.println(end_date);
 			
+>>>>>>> origin/master
 			sun = req.getParameter("sun") != null ? req.getParameter("sun"): "N";
 			mon = req.getParameter("mon") != null ? req.getParameter("mon"): "N";
 			tue = req.getParameter("tue") != null ? req.getParameter("tue"): "N";
@@ -109,7 +119,11 @@ public class FClassInputHandler implements FCommandHandler{
 		dto.setThu(thu);
 		dto.setFri(fri);
 		dto.setSat(sat);
+<<<<<<< HEAD
+	
+=======
 		
+>>>>>>> origin/master
 		ccnt = dao.addClass(dto);
 		wcnt = dao.addClassWeek(dto);
 		

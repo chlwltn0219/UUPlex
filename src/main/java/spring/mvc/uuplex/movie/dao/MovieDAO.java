@@ -33,4 +33,17 @@ public interface MovieDAO {
 	public int deleteMovie(int movie_num);		//관리자 - 영화 삭제
 	
 	public double getAvg(int movie_num);		//평균 별점 구하기
+<<<<<<< HEAD
+=======
+	
+	public int addChucheon(int review_num);		//리뷰 추천수 올리기 
+	
+	public int getChucheon(int review_num);		//리뷰 추천수 가져오기
+	
+	public List<ReviewDTO> ratingOrder(Map<String, Integer> rangeMap);		//리뷰리스트  평점순으로 
+	
+	public List<MovieInfoDTO> getRanking();		//예매순위
+	
+	public int reserveCnt();					//전체 예매 수량
+>>>>>>> origin/master
 }

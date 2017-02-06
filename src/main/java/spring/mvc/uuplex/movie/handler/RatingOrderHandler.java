@@ -13,28 +13,32 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import spring.mvc.uuplex.movie.dao.MovieDAO;
-import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
+import spring.mvc.uuplex.movie.dto.ReviewDTO;
 import spring.mvc.uuplex.util.Pager;
 
 @Service
-public class ManageMovieHandler implements MCommandHandler {
+public class RatingOrderHandler implements MCommandHandler{
 
 	@Autowired
 	MovieDAO dao;
-
+	
 	Pager pager = Pager.getInstance();
-	private static final Logger logger = LoggerFactory.getLogger(ManageMovieHandler.class);
+	private static final Logger logger = LoggerFactory.getLogger(MovieDetailHandler.class);
 
 	@Override
 	public String process(Model model) {
-
+		
 		int nowPage = 1;
 		int total = 0;
-		List<MovieInfoDTO> dtos = null;
-		String viewPage = "/c-box/Movie_main";
-		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
-
-		// �쁽�옱 �럹�씠吏� �젙蹂� �꽕�젙
+		List<ReviewDTO> dtos = null; //리뷰리스트불러오기
+		
+		Map<String,Object> map = model.asMap();
+		
+		HttpServletRequest req = (HttpServletRequest)map.get("req");
+		
+		int movie_num = Integer.parseInt(req.getParameter("movie_num"));
+		
+		//리뷰리스트 불러오기&리뷰리스트  페이징하기
 		if (req.getParameter("page") == null) {
 			nowPage = 1;
 		} else {
@@ -46,39 +50,31 @@ public class ManageMovieHandler implements MCommandHandler {
 				nowPage = 1;
 			}
 		}
-		// 紐⑸줉 珥� 媛쒖닔 怨꾩궛
-		total = dao.moviesCount();
+		//
+		total = dao.reviewCount(movie_num);
 
 		logger.info("total : " + total);
 
-		/*
-		 * �럹�씠吏� �젙蹂� 怨꾩궛
-		 */
-		// �븳 �럹�씠吏��뿉 蹂댁뿬二쇰뒗 寃뚯떆湲� �닔
-<<<<<<< HEAD
-		pager.setDisplayContentCnt(1);
-		// �븳踰덉뿉 蹂댁뿬以� �럹�씠吏� 媛쒖닔
-		pager.setDisplayPageCnt(1);
-=======
-		pager.setDisplayContentCnt(5);
-		// �븳踰덉뿉 蹂댁뿬以� �럹�씠吏� 媛쒖닔
-		pager.setDisplayPageCnt(3);
->>>>>>> origin/master
-		// page �젙蹂� 怨꾩궛�빐二쇰뒗 媛앹껜
+		
+		// 
+		pager.setDisplayContentCnt(3);
+		// 
+		pager.setDisplayPageCnt(5);
+		// 
 		pager.calcPage(total, nowPage);
 
 		if (total > 0) {
 			Map<String, Integer> rangeMap = new HashMap<String, Integer>();
 			rangeMap.put("start", pager.getStartContent());
 			rangeMap.put("end", pager.getEndContent());
+			rangeMap.put("movie_num", Integer.parseInt(req.getParameter("movie_num")));
 
-			dtos = dao.manageMoviesList(rangeMap);
+			dtos = dao.ratingOrder(rangeMap);
 
 			
-			model.addAttribute("dtos", dtos);
+			model.addAttribute("dtos", dtos); //리뷰 리스트 평점 순으로!!
 			
-			// �뼯 寃뚯떆湲� 紐⑸줉 �뜲�씠�꽣
-			// �뼹 �럹�씠�� �깮�꽦 �뜲�씠�꽣
+			
 			model.addAttribute("contentCnt", pager.getDisplayContentCnt());
 
 			model.addAttribute("nowPage", pager.getNowPage());
@@ -87,10 +83,14 @@ public class ManageMovieHandler implements MCommandHandler {
 
 			model.addAttribute("prev", pager.getPrev());
 			model.addAttribute("next", pager.getNext());
+			
+			model.addAttribute("total",total);
 		}
-
-		model.addAttribute("contentPage", "manage/manage_movie.jsp");
-		return viewPage;
+		
+			
+		
+		
+		return "/c-box/user/review_list";
 	}
 
 }

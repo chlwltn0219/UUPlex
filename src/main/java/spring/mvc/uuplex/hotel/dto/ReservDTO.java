@@ -1,6 +1,10 @@
 package spring.mvc.uuplex.hotel.dto;
 
+<<<<<<< HEAD
+import java.util.Date;
+=======
 import java.sql.Timestamp;
+>>>>>>> origin/master
 
 public class ReservDTO {
 	private int reservNum;
@@ -9,9 +13,15 @@ public class ReservDTO {
 	private String email;
 	private int shopCode;
 	private String roomName;
+<<<<<<< HEAD
+	private String reservDay;
+	private String checkIn;
+	private String checkOut;
+=======
 	private Timestamp reservDay;
 	private Timestamp checkIn;
 	private Timestamp checkOut;
+>>>>>>> origin/master
 	private int day;
 	private int capacity;
 	private String extraBed;
@@ -23,7 +33,11 @@ public class ReservDTO {
 	private String country;
 	private String card;
 	private String cardNum;
+<<<<<<< HEAD
+	private String cardEndM;
+=======
 	private Timestamp cardEndM;
+>>>>>>> origin/master
 	private int totCharge;
 	
 	
@@ -69,6 +83,26 @@ public class ReservDTO {
 		this.roomName = roomName;
 	}
 
+<<<<<<< HEAD
+	public String getReservDay() {
+		return reservDay;
+	}
+	public void setReservDay(String reservDay) {
+		this.reservDay = reservDay;
+	}
+	
+	public String getCheckIn() {
+		return checkIn;
+	}
+	public void setCheckIn(String checkIn) {
+		this.checkIn = checkIn;
+	}
+	
+	public String getCheckOut() {
+		return checkOut;
+	}
+	public void setCheckOut(String checkOut) {
+=======
 	public Timestamp getReservDay() {
 		return reservDay;
 	}
@@ -87,6 +121,7 @@ public class ReservDTO {
 		return checkOut;
 	}
 	public void setCheckOut(Timestamp checkOut) {
+>>>>>>> origin/master
 		this.checkOut = checkOut;
 	}
 	
@@ -167,10 +202,17 @@ public class ReservDTO {
 		this.cardNum = cardNum;
 	}
 	
+<<<<<<< HEAD
+	public String getCardEndM() {
+		return cardEndM;
+	}
+	public void setCardEndM(String cardEndM) {
+=======
 	public Timestamp getCardEndM() {
 		return cardEndM;
 	}
 	public void setCardEndM(Timestamp cardEndM) {
+>>>>>>> origin/master
 		this.cardEndM = cardEndM;
 	}
 	
