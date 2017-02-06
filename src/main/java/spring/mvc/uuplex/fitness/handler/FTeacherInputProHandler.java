@@ -57,7 +57,7 @@ public class FTeacherInputProHandler implements FCommandHandler{
 			
 			int sid = Integer.parseInt(multi.getParameter("sid"));			
 			String tname =  multi.getParameter("tname");
-			String tinfo = multi.getParameter("tinfo");
+			String tinfo = multi.getParameter("tinfo").replace("\r\n","<br>");
 
 			System.out.println("wgew : " + tname + tinfo);
 				
