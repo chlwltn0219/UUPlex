@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+<mapper namespace="spring.mvc.uuplex.movie.dao.TheaterDAO" >
+
+	<!-- 상영관 목록 총 수 -->
+	<select id="TheatersCount" resultType="int">
+		SELECT COUNT(*) FROM m_Theater
+	</select>
+	
+	<!-- 관리자 : 상영관 목록 리스트 반환 -->
+	<select id="TheatersList" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.TheaterDTO">
+		SELECT * FROM m_Theater
+	</select>
+
+	<!-- 관리자 : 상영관 추가 -->
+	<insert id="addTheater" parameterType="spring.mvc.uuplex.movie.dto.TheaterDTO">
+		INSERT INTO m_Theater VALUES(#{theater_num}, #{shopcode}, #{seatCnt}, 
+		#{seat_arrange})
+	
+	</insert>
+	
+	<!-- 상영관정보 불러오기 -->
+	<select id="getTheater" parameterType="int" resultType="spring.mvc.uuplex.movie.dto.TheaterDTO">
+		SELECT * FROM m_Theater WHERE THEATER_NUM = #{theater_num}
+	</select>
+	
+	<!-- 상영관 수정 -->
+	<update id="modifyTheater" parameterType="spring.mvc.uuplex.movie.dto.TheaterDTO">
+		UPDATE m_Theater
+		   SET seatCnt = #{seatCnt},
+			   seat_arrange = #{seat_arrange}
+		 WHERE theater_num = #{theater_num}
+	</update>
+	
+</mapper>

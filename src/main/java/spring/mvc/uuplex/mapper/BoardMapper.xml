@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="spring.mvc.uuplex.admin.dao.BoardDAO"> 
+
+	<select id="getCount" resultType="int">
+		SELECT count(*) FROM qna_board
+	</select>
+	
+	<select id="getSubCount" parameterType="int" resultType="int">
+		SELECT count(*) FROM qna_board WHERE shopCode = #{shopCode}
+	</select>
+
+	<select id="getArticles" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		SELECT * FROM (SELECT shopCode, qnaNum, memId, qnaPasswd, subject, content, readCnt, 
+						      ref, ref_step, ref_level, qna_date, ip, rownum rnum
+						FROM ( SELECT * FROM qna_board
+							   ORDER BY ref DESC, ref_step ASC )
+					  )
+				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+	</select>
+	
+	
+	<select id="getArticlesSub" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		SELECT * FROM (SELECT shopCode, qnaNum, memId, qnaPasswd, subject, content, readCnt, 
+						      ref, ref_step, ref_level, qna_date, ip, rownum rnum
+						FROM ( SELECT * FROM qna_board WHERE shopCode = #{shopCode}
+							   ORDER BY ref DESC, ref_step ASC )
+					  )
+				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+	</select>
+	
+	
+	<insert id="qnaInsert" parameterType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		INSERT INTO qna_board(shopCode, qnaNum, memId, qnaPasswd, subject, content, readCnt, ref, ref_step, ref_level, qna_date, ip)
+					VALUES(#{shopCode}, qna_seq.NEXTVAL, #{memId}, #{qnaPasswd}, #{subject}, #{content}, 0, #{ref}, #{ref_step}, #{ref_level}, #{qna_date}, #{ip})
+	</insert>
+	
+	<select id="getQnA" parameterType="int" resultType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		SELECT * FROM qna_board WHERE qnaNum= #{num}
+	</select>
+	
+	<select id="getMaxNum" resultType="int">
+		SELECT MAX(qnaNum) FROM qna_board
+	</select>
+	
+	<update id="updateRely" parameterType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		UPDATE qna_board SET ref_step = ref_step + 1 WHERE ref = #{ref} AND ref_step &gt; #{ref_step}
+	</update>
+
+</mapper>
+    

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- 강의실 관련 -->
+<mapper namespace="spring.mvc.uuplex.fitness.dao.FClassroomDAO" >
+
+	<!-- 강의실 목록 총 수 -->
+	<select id="classroomCount" resultType="int">
+		SELECT COUNT(*) FROM F_CLASSROOM
+	</select>
+
+	<!-- 강의실 목록 리스트 반환 -->
+ 	<select id="list" resultType="spring.mvc.uuplex.fitness.dto.FClassroomDTO" parameterType="Map">
+      SELECT *
+      	FROM (SELECT c.*, rownum AS rnum
+      			FROM ( SELECT *
+      					FROM f_classroom
+      					ORDER BY activated DESC, crid ) c )
+      					
+      	WHERE rnum BETWEEN #{start} AND #{end}				
+	</select>
+	
+	<!-- 강의실 추가 -->
+	<insert id="insertClass" parameterType="spring.mvc.uuplex.fitness.dto.FClassroomDTO">
+		INSERT INTO F_classroom (crid, crname)
+		VALUES (SEQ_classroom_CRID.nextval, #{crname})
+	</insert>
+	
+	<!-- 강의실 디테일 -->
+	<select id="classroomDetail" resultType="spring.mvc.uuplex.fitness.dto.FClassroomDTO" parameterType="int">
+		SELECT * 
+		 FROM F_classroom
+		WHERE crid=#{crid}
+	</select>
+	
+		<!-- 강의실 정보 수정 -->
+	<update id="modifyClassroom" parameterType="spring.mvc.uuplex.fitness.dto.FClassroomDTO">
+		UPDATE F_classroom
+		   SET crname = #{crname},
+			   activated = #{activated}
+		 WHERE crid = #{crid}
+	</update>
+	
+	<select id="activatedList" resultType="spring.mvc.uuplex.fitness.dto.FClassroomDTO">
+		SELECT crid, crname
+		  FROM F_CLASSROOM 
+		 WHERE activated = 'Y'
+		 ORDER BY crid
+	</select>
+	
+</mapper>

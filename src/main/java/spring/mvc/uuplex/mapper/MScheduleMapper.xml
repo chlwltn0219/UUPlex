@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+<mapper namespace="spring.mvc.uuplex.movie.dao.ScheduleDAO" >
+
+	<select id="SchedulesCount" resultType="int">
+		SELECT COUNT(*) FROM m_Schedule
+	</select>
+	
+	<!-- 관리자 : 상영관 목록 리스트 반환 -->
+	<select id="SchedulesList" resultType="spring.mvc.uuplex.movie.dto.ScheduleDTO">
+		SELECT *
+		FROM (SELECT m.* , rownum AS rnum FROM m_Schedule m)
+	</select>
+
+	<!-- 관리자 : 상영일정추가 -->
+	<insert id="addSchedule" parameterType="spring.mvc.uuplex.movie.dto.ScheduleDTO">
+		INSERT INTO m_Schedule VALUES(schedule_num_seq.nextval, #{showtime}, #{movie_num}, 
+		#{theater_num})
+	
+	</insert>
+	<!-- 상영 스케줄 반환 -->
+	<select id="getSchedule" resultType="spring.mvc.uuplex.movie.dto.ScheduleDTO">
+		SELECT s.*, m.title1, M.RUNTIME, m.MPAARating FROM m_Schedule s, m_movie_info m WHERE S.MOVIE_NUM=M.MOVIE_NUM and S.SHOWTIME&gt;=to_char(sysdate,'yyyymmdd') and S.SHOWTIME&lt;SYSDATE + 6
+	</select>
+	
+	<!-- 상영 일정 삭제 -->
+	<delete id="deleteSchedule" parameterType="int">
+		DELETE FROM M_SCHEDULE WHERE SCHEDULE_NUM=#{schedule_num}
+	</delete>
+	
+	<!-- 상영 시간표 반환 -->
+	<select id="schedules" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.ScheduleDTO">
+		SELECT s.*, m.title1, M.RUNTIME, m.MPAARating FROM m_Schedule s, m_movie_info m
+		WHERE S.MOVIE_NUM=M.MOVIE_NUM and S.SHOWTIME&gt;=#{date} and S.SHOWTIME&lt;#{end}
+		ORDER BY M.TITLE1 , S.THEATER_NUM , S.SHOWTIME
+	</select>
+	
+</mapper>
