@@ -77,5 +77,6 @@
   <mapping path="/c-box/manage/movie/inputForm" exclue="true"/>
   <mapping path="/c-box/manage/schedule/inputForm" exclue="true"/>
   <mapping path="/c-box/user/review/list" exclue="true"/>
+  <mapping path="/c-box/user/review/ratingOrder" exclue="true"/>
   
 </sitemesh>

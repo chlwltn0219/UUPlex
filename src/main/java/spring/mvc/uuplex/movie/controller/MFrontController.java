@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
+import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
 import spring.mvc.uuplex.movie.handler.AddTheaterHandler;
 import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
@@ -27,6 +28,8 @@ import spring.mvc.uuplex.movie.handler.ModifyTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
+import spring.mvc.uuplex.movie.handler.RatingOrderHandler;
+import spring.mvc.uuplex.movie.handler.GetRankingHandler;
 import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
 import spring.mvc.uuplex.movie.handler.ScheduleHandler;
@@ -271,7 +274,7 @@ public class MFrontController {
       return viewPage;
    }
    
-   //유영원 : 관리자 영화 정보 수정 처리
+   //유영원 : 관리자 영화 정보 수정 
    @Autowired
    ModifyMovieProHandler modifyMovieProHandler;
 
@@ -352,6 +355,48 @@ public class MFrontController {
 
 		model.addAttribute("req", req);
 		String viewPage = deleteTheaterHandler.process(model);
+		return viewPage;
+	}
+	
+	//유영원 :  리뷰 추천하기
+	@Autowired
+	ChucheonCntHandler chucheonCntHandler;
+
+	@RequestMapping("/user/review/chucheonCnt")
+	public String chucheonCnt(HttpServletRequest req, Model model) {
+		System.out.println("chucheonCnt");
+								
+		model.addAttribute("req", req);
+		String viewPage = chucheonCntHandler.process(model);
+								
+		return viewPage;
+	}
+	
+	//유영원 : 평점 순으로 리뷰 리스트
+	@Autowired
+	RatingOrderHandler ratingOrderHandler;
+
+	@RequestMapping("/user/review/ratingOrder")
+	public String ratingOrder(HttpServletRequest req, Model model) {
+		System.out.println("ratingOrder");
+								
+		model.addAttribute("req", req);
+		String viewPage = ratingOrderHandler.process(model);
+								
+		return viewPage;
+	}
+	
+	//유영원 : 예매 관리 페이지
+	@Autowired
+	GetRankingHandler getRankingHandler;
+
+	@RequestMapping("/manage_reserve")
+	public String reservationRate(Model model) {
+		System.out.println("manage_reservation");
+						
+		model.addAttribute("contentPage", "manage/manage_reserve.jsp");
+		String viewPage = getRankingHandler.process(model);
+									
 		return viewPage;
 	}
 

@@ -237,9 +237,7 @@ embed {
 		<input class="btn1" type="button" value="상영시간표"
 			onclick="location.href='/uuplex/c-box/schedule'">
 		<input class="btn2" type="button" value="빠른예매">
-		<input class="btn1" type="button" value="상영시간표" onclick="location.href='/uuplex/c-box/schedule'">
-		<input class="btn2" type="button" value="빠른예매"
-			onclick="location.href='/uuplex/c-box/user/reserve/main'">
+		
 	</div>
 
 	<jsp:include page="${contentPage}" />
@@ -258,7 +256,7 @@ embed {
 				<td><a href="/uuplex/c-box/manage_theater">상영관 관리</a></td>
 			</tr>
 			<tr>
-				<td>예매관리</td>
+				<td><a href="/uuplex/c-box/manage_reserve">예매관리</a></td>
 			</tr>
 		</table>
 

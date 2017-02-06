@@ -77,7 +77,8 @@
 		<div class="modal fade" id="modalPage" role="dialog">
 			<div class="modal-dialog modal-lg" >
 				<div id="dialog"></div>
-				<div id="review"></div>
+				<div id="review">
+				</div>
 			</div>
 			
 		</div>

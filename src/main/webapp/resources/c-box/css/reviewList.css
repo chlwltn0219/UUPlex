@@ -22,7 +22,7 @@
 	}
 	.like{
 		background: white;
-		border: 1px solid #E8D9FF;	
+		border: 1px solid #d1d1d1;	
 		width: 100px;
 		height: 100px;	
 		margin: 0px; 
@@ -32,8 +32,8 @@
 	
 	}
 	.like:hover{
-		background: #E8D9FF;
-		border: 1px solid #E8D9FF;
+		background: #d1d1d1;
+		border: 1px solid #d1d1d1;
 		width: 100px;
 		height: 100px;	
 		margin: 0px; 
