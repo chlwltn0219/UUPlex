@@ -258,7 +258,7 @@ embed {
 				<td><a href="/uuplex/c-box/manage_theater">상영관 관리</a></td>
 			</tr>
 			<tr>
-				<td>예매관리</td>
+				<td><a href="/uuplex/c-box/manage_reserve">예매관리</a></td>
 			</tr>
 		</table>
 

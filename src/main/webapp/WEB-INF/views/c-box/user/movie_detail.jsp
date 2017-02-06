@@ -95,7 +95,8 @@
 					</tr>
 
 					<tr>
-						<td><b>평점</b> : ${avg} <c:choose>
+						<td><b>평점</b> :
+						<c:choose>
 								<c:when test="${avg <= 1.5}">
 									<img title="괜히봤어요" src="${img}/etc/star_01.png">
 								</c:when>
@@ -111,7 +112,9 @@
 								<c:otherwise>
 									<img title="정말 멋진 영화였어요!" src="${img}/etc/star_05.png">
 								</c:otherwise>
-							</c:choose></td>
+							</c:choose>
+							 <font size=25px;>${avg}</font>
+							</td>
 					</tr>
 
 
@@ -181,7 +184,8 @@
 			<!--  리뷰 리스트  -->
 			<div class="reviewList">
 				<div class="option">
-					<a>최신순</a> | <a>추천순</a> | <a>평점순</a>
+		
+					<a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a>
 				</div>
 
 				<div id="review">
@@ -237,8 +241,8 @@
 										</td>
 										<td style="width: 100px" rowspan="2">
 											<div class="like" style="font-size: 30px;">
-												<div style="margin-top: 20px; margin-bottom: 0">0</div>
-												<div class="chucheon"><a onclick="chucheon();">추천</a></div>
+												<div id="chucheonCnt" style="margin-top: 20px; margin-bottom: 0">0</div>
+												<div class="chucheon"><a onclick="chucheon(${dto.review_num});">추천</a></div>
 											</div>
 
 										</td>

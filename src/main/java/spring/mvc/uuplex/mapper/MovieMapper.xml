@@ -99,4 +99,44 @@
 		SELECT AVG(rating) FROM m_review WHERE movie_num = #{movie_num}
 	</select>
 	
+	<!--  추천수 올리기 -->
+	<update id="addChucheon" parameterType="int">
+		UPDATE m_review SET likeCnt = #{likeCnt}+1
+	</update>
+	
+	<!-- 추천수 가져오기 -->
+	<select id="getChucheon" parameterType="int">
+		SELECT likeCnt WHERE review_num = #{review_num}
+	
+	</select>
+	
+	<!-- 평점 순으로 리뷰리스트 가져오기 -->
+	<select id="ratingOrder" parameterType="Map"  resultType="spring.mvc.uuplex.movie.dto.ReviewDTO">
+		SELECT *
+		FROM (SELECT m.* , rownum AS rnum FROM m_review m WHERE movie_num = #{movie_num})
+		WHERE rnum BETWEEN #{start} AND #{end} ORDER BY rating DESC
+	</select>
+	
+	<!--  예매 순위 리스트 -->
+	<select id="getRanking" resultType="spring.mvc.uuplex.movie.dto.RankingDTO">
+
+		select rownum as rank_num, movie_num, title1, releaseDate, cnt
+		from (select r.movie_num, m.title1, m.releaseDate, sum(r.cnt) as cnt
+		from m_reserv r,m_movie_info m
+		where r.movie_num = m.movie_num AND
+		r.reserve_date BETWEEN sysdate-7 and sysdate
+		group by r.movie_num, m.title1, m.releaseDate
+		order by sum(r.cnt) desc)
+    
+
+		
+	</select>
+	
+	<!--  전체 예매 수량 -->
+	<select id="reserveCnt" resultType="int">
+		select sum(cnt) from m_reserv 
+		where reserve_date BETWEEN sysdate-7 and sysdate
+		
+	</select> 
+	
 </mapper>

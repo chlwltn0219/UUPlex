@@ -18,7 +18,7 @@
 			<c:forEach var="dto" items="${dtos}">
 			
 			
-			</c:forEach>/
+			</c:forEach>
 			
 			
 		</c:if>
