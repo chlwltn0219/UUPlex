@@ -5,6 +5,7 @@
 function scheduleInput() {
 	
 	var url = "/uuplex/c-box/manage/schedule/inputForm";
+<<<<<<< HEAD
 	sendRequest(scheduleModal, url);
 	
 }
@@ -25,6 +26,12 @@ function scheduleInput() {
 	var url = "/uuplex/c-box/manage/schedule/inputForm";
 	sendRequest(scheduleModal, url);
 
+=======
+	var method = "GET";
+	var params = "d=1&t=0&theater_num=1";
+	sendRequest(scheduleModal, url, method, params);
+	
+>>>>>>> origin/master
 }
 // ======================== Modify Modal
 function scheduleModify(sid) {

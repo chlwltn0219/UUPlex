@@ -22,7 +22,11 @@
 	}
 	.like{
 		background: white;
+<<<<<<< HEAD
 		border: 1px solid #E8D9FF;	
+=======
+		border: 1px solid #d1d1d1;	
+>>>>>>> origin/master
 		width: 100px;
 		height: 100px;	
 		margin: 0px; 
@@ -32,8 +36,13 @@
 	
 	}
 	.like:hover{
+<<<<<<< HEAD
 		background: #E8D9FF;
 		border: 1px solid #E8D9FF;
+=======
+		background: #d1d1d1;
+		border: 1px solid #d1d1d1;
+>>>>>>> origin/master
 		width: 100px;
 		height: 100px;	
 		margin: 0px; 

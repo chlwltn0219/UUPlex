@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* »ó¿µÀÏÁ¤ */
 CREATE TABLE m_schedule (
 	schedule_num NUMBER(5) NOT NULL, /* »ó¿µÀÏÁ¤¹øÈ£ */
@@ -16,6 +17,26 @@ COMMENT ON COLUMN m_schedule.showTime IS '»ó¿µ½Ã°£';
 COMMENT ON COLUMN m_schedule.movie_num IS '¿µÈ­¹øÈ£';
 
 COMMENT ON COLUMN m_schedule.theater_num IS '»ó¿µ°ü¹øÈ£';
+=======
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+CREATE TABLE m_schedule (
+	schedule_num NUMBER(5) NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
+	showTime TIMESTAMP, /* ï¿½ó¿µ½Ã°ï¿½ */
+	movie_num NUMBER(5), /* ï¿½ï¿½È­ï¿½ï¿½È£ */
+	theater_num NUMBER(5) /* ï¿½ó¿µ°ï¿½ï¿½ï¿½È£ */
+);
+
+
+COMMENT ON TABLE m_schedule IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+
+COMMENT ON COLUMN m_schedule.schedule_num IS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£';
+
+COMMENT ON COLUMN m_schedule.showTime IS 'ï¿½ó¿µ½Ã°ï¿½';
+
+COMMENT ON COLUMN m_schedule.movie_num IS 'ï¿½ï¿½È­ï¿½ï¿½È£';
+
+COMMENT ON COLUMN m_schedule.theater_num IS 'ï¿½ó¿µ°ï¿½ï¿½ï¿½È£';
+>>>>>>> origin/master
 
 CREATE UNIQUE INDEX PK_m_schedule
 	ON m_schedule (
@@ -39,6 +60,7 @@ ALTER TABLE m_schedule
 			movie_num
 		);
 
+<<<<<<< HEAD
 ALTER TABLE m_schedule
 	ADD
 		CONSTRAINT FK_m_theater_TO_m_schedule
@@ -49,6 +71,9 @@ ALTER TABLE m_schedule
 			theater_num
 		);
     
+=======
+
+>>>>>>> origin/master
 
 CREATE SEQUENCE schedule_num_seq 
    MINVALUE 1

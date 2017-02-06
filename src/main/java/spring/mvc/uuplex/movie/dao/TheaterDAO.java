@@ -11,4 +11,8 @@ public interface TheaterDAO {
 	public int TheatersCount();
 	public TheaterDTO getTheater(int theater_num);
 	public int modifyTheater(TheaterDTO dto);
+<<<<<<< HEAD
+=======
+	public int deleteTheater(int theater_num);
+>>>>>>> origin/master
 }

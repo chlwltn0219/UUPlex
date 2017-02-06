@@ -16,7 +16,11 @@ public class MovieDAOImpl implements MovieDAO{
 	@Autowired
 	private SqlSession sqlSession; //servlet-context.xml占쏙옙 占쌍는곤옙 占쌀뤄옙占승댐옙.
 	
+<<<<<<< HEAD
 	//占쏙옙화占쏙옙占쏙옙占쌩곤옙
+=======
+	
+>>>>>>> origin/master
 	@Override
 	public int addMovieInfo(MovieInfoDTO dto) {
 		int cnt = 0;
@@ -133,4 +137,53 @@ public class MovieDAOImpl implements MovieDAO{
 		return avg;
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public int addChucheon(int review_num) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.addChucheon(review_num);
+		
+		return cnt;
+	}
+
+	@Override
+	public int getChucheon(int review_num) {
+		int cnt = 0;
+		MovieDAO dao = this.sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.getChucheon(review_num);
+		
+		return cnt;
+	}
+
+	@Override
+	public List<ReviewDTO> ratingOrder(Map<String, Integer> rangeMap) {
+		List<ReviewDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.ratingOrder(rangeMap);
+		
+		return list;
+	}
+
+
+	@Override
+	public List<MovieInfoDTO> getRanking() {
+		List<MovieInfoDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.getRanking();
+		return list;
+	}
+
+	@Override
+	public int reserveCnt() {
+		int cnt = 0;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		cnt = dao.reserveCnt();
+		return cnt;
+	}
+
+	
+
+>>>>>>> origin/master
 }

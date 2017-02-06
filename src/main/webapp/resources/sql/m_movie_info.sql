@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* øµ»≠ ¡§∫∏ */
 CREATE TABLE m_movie_info (
    movie_num NUMBER(5) NOT NULL, /* øµ»≠π¯»£ */
@@ -24,6 +25,8 @@ COMMENT ON TABLE m_movie_info IS 'øµ»≠ ¡§∫∏';
 =======
 /* ÔøΩÔøΩ»≠ ÔøΩÔøΩÔøΩÔøΩ */
 DROP TABLE m_movie_info ;
+=======
+>>>>>>> origin/master
 
 /* ÏòÅÌôî Ï†ïÎ≥¥ */
 CREATE TABLE m_movie_info (
@@ -45,6 +48,7 @@ CREATE TABLE m_movie_info (
    synopsis VARCHAR2(4000) /* Ï§ÑÍ±∞Î¶¨ */
 );
 
+<<<<<<< HEAD
 SELECT * FROM  m_movie_info ;
 >>>>>>> d939b60e491e02d96ece9e5ccf9810eb3a921d06
 
@@ -85,6 +89,8 @@ COMMENT ON COLUMN m_movie_info.trailer IS 'ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ≈©';
 COMMENT ON COLUMN m_movie_info.status IS 'ÔøΩÔøΩÔøΩÔøΩÛøµøÔøΩÔøΩÔøΩ';
 
 COMMENT ON COLUMN m_movie_info.synopsis IS '¡Ÿ∞≈∏Æ';
+=======
+>>>>>>> origin/master
 
 CREATE UNIQUE INDEX PK_m_movie_info
    ON m_movie_info (
@@ -93,6 +99,9 @@ CREATE UNIQUE INDEX PK_m_movie_info
 
 ALTER TABLE m_movie_info
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
    ADD
       CONSTRAINT PK_m_movie_info
       PRIMARY KEY (
@@ -104,6 +113,7 @@ increment by 1
 maxvalue 99999;
 
 
+<<<<<<< HEAD
 =======
 	ADD
 		CONSTRAINT PK_m_movie_info
@@ -116,3 +126,6 @@ create sequence m_movie_info_seq
 increment by 1
 maxvalue 99999;
 >>>>>>> d939b60e491e02d96ece9e5ccf9810eb3a921d06
+=======
+	
+>>>>>>> origin/master
