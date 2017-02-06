@@ -55,9 +55,9 @@ public class ManageMovieHandler implements MCommandHandler {
 		 * �럹�씠吏� �젙蹂� 怨꾩궛
 		 */
 		// �븳 �럹�씠吏��뿉 蹂댁뿬二쇰뒗 寃뚯떆湲� �닔
-		pager.setDisplayContentCnt(1);
+		pager.setDisplayContentCnt(5);
 		// �븳踰덉뿉 蹂댁뿬以� �럹�씠吏� 媛쒖닔
-		pager.setDisplayPageCnt(1);
+		pager.setDisplayPageCnt(3);
 		// page �젙蹂� 怨꾩궛�빐二쇰뒗 媛앹껜
 		pager.calcPage(total, nowPage);
 

@@ -31,11 +31,14 @@ function load() {
 
 	var charge = ${charge};
 	
-	if(extraBed.checked) {
+	if(extraBed.checked && !extraBedcnt.value) {
+		alert("Extra bed 개수를 먼저 선택해 주세요.");
+		return false;
+	} else if (extraBed.checked && extraBedcnt.value) {
 		charge = charge + (30000 * extraBedcnt.value);
 	} else if(!extraBed.checked) {
 		charge = charge;
-	} 
+	}
 	
 	if(laundry.checked) {
 		charge = charge + 10000;
@@ -74,7 +77,7 @@ function loadPage() {
 <c:if test="${memId == null}">
 	<script type="text/javascript">
 		alert("로그인 후에 이용하실 수 있습니다.");
-		window.location='/uuplex/loginForm';
+		window.location='reservation';
 	</script>
 </c:if>
 <div class="container">
@@ -113,7 +116,7 @@ function loadPage() {
 			</select> &nbsp;&nbsp;
 			
 			<button type="button" class="btn btn-xs btn-warning" data-toggle="popover" title="Extra bed" data-content="30,000원 /1 bed">추가금액 확인</button>
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>(추가할 개수를 선택한 후 체크해 주세요.)</small><br><br>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>(추가할 개수를 먼저 선택한 후 체크해 주세요.)</small><br><br>
 			<input type="checkbox" name="laundry" id="laundry" onclick="load()"> 드라이클리닝/세탁 &nbsp;&nbsp;
 			<button type="button" class="btn btn-xs btn-warning" data-toggle="popover" title="laundry" data-content="10,000원 /1회">추가금액 확인</button>
 			<br><br>
@@ -177,7 +180,7 @@ function loadPage() {
 	</table>
 	<hr>
 	<div id="result" style="text-align:right">
-	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"> ${charge}원 </font>
+	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"> ${charge} 원 </font>
 	</div>
 	
 	<div class="modal-footer">
@@ -187,6 +190,7 @@ function loadPage() {
 	</div>
 	
 	<%@ include file="/admin_Modal/hotelModal.jsp" %>
+	<%@ include file="/admin_Modal/login_modal.jsp" %>
 </form>
 </div>					
 </body>

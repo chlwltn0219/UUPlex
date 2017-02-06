@@ -23,6 +23,10 @@ public class ManageTheaterHandler implements MCommandHandler {
 		model.addAttribute("dtos", dtos);
 
 		String[] row = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
+		
+		int theatercount = dao.TheatersCount();
+		
+		model.addAttribute("theatercount",theatercount);
 		model.addAttribute("row", row);
 		model.addAttribute("contentPage", "manage/manage_theater.jsp");
 		return viewPage;

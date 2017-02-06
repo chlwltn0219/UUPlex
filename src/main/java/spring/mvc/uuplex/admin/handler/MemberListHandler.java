@@ -24,9 +24,24 @@ public class MemberListHandler implements CommandHandler {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		
-		ArrayList<MemberDTO> dtos = dao.memberList();
+		ArrayList<MemberDTO> dtos = null;
 		
+		String grade = req.getParameter("grade");
+		
+		if(grade.equals("전체")){
+			dtos = dao.memberList();
+		} else if(grade.equals("일반회원")) {
+			dtos = dao.memberListSub(grade);
+		} else if(grade.equals("Green회원")) {
+			dtos = dao.memberListSub(grade);
+		} else if(grade.equals("Gold회원")) {
+			dtos = dao.memberListSub(grade);
+		} else if(grade.equals("Vip회원")) {
+			dtos = dao.memberListSub(grade);
+		}
+	
 		model.addAttribute("dtos", dtos);
+		model.addAttribute("grade", grade);
 		
 		return "/main/admin/memberList";
 	}

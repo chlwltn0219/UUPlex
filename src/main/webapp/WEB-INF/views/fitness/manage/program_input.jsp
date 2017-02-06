@@ -23,9 +23,9 @@
 						</c:forEach>
 					</select>
 				</div>
-				<div class="form-group" id="teacher">
+				<div class="form-group">
 					<label>강사</label>
-					<select class="form-control" name="tid">
+					<select class="form-control" name="tid" id="teacher">
 						<c:forEach items="${teacher}" var="t">
 						<option value="${t.tid}">${t.tname}</option>
 						</c:forEach>
@@ -54,7 +54,7 @@
 	    	</div>
 	    	<div class="modal-footer">
 				<input type="submit" class="btn btn-primary" value="입력">
-				<input type="reset" class="btn btn-warning" value="초기화">
+				<input type="reset" class="btn btn-warning" value="초기화" onclick="resetTeacher()">
 				<input type="button" class="btn btn-danger" data-dismiss="modal" value="취소">
 	    	</div>
 		</form>

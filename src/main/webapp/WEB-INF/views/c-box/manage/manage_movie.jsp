@@ -13,15 +13,11 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td colspan="2">
+				<td colspan="3">
 					<!-- 검색 -->
 					<form action="" method="get" onsubmit="" class="form-inline"
 						name="searchForm">
 						<div class="input-group">
-							<!-- 							<select class="form-control"> -->
-							<!-- 								<option>코드</option> -->
-							<!-- 								<option>종목 명</option> -->
-							<!-- 							</select> -->
 							<input class="form-control" type="search" placeholder="검색 구현 필요">
 							<div class="input-group-btn">
 								<button type="submit" class="btn btn-info">
@@ -30,7 +26,7 @@
 							</div>
 						</div>
 					</form>
-				<td>
+				<td style="text-align: center;">
 					<!-- 등록 -->
 					<div class="form-group pull-right">
 
@@ -73,7 +69,7 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="6" align="center">
+				<td colspan="7" align="center">
 				<c:if test="${prev == true}">
 						<ul class="pager">
 							<li><a href="/uuplex/c-box/manage_movie?page=${startPage-1}">&lt;

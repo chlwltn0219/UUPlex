@@ -514,7 +514,7 @@ button:focus {
 }
 
 .content__item-title {
-	font-size: 1.85em;
+	font-size: 3em;
 	margin: 0;
 	padding: 0 0 0.75em 0;
 	pointer-events: none;

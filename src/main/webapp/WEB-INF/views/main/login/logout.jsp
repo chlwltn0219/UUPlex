@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 		alert("로그아웃 되었습니다.");
 		
-		window.location="main";
+		location.href = document.referrer;
 	</script>
 
 </body>

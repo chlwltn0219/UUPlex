@@ -28,14 +28,41 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 	
+	alert("gg");
 	
-	var data = google.visualization.arrayToDataTable([
+	//방법1
+	 /*  var data = google.visualization.arrayToDataTable([
+		  
+		 <c:forEach items="${dtos}" var="dto" varStatus="status">
+		 
+		 	'${status.index == 0}' ? ['${dto.title1}',  '${(dto.cnt)/(reserveCnt)*100}'] : ',' + ['${dto.title1}',  '${(dto.cnt)/(reserveCnt)*100}']
+		 
+		 	</c:forEach>
+		 ]);  */
+	 
+	 
+	   
+	   //방법2
+	   var data = new google.visualization.DataTable();
+
+	   data.addColumn('string','title');
+	   data.addColumn('number','rate');
+	   
+	  
+		<c:forEach items="${dtos}" var="dto" varStatus="status">
+			data.addRows([
+				['${dto.title1}',  '${(dto.cnt)/(reserveCnt)*100}']
+			]);
+		</c:forEach>
+		 
+			
+	/*  var data = google.visualization.arrayToDataTable([
 			[ 'Task', 'Hours per Day' ],
 			['Work',     11],
 			[ 'Eat', 2 ],
 			[ 'Commute', 2 ], [ 'Watch TV', 2 ],
-			[ 'Sleep', 7 ] ]);
- 
+			[ 'Sleep', 7 ] ]); */
+  
 	var options = {
 		title : 'My Daily Activities',
 		pieHole : 0.4,

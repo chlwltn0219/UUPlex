@@ -3,7 +3,7 @@ package spring.mvc.uuplex.admin.dto;
 import java.sql.Timestamp;
 
 public class BoardDTO {
-	private int shopCode;            //매장번호
+	private int shopCode;           //매장번호
 	private int qnaNum;            //글번호
 	private String memId;  		   //작성자
 	private String qnaPasswd;	   //비밀번호

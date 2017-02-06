@@ -13,7 +13,7 @@
 				<div class="modal-body">
 					<table class="table">
 						<tr>
-							<th>강의 코드</th>
+							<th width="25%">강의 코드</th>
 							<td>
 								<input type="text" class="form-control" 
 									name="cid" value="${dto.cid}" readonly>
@@ -24,13 +24,18 @@
 							<td>
 								<select class="form-control" name="pid" required>
 									<c:forEach items="${sports}" var="s">
+										<c:if test="${fn:length(program[s.sid]) > 0}">
 										<optgroup label="${s.sname}">
-										<c:forEach items="${program}" var="p">
-										<c:if test="${s.sid == p.sid}">
-											<option value="${p.pid}">${p.pname} ( ${teacher[p.tid].tname} )</option>
-										</c:if>
-										</c:forEach>
+											<c:forEach items="${program[s.sid]}" var="p">
+											<c:if test="${dto.pid != p.pid }">
+											<option value="${p.pid}"> ${p.pname} : ${teacher[p.tid].tname} 강사님</option>
+											</c:if>
+											<c:if test="${dto.pid == p.pid }">
+											<option value="${p.pid}" selected> ${p.pname} : ${teacher[p.tid].tname} 강사님</option>
+											</c:if>
+											</c:forEach>
 										</optgroup>
+										</c:if>
 									</c:forEach>
 								</select>
 							</td>
@@ -50,6 +55,21 @@
 							</td>
 						</tr>
 						<tr>
+							<th>교육장</th>
+							<td>
+								<select class="form-control" name="crid" required>
+									<c:forEach items="${classroom}" var="c">
+										<c:if test="${dto.crid != c.crid}">
+										<option value="${c.crid}"> ${c.crid}호 : ${c.crname}</option>
+										</c:if>
+										<c:if test="${dto.crid == c.crid}">
+										<option value="${c.crid}" selected> ${c.crid}호 : ${c.crname}</option>
+										</c:if>
+									</c:forEach>
+								</select>
+							</td>
+						</tr>
+						<tr>
 							<th>정원</th>
 							<td>
 								<input type="number" class="form-control"
@@ -59,12 +79,10 @@
 						<tr>
 							<th>등록 기간</th>
 							<td>
-								<div class="col-xs-5">
+								<div class="input-group">
 									<input type="date" class="form-control"
 											name="register_start" value="${fn:substring(dto.register_start, 0, 10)}">
-								</div>
-								<div class="col-xs-1"> ~ </div>
-								<div class="col-xs-5">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
 									<input type="date" class="form-control"
 									name="register_end" value="${fn:substring(dto.register_end, 0, 10)}">
 								</div>
@@ -73,27 +91,107 @@
 						<tr>
 							<th>수업 기간</th>
 							<td>
-								<div class="col-xs-5">
+								<div class="input-group">
 									<input type="date" class="form-control"
 												name="start_date" value="${fn:substring(dto.start_date, 0, 10)}">
-								</div>
-								<div class="col-xs-1"> ~ </div>
-								<div class="col-xs-5">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
 									<input type="date" class="form-control"
 												name="end_date" value="${fn:substring(dto.end_date, 0, 10)}">
 								</div>
 							</td>
 						</tr>
 						<tr>
+							<th>수업 요일</th>
+							<td>
+								<div class="btn-group btn-group-justified" data-toggle="buttons">
+								
+									<c:if test="${dto.sun == 'Y'}">
+									<label class="btn btn-danger active">
+										<input type="checkbox" name="sun" value="Y" checked>일
+									</label>
+									</c:if>
+									<c:if test="${dto.sun != 'Y'}">
+									<label class="btn btn-danger">
+										<input type="checkbox" name="sun" value="Y">일
+									</label>
+									</c:if>
+									
+									<c:if test="${dto.mon == 'Y'}">
+									<label class="btn btn-success active">
+										<input type="checkbox" name="mon" value="Y" checked>월
+									</label>
+									</c:if>
+									<c:if test="${dto.mon != 'Y'}">
+									<label class="btn btn-success">
+										<input type="checkbox" name="mon" value="Y">월
+									</label>
+									</c:if>
+									
+									<c:if test="${dto.tue == 'Y'}">
+									<label class="btn btn-success active">
+										<input type="checkbox" name="tue" value="Y" checked>화
+									</label>
+									</c:if>
+									<c:if test="${dto.tue != 'Y'}">
+									<label class="btn btn-success">
+										<input type="checkbox" name="tue" value="Y">화
+									</label>
+									</c:if>
+									
+									<c:if test="${dto.wed == 'Y'}">
+									<label class="btn btn-success active">
+										<input type="checkbox" name="wed" value="Y" checked>수
+									</label>
+									</c:if>
+									<c:if test="${dto.wed != 'Y'}">
+									<label class="btn btn-success">
+										<input type="checkbox" name="wed" value="Y">수
+									</label>
+									</c:if>
+
+									<c:if test="${dto.thu == 'Y'}">
+									<label class="btn btn-success active">
+										<input type="checkbox" name="thu" value="Y" checked="checked">목
+									</label>
+									</c:if>
+									<c:if test="${dto.thu != 'Y'}">
+									<label class="btn btn-success">
+										<input type="checkbox" name="thu" value="Y">목
+									</label>
+									</c:if>
+
+									<c:if test="${dto.fri == 'Y'}">
+									<label class="btn btn-success active">
+										<input type="checkbox" name="fri" value="Y" checked>금
+									</label>
+									</c:if>
+									<c:if test="${dto.fri != 'Y'}">
+									<label class="btn btn-success">
+										<input type="checkbox" name="fri" value="Y">금
+									</label>
+									</c:if>
+										
+									<c:if test="${dto.sat == 'Y'}">
+									<label class="btn btn-primary active">
+										<input type="checkbox" name="sat" value="Y" checked>토
+									</label>
+									</c:if>
+									<c:if test="${dto.sat != 'Y'}">
+									<label class="btn btn-primary">
+										<input type="checkbox" name="sat" value="Y">토
+									</label>
+									</c:if>
+									</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
 							<th>수업 시간</th>
 							<td>
-								<div class="col-xs-5">
+								<div class="input-group">
 									<input type="time" class="form-control"
 										name="start_time" value="${fn:substring(dto.start_time, 11, 16)}">
-									
-								</div>
-								<div class="col-xs-1"> ~ </div>
-								<div class="col-xs-5">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
 									<input type="time" class="form-control"
 										name="end_time" value="${fn:substring(dto.end_time, 11, 16)}">
 								</div>
