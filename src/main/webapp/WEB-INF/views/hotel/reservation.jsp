@@ -145,7 +145,7 @@
 	    <table id="imgTable" style="border:1px solid #EAEAEA;">
 	    <tr>
 	    <th>
-	    <div id="${dto.roomName}">
+	    <div id="view">
 	    <img src="/uuplexImg/${dto.mainImg}" alt="">
 	    </div>
 	    </th>
