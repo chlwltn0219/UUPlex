@@ -123,12 +123,7 @@
 				<td colspan="5" align="center">
 					<c:if test="${prev == true}">
 						<ul class="pager"> 
-<<<<<<< HEAD
-							<li><a href="/uuplex/fitness/manage/program/list?page=${startPage-1}">&lt; prev</a></li>
-=======
 							<li><a href="/uuplex/fitness/manage/class/list?page=${startPage-1}">&lt; prev</a></li>
->>>>>>> origin/master
-						</ul>
 					</c:if>
 				
 					<ul class="pagination">
@@ -138,22 +133,14 @@
 								<li class="active"><a>${page}</a></li>
 							</c:if>
 							<c:if test="${status.current != nowPage}">
-<<<<<<< HEAD
-								<li><a href="/uuplex/fitness/manage/program/list?page=${page}">${page}</a></li>
-=======
 								<li><a href="/uuplex/fitness/manage/class/list?page=${page}">${page}</a></li>
->>>>>>> origin/master
 							</c:if>
 						</c:forEach>
 					</ul>
 					
 					<c:if test="${next == true}">
 						<ul class="pager"> 
-<<<<<<< HEAD
-							<li><a href="/uuplex/fitness/manage/program/list?page=${endPage+1}">next &gt;</a></li>
-=======
 							<li><a href="/uuplex/fitness/manage/class/list?page=${endPage+1}">next &gt;</a></li>
->>>>>>> origin/master
 						</ul>
 					</c:if>
 					

@@ -38,18 +38,16 @@
 /*   text-align: center; */
 	color: black;
 	width: 330px;
-	height: 135px;
 	padding: 0 30px;
   
 }
 
-.content {
-	 float:left; 
-}
-
-
 a{
     text-decoration: none !important;
+}
+
+h5{
+	text-align: center;
 }
 
 
@@ -68,36 +66,53 @@ a{
       </div>
       <div id="s${s.sid}" class="panel-collapse collapse">
         <div class="panel-body">
-        <div style="width: 990px; margin: 0 auto;">
-        	<c:forEach items="${dtos}" var="t">
+       	<c:set var="index" value="1"/>
+<!--         <div style="width: 990px; margin: 0 auto;"> -->
+        	<c:forEach items="${dtos}" var="t" varStatus="status">
         	<c:if test="${s.sid == t.sid}">
-			<div class="content">
-				<div class="image">
-					<img src="/teacherImg/${t.tpicture}" width="100%" height="100%" alt="Avatar">
-				</div>
-				
-					<div class="text">
-					강사명 : ${t.tname}
-					<br>							
-					강사 이력 ▼	
-					<br>				
-					${t.tinfo}
-					
-					</div>
-			</div>
+        	
+        	<c:if test="${index%3 == 1}">
+        	<div class="row">
         	</c:if>
-        	</c:forEach>
+        	
+				<div class="content col-sm-4">
+					<div class="image">
+						<img src="/teacherImg/${t.tpicture}" width="100%" height="100%" alt="Avatar">
+					</div>
+					
+						<div class="text">
+						<h5><b>${t.tname} ${index }</b></h5>	
+						<br>					
+						<b>강사 이력</b>
+						<br>				
+						${t.tinfo}
+						</div>
+				</div>
+			
+			
+			<c:if test="${index%3 == 0}">
+				</div>
+			</c:if>
+			
+			<c:set var="index" value="${index+1}"/>
+			</c:if>
+			
+			<c:if test="${index%3 != 0 && status.isLast()}">
+				</div>
+			</c:if>
+			
+       </c:forEach>
 
 	</div>
 	</div>
 	</div>	
 	
-        </div>
         
+	<hr style="display: none;">
 	</c:forEach>  
-	<hr style="visibility: hidden;">
-      </div>
+    </div>
  
 </div>
 </body>
 </html>
+
