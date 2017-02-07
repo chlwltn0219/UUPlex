@@ -84,4 +84,14 @@ public class FTeacherDAOImpl implements FTeacherDAO{
 		return list;
 	}
 
+	@Override
+	public List<FTeacherDTO> tInfo() {
+		List<FTeacherDTO> list = null;
+		FTeacherDAO dao = this.sqlSession.getMapper(FTeacherDAO.class);
+		
+		list = dao.tInfo();
+		
+		return list;
+	}
+
 }
