@@ -56,6 +56,8 @@ h5{
 <body>
 <div class="container" >
 
+	<h1>강사 정보</h1>
+
   <div class="panel-group" id="accordion">
 	<c:forEach var="s" items="${sports}">
     <div class="panel">
@@ -66,41 +68,39 @@ h5{
       </div>
       <div id="s${s.sid}" class="panel-collapse collapse">
         <div class="panel-body">
-       	<c:set var="index" value="1"/>
 <!--         <div style="width: 990px; margin: 0 auto;"> -->
+
+        	<c:set var="i" value="${0}"/>
         	<c:forEach items="${dtos}" var="t" varStatus="status">
         	<c:if test="${s.sid == t.sid}">
+        		<c:set var="i" value="${i+1}"/>
         	
-        	<c:if test="${index%3 == 1}">
-        	<div class="row">
-        	</c:if>
-        	
-				<div class="content col-sm-4">
-					<div class="image">
-						<img src="/teacherImg/${t.tpicture}" width="100%" height="100%" alt="Avatar">
-					</div>
-					
-						<div class="text">
-						<h5><b>${t.tname} ${index }</b></h5>	
-						<br>					
-						<b>강사 이력</b>
-						<br>				
-						${t.tinfo}
+        		<c:if test="${i%3==1}"> 
+        			<div class="row">
+        		</c:if>
+        		
+					<div class="content col-sm-4">
+						<div class="image">
+							<img src="/teacherImg/${t.tpicture}" width="100%" height="100%" alt="Avatar">
 						</div>
-				</div>
-			
-			
-			<c:if test="${index%3 == 0}">
-				</div>
+						<div class="text">
+							<h5><b>${t.tname}</b></h5>	
+							<br>					
+							<b>강사 이력</b>
+							<br>				
+							${t.tinfo}
+						</div>
+					</div>
+				
+        		<c:if test="${i%3==0}"> 
+        			</div>
+        		</c:if>
+				
 			</c:if>
 			
-			<c:set var="index" value="${index+1}"/>
-			</c:if>
-			
-			<c:if test="${index%3 != 0 && status.isLast()}">
-				</div>
-			</c:if>
-			
+       		<c:if test="${i%3!=0 && status.isLast()}"> 
+       			</div>
+       		</c:if>
        </c:forEach>
 
 	</div>

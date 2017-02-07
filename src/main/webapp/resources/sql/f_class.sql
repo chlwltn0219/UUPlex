@@ -1,17 +1,3 @@
-SELECT c.*, p.*, w.*, t.*
-		  FROM F_CLASS c
-		 	   INNER JOIN F_CLASSWEEK w
-		   	      ON c.cid = w.cid
-		   	   INNER JOIN F_PROGRAM p 
-			      ON p.pid = c.pid
-			   INNER JOIN F_TEACHER t 
-			      ON t.tid = (SELECT tid 
-			   				   FROM F_PROGRAM p
-			   				  WHERE p.pid=c.pid )
-		 WHERE c.activated = 'Y'
-		   AND SYSDATE BETWEEN c.register_start AND c.register_end
-		 ORDER BY c.register_end;
-
 -- 피트니스 종목 테이블
 DROP TABLE F_CLASS;
 
@@ -19,7 +5,7 @@ CREATE TABLE F_CLASS (
 cid				NUMBER,
 pid				NUMBER,
 crid			NUMBER,
-subName			VARCHAR2(100) CONSTRAINT f_class_subname_nn NOT NULL,
+subName			VARCHAR2(300) CONSTRAINT f_class_subname_nn NOT NULL,
 register_start	TIMESTAMP CONSTRAINT f_class_register_start_nn NOT NULL,
 register_end	TIMESTAMP CONSTRAINT f_class_register_end_nn NOT NULL,
 start_date		TIMESTAMP CONSTRAINT f_class_start_date_nn NOT NULL,

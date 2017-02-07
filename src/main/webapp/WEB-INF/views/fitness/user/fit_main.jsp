@@ -97,7 +97,7 @@
 				<h2>프로그램 안내</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
-				<a href="#"><img class="img-circle" src="${resources}/fitness/img/noun_667847_cc.png" alt="Program Info"></a>
+				<a href="/uuplex/fitness/user/reserve"><img class="img-circle" src="${resources}/fitness/img/noun_667847_cc.png" alt="Program Info"></a>
 				<h2>수강 신청</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
@@ -107,80 +107,80 @@
 		</div><!-- /.row -->
   
        <!-- 미니 게시판 -->
-		<div class="row board">
-			<div class="col-sm-6">
-				<table class="table table-condensed board">
-					<thead>
-						<tr>
-							<th colspan="3"> 공지사항 </th>
-							<td align="right"><a>&lt;더 보러가기&gt;</a></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th colspan="3">Title</th>
-							<th>Regdate</th>
-						</tr>	
-						<tr>
-							<td colspan="3"><a>최근 공지 사항합니다. 안녕하세요.</a></td>
-							<td>2010-01-17</td>
-						</tr>
-						<tr>
-							<td colspan="3"><a>제목2</a></td>
-							<td>2010-01-17</td>
-						</tr>
-						<tr>
-							<td colspan="3"><a>제목3</a></td>
-							<td>2010-01-17</td>
-						</tr>
-						<tr>
-							<td colspan="3"><a>제목4</a></td>
-							<td>2010-01-17</td>
-						</tr>
-						<tr>
-							<td colspan="3"><a>제목5</a></td>
-							<td>2010-01-17</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="col-sm-6">
-				<table class="table table-condensed board">
-					<thead>
-						<tr>
-							<th colspan="3"> FAQ </th>
-							<td align="right"><a>&lt;더 보러가기&gt;</a></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th colspan="3">Question</th>
-							<th>조회수</th>
-						</tr>	
-						<tr>
-							<td colspan="3"><a>강의 신청은 어떻게 하나요 ?</a></td>
-							<td>315</td>
-						</tr>
-						<tr>
-							<td colspan="3"><a>환불 규정은 어떻게 되나요 ?</a></td>
-							<td>287</td>
-						</tr>
-						<tr>
-							<td colspan="3"><a>꼭 회원 가입을 해야하나요 ?</a></td>
-							<td>230</td>
-						</tr>
-						<tr>
-							<td colspan="3"><a>어떠한 프로그램이 있나요 ?</a></td>
-							<td>120</td>
-						</tr>
-						<tr>
-							<td colspan="3"><a>회원 탈퇴를 하고 싶습니다.</a></td>
-							<td>78</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
+<!-- 		<div class="row board"> -->
+<!-- 			<div class="col-sm-6"> -->
+<!-- 				<table class="table table-condensed board"> -->
+<!-- 					<thead> -->
+<!-- 						<tr> -->
+<!-- 							<th colspan="3"> 공지사항 </th> -->
+<!-- 							<td align="right"><a>&lt;더 보러가기&gt;</a></td> -->
+<!-- 						</tr> -->
+<!-- 					</thead> -->
+<!-- 					<tbody> -->
+<!-- 						<tr> -->
+<!-- 							<th colspan="3">Title</th> -->
+<!-- 							<th>Regdate</th> -->
+<!-- 						</tr>	 -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>최근 공지 사항합니다. 안녕하세요.</a></td> -->
+<!-- 							<td>2010-01-17</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>제목2</a></td> -->
+<!-- 							<td>2010-01-17</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>제목3</a></td> -->
+<!-- 							<td>2010-01-17</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>제목4</a></td> -->
+<!-- 							<td>2010-01-17</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>제목5</a></td> -->
+<!-- 							<td>2010-01-17</td> -->
+<!-- 						</tr> -->
+<!-- 					</tbody> -->
+<!-- 				</table> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-sm-6"> -->
+<!-- 				<table class="table table-condensed board"> -->
+<!-- 					<thead> -->
+<!-- 						<tr> -->
+<!-- 							<th colspan="3"> FAQ </th> -->
+<!-- 							<td align="right"><a>&lt;더 보러가기&gt;</a></td> -->
+<!-- 						</tr> -->
+<!-- 					</thead> -->
+<!-- 					<tbody> -->
+<!-- 						<tr> -->
+<!-- 							<th colspan="3">Question</th> -->
+<!-- 							<th>조회수</th> -->
+<!-- 						</tr>	 -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>강의 신청은 어떻게 하나요 ?</a></td> -->
+<!-- 							<td>315</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>환불 규정은 어떻게 되나요 ?</a></td> -->
+<!-- 							<td>287</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>꼭 회원 가입을 해야하나요 ?</a></td> -->
+<!-- 							<td>230</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>어떠한 프로그램이 있나요 ?</a></td> -->
+<!-- 							<td>120</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="3"><a>회원 탈퇴를 하고 싶습니다.</a></td> -->
+<!-- 							<td>78</td> -->
+<!-- 						</tr> -->
+<!-- 					</tbody> -->
+<!-- 				</table> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
     </div>
   
   </body>
