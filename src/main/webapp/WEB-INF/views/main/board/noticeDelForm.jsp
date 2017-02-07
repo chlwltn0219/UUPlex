@@ -7,7 +7,7 @@
 
 <style>
 
-	.modalUp {
+ 	.modalUp {
 		width: 888px;
   		margin: 5px;
   		padding: 100px 50px;
@@ -16,34 +16,33 @@
 	
 </style>
 
-
-<!-- <script type="text/javascript" src="/uuplex/resources/js/jquery-1.12.4.js"></script>
-
 <script type="text/javascript">
-	function login() {
-		
-		var id = document.loginForm.memId.value;
-		var passwd = document.loginForm.passwd.value;
-		
-		window.location='loginPro?memId=' + id + '&passwd=' + passwd;
-		
+function deletePwdChk() {
+	if(!document.NoticeDelForm.passwd.value){
+		alert("비밀번호를 입력하세요");
+		return false;
 	}
+	
+	var passwd = document.NoticeDelForm.passwd.value;
+	var shopCode = document.NoticeDelForm.shopCode.value;
+	var num = document.NoticeDelForm.num.value;
+	var pageNum = document.NoticeDelForm.pageNum.value;
+	
+	window.location="noticeDelPro?passwd=" + passwd + "&shopCode=" + shopCode + "&num=" + num + "&pageNum=" + pageNum;
+}
 
-</script> -->
+</script>
 
 </head>
 <body>
 
 <div class="modalUp">
 
-<form action="/uuplex/loginPro" name="loginForm" class="form-horizontal" method="post">
+<form action="noticeDelPro" name="NoticeDelForm" class="form-horizontal" method="post">
 
-<%-- <c:if test="${cnt != 1}">
-	<script type="text/javascript">
-		alert("로그인오류");
-		window.location.reload();
-	</script>
-</c:if> --%>
+	<input type="hidden" name="shopCode" value="${shopCode}">
+	<input type="hidden" name="num" value="${num}">
+	<input type="hidden" name="pageNum" value="${pageNum}">
 
 		<c:if test="${cnt == -1}">
 			<script type="text/javascript">
@@ -51,26 +50,19 @@
 				history.back();
 			</script>
 		</c:if>
-		
-		<c:if test="${cnt == 0}">
-			<script type="text/javascript">
-				alert("등록된 아이디가 아닙니다. 다시 확인하세요!");
-				history.back();
-			</script>
-		</c:if>
 	
 	<div class="form-group">
-    	<label for="inputEmail3" class="col-sm-5 control-label"></label> 
+    	<label for="inputEmail3" class="col-sm-4 control-label"></label> 
     	<div class="col-sm-4">
-    	<h1> 로그인 </h1>
+    	<h1> 비밀번호 확인 </h1>
     	</div>
   	</div>	
 	
 	
 	<div class="form-group">
-    	<label for="inputEmail3" class="col-sm-4 control-label">아이디</label> 
+    	<label for="inputEmail3" class="col-sm-4 control-label"></label> 
     	<div class="col-sm-4">
-      		<input type="text" name="memId" class="form-control" id="memId" placeholder="아이디를 입력하세요" style="font-family:'함초롱바탕'">
+    	삭제하시려면 비밀번호를 입력하세요
     	</div>
   	</div>	
   
@@ -84,9 +76,8 @@
   	<div class="form-group" align="left">
   		<label for="inputPassword3" class="col-sm-4 control-label"></label>
     	<div class="col-sm-4">
-      		<button type="submit" class="btn btn-default">Login</button>
+      		<input type="button" class="btn btn-default" value="삭제" onclick="deletePwdChk()">
       		<input type="button" class="btn btn-default" value="취소" onclick="window.location.reload()">
-      		<input type="button" class="btn btn-default" value="회원가입" onclick="window.location='input'">
     	</div>
   	</div>
   	

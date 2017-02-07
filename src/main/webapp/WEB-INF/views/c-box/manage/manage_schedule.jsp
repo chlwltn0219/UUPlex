@@ -5,7 +5,6 @@
 
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript" src="${resources}/c-box/js/schedule.js"></script>
-<script src="${js}jquery-1.11.3.min.js"></script>
 
 <script>
 	$(function() {
@@ -26,7 +25,7 @@
 			
 			$('#modalPage').modal({
 				  keyboard: false
-				});
+			});
 		});
 
 		$(".glyphicon-trash").click(function() {

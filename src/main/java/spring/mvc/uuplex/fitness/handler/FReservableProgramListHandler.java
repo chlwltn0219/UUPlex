@@ -29,7 +29,6 @@ public class FReservableProgramListHandler implements FCommandHandler{
 		}
 		
 		list = dao.reservableList(sid);
-		
 		model.addAttribute("program", list);
 		
 		return viewPage;

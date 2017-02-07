@@ -50,7 +50,7 @@ public class FTeacherModifyHandler implements FCommandHandler{
 			
 			int tid = Integer.parseInt(multi.getParameter("tid"));
 			String tname = multi.getParameter("tname"); 
-			String tinfo = multi.getParameter("tinfo");	
+			String tinfo = multi.getParameter("tinfo").replace("\r\n","<br>");	
 			String activated = multi.getParameter("activated");
 			String tpicture = null;
 			int sid = Integer.parseInt(multi.getParameter("sid"));

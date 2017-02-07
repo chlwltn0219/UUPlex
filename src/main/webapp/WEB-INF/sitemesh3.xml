@@ -43,7 +43,6 @@
   
   <mapping path="/hotel/reservForm" exclue="true"/>
   <mapping path="/hotel/calculation" exclue="true"/>
-  <mapping path="/hotel/reservConfirm" exclue="true"/>
   
   <mapping path="/fitness/teacher/suitable" exclue="true"/>
   

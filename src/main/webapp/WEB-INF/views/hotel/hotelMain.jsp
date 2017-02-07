@@ -26,7 +26,9 @@
         } 
 
         header {
-            background-color:#4B0025; color:#030066;
+            background-image:url("resources/hotelImages/hotel_background.png");
+            background-size : 800px;
+            color:#030066;
         }
 
         header li{
@@ -38,10 +40,8 @@
         }
 
         header .logo {
-            padding: 0px 0px 0px 50px;
+            padding: 50px 50px 0 400px;
             align:left;
-            font-size: 2em;
-            font-weight: bolder;
         }
         
         header .hit_menu {
@@ -50,7 +50,7 @@
         }
 
         header .hit_menu ul {
-            overflow:hidden; width:1000px; margin:0 auto 3px; 
+            overflow:hidden; width:1200px; margin:0 auto 3px; 
         }
 
         header .hit_menu li {
@@ -72,14 +72,14 @@
 
         #content {
         	background:url("${resources}/hotelImages/dice.jpg") repeat;
-            width:100%; height:555px;
+            width:100%; height:605px;
         }
 
         #content .section1 {
             overflow:hidden;
-            width:1000px;
+            width:800px;
             margin:auto;
-			padding-top:10px;
+			padding-top:50px;
             /* padding-left:100px; */
         }
         
@@ -88,7 +88,7 @@
         }
         
         div.carousel img{
-    		width: 70%;
+    		width: 90%;
         	margin: 0 auto;
         }
 

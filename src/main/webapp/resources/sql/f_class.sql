@@ -19,7 +19,11 @@ CREATE TABLE F_CLASS (
 cid				NUMBER,
 pid				NUMBER,
 crid			NUMBER,
+<<<<<<< HEAD
+subName			VARCHAR2(20) CONSTRAINT f_class_subname_nn NOT NULL,
+=======
 subName			VARCHAR2(100) CONSTRAINT f_class_subname_nn NOT NULL,
+>>>>>>> origin/master
 register_start	TIMESTAMP CONSTRAINT f_class_register_start_nn NOT NULL,
 register_end	TIMESTAMP CONSTRAINT f_class_register_end_nn NOT NULL,
 start_date		TIMESTAMP CONSTRAINT f_class_start_date_nn NOT NULL,

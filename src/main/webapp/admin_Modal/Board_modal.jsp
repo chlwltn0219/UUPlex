@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<div class="modal fade" id="loginModal" role="dialog">
+<div class="modal fade" id="BoardModal" role="dialog">
 	<div class="modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -17,6 +17,3 @@
 		</div>
 	</div>
 </div>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
