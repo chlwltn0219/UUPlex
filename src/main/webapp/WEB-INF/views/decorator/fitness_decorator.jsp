@@ -66,11 +66,7 @@
 				<li><a href="/uuplex/fitness">휘트니스</a></li>
 				<li><a href="#">프로그램 안내</a></li>
 				<li><a href="/uuplex/fitness/user/teacher/list">강사 안내</a></li>
-<<<<<<< HEAD
-				<li><a href="#">수강 신청</a></li>
-=======
 				<li><a href="/uuplex/fitness/user/program/reserve">수강 신청</a></li>
->>>>>>> origin/master
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 마이 페이지 <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">

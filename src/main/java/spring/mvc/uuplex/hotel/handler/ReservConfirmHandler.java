@@ -26,7 +26,7 @@ public class ReservConfirmHandler implements HCommandHandler {
 		dto.setCheckOut(req.getParameter("checkOut"));
 		dto.setCapacity(Integer.parseInt(req.getParameter("capacity")));
 		dto.setExtraBed(req.getParameter("extraBed"));
-		//dto.setExtraBedcnt(Integer.parseInt(req.getParameter("extraBedCnt")));
+		dto.setExtraBedcnt(Integer.parseInt(req.getParameter("extraBedcnt")));
 		dto.setLaundry(req.getParameter("laundry"));
 		dto.setBreakfast(req.getParameter("breakfast"));
 		dto.setFirstName(req.getParameter("firstName"));

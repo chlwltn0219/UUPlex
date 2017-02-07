@@ -185,9 +185,9 @@ function loadPage() {
 	</div>
 	
 	<div class="modal-footer">
-		<button type="submit" class="btn btn-default">다음단계</button>
+		<button type="submit" class="btn btn-default btn-lg">다음단계</button>
 		<!-- <a data-toggle="modal" data-target="#reservModal" class="btn btn-default" href="./reservConfirm">다음단계</a> -->
-		<button type="button" class="btn btn-default"
+		<button type="button" class="btn btn-default btn-lg"
 			data-dismiss="modal" onclick="window.location.reload()">닫기</button>
 	</div>
 	
