@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../../setting.jsp" %>
 
+	<c:set var="now" value="<%= new java.util.Date()%>"/>
 	<div class="panel panel-default">
 			<div class="panel-heading">검색 리스트</div>
 			<table class="panel-body table">
@@ -27,20 +28,34 @@
 				<c:if test="${fn:length(dtos) > 0}">
 				<c:forEach items="${dtos}" var="c">
 					<tr>
-						<td rowspan="5"><h3>${c.pname}<small> : ${c.subname} - ${c.pname} </small></h3></td>
+						<td><h3>${c.pname}<small> : ${c.subname} - ${c.pname} </small></h3></td>
 						<td>
 							<table style="width: 100%">
 								<tr>
 									<th>정원</th>
 									<td>${c.current_people} / ${c.limit} 명</td>
 								</tr>
+								<tr style="border-bottom: 1px solid #dddddd ">
+									<th>가격</th>
+									<td>${c.price} 원</td>
+								</tr>
 								<tr>
 									<th>신청 기간</th>
-									<td>${fn:substring(c.register_start, 0, 10)} ~ ${fn:substring(c.register_end, 0, 10)}</td>
+									<td>
+										${fn:substring(c.register_start, 0, 10)} ~ ${fn:substring(c.register_end, 0, 10)}
+										<c:if test="${now < c.register_start}"><span class="label label-warning">예정</span></c:if>
+										<c:if test="${now >= c.register_start && now <= c.register_end}"><span class="label label-success">진행중</span></c:if>
+										<c:if test="${now > c.register_end}"><span class="label label-danger">종료</span></c:if>
+									</td>
 								</tr>
 								<tr>
 									<th>강의 기간</th>
-									<td>${fn:substring(c.start_date, 0, 10)} ~ ${fn:substring(c.end_date, 0, 10)}</td>
+									<td>
+										${fn:substring(c.start_date, 0, 10)} ~ ${fn:substring(c.end_date, 0, 10)}
+										<c:if test="${now < c.start_date}"><span class="label label-warning">예정</span></c:if>
+										<c:if test="${now >= c.start_date && now <= c.end_date}"><span class="label label-success">진행중</span></c:if>
+										<c:if test="${now > c.end_date}"><span class="label label-danger">종료</span></c:if>
+									</td>
 								</tr>
 								<tr>
 									<th>강의 요일</th>
@@ -75,10 +90,10 @@
 							</table>
 						</td>
 						<td>
-							<c:if test="${c.current_people >= c.limit}">
+							<c:if test="${c.current_people >= c.limit || c.register_end < now}">
 								<button class="btn btn-default disabled"> 종료됨 </button>
 							</c:if>
-							<c:if test="${c.current_people < c.limit}">
+							<c:if test="${c.current_people < c.limit && c.register_end >= now}">
 								<button class="btn btn-default"> 신청하기 </button>
 							</c:if>
 						</td>

@@ -76,7 +76,7 @@ public class FClassModifyHandler implements FCommandHandler{
 			dto.setSat(sat);
 			
 			dao.modifyClassWeek(dto);
-//			dao.modifyClass(dto);
+			dao.modifyClass(dto);
 			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
