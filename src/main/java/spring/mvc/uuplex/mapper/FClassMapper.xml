@@ -83,6 +83,7 @@
 		   SET pid = #{pid},
 			   subname = #{subname},
 			   limit = #{limit},
+			   crid = #{crid},
 			   register_start = #{register_start},
 			   register_end = #{register_end},
 			   start_date = #{start_date},
@@ -92,13 +93,17 @@
 		 WHERE cid = #{cid}
 	</update>
 	
-	<!-- 피트니스 활성 강의 목록 리스트 반환 -->
-	<select id="classActivatedList" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO">
-		SELECT sid, sname
-		  FROM F_CLASS 
-		 WHERE activated = 'Y'
-		 ORDER BY sname
-	</select>
+	<update id="modifyClassWeek" parameterType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		UPDATE F_CLASSWEEK
+		   SET sun = #{sun}, 
+		   	   mon = #{mon}, 
+		   	   tue = #{tue}, 
+		   	   wed = #{wed}, 
+		   	   thu = #{thu}, 
+		   	   fri = #{fri}, 
+		   	   sat = #{sat}
+		 WHERE cid = #{cid}
+	</update>
 	
 	<select id="reservableCount" parameterType="int" resultType="int">
 		SELECT COUNT(*) 

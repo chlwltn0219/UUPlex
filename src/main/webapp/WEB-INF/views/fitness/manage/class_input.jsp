@@ -67,25 +67,25 @@
 					<label>수업 요일</label>
 					<div>
 						<div class="btn-group btn-group-justified" data-toggle="buttons">
-							<label class="btn btn-default">
+							<label class="btn btn-default sun">
 								<input type="checkbox" name="sun" value="Y">일
 							</label>
-							<label class="btn btn-default">
+							<label class="btn btn-default weekday">
 								<input type="checkbox" name="mon" value="Y">월
 							</label>
-							<label class="btn btn-default">
+							<label class="btn btn-default weekday">
 								<input type="checkbox" name="tue" value="Y">화
 							</label>
-							<label class="btn btn-default">
+							<label class="btn btn-default weekday">
 								<input type="checkbox" name="wed" value="Y">수
 							</label>
-							<label class="btn btn-default">
+							<label class="btn btn-default weekday">
 								<input type="checkbox" name="thu" value="Y">목
 							</label>
-							<label class="btn btn-default">
+							<label class="btn btn-default weekday">
 								<input type="checkbox" name="fri" value="Y">금
 							</label>
-							<label class="btn btn-default">
+							<label class="btn btn-default sat">
 								<input type="checkbox" name="sat" value="Y">토
 							</label>
 						</div>

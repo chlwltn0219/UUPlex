@@ -14,14 +14,15 @@ public interface FClassDAO {
 	List<FClassDTO> classList(Map<String,Integer> rangeMap);
 	// 추가
 	int addClass(FClassDTO dto);
+	
 	int addClassWeek(FClassDTO dto);
 	// 상세정보 조회
 	FClassDTO classDetail(int cid);
 	
 	int modifyClass(FClassDTO dto);
 	
-	List<FClassDTO> classActivatedList();
-
+	int modifyClassWeek(FClassDTO dto);
+	
 	int reservableCount(int pid);
 	
 	List<FClassDTO> reservableList(Map<String,Object> paramMap);

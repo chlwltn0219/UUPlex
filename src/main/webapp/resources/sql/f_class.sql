@@ -19,11 +19,7 @@ CREATE TABLE F_CLASS (
 cid				NUMBER,
 pid				NUMBER,
 crid			NUMBER,
-<<<<<<< HEAD
-subName			VARCHAR2(20) CONSTRAINT f_class_subname_nn NOT NULL,
-=======
 subName			VARCHAR2(100) CONSTRAINT f_class_subname_nn NOT NULL,
->>>>>>> origin/master
 register_start	TIMESTAMP CONSTRAINT f_class_register_start_nn NOT NULL,
 register_end	TIMESTAMP CONSTRAINT f_class_register_end_nn NOT NULL,
 start_date		TIMESTAMP CONSTRAINT f_class_start_date_nn NOT NULL,
@@ -78,7 +74,6 @@ wed		VARCHAR2(1) DEFAULT 'N',
 thu		VARCHAR2(1) DEFAULT 'N',
 fri		VARCHAR2(1) DEFAULT 'N',
 sat		VARCHAR2(1) DEFAULT 'N',
-CONSTRAINT f_program_cid_pk PRIMARY KEY (cid),
 CONSTRAINT f_program_cid_fk FOREIGN KEY (cid) 
 							REFERENCES F_CLASS(cid),
 CONSTRAINT f_program_sun_fk FOREIGN KEY (sun) 
@@ -97,4 +92,6 @@ CONSTRAINT f_program_sat_fk FOREIGN KEY (sat)
 								 REFERENCES BOOLEAN(value) 
 );
 
+ALTER TABLE F_CLASSWEEK
+DROP CONSTRAINT f_program_cid_pk ;
 

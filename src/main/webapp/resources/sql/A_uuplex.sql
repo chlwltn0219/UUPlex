@@ -1,27 +1,3 @@
-SELECT *
-	FROM ( 
-			SELECT rownum as rnum, a.*  
-					FROM ( 
-							SELECT c.*, 
-								   w.sun, w.mon, w.tue, w.wed, w.thu, w.fri, w.sat,
-								   p.pname,
-								   t.tname
-							FROM F_CLASS c           
-							INNER JOIN F_CLASSWEEK w                
-							ON c.cid = w.cid            
-							INNER JOIN F_PROGRAM p                
-							ON p.pid = c.pid          
-							INNER JOIN F_TEACHER t              
-							ON t.tid = (SELECT p.tid                    
-										FROM F_PROGRAM p                
-										WHERE p.pid=c.pid )          
-							WHERE c.activated = 'Y'            
-							AND SYSDATE BETWEEN c.register_start AND c.register_end                       
-							ORDER BY c.register_end
-					) a
-	)
-WHERE rnum BETWEEN 1 AND 100;
-
 DROP TABLE uu_admin;
 
 -- �̰� �Ⱦ�
