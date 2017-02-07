@@ -61,10 +61,16 @@
 	</div>	
 
 	<div class="form-group" align="center">
-    	<div class="col-sm-offset-2 col-sm-8">
+    	<div class="col-sm-offset-2 col-sm-9">
       		<input type="button" class="btn btn-default" value="목록보기" onclick="window.location='event?pageNum=${pageNum}&shopCode=${shopCode}'">
+      		<c:if test="${idCode == 101}">
+      			<a data-toggle="modal" class="btn btn-default" data-target="#BoardModal" href="noneSM/eventModify?num=${dto.eventNum}&pageNum=${pageNum}&shopCode=${shopCode}">수정하기</a>
+      		</c:if>
     	</div>
   	</div>	
+
+  	<%@ include file="/admin_Modal/Board_modal.jsp" %>
+
 
 </form>	
 </div>

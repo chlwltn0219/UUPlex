@@ -116,5 +116,25 @@ public class BoardEventDAOImpl implements BoardEventDAO {
 		
 		return dtos;
 	}
+
+	@Override
+	public int eventModify(BoardEventDTO dto) {
+		int cnt = 0;
+		
+		BoardEventDAO dao = this.sqlsession.getMapper(BoardEventDAO.class); 
+		cnt = dao.eventModify(dto);
+		
+		return cnt;
+	}
+
+	@Override
+	public String pwdChk(int num) {
+		String pwd = "";
+		
+		BoardEventDAO dao = this.sqlsession.getMapper(BoardEventDAO.class); 
+		pwd = dao.pwdChk(num);
+		
+		return pwd;
+	}
 	
 }

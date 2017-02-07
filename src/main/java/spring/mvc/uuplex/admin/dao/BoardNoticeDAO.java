@@ -12,8 +12,12 @@ public interface BoardNoticeDAO {
 	public int getSubCount(int shopCode); // 카테고리별 글개수 구하기
 	public ArrayList<BoardNoticeDTO> getArticles(Map<String, Integer> daoMap); // 게시글 목록조회
 	public ArrayList<BoardNoticeDTO> getArticlesSub(Map<String, Integer> daoMap); // 세부 게시글 목록조회
-	public int NoticeInsert(BoardNoticeDTO dto); // 	QnA 글추가
-	public BoardNoticeDTO getNotice(int num); // 상세조회, 수정내역
+	public int NoticeInsert(BoardNoticeDTO dto); // 글추가
+	public BoardNoticeDTO getNotice(int num); // 상세조회
+	public int delNotice(int num); // 글 삭제
+	
+	
+	public String pwdChk(int num); // 글 비밀번호 확인
 	
 	public int getMaxNum(); // 글작성 - 답변글이 아닌경우
 

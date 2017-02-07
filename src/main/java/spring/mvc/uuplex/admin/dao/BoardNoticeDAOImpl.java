@@ -117,4 +117,24 @@ public class BoardNoticeDAOImpl implements BoardNoticeDAO {
 		return dtos;
 	}
 	
+	@Override
+	public String pwdChk(int num) {
+		String pwd = "";
+		
+		BoardNoticeDAO dao = this.sqlsession.getMapper(BoardNoticeDAO.class); 
+		pwd = dao.pwdChk(num);
+		
+		return pwd;
+	}
+
+	@Override
+	public int delNotice(int num) {
+		int cnt = 0;
+		
+		BoardNoticeDAO dao = this.sqlsession.getMapper(BoardNoticeDAO.class); 
+		cnt = dao.delNotice(num);
+		
+		return cnt;
+	}
+	
 }
