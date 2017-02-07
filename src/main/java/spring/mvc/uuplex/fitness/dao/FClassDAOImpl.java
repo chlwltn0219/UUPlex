@@ -64,11 +64,13 @@ public class FClassDAOImpl implements FClassDAO{
 		cnt = dao.modifyClass(dto);
 		return cnt;
 	}
-
+	
 	@Override
-	public List<FClassDTO> classActivatedList() {
-		// TODO Auto-generated method stub
-		return null;
+	public int modifyClassWeek(FClassDTO dto) {
+		int cnt = 0;
+		FClassDAO dao = sqlSession.getMapper(FClassDAO.class);
+		cnt = dao.modifyClassWeek(dto);
+		return cnt;
 	}
 
 	@Override
