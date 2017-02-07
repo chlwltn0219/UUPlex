@@ -43,10 +43,6 @@
   
   <mapping path="/hotel/reservForm" exclue="true"/>
   <mapping path="/hotel/calculation" exclue="true"/>
-<<<<<<< HEAD
-=======
-  <mapping path="/hotel/reservConfirm" exclue="true"/>
->>>>>>> origin/master
   
   <mapping path="/fitness/teacher/suitable" exclue="true"/>
   
@@ -80,9 +76,6 @@
   <mapping path="/c-box/manage/movie/inputForm" exclue="true"/>
   <mapping path="/c-box/manage/schedule/inputForm" exclue="true"/>
   <mapping path="/c-box/user/review/list" exclue="true"/>
-<<<<<<< HEAD
-=======
   <mapping path="/c-box/user/review/ratingOrder" exclue="true"/>
->>>>>>> origin/master
   
 </sitemesh>

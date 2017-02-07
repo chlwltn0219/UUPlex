@@ -18,11 +18,7 @@
 			<c:forEach var="dto" items="${dtos}">
 			
 			
-<<<<<<< HEAD
-			</c:forEach>/
-=======
 			</c:forEach>
->>>>>>> origin/master
 			
 			
 		</c:if>

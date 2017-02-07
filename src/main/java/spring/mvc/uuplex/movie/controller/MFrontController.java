@@ -12,18 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
-<<<<<<< HEAD
-import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
-import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
-import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
-=======
 import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
 import spring.mvc.uuplex.movie.handler.AddTheaterHandler;
 import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
 import spring.mvc.uuplex.movie.handler.DeleteTheaterHandler;
->>>>>>> origin/master
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
@@ -34,11 +28,8 @@ import spring.mvc.uuplex.movie.handler.ModifyTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
-<<<<<<< HEAD
-=======
 import spring.mvc.uuplex.movie.handler.RatingOrderHandler;
 import spring.mvc.uuplex.movie.handler.GetRankingHandler;
->>>>>>> origin/master
 import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
 import spring.mvc.uuplex.movie.handler.ScheduleHandler;
@@ -283,11 +274,7 @@ public class MFrontController {
       return viewPage;
    }
    
-<<<<<<< HEAD
-   //유영원 : 관리자 영화 정보 수정 처리
-=======
    //유영원 : 관리자 영화 정보 수정 
->>>>>>> origin/master
    @Autowired
    ModifyMovieProHandler modifyMovieProHandler;
 
@@ -343,8 +330,6 @@ public class MFrontController {
       return viewPage;
    }
 
-<<<<<<< HEAD
-=======
 	// 박주은 : 상영관 등록==============================
 	@Autowired
 	AddTheaterHandler addTheaterHandler;
@@ -415,6 +400,5 @@ public class MFrontController {
 		return viewPage;
 	}
 
->>>>>>> origin/master
 }
 

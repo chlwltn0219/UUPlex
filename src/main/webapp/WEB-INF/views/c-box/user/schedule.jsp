@@ -8,15 +8,10 @@
 
 <script>
 	$(function() {
-<<<<<<< HEAD
-		
-
-=======
 		if($(".room").nextAll("#time").length<5){
 			var $t=$("<td></td>");
 			$(".room").parent().append($li);
 		}
->>>>>>> origin/master
 	});
 </script>
 
@@ -80,33 +75,20 @@ text-decoration: none;
 		<table class="timetable">
 			<c:forEach items="${dtos}" var="dto" varStatus="status">
 				<c:if test="${status.index==0 || dtos[status.index].title1!=dtos[status.index-1].title1}">
-<<<<<<< HEAD
-					<c:if test="${status.index==0 || dtos[status.index].theater_num!=dtos[status.index-1].theater_num}">
-=======
->>>>>>> origin/master
 						<tr>
 							<th class="title"><img id="rate"
 							src="${img}mpaa_rating/${dto.MPAARating}.png">&nbsp;&nbsp;${dto.title1}</th>
 							<th class="room">${dto.theater_num}관</th>
 							<td id="time"><a><fmt:formatDate value="${dto.showtime}"
 								pattern="HH:mm" /></a></td>
-<<<<<<< HEAD
-					</c:if>
-=======
->>>>>>> origin/master
 				</c:if>
 				
 				
 				<c:if test="${dtos[status.index].title1==dtos[status.index-1].title1}">
 					<c:if test="${dtos[status.index].theater_num!=dtos[status.index-1].theater_num}">
 						<tr>
-<<<<<<< HEAD
-							<th>&nbsp;</th>
-							<th>${dto.theater_num}관</th>
-=======
 							<th class="title">&nbsp;</th>
 							<th class="room">${dto.theater_num}관</th>
->>>>>>> origin/master
 							<td id="time"><a><fmt:formatDate value="${dto.showtime}"
 								pattern="HH:mm" /></a></td>
 					</c:if>
@@ -114,11 +96,6 @@ text-decoration: none;
 				
 
 				<c:if test="${dtos[status.index].theater_num==dtos[status.index-1].theater_num && dtos[status.index].title1==dtos[status.index-1].title1}">
-<<<<<<< HEAD
-					<td id="time"><a><fmt:formatDate value="${dto.showtime}" pattern="HH:mm" /></a></td>
-				</c:if>
-			</c:forEach>
-=======
 					<td id="time"><a><fmt:formatDate value="${dto.showtime}" pattern="HH:mm" /></a>
 				</c:if>
 				
@@ -126,7 +103,6 @@ text-decoration: none;
 			<tr>
 				<td colspan="6"></td>
 			</tr>
->>>>>>> origin/master
 		</table>
 	</c:if>
 	

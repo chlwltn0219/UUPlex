@@ -40,8 +40,10 @@
 </style>
 <script type="text/javascript" src="/uuplex/resources\js\jquery-1.12.4.js"></script>
 <script type="text/javascript">
-   $(function (){
-      //첫번째 링크를 클릭한 경우
+   function change(roomName){
+	   
+	  document.getElementById("item").className = roomName;
+	   
       $(".item:eq(0)").click(function(){
          //링크의 주소에 지정된 href속성값 획득
          var image = $(this).attr("href");
@@ -50,9 +52,9 @@
          $(".item:eq(2) img").css("border", "0px")
          $(".item:eq(3) img").css("border", "0px")
          $(".item:eq(4) img").css("border", "0px")
-         $("#view img").fadeOut(500, function(){
+         $("#item img").fadeOut(500, function(){
             //이미지가 사라진 다음에 이미지경로를 클릭한 링크의 href 속성값으로 대치
-            $("#view img").attr("src", image);
+            $("#item img").attr("src", image);
             //다시 현재요소를 보여준다.
             $(this).fadeIn(300);
          });
@@ -143,19 +145,19 @@
 	    <table id="imgTable" style="border:1px solid #EAEAEA;">
 	    <tr>
 	    <th>
-	    <div id="view">
+	    <div id="${dto.roomName}">
 	    <img src="/uuplexImg/${dto.mainImg}" alt="">
 	    </div>
 	    </th>
 	    <th>
 	    <div>
 	    	<ul id="thumb">
-			<li><a href="/uuplexImg/${dto.detail_1}" class="item"><img src="/uuplexImg/${dto.detail_1}"></a></li>
-			<li><a href="/uuplexImg/${dto.detail_2}" class="item"><img src="/uuplexImg/${dto.detail_2}"></a></li>
-			<li><a href="/uuplexImg/${dto.detail_3}" class="item"><img src="/uuplexImg/${dto.detail_3}"></a></li>
-			<li><a href="/uuplexImg/${dto.detail_4}" class="item"><img src="/uuplexImg/${dto.detail_4}"></a></li>
-			<li><a href="/uuplexImg/${dto.detail_5}" class="item"><img src="/uuplexImg/${dto.detail_5}"></a></li>
-			<li><a href="/uuplexImg/${dto.mainImg}" class="item"><img src="/uuplexImg/${dto.mainImg}"></a></li>
+			<li><a href="/uuplexImg/${dto.detail_1}" id="item" class="${dto.roomName}"><img src="/uuplexImg/${dto.detail_1}" onclick="change('${dto.roomName}')"></a></li>
+			<li><a href="/uuplexImg/${dto.detail_2}" id="item" class="${dto.roomName}"><img src="/uuplexImg/${dto.detail_2}"></a></li>
+			<li><a href="/uuplexImg/${dto.detail_3}" id="item" class="${dto.roomName}"><img src="/uuplexImg/${dto.detail_3}"></a></li>
+			<li><a href="/uuplexImg/${dto.detail_4}" id="item" class="${dto.roomName}"><img src="/uuplexImg/${dto.detail_4}"></a></li>
+			<li><a href="/uuplexImg/${dto.detail_5}" id="item" class="${dto.roomName}"><img src="/uuplexImg/${dto.detail_5}"></a></li>
+			<li><a href="/uuplexImg/${dto.mainImg}" id="item"  class="${dto.roomName}"><img src="/uuplexImg/${dto.mainImg}"></a></li>
 			</ul>
 	    </div>
 	    </th>

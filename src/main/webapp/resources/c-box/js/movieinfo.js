@@ -54,18 +54,11 @@ function movieModal() {
 //리뷰 페이지 넘기기
 
 function pageChange(mnum,page){
-<<<<<<< HEAD
-   var url = "/uuplex/c-box/user/review/list";
-   var method = "GET";
-   var params = "mnum=" + mnum +"&page="+page;
-   sendRequest(reviewDiv, url, method, params);
-=======
 	var url = "/uuplex/c-box/user/review/list";
 	var method = "GET";
 	var params = "mnum=" + mnum +"&page="+page;
 	sendRequest(reviewDiv, url, method, params);
   
->>>>>>> origin/master
 }
 
 function changeclass(page) {
@@ -80,8 +73,6 @@ function reopen(mnum,page) {
    sendRequest(movieModal, url, method, params);
 }
 
-<<<<<<< HEAD
-=======
 //평점 순으로 리뷰리스트 보여주기
 function ratingOrder(movie_num){
 	var url = "/uuplex/c-box/user/review/ratingOrder";
@@ -109,7 +100,6 @@ function dateOrder(mnum){
 	
 }
 
->>>>>>> origin/master
 //call back
 function reviewDiv() {
    
@@ -130,8 +120,6 @@ function reviewDiv() {
 }
 
 //추천하기
-<<<<<<< HEAD
-=======
 function chucheon(review_num) {
 	/*var url = "/uuplex/c-box/user/review/chucheonCnt";
 	var method = "GET";
@@ -160,4 +148,3 @@ function chucheonCnt() {
 	}
 	
 }
->>>>>>> origin/master

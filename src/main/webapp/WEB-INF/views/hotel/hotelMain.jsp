@@ -26,13 +26,9 @@
         } 
 
         header {
-<<<<<<< HEAD
             background-image:url("resources/hotelImages/hotel_background.png");
             background-size : 800px;
             color:#030066;
-=======
-            background-color:#4B0025; color:#030066;
->>>>>>> origin/master
         }
 
         header li{
@@ -44,15 +40,8 @@
         }
 
         header .logo {
-<<<<<<< HEAD
             padding: 50px 50px 0 400px;
             align:left;
-=======
-            padding: 0px 0px 0px 50px;
-            align:left;
-            font-size: 2em;
-            font-weight: bolder;
->>>>>>> origin/master
         }
         
         header .hit_menu {
@@ -61,11 +50,7 @@
         }
 
         header .hit_menu ul {
-<<<<<<< HEAD
             overflow:hidden; width:1200px; margin:0 auto 3px; 
-=======
-            overflow:hidden; width:1000px; margin:0 auto 3px; 
->>>>>>> origin/master
         }
 
         header .hit_menu li {
@@ -87,24 +72,14 @@
 
         #content {
         	background:url("${resources}/hotelImages/dice.jpg") repeat;
-<<<<<<< HEAD
-            width:100%; height:600px;
-=======
-            width:100%; height:555px;
->>>>>>> origin/master
+            width:100%; height:605px;
         }
 
         #content .section1 {
             overflow:hidden;
-<<<<<<< HEAD
             width:800px;
             margin:auto;
 			padding-top:50px;
-=======
-            width:1000px;
-            margin:auto;
-			padding-top:10px;
->>>>>>> origin/master
             /* padding-left:100px; */
         }
         
@@ -113,11 +88,7 @@
         }
         
         div.carousel img{
-<<<<<<< HEAD
     		width: 90%;
-=======
-    		width: 70%;
->>>>>>> origin/master
         	margin: 0 auto;
         }
 

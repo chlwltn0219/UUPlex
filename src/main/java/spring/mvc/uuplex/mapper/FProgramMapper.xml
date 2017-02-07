@@ -55,11 +55,7 @@
 	
 		<!-- 피트니스 프로그램 리스트 반환 -->
 	<select id="programActivatedList" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
-<<<<<<< HEAD
-	   SELECT pid, pname, sid, tid
-=======
 	   SELECT *
->>>>>>> origin/master
   		 FROM F_PROGRAM
   		WHERE activated='Y'
   		ORDER BY sid
