@@ -23,9 +23,9 @@ import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramModifyHandler;
-/*import spring.mvc.uuplex.fitness.handler.FReservableClassListHandler;
+import spring.mvc.uuplex.fitness.handler.FReservableClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableProgramListHandler;
-import spring.mvc.uuplex.fitness.handler.FReserveFormHandler;*/
+import spring.mvc.uuplex.fitness.handler.FReserveFormHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
@@ -94,13 +94,13 @@ public class FFrontController{
    FClassInputHandler classInputHandler; 
    @Autowired
    FClassModifyHandler classModifyHandler; 
-/*   
+   
    @Autowired
    FReserveFormHandler userReserveHandler;
    @Autowired
    FReservableProgramListHandler reservableProgramListHandler;
    @Autowired
-   FReservableClassListHandler reservableClassListHandler;*/
+   FReservableClassListHandler reservableClassListHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -430,7 +430,7 @@ public class FFrontController{
    }
    
    
-/*   // 예약 화면 호출
+   // 예약 화면 호출
    @RequestMapping("/user/reserve")
    public String reservePage(HttpServletRequest req, Model model){
       String viewPage = null;
@@ -459,6 +459,6 @@ public class FFrontController{
       viewPage = reservableClassListHandler.process(model);
 
       return viewPage;
-   }*/
+   }
    
 }

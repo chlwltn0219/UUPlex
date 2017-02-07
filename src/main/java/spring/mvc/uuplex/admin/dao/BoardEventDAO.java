@@ -15,6 +15,9 @@ public interface BoardEventDAO {
 	public int EventInsert(BoardEventDTO dto); // 	QnA 글추가
 	public BoardEventDTO getEvent(int num); // 상세조회, 수정내역
 	
+	public String pwdChk(int num); // 글 비밀번호 확인
+	public int eventModify(BoardEventDTO dto); // 글 수정
+	
 	public int getMaxNum(); // 글작성 - 답변글이 아닌경우
 
 }

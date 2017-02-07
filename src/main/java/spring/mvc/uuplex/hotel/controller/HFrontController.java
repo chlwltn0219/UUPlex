@@ -18,7 +18,7 @@ import spring.mvc.uuplex.hotel.handler.RoomModifyFormHandler;
 import spring.mvc.uuplex.hotel.handler.RoomModifyProHandler;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("/hotel")                                 
 public class HFrontController {
 
 	HCommandHandler command;

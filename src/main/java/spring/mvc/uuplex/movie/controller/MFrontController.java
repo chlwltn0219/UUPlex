@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
+import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
 import spring.mvc.uuplex.movie.handler.AddTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
 import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
 import spring.mvc.uuplex.movie.handler.DeleteTheaterHandler;
-import spring.mvc.uuplex.movie.handler.GetRankingHandler;
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
@@ -30,6 +30,7 @@ import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
 import spring.mvc.uuplex.movie.handler.RatingOrderHandler;
+import spring.mvc.uuplex.movie.handler.GetRankingHandler;
 import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
 import spring.mvc.uuplex.movie.handler.ScheduleHandler;
@@ -274,6 +275,7 @@ public class MFrontController {
       return viewPage;
    }
    
+   //유영원 : 관리자 영화 정보 수정 
    @Autowired
    ModifyMovieProHandler modifyMovieProHandler;
 
@@ -329,7 +331,7 @@ public class MFrontController {
       return viewPage;
    }
 
-	// 諛뺤＜�� : �긽�쁺愿� �벑濡�==============================
+	// 박주은 : 상영관 등록==============================
 	@Autowired
 	AddTheaterHandler addTheaterHandler;
 

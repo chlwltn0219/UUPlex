@@ -53,12 +53,22 @@
 		 WHERE pid = #{pid}
 	</update>
 	
-		<!-- 피트니스 프로그램 리스트 반환 -->
+	<!-- 피트니스 프로그램 리스트 반환 -->
 	<select id="programActivatedList" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
 	   SELECT *
   		 FROM F_PROGRAM
   		WHERE activated='Y'
   		ORDER BY sid
+	</select>
+	
+	<!-- 피트니스 운영중인 종목 프로그램 리스트 반환 -->
+	<select id="reservableList" parameterType="String" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
+	   SELECT p.*, t.tname
+  		 FROM F_PROGRAM p INNER JOIN F_TEACHER t
+  		   ON p.tid = t.tid
+  		WHERE p.activated='Y'
+  		  AND p.sid = #{sid}
+  		ORDER BY p.pname
 	</select>
 	
 </mapper>

@@ -58,8 +58,6 @@ public class FClassInputHandler implements FCommandHandler{
 			pid = Integer.parseInt(req.getParameter("pid"));
 			crid = Integer.parseInt(req.getParameter("crid"));
 			limit = Integer.parseInt(req.getParameter("limit"));
-			
-
 			System.out.println(req.getParameter("start_date"));
 			System.out.println(req.getParameter("end_date"));
 			

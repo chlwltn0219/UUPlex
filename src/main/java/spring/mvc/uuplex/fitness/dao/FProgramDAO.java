@@ -21,4 +21,6 @@ public interface FProgramDAO {
 
 	List<FProgramDTO> programActivatedList();
 	
+	List<FProgramDTO> reservableList(String sid);
+	
 }
