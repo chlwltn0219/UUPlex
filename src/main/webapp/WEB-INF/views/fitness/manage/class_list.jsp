@@ -92,9 +92,15 @@
 								<td>
 									${fn:substring(dto.register_start,0,10)}<br> 
 									~ ${fn:substring(dto.register_end,0,10)} 
-								<c:if test="${now < dto.register_start}">(예정)</c:if>
-								<c:if test="${now >= dto.register_start && now <= dto.register_end}">(진행중)	</c:if>
-								<c:if test="${now > dto.register_end}">(종료)</c:if>
+								<c:if test="${now < dto.register_start}">
+									<span class="label label-warning">예정</span>
+								</c:if>
+								<c:if test="${now >= dto.register_start && now <= dto.register_end}">
+									<span class="label label-success">진행중</span>
+								</c:if>
+								<c:if test="${now > dto.register_end}">
+									<span class="label label-danger">종료</span>
+								</c:if>
 							</tr>
 							<tr>
 								<th>수업 기간</th>
@@ -102,9 +108,15 @@
 								<td>
 									${fn:substring(dto.start_date,0,10)}<br> 
 									~ ${fn:substring(dto.end_date,0,10)} 
-									<c:if test="${now < dto.start_date}">(예정)</c:if>
-									<c:if test="${now >= dto.start_date && now <= dto.end_date}">(진행중)</c:if>
-									<c:if test="${now > dto.end_date}">(종료)</c:if>
+									<c:if test="${now < dto.start_date}">
+										<span class="label label-warning">예정</span>
+									</c:if>
+									<c:if test="${now >= dto.start_date && now <= dto.end_date}">
+										<span class="label label-success">진행중</span>
+									</c:if>
+									<c:if test="${now > dto.end_date}">
+										<span class="label label-danger">종료</span>
+									</c:if>
 								</td>
 							</tr>
 						</table>
@@ -123,11 +135,7 @@
 				<td colspan="5" align="center">
 					<c:if test="${prev == true}">
 						<ul class="pager"> 
-<<<<<<< HEAD
-							<li><a href="/uuplex/fitness/manage/program/list?page=${startPage-1}">&lt; prev</a></li>
-=======
 							<li><a href="/uuplex/fitness/manage/class/list?page=${startPage-1}">&lt; prev</a></li>
->>>>>>> origin/master
 						</ul>
 					</c:if>
 				
@@ -138,22 +146,14 @@
 								<li class="active"><a>${page}</a></li>
 							</c:if>
 							<c:if test="${status.current != nowPage}">
-<<<<<<< HEAD
-								<li><a href="/uuplex/fitness/manage/program/list?page=${page}">${page}</a></li>
-=======
 								<li><a href="/uuplex/fitness/manage/class/list?page=${page}">${page}</a></li>
->>>>>>> origin/master
 							</c:if>
 						</c:forEach>
 					</ul>
 					
 					<c:if test="${next == true}">
 						<ul class="pager"> 
-<<<<<<< HEAD
-							<li><a href="/uuplex/fitness/manage/program/list?page=${endPage+1}">next &gt;</a></li>
-=======
 							<li><a href="/uuplex/fitness/manage/class/list?page=${endPage+1}">next &gt;</a></li>
->>>>>>> origin/master
 						</ul>
 					</c:if>
 					

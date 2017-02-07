@@ -32,7 +32,7 @@ public class Pager{
 		
 		int pageGroup = (nowPage - 1) / displayPageCnt;
 		int maxPage = totalCount == 0 ? 1 : (int) Math.ceil(totalCount*1.0 / displayContentCnt);
-
+		
 		prev = (pageGroup != 0);
 		next = (pageGroup != (maxPage - 1) / displayPageCnt);
 		

@@ -100,21 +100,35 @@
 		 ORDER BY sname
 	</select>
 	
-	<select id="reservableList" parameterType="int" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO">
-		SELECT c.*, p.*, w.*, t.*
-		  FROM F_CLASS c
-		 	   INNER JOIN F_CLASSWEEK w
-		   	      ON c.cid = w.cid
-		   	   INNER JOIN F_PROGRAM p 
-			      ON p.pid = c.pid
-			   INNER JOIN F_TEACHER t 
-			      ON t.tid = (SELECT tid 
-			   				   FROM F_PROGRAM p
-			   				  WHERE p.pid=c.pid )
-		 WHERE c.activated = 'Y'
-		   AND SYSDATE BETWEEN c.register_start AND c.register_end
-		   AND c.pid = #{pid}
-		 ORDER BY c.register_end
+	<select id="reservableCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) 
+		  FROM F_CLASS
+		 WHERE activated = 'Y'
+		   AND SYSDATE BETWEEN register_start AND register_end
+		   AND pid = #{pid}
+	</select>
+	
+	<select id="reservableList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum as rnum
+				   FROM ( SELECT c.*, 
+								 w.sun, w.mon, w.tue, w.wed, w.thu, w.fri, w.sat,
+								 p.pname,
+								 t.tname
+		  					FROM F_CLASS c
+					 	   INNER JOIN F_CLASSWEEK w
+					   	      ON c.cid = w.cid
+					   	   INNER JOIN F_PROGRAM p 
+					      	  ON p.pid = c.pid
+						   INNER JOIN F_TEACHER t 
+						      ON t.tid = (SELECT tid 
+			 			   				    FROM F_PROGRAM p
+						   				   WHERE p.pid=c.pid )
+						   WHERE c.activated = 'Y'
+						     AND SYSDATE BETWEEN c.register_start AND c.register_end
+						     AND c.pid = #{pid}
+				 		   ORDER BY c.register_end ) a )
+		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	
 </mapper>

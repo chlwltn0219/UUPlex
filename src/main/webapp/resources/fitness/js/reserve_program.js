@@ -36,10 +36,10 @@ function programList(sid) {
 }
 
 //=======================================================
-function classList(pid) {
+function classList(pid, page) {
 	var url = "/uuplex/fitness/user/reserve/class";
 	var method = "GET";
-	var params = "pid=" + pid;
+	var params = "pid=" + pid + "&page=" + (page!=null ? page : 1);
 	sendRequest(classUpdate, url, method, params);
 }
 
@@ -80,7 +80,6 @@ function classUpdate() {
 	if(httpRequest.readyState == 4 ) {
 		if(httpRequest.status == 200) {
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
-			alert(httpRequest.responseText);
 			classList.html(httpRequest.responseText);
 		} else {
 			classList.innerHTML = httpRequest.status + " 에러 발생";
