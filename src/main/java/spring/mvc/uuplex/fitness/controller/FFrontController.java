@@ -19,6 +19,7 @@ import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
+import spring.mvc.uuplex.fitness.handler.FProgramInfoListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
@@ -105,6 +106,8 @@ public class FFrontController{
    
    @Autowired
    FTeacherInfoListHandler teacherInfoListHandler;
+   @Autowired
+   FProgramInfoListHandler programInfoListHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -425,7 +428,7 @@ public class FFrontController{
    }
 
    // 源�吏꾩슦 : �뵾�듃�땲�뒪 - 醫낅ぉ �젙蹂� �닔�젙
-   @RequestMapping("/user/teacher/list")
+   @RequestMapping("/user/teacher")
    public String uTeacherList(HttpServletRequest req, Model model){
       model.addAttribute("req", req);
 
@@ -461,6 +464,16 @@ public class FFrontController{
       
       model.addAttribute("req", req);
       viewPage = reservableClassListHandler.process(model);
+
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/program")
+   public String uProgramList(HttpServletRequest req, Model model){
+      String viewPage = null;
+      
+      model.addAttribute("req", req);
+      viewPage = programInfoListHandler.process(model);
 
       return viewPage;
    }
