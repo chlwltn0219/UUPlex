@@ -45,6 +45,14 @@
 	<select id="getMaxNum" resultType="int">
 		SELECT MAX(eventNum) FROM event_board
 	</select>
+	
+	<select id="pwdChk" parameterType="int" resultType="String">
+		SELECT eventPasswd FROM event_board WHERE eventNum= #{num}
+	</select>
+	
+	<update id="eventModify" parameterType="spring.mvc.uuplex.admin.dto.BoardEventDTO">
+		UPDATE event_board SET shopCode=#{shopCode}, eventPasswd=${eventPasswd}, subject=#{subject}, eventImg=#{eventImg}, content=#{content} WHERE eventNum=#{eventNum}
+	</update>
 
 </mapper>
     

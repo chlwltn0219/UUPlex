@@ -19,13 +19,8 @@
 			<%-- 이미지 경로 확인 <img src="<%=request.getServletContext().getContextPath()%>/saveImage/kb01.jpg"> --%>
 			<table class="table">
 				<tr>
-<<<<<<< HEAD
-					<th>영화${time}</th>
-					<td><select name="movie_num" required="required">
-=======
 					<th>영화</th>
 					<td><select  class="form-control" name="movie_num" required="required">
->>>>>>> origin/master
 							<option value="">영화를 선택하세요</option>
 							<c:forEach items="${mdtos}" var="mdto">
 								<option value="${mdto.movie_num}">${mdto.title1}</option>
@@ -34,14 +29,6 @@
 				</tr>
 				<tr>
 					<th>상영관</th>
-<<<<<<< HEAD
-					<td><select name="theater_num" required="required">
-							<option value="">상영관을 선택하세요</option>
-							<option value=1>1</option>
-							<option value=2>2</option>
-							<option value=3>3</option>
-							<option value=4>4</option>
-=======
 					<td><select class="form-control select" name="theater_num" required="required">
 							<option value="">상영관을 선택하세요</option>
 							<c:forEach begin="1" end="${theatercount}" varStatus="status">
@@ -52,18 +39,10 @@
 								<option value="${status.count}">${status.count}</option>
 								</c:if>
 							</c:forEach>
->>>>>>> origin/master
 					</select></td>
 				</tr>
 				<tr>
 					<th>상영일</th>
-<<<<<<< HEAD
-					<td><input type="date" name="schedule_Date" min="<fmt:formatDate value="<%=new Date()%>" pattern="YYYY-MM-dd" />" max="<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 *6)%>" pattern="YYYY-MM-dd" />" required="required"></td>
-				</tr>
-				<tr>
-					<th>상영시각</th>
-					<td><input type="time" name="schedule_Time" value="<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 1000)%>" pattern="YYYY-MM-dd" />" required="required" step="300"></td>
-=======
 					<td><input type="date" class="form-control" name="schedule_Date" 
 					min="<fmt:formatDate value="<%=new Date()%>" pattern="YYYY-MM-dd" />" 
 					max="<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 *6)%>" pattern="YYYY-MM-dd" />" 
@@ -73,7 +52,6 @@
 					<th>상영시간</th>
 					<td><input type="time" class="form-control" name="schedule_Time" 
 					min="08:50" max="24:00" value="${time}" required="required" step="300"></td>
->>>>>>> origin/master
 				</tr>
 				<tr>
 					<td colspan="5" align="center"><input type="submit"

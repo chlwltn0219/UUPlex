@@ -3,9 +3,5 @@
 .project 
 .settings 
 .springBeans 
-<<<<<<< HEAD
-target/ 
-=======
 target 
->>>>>>> a1981011c64e4988ec7d4453f65aa5acfc684469
 .DS_Store

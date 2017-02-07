@@ -77,12 +77,8 @@
 		<div class="modal fade" id="modalPage" role="dialog">
 			<div class="modal-dialog modal-lg" >
 				<div id="dialog"></div>
-<<<<<<< HEAD
-				<div id="review"></div>
-=======
 				<div id="review">
 				</div>
->>>>>>> origin/master
 			</div>
 			
 		</div>
