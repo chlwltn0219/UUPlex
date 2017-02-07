@@ -147,6 +147,7 @@
                      <ul class="dropdown-menu" role="menu">
                         <li><a href="#">매장관리</a></li>
                         <li><a href="/uuplex/memberList?grade=전체">회원관리</a></li>
+                        <li><a href="/uuplex/reserveList">예약관리</a></li>
                         <li class="divider"></li>
                         <li><a href="">영화관 관리</a></li>
                         <li><a href="">호텔 관리</a></li>
