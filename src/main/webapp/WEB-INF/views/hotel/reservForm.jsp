@@ -32,7 +32,7 @@ function load() {
 	var charge = ${charge};
 	
 	if(extraBed.checked && !extraBedcnt.value) {
-		alert("Extra bed 개수를 먼저 선택해 주세요.");
+		alert("Extra bed 개수를 먼저 선택한 후 다시 체크해 주세요.");
 		return false;
 	} else if (extraBed.checked && extraBedcnt.value) {
 		charge = charge + (30000 * extraBedcnt.value);
@@ -82,7 +82,7 @@ function loadPage() {
 </c:if>
 <div class="container">
 <form action="reservConfirm" method="post" name="reservConfirm" onsubmit="return reservChk()">
-<input type="hidden" name="roomNum" value="${roomNum}">
+<input type="hidden" name="roomName" value="${roomName}">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
 			aria-label="Close">
@@ -185,9 +185,9 @@ function loadPage() {
 	</div>
 	
 	<div class="modal-footer">
-		<button type="submit" class="btn btn-default">다음단계</button>
+		<button type="submit" class="btn btn-default btn-lg">다음단계</button>
 		<!-- <a data-toggle="modal" data-target="#reservModal" class="btn btn-default" href="./reservConfirm">다음단계</a> -->
-		<button type="button" class="btn btn-default"
+		<button type="button" class="btn btn-default btn-lg"
 			data-dismiss="modal" onclick="window.location.reload()">닫기</button>
 	</div>
 	

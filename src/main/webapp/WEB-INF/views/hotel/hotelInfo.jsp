@@ -103,7 +103,7 @@ pre {
 			<small>(이용을 원하시는 고객님께서는 예약시 확인 부탁드립니다)</small>
 		</pre>
 	<br>
-	<input class="btn btn-default" type="button" value="메인으로"
+	<input class="btn btn-default btn-lg" type="button" value="메인으로"
 			onclick="location.href='/uuplex/hotel'">
 </div>
 </div>
