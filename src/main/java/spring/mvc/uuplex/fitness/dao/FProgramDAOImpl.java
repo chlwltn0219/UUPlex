@@ -63,5 +63,13 @@ public class FProgramDAOImpl implements FProgramDAO{
 		list = dao.programActivatedList();
 		return list;
 	}
+
+	@Override
+	public List<FProgramDTO> reservableList(String sid) {
+		List<FProgramDTO> list = null;
+		FProgramDAO dao = sqlSession.getMapper(FProgramDAO.class);
+		list = dao.reservableList(sid);
+		return list;
+	}
 	
 }

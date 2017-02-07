@@ -9,21 +9,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import spring.mvc.uuplex.fitness.handler.FActivatedSportsListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
-import spring.mvc.uuplex.fitness.handler.FClassroomModifyHandler;
-import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FReservableClassListHandler;
+import spring.mvc.uuplex.fitness.handler.FReservableProgramListHandler;
+import spring.mvc.uuplex.fitness.handler.FReserveFormHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
@@ -34,7 +36,6 @@ import spring.mvc.uuplex.fitness.handler.FTeacherInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherSuitableListHandler;
-import spring.mvc.uuplex.fitness.handler.FUserReserveHandler;
 
 @Controller
 @RequestMapping("/fitness")
@@ -95,7 +96,11 @@ public class FFrontController{
    FClassModifyHandler classModifyHandler; 
    
    @Autowired
-   FUserReserveHandler userReserveHandler;
+   FReserveFormHandler userReserveHandler;
+   @Autowired
+   FReservableProgramListHandler reservableProgramListHandler;
+   @Autowired
+   FReservableClassListHandler reservableClassListHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -426,12 +431,32 @@ public class FFrontController{
 	
    
    // 예약 화면 호출
-   @RequestMapping("/user/program/reserve")
-   public String programReserve(HttpServletRequest req, Model model){
+   @RequestMapping("/user/reserve")
+   public String reservePage(HttpServletRequest req, Model model){
 	   String viewPage = null;
 	   
 	   model.addAttribute("req", req);
 	   viewPage = userReserveHandler.process(model);
+
+	   return viewPage;
+   }
+   
+   @RequestMapping("/user/reserve/program")
+   public String reservableProgram(HttpServletRequest req, Model model){
+	   String viewPage = null;
+	   
+	   model.addAttribute("req", req);
+	   viewPage = reservableProgramListHandler.process(model);
+
+	   return viewPage;
+   }
+   
+   @RequestMapping("/user/reserve/class")
+   public String reservableClass(HttpServletRequest req, Model model){
+	   String viewPage = null;
+	   
+	   model.addAttribute("req", req);
+	   viewPage = reservableClassListHandler.process(model);
 
 	   return viewPage;
    }
