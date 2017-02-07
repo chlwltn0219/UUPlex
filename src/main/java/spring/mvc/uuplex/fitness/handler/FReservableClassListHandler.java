@@ -1,6 +1,8 @@
 package spring.mvc.uuplex.fitness.handler;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,6 +25,7 @@ public class FReservableClassListHandler implements FCommandHandler{
 		String viewPage = "/fitness/user/reserve_class";
 		List<FClassDTO> list = null;
 		
+		Map<String,Object> paramMap = new HashMap<String, Object>();
 		int pid = 0;
 		int totalCount = 0;
 		int nowPage = 0;
@@ -39,15 +42,25 @@ public class FReservableClassListHandler implements FCommandHandler{
 			nowPage = 1;
 		}
 		
-//		totalCount = dao.
+		totalCount = dao.reservableCount(pid);
 		
 		pager.setDisplayContentCnt(5);
 		pager.setDisplayPageCnt(5);
 		pager.calcPage(totalCount, nowPage);
 		
+		paramMap.put("pid", pid);
+		paramMap.put("start", pager.getStartContent());
+		paramMap.put("end", pager.getEndContent());
 		
-		list = dao.reservableList(pid);
+		list = dao.reservableList(paramMap);
 		model.addAttribute("dtos", list);
+		model.addAttribute("startPage", pager.getStartPage());
+		model.addAttribute("endPage", pager.getEndPage());
+		model.addAttribute("next", pager.getNext());
+		model.addAttribute("prev", pager.getPrev());
+		model.addAttribute("nowPage", pager.getNowPage());
+		
+		model.addAttribute("pid", pid);
 		
 		return viewPage;
 	}

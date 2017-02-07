@@ -54,11 +54,7 @@
 	    	</div>
 	    	<div class="modal-footer">
 				<input type="submit" class="btn btn-primary" value="입력">
-<<<<<<< HEAD
-				<input type="reset" class="btn btn-warning" value="초기화">
-=======
 				<input type="reset" class="btn btn-warning" value="초기화" onclick="resetTeacher()">
->>>>>>> origin/master
 				<input type="button" class="btn btn-danger" data-dismiss="modal" value="취소">
 	    	</div>
 		</form>

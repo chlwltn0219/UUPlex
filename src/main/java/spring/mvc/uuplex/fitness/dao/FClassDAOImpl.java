@@ -72,10 +72,18 @@ public class FClassDAOImpl implements FClassDAO{
 	}
 
 	@Override
-	public List<FClassDTO> reservableList(int pid) {
+	public int reservableCount(int pid) {
+		int cnt = 0;
+		FClassDAO dao = sqlSession.getMapper(FClassDAO.class);
+		cnt = dao.reservableCount(pid);
+		return cnt;
+	}
+	
+	@Override
+	public List<FClassDTO> reservableList(Map<String,Object> paramMap) {
 		List<FClassDTO> dtos = null;
 		FClassDAO dao = sqlSession.getMapper(FClassDAO.class);
-		dtos = dao.reservableList(pid);
+		dtos = dao.reservableList(paramMap);
 		return dtos;
 	}
 	

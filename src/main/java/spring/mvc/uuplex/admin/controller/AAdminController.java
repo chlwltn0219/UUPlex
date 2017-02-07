@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.admin.handler.MemberListHandler;
 import spring.mvc.uuplex.admin.handler.MemberViewHandler;
+import spring.mvc.uuplex.admin.handler.ReserveListHandler;
 import spring.mvc.uuplex.admin.handler.UpgradeHandler;
 import spring.mvc.uuplex.admin.handler.UpgradeProHandler;
 
@@ -67,6 +68,21 @@ public class AAdminController {
 		model.addAttribute("req", req);
 		
 		String viewPage = upgradeProHandler.process(model);
+
+		return viewPage;
+	}
+	
+	
+	@Autowired
+	ReserveListHandler reserveListHandler;
+	@RequestMapping("/reserveList")
+	public String reserveList(HttpServletRequest req, Model model) {
+		
+		System.out.println("예약관리 페이지");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = reserveListHandler.process(model);
 
 		return viewPage;
 	}

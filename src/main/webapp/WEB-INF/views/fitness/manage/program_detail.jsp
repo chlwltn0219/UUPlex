@@ -43,24 +43,20 @@
 					<tr>
 						<th>운영 여부</th>
 						<td>
-							<c:if test="${dto.activated == 'Y'}">
-							운영중
-							</c:if>
-							<c:if test="${dto.activated == 'N'}">
-							폐지
-							</c:if>
+							<c:if test="${dto.activated == 'Y'}"><span class="label label-success">운영중</span></c:if>
+							<c:if test="${dto.activated == 'N'}"><span class="label label-danger">미운영</span></c:if>
 						</td>
 					</tr>
 					<tr>
 						<th>강의료</th>
 						<td>
-							${dto.price}
+							${dto.price} 원
 						</td>
 					</tr>
 					<tr>
 						<th>재료비</th>
 						<td>
-							${dto.preparationCost}
+							${dto.preparationCost} 원
 						</td>
 					</tr>
 					<tr>

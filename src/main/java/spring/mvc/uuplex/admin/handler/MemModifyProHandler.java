@@ -1,6 +1,5 @@
 package spring.mvc.uuplex.admin.handler;
 
-import java.sql.Timestamp;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;

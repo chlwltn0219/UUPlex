@@ -136,7 +136,7 @@
   <div class="form-group" align="right">
     <div class="col-sm-offset-2 col-sm-8">
       <button type="submit" class="btn btn-default">회원가입</button>
-      <button type="submit" class="btn btn-default">가입취소</button>
+      <button type="reset" class="btn btn-default">취소</button>
       <button type="button" class="btn btn-default" 
       	onclick="window.location='main'">돌아가기</button> <br><br>
     </div>

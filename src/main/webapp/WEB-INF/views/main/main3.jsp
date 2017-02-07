@@ -118,7 +118,7 @@
                                     <polygon class="clip" points="0,1200 0,0 1920,0 1920,1200"></polygon>
                                 </clipPath>
                             </defs>
-                            <image width="1920" height="1200" href="/uuplex/resources/main_images/uplex1.png"></image>
+                            <image clip-path="url(#clipPath2)" width="1920" height="1200" xlink:href="/uuplex/resources/main_images/uplex1.png"></image>
                         </svg>
                         <div class="card__content">
 							<i class="card__btn-close fa fa-times"></i>
