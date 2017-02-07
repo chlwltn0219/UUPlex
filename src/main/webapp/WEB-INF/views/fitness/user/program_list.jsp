@@ -2,14 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../../setting.jsp" %>
 
-	<div class="panel panel-default">
+<div class="container" >
+<div class="panel panel-default">
 			<div class="panel-heading">검색 리스트</div>
 			<table class="panel-body table">
 				<thead>
 					<tr>
 						<th>프로그램</th>
-						<th>정보</th>
-						<th>신청하기</th>
+						<th>상세정보</th>
+						<th>프로그램 상세</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -18,7 +19,7 @@
 						<td colspan="3">
 							<table style="width: 100%">
 								<tr>
-									<th><h1>선택한 조건에 해당하는 강좌가 없습니다. 조건을 다시 선택해 주세요.</h1></th>
+									<th><h1>개설된 강좌가 없습니다.</h1></th>
 								</tr>
 							</table>
 						</td>
@@ -74,47 +75,10 @@
 								</tr>
 							</table>
 						</td>
-						<td>
-							<c:if test="${c.current_people >= c.limit}">
-								<button class="btn btn-default disabled"> 종료됨 </button>
-							</c:if>
-							<c:if test="${c.current_people < c.limit}">
-								<button class="btn btn-default"> 신청하기 </button>
-							</c:if>
-						</td>
 					</tr>
 				</c:forEach>
 				</c:if>
 				</tbody>
-				<tfoot>
-					<tr>
-						<td colspan="5" align="center">
-							<c:if test="${prev == true}">
-								<ul class="pager"> 
-									<li><a onclick="classList(${pid}, ${startPage-1})">&lt; prev</a></li>
-								</ul>
-							</c:if>
-						
-							<ul class="pagination">
-								<c:forEach begin="${startPage}" end="${endPage}" 
-										   var="page" varStatus="status">
-									<c:if test="${status.current == nowPage}">
-										<li class="active"><a>${page}</a></li>
-									</c:if>
-									<c:if test="${status.current != nowPage}">
-										<li><a onclick="classList(${pid}, ${page})">${page}</a></li>
-									</c:if>
-								</c:forEach>
-							</ul>
-							
-							<c:if test="${next == true}">
-								<ul class="pager"> 
-									<li><a onclick="classList(${pid}, ${endPage+1})">next &gt;</a></li>
-								</ul>
-							</c:if>
-							
-						</td>
-					</tr>
-				</tfoot>
 			</table>
+		</div>
 		</div>
