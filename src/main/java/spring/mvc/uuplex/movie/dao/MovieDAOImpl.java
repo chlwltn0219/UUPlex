@@ -14,13 +14,8 @@ import spring.mvc.uuplex.movie.dto.ReviewDTO;
 public class MovieDAOImpl implements MovieDAO{
 
 	@Autowired
-	private SqlSession sqlSession; //servlet-context.xml占쏙옙 占쌍는곤옙 占쌀뤄옙占승댐옙.
+	private SqlSession sqlSession; //servlet-context.xml�뜝�룞�삕 �뜝�뙇�뒗怨ㅼ삕 �뜝��琉꾩삕�뜝�듅�뙋�삕.
 	
-<<<<<<< HEAD
-	//占쏙옙화占쏙옙占쏙옙占쌩곤옙
-=======
-	
->>>>>>> origin/master
 	@Override
 	public int addMovieInfo(MovieInfoDTO dto) {
 		int cnt = 0;
@@ -62,7 +57,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//占쏙옙占쏙옙占쌩곤옙
+	//�뜝�룞�삕�뜝�룞�삕�뜝�뙥怨ㅼ삕
 	@Override
 	public int addReview(ReviewDTO dto) {
 		int cnt = 0;
@@ -72,7 +67,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	// 사용자 - 리뷰 리스트 가져오기
+	// �궗�슜�옄 - 由щ럭 由ъ뒪�듃 媛��졇�삤湲�
 	@Override
 	public List<ReviewDTO> reviewList(Map<String, Integer> rangeMap) {
 		List<ReviewDTO> list = null;
@@ -82,7 +77,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return list;
 	}
 
-	//媛� ������ 由щ럭 媛���
+	//揶쏉옙 占쏙옙占쏙옙占쏙옙 �뵳�됰윮 揶쏉옙占쏙옙
 	@Override
 	public int reviewCount(int mnum) {
 		int cnt = 0;
@@ -92,7 +87,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//由щ럭 ����
+	//�뵳�됰윮 占쏙옙占쏙옙
 	@Override
 	public int deleteReview(int review_num) {
 		int cnt = 0;
@@ -109,7 +104,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return list;
 	}
 
-	//영화정보 수정
+	//�쁺�솕�젙蹂� �닔�젙
 	@Override
 	public int modifyMovie(MovieInfoDTO dto) {
 		int cnt = 0;
@@ -119,7 +114,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	//영화정보 삭제
+	//�쁺�솕�젙蹂� �궘�젣
 	@Override
 	public int deleteMovie(int movie_num) {
 		int cnt = 0;
@@ -137,8 +132,6 @@ public class MovieDAOImpl implements MovieDAO{
 		return avg;
 	}
 
-<<<<<<< HEAD
-=======
 	@Override
 	public int addChucheon(int review_num) {
 		int cnt = 0;
@@ -183,7 +176,4 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
-	
-
->>>>>>> origin/master
 }

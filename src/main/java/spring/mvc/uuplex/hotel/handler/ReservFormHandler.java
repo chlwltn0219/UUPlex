@@ -30,10 +30,7 @@ public class ReservFormHandler implements HCommandHandler {
 			model.addAttribute("dto", dto);
 		}
 		
-<<<<<<< HEAD
 		
-=======
->>>>>>> origin/master
 		model.addAttribute("roomName", roomName);
 		model.addAttribute("charge", charge);
 		model.addAttribute("memId", memId);

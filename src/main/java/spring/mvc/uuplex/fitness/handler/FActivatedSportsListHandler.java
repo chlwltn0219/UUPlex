@@ -28,7 +28,7 @@ public class FActivatedSportsListHandler implements FCommandHandler{
 			sidString = "%";
 		}
 		
-		list = sDao.sportsActivatedList(sidString);
+		list = sDao.sportsActivatedList();
 		model.addAttribute("sports", list);
 		
 		return viewPage;

@@ -99,8 +99,6 @@
 		SELECT AVG(rating) FROM m_review WHERE movie_num = #{movie_num}
 	</select>
 	
-<<<<<<< HEAD
-=======
 	<!--  추천수 올리기 -->
 	<update id="addChucheon" parameterType="int">
 		UPDATE m_review SET likeCnt = #{likeCnt}+1
@@ -141,5 +139,4 @@
 		
 	</select> 
 	
->>>>>>> origin/master
 </mapper>

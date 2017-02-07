@@ -8,15 +8,10 @@
 
 <script>
 	$(function() {
-<<<<<<< HEAD
-		
-
-=======
 		if($(".room").nextAll("#time").length<5){
 			var $t=$("<td></td>");
 			$(".room").parent().append($li);
 		}
->>>>>>> origin/master
 	});
 </script>
 
@@ -114,11 +109,6 @@ text-decoration: none;
 				
 
 				<c:if test="${dtos[status.index].theater_num==dtos[status.index-1].theater_num && dtos[status.index].title1==dtos[status.index-1].title1}">
-<<<<<<< HEAD
-					<td id="time"><a><fmt:formatDate value="${dto.showtime}" pattern="HH:mm" /></a></td>
-				</c:if>
-			</c:forEach>
-=======
 					<td id="time"><a><fmt:formatDate value="${dto.showtime}" pattern="HH:mm" /></a>
 				</c:if>
 				
@@ -126,7 +116,6 @@ text-decoration: none;
 			<tr>
 				<td colspan="6"></td>
 			</tr>
->>>>>>> origin/master
 		</table>
 	</c:if>
 	
