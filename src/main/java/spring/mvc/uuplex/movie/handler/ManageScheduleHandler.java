@@ -24,7 +24,6 @@ public class ManageScheduleHandler implements MCommandHandler {
 	public String process(Model model) {
 
 		List<ScheduleDTO> dtos = null;
-		
 		int theatercount = tdao.TheatersCount();
 		model.addAttribute("theatercount",theatercount);
 

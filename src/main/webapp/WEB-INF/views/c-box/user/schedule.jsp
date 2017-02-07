@@ -31,6 +31,7 @@
 			modal.innerHTML = "상태 : " + httpRequest.readyState;
 		}
 	}
+>>>>>>> 37668d98f581b6aa8419cd483f8d011720a9a566
 </script>
 
 <style>

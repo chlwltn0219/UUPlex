@@ -1,5 +1,4 @@
 package spring.mvc.uuplex.hotel.dto;
- 
 public class ReservDTO {
 	private int reservNum;
 	private int roomNum;
