@@ -13,22 +13,11 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-<<<<<<< HEAD
-				<td colspan="2">
-=======
 				<td colspan="3">
->>>>>>> origin/master
 					<!-- 검색 -->
 					<form action="" method="get" onsubmit="" class="form-inline"
 						name="searchForm">
 						<div class="input-group">
-<<<<<<< HEAD
-							<!-- 							<select class="form-control"> -->
-							<!-- 								<option>코드</option> -->
-							<!-- 								<option>종목 명</option> -->
-							<!-- 							</select> -->
-=======
->>>>>>> origin/master
 							<input class="form-control" type="search" placeholder="검색 구현 필요">
 							<div class="input-group-btn">
 								<button type="submit" class="btn btn-info">
@@ -37,11 +26,7 @@
 							</div>
 						</div>
 					</form>
-<<<<<<< HEAD
-				<td>
-=======
 				<td style="text-align: center;">
->>>>>>> origin/master
 					<!-- 등록 -->
 					<div class="form-group pull-right">
 
@@ -84,11 +69,7 @@
 		</tbody>
 		<tfoot>
 			<tr>
-<<<<<<< HEAD
-				<td colspan="6" align="center">
-=======
 				<td colspan="7" align="center">
->>>>>>> origin/master
 				<c:if test="${prev == true}">
 						<ul class="pager">
 							<li><a href="/uuplex/c-box/manage_movie?page=${startPage-1}">&lt;
@@ -128,8 +109,3 @@
 	<%-- 	<%@ include file="sports_detail.jsp" %> --%>
 
 </div>
-
-
-
-
-

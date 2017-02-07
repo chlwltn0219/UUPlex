@@ -50,8 +50,6 @@
 
 <body>
 
-<<<<<<< HEAD
-=======
 	<div class="modal-content">
 		<div class="modal-header">
 			<button class="close" data-dismiss="modal">&times;</button>
@@ -307,7 +305,6 @@
 
 		</div>
 	</div>
->>>>>>> origin/master
    <div class="modal-content">
       <div class="modal-header">
          <button class="close" data-dismiss="modal">&times;</button>
