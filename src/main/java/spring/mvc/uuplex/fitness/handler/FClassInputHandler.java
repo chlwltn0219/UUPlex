@@ -59,7 +59,6 @@ public class FClassInputHandler implements FCommandHandler{
 			crid = Integer.parseInt(req.getParameter("crid"));
 			limit = Integer.parseInt(req.getParameter("limit"));
 			
-
 			System.out.println(req.getParameter("start_date"));
 			System.out.println(req.getParameter("end_date"));
 			
@@ -109,7 +108,7 @@ public class FClassInputHandler implements FCommandHandler{
 		dto.setThu(thu);
 		dto.setFri(fri);
 		dto.setSat(sat);
-		
+
 		ccnt = dao.addClass(dto);
 		wcnt = dao.addClassWeek(dto);
 		

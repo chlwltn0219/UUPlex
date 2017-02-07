@@ -34,7 +34,7 @@ public class ManageMovieHandler implements MCommandHandler {
 		String viewPage = "/c-box/Movie_main";
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 
-		// �쁽�옱 �럹�씠吏� �젙蹂� �꽕�젙
+		// 占쎌겱占쎌삺 占쎈읂占쎌뵠筌욑옙 占쎌젟癰귨옙 占쎄퐬占쎌젟
 		if (req.getParameter("page") == null) {
 			nowPage = 1;
 		} else {
@@ -46,19 +46,19 @@ public class ManageMovieHandler implements MCommandHandler {
 				nowPage = 1;
 			}
 		}
-		// 紐⑸줉 珥� 媛쒖닔 怨꾩궛
+		// 筌뤴뫖以� �룯占� 揶쏆뮇�땾 �④쑴沅�
 		total = dao.moviesCount();
 
 		logger.info("total : " + total);
 
 		/*
-		 * �럹�씠吏� �젙蹂� 怨꾩궛
+		 * 占쎈읂占쎌뵠筌욑옙 占쎌젟癰귨옙 �④쑴沅�
 		 */
-		// �븳 �럹�씠吏��뿉 蹂댁뿬二쇰뒗 寃뚯떆湲� �닔
-		pager.setDisplayContentCnt(1);
-		// �븳踰덉뿉 蹂댁뿬以� �럹�씠吏� 媛쒖닔
-		pager.setDisplayPageCnt(1);
-		// page �젙蹂� 怨꾩궛�빐二쇰뒗 媛앹껜
+		// 占쎈립 占쎈읂占쎌뵠筌욑옙占쎈퓠 癰귣똻肉т틠�눖�뮉 野껊슣�뻻疫뀐옙 占쎈땾
+		pager.setDisplayContentCnt(5);
+		// 占쎈립甕곕뜆肉� 癰귣똻肉т빳占� 占쎈읂占쎌뵠筌욑옙 揶쏆뮇�땾
+		pager.setDisplayPageCnt(3);
+		// page 占쎌젟癰귨옙 �④쑴沅쏉옙鍮먧틠�눖�뮉 揶쏆빘猿�
 		pager.calcPage(total, nowPage);
 
 		if (total > 0) {
@@ -71,8 +71,8 @@ public class ManageMovieHandler implements MCommandHandler {
 			
 			model.addAttribute("dtos", dtos);
 			
-			// �뼯 寃뚯떆湲� 紐⑸줉 �뜲�씠�꽣
-			// �뼹 �럹�씠�� �깮�꽦 �뜲�씠�꽣
+			// 占쎈섞 野껊슣�뻻疫뀐옙 筌뤴뫖以� 占쎈쑓占쎌뵠占쎄숲
+			// 占쎈섰 占쎈읂占쎌뵠占쏙옙 占쎄문占쎄쉐 占쎈쑓占쎌뵠占쎄숲
 			model.addAttribute("contentCnt", pager.getDisplayContentCnt());
 
 			model.addAttribute("nowPage", pager.getNowPage());

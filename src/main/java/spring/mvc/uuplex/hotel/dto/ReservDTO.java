@@ -1,7 +1,5 @@
 package spring.mvc.uuplex.hotel.dto;
-
-import java.sql.Timestamp;
-
+ 
 public class ReservDTO {
 	private int reservNum;
 	private int roomNum;
@@ -9,9 +7,9 @@ public class ReservDTO {
 	private String email;
 	private int shopCode;
 	private String roomName;
-	private Timestamp reservDay;
-	private Timestamp checkIn;
-	private Timestamp checkOut;
+	private String reservDay;
+	private String checkIn;
+	private String checkOut;
 	private int day;
 	private int capacity;
 	private String extraBed;
@@ -23,7 +21,7 @@ public class ReservDTO {
 	private String country;
 	private String card;
 	private String cardNum;
-	private Timestamp cardEndM;
+	private String cardEndM;
 	private int totCharge;
 	
 	
@@ -54,7 +52,7 @@ public class ReservDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+ 
 	public int getShopCode() {
 		return shopCode;
 	}
@@ -68,25 +66,25 @@ public class ReservDTO {
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
-
-	public Timestamp getReservDay() {
+ 
+	public String getReservDay() {
 		return reservDay;
 	}
-	public void setReservDay(Timestamp reservDay) {
+	public void setReservDay(String reservDay) {
 		this.reservDay = reservDay;
 	}
 	
-	public Timestamp getCheckIn() {
+	public String getCheckIn() {
 		return checkIn;
 	}
-	public void setCheckIn(Timestamp checkIn) {
+	public void setCheckIn(String checkIn) {
 		this.checkIn = checkIn;
 	}
 	
-	public Timestamp getCheckOut() {
+	public String getCheckOut() {
 		return checkOut;
 	}
-	public void setCheckOut(Timestamp checkOut) {
+	public void setCheckOut(String checkOut) {
 		this.checkOut = checkOut;
 	}
 	
@@ -103,7 +101,7 @@ public class ReservDTO {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-
+ 
 	public int getExtraBedcnt() {
 		return extraBedcnt;
 	}
@@ -167,10 +165,10 @@ public class ReservDTO {
 		this.cardNum = cardNum;
 	}
 	
-	public Timestamp getCardEndM() {
+	public String getCardEndM() {
 		return cardEndM;
 	}
-	public void setCardEndM(Timestamp cardEndM) {
+	public void setCardEndM(String cardEndM) {
 		this.cardEndM = cardEndM;
 	}
 	

@@ -16,7 +16,7 @@ public class AFrontController {
 	@RequestMapping("/main")
 	public String main(Model model) {
 		
-		System.out.println("main������");
+		System.out.println("main�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕");
 		
 		return "/main/main3";
 	}
@@ -24,7 +24,7 @@ public class AFrontController {
 	@RequestMapping("/input")
 	public String input(Model model) {
 		
-		System.out.println("ȸ�����Ծ��������");
+		System.out.println("�쉶�뜝�룞�삕�뜝�룞�삕�뜝�뙃�뼲�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝占�");
 
 		return "/main/InputMember/input";
 	}
@@ -32,7 +32,7 @@ public class AFrontController {
 	@RequestMapping("/inputForm")
 	public String inputForm(Model model) {
 		
-		System.out.println("ȸ������������");
+		System.out.println("�쉶�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕");
 
 		return "/main/InputMember/inputForm";
 	}
@@ -42,7 +42,7 @@ public class AFrontController {
 	@RequestMapping("/inputPro")
 	public String inputPro(HttpServletRequest req, Model model) {
 		
-		System.out.println("ȸ������ó��");
+		System.out.println("�쉶�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕泥섇뜝�룞�삕");
 		
 		model.addAttribute("req", req);
 		
@@ -56,7 +56,7 @@ public class AFrontController {
 	@RequestMapping("/confirmId")
 	public String confirmId(HttpServletRequest req, Model model) {
 		
-		System.out.println("�ߺ�Ȯ��������");
+		System.out.println("�뜝�뙥釉앹삕�솗�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕");
 		
 		model.addAttribute("req", req);
 		
