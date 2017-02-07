@@ -63,8 +63,7 @@
     	WHERE t.sid = s.sid
      	  AND t.ACTIVATED = 'Y'
      	  AND s.ACTIVATED = 'Y'
-     ORDER BY t.tid 
-     	  
+     ORDER BY t.tid      	  
 	</select>
 	
 </mapper>
