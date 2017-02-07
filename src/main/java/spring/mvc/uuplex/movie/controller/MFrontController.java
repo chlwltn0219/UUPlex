@@ -14,6 +14,7 @@ import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
 import spring.mvc.uuplex.movie.handler.AddTheaterHandler;
+import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
 import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
@@ -47,7 +48,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 유영원 : 영화 등록
+   // �쑀�쁺�썝 : �쁺�솕 �벑濡�
    @RequestMapping("/manage/movie/inputForm")
    public String movieInputForm() {
       System.out.println("movie_input");
@@ -56,7 +57,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 유영원 : 영화 등록
+   // �쑀�쁺�썝 : �쁺�솕 �벑濡�
    @Autowired
    AddMovieInfoHandler addMovieInfoHandler;
 
@@ -83,7 +84,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 고객 : 영화 목록
+   // 怨좉컼 : �쁺�솕 紐⑸줉
    @Autowired
    MovieListHandler movieListHandler;
 
@@ -97,7 +98,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 영화 상세정보
+   // 諛뺤＜�� : �쁺�솕 �긽�꽭�젙蹂�
    @Autowired
    MovieDetailHandler movieDetailHandler;
 
@@ -110,7 +111,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 관리자 영화 목록
+   // 諛뺤＜�� : 愿�由ъ옄 �쁺�솕 紐⑸줉
    @Autowired
    ManageMovieHandler manageMovieHandler;
 
@@ -123,7 +124,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 유영원 : 리뷰 추가
+   // �쑀�쁺�썝 : 由щ럭 異붽�
    @Autowired
    AddReviewHandler addReviewHandler;
 
@@ -136,7 +137,7 @@ public class MFrontController {
       return viewPage;
    }
    
-   //유영원 : 관리자 영화 정보 수정
+   //�쑀�쁺�썝 : 愿�由ъ옄 �쁺�솕 �젙蹂� �닔�젙
    @Autowired
    ModifyMovieHandler modifyMovieHandler;
 
@@ -150,7 +151,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 유영원 : 리뷰 삭제
+   // �쑀�쁺�썝 : 由щ럭 �궘�젣
    @Autowired
    DeleteReviewHandler deleteReviewHandler;
 
@@ -163,7 +164,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 상영관 관리
+   // 諛뺤＜�� : �긽�쁺愿� 愿�由�
    @Autowired
    ManageTheaterHandler manageTheaterHandler;
 
@@ -176,7 +177,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 상영관 등록==============================
+   // 諛뺤＜�� : �긽�쁺愿� �벑濡�==============================
    @Autowired
    GetTheaterHandler getTheaterHandler;
 
@@ -190,7 +191,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 상영관 수정
+   // 諛뺤＜�� : �긽�쁺愿� �닔�젙
    @Autowired
    ModifyTheaterHandler modifyTheaterHandler;
 
@@ -204,7 +205,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 상영스케줄 관리
+   // 諛뺤＜�� : �긽�쁺�뒪耳�以� 愿�由�
    @Autowired
    ManageScheduleHandler manageScheduleHandler;
 
@@ -217,7 +218,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 상영일정 등록폼
+   // 諛뺤＜�� : �긽�쁺�씪�젙 �벑濡앺뤌
    @Autowired
    MovieScheduleHandler movieScheduleHandler;
 
@@ -229,7 +230,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 상영일정 등록
+   // 諛뺤＜�� : �긽�쁺�씪�젙 �벑濡�
    @Autowired
    AddScheduleHandler addScheduleHandler;
 
@@ -247,7 +248,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 상영일정 삭제
+   // 諛뺤＜�� : �긽�쁺�씪�젙 �궘�젣
    @Autowired
    DeleteScheduleHandler deleteScheduleHandler;
 
@@ -260,7 +261,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 박주은 : 상영시간표
+   // 諛뺤＜�� : �긽�쁺�떆媛꾪몴
    @Autowired
    ScheduleHandler scheduleHandler;
 
@@ -288,7 +289,7 @@ public class MFrontController {
       return viewPage;
    }
    
-   //유영원 : 관리자 영화 정보 수정 처리
+   //�쑀�쁺�썝 : 愿�由ъ옄 �쁺�솕 �젙蹂� �닔�젙 泥섎━
    @Autowired
    DeleteMovieHandler deleteMovieHandler;
 
@@ -302,7 +303,7 @@ public class MFrontController {
       return viewPage;
    }
    
-   //유영원 : 리뷰 리스트
+   //�쑀�쁺�썝 : 由щ럭 由ъ뒪�듃
    @Autowired
    ReviewListHandler reviewListHandler;
 
@@ -316,7 +317,7 @@ public class MFrontController {
       return viewPage;
    }
    
-   //유영원 : 빠른 예매 페이지
+   //�쑀�쁺�썝 : 鍮좊Ⅸ �삁留� �럹�씠吏�
    @Autowired
    ReserveMainHandler reserveMainHandler;
 
@@ -345,7 +346,7 @@ public class MFrontController {
 		return viewPage;
 	}
 
-	// 박주은 : 상영관 삭제
+	// 諛뺤＜�� : �긽�쁺愿� �궘�젣
 	@Autowired
 	DeleteTheaterHandler deleteTheaterHandler;
 
@@ -358,7 +359,7 @@ public class MFrontController {
 		return viewPage;
 	}
 	
-	//유영원 :  리뷰 추천하기
+	//�쑀�쁺�썝 :  由щ럭 異붿쿇�븯湲�
 	@Autowired
 	ChucheonCntHandler chucheonCntHandler;
 
@@ -372,7 +373,7 @@ public class MFrontController {
 		return viewPage;
 	}
 	
-	//유영원 : 평점 순으로 리뷰 리스트
+	//�쑀�쁺�썝 : �룊�젏 �닚�쑝濡� 由щ럭 由ъ뒪�듃
 	@Autowired
 	RatingOrderHandler ratingOrderHandler;
 
@@ -386,7 +387,7 @@ public class MFrontController {
 		return viewPage;
 	}
 	
-	//유영원 : 예매 관리 페이지
+	//�쑀�쁺�썝 : �삁留� 愿�由� �럹�씠吏�
 	@Autowired
 	GetRankingHandler getRankingHandler;
 

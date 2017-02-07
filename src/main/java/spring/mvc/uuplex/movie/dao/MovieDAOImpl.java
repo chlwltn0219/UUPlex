@@ -16,7 +16,6 @@ public class MovieDAOImpl implements MovieDAO{
 	@Autowired
 	private SqlSession sqlSession; //servlet-context.xml�뜝�룞�삕 �뜝�뙇�뒗怨ㅼ삕 �뜝��琉꾩삕�뜝�듅�뙋�삕.
 	
-	
 	@Override
 	public int addMovieInfo(MovieInfoDTO dto) {
 		int cnt = 0;
@@ -176,7 +175,5 @@ public class MovieDAOImpl implements MovieDAO{
 		cnt = dao.reserveCnt();
 		return cnt;
 	}
-
-	
 
 }

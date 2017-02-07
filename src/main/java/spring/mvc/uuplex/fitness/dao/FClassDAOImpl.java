@@ -70,5 +70,13 @@ public class FClassDAOImpl implements FClassDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<FClassDTO> reservableList(int pid) {
+		List<FClassDTO> dtos = null;
+		FClassDAO dao = sqlSession.getMapper(FClassDAO.class);
+		dtos = dao.reservableList(pid);
+		return dtos;
+	}
 	
 }

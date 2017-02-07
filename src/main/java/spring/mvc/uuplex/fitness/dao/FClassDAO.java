@@ -21,4 +21,6 @@ public interface FClassDAO {
 	int modifyClass(FClassDTO dto);
 	
 	List<FClassDTO> classActivatedList();
+	
+	List<FClassDTO> reservableList(int pid);
 }

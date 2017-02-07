@@ -30,7 +30,6 @@ public class FTeacherDetailHandler implements FCommandHandler{
 		
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
 		tid = Integer.parseInt(req.getParameter("tid"));
-		
 		List<FSportsDTO> sports = sdao.sportsActivatedList();		
 		
 		dto = dao.tdetail(tid);		

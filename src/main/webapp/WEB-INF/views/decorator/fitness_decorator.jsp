@@ -67,10 +67,18 @@
 				<li><a href="#">프로그램 안내</a></li>
 				<li><a href="/uuplex/fitness/user/teacher/list">강사 안내</a></li>
 <<<<<<< HEAD
+				<li><a href="/uuplex/fitness/user/program/reserve">수강 신청</a></li>
+=======
+<<<<<<< HEAD
+				<li><a href="/uuplex/fitness/user/reserve">수강 신청</a></li>
+=======
+<<<<<<< HEAD
 				<li><a href="#">수강 신청</a></li>
 =======
 				<li><a href="/uuplex/fitness/user/program/reserve">수강 신청</a></li>
 >>>>>>> origin/master
+>>>>>>> afcbdb396b5e6162536062f82fbd4f654e9a334d
+>>>>>>> 1515ca311fa2a36eed51360f66f7858eac04fa6b
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 마이 페이지 <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
