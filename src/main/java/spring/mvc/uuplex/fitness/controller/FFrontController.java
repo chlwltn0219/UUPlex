@@ -251,7 +251,7 @@ public class FFrontController{
    }
    
    //源�吏꾩슦 : 媛뺤쓽�떎 由ъ뒪�듃
-   @RequestMapping("/manage/classroom/list")
+   @RequestMapping("/manage/classroom")
       public String clist(HttpServletRequest req, Model model) {
          System.out.println("clist()");
          
