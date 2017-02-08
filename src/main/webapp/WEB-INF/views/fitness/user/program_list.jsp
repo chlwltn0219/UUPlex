@@ -40,10 +40,12 @@
     <div class="panel">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#s${s.sid}">${s.sname}</a>
+          ${s.sname}
+<%--           <a data-toggle="collapse" data-parent="#accordion" href="#s${s.sid}">${s.sname}</a> --%>
         </h4>
       </div>
-      <div id="s${s.sid}" class="panel-collapse collapse">
+	      <div id="s${s.sid}" class="panel-collapse collapse in">
+      	
         <div class="panel-body">
         	
         	<table class="table">

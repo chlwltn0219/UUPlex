@@ -10,6 +10,13 @@
 		height: 200px;
 		overflow-y: auto; 
 	}
+	
+	.panel-heading {
+		background-color:black !important;
+		color:white !important;
+	}
+	
+	
 </style>
 </head>
 <body>
