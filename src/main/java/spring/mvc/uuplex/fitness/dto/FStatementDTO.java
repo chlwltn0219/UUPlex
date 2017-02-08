@@ -4,15 +4,23 @@ import java.sql.Timestamp;
 
 public class FStatementDTO {
 	
+	int stid;
 	int cid;
 	int price;
 	String memid;
 	Timestamp reg_date;
 	
 	String subname;
-	String pame;
+	String pname;
 	String tname;
+	Timestamp start_date;
 	
+	public int getStid() {
+		return stid;
+	}
+	public void setStid(int stid) {
+		this.stid = stid;
+	}
 	public int getCid() {
 		return cid;
 	}
@@ -37,6 +45,29 @@ public class FStatementDTO {
 	public void setMemid(String memid) {
 		this.memid = memid;
 	}
-	
+	public String getSubname() {
+		return subname;
+	}
+	public void setSubname(String subname) {
+		this.subname = subname;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public String getTname() {
+		return tname;
+	}
+	public void setTname(String tname) {
+		this.tname = tname;
+	}
+	public Timestamp getStart_date() {
+		return start_date;
+	}
+	public void setStart_date(Timestamp start_date) {
+		this.start_date = start_date;
+	}
 	
 }

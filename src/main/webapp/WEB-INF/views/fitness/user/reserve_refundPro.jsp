@@ -18,10 +18,6 @@
 </head>
 <body>
 	<h3>명세 목록</h3>
-	
-	<div class="row">
-		<pre>그래프를 넣어주세요		총계를 넣어주세요</pre>
-	</div>
 	<table class="table table-hover table-striped">
 		<thead>
 			<tr>

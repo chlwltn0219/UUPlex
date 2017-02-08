@@ -21,11 +21,38 @@
 				   				 t.tname
 			  		     	FROM F_STATEMENT s 
 			  		       INNER JOIN F_CLASS c
-			  		          ON s.cid = c.cid
+			  		          ON c.cid = s.cid
+			  		       INNER JOIN F_PROGRAM p
+			  		          ON p.pid = c.pid
 			  		       INNER JOIN F_TEACHER t
-			  		          ON t.tid = ( SELECT p.tid 
-			  		          				 FROM F_PROGRAM p
-			  		          				WHERE p.pid = c.pid ) 
+			  		          ON t.tid = p.tid 
+			  			   ORDER BY s.stid DESC) a )
+		 WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 개인 명세 목록 수 -->
+	<select id="userStatementCount" resultType="int">
+		SELECT COUNT(*) 
+		  FROM F_STATEMENT
+		 WHERE memid = #{memid}
+	</select>
+	
+	<!-- 피트니스 명세 목록 리스트 반환 -->
+	<select id="userStatementList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum AS rnum 
+				   FROM ( SELECT s.*,
+				   				 c.subname, c.start_date,
+				   				 p.pname,
+				   				 t.tname
+			  		     	FROM F_STATEMENT s 
+			  		       INNER JOIN F_CLASS c
+			  		          ON c.cid = s.cid
+			  		       INNER JOIN F_PROGRAM p
+			  		          ON p.pid = c.pid
+			  		       INNER JOIN F_TEACHER t
+			  		          ON t.tid = p.tid 
+		 				   WHERE memid = #{memid}
 			  			   ORDER BY s.stid DESC) a )
 		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>

@@ -36,13 +36,31 @@ public class FStatementDAOImpl implements FStatementDAO{
 		int cnt = 0;
 		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
 		cnt = dao.statementCount();
-		return 0;
+		return cnt;
 	}
 
 	@Override
 	public List<FStatementDTO> statementList(Map<String, Integer> rangeMap) {
-		// TODO Auto-generated method stub
-		return null;
+		List<FStatementDTO> list = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		list = dao.statementList(rangeMap);
+		return list;
+	}
+	
+	@Override
+	public int userStatementCount(String memid) {
+		int cnt = 0;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		cnt = dao.userStatementCount(memid);
+		return cnt;
+	}
+
+	@Override
+	public List<FStatementDTO> userStatementList(Map<String, Object> rangeMap) {
+		List<FStatementDTO> list = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		list = dao.userStatementList(rangeMap);
+		return list;
 	}
 
 }

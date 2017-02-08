@@ -18,6 +18,7 @@ import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FManagerStatementListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInfoListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
@@ -98,6 +99,9 @@ public class FFrontController{
    FClassInputHandler classInputHandler; 
    @Autowired
    FClassModifyHandler classModifyHandler; 
+   
+   @Autowired
+   FManagerStatementListHandler managerStatementListHandler;
    
    @Autowired
    FReserveFormHandler reserveFormHandler;
@@ -437,9 +441,7 @@ public class FFrontController{
    public String managerStatementList(HttpServletRequest req, Model model){
 	   String viewPage = null; 
       model.addAttribute("req", req);
-//      programModifyHandler.process(model);
-//      programDetail(req, model);
-      viewPage = "/fitness/manage/statement_list";
+      viewPage = managerStatementListHandler.process(model);
       return viewPage;
    }
 

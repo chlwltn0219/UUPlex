@@ -8,8 +8,10 @@ import spring.mvc.uuplex.fitness.dto.FStatementDTO;
 public interface FStatementDAO {
 	
 	int statementCount();
-	
 	List<FStatementDTO> statementList(Map<String, Integer> rangeMap);
+	
+	int userStatementCount(String memid);
+	List<FStatementDTO> userStatementList(Map<String, Object> rangeMap);
 	
 	int reserveInput(FStatementDTO dto);
 	
