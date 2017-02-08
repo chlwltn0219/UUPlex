@@ -19,7 +19,7 @@
 						<td colspan="3">
 							<table style="width: 100%">
 								<tr>
-									<th><h1>선택한 조건에 해당하는 강좌가 없습니다. 조건을 다시 선택해 주세요.</h1></th>
+									<th><h4 align="center">선택한 조건에 해당하는 강좌가 없습니다. 조건을 다시 선택해 주세요.</h4></th>
 								</tr>
 							</table>
 						</td>
