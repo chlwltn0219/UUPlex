@@ -31,7 +31,7 @@
 	</select>
 	
 	<!-- 개인 명세 목록 수 -->
-	<select id="userStatementCount" resultType="int">
+	<select id="userStatementCount" parameterType="String"  resultType="int">
 		SELECT COUNT(*) 
 		  FROM F_STATEMENT
 		 WHERE memid = #{memid}

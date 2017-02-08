@@ -32,10 +32,13 @@ public class FUserStatementListHandler implements FCommandHandler{
 		int nowPage = 1;
 		int total = 0;
 		List<FStatementDTO> dtos = null;
-		String viewPage = "/fitness/manage/statement_list";
+		String viewPage = "/fitness/user/statement_list";
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
 		String memid = (String) req.getSession().getAttribute("id");
+		if(memid == null) {
+			memid = "";
+		}
 		
 		// 현재 페이지 정보 설정
 		if(req.getParameter("page") != null) {

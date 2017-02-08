@@ -41,6 +41,7 @@ import spring.mvc.uuplex.fitness.handler.FTeacherInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherSuitableListHandler;
+import spring.mvc.uuplex.fitness.handler.FUserStatementListHandler;
 
 @Controller
 @RequestMapping("/fitness")
@@ -111,13 +112,15 @@ public class FFrontController{
    FReservableClassListHandler reservableClassListHandler;
    @Autowired
    FReserveProHandler reserveProHandler;
+   @Autowired
+   FReserveDetailHandler reserveDetailHandler;
    
+   @Autowired
+   FUserStatementListHandler userStatementListHandler;
    @Autowired
    FTeacherInfoListHandler teacherInfoListHandler;
    @Autowired
    FProgramInfoListHandler programInfoListHandler;
-   @Autowired
-   FReserveDetailHandler reserveDetailHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -512,6 +515,16 @@ public class FFrontController{
       
       model.addAttribute("req", req);
       viewPage = programInfoListHandler.process(model);
+
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/statement")
+   public String userStatementList(HttpServletRequest req, Model model){
+      String viewPage = null;
+      
+      model.addAttribute("req", req);
+      viewPage = userStatementListHandler.process(model);
 
       return viewPage;
    }
