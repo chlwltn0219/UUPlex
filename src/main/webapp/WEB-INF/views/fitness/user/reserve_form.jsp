@@ -86,7 +86,11 @@
 			</table>
 		</div>
 	</div>
+	
+</div>
 
+<div class="modal fade" id="modalPage" role="dialog">
+	<div class="modal-dialog" id="dialog"></div>
 </div>
 
 <script type="text/javascript" src="${resources}/fitness/js/reserve_program.js"></script>

@@ -26,7 +26,9 @@ import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableProgramListHandler;
+import spring.mvc.uuplex.fitness.handler.FReserveDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveFormHandler;
+import spring.mvc.uuplex.fitness.handler.FReserveProHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
@@ -98,16 +100,20 @@ public class FFrontController{
    FClassModifyHandler classModifyHandler; 
    
    @Autowired
-   FReserveFormHandler userReserveHandler;
+   FReserveFormHandler reserveFormHandler;
    @Autowired
    FReservableProgramListHandler reservableProgramListHandler;
    @Autowired
    FReservableClassListHandler reservableClassListHandler;
+   @Autowired
+   FReserveProHandler reserveProHandler;
    
    @Autowired
    FTeacherInfoListHandler teacherInfoListHandler;
    @Autowired
    FProgramInfoListHandler programInfoListHandler;
+   @Autowired
+   FReserveDetailHandler reserveDetailHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -426,6 +432,16 @@ public class FFrontController{
       String viewPage = programDetail(req, model); 
       return viewPage;
    }
+   
+   @RequestMapping("/manage/statement/list")
+   public String managerStatementList(HttpServletRequest req, Model model){
+	   String viewPage = null; 
+      model.addAttribute("req", req);
+//      programModifyHandler.process(model);
+//      programDetail(req, model);
+      viewPage = "/fitness/manage/statement_list";
+      return viewPage;
+   }
 
    // 源�吏꾩슦 : �뵾�듃�땲�뒪 - 醫낅ぉ �젙蹂� �닔�젙
    @RequestMapping("/user/teacher")
@@ -443,7 +459,7 @@ public class FFrontController{
       String viewPage = null;
       
       model.addAttribute("req", req);
-      viewPage = userReserveHandler.process(model);
+      viewPage = reserveFormHandler.process(model);
 
       return viewPage;
    }
@@ -464,6 +480,26 @@ public class FFrontController{
       
       model.addAttribute("req", req);
       viewPage = reservableClassListHandler.process(model);
+
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/reserve/detail")
+   public String reservableDetail(HttpServletRequest req, Model model){
+      String viewPage = null;
+      
+      model.addAttribute("req", req);
+      viewPage = reserveDetailHandler.process(model);
+
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/reservePro")
+   public String reservePro(HttpServletRequest req, Model model){
+      String viewPage = null;
+      
+      model.addAttribute("req", req);
+      viewPage = reserveProHandler.process(model);
 
       return viewPage;
    }

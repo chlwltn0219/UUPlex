@@ -33,7 +33,7 @@
 				<li><a href="/uuplex/fitness/manage/program/list">프로그램 관리</a></li>
 				<li><a href="/uuplex/fitness/manage/classroom/list">강의실 관리</a></li>
 				<li><a href="/uuplex/fitness/manage/class/list">시간표 관리</a></li>
-				<li><a>명세 내역</a></li>
+				<li><a href="/uuplex/fitness/manage/statement/list">명세 내역</a></li>
 			</ul>
 		</div>
 			

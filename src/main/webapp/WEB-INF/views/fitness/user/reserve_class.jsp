@@ -66,7 +66,6 @@
 									<c:if test="${c.mon == 'Y'}"><span class="label label-success">월</span></c:if>
 									<c:if test="${c.mon == 'N'}"><span class="label label-default">월</span></c:if>
 									
-									
 									<c:if test="${c.tue == 'Y'}"><span class="label label-success">화</span></c:if>
 									<c:if test="${c.tue == 'N'}"><span class="label label-default">화</span></c:if>
 									
@@ -90,11 +89,16 @@
 							</table>
 						</td>
 						<td>
-							<c:if test="${c.current_people >= c.limit || c.register_end < now}">
-								<button class="btn btn-default disabled"> 종료됨 </button>
+							<c:if test="${c.register_start > now}">
+								<button class="btn btn-warning disabled"> 신청 대기 </button>
 							</c:if>
-							<c:if test="${c.current_people < c.limit && c.register_end >= now}">
-								<button class="btn btn-default"> 신청하기 </button>
+							<c:if test="${c.current_people < c.limit && c.register_start <= now && c.register_end >= now }">
+								<button class="btn btn-success"  
+									data-toggle="modal" data-target="#modalPage"
+									onclick="reserveForm(${c.cid})"> 신청하기 </button>
+							</c:if>
+							<c:if test="${c.current_people >= c.limit || c.register_end < now}">
+								<button class="btn btn-danger disabled"> 종료됨 </button>
 							</c:if>
 						</td>
 					</tr>

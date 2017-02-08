@@ -130,7 +130,6 @@
 			 			   				    FROM F_PROGRAM p
 						   				   WHERE p.pid=c.pid )
 						   WHERE c.activated = 'Y'
-						     AND c.register_end BETWEEN SYSDATE-15 AND SYSDATE+15
 						     AND c.pid = #{pid}
 				 		   ORDER BY c.register_end ) a )
 		 WHERE rnum BETWEEN #{start} AND #{end}
