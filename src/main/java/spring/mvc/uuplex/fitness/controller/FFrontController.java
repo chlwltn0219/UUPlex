@@ -18,12 +18,15 @@ import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FManagerStatementListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInfoListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FRefundFormHandler;
+import spring.mvc.uuplex.fitness.handler.FRefundProHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveDetailHandler;
@@ -40,6 +43,7 @@ import spring.mvc.uuplex.fitness.handler.FTeacherInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherListHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherSuitableListHandler;
+import spring.mvc.uuplex.fitness.handler.FUserStatementListHandler;
 
 @Controller
 @RequestMapping("/fitness")
@@ -100,6 +104,9 @@ public class FFrontController{
    FClassModifyHandler classModifyHandler; 
    
    @Autowired
+   FManagerStatementListHandler managerStatementListHandler;
+   
+   @Autowired
    FReserveFormHandler reserveFormHandler;
    @Autowired
    FReservableProgramListHandler reservableProgramListHandler;
@@ -107,13 +114,20 @@ public class FFrontController{
    FReservableClassListHandler reservableClassListHandler;
    @Autowired
    FReserveProHandler reserveProHandler;
+   @Autowired
+   FReserveDetailHandler reserveDetailHandler;
    
+   @Autowired
+   FRefundFormHandler refundFormHandler;
+   @Autowired
+   FRefundProHandler refundProHandler; 
+   
+   @Autowired
+   FUserStatementListHandler userStatementListHandler;
    @Autowired
    FTeacherInfoListHandler teacherInfoListHandler;
    @Autowired
    FProgramInfoListHandler programInfoListHandler;
-   @Autowired
-   FReserveDetailHandler reserveDetailHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -437,9 +451,7 @@ public class FFrontController{
    public String managerStatementList(HttpServletRequest req, Model model){
 	   String viewPage = null; 
       model.addAttribute("req", req);
-//      programModifyHandler.process(model);
-//      programDetail(req, model);
-      viewPage = "/fitness/manage/statement_list";
+      viewPage = managerStatementListHandler.process(model);
       return viewPage;
    }
 
@@ -513,5 +525,32 @@ public class FFrontController{
 
       return viewPage;
    }
+   
+   @RequestMapping("/user/statement")
+   public String userStatementList(HttpServletRequest req, Model model){
+      String viewPage = null;
+      
+      model.addAttribute("req", req);
+      viewPage = userStatementListHandler.process(model);
+
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/statement/refund")
+   public String refundCheck(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = refundFormHandler.process(model);
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/statement/refundPro")
+   public String refundPro(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = refundProHandler.process(model);
+      return viewPage;
+   }
+
    
 }

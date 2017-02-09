@@ -14,12 +14,15 @@
 		vertical-align: top; 
 	}
 </style>
-<title>강의 목록</title>
+<title>명세 목록</title>
 </head>
 <body>
-	<c:set var="now" value="<%= new java.util.Date() %>"/>
-	<h3>시간표 관리</h3>
-	<table class="table table-hover">
+	<h3>명세 목록</h3>
+	
+	<div class="row">
+		<pre>그래프를 넣어주세요		총계를 넣어주세요</pre>
+	</div>
+	<table class="table table-hover table-striped">
 		<thead>
 			<tr>
 				<td colspan="3">
@@ -42,74 +45,33 @@
 			</tr>
 			<tr>
 				<th>#</th>
-				<th>제목</th>
+				<th>프로그램</th>
 				<th colspan="2">정보</th>
 			</tr>
 		</thead>
 		
 		<tbody>
 			<c:forEach items="${dtos}" var="dto">
-			
-				<c:if test="${now < dto.register_start || (now > dto.register_end && now < dto.start_date)}">
-				<tr class="active">
-				</c:if>
-				<c:if test="${now >= dto.register_start && now <= dto.register_end}">
-				<tr class="info">
-				</c:if>
-				<c:if test="${now >= dto.start_date && now <= dto.end_date}">
-				<tr class="success">
-				</c:if>
-				<c:if test="${now > dto.end_date}">
 				<tr>
-				</c:if>
-					<td>${dto.cid}</td>
+					<td>${dto.stid}</td>
 					<td>
 						<h4>
-							<a class="btn btn-link" onclick="classDetail(${dto.cid})"
-							data-toggle="modal" data-target="#modalPage">${dto.pname} <small>${dto.subname}</small></a>
+							${dto.pname} <small> : ${dto.subname} - ${dto.tname} 강사</small></a>
 						</h4>
 					</td>
 					<td>
 						<table class="inner-table">
 							<tr>
-								<th>종목</th>
-								<td>${dto.sname}</td>
+								<th>신청자</th>
+								<td>${dto.memid}</td>
 							</tr>
 							<tr>
-								<th>강사</th>
-								<td>${dto.tname}</td>
+								<th>신청일</th>
+								<td>${fn:substring(dto.reg_date, 0, 10)}</td>
 							</tr>
 							<tr>
-								<th>신청 기간</th>
-								<td>
-									${fn:substring(dto.register_start,0,10)}<br> 
-									~ ${fn:substring(dto.register_end,0,10)} 
-								<c:if test="${now < dto.register_start}">
-									<span class="label label-warning">예정</span>
-								</c:if>
-								<c:if test="${now >= dto.register_start && now <= dto.register_end}">
-									<span class="label label-success">진행중</span>
-								</c:if>
-								<c:if test="${now > dto.register_end}">
-									<span class="label label-danger">종료</span>
-								</c:if>
-							</tr>
-							<tr>
-								<th>수업 기간</th>
-								
-								<td>
-									${fn:substring(dto.start_date,0,10)}<br> 
-									~ ${fn:substring(dto.end_date,0,10)} 
-									<c:if test="${now < dto.start_date}">
-										<span class="label label-warning">예정</span>
-									</c:if>
-									<c:if test="${now >= dto.start_date && now <= dto.end_date}">
-										<span class="label label-success">진행중</span>
-									</c:if>
-									<c:if test="${now > dto.end_date}">
-										<span class="label label-danger">종료</span>
-									</c:if>
-								</td>
+								<th>가격</th>
+								<td>${dto.price} 원</td>
 							</tr>
 						</table>
 					</td>

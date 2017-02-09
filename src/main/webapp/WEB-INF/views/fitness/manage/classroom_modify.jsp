@@ -21,7 +21,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>종목 이름</th>
+					<th>강의실 이름</th>
 					<td>
 						<input type="text" class="form-control" 
 							name="crname" value="${dto.crname}" required>

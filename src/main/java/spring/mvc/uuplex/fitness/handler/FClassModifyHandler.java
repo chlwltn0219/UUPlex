@@ -37,7 +37,7 @@ public class FClassModifyHandler implements FCommandHandler{
 			String subname = req.getParameter("subname");
 			int limit = Integer.parseInt(req.getParameter("limit"));
 			int crid = Integer.parseInt(req.getParameter("crid"));
-			
+			String activated = req.getParameter("activated");
 			
 			Timestamp register_start = new Timestamp(dateFormat.parse(req.getParameter("register_start")).getTime());
 			Timestamp register_end = new Timestamp(dateFormat.parse(req.getParameter("register_end")).getTime());
@@ -59,6 +59,7 @@ public class FClassModifyHandler implements FCommandHandler{
 			dto.setSubname(subname);
 			dto.setLimit(limit);
 			dto.setCrid(crid);
+			dto.setActivated(activated);
 			
 			dto.setRegister_start(register_start);
 			dto.setRegister_end(register_end);

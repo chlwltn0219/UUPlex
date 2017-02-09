@@ -46,7 +46,6 @@ public class AddMovieInfoHandler implements MCommandHandler {
 		try {
 			MultipartRequest multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
-			// �뜝�떬�뼲�삕�뜝占� �뜝�룞�삕�뜝�룞�삕 �뜝�떛紐뚯삕�뜝�룞�삕 �뜝�뙣�븘�삩�뙋�삕.
 			Enumeration file = multi.getFileNames();
 			String[] str = new String[3];
 			String[] fileName = new String[3];
@@ -77,6 +76,16 @@ public class AddMovieInfoHandler implements MCommandHandler {
 			}
 
 			String MPAARating = multi.getParameter("MPAARating");
+			
+			String[] countries = multi.getParameterValues("country");
+
+			String country = "";
+
+			for (int i = 0; i < countries.length; i++) {
+
+				country = country + (i == 0 ? countries[i] : ", " + countries[i]);
+			}
+			
 			int productionYear = Integer.parseInt(multi.getParameter("productionYear"));
 			int runTime = Integer.parseInt(multi.getParameter("runTime"));
 			String trailer = multi.getParameter("trailer");
@@ -108,6 +117,7 @@ public class AddMovieInfoHandler implements MCommandHandler {
 			dto.setTrailer(trailer);
 			dto.setStatus(status);
 			dto.setSynopsis(synopsis);
+			dto.setCountry(country);
 			
 			int cnt = dao.addMovieInfo(dto);
 

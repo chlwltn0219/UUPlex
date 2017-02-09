@@ -54,7 +54,10 @@ function programModifyPro(){
 	var method = "POST";
 	var params = "pid=" + pid + "&pname=" + pname + "&pinfo=" + pinfo + "&activated=" + activated +
 				 "&sid=" + sid + "&tid=" + tid + "&price=" + price + "&preparationCost=" + preparationCost + "&preparation=" + preparation ;
-	sendRequest(programModal, url, method, params);
+	
+	if(progamDataCheck()){
+		sendRequest(programModal, url, method, params);
+	}
 }
 
 //======================== Write Modal Dialog
@@ -102,4 +105,20 @@ function teacherSelect() {
 function resetTeacher() {
 	var select = document.getElementById("teacher");
 	select.innerHTML = teacherInitOptions;
+}
+
+
+
+//======================== Check Data
+function progamDataCheck() {
+	
+	var pname = $('input[name=pname]');
+	
+	if(pname.val().length <= 0){
+		alert("제목은 빈칸이 올 수 없습니다.");
+		pname.focus();
+		return false;
+	} 
+
+	return true;
 }

@@ -44,7 +44,7 @@
 							<th>부 제목</th>
 							<td>
 								<input type="text" class="form-control" 
-									name="subname" value="${dto.subname}">
+									name="subname" value="${dto.subname}" required>
 							</td>
 						</tr>
 						<tr>
@@ -72,8 +72,13 @@
 						<tr>
 							<th>정원</th>
 							<td>
-								<input type="number" class="form-control"
-										name="limit" value="${dto.limit}" min="0" required="required">
+								<div class="input-group">
+									<input type="number" class="form-control"
+											name="people" value="${dto.people}" readonly>
+									<span class="input-group-addon">/</span>
+									<input type="number" class="form-control"
+											name="limit" value="${dto.limit}" min="${dto.people}" required="required">
+								</div>
 							</td>
 						</tr>
 						<tr>
@@ -82,7 +87,7 @@
 								<div class="input-group">
 									<input type="date" class="form-control"
 											name="register_start" value="${fn:substring(dto.register_start, 0, 10)}">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+									<span class="input-group-addon">~</span>
 									<input type="date" class="form-control"
 									name="register_end" value="${fn:substring(dto.register_end, 0, 10)}">
 								</div>
@@ -94,7 +99,7 @@
 								<div class="input-group">
 									<input type="date" class="form-control"
 												name="start_date" value="${fn:substring(dto.start_date, 0, 10)}">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+									<span class="input-group-addon">~</span>
 									<input type="date" class="form-control"
 												name="end_date" value="${fn:substring(dto.end_date, 0, 10)}">
 								</div>
@@ -103,7 +108,7 @@
 						<tr>
 							<th>수업 요일</th>
 							<td>
-								<div class="btn-group btn-group-justified" data-toggle="buttons">
+								<div class="day btn-group btn-group-justified" data-toggle="buttons">
 								
 									<c:if test="${dto.sun == 'Y'}">
 									<label class="btn btn-danger sun active">
@@ -190,7 +195,7 @@
 								<div class="input-group">
 									<input type="time" class="form-control"
 										name="start_time" value="${fn:substring(dto.start_time, 11, 16)}">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+									<span class="input-group-addon">~</span>
 									<input type="time" class="form-control"
 										name="end_time" value="${fn:substring(dto.end_time, 11, 16)}">
 								</div>

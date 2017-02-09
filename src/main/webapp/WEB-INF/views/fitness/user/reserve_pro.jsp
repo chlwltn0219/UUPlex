@@ -34,6 +34,13 @@
 			window.location = "/uuplex/fitness/user/reserve";
 		</script>
 	</c:if>
+		<c:if test="${cnt == 3}">
+		<h1>이미 수강신청을 하셨습니다.</h1>
+		<script type="text/javascript">
+			alert("이미 수강신청을 하셨습니다. 다른 강의를 선택해 주세요.");
+			window.location = "/uuplex/fitness/user/reserve";
+		</script>
+	</c:if>
 
 </body>
 </html>

@@ -5,22 +5,24 @@ import java.sql.Date;
 public class MovieInfoDTO {
 
 	
-			int movie_num; /* ¿µÈ­¹øÈ£ */
-			String title1; /* ¿µÈ­Á¦¸ñ1 */
-			String title2; /* ¿µÈ­Á¦¸ñ2 */
-			String director; /* °¨µ¶ */
-			String starring; /* ÁÖ¿¬¹è¿ì */
-			String genre; /* Àå¸£ */
-			String MPAARating; /* °ü¶÷µî±Ş */
-			int productionYear; /* Á¦ÀÛ³âµµ */
-			int runTime; /* ·¯´×Å¸ÀÓ(ºĞ) */
-			Date releaseDate; /* °³ºÀÀÏ */
-			String poster; /* Æ÷½ºÅÍ */
-			String movie_img1; /* ½ºÆ¿ÄÆ1 */
-			String movie_img2; /* ½ºÆ¿ÄÆ2 */
-			String trailer; /* ¿¹°íÆí¸µÅ© */
-			String status; /* ÇöÀç»ó¿µ¿©ºÎ */
-			String synopsis; /* ÁÙ°Å¸® */
+			int movie_num; /* */
+			String title1; /* í•œê¸€ ì œëª© */
+			String title2; /* ì˜ì–´ ì œëª©, ì›ì œ */
+			String director; /* ê°ë… */
+			String starring; /* ì£¼ì—°  */
+			String genre; /* ì¥ë¥´ */
+			String MPAARating; /* ê´€ëŒë“±ê¸‰ */
+			int productionYear; /* ì œì‘ ì—°ë„  */
+			int runTime; /* ìƒì˜ì‹œê°„(ë¶„) */
+			Date releaseDate; /* ê°œë´‰ì¼  */
+			String poster; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+			String movie_img1; /* ï¿½ï¿½Æ¿ï¿½ï¿½1 */
+			String movie_img2; /* ï¿½ï¿½Æ¿ï¿½ï¿½2 */
+			String trailer; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å© */
+			String status; /* ìƒì˜ì—¬ë¶€  */
+			String synopsis; /* ì¤„ê±°ë¦¬  */
+			String country; /* êµ­ê°€  */
+			
 			
 			public String getSynopsis() {
 				return synopsis;
@@ -118,5 +120,10 @@ public class MovieInfoDTO {
 			public void setStatus(String status) {
 				this.status = status;
 			}
-		
+			public String getCountry() {
+				return country;
+			}
+			public void setCountry(String country) {
+				this.country = country;
+			}
 }

@@ -24,10 +24,10 @@ public class FStatementDAOImpl implements FStatementDAO{
 	}
 	
 	@Override
-	public int refund(FStatementDTO dto) {
+	public int refundPro(FStatementDTO dto) {
 		int cnt = 0;
 		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
-		cnt = dao.refund(dto);
+		cnt = dao.refundPro(dto);
 		return cnt;
 	}
 
@@ -36,13 +36,47 @@ public class FStatementDAOImpl implements FStatementDAO{
 		int cnt = 0;
 		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
 		cnt = dao.statementCount();
-		return 0;
+		return cnt;
 	}
 
 	@Override
 	public List<FStatementDTO> statementList(Map<String, Integer> rangeMap) {
-		// TODO Auto-generated method stub
-		return null;
+		List<FStatementDTO> list = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		list = dao.statementList(rangeMap);
+		return list;
+	}
+	
+	@Override
+	public int userStatementCount(String memid) {
+		int cnt = 0;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		cnt = dao.userStatementCount(memid);
+		return cnt;
+	}
+
+	@Override
+	public List<FStatementDTO> userStatementList(Map<String, Object> rangeMap) {
+		List<FStatementDTO> list = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		list = dao.userStatementList(rangeMap);
+		return list;
+	}
+	
+	@Override
+	public FStatementDTO refundForm(Map<String, Object> info) {		
+		FStatementDTO dto = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		dto = dao.refundForm(info);
+		return dto;
+	}
+	
+	@Override
+	public int checkStatement(Map<String, Object> info) {		
+		int cnt = 0;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		cnt = dao.checkStatement(info);
+		return cnt;
 	}
 
 }

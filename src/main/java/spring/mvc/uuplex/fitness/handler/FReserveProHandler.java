@@ -1,5 +1,8 @@
 package spring.mvc.uuplex.fitness.handler;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,17 +37,26 @@ public class FReserveProHandler implements FCommandHandler{
 		System.out.println(memid);
 		
 		if(memid != null) {
-			dto.setCid(cid);
-			dto.setMemid(memid);
-			dto.setPrice(price);
 			
-			cnt = dao.reserveInput(dto);
+			Map<String, Object> info = new HashMap<String, Object>();
+			info.put("memid", memid);
+			info.put("cid", cid);
+			if(dao.checkStatement(info) > 0){
+				cnt = 3;
+			} else {
+				dto.setCid(cid);
+				dto.setMemid(memid);
+				dto.setPrice(price);
+				
+				cnt = dao.reserveInput(dto);
+				
+			}
 			
-			model.addAttribute("cnt", cnt);
 		} else {
 //		 	로그인 유도 할 것
-			model.addAttribute("cnt", 2);
+			cnt = 2;
 		}
+		model.addAttribute("cnt", cnt);
 		
 		return viewPage;
 	}
