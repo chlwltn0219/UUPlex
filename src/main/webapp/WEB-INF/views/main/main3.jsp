@@ -32,13 +32,14 @@
 
 <body class="demo-4">
     <div class="container">
-        <header class="codrops-header">
+        <header class="codrops-header" style="padding:30 0 0 0">
             <div class="codrops-links">
                 <a class="codrops-icon codrops-icon--prev" href="" title="Previous Demo"><span>Previous Demo</span></a>
                 <a class="codrops-icon codrops-icon--drop" href="" title="Back to the article"><span>Back to the Codrops article</span></a>
             </div>
             <h1>Enjoy your Life! with UUPlex <span>UUPlex에 오신 것을 환영합니다</span></h1>
             <nav class="codrops-demos">
+            
             <c:if test="${idCode == null}">
                 <a href="/uuplex/input">회원가입</a>
                 <a data-toggle="modal" data-target="#loginModal" href="/uuplex/noneSM/loginForm">로그인</a>
@@ -55,11 +56,25 @@
 				<a href="/uuplex/memberList?grade=전체">회원관리</a>
 				<a href="/uuplex/logout">로그아웃</a>
 				<a href="/uuplex/notice?shopCode=100">고객센터</a>
-			</c:if>
+			</c:if>  
                 
             </nav>
+            <br>
+            <div class="btn-group" align="right">
+					  <a data-toggle="dropdown" aria-expanded="false">
+					    	바로가기 <span class="caret"></span>
+					  </a>
+					  <ul class="dropdown-menu" role="menu">
+					    <li><a href="/uuplex/floor">층별안내도</a></li>
+					    <li><a href="/uuplex/c-box">영화관</a></li>
+					    <li><a href="/uuplex/hotel">호텔</a></li>
+					    <li><a href="/uuplex/fitness">휘트니스</a></li>
+					  </ul>
+			</div>  
+            
         </header>
         <div class="content">
+			
             <!-- trianglify pattern container -->
             <div class="pattern pattern--hidden"></div>
             <!-- cards -->
@@ -103,7 +118,7 @@
                                     <polygon class="clip" points="0,1200 0,0 1920,0 1920,1200"></polygon>
                                 </clipPath>
                             </defs>
-                            <image width="1920" height="1200" href="/uuplex/resources/main_images/uplex1.png"></image>
+                            <image clip-path="url(#clipPath2)" width="1920" height="1200" xlink:href="/uuplex/resources/main_images/uplex1.png"></image>
                         </svg>
                         <div class="card__content">
 							<i class="card__btn-close fa fa-times"></i>
@@ -244,6 +259,7 @@
                 </div>
             </div>
             <!-- /cards -->
+             
         </div>
         <!-- Related demos -->
 		<section class="content content--related">
@@ -258,6 +274,7 @@
 			</a>
 		</section>
     </div>
+    
     
     <%@ include file="/admin_Modal/login_modal.jsp" %>
     <!-- /container -->

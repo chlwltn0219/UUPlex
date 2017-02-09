@@ -99,7 +99,6 @@ function dateOrder(mnum){
 	sendRequest(reviewDiv, url, method, params);
 	
 }
-
 //call back
 function reviewDiv() {
    

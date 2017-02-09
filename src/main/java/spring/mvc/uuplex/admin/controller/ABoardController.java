@@ -10,9 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.admin.handler.ContentEventFormHandler;
 import spring.mvc.uuplex.admin.handler.ContentFormHandler;
 import spring.mvc.uuplex.admin.handler.ContentNotiFormHandler;
+import spring.mvc.uuplex.admin.handler.EventModifyFormHandler;
+import spring.mvc.uuplex.admin.handler.EventModifyProHandler;
+import spring.mvc.uuplex.admin.handler.EventModifyViewHandler;
 import spring.mvc.uuplex.admin.handler.EventWriteFormHandler;
 import spring.mvc.uuplex.admin.handler.EventWriteProHandler;
 import spring.mvc.uuplex.admin.handler.EventlistHandler;
+import spring.mvc.uuplex.admin.handler.NoticeDelFormHandler;
+import spring.mvc.uuplex.admin.handler.NoticeDelProHandler;
 import spring.mvc.uuplex.admin.handler.NoticeWriteFormHandler;
 import spring.mvc.uuplex.admin.handler.NoticeWriteProHandler;
 import spring.mvc.uuplex.admin.handler.NoticelistHandler;
@@ -142,6 +147,35 @@ public class ABoardController {
 	}
 	
 	
+	@Autowired
+	NoticeDelFormHandler noticeDelFormHandler;
+	@RequestMapping("/noneSM/noticeDel")
+	public String noticeDel(HttpServletRequest req, Model model) {
+		
+		System.out.println("공지사항 삭제");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = noticeDelFormHandler.process(model);
+
+		return viewPage;
+	}
+	
+	@Autowired
+	NoticeDelProHandler noticeDelProHandler;
+	@RequestMapping("/noticeDelPro")
+	public String noticeDelPro(HttpServletRequest req, Model model) {
+		
+		System.out.println("공지사항 삭제 처리");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = noticeDelProHandler.process(model);
+
+		return viewPage;
+	}
+	
+	
 	// 이벤트 게시판
 	
 	@Autowired
@@ -199,6 +233,48 @@ public class ABoardController {
 		model.addAttribute("req", req);
 		
 		String viewPage = eventWriteProHandler.process(model);
+
+		return viewPage;
+	}
+	
+	@Autowired
+	EventModifyFormHandler eventModifyFormHandler;
+	@RequestMapping("/noneSM/eventModify")
+	public String eventModifyForm(HttpServletRequest req, Model model) {
+		
+		System.out.println("이벤트 글쓰기 수정 비밀번호 확인");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = eventModifyFormHandler.process(model);
+
+		return viewPage;
+	}
+	
+	@Autowired
+	EventModifyViewHandler eventModifyViewHandler;
+	@RequestMapping("/eventModifyView")
+	public String eventModifyViewHandler(HttpServletRequest req, Model model) {
+		
+		System.out.println("이벤트 글쓰기 수정 페이지");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = eventModifyViewHandler.process(model);
+
+		return viewPage;
+	}
+	
+	@Autowired
+	EventModifyProHandler eventModifyProHandler;
+	@RequestMapping("/eventModifyPro")
+	public String eventModifyProHandler(HttpServletRequest req, Model model) {
+		
+		System.out.println("이벤트 글쓰기 수정 처리");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = eventModifyProHandler.process(model);
 
 		return viewPage;
 	}

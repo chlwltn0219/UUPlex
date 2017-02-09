@@ -224,6 +224,28 @@ CONSTRAINT f_program_sat_fk FOREIGN KEY (sat)
 );
 
 
+DROP TABLE F_STATEMENT;
+CREATE TABLE F_STATEMENT(
+stid		NUMBER,
+cid			NUMBER,
+memid		VARCHAR2(20),
+price		NUMBER CONSTRAINTS f_statement_price_nn NOT NULL,
+reg_date	TIMESTAMP DEFAULT SYSDATE,
+CONSTRAINT f_statement_stid_pk PRIMARY KEY (stid), 
+CONSTRAINT f_statement_cid_fk FOREIGN KEY (cid) 
+								 REFERENCES F_CLASS(cid),
+CONSTRAINT f_statement_memid_fk FOREIGN KEY (memid) 
+								 REFERENCES UU_MEMBER(memid)
+);
+
+CREATE SEQUENCE SEQ_STATEMENTID
+START WITH 0
+INCREMENT BY 1
+NOCYCLE
+MINVALUE 0;
+
+
+
 INSERT INTO F_CLASS (cid, pid, crid, subname, 
 					 register_start, register_end, start_date, end_date, 
 					 start_time, end_time, limit)

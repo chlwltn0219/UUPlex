@@ -1,3 +1,32 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* ©╣х╜ а╓╨╦ */
+CREATE TABLE m_movie_info (
+   movie_num NUMBER(5) NOT NULL, /* ©╣х╜╧Ьхё */
+   title1 VARCHAR2(100), /* ©╣х╜а╕╦Я1 */
+   title2 VARCHAR2(100), /* ©╣х╜а╕╦Я2 */
+   director VARCHAR2(50), /* ╟╗╣╤ */
+   starring VARCHAR2(100), /* аж©╛╧Х©Л */
+   genre VARCHAR2(50), /* юЕ╦ё */
+   MPAARating VARCHAR2(30), /* ╟Э╤В╣Н╠ч */
+   productionYear NUMBER(4), /* а╕юшЁБ╣╣ */
+   runTime NUMBER(3), /* ╥╞╢ве╦юс(╨п) */
+   releaseDate DATE, /* ╟Ё╨ююо */
+   poster VARCHAR2(100), /* фВ╫╨ем */
+   movie_img1 VARCHAR2(100), /* ╫╨ф©дф1 */
+   movie_img2 VARCHAR2(100), /* ╫╨ф©дф2 */
+   trailer VARCHAR2(100), /* ©╧╟МфМ╦╣е╘ */
+   status VARCHAR2(10), /* гЖюГ╩С©╣©╘╨н */
+   synopsis VARCHAR2(4000) /* аы╟е╦╝ */
+);
+
+
+COMMENT ON TABLE m_movie_info IS '©╣х╜ а╓╨╦';
+=======
+/* О©╫О©╫х╜ О©╫О©╫О©╫О©╫ */
+DROP TABLE m_movie_info ;
+=======
+>>>>>>> origin/master
 
 /* Л≤│М≥■ Л═∙КЁ╢ */
 CREATE TABLE m_movie_info (
@@ -20,6 +49,49 @@ CREATE TABLE m_movie_info (
    country VARCHAR2(50) /* Й╣╜Й╟─ */
 );
 
+<<<<<<< HEAD
+SELECT * FROM  m_movie_info ;
+>>>>>>> d939b60e491e02d96ece9e5ccf9810eb3a921d06
+
+COMMENT ON TABLE m_movie_info IS 'О©╫О©╫х╜ О©╫О©╫О©╫О©╫';
+
+COMMENT ON COLUMN m_movie_info.movie_num IS 'О©╫О©╫х╜О©╫О©╫хё';
+
+COMMENT ON COLUMN m_movie_info.title1 IS 'О©╫О©╫х╜О©╫О©╫О©╫О©╫1';
+
+COMMENT ON COLUMN m_movie_info.title2 IS 'О©╫О©╫х╜О©╫О©╫О©╫О©╫2';
+
+COMMENT ON COLUMN m_movie_info.director IS 'О©╫О©╫О©╫О©╫';
+
+COMMENT ON COLUMN m_movie_info.starring IS 'О©╫ж©О©╫О©╫О©╫О©╫';
+
+COMMENT ON COLUMN m_movie_info.genre IS 'О©╫Е╦ё';
+
+COMMENT ON COLUMN m_movie_info.MPAARating IS 'О©╫О©╫О©╫О©╫О©╫О©╫О©╫';
+
+<<<<<<< HEAD
+COMMENT ON COLUMN m_movie_info.runTime IS '╥╞╢ве╦юс(╨п)';
+=======
+COMMENT ON COLUMN m_movie_info.productionYear IS 'О©╫О©╫О©╫шЁБ╣╣';
+>>>>>>> d939b60e491e02d96ece9e5ccf9810eb3a921d06
+
+COMMENT ON COLUMN m_movie_info.runTIme IS 'О©╫О©╫О©╫О©╫е╦О©╫О©╫(О©╫О©╫)';
+
+COMMENT ON COLUMN m_movie_info.releaseDate IS 'О©╫О©╫О©╫О©╫О©╫О©╫';
+
+COMMENT ON COLUMN m_movie_info.poster IS 'О©╫О©╫О©╫О©╫О©╫О©╫';
+
+COMMENT ON COLUMN m_movie_info.movie_img1 IS 'О©╫О©╫ф©О©╫О©╫1';
+
+COMMENT ON COLUMN m_movie_info.movie_img2 IS 'О©╫О©╫ф©О©╫О©╫2';
+
+COMMENT ON COLUMN m_movie_info.trailer IS 'О©╫О©╫О©╫О©╫О©╫О©╫е╘';
+
+COMMENT ON COLUMN m_movie_info.status IS 'О©╫О©╫О©╫О©╫С©╣©О©╫О©╫О©╫';
+
+COMMENT ON COLUMN m_movie_info.synopsis IS 'аы╟е╦╝';
+=======
+>>>>>>> origin/master
 
 CREATE UNIQUE INDEX PK_m_movie_info
    ON m_movie_info (
@@ -27,6 +99,10 @@ CREATE UNIQUE INDEX PK_m_movie_info
    );
 
 ALTER TABLE m_movie_info
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
    ADD
       CONSTRAINT PK_m_movie_info
       PRIMARY KEY (
@@ -38,4 +114,19 @@ increment by 1
 maxvalue 99999;
 
 
+<<<<<<< HEAD
+=======
+	ADD
+		CONSTRAINT PK_m_movie_info
+		PRIMARY KEY (
+			movie_num
+		);
+		
+		
+create sequence m_movie_info_seq
+increment by 1
+maxvalue 99999;
+>>>>>>> d939b60e491e02d96ece9e5ccf9810eb3a921d06
+=======
 	
+>>>>>>> origin/master

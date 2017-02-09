@@ -44,7 +44,7 @@
 	</update>
 	
 	<select id="listAll" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
-        SELECT tid, tname
+        SELECT *
           FROM f_teacher
          ORDER BY tid
 	</select> 
@@ -56,5 +56,14 @@
            AND sid=#{sid}
          ORDER BY tname
 	</select> 
+	
+	<select id="tInfo" resultType="spring.mvc.uuplex.fitness.dto.FTeacherDTO">
+		SELECT *
+		FROM F_TEACHER t, F_SPORTS s
+    	WHERE t.sid = s.sid
+     	  AND t.ACTIVATED = 'Y'
+     	  AND s.ACTIVATED = 'Y'
+     ORDER BY t.tid      	  
+	</select>
 	
 </mapper>

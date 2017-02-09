@@ -110,8 +110,3 @@
 	<%-- 	<%@ include file="sports_detail.jsp" %> --%>
 
 </div>
-
-
-
-
-

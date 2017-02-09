@@ -42,7 +42,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th>종목 코드</th>
+				<th>#</th>
 				<th>종목 명</th>
 				<th>운영 상태</th>
 			</tr>
@@ -61,12 +61,8 @@
 							data-toggle="modal" data-target="#modalPage">${dto.sname}</a>
 					</td>
 					<td>
-						<c:if test="${dto.activated == 'Y'}">
-						운영중
-						</c:if>
-						<c:if test="${dto.activated == 'N'}">
-						폐지
-						</c:if>
+						<c:if test="${dto.activated == 'Y'}"><span class="label label-success">운영중</span></c:if>
+						<c:if test="${dto.activated == 'N'}"><span class="label label-danger">미운영</span></c:if>
 					</td>
 				</tr>
 			</c:forEach>

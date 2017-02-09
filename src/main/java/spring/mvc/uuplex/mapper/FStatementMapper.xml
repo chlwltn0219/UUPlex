@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- 피트니스 강의 관련 -->
+<mapper namespace="spring.mvc.uuplex.fitness.dao.FStatementDAO" >
+	
+	<!-- 명세 목록 총 수 -->
+	<select id="statementCount" resultType="int">
+		SELECT COUNT(*) FROM F_STATEMENT
+	</select>
+	
+	<!-- 피트니스 명세 목록 리스트 반환 -->
+	<select id="statementList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum AS rnum 
+				   FROM ( SELECT s.*,
+				   				 c.subname,
+				   				 p.pname,
+				   				 t.tname
+			  		     	FROM F_STATEMENT s 
+			  		       INNER JOIN F_CLASS c
+			  		          ON c.cid = s.cid
+			  		       INNER JOIN F_PROGRAM p
+			  		          ON p.pid = c.pid
+			  		       INNER JOIN F_TEACHER t
+			  		          ON t.tid = p.tid 
+			  			   ORDER BY s.stid DESC) a )
+		 WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 개인 명세 목록 수 -->
+	<select id="userStatementCount" parameterType="String"  resultType="int">
+		SELECT COUNT(*) 
+		  FROM F_STATEMENT
+		 WHERE memid = #{memid}
+	</select>
+	
+	<!-- 피트니스 명세 목록 리스트 반환 -->
+	<select id="userStatementList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum AS rnum 
+				   FROM ( SELECT s.*,
+				   				 c.subname, c.start_date,
+				   				 p.pname,
+				   				 t.tname
+			  		     	FROM F_STATEMENT s 
+			  		       INNER JOIN F_CLASS c
+			  		          ON c.cid = s.cid
+			  		       INNER JOIN F_PROGRAM p
+			  		          ON p.pid = c.pid
+			  		       INNER JOIN F_TEACHER t
+			  		          ON t.tid = p.tid 
+		 				   WHERE memid = #{memid}
+			  			   ORDER BY s.stid DESC) a )
+		 WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 강의 신청 현황 -->
+	<select id="currentPeople" parameterType="int">
+		SELECT COUNT(*)
+		  FROM F_STATEMENT
+		 WHERE cid = #{cid}
+	</select>
+	
+	<!-- 강의 신청 -->
+	<insert id="reserveInput" parameterType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		INSERT INTO F_STATEMENT (stid, cid, memid, price)
+		VALUES (SEQ_STATEMENTID.nextval, #{cid}, #{memid}, #{price})
+	</insert>
+	
+	<!-- 강의 환불 : 강의 시작일 전에 만 환불 가능 -->
+	<delete id="refund" parameterType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		DELETE FROM F_STATEMENT
+		WHERE cid = #{cid}
+		  AND memid = #{memid}
+		  AND SYSDATE &lt; ( SELECT start_date
+		  					   FROM F_CLASS
+		  					  WHERE cid = #{cid} )
+	</delete>
+
+	
+</mapper>

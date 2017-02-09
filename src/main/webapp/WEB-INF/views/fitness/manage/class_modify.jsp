@@ -59,12 +59,12 @@
 							<td>
 								<select class="form-control" name="crid" required>
 									<c:forEach items="${classroom}" var="c">
-										<c:if test="${dto.crid != c.crid}">
-										<option value="${c.crid}"> ${c.crid}호 : ${c.crname}</option>
-										</c:if>
-										<c:if test="${dto.crid == c.crid}">
-										<option value="${c.crid}" selected> ${c.crid}호 : ${c.crname}</option>
-										</c:if>
+									<c:if test="${dto.crid != c.crid}">
+									<option value="${c.crid}"> ${c.crid}호 : ${c.crname}</option>
+									</c:if>
+									<c:if test="${dto.crid == c.crid}">
+									<option value="${c.crid}" selected> ${c.crid}호 : ${c.crname}</option>
+									</c:if>
 									</c:forEach>
 								</select>
 							</td>
@@ -106,82 +106,81 @@
 								<div class="btn-group btn-group-justified" data-toggle="buttons">
 								
 									<c:if test="${dto.sun == 'Y'}">
-									<label class="btn btn-danger active">
+									<label class="btn btn-danger sun active">
 										<input type="checkbox" name="sun" value="Y" checked>일
 									</label>
 									</c:if>
-									<c:if test="${dto.sun != 'Y'}">
-									<label class="btn btn-danger">
+									<c:if test="${dto.sun == 'N'}">
+									<label class="btn btn-default sun">
 										<input type="checkbox" name="sun" value="Y">일
 									</label>
 									</c:if>
 									
 									<c:if test="${dto.mon == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="mon" value="Y" checked>월
 									</label>
 									</c:if>
-									<c:if test="${dto.mon != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.mon == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="mon" value="Y">월
 									</label>
 									</c:if>
 									
 									<c:if test="${dto.tue == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="tue" value="Y" checked>화
 									</label>
 									</c:if>
-									<c:if test="${dto.tue != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.tue == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="tue" value="Y">화
 									</label>
 									</c:if>
 									
 									<c:if test="${dto.wed == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="wed" value="Y" checked>수
 									</label>
 									</c:if>
-									<c:if test="${dto.wed != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.wed == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="wed" value="Y">수
 									</label>
 									</c:if>
 
 									<c:if test="${dto.thu == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="thu" value="Y" checked="checked">목
 									</label>
 									</c:if>
-									<c:if test="${dto.thu != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.thu == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="thu" value="Y">목
 									</label>
 									</c:if>
 
 									<c:if test="${dto.fri == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="fri" value="Y" checked>금
 									</label>
 									</c:if>
-									<c:if test="${dto.fri != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.fri == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="fri" value="Y">금
 									</label>
 									</c:if>
 										
 									<c:if test="${dto.sat == 'Y'}">
-									<label class="btn btn-primary active">
+									<label class="btn btn-primary sat active">
 										<input type="checkbox" name="sat" value="Y" checked>토
 									</label>
 									</c:if>
-									<c:if test="${dto.sat != 'Y'}">
-									<label class="btn btn-primary">
+									<c:if test="${dto.sat == 'N'}">
+									<label class="btn btn-default sat">
 										<input type="checkbox" name="sat" value="Y">토
 									</label>
 									</c:if>
-									</label>
 								</div>
 							</td>
 						</tr>

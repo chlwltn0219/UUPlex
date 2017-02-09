@@ -32,6 +32,8 @@ public class FClassDTO {
 	private String tname;
 	private String crname;
 	
+	int price;
+	
 	public int getCid() {
 		return cid;
 	}
@@ -181,6 +183,12 @@ public class FClassDTO {
 	}
 	public void setSat(String sat) {
 		this.sat = sat;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getPrice() {
+		return price;
 	}
 	
 }

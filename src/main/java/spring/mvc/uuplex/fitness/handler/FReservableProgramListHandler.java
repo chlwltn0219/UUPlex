@@ -8,28 +8,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.uuplex.fitness.dao.FSportsDAO;
-import spring.mvc.uuplex.fitness.dto.FSportsDTO;
+import spring.mvc.uuplex.fitness.dao.FProgramDAO;
+import spring.mvc.uuplex.fitness.dto.FProgramDTO;
 
 @Service
-public class FActivatedSportsListHandler implements FCommandHandler{
+public class FReservableProgramListHandler implements FCommandHandler{
 	
 	@Autowired
-	FSportsDAO sDao;
+	FProgramDAO dao;
 	
 	@Override
 	public String process(Model model) {
-		String viewPage = null;
-		List<FSportsDTO> list = null;
+		String viewPage = "/fitness/user/reserve_program";
+		List<FProgramDTO> list = null;
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
 		
-		String sidString = req.getParameter("sid");
-		if (sidString == null) {
-			sidString = "%";
+		String sid = req.getParameter("sid");
+		if (sid == null) {
+			sid = "%";
 		}
 		
-		list = sDao.sportsActivatedList(sidString);
-		model.addAttribute("sports", list);
+		list = dao.reservableList(sid);
+		model.addAttribute("program", list);
 		
 		return viewPage;
 	}

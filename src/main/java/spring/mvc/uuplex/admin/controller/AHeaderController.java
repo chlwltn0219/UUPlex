@@ -99,7 +99,7 @@ public class AHeaderController {
 	@RequestMapping("/memModifyForm")
 	public String memModifyForm(HttpServletRequest req, Model model) {
 		
-		System.out.println("내정보수정");
+		System.out.println("내정보수정 페이지");
 		
 		model.addAttribute("req", req);
 		
@@ -113,7 +113,7 @@ public class AHeaderController {
 	@RequestMapping("/memModifyPro")
 	public String memModifyPro(HttpServletRequest req, Model model) {
 		
-		System.out.println("내정보수정");
+		System.out.println("내정보수정 처리");
 		
 		model.addAttribute("req", req);
 		
@@ -135,7 +135,7 @@ public class AHeaderController {
 	@RequestMapping("/deletePro")
 	public String deletePro(HttpServletRequest req, Model model) {
 		
-		System.out.println("내정보수정");
+		System.out.println("회원탈퇴 처리");
 		
 		model.addAttribute("req", req);
 		

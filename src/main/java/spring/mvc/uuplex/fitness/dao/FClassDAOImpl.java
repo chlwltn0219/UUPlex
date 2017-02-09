@@ -64,11 +64,29 @@ public class FClassDAOImpl implements FClassDAO{
 		cnt = dao.modifyClass(dto);
 		return cnt;
 	}
+	
+	@Override
+	public int modifyClassWeek(FClassDTO dto) {
+		int cnt = 0;
+		FClassDAO dao = sqlSession.getMapper(FClassDAO.class);
+		cnt = dao.modifyClassWeek(dto);
+		return cnt;
+	}
 
 	@Override
-	public List<FClassDTO> classActivatedList() {
-		// TODO Auto-generated method stub
-		return null;
+	public int reservableCount(int pid) {
+		int cnt = 0;
+		FClassDAO dao = sqlSession.getMapper(FClassDAO.class);
+		cnt = dao.reservableCount(pid);
+		return cnt;
+	}
+	
+	@Override
+	public List<FClassDTO> reservableList(Map<String,Object> paramMap) {
+		List<FClassDTO> dtos = null;
+		FClassDAO dao = sqlSession.getMapper(FClassDAO.class);
+		dtos = dao.reservableList(paramMap);
+		return dtos;
 	}
 	
 }

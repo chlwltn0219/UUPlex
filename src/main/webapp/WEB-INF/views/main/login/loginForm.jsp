@@ -7,8 +7,7 @@
 
 <style>
 
-	.jb-cell {
-		background-color:#f9f9f9;
+	.modalUp {
 		width: 888px;
   		margin: 5px;
   		padding: 100px 50px;
@@ -35,7 +34,7 @@
 </head>
 <body>
 
-<div class="jb-cell">
+<div class="modalUp">
 
 <form action="/uuplex/loginPro" name="loginForm" class="form-horizontal" method="post">
 

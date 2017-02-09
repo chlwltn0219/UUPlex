@@ -43,8 +43,8 @@
 							 start_date, end_date,
 							 start_time, end_time)
 		VALUES (SEQ_CLASS_CID.nextval, #{pid} ,#{subname}, #{crid}, #{limit},
-				#{register_start}, #{register_end},
-				#{start_date}, #{end_date},
+				#{register_start}, #{register_end}+1-1/24/60/60,
+				#{start_date}, #{end_date}+1-1/24/60/60,
 				#{start_time}, #{end_time})
 	</insert>
 	
@@ -83,21 +83,56 @@
 		   SET pid = #{pid},
 			   subname = #{subname},
 			   limit = #{limit},
+			   crid = #{crid},
 			   register_start = #{register_start},
-			   register_end = #{register_end},
+			   register_end = #{register_end}+1-1/24/60/60,
 			   start_date = #{start_date},
-			   end_date = #{end_date},
+			   end_date = #{end_date}+1-1/24/60/60,
 			   start_time = #{start_time},
 			   end_time = #{end_time}
 		 WHERE cid = #{cid}
 	</update>
 	
-	<!-- 피트니스 활성 강의 목록 리스트 반환 -->
-	<select id="classActivatedList" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO">
-		SELECT sid, sname
-		  FROM F_CLASS 
+	<update id="modifyClassWeek" parameterType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		UPDATE F_CLASSWEEK
+		   SET sun = #{sun}, 
+		   	   mon = #{mon}, 
+		   	   tue = #{tue}, 
+		   	   wed = #{wed}, 
+		   	   thu = #{thu}, 
+		   	   fri = #{fri}, 
+		   	   sat = #{sat}
+		 WHERE cid = #{cid}
+	</update>
+	
+	<select id="reservableCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) 
+		  FROM F_CLASS
 		 WHERE activated = 'Y'
-		 ORDER BY sname
+		   AND SYSDATE BETWEEN register_start AND register_end
+		   AND pid = #{pid}
+	</select>
+	
+	<select id="reservableList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FClassDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum as rnum
+				   FROM ( SELECT c.*, 
+								 w.sun, w.mon, w.tue, w.wed, w.thu, w.fri, w.sat,
+								 p.pname, p.price,
+								 t.tname
+		  					FROM F_CLASS c
+					 	   INNER JOIN F_CLASSWEEK w
+					   	      ON c.cid = w.cid
+					   	   INNER JOIN F_PROGRAM p 
+					      	  ON p.pid = c.pid
+						   INNER JOIN F_TEACHER t 
+						      ON t.tid = (SELECT tid 
+			 			   				    FROM F_PROGRAM p
+						   				   WHERE p.pid=c.pid )
+						   WHERE c.activated = 'Y'
+						     AND c.pid = #{pid}
+				 		   ORDER BY c.register_end ) a )
+		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	
 </mapper>

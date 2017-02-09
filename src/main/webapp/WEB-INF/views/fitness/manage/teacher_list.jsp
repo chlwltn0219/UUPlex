@@ -41,7 +41,7 @@
 					</td>	
 			</tr>
 			<tr>
-				<th>강사 코드</th>
+				<th>#</th>
 				<th>강사명</th>
 				<th>종목명</th>
 				<th>재직 여부</th>
@@ -63,8 +63,8 @@
 									${dto.tname}</a></td>
 				<td>${dto.sname}</td>
 				<td>
-				<c:if test="${dto.activated=='Y'}"> 재직중</c:if>
-				<c:if test="${dto.activated=='N'}"> 퇴사</c:if>
+				<c:if test="${dto.activated == 'Y'}"><span class="label label-success">재직중</span></c:if>
+				<c:if test="${dto.activated == 'N'}"><span class="label label-danger">퇴사</span></c:if>
 				</td>
 			</tr>
 			</c:forEach>

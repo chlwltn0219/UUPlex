@@ -19,5 +19,7 @@ public interface FTeacherDAO {
 	
 	public List<FTeacherDTO> listAll();
 	
+	public List<FTeacherDTO> tInfo();
+	
 	public List<FTeacherDTO> suitableList(int sid);
 }

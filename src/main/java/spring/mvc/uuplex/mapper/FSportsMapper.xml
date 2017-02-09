@@ -51,4 +51,11 @@
 		 ORDER BY sname
 	</select>
 	
+		<!-- 프로그램 안내 종목 -->
+	<select id="sInfo" resultType="spring.mvc.uuplex.fitness.dto.FSportsDTO">
+		SELECT sid, sname
+		  FROM F_SPORTS 
+		 ORDER BY sname
+	</select>
+	
 </mapper>

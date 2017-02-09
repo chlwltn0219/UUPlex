@@ -302,7 +302,7 @@
 					<div class="panel-footer">
 						<div style="overflow: hidden">
 							<div class="col-sm-offset-3 col-sm-6">
-								<button type="button" class="btn btn-lg btn-primary btn-block" onclick="checkbox()">Next Step</button>
+								<button type="button" class="btn btn-lg btn-primary btn-block" onclick="checkbox()">동의 후 회원가입</button>
 								<input type="hidden" name="rq_url" value="/">
 							</div>
 						</div>

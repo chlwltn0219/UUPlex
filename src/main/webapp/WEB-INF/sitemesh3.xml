@@ -43,7 +43,6 @@
   
   <mapping path="/hotel/reservForm" exclue="true"/>
   <mapping path="/hotel/calculation" exclue="true"/>
-  <mapping path="/hotel/reservConfirm" exclue="true"/>
   
   <mapping path="/fitness/teacher/suitable" exclue="true"/>
   
@@ -71,6 +70,10 @@
   <mapping path="/fitness/manage/class/inputForm" exclue="true"/>
   <mapping path="/fitness/manage/class/modify" exclue="true"/>
   <mapping path="/fitness/manage/class/modifyPro" exclue="true"/>
+  
+  <mapping path="/fitness/user/reserve/program" exclue="true"/>
+  <mapping path="/fitness/user/reserve/class" exclue="true"/>
+  <mapping path="/fitness/user/reserve/detail" exclue="true"/>
   
   <mapping path="/c-box/movie_detail" exclue="true"/>
   <mapping path="/c-box/manage/movie/modify" exclue="true"/>

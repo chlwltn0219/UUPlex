@@ -8,17 +8,21 @@ import spring.mvc.uuplex.fitness.dto.FProgramDTO;
 
 public interface FProgramDAO {
 	
-	// 紐⑸줉 �쟾泥� �닔 �샇異�
+	// 筌뤴뫖以� 占쎌읈筌ｏ옙 占쎈땾 占쎌깈�빊占�
 	int programCount();
-	// 紐⑸줉 由ъ뒪�듃 �샇異�
+	// 筌뤴뫖以� �뵳�딅뮞占쎈뱜 占쎌깈�빊占�
 	List<FProgramDTO> programList(Map<String,Integer> rangeMap);
-	// 추가
+	// 異붽�
 	int addProgram(FProgramDTO dto);
-	// 상세정보 조회
+	// �긽�꽭�젙蹂� 議고쉶
 	FProgramDTO programDetail(int pid);
 	
 	int modifyProgram (FProgramDTO dto);
 
 	List<FProgramDTO> programActivatedList();
+	
+	List<FProgramDTO> reservableList(String sid);
+	
+	List<FProgramDTO> pInfo();
 	
 }

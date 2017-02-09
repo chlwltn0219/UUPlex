@@ -32,7 +32,7 @@ function load() {
 	var charge = ${charge};
 	
 	if(extraBed.checked && !extraBedcnt.value) {
-		alert("Extra bed 개수를 먼저 선택해 주세요.");
+		alert("Extra bed 개수를 먼저 선택한 후 다시 체크해 주세요.");
 		return false;
 	} else if (extraBed.checked && extraBedcnt.value) {
 		charge = charge + (30000 * extraBedcnt.value);
@@ -81,7 +81,8 @@ function loadPage() {
 	</script>
 </c:if>
 <div class="container">
-<form action="reservConfirm" method="post" name="reservConfirm" enctype="multipart/form-data" onsubmit="return reservChk()">
+<form action="reservConfirm" method="post" name="reservConfirm" onsubmit="return reservChk()">
+<input type="hidden" name="roomName" value="${roomName}">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
 			aria-label="Close">
@@ -109,7 +110,7 @@ function loadPage() {
 			<td class="active">옵션 선택</td>
 			<td><input type="checkbox" name="extraBed" id="extraBed" onclick="load()"> 엑스트라 베드 &nbsp;&nbsp;-
 			<select name="extraBedcnt" id="extraBedcnt">
-					<option value="0">개수선택</option>
+					<option value="">개수선택</option>
 					<option value="1">1개</option>
 					<option value="2">2개</option>
 					<option value="3">3개</option>
@@ -184,13 +185,12 @@ function loadPage() {
 	</div>
 	
 	<div class="modal-footer">
-		<button type="submit" class="btn btn-default">다음단계</button>
-		<button type="button" class="btn btn-default"
+		<button type="submit" class="btn btn-default btn-lg">다음단계</button>
+		<!-- <a data-toggle="modal" data-target="#reservModal" class="btn btn-default" href="./reservConfirm">다음단계</a> -->
+		<button type="button" class="btn btn-default btn-lg"
 			data-dismiss="modal" onclick="window.location.reload()">닫기</button>
 	</div>
 	
-	<%@ include file="/admin_Modal/hotelModal.jsp" %>
-	<%@ include file="/admin_Modal/login_modal.jsp" %>
 </form>
 </div>					
 </body>

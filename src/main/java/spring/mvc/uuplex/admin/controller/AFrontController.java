@@ -16,7 +16,7 @@ public class AFrontController {
 	@RequestMapping("/main")
 	public String main(Model model) {
 		
-		System.out.println("main占쏙옙占쏙옙占쏙옙");
+		System.out.println("main페이지");
 		
 		return "/main/main3";
 	}
@@ -24,7 +24,7 @@ public class AFrontController {
 	@RequestMapping("/input")
 	public String input(Model model) {
 		
-		System.out.println("회占쏙옙占쏙옙占쌉억옙占쏙옙占쏙옙占쏙옙占�");
+		System.out.println("회원가입 동의 절차");
 
 		return "/main/InputMember/input";
 	}
@@ -32,7 +32,7 @@ public class AFrontController {
 	@RequestMapping("/inputForm")
 	public String inputForm(Model model) {
 		
-		System.out.println("회占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙");
+		System.out.println("회원가입 페이지");
 
 		return "/main/InputMember/inputForm";
 	}
@@ -42,7 +42,7 @@ public class AFrontController {
 	@RequestMapping("/inputPro")
 	public String inputPro(HttpServletRequest req, Model model) {
 		
-		System.out.println("회占쏙옙占쏙옙占쏙옙처占쏙옙");
+		System.out.println("회원가입 처리");
 		
 		model.addAttribute("req", req);
 		
@@ -56,7 +56,7 @@ public class AFrontController {
 	@RequestMapping("/confirmId")
 	public String confirmId(HttpServletRequest req, Model model) {
 		
-		System.out.println("占쌩븝옙확占쏙옙占쏙옙占쏙옙占쏙옙");
+		System.out.println("아이디 중복 확인");
 		
 		model.addAttribute("req", req);
 		
@@ -68,7 +68,7 @@ public class AFrontController {
 	@RequestMapping("noneSM/pwdChk")
 	public String pwdChk(Model model) {
 		
-		System.out.println("pwdChk()");
+		System.out.println("비밀번호 일치 여부");
 		
 		return "/main/InputMember/pwdChk";
 	}

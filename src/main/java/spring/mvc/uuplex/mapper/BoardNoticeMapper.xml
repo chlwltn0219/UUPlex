@@ -45,6 +45,14 @@
 	<select id="getMaxNum" resultType="int">
 		SELECT MAX(notiNum) FROM notice_board
 	</select>
+	
+	<select id="pwdChk" parameterType="int" resultType="String">
+		SELECT notiPasswd FROM notice_board WHERE notiNum= #{num}
+	</select>
+	
+	<delete id="delNotice" parameterType="int">
+		DELETE FROM notice_board WHERE notiNum= #{num}
+	</delete>
 
 </mapper>
     

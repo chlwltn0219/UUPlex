@@ -58,8 +58,6 @@ public class FClassInputHandler implements FCommandHandler{
 			pid = Integer.parseInt(req.getParameter("pid"));
 			crid = Integer.parseInt(req.getParameter("crid"));
 			limit = Integer.parseInt(req.getParameter("limit"));
-			
-
 			System.out.println(req.getParameter("start_date"));
 			System.out.println(req.getParameter("end_date"));
 			
@@ -70,9 +68,6 @@ public class FClassInputHandler implements FCommandHandler{
 			end_date = new Timestamp(dateFormat.parse(req.getParameter("end_date")).getTime());
 			start_time = new Timestamp(timeFormat.parse(req.getParameter("start_time")).getTime());
 			end_time = new Timestamp(timeFormat.parse(req.getParameter("end_time")).getTime());
-			
-			System.out.println(start_date);
-			System.out.println(end_date);
 			
 			sun = req.getParameter("sun") != null ? req.getParameter("sun"): "N";
 			mon = req.getParameter("mon") != null ? req.getParameter("mon"): "N";
@@ -109,7 +104,6 @@ public class FClassInputHandler implements FCommandHandler{
 		dto.setThu(thu);
 		dto.setFri(fri);
 		dto.setSat(sat);
-		
 		ccnt = dao.addClass(dto);
 		wcnt = dao.addClassWeek(dto);
 		
