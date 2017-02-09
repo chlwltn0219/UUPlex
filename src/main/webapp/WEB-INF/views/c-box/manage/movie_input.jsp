@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="../setting.jsp"%>
 
+<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
+<script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 
 <!-- 영화정보 입력 모달 시작 -->
 <div class="modal-content">
@@ -38,7 +41,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th rowspan="4">Genre</th>
+					<th rowspan="5">Genre</th>
 					<td><input type="checkbox" name="genre" value="코미디">코미디</td>
 					<td><input type="checkbox" name="genre" value="멜로">멜로</td>
 					<td><input type="checkbox" name="genre" value="액션">액션</td>
@@ -63,6 +66,12 @@
 					<td><input type="checkbox" name="genre" value="재난">재난</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox" name="genre" value="드라마">드라마</td>
+					<td><input type="checkbox" name="genre" value="음악">음악</td>
+					<td><input type="checkbox" name="genre" value="퀴어">퀴어</td>
+					<td><input type="checkbox" name="genre" value="범죄">범죄</td>
+				</tr>
+				<tr>
 					<th>MPAARating</th>
 					<td colspan="4">
 						<select name="MPAARating">
@@ -74,6 +83,26 @@
 						</select>
 					</td>
 				</tr>
+				<tr>
+					<th  rowspan="3">Country</th>
+					<td><input type="checkbox" name="country" value="한국">한국</td>
+					<td><input type="checkbox" name="country" value="미국">미국</td>
+					<td><input type="checkbox" name="country" value="일본">일본</td>
+					<td><input type="checkbox" name="country" value="중국">중국</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="country" value="홍콩">홍콩</td>
+					<td><input type="checkbox" name="country" value="프랑스">프랑스</td>
+					<td><input type="checkbox" name="country" value="영국">영국</td>
+					<td><input type="checkbox" name="country" value="독일">독일</td>
+				</tr>	
+				<tr>
+					<td><input type="checkbox" name="country" value="인도">인도</td>
+					<td><input type="checkbox" name="country" value="스웨덴">스웨덴</td>
+					<td><input type="checkbox" name="country" value="아일랜드">아일랜드</td>
+					<td><input type="checkbox" name="country" value="기타">기타</td>
+				</tr>
+				
 				<tr>
 					<th>ProductionYear</th>
 					<td colspan="4">
@@ -129,6 +158,8 @@
 						<input type="radio" name="status" value="상영중">상영중
 					</td>
 				</tr>
+				
+				
 				<tr>
 					<td colspan="5" align="center">
 						<input type="submit" class="btn btn-primary" value="입력">
@@ -136,6 +167,8 @@
 						<input type="button" class="btn btn-danger" data-dismiss="modal" value="취소">
 					</td>
 				</tr>
+				
+				
 			</table>
 		</div>
 	</form>

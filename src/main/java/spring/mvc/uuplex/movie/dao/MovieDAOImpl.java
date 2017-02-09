@@ -1,5 +1,7 @@
 package spring.mvc.uuplex.movie.dao;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.movie.dto.ReviewDTO;
+import spring.mvc.uuplex.movie.dto.SalesDTO;
+import spring.mvc.uuplex.movie.dto.ScreenQuotaDTO;
 
 @Repository 
 public class MovieDAOImpl implements MovieDAO{
@@ -177,6 +181,24 @@ public class MovieDAOImpl implements MovieDAO{
 		return cnt;
 	}
 
+	@Override
+	public List<SalesDTO> getSales(Map<String, Timestamp> rangeMap) {
+		List<SalesDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.getSales(rangeMap);
+		return list;
+	}
+
+	@Override
+	public List<ScreenQuotaDTO> getScreenQuota(String year) {
+		List<ScreenQuotaDTO> list = null;
+		MovieDAO dao = sqlSession.getMapper(MovieDAO.class);
+		list = dao.getScreenQuota(year);
+		
+		return list;
+	}
+
+	
 	
 
 }

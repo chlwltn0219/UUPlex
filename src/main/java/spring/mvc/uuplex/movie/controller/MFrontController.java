@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
-import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
 import spring.mvc.uuplex.movie.handler.AddTheaterHandler;
+import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
 import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
 import spring.mvc.uuplex.movie.handler.DeleteTheaterHandler;
+import spring.mvc.uuplex.movie.handler.GetRankingHandler;
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
@@ -29,10 +30,10 @@ import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
 import spring.mvc.uuplex.movie.handler.RatingOrderHandler;
-import spring.mvc.uuplex.movie.handler.GetRankingHandler;
 import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
 import spring.mvc.uuplex.movie.handler.ScheduleHandler;
+import spring.mvc.uuplex.movie.handler.ScreenQuaterHandler;
 
 @Controller
 @RequestMapping("/c-box")
@@ -398,7 +399,34 @@ public class MFrontController {
 		String viewPage = getRankingHandler.process(model);
 									
 		return viewPage;
+		
 	}
 
+	//유영원 : 스크린 쿼터
+	@Autowired
+	ScreenQuaterHandler screenQuaterHandler;
+
+	@RequestMapping("/manage/reserve/screenQuater")
+	public String screenquater(HttpServletRequest req, Model model) {
+	    System.out.println("screenquater");
+	                     
+	    model.addAttribute("req", req);
+	    String viewPage = screenQuaterHandler.process(model);
+	                     
+	    return viewPage;
+	}
+	
+	//유영원 : 사용자 - 예매 결제 페이지
+	
+	@RequestMapping("/reserve_payment")
+	public String payment(HttpServletRequest req, Model model) {
+		 System.out.println("payment");
+		                     
+		 model.addAttribute("req", req);
+		 model.addAttribute("contentPage", "user/reserve_payment.jsp");
+		                     
+		 return "c-box/Movie_main";
+	}
+	
 }
 

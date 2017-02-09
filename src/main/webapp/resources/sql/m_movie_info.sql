@@ -16,7 +16,8 @@ CREATE TABLE m_movie_info (
    movie_img2 VARCHAR2(100), /* 스틸컷2 */
    trailer VARCHAR2(100), /* 예고편링크 */
    status VARCHAR2(10), /* 현재상영여부 */
-   synopsis VARCHAR2(4000) /* 줄거리 */
+   synopsis VARCHAR2(4000), /* 줄거리 */
+   country VARCHAR2(50) /* 국가 */
 );
 
 

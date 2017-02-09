@@ -26,12 +26,12 @@
 		INSERT INTO
 		m_movie_info(movie_num, title1, title2, director, starring,
 		genre, MPAARating, productionYear, runTime, releaseDate, poster,
-		movie_img1, movie_img2, trailer, status, synopsis)
+		movie_img1, movie_img2, trailer, status, synopsis, country)
 		VALUES(m_movie_info_seq.NEXTVAL, #{title1}, #{title2},
 		#{director}, #{starring}, #{genre}, #{MPAARating}, #{productionYear}, #{runTime},
 		#{releaseDate},
 		#{poster}, #{movie_img1}, #{movie_img2}, #{trailer},
-		#{status}, #{synopsis})
+		#{status}, #{synopsis}, #{country})
 
 	</insert>
 
@@ -128,15 +128,38 @@
 		group by r.movie_num, m.title1, m.releaseDate
 		order by sum(r.cnt) desc)
     
-
-		
 	</select>
 	
 	<!--  전체 예매 수량 -->
 	<select id="reserveCnt" resultType="int">
-		select sum(cnt) from m_reserv 
-		where reserve_date BETWEEN sysdate-7 and sysdate
+		select NVL(total,0) FROM
+		(select sum(cnt) as total from m_reserv 
+		where reserve_date BETWEEN sysdate-7 and sysdate)
 		
 	</select> 
+		
+	<!--  월별 매출 실적 -->
+	<select id="getSales" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.SalesDTO">
+		select year_month||'/01' as year_month, sum(price) as sales
+		from(
+		select SUBSTR(reserve_date,1,5) as year_month ,price
+		from m_reserv
+		WHERE reserve_date between #{startDate} and #{endDate})
+		group by year_month
+		order by year_month
+	</select>
+	
+	<!-- 스크린 쿼터  -->
+	<select id="getScreenQuota" parameterType="String" resultType="spring.mvc.uuplex.movie.dto.ScreenQuotaDTO">
+		SELECT theater, count(dayCnt) AS dayCnt
+		from(
+		select DISTINCT s.theater_num AS theater, '20'||SUBSTR(s.showtime,1,8) AS dayCnt, i.country 
+		from m_movie_info i, m_schedule s
+		where i.movie_num = s.movie_num 
+		and i.country = '한국')
+		where dayCnt LIKE #{year}||'%'
+		group by theater
+	</select>
+	
 	
 </mapper>

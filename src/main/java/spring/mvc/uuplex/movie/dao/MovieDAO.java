@@ -1,10 +1,14 @@
 package spring.mvc.uuplex.movie.dao;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.movie.dto.ReviewDTO;
+import spring.mvc.uuplex.movie.dto.SalesDTO;
+import spring.mvc.uuplex.movie.dto.ScreenQuotaDTO;
 
 public interface MovieDAO {
 	public int addMovieInfo(MovieInfoDTO dto); // 관리자 - 영화추가
@@ -43,4 +47,10 @@ public interface MovieDAO {
 	public List<MovieInfoDTO> getRanking();		//예매순위
 	
 	public int reserveCnt();					//전체 예매 수량
+	
+	public List<SalesDTO> getSales(Map<String, Timestamp> rangeMap); //월별 매출 구하기
+	
+	public List<ScreenQuotaDTO> getScreenQuota(String year);				//스크린 쿼터
+	
+	
 }
