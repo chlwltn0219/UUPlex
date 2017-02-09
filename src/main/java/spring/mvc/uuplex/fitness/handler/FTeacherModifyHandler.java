@@ -22,15 +22,13 @@ public class FTeacherModifyHandler implements FCommandHandler{
 	@Autowired
 	FTeacherDAO dao;
 	
-
-	
 	@Autowired
 	ServletContext content;
 	
 	@Override
 	public String process(Model model) {
 		
-		String viewPage = "fitness/manage/teacher_modifyPro";
+		String viewPage = "fitness/manage/modifyPro";
 		FTeacherDTO dto = new FTeacherDTO();
 		
 		String path = "C:\\Dev\\teacherImg\\";

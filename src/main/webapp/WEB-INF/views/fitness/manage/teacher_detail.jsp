@@ -51,8 +51,12 @@
           	<tr>
           		<th>재직 여부</th>
           		<td>
-					<c:if test="${dto.activated == 'Y'}"><span class="label label-success">재직중</span></c:if>
-					<c:if test="${dto.activated == 'N'}"><span class="label label-danger">퇴사</span></c:if>
+					<c:if test="${dto.activated == 'Y'}">
+						<h4><span class="label label-success">재직중</span></h4>
+					</c:if>
+					<c:if test="${dto.activated == 'N'}">
+						<h4><span class="label label-danger">퇴사</span></h4>
+					</c:if>
           		</td>
           	</tr> 
             <tr>

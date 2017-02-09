@@ -19,7 +19,7 @@
 	<c:if test="${cnt != 0}">
 		<script type="text/javascript">
 			alert("수정되었습니다");
-			window.location = "/uuplex/fitness/manage/teacher/list";
+			window.location.reload();
 		</script>
 		
 	</c:if>

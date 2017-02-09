@@ -22,7 +22,8 @@ public class FClassModifyHandler implements FCommandHandler{
 	
 	@Override
 	public String process(Model model) {
-		String viewPage = null;
+		
+		String viewPage = "fitness/manage/modifyPro";
 		FClassDTO dto = new FClassDTO();
 		
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
@@ -77,8 +78,8 @@ public class FClassModifyHandler implements FCommandHandler{
 			dto.setSat(sat);
 			
 			dao.modifyClassWeek(dto);
-			dao.modifyClass(dto);
-			
+			int cnt = dao.modifyClass(dto);
+						
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {

@@ -17,7 +17,8 @@ public class FClassroomModifyHandler implements FCommandHandler{
 	
 	@Override
 	public String process(Model model) {
-		String viewPage = null;
+		
+		String viewPage = "fitness/manage/modifyPro";
 		FClassroomDTO dto = new FClassroomDTO();
 		
 		int crid = 0;
@@ -38,7 +39,7 @@ public class FClassroomModifyHandler implements FCommandHandler{
 			dto.setCrname(crname);;
 			dto.setActivated(activated);
 			
-			dao.modifyClassroom(dto);
+			int cnt = dao.modifyClassroom(dto);
 			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();

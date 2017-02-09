@@ -9,7 +9,7 @@
 				<h4 class="modal-title">강의 수정</h4>
 			</div>
 			
-			<form name="classModifyForm" onsubmit="return default">
+			<form name="modifyPro" onsubmit="return default">
 				<div class="modal-body">
 					<table class="table">
 						<tr>

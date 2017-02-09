@@ -57,8 +57,12 @@
 									data-toggle="modal" data-target="#modalPage" onclick="classroomDetail(${dto.crid})">
 									${dto.crname}</a></td>
 				<td>
-					<c:if test="${dto.activated == 'Y'}"><span class="label label-success">운영중</span></c:if>
-					<c:if test="${dto.activated == 'N'}"><span class="label label-danger">미운영</span></c:if>
+					<c:if test="${dto.activated == 'Y'}">
+						<h4><span class="label label-success">운영중</span></h4>
+					</c:if>
+					<c:if test="${dto.activated == 'N'}">
+						<h4><span class="label label-danger">미운영</span></	h4>
+					</c:if>
 				</td>
 			</tr>
 			</c:forEach>
