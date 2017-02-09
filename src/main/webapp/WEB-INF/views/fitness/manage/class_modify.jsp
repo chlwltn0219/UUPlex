@@ -9,7 +9,7 @@
 				<h4 class="modal-title">강의 수정</h4>
 			</div>
 			
-			<form name="modifyPro" onsubmit="return default">
+			<form action = "modifyPro" name="classModifyForm" onsubmit="return default">
 				<div class="modal-body">
 					<table class="table">
 						<tr>
@@ -204,8 +204,8 @@
 					</table>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-primary" 
-						value="수정" onclick="classModifyPro()">
+					<input type="submit" class="btn btn-primary" 
+						value="수정">
 					<input type="reset" class="btn btn-warning" 
 						value="초기화">
 					<input type="button" class="btn btn-default" 

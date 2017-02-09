@@ -19,7 +19,7 @@
 	<c:if test="${cnt != 0}">
 		<script type="text/javascript">
 			alert("수정되었습니다");
-			window.location.reload();
+			window.location = "/uuplex/fitness/manage/sports/list";
 		</script>
 		
 	</c:if>

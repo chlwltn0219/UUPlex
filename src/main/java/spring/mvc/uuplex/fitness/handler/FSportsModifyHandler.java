@@ -17,7 +17,9 @@ public class FSportsModifyHandler implements FCommandHandler{
 	
 	@Override
 	public String process(Model model) {
-		String viewPage = null;
+		
+		String viewPage = "fitness/manage/sports_modifyPro";
+
 		FSportsDTO dto = new FSportsDTO();
 		
 		int sid = 0;
@@ -40,7 +42,8 @@ public class FSportsModifyHandler implements FCommandHandler{
 			dto.setSinfo(sinfo);
 			dto.setActivated(activated);
 			
-			dao.modifySports(dto);
+			int cnt = dao.modifySports(dto);
+			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
