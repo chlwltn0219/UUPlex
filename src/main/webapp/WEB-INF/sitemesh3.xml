@@ -74,6 +74,7 @@
   <mapping path="/fitness/user/reserve/program" exclue="true"/>
   <mapping path="/fitness/user/reserve/class" exclue="true"/>
   <mapping path="/fitness/user/reserve/detail" exclue="true"/>
+  <mapping path="/fitness/user/statement/refund" exclue="true"/>
   
   <mapping path="/c-box/movie_detail" exclue="true"/>
   <mapping path="/c-box/manage/movie/modify" exclue="true"/>

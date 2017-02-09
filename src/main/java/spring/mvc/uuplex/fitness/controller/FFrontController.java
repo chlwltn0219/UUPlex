@@ -25,6 +25,8 @@ import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FRefundFormHandler;
+import spring.mvc.uuplex.fitness.handler.FRefundProHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveDetailHandler;
@@ -114,6 +116,11 @@ public class FFrontController{
    FReserveProHandler reserveProHandler;
    @Autowired
    FReserveDetailHandler reserveDetailHandler;
+   
+   @Autowired
+   FRefundFormHandler refundFormHandler;
+   @Autowired
+   FRefundProHandler refundProHandler; 
    
    @Autowired
    FUserStatementListHandler userStatementListHandler;
@@ -528,5 +535,22 @@ public class FFrontController{
 
       return viewPage;
    }
+   
+   @RequestMapping("/user/statement/refund")
+   public String refundCheck(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = refundFormHandler.process(model);
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/statement/refundPro")
+   public String refundPro(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = refundProHandler.process(model);
+      return viewPage;
+   }
+
    
 }

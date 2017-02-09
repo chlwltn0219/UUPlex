@@ -71,14 +71,31 @@
 	</insert>
 	
 	<!-- 강의 환불 : 강의 시작일 전에 만 환불 가능 -->
-	<delete id="refund" parameterType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
-		DELETE FROM F_STATEMENT
-		WHERE cid = #{cid}
+	<delete id="refundPro" parameterType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		DELETE FROM F_STATEMENT s
+		WHERE stid = #{stid}
 		  AND memid = #{memid}
 		  AND SYSDATE &lt; ( SELECT start_date
-		  					   FROM F_CLASS
-		  					  WHERE cid = #{cid} )
+		  					   FROM F_CLASS c
+		  					  WHERE c.cid = s.cid )
 	</delete>
+
+	<select id="refundForm" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT st.stid,
+			   st.memid,
+			   p.pname,
+			   c.subname,
+			   t.tname
+		  FROM F_STATEMENT st
+		 INNER JOIN F_CLASS c
+		    ON c.cid = st.cid
+		 INNER JOIN F_PROGRAM p
+		    ON p.pid = c.pid
+		 INNER JOIN F_TEACHER t
+		    ON t.tid = p.tid
+		 WHERE stid = #{stid}
+		   AND memid = #{memid}
+	</select>
 
 	
 </mapper>

@@ -11,14 +11,18 @@
         <div class="modal-body">
           <table class="table">
           	<tr>
-          		<th colspan="2"> <h2>환불 하시겠습니까?</h2> </th>
+          		<th colspan="2">
+          			<h4 align="center"> ${dto.memid} 님, </h4>
+          			<h3 align="center"> ${dto.pname} : <small>${dto.subname} - ${dto.tname}</small> </h3>
+          			<h4 align="center">환불 하시겠습니까?</h4>
+          		</th>
           	<tr>
           	<tr>
-          		<td>
-					<button class="btn btn-primary" onclick="teacherModify(${dto.tid})">확인</button>
+          		<td align="center">
+					<button class="btn btn-primary" onclick="refundPro(${dto.stid})">확인</button>
           		</td>
-          		<td>
-		        	<button class="btn btn-default" data-dismiss="modal" onclick="location.reload();">취소</button>
+          		<td align="center">
+		        	<button class="btn btn-default" data-dismiss="modal">취소</button>
           		</td>
           	</tr> 
 
