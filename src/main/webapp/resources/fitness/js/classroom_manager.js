@@ -44,9 +44,10 @@ function classroomModifyPro() {
 	var params = "crid=" + crid + "&crname=" + crname + 
 				 "&activated=" + activated ;
 	
-	sendRequest(classroomModal, url, method, params);
-	
-	window.location.reload();
+	if(classroomDataCheck()){
+		sendRequest(classroomModal, url, method, params);
+		window.location.reload();
+	}
 
 }
 
@@ -66,4 +67,18 @@ function classroomModal() {
 	} else {
 		modal.innerHTML="상태 : " + httpRequest.readyState;
 	}
+}
+
+
+function classroomDataCheck() {
+	
+	var subname = $('input[name=crname]');
+	
+	if(subname.val().length <= 0){
+		alert("부제목은 빈칸이 올 수 없습니다.");
+		subname.focus();
+		return false;
+	}
+
+	return true;
 }

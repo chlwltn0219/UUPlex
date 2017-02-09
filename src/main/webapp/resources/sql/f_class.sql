@@ -1,3 +1,4 @@
+
 -- 피트니스 종목 테이블
 DROP TABLE F_CLASS;
 
@@ -14,15 +15,11 @@ start_time		TIMESTAMP CONSTRAINT f_class_start_time_nn NOT NULL,
 end_time		TIMESTAMP CONSTRAINT f_class_end_time_nn NOT NULL,
 limit			NUMBER CONSTRAINT f_class_limit_nn NOT NULL,
 reg_date		TIMESTAMP DEFAULT SYSDATE,
-current_people	NUMBER DEFAULT 0,
-activated		VARCHAR2(1) DEFAULT 'Y',
 CONSTRAINT f_class_cid_pk PRIMARY KEY (cid),
 CONSTRAINT f_class_pid_fk FOREIGN KEY (pid) 
 								 REFERENCES F_PROGRAM(pid),
 CONSTRAINT f_class_cid_fk FOREIGN KEY (crid) 
-								 REFERENCES F_CLASSROOM(crid),
-CONSTRAINT f_class_activated_fk FOREIGN KEY (activated) 
-								 REFERENCES BOOLEAN(value) 
+								 REFERENCES F_CLASSROOM(crid)
 );
 
 -- 종목 ID 시퀀스

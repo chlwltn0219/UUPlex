@@ -70,5 +70,13 @@ public class FStatementDAOImpl implements FStatementDAO{
 		dto = dao.refundForm(info);
 		return dto;
 	}
+	
+	@Override
+	public int checkStatement(Map<String, Object> info) {		
+		int cnt = 0;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		cnt = dao.checkStatement(info);
+		return cnt;
+	}
 
 }

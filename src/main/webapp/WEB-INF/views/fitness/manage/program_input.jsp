@@ -8,7 +8,7 @@
 	   		<h4 class="modal-title">프로그램 입력</h4>
 	   	</div>		    	
 	
-  		<form action="/uuplex/fitness/manage/program/inputPro" method="post" name="programInputForm" onsubmit="">
+  		<form action="/uuplex/fitness/manage/program/inputPro" method="post" name="programInputForm" onsubmit="return progamDataCheck()">
 	    	<div class="modal-body">
 				<div class="form-group">
 					<label>프로그램 이름</label>

@@ -96,6 +96,12 @@
 		 WHERE stid = #{stid}
 		   AND memid = #{memid}
 	</select>
-
 	
+	<select id="checkStatement" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		  FROM F_STATEMENT
+		 WHERE cid = #{cid}
+		   AND memid = #{memid}
+	</select>
+
 </mapper>

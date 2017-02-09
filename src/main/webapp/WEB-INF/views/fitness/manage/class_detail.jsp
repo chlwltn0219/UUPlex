@@ -38,20 +38,13 @@
 					<tr>
 						<th>인원</th>
 						<td>
-							${dto.current_people} / ${dto.limit} 명
+							${dto.people} / ${dto.limit} 명
 						</td>
 					</tr>
 					<tr>
 						<th>등록일</th>
 						<td>
 							${fn:substring(dto.reg_date, 0 ,10)}
-						</td>
-					</tr>
-					<tr>
-						<th>운영 여부</th>
-						<td>
-							<c:if test="${dto.activated == 'Y'}"><span class="label label-success">운영중</span></c:if>
-							<c:if test="${dto.activated == 'N'}"><span class="label label-danger">미운영</span></c:if>
 						</td>
 					</tr>
 					<tr>

@@ -15,7 +15,6 @@ public class FClassDTO {
 	private Timestamp start_time;
 	private Timestamp end_time;
 	private int limit;
-	private int current_people;
 	private String activated;
 	private Timestamp reg_date;
 	
@@ -32,6 +31,7 @@ public class FClassDTO {
 	private String tname;
 	private String crname;
 	
+	private int people;
 	int price;
 	
 	public int getCid() {
@@ -100,11 +100,11 @@ public class FClassDTO {
 	public void setLimit(int limit) {
 		this.limit = limit;
 	}
-	public int getCurrent_people() {
-		return current_people;
+	public int getPeople () {
+		return people;
 	}
-	public void setCurrent_people(int current_people) {
-		this.current_people = current_people;
+	public void setPeople (int people) {
+		this.people  = people;
 	}
 	public String getActivated() {
 		return activated;

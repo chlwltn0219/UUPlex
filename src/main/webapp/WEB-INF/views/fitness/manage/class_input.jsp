@@ -9,7 +9,7 @@
 	   		<h4 class="modal-title">시간표 입력</h4>
 	   	</div>		    	
 	
-  		<form action="/uuplex/fitness/manage/class/inputPro" method="post" name="programInputForm" onsubmit="">
+  		<form action="/uuplex/fitness/manage/class/inputPro" method="post" name="classInputForm" onsubmit="return classDataCheck()">
 	    	<div class="modal-body">
 				<div class="form-group">
 					<label>프로그램</label>
@@ -28,7 +28,7 @@
 				<div class="form-group">
 					<label>부제목</label>
 					<input class="form-control" type="text" 
-							name="subname" placeholder="오전반, 오후반 ,특별반 ...">
+							name="subname" placeholder="오전반, 오후반 ,특별반 ..." required>
 				</div>
 				<div class="form-group">
 					<label>교육장</label>
@@ -41,14 +41,14 @@
 				<div class="form-group">
 					<label>정원</label>
 					<input type="number" class="form-control" 
-							name="limit" placeholder="총 정원" min="0" value="0">
+							name="limit" placeholder="총 정원" min="0" value="0" required>
 				</div>
 				<div class="form-group">
 					<label>접수 기간</label>
 					<div class="input-group">
 						<input class="form-control" type="date" 
 							name="register_start" required>
-    					<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+    					<span class="input-group-addon">~</span>
 						<input class="form-control" type="date" 
 								name="register_end" required>
 					</div>
@@ -58,37 +58,35 @@
 					<div class="input-group">
 						<input class="form-control" type="date" 
 								name="start_date" required>
-						<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+						<span class="input-group-addon">~</span>
 						<input class="form-control" type="date" 
 								name="end_date" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label>수업 요일</label>
-					<div>
-						<div class="btn-group btn-group-justified" data-toggle="buttons">
-							<label class="btn btn-default sun">
-								<input type="checkbox" name="sun" value="Y">일
-							</label>
-							<label class="btn btn-default weekday">
-								<input type="checkbox" name="mon" value="Y">월
-							</label>
-							<label class="btn btn-default weekday">
-								<input type="checkbox" name="tue" value="Y">화
-							</label>
-							<label class="btn btn-default weekday">
-								<input type="checkbox" name="wed" value="Y">수
-							</label>
-							<label class="btn btn-default weekday">
-								<input type="checkbox" name="thu" value="Y">목
-							</label>
-							<label class="btn btn-default weekday">
-								<input type="checkbox" name="fri" value="Y">금
-							</label>
-							<label class="btn btn-default sat">
-								<input type="checkbox" name="sat" value="Y">토
-							</label>
-						</div>
+					<div class="day btn-group btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default sun">
+							<input type="checkbox" name="sun" value="Y">일
+						</label>
+						<label class="btn btn-default weekday">
+							<input type="checkbox" name="mon" value="Y">월
+						</label>
+						<label class="btn btn-default weekday">
+							<input type="checkbox" name="tue" value="Y">화
+						</label>
+						<label class="btn btn-default weekday">
+							<input type="checkbox" name="wed" value="Y">수
+						</label>
+						<label class="btn btn-default weekday">
+							<input type="checkbox" name="thu" value="Y">목
+						</label>
+						<label class="btn btn-default weekday">
+							<input type="checkbox" name="fri" value="Y">금
+						</label>
+						<label class="btn btn-default sat">
+							<input type="checkbox" name="sat" value="Y">토
+						</label>
 					</div>
 				</div>
 				<div class="form-group">
@@ -96,7 +94,7 @@
 					<div class="input-group">
 						<input class="form-control" type="time" 
 								name="start_time" required>
-						<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+						<span class="input-group-addon">~</span>
 						<input class="form-control" type="time" 
 								name="end_time" required>
 					</div>
@@ -110,5 +108,3 @@
 		</form>
 		
 	</div>
-
-

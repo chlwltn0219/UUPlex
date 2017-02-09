@@ -46,7 +46,9 @@ function teacherModifyPro() {
 	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + 
 				 "&activated=" + activated + "&initPic=" + initPic + "&sid=" + sid;
 	
-	sendRequest(teacherModal, url, method, params);
+	if(teacherDataCheck()){
+		sendRequest(teacherModal, url, method, params);
+	}
 
 }
 
@@ -66,4 +68,18 @@ function teacherModal() {
 	} else {
 		modal.innerHTML="상태 : " + httpRequest.readyState;
 	}
+}
+
+//======================== Check Data
+function teacherDataCheck() {
+	
+	var tname = $('input[name=tname]');
+	
+	if(tname.val().length <= 0){
+		alert("강사명은 빈칸이 올 수 없습니다.");
+		tname.focus();
+		return false;
+	} 
+
+	return true;
 }
