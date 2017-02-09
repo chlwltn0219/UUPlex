@@ -13,6 +13,7 @@
 <c:set var="resources" value="/uuplex/resources"/>
 <c:set var="js" value="/uuplex/resources/c-box/js/"/>
 <c:set var="test" value="/uuplex/resources/test/"/>
+<c:set var="formHelpers" value="/uuplex/resources/c-box/BootstrapFormHelpers"/>
 
 <%-- <script type="text/javascript" src="${cbox}css/script.js"></script>--%>
 <%-- <link type="text/css" rel="stylesheet" href="${cbox}css/c-box.css"> --%>
