@@ -41,11 +41,26 @@
 			width:70px;
 			height:70px;
 		}
+		
+		#top {
+			width: 300px;
+			margin: 10px auto;
+			width: 100%;
+			background-color:black;
+			height: 130px;
+			
+		}
+		
+		a, li{
+			font-size: 15px;
+			color:white;
+		}
+		
 	</style>
 </head>
 <body>
 	<!-- Fitness NAVBAR ================================================== -->
-	<nav class="navbar navbar-inverse fitmenu" data-spy="affix" data-offset-top="50">
+	<nav id="top" class="navbar fitmenu" data-spy="affix" data-offset-top="30">
 		<div class="navbar-header">
 			<!-- 모바일 메뉴 버튼 -->
 			<button type="button" class="navbar-toggle collapsed"
