@@ -17,17 +17,17 @@
 		<thead>
 			<tr>
 				<td colspan="2">
-					<form action="" method="get" onsubmit=""
-						 class="form-inline" name="searchForm">
-						<div class="input-group">
-							<input class="form-control" type="search" placeholder="검색">
-							<div class="input-group-btn">
-								<button type="submit" class="btn btn-info">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
+<!-- 					<form action="" method="get" onsubmit="" -->
+<!-- 						 class="form-inline" name="searchForm"> -->
+<!-- 						<div class="input-group"> -->
+<!-- 							<input class="form-control" type="search" placeholder="검색"> -->
+<!-- 							<div class="input-group-btn"> -->
+<!-- 								<button type="submit" class="btn btn-info"> -->
+<!-- 									<i class="glyphicon glyphicon-search"></i> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</form> -->
 					</td>
 					<td>
 						<div class="form-group pull-right">
@@ -38,7 +38,7 @@
 					</td>	
 			</tr>
 			<tr> 
-				<th>강의실 코드</th>
+				<th>호실</th>
 				<th>강의실명</th>
 				<th>사용 여부</th>
 			</tr>
@@ -57,8 +57,12 @@
 									data-toggle="modal" data-target="#modalPage" onclick="classroomDetail(${dto.crid})">
 									${dto.crname}</a></td>
 				<td>
-					<c:if test="${dto.activated == 'Y'}"><span class="label label-success">운영중</span></c:if>
-					<c:if test="${dto.activated == 'N'}"><span class="label label-danger">미운영</span></c:if>
+					<c:if test="${dto.activated == 'Y'}">
+						<h4><span class="label label-success">운영중</span></h4>
+					</c:if>
+					<c:if test="${dto.activated == 'N'}">
+						<h4><span class="label label-danger">미운영</span></	h4>
+					</c:if>
 				</td>
 			</tr>
 			</c:forEach>

@@ -1,38 +1,91 @@
+<!-- 공통으로 필요한 라이브러리나 파일들은 Sitemesh 데코레이터에서 포함시키는 것이 좋습니다. -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="sitemesh" tagdir="/WEB-INF/tags/sitemesh"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="../../setting.jsp" %>
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<style>
+.container {
+    position: relative;
+}
+
+ .panel-body {
+	border-style: solid;
+	border-width:1px;
+}
+
+.panel-heading {
+	background-color:black;
+	color:white;
+}
+
+.title {
+	margin-bottom: 1em;
+}
+
+
+
+</style>
+</head>
+<body>
 <div class="container" >
-<div class="panel panel-default">
+
+	<img class="title" src="${resources}/fitness/img/program.png">
+	
+  <div class="panel-group" id="accordion">
 	<c:forEach var="s" items="${sports}">
-			<div class="panel-heading">${s.sname}</div>
-			<table class="panel-body table">
+    <div class="panel">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          ${s.sname}
+<%--           <a data-toggle="collapse" data-parent="#accordion" href="#s${s.sid}">${s.sname}</a> --%>
+        </h4>
+      </div>
+	      <div id="s${s.sid}" class="panel-collapse collapse in">
+      	
+        <div class="panel-body">
+        	
+        	<table class="table">
 				<thead>
 					<tr>
-						<th>프로그램</th>
-						<th>상세정보</th>
-						<th>프로그램 상세</th>
+						<th width="50%" height="50">프로그램명</th>
+						<th width="15%" height="50">강사명</th>
+						<th width="35%" height="50">프로그램정보</th>
 					</tr>
 				</thead>
-				<c:if test="${fn:length(dto) <= 0}">
-					<tr>
-						<td colspan="3">
-							<table style="width: 100%">
-								<tr>
-									<th><h1>개설된 강좌가 없습니다.</h1></th>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</c:if>
-				<c:if test="${fn:length(dto) > 0}">
-				<c:forEach items="${dto}" var="p">
-					<tr>
-						<td rowspan="3"><h3>이름뭐야씨발</h3></td>
-					</tr>
-				</c:forEach>
-				</c:if>
-			</table>
-			</c:forEach>
+        
+        	<c:forEach items="${dto}" var="p" varStatus="status">
+        	<c:if test="${s.sid == p.sid}">
+        	
+				<tr>
+					<td>${p.pname}</td>
+					<td>${p.tname}</td>
+					<td>${p.pinfo}</td> 
+				</tr>
+				
+			</c:if>
+       		</c:forEach>
+       		
+       		</table>
 		</div>
-		</div>
+	</div>	
+  </div>
+</c:forEach>  
+    </div>
+</div>
+ 
+</body>
+</html>
+
+
+
+
+									
+

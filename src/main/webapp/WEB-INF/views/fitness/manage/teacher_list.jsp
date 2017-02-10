@@ -16,21 +16,21 @@
 		<thead>
 			<tr>
 				<td colspan="3">
-					<form action="" method="get" onsubmit=""
-						 class="form-inline" name="searchForm">
-						<div class="input-group">
+<!-- 					<form action="" method="get" onsubmit="" -->
+<!-- 						 class="form-inline" name="searchForm"> -->
+<!-- 						<div class="input-group"> -->
 <!-- 							<select class="form-control"> -->
 <!-- 								<option>코드</option> -->
 <!-- 								<option>종목 명</option> -->
 <!-- 							</select> -->
-							<input class="form-control" type="search" placeholder="검색">
-							<div class="input-group-btn">
-								<button type="submit" class="btn btn-info">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
+<!-- 							<input class="form-control" type="search" placeholder="검색"> -->
+<!-- 							<div class="input-group-btn"> -->
+<!-- 								<button type="submit" class="btn btn-info"> -->
+<!-- 									<i class="glyphicon glyphicon-search"></i> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</form> -->
 					</td>
 					<td>
 						<div class="form-group pull-right">
@@ -41,7 +41,7 @@
 					</td>	
 			</tr>
 			<tr>
-				<th>강사 코드</th>
+				<th>#</th>
 				<th>강사명</th>
 				<th>종목명</th>
 				<th>재직 여부</th>
@@ -63,8 +63,12 @@
 									${dto.tname}</a></td>
 				<td>${dto.sname}</td>
 				<td>
-				<c:if test="${dto.activated == 'Y'}"><span class="label label-success">재직중</span></c:if>
-				<c:if test="${dto.activated == 'N'}"><span class="label label-danger">퇴사</span></c:if>
+				<c:if test="${dto.activated == 'Y'}">
+					<h4><span class="label label-success">재직중</span></h4>
+				</c:if>
+				<c:if test="${dto.activated == 'N'}">
+					<h4><span class="label label-danger">퇴사</span></h4>
+				</c:if>
 				</td>
 			</tr>
 			</c:forEach>

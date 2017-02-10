@@ -2,8 +2,6 @@ package spring.mvc.uuplex.fitness.handler;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -29,7 +27,7 @@ public class FProgramInfoListHandler implements FCommandHandler{
 		String viewPage = "/fitness/user/program_list";
 
 		dto = dao.pInfo();	
-		sList = sdao.sportsActivatedList();
+		sList = sdao.sInfo();
 		model.addAttribute("dto", dto);		
 		model.addAttribute("sports", sList);
 		return viewPage;

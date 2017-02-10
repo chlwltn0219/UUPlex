@@ -1,5 +1,6 @@
 
 function pwdChk(){
+	
 	var params = "pwd=" + document.inputform.passwd.value + "&pwdchk=" + document.inputform.passwdChk.value;
 	sendRequest(pwdChkCall, "noneSM/pwdChk", "GET", params);
 }
@@ -10,10 +11,8 @@ function pwdChkCall() {
 	
 	if(httpRequest.readyState == 4) {
 		if(httpRequest.status == 200) { // 200:정상종료
-			
-			var data = eval("httpRequest.responseText");
 		
-			result.innerHTML = data;
+			result.innerHTML = httpRequest.responseText;
 			
 		} else {
 			result.innerHTML = "에러발생";

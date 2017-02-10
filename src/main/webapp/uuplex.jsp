@@ -14,12 +14,19 @@
 
 <style>
 	h1 {
-		margin:100px;
+		margin:70px;
+	}
+	
+	.container {
+		margin:0 0 0 480px;
 	}
 </style>
 
 </head>
 <body>
 	<h1 align="center">환영합니다. UUPLEX 입니다.</h1>
+	<div class="container">
+		<img width="900" src="/uuplex/resources/main_images/uplex1.png">
+	</div>
 </body>
 </html>

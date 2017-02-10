@@ -31,27 +31,27 @@ function teacherModify(tid) {
 	sendRequest(teacherModal, url, method, params);
 }
 
-//=====================================Modify Pro
-
-function teacherModifyPro() {
-	var tid = document.tModifyForm.tid.value;
-	var tname = document.tModifyForm.tname.value;
-	var tinfo = document.tModifyForm.tinfo.value;
-	var activated = document.tModifyForm.activated.value;
-	var initPic = document.tModifyForm.initPic.value;
-	var sid = document.tModifyForm.sid.value;
-	
-	var url = "/uuplex/fitness/manage/teacher/modifyPro"
-	var method = "POST"
-	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + 
-				 "&activated=" + activated + "&initPic=" + initPic + "&sid=" + sid;
-	
-	sendRequest(teacherModal, url, method, params);
-
-}
+//=====================================Modify Pro : 사용 안함
+//function teacherModifyPro() {
+//	var tid = document.tModifyForm.tid.value;
+//	var tname = document.tModifyForm.tname.value;
+//	var tinfo = document.tModifyForm.tinfo.value;
+//	var activated = document.tModifyForm.activated.value;
+//	var initPic = document.tModifyForm.initPic.value;
+//	var sid = document.tModifyForm.sid.value;
+//	
+//	var url = "/uuplex/fitness/manage/teacher/modifyPro"
+//	var method = "POST"
+//	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + 
+//				 "&activated=" + activated + "&initPic=" + initPic + "&sid=" + sid;
+//	
+//	if(teacherDataCheck()){
+//		sendRequest(teacherModal, url, method, params);
+//	}
+//
+//}
 
 //=====================================Write Modal Dialog
-
 function teacherModal() {
 
 	var modal = document.getElementById("dialog");
@@ -66,4 +66,18 @@ function teacherModal() {
 	} else {
 		modal.innerHTML="상태 : " + httpRequest.readyState;
 	}
+}
+
+//======================== Check Data
+function teacherDataCheck() {
+	
+	var tname = $('input[name=tname]');
+	
+	if(tname.val().length <= 0){
+		alert("강사명은 빈칸이 올 수 없습니다.");
+		tname.focus();
+		return false;
+	} 
+
+	return true;
 }

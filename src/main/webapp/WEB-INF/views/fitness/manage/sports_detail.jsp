@@ -31,8 +31,12 @@
 					<tr>
 						<th>운영 여부</th>
 						<td>
-							<c:if test="${dto.activated == 'Y'}"><span class="label label-success">운영중</span></c:if>
-							<c:if test="${dto.activated == 'N'}"><span class="label label-danger">미운영</span></c:if>
+							<c:if test="${dto.activated == 'Y'}">
+								<h4><span class="label label-success">운영중</span></h4>
+							</c:if>
+							<c:if test="${dto.activated == 'N'}">
+								<h4><span class="label label-danger">미운영</span></h4>
+							</c:if>
 						</td>
 					</tr>
 					<tr>
@@ -46,7 +50,7 @@
 			<div class="modal-footer">
 				<input type="button" class="btn btn-primary" 
 					value="수정" onclick="sportsModify(${dto.sid})">
-				<button class="btn btn-default" data-dismiss="modal" onclick="location.reload();">닫기</button>
+				<button class="btn btn-default" data-dismiss="modal">닫기</button>
 			</div>
 		</div>
 

@@ -13,4 +13,5 @@ public interface ScheduleDAO {
 	public List<ScheduleDTO> getSchedule();
 	public int deleteSchedule(int schedule_num);
 	public List<ScheduleDTO> schedules(Map<String, String> map);
+	public List<ScheduleDTO> dateschedules(Map<String, String> map);
 }

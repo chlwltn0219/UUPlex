@@ -12,4 +12,5 @@ public interface TheaterDAO {
 	public TheaterDTO getTheater(int theater_num);
 	public int modifyTheater(TheaterDTO dto);
 	public int deleteTheater(int theater_num);
+	public TheaterDTO Theater(int schedule_num);
 }

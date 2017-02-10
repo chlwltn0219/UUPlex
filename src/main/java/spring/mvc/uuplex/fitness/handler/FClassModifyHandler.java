@@ -22,11 +22,11 @@ public class FClassModifyHandler implements FCommandHandler{
 	
 	@Override
 	public String process(Model model) {
-		String viewPage = null;
+		
+		String viewPage = "fitness/manage/class_modifyPro";
 		FClassDTO dto = new FClassDTO();
 		
 		HttpServletRequest req = (HttpServletRequest) model.asMap().get("req");
-
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		DateFormat timeFormat = new SimpleDateFormat("HH:mm");
@@ -37,7 +37,7 @@ public class FClassModifyHandler implements FCommandHandler{
 			String subname = req.getParameter("subname");
 			int limit = Integer.parseInt(req.getParameter("limit"));
 			int crid = Integer.parseInt(req.getParameter("crid"));
-			
+			String activated = req.getParameter("activated");
 			
 			Timestamp register_start = new Timestamp(dateFormat.parse(req.getParameter("register_start")).getTime());
 			Timestamp register_end = new Timestamp(dateFormat.parse(req.getParameter("register_end")).getTime());
@@ -46,19 +46,20 @@ public class FClassModifyHandler implements FCommandHandler{
 			Timestamp start_time = new Timestamp(timeFormat.parse(req.getParameter("start_time")).getTime());
 			Timestamp end_time = new Timestamp(timeFormat.parse(req.getParameter("end_time")).getTime());
 			
-			String sun = req.getParameter("sun");
-			String mon = req.getParameter("mon");
-			String tue = req.getParameter("tue");
-			String wed = req.getParameter("wed");
-			String thu = req.getParameter("thu");
-			String fri = req.getParameter("fri");
-			String sat = req.getParameter("sat");
+			String sun = req.getParameter("sun")!=null ? req.getParameter("sun"):"N";
+			String mon = req.getParameter("mon")!=null ? req.getParameter("mon"):"N";
+			String tue = req.getParameter("tue")!=null ? req.getParameter("tue"):"N";
+			String wed = req.getParameter("wed")!=null ? req.getParameter("wed"):"N";
+			String thu = req.getParameter("thu")!=null ? req.getParameter("thu"):"N";
+			String fri = req.getParameter("fri")!=null ? req.getParameter("fri"):"N";
+			String sat = req.getParameter("sat")!=null ? req.getParameter("sat"):"N";
 
 			dto.setCid(cid);
 			dto.setPid(pid);
 			dto.setSubname(subname);
 			dto.setLimit(limit);
 			dto.setCrid(crid);
+			dto.setActivated(activated);
 			
 			dto.setRegister_start(register_start);
 			dto.setRegister_end(register_end);
@@ -75,9 +76,12 @@ public class FClassModifyHandler implements FCommandHandler{
 			dto.setFri(fri);
 			dto.setSat(sat);
 			
-			dao.modifyClassWeek(dto);
-			dao.modifyClass(dto);
+			int wcnt = dao.modifyClassWeek(dto);
+			int ccnt = dao.modifyClass(dto);
 			
+			model.addAttribute("ccnt", ccnt);
+			model.addAttribute("wcnt", wcnt);
+						
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {

@@ -49,6 +49,26 @@
 	<update id="updateRely" parameterType="spring.mvc.uuplex.admin.dto.BoardDTO">
 		UPDATE qna_board SET ref_step = ref_step + 1 WHERE ref = #{ref} AND ref_step &gt; #{ref_step}
 	</update>
+	
+	<update id="addReadCnt" parameterType="int">
+		UPDATE qna_board SET readCnt = readCnt + 1 WHERE qnaNum= #{num}
+	</update>
+	
+	<select id="pwdChk" parameterType="int" resultType="String">
+		SELECT qnaPasswd FROM qna_board WHERE qnaNum= #{num}
+	</select>
+	
+	<update id="qnaModify" parameterType="spring.mvc.uuplex.admin.dto.BoardDTO">
+		UPDATE qna_board SET qnaPasswd=${qnaPasswd}, subject=#{subject}, content=#{content} WHERE qnaNum=#{qnaNum}
+	</update>
+	
+	<delete id="qnaDelAns" parameterType="int">
+		DELETE FROM qna_board WHERE qnaNum= #{num}
+	</delete>
+	
+	<delete id="qnaDel" parameterType="int">
+		DELETE FROM qna_board WHERE ref = (SELECT ref FROM qna_board WHERE qnaNum= #{num})	
+	</delete>
 
 </mapper>
     

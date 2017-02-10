@@ -41,6 +41,7 @@
 			width:70px;
 			height:70px;
 		}
+		
 	</style>
 </head>
 <body>
@@ -63,20 +64,14 @@
 		<div id="navbar" class="navbar-collapse collapse">
 <!-- 			일반 메뉴 -->
 			<ul class="nav navbar-nav">
-				<li><a href="/uuplex/fitness">휘트니스</a></li>
 				<li><a href="/uuplex/fitness/user/program">프로그램 안내</a></li>
 				<li><a href="/uuplex/fitness/user/teacher">강사 안내</a></li>
 				<li><a href="/uuplex/fitness/user/reserve">수강 신청</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 마이 페이지 <span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">정보 수정</a></li>
-						<li><a href="#">수강 내역/환불</a></li>
-						<li><a href="#">환불 내역</a></li>
-						<li><a href="#">문의 내역</a></li>
-					</ul>
-				</li>
+				<c:if test="${sessionScope.id != null}">
+				<li><a href="/uuplex/fitness/user/statement">수강 내역/환불</a></li>
+				</c:if>
 <!-- 				관리자 메뉴 -->
+				<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 104}">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 관리자 페이지 <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
@@ -85,9 +80,10 @@
 						<li><a href="/uuplex/fitness/manage/program/list">프로그램 관리</a></li>
 						<li><a href="/uuplex/fitness/manage/classroom/list">강의실 관리</a></li>
 						<li><a href="/uuplex/fitness/manage/class/list">시간표 관리</a></li>
-						<li><a href="#">명세 내역</a></li>
+						<li><a href="/uuplex/fitness/manage/statement/list">명세 내역</a></li>
 					</ul>
 				</li>
+				</c:if>
 			</ul>
 		</div>
 	</nav>
@@ -101,7 +97,7 @@
 	</div>	
 	
 	<!-- 관리자 메뉴 -->
-	
+	<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 104}">
 	<div class="dropup">
 	  <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
 	    <img class="img-circle" src="${resources}/fitness/img/manage.png" alt="manage">
@@ -112,8 +108,9 @@
 	    <li><a href="/uuplex/fitness/manage/classroom/list">강의실 관리</a></li>
 	    <li><a href="/uuplex/fitness/manage/program/list">프로그램 관리</a></li>
 	    <li><a href="/uuplex/fitness/manage/class/list">시간표 관리</a></li>
-	    <li><a href="#">명세 내역</a></li>
+	    <li><a href="/uuplex/fitness/manage/statement/list">명세 내역</a></li>
 	  </ul>
 	</div>
+	</c:if>
 	
 </body>

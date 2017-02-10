@@ -93,7 +93,7 @@
 	  <!-- 3열 메뉴 -->
 		<div class="row menu">
 			<div class="col-sm-4">
-				<a href="#"><img class="img-circle" src="${resources}/fitness/img/noun_645979_cc.png" alt="Program Info"></a>
+				<a href="/uuplex/fitness/user/program"><img class="img-circle" src="${resources}/fitness/img/noun_645979_cc.png" alt="Program Info"></a>
 				<h2>프로그램 안내</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
@@ -101,7 +101,7 @@
 				<h2>수강 신청</h2>
 			</div><!-- /.col-lg-4 -->
 			<div class="col-sm-4">
-				<a href="#"><img class="img-circle" src="${resources}/fitness/img/noun_99372_cc.png" alt="Program Info"></a>
+				<a href="/uuplex/fitness/user/statement"><img class="img-circle" src="${resources}/fitness/img/noun_99372_cc.png" alt="Program Info"></a>
 				<h2>환불</h2>
 			</div><!-- /.col-lg-4 -->
 		</div><!-- /.row -->

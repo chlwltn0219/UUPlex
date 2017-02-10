@@ -1,3 +1,4 @@
+
 DROP TABLE uu_admin;
 
 -- �̰� �Ⱦ�

@@ -38,7 +38,7 @@
 					<tr>
 						<th>인원</th>
 						<td>
-							${dto.current_people} / ${dto.limit} 명
+							${dto.people} / ${dto.limit} 명
 						</td>
 					</tr>
 					<tr>
@@ -48,53 +48,86 @@
 						</td>
 					</tr>
 					<tr>
-						<th>운영 여부</th>
-						<td>
-							<c:if test="${dto.activated == 'Y'}"><span class="label label-success">운영중</span></c:if>
-							<c:if test="${dto.activated == 'N'}"><span class="label label-danger">미운영</span></c:if>
-						</td>
-					</tr>
-					<tr>
 						<th>등록 기간</th>
 						<td>
 							${fn:substring(dto.register_start, 0, 10)} ~ ${fn:substring(dto.register_end, 0, 10)}  
-							<c:if test="${now >= dto.register_start && now <= dto.register_end}"><span class="label label-success">진행중</span></c:if>
-							<c:if test="${now < dto.register_start}"><span class="label label-warning">예정</span></c:if>
-							<c:if test="${now > dto.register_end}"><span class="label label-danger">종료</span></c:if>
+							<c:if test="${now >= dto.register_start && now <= dto.register_end}">
+								<h4 style="display:inline;"><span class="label label-success">진행중</span></h4>
+							</c:if>
+							<c:if test="${now < dto.register_start}">
+								<h4 style="display:inline;"><span class="label label-warning">예정</span></h4>
+							</c:if>
+							<c:if test="${now > dto.register_end}">
+								<h4 style="display:inline;"><span class="label label-danger">종료</span></h4>
+							</c:if>
 						</td>
 					</tr>
 					<tr>
 						<th>수업 기간</th>
 						<td>
 							${fn:substring(dto.start_date, 0, 10)} ~ ${fn:substring(dto.end_date, 0 , 10)}
-							<c:if test="${now >= dto.start_date && now <= dto.end_date}"><span class="label label-success">진행중</span></c:if>
-							<c:if test="${now < dto.start_date}"><span class="label label-warning">예정</span></c:if>
-							<c:if test="${now > dto.end_date}"><span class="label label-danger">종료</span></c:if>
+							<c:if test="${now >= dto.start_date && now <= dto.end_date}">
+								<h4 style="display:inline;"><span class="label label-success">진행중</span></h4>
+							</c:if>
+							<c:if test="${now < dto.start_date}">
+								<h4 style="display:inline;"><span class="label label-warning">예정</span></h4>
+							</c:if>
+							<c:if test="${now > dto.end_date}">
+								<h4 style="display:inline;"><span class="label label-danger">종료</span></h4>
+							</c:if>
 						</td>
 					</tr>
 					<tr>
 						<th>수업 요일</th>
 						<td>
-							<c:if test="${dto.sun == 'Y'}"><span class="label label-danger">일</span></c:if>
-							<c:if test="${dto.sun == 'N'}"><span class="label label-default">일</span>	</c:if>
+							<c:if test="${dto.sun == 'Y'}">
+								<h4 style="display:inline;"><span class="label label-danger">일</span></h4>
+							</c:if>
+							<c:if test="${dto.sun == 'N'}">
+								<h4 style="display:inline;"><span class="label label-default">일</span></h4>
+							</c:if>
 							
-							<c:if test="${dto.mon == 'Y'}"><span class="label label-success">월</span></c:if>
-							<c:if test="${dto.mon == 'N'}"><span class="label label-default">월</span></c:if>
+							<c:if test="${dto.mon == 'Y'}">
+								<h4 style="display:inline;"><span class="label label-success">월</span></h4>
+							</c:if>
+							<c:if test="${dto.mon == 'N'}">
+								<h4 style="display:inline;"><span class="label label-default">월</span></h4>
+							</c:if>
 							
-							<c:if test="${dto.tue == 'Y'}"><span class="label label-success">화</span></c:if>
-							<c:if test="${dto.tue == 'N'}"><span class="label label-default">화</span></c:if>
+							<c:if test="${dto.tue == 'Y'}">
+								<h4 style="display:inline;"><span class="label label-success">화</span></h4>
+							</c:if>
+							<c:if test="${dto.tue == 'N'}">
+								<h4 style="display:inline;"><span class="label label-default">화</span></h4>
+							</c:if>
 							
-							<c:if test="${dto.wed == 'Y'}"><span class="label label-success">수</span></c:if>
-							<c:if test="${dto.wed == 'N'}"><span class="label label-default">수</span></c:if>
+							<c:if test="${dto.wed == 'Y'}">
+								<h4 style="display:inline;"><span class="label label-success">수</span></h4>
+							</c:if>
+							<c:if test="${dto.wed == 'N'}">
+								<h4 style="display:inline;"><span class="label label-default">수</span></h4>
+							</c:if>
 
-							<c:if test="${dto.thu == 'Y'}"><span class="label label-success">목</span></c:if>
-							<c:if test="${dto.thu == 'N'}"><span class="label label-default">목</span></c:if>
+							<c:if test="${dto.thu == 'Y'}">
+								<h4 style="display:inline;"><span class="label label-success">목</span></h4>
+							</c:if>
+							<c:if test="${dto.thu == 'N'}">
+								<h4 style="display:inline;"><span class="label label-default">목</span></h4>
+							</c:if>
 							
-							<c:if test="${dto.fri == 'Y'}"><span class="label label-success">금</span></c:if>
-							<c:if test="${dto.fri == 'N'}"><span class="label label-default">금</span></c:if>
+							<c:if test="${dto.fri == 'Y'}">
+								<h4 style="display:inline;"><span class="label label-success">금</span></h4>
+							</c:if>
+							<c:if test="${dto.fri == 'N'}">
+								<h4 style="display:inline;"><span class="label label-default">금</span></h4>
+							</c:if>
 							
-							<c:if test="${dto.sat == 'Y'}"><span class="label label-primary">토</span></c:if>
-							<c:if test="${dto.sat == 'N'}"><span class="label label-default">토</span></c:if>
+							<c:if test="${dto.sat == 'Y'}">
+								<h4 style="display:inline;"><span class="label label-primary">토</span></h4>
+							</c:if>
+							<c:if test="${dto.sat == 'N'}">
+								<h4 style="display:inline;"><span class="label label-default">토</span></h4>
+							</c:if>
 						</td>
 					</tr>
 					<tr>

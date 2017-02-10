@@ -13,7 +13,7 @@
           <h4 class="tdetail">상세 정보 수정</h4>
         </div>
         
-        <form action="modifyPro" enctype="multipart/form-data" method="post" name="tModifyForm" onsubmit="return default">
+        <form action="modifyPro" enctype="multipart/form-data" method="post" name="tModifyForm" onsubmit="return teacherDataCheck()">
         <div class="modal-body">
           <table class="table">
            	<tr>

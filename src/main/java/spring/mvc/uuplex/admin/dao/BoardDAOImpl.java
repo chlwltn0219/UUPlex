@@ -126,5 +126,53 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		return dtos;
 	}
+
+	@Override
+	public void addReadCnt(int num) {
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
+		dao.addReadCnt(num);	
+	}
+
+	
+	@Override
+	public String pwdChk(int num) {
+		String pwd = "";
+		
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
+		pwd = dao.pwdChk(num);
+		
+		return pwd;
+	}
+	
+	
+	@Override
+	public int qnaDel(int num) {
+		int cnt = 0;
+		
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
+		cnt = dao.qnaDel(num);
+		
+		return cnt;
+	}
+
+	@Override
+	public int qnaDelAns(int num) {
+		int cnt = 0;
+		
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
+		cnt = dao.qnaDelAns(num);
+		
+		return cnt;
+	}
+
+	@Override
+	public int qnaModify(BoardDTO dto) {
+		int cnt = 0;
+		
+		BoardDAO dao = this.sqlsession.getMapper(BoardDAO.class);
+		cnt = dao.qnaModify(dto);
+		
+		return cnt;
+	}
 	
 }

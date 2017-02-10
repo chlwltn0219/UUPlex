@@ -8,12 +8,13 @@
 
 <script>
 	
-	
 	function date(date) {
-		var url = "/uuplex/c-box/schedulechange";
-		var method = "GET";
-		var params = "date="+date;
-		sendRequest(daterequest, url, method, params);
+		if(date>=0 && date<7){
+			var url = "/uuplex/c-box/schedulechange";
+			var method = "GET";
+			var params = "date="+date;
+			sendRequest(daterequest, url, method, params);
+		}
 	}
 	
 	function daterequest() {
@@ -27,11 +28,8 @@
 			} else {
 				modal.innerHTML = httpRequest.status + "에러 발생";
 			}
-		} else {
-			modal.innerHTML = "상태 : " + httpRequest.readyState;
 		}
 	}
->>>>>>> 37668d98f581b6aa8419cd483f8d011720a9a566
 </script>
 
 <style>
@@ -61,6 +59,8 @@ th {
 	height: 80px;
 	display: inline-block;
 	transition: 0.3s;
+	padding-top: 7px;
+	cursor: pointer;
 }
 
 .time:HOVER {
@@ -159,17 +159,12 @@ th {
 								<td>
 						</c:if>
 					</c:if>
-					<div class="time">
-						<a>
-							<span class="hover_time" style="display: none;">
-								<fmt:formatDate value="${dto.showtime}" pattern="HH:mm" />~<fmt:formatDate value="${dto.showtime}" pattern="HH:mm" />
-							</span>
-						</a>
-
+					<div class="time" onclick="location.href='/uuplex/c-box/ticket?schedule_num=${dto.schedule_num}'">
 						<p class="time_info ">
 							<span class="type">
 								<fmt:formatDate value="${dto.showtime}" var="showtime" pattern="H" />
-								<c:if test="${showtime<=10}">조조</c:if> <c:if test="${showtime>=23}">심야</c:if>
+								<c:if test="${showtime<11}">조조</c:if> <c:if test="${showtime>=23}">심야</c:if>
+								<c:if test="${showtime<23 || showtime>0}">&nbsp;</c:if>
 							</span>
 							<span class="showtime">
 								<fmt:formatDate value="${dto.showtime}" pattern="HH:mm" />

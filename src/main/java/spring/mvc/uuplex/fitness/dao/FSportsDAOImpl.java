@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import spring.mvc.uuplex.fitness.dto.FProgramDTO;
 import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
 
@@ -61,6 +62,15 @@ public class FSportsDAOImpl implements FSportsDAO{
 		List<FSportsDTO> list = null;
 		FSportsDAO dao = sqlSession.getMapper(FSportsDAO.class);
 		list = dao.sportsActivatedList();
+		return list;
+	}
+
+	@Override
+	public List<FSportsDTO> sInfo() {
+		List<FSportsDTO> list = null;
+		FSportsDAO dao = this.sqlSession.getMapper(FSportsDAO.class);
+		
+		list = dao.sInfo();
 		return list;
 	}
 	
