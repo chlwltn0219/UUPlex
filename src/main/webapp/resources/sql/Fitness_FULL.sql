@@ -25,40 +25,40 @@ DROP SEQUENCE SEQ_SPORTS_SID;
 -------------------------
 -- 강사 ID 시퀀스
 CREATE SEQUENCE SEQ_TEACHER_TID
-START WITH 0
+START WITH 1
 INCREMENT BY 1
 NOCYCLE 
-MINVALUE 0;
+MINVALUE 1;
 -- 강의실 ID 시퀀스
 CREATE SEQUENCE SEQ_classroom_crid
-START WITH 100
+START WITH 101
 INCREMENT BY 1
 NOCYCLE 
-MINVALUE 0;
+MINVALUE 1;
 -- 프로그램 ID 시퀀스
 CREATE SEQUENCE SEQ_PROGRAM_PID
-START WITH 0
+START WITH 1
 INCREMENT BY 1
 NOCYCLE 
-MINVALUE 0;
+MINVALUE 1;
 -- 강의 ID 시퀀스
 CREATE SEQUENCE SEQ_CLASS_CID
-START WITH 0
+START WITH 1
 INCREMENT BY 1
 NOCYCLE 
-MINVALUE 0;
+MINVALUE 1;
 -- 종목 ID 시퀀스
 CREATE SEQUENCE SEQ_SPORTS_SID
-START WITH 0
+START WITH 1
 INCREMENT BY 1
 NOCYCLE 
-MINVALUE 0;
+MINVALUE 1;
 -- 명세 ID 시퀀스
 CREATE SEQUENCE SEQ_STATEMENT_STID
-START WITH 0
+START WITH 1
 INCREMENT BY 1
 NOCYCLE
-MINVALUE 0;
+MINVALUE 1;
 
 -------------------------
 -- Create Tables
@@ -592,26 +592,26 @@ COMMIT;
 
 -- 명세 데이터
 INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
-VALUES (SEQ_STATEMENT_STID.nextval, 0, 'aa', SYSDATE - 21,
+VALUES (SEQ_STATEMENT_STID.nextval, 13, 'aa', SYSDATE - 21,
 		(SELECT price 
 		   FROM F_PROGRAM 
 		  WHERE pid = (SELECT pid 
 						 FROM F_CLASS 
-					    WHERE cid = 0)));
+					    WHERE cid = 13)));
 INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
-VALUES (SEQ_STATEMENT_STID.nextval, 0, 'bb', SYSDATE - 19,
+VALUES (SEQ_STATEMENT_STID.nextval, 12, 'bb', SYSDATE - 19,
 		(SELECT price 
 		   FROM F_PROGRAM 
 		  WHERE pid = (SELECT pid 
 						 FROM F_CLASS 
-					    WHERE cid = 0)));
+					    WHERE cid = 12)));
 INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
-VALUES (SEQ_STATEMENT_STID.nextval, 0, 'cc', SYSDATE - 18,
+VALUES (SEQ_STATEMENT_STID.nextval, 11, 'cc', SYSDATE - 18,
 		(SELECT price 
 		   FROM F_PROGRAM 
 		  WHERE pid = (SELECT pid 
 						 FROM F_CLASS 
-					    WHERE cid = 0)));
+					    WHERE cid = 11)));
 INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
 VALUES (SEQ_STATEMENT_STID.nextval, 1, 'juenus', SYSDATE - 17,
 		(SELECT price 
@@ -620,12 +620,12 @@ VALUES (SEQ_STATEMENT_STID.nextval, 1, 'juenus', SYSDATE - 17,
 						 FROM F_CLASS 
 					    WHERE cid = 1)));
 INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
-VALUES (SEQ_STATEMENT_STID.nextval, 1, 'foreverU', SYSDATE - 16,
+VALUES (SEQ_STATEMENT_STID.nextval, 14, 'foreverU', SYSDATE - 16,
 		(SELECT price 
 		   FROM F_PROGRAM 
 		  WHERE pid = (SELECT pid 
 						 FROM F_CLASS 
-					    WHERE cid = 1)));
+					    WHERE cid = 14)));
 						
 INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
 VALUES (SEQ_STATEMENT_STID.nextval, 1, 'aa', SYSDATE - 15,
@@ -683,7 +683,7 @@ VALUES (SEQ_STATEMENT_STID.nextval, 8, 'cc', SYSDATE,
 		   FROM F_PROGRAM 
 		  WHERE pid = (SELECT pid 
 						 FROM F_CLASS 
-					    WHERE cid = 0)));
+					    WHERE cid = 8)));
 INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
 VALUES (SEQ_STATEMENT_STID.nextval, 8, 'juenus', SYSDATE - 5,
 		(SELECT price 
