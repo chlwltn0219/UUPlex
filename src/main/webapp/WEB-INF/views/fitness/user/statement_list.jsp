@@ -13,13 +13,16 @@
 		width: 35%;
 		vertical-align: top; 
 	}
+	.title {
+		margin-bottom: 1em;
+	}
 </style>
 <title>개인 명세 목록</title>
 </head>
 <body>
 	<c:set var="now" value="<%= new java.util.Date()%>"/>
 	<div class="container">
-		<h3>명세 목록</h3>
+	<img class="title" src="${resources}/fitness/img/registerlist.png">
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>

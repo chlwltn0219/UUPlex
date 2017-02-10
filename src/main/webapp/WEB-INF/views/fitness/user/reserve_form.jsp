@@ -16,6 +16,9 @@
 		color:white !important;
 	} 
 	
+	.title {
+		margin-bottom: 1em;
+	}
 	
 </style>
 </head>
@@ -23,7 +26,7 @@
 
 <div class="container">
 	
-	<h1> 프로그램 예약 <small>원하시는 조건을 선택해 주세요.</small></h1>
+	<img class="title" src="${resources}/fitness/img/register.png">
 
 	<div class="row select">
 		<div class="col-sm-6" id="sports">
