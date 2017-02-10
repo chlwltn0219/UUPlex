@@ -42,7 +42,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th>종목 코드</th>
+				<th>#</th>
 				<th>종목 명</th>
 				<th>운영 상태</th>
 			</tr>
@@ -62,10 +62,10 @@
 					</td>
 					<td>
 						<c:if test="${dto.activated == 'Y'}">
-						운영중
+							<h4><span class="label label-success">운영중</span></h4>
 						</c:if>
 						<c:if test="${dto.activated == 'N'}">
-						폐지
+							<h4><span class="label label-danger">미운영</span></h4>
 						</c:if>
 					</td>
 				</tr>

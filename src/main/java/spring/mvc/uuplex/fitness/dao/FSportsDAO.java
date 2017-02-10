@@ -20,4 +20,6 @@ public interface FSportsDAO {
 	int modifySports(FSportsDTO dto);
 	
 	List<FSportsDTO> sportsActivatedList();
+	
+	List<FSportsDTO> sInfo();
 }

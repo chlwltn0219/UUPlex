@@ -92,9 +92,15 @@
 								<td>
 									${fn:substring(dto.register_start,0,10)}<br> 
 									~ ${fn:substring(dto.register_end,0,10)} 
-								<c:if test="${now < dto.register_start}">(예정)</c:if>
-								<c:if test="${now >= dto.register_start && now <= dto.register_end}">(진행중)	</c:if>
-								<c:if test="${now > dto.register_end}">(종료)</c:if>
+								<c:if test="${now < dto.register_start}">
+									<h4 style="display:inline;"><span class="label label-warning">예정</span></h4>
+								</c:if>
+								<c:if test="${now >= dto.register_start && now <= dto.register_end}">
+									<h4 style="display:inline;"><span class="label label-success">진행중</span></h4>
+								</c:if>
+								<c:if test="${now > dto.register_end}">
+									<h4 style="display:inline;"><span class="label label-danger">종료</span></h4>
+								</c:if>
 							</tr>
 							<tr>
 								<th>수업 기간</th>
@@ -102,9 +108,15 @@
 								<td>
 									${fn:substring(dto.start_date,0,10)}<br> 
 									~ ${fn:substring(dto.end_date,0,10)} 
-									<c:if test="${now < dto.start_date}">(예정)</c:if>
-									<c:if test="${now >= dto.start_date && now <= dto.end_date}">(진행중)</c:if>
-									<c:if test="${now > dto.end_date}">(종료)</c:if>
+									<c:if test="${now < dto.start_date}">
+										<h4 style="display:inline;"><span class="label label-warning">예정</span></h4>
+									</c:if>
+									<c:if test="${now >= dto.start_date && now <= dto.end_date}">
+										<h4 style="display:inline;"><span class="label label-success">진행중</span></h4>
+									</c:if>
+									<c:if test="${now > dto.end_date}">
+										<h4 style="display:inline;"><span class="label label-danger">종료</span></h4>
+									</c:if>
 								</td>
 							</tr>
 						</table>

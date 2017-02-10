@@ -38,7 +38,7 @@
 					</td>	
 			</tr>
 			<tr> 
-				<th>강의실 코드</th>
+				<th>호실</th>
 				<th>강의실명</th>
 				<th>사용 여부</th>
 			</tr>
@@ -57,8 +57,12 @@
 									data-toggle="modal" data-target="#modalPage" onclick="classroomDetail(${dto.crid})">
 									${dto.crname}</a></td>
 				<td>
-				<c:if test="${dto.activated=='Y'}"> 운영중</c:if>
-				<c:if test="${dto.activated=='N'}"> 비운영</c:if>
+					<c:if test="${dto.activated == 'Y'}">
+						<h4><span class="label label-success">운영중</span></h4>
+					</c:if>
+					<c:if test="${dto.activated == 'N'}">
+						<h4><span class="label label-danger">미운영</span></	h4>
+					</c:if>
 				</td>
 			</tr>
 			</c:forEach>

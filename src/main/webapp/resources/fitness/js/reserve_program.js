@@ -14,18 +14,23 @@ $(document).ready( function () {
 		programList(sid);
 	});
 	
-//	$('div:not(#sports .list-group)>.list-group-item').on('click', function () {
-//		
-//		if($('#sports a.active').length == 1
-//				&& $('#program a.active').length == 1) {
-//				&& $('#day a.active').length == 1
-//				&& $('#time a.active').length == 1) {
-//			alert("전부 선택 됨");
-//		}
-//	});
-	
-	
 });
+
+//======================== regist form
+function reserveForm(cid) {
+	var url = "/uuplex/fitness/user/reserve/detail";
+	var method = "POST";
+	var params = "cid=" + cid;
+	sendRequest(reserveModal, url, method, params);
+}
+
+//======================== regist form
+function reservePro() {
+	var url = "/uuplex/fitness/user/reservePro";
+	var method = "POST";
+	var params = "cid=" + cid;
+	sendRequest(classModal, url, method, params);
+}
 
 //======================================================= Program 호출
 function programList(sid) {
@@ -36,10 +41,10 @@ function programList(sid) {
 }
 
 //=======================================================
-function classList(pid) {
+function classList(pid, page) {
 	var url = "/uuplex/fitness/user/reserve/class";
 	var method = "GET";
-	var params = "pid=" + pid;
+	var params = "pid=" + pid + "&page=" + (page!=null ? page : 1);
 	sendRequest(classUpdate, url, method, params);
 }
 
@@ -80,7 +85,6 @@ function classUpdate() {
 	if(httpRequest.readyState == 4 ) {
 		if(httpRequest.status == 200) {
 			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
-			alert(httpRequest.responseText);
 			classList.html(httpRequest.responseText);
 		} else {
 			classList.innerHTML = httpRequest.status + " 에러 발생";
@@ -90,3 +94,21 @@ function classUpdate() {
 	}
 	
 }
+
+function reserveModal() {
+	
+	var modal = document.getElementById("dialog");
+	
+	if(httpRequest.readyState == 4 ) {
+		if(httpRequest.status == 200) {
+			//응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
+			modal.innerHTML = httpRequest.responseText;
+		} else {
+			modal.innerHTML = httpRequest.status + "에러 발생";
+		}
+	} else {
+		modal.innerHTML = "상태 : " + httpRequest.readyState;
+	}
+	
+}
+

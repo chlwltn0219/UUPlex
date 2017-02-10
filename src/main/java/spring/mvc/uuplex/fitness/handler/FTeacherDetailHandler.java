@@ -32,7 +32,10 @@ public class FTeacherDetailHandler implements FCommandHandler{
 		tid = Integer.parseInt(req.getParameter("tid"));
 		List<FSportsDTO> sports = sdao.sportsActivatedList();		
 		
-		dto = dao.tdetail(tid);		
+		dto = dao.tdetail(tid);
+		
+//		dto.setTinfo(dto.getTinfo().replace("<br>", "\r\n"));
+		
 		model.addAttribute("dto", dto);
 		model.addAttribute("sports", sports);
 		

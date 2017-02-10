@@ -19,6 +19,11 @@
    <!-- 부트스트랩 -->
    <link href="${resources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${resources}/js/menuActive.js"></script>
+	
+   
    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
    <!--[if lt IE 9]>

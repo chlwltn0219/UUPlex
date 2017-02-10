@@ -35,7 +35,10 @@ function sportsModifyPro(){
 	var url = "/uuplex/fitness/manage/sports/modifyPro";
 	var method = "POST";
 	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo + "&activated=" + activated;
-	sendRequest(sportsModal, url, method, params);
+	
+	if(sportsDataCheck()){
+		sendRequest(sportsModal, url, method, params);
+	}
 }
 
 //======================== Write Modal Dialog
@@ -54,4 +57,17 @@ function sportsModal() {
 		modal.innerHTML = "상태 : " + httpRequest.readyState;
 	}
 	
+}
+
+function sportsDataCheck() {
+	
+	var sname = $('input[name=sname]');
+	
+	if(sname.val().length <= 0){
+		alert("강사명은 빈칸이 올 수 없습니다.");
+		sname.focus();
+		return false;
+	} 
+
+	return true;
 }

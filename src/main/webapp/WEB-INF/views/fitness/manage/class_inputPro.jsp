@@ -9,12 +9,11 @@
 </head>
 <body>
 
-
-
 	<c:if test="${cnt == 0}">
 		<h1>등록 실패 하셨습니다.</h1>
 		<script type="text/javascript">
-			// error 스크립트
+			alert('등록 실패 하셨습니다.');
+			window.location.reload();
 		</script>
 	</c:if>
 
@@ -22,6 +21,6 @@
 		<h1>등록 완료 되었습니다.</h1>
 		<c:redirect url="/fitness/manage/class/list"/>
 	</c:if>
-
+	
 </body>
 </html>

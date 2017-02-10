@@ -9,7 +9,7 @@
 				<h4 class="modal-title">강의 수정</h4>
 			</div>
 			
-			<form name="classModifyForm" onsubmit="return default">
+			<form action = "modifyPro" name="classModifyForm" onsubmit="return default">
 				<div class="modal-body">
 					<table class="table">
 						<tr>
@@ -44,7 +44,7 @@
 							<th>부 제목</th>
 							<td>
 								<input type="text" class="form-control" 
-									name="subname" value="${dto.subname}">
+									name="subname" value="${dto.subname}" required>
 							</td>
 						</tr>
 						<tr>
@@ -59,12 +59,12 @@
 							<td>
 								<select class="form-control" name="crid" required>
 									<c:forEach items="${classroom}" var="c">
-										<c:if test="${dto.crid != c.crid}">
-										<option value="${c.crid}"> ${c.crid}호 : ${c.crname}</option>
-										</c:if>
-										<c:if test="${dto.crid == c.crid}">
-										<option value="${c.crid}" selected> ${c.crid}호 : ${c.crname}</option>
-										</c:if>
+									<c:if test="${dto.crid != c.crid}">
+									<option value="${c.crid}"> ${c.crid}호 : ${c.crname}</option>
+									</c:if>
+									<c:if test="${dto.crid == c.crid}">
+									<option value="${c.crid}" selected> ${c.crid}호 : ${c.crname}</option>
+									</c:if>
 									</c:forEach>
 								</select>
 							</td>
@@ -72,8 +72,13 @@
 						<tr>
 							<th>정원</th>
 							<td>
-								<input type="number" class="form-control"
-										name="limit" value="${dto.limit}" min="0" required="required">
+								<div class="input-group">
+									<input type="number" class="form-control"
+											name="people" value="${dto.people}" readonly>
+									<span class="input-group-addon">/</span>
+									<input type="number" class="form-control"
+											name="limit" value="${dto.limit}" min="${dto.people}" required="required">
+								</div>
 							</td>
 						</tr>
 						<tr>
@@ -82,7 +87,7 @@
 								<div class="input-group">
 									<input type="date" class="form-control"
 											name="register_start" value="${fn:substring(dto.register_start, 0, 10)}">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+									<span class="input-group-addon">~</span>
 									<input type="date" class="form-control"
 									name="register_end" value="${fn:substring(dto.register_end, 0, 10)}">
 								</div>
@@ -94,7 +99,7 @@
 								<div class="input-group">
 									<input type="date" class="form-control"
 												name="start_date" value="${fn:substring(dto.start_date, 0, 10)}">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+									<span class="input-group-addon">~</span>
 									<input type="date" class="form-control"
 												name="end_date" value="${fn:substring(dto.end_date, 0, 10)}">
 								</div>
@@ -103,85 +108,84 @@
 						<tr>
 							<th>수업 요일</th>
 							<td>
-								<div class="btn-group btn-group-justified" data-toggle="buttons">
+								<div class="day btn-group btn-group-justified" data-toggle="buttons">
 								
 									<c:if test="${dto.sun == 'Y'}">
-									<label class="btn btn-danger active">
+									<label class="btn btn-danger sun active">
 										<input type="checkbox" name="sun" value="Y" checked>일
 									</label>
 									</c:if>
-									<c:if test="${dto.sun != 'Y'}">
-									<label class="btn btn-danger">
+									<c:if test="${dto.sun == 'N'}">
+									<label class="btn btn-default sun">
 										<input type="checkbox" name="sun" value="Y">일
 									</label>
 									</c:if>
 									
 									<c:if test="${dto.mon == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="mon" value="Y" checked>월
 									</label>
 									</c:if>
-									<c:if test="${dto.mon != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.mon == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="mon" value="Y">월
 									</label>
 									</c:if>
 									
 									<c:if test="${dto.tue == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="tue" value="Y" checked>화
 									</label>
 									</c:if>
-									<c:if test="${dto.tue != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.tue == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="tue" value="Y">화
 									</label>
 									</c:if>
 									
 									<c:if test="${dto.wed == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="wed" value="Y" checked>수
 									</label>
 									</c:if>
-									<c:if test="${dto.wed != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.wed == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="wed" value="Y">수
 									</label>
 									</c:if>
 
 									<c:if test="${dto.thu == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="thu" value="Y" checked="checked">목
 									</label>
 									</c:if>
-									<c:if test="${dto.thu != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.thu == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="thu" value="Y">목
 									</label>
 									</c:if>
 
 									<c:if test="${dto.fri == 'Y'}">
-									<label class="btn btn-success active">
+									<label class="btn btn-success weekday active">
 										<input type="checkbox" name="fri" value="Y" checked>금
 									</label>
 									</c:if>
-									<c:if test="${dto.fri != 'Y'}">
-									<label class="btn btn-success">
+									<c:if test="${dto.fri == 'N'}">
+									<label class="btn btn-default weekday">
 										<input type="checkbox" name="fri" value="Y">금
 									</label>
 									</c:if>
 										
 									<c:if test="${dto.sat == 'Y'}">
-									<label class="btn btn-primary active">
+									<label class="btn btn-primary sat active">
 										<input type="checkbox" name="sat" value="Y" checked>토
 									</label>
 									</c:if>
-									<c:if test="${dto.sat != 'Y'}">
-									<label class="btn btn-primary">
+									<c:if test="${dto.sat == 'N'}">
+									<label class="btn btn-default sat">
 										<input type="checkbox" name="sat" value="Y">토
 									</label>
 									</c:if>
-									</label>
 								</div>
 							</td>
 						</tr>
@@ -191,7 +195,7 @@
 								<div class="input-group">
 									<input type="time" class="form-control"
 										name="start_time" value="${fn:substring(dto.start_time, 11, 16)}">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+									<span class="input-group-addon">~</span>
 									<input type="time" class="form-control"
 										name="end_time" value="${fn:substring(dto.end_time, 11, 16)}">
 								</div>
@@ -200,8 +204,8 @@
 					</table>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-primary" 
-						value="수정" onclick="classModifyPro()">
+					<input type="submit" class="btn btn-primary" 
+						value="수정">
 					<input type="reset" class="btn btn-warning" 
 						value="초기화">
 					<input type="button" class="btn btn-default" 

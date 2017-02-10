@@ -10,13 +10,20 @@
 		height: 200px;
 		overflow-y: auto; 
 	}
+	
+	.panel-heading {
+		background-color:black !important;
+		color:white !important;
+	} 
+	
+	
 </style>
 </head>
 <body>
 
 <div class="container">
 	
-	<h3> 프로그램 예약 <small>원하시는 조건을 선택해 주세요.</small></h3>
+	<h1> 프로그램 예약 <small>원하시는 조건을 선택해 주세요.</small></h1>
 
 	<div class="row select">
 		<div class="col-sm-6" id="sports">
@@ -74,7 +81,7 @@
 						<td>
 							<table style="width: 100%">
 								<tr>
-									<th><h1>선택한 조건의 강좌가 없습니다. 조건을 다시 선택해 주세요.</h1></th>
+									<th><h4 align="center">선택한 조건의 강좌가 없습니다. </h4></th>
 								</tr>
 							</table>
 						</td>
@@ -86,7 +93,11 @@
 			</table>
 		</div>
 	</div>
+	
+</div>
 
+<div class="modal fade" id="modalPage" role="dialog">
+	<div class="modal-dialog" id="dialog"></div>
 </div>
 
 <script type="text/javascript" src="${resources}/fitness/js/reserve_program.js"></script>

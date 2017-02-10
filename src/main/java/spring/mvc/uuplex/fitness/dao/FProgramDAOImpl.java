@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import spring.mvc.uuplex.fitness.dto.FProgramDTO;
+import spring.mvc.uuplex.fitness.dto.FTeacherDTO;
 
 
 @Repository
@@ -69,6 +70,15 @@ public class FProgramDAOImpl implements FProgramDAO{
 		List<FProgramDTO> list = null;
 		FProgramDAO dao = sqlSession.getMapper(FProgramDAO.class);
 		list = dao.reservableList(sid);
+		return list;
+	}
+
+	@Override
+	public List<FProgramDTO> pInfo() {
+		List<FProgramDTO> list = null;
+		FProgramDAO dao = this.sqlSession.getMapper(FProgramDAO.class);
+		
+		list = dao.pInfo();
 		return list;
 	}
 	

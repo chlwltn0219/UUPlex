@@ -10,7 +10,7 @@
 		<h4 class="modal-title">강의실</h4>
 	</div>
 	
-	<form name="classroomModifyForm" onsubmit="return default">
+	<form action="modifyPro" name="classroomModifyForm" onsubmit="return default">
 		<div class="modal-body">
 			<table class="table">
 				<tr>
@@ -21,7 +21,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>종목 이름</th>
+					<th>강의실 이름</th>
 					<td>
 						<input type="text" class="form-control" 
 							name="crname" value="${dto.crname}" required>
@@ -53,8 +53,8 @@
 			</table>
 		</div>
 		<div class="modal-footer">
-			<input type="button" class="btn btn-primary" 
-				value="수정" onclick="classroomModifyPro()">
+			<input type="submit" class="btn btn-primary" 
+				value="수정">
 			<input type="reset" class="btn btn-warning" 
 				value="초기화">
 			<input type="button" class="btn btn-default" 

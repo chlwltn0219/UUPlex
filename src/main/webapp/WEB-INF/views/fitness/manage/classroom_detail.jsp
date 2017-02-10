@@ -26,10 +26,10 @@
 						<th>운영 여부</th>
 						<td>
 							<c:if test="${dto.activated == 'Y'}">
-							운영중
+								<h4><span class="label label-success">운영중</span></h4>
 							</c:if>
 							<c:if test="${dto.activated == 'N'}">
-							폐지
+								<h4><span class="label label-danger">미운영</span></h4>
 							</c:if>
 						</td>
 					</tr>

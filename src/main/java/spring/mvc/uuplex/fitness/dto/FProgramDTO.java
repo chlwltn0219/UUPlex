@@ -13,8 +13,7 @@ public class FProgramDTO {
 	private int preparationCost;
 	private String preparation;
 	private String activated;
-	private Timestamp reg_date;
-	
+	private Timestamp reg_date;	
 	private String sname;
 	private String tname;
 	

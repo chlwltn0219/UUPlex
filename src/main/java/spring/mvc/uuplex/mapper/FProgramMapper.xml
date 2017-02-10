@@ -71,4 +71,12 @@
   		ORDER BY p.pname
 	</select>
 	
+	
+	<select id="pInfo" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
+		SELECT *
+		FROM F_PROGRAM p, F_SPORTS s, F_TEACHER t
+    	WHERE p.sid = s.sid 
+    	AND   p.tid = t.tid
+     ORDER BY p.pid      	  
+	</select>
 </mapper>

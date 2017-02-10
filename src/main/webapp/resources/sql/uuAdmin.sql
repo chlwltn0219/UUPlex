@@ -37,6 +37,7 @@ CREATE TABLE uu_member(
   CONSTRAINT uu_member_memId_pk PRIMARY KEY(memId)
 );
 
+INSERT INTO uu_member VALUES('101', 'test', '11', 'name', '111111', '1111111', '30', 'gender', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
 INSERT INTO uu_member VALUES('101', 'admin', '11', '��ü������', '111111', '1111111', '30', '����', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
 INSERT INTO uu_member VALUES('102', 'madmin', '11', '��ȭ������', '111111', '1111111', '30', '����', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');
 INSERT INTO uu_member VALUES('103', 'hadmin', '11', 'ȣ�ڰ�����', '111111', '1111111', '30', '����', 'UUPLEX', '010-0000-0000', 'uuplex@uuplex.com', sysdate, '0.0.0.1');

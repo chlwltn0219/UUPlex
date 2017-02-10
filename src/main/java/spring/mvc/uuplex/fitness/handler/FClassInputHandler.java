@@ -69,9 +69,6 @@ public class FClassInputHandler implements FCommandHandler{
 			start_time = new Timestamp(timeFormat.parse(req.getParameter("start_time")).getTime());
 			end_time = new Timestamp(timeFormat.parse(req.getParameter("end_time")).getTime());
 			
-			System.out.println(start_date);
-			System.out.println(end_date);
-			
 			sun = req.getParameter("sun") != null ? req.getParameter("sun"): "N";
 			mon = req.getParameter("mon") != null ? req.getParameter("mon"): "N";
 			tue = req.getParameter("tue") != null ? req.getParameter("tue"): "N";
