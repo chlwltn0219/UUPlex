@@ -296,4 +296,52 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 
+	@Override
+	public int gradeCount1() {
+		int gradeCount1 = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount1 = dao.gradeCount1();
+		
+		return gradeCount1;
+	}
+
+
+	@Override
+	public int gradeCount2() {
+		int gradeCount2 = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount2 = dao.gradeCount2();
+		
+		return gradeCount2;
+	}
+
+
+	@Override
+	public int gradeCount3() {
+		int gradeCount3 = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount3 = dao.gradeCount3();
+		
+		return gradeCount3;
+	}
+
+
+	@Override
+	public int gradeCount4() {
+		int gradeCount4 = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount4 = dao.gradeCount3();
+		
+		return gradeCount4;
+	}
+
+
 }

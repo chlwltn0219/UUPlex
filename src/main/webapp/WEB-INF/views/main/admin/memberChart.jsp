@@ -63,10 +63,10 @@
 
             var data = google.visualization.arrayToDataTable([
               ['Grade', 'MemberCount',],
-              ['일반회원', 9175],
-              ['Green회원', 5792],
-              ['Gold회원', 2695],
-              ['VIP회원', 1027],
+              ['일반회원', 17],
+              ['Green회원', 8],
+              ['Gold회원', 5],
+              ['VIP회원', 3],
             ]);
 
             var options = {
@@ -89,6 +89,7 @@
       
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawBarChart);
+      
       function drawBarChart() {
         var data = google.visualization.arrayToDataTable([
           ['Age', 'Man', 'Woman'],

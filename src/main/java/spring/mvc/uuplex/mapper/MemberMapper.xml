@@ -101,4 +101,22 @@
 		SELECT COUNT(*) FROM uu_member WHERE gender = '남성'
 	</select>
 	
+	<select id="gradeCount1" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE grade = '일반회원'
+	</select>
+	
+	<select id="gradeCount2" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE grade = 'Green회원'
+	</select>
+	
+	<select id="gradeCount3" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE grade = 'Gold회원'
+	</select>
+	
+	<select id="gradeCount4" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE grade = 'Vip회원'
+	</select>
+	
+	
+	
 </mapper>   

@@ -42,6 +42,10 @@ public interface AdminDAO {
 	
 	public int memberGenderWoman(); // 여성 수
 	public int memberGenderMan(); // 남성 수
+	public int gradeCount1(); // 남성 수
+	public int gradeCount2(); // 남성 수
+	public int gradeCount3(); // 남성 수
+	public int gradeCount4(); // 남성 수
 	
 
 }
