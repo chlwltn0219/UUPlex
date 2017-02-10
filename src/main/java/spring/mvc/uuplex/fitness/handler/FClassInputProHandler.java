@@ -15,7 +15,7 @@ import spring.mvc.uuplex.fitness.dao.FClassDAO;
 import spring.mvc.uuplex.fitness.dto.FClassDTO;
 
 @Service
-public class FClassInputHandler implements FCommandHandler{
+public class FClassInputProHandler implements FCommandHandler{
 	
 	@Autowired
 	FClassDAO dao;

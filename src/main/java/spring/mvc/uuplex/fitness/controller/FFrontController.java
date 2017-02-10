@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.fitness.handler.FClassDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputFormHandler;
-import spring.mvc.uuplex.fitness.handler.FClassInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
-import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FManagerStatementListHandler;
@@ -32,7 +32,7 @@ import spring.mvc.uuplex.fitness.handler.FReservableProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveFormHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveProHandler;
-import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
+import spring.mvc.uuplex.fitness.handler.FSportsInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsModifyHandler;
@@ -53,7 +53,7 @@ public class FFrontController{
    @Autowired
    FSportsListHandler sportsListHandler;
    @Autowired
-   FSportsAddHandler sportsAddHandler;
+   FSportsInputProHandler sportsAddHandler;
    @Autowired
    FSportsDetailHandler sportsDetailHandler;
    @Autowired
@@ -75,7 +75,7 @@ public class FFrontController{
    @Autowired
    FClassroomListHandler cListHandler;
    @Autowired
-   FClassroomInputHandler cinputHandler;
+   FClassroomInputProHandler cinputHandler;
    @Autowired
    FClassroomDetailHandler cDetailHandler;
    @Autowired
@@ -99,7 +99,7 @@ public class FFrontController{
    @Autowired
    FClassInputFormHandler classInputFormHandler;
    @Autowired
-   FClassInputHandler classInputHandler; 
+   FClassInputProHandler classInputHandler; 
    @Autowired
    FClassModifyHandler classModifyHandler; 
    

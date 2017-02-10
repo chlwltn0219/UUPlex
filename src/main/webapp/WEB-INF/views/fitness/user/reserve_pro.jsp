@@ -9,8 +9,6 @@
 </head>
 <body>
 
-
-
 	<c:if test="${cnt == 0}">
 		<h1>등록 실패 하셨습니다.</h1>
 		<script type="text/javascript">
@@ -34,7 +32,8 @@
 			window.location = "/uuplex/fitness/user/reserve";
 		</script>
 	</c:if>
-		<c:if test="${cnt == 3}">
+	
+	<c:if test="${cnt == 3}">
 		<h1>이미 수강신청을 하셨습니다.</h1>
 		<script type="text/javascript">
 			alert("이미 수강신청을 하셨습니다. 다른 강의를 선택해 주세요.");

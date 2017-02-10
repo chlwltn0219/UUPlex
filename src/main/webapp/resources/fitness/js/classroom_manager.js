@@ -31,25 +31,24 @@ function classroomModify(crid) {
 	sendRequest(classroomModal, url, method, params);
 }
 
-//=====================================Modify Pro
-
-function classroomModifyPro() {
-	var crid = document.classroomModifyForm.crid.value;
-	var crname = document.classroomModifyForm.crname.value;
-	var activated = document.classroomModifyForm.activated.value;
-	
-	var url = "/uuplex/fitness/manage/classroom/modifyPro"
-		
-	var method = "POST"
-	var params = "crid=" + crid + "&crname=" + crname + 
-				 "&activated=" + activated ;
-	
-	if(classroomDataCheck()){
-		sendRequest(classroomModal, url, method, params);
-/*		window.location.reload();*/
-	}
-
-}
+//=====================================Modify Pro : 사용 안함
+//function classroomModifyPro() {
+//	var crid = document.classroomModifyForm.crid.value;
+//	var crname = document.classroomModifyForm.crname.value;
+//	var activated = document.classroomModifyForm.activated.value;
+//	
+//	var url = "/uuplex/fitness/manage/classroom/modifyPro"
+//		
+//	var method = "POST"
+//	var params = "crid=" + crid + "&crname=" + crname + 
+//				 "&activated=" + activated ;
+//	
+//	if(classroomDataCheck()){
+//		sendRequest(classroomModal, url, method, params);
+///*		window.location.reload();*/
+//	}
+//
+//}
 
 //=====================================Write Modal Dialog
 

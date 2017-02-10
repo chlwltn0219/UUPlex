@@ -71,7 +71,7 @@
           </table>
         <div class="modal-footer">
 			<input type="button" class="btn btn-primary" value="수정" onclick="teacherModify(${dto.tid})">
-        	<button type="submit" class="btn btn-default btn-default" data-dismiss="modal" onclick="location.reload();">닫기</button>
+        	<button type="submit" class="btn btn-default btn-default" data-dismiss="modal">닫기</button>
         </div>
       </div>
     </div>
