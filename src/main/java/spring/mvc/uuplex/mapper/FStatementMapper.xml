@@ -67,7 +67,7 @@
 	<!-- 강의 신청 -->
 	<insert id="reserveInput" parameterType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
 		INSERT INTO F_STATEMENT (stid, cid, memid, price)
-		VALUES (SEQ_STATEMENTID.nextval, #{cid}, #{memid}, #{price})
+		VALUES (SEQ_STATEMENT_STID.nextval, #{cid}, #{memid}, #{price})
 	</insert>
 	
 	<!-- 강의 환불 : 강의 시작일 전에 만 환불 가능 -->

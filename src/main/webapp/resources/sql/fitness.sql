@@ -18,7 +18,7 @@ DROP SEQUENCE SEQ_PROGRAM_PID;
 DROP SEQUENCE SEQ_classroom_crid;
 DROP SEQUENCE SEQ_TEACHER_TID;
 DROP SEQUENCE SEQ_SPORTS_SID;
-DROP SEQUENCE SEQ_STATEMENT_STATEMENTID;
+DROP SEQUENCE SEQ_STATEMENT_STID;
 
 -------------------------
 -- Create Sequences
@@ -54,7 +54,7 @@ INCREMENT BY 1
 NOCYCLE 
 MINVALUE 0;
 -- 명세 ID 시퀀스
-CREATE SEQUENCE SEQ_STATEMENT_STATEMENTID
+CREATE SEQUENCE SEQ_STATEMENT_STID
 START WITH 0
 INCREMENT BY 1
 NOCYCLE
@@ -72,7 +72,7 @@ CONSTRAINT boolean_value_pk PRIMARY KEY (value)
 -- 피트니스 종목 테이블
 CREATE TABLE F_SPORTS (
 sid			NUMBER,
-sname		VARCHAR2(20) CONSTRAINT f_sports_sname_nn NOT NULL,
+sname		VARCHAR2(100) CONSTRAINT f_sports_sname_nn NOT NULL,
 sinfo		VARCHAR2(300),
 activated	VARCHAR2(1) DEFAULT 'Y',
 reg_date	TIMESTAMP DEFAULT SYSDATE,
@@ -83,7 +83,7 @@ CONSTRAINT f_sports_activated_fk FOREIGN KEY (activated)
 -- 강사 테이블
 CREATE TABLE f_teacher(
   tid             NUMBER(5),
-  tname           VARCHAR2(20) NOT NULL,
+  tname           VARCHAR2(100) NOT NULL,
   sid             NUMBER(5),
   tinfo           VARCHAR2(300),
   tpicture        VARCHAR2(100),
@@ -128,7 +128,7 @@ CREATE TABLE F_CLASS (
 cid				NUMBER,
 pid				NUMBER,
 crid			NUMBER,
-subName			VARCHAR2(20) CONSTRAINT f_class_subname_nn NOT NULL,
+subName			VARCHAR2(100) CONSTRAINT f_class_subname_nn NOT NULL,
 register_start	TIMESTAMP CONSTRAINT f_class_register_start_nn NOT NULL,
 register_end	TIMESTAMP CONSTRAINT f_class_register_end_nn NOT NULL,
 start_date		TIMESTAMP CONSTRAINT f_class_start_date_nn NOT NULL,
@@ -137,7 +137,6 @@ start_time		TIMESTAMP CONSTRAINT f_class_start_time_nn NOT NULL,
 end_time		TIMESTAMP CONSTRAINT f_class_end_time_nn NOT NULL,
 limit			NUMBER CONSTRAINT f_class_limit_nn NOT NULL,
 reg_date		TIMESTAMP DEFAULT SYSDATE,
-current_people	NUMBER DEFAULT 0,
 activated		VARCHAR2(1) DEFAULT 'Y',
 CONSTRAINT f_class_cid_pk PRIMARY KEY (cid),
 CONSTRAINT f_class_pid_fk FOREIGN KEY (pid) 
@@ -211,46 +210,40 @@ INSERT INTO F_SPORTS (sid, sname, activated)
 VALUES (SEQ_SPORTS_SID.nextval, '클라이밍', 'N');
 COMMIT;
 -- 강사 데이터 입력
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '김태희', 1 ,'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '강동원', 1 ,'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '한효주', 1 ,'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '공유', 2, 'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '김고은', 2, 'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '서강준', 2, 'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '아이유', 3, 'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '김세정', 3, 'y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '설현', 3, 'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '전지현', 4, 'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '박보검', 4, 'Y');
-INSERT INTO f_teacher (tid, tname, sid, activated)
-VALUES (SEQ_TEACHER_TID.nextval, '송중기', 4, 'Y');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '김태희', 1 ,'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '강동원', 1 ,'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '한효주', 1 ,'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '공유', 2, 'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '김고은', 2, 'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '서강준', 2, 'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '아이유', 3, 'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '김세정', 3, 'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '설현', 3, 'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '전지현', 4, 'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '박보검', 4, 'Y', 'no_picture.jpg');
+INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
+VALUES (SEQ_TEACHER_TID.nextval, '송중기', 4, 'Y', 'no_picture.jpg');
 commit;
 -- 강의실 데이터
 INSERT INTO f_classroom (crid, crname, activated)
+VALUES (SEQ_classroom_crid.nextval, '요가실', 'Y');
+INSERT INTO f_classroom (crid, crname, activated)
+VALUES (SEQ_classroom_crid.nextval, '스쿼시장', 'Y');
+INSERT INTO f_classroom (crid, crname, activated)
+VALUES (SEQ_classroom_crid.nextval, '스피닝실', 'Y');
+INSERT INTO f_classroom (crid, crname, activated)
 VALUES (SEQ_classroom_crid.nextval, '수영장', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '스쿼시장 1', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '스쿼시장 2', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '요가실 1', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '요가실 2', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '스피닝실 1', 'Y');
-INSERT INTO f_classroom (crid, crname, activated)
-VALUES (SEQ_classroom_crid.nextval, '스피닝실 2', 'Y');
 INSERT INTO f_classroom (crid, crname, activated)
 VALUES (SEQ_classroom_crid.nextval, '다목적실', 'Y');
 COMMIT;
@@ -268,11 +261,11 @@ VALUES (SEQ_PROGRAM_PID.nextval, '스쿼시 중급', 2, 5, 70000);
 INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
 VALUES (SEQ_PROGRAM_PID.nextval, '스쿼시 고급', 2, 6, 70000);
 INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
-VALUES (SEQ_PROGRAM_PID.nextval, '스쿼시 초급', 3, 7, 70000);
+VALUES (SEQ_PROGRAM_PID.nextval, '스피닝 초급', 3, 7, 70000);
 INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
-VALUES (SEQ_PROGRAM_PID.nextval, '스쿼시 중급', 3, 8, 70000);
+VALUES (SEQ_PROGRAM_PID.nextval, '스피닝 중급', 3, 8, 70000);
 INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
-VALUES (SEQ_PROGRAM_PID.nextval, '스쿼시 고급', 3, 9, 70000);
+VALUES (SEQ_PROGRAM_PID.nextval, '스피닝 고급', 3, 9, 70000);
 INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
 VALUES (SEQ_PROGRAM_PID.nextval, '수영 초급', 4, 10, 70000);
 INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
@@ -280,3 +273,322 @@ VALUES (SEQ_PROGRAM_PID.nextval, '수영 중급', 4, 11, 70000);
 INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
 VALUES (SEQ_PROGRAM_PID.nextval, '수영 고급', 4, 12, 70000);
 COMMIT;
+-- 강의 데이터
+------------- 요가
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 1, 1, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('10:00', 'hh24:mi'), TO_DATE('10:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 2, 1, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('11:00', 'hh24:mi'), TO_DATE('11:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 3, 1, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('12:00', 'hh24:mi'), TO_DATE('12:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 1, 1, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('14:00', 'hh24:mi'), TO_DATE('14:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 2, 1, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('15:00', 'hh24:mi'), TO_DATE('15:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 3, 1, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('16:00', 'hh24:mi'), TO_DATE('16:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+------------- 스쿼시
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 4, 2, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('10:00', 'hh24:mi'), TO_DATE('10:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 5, 2, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('11:00', 'hh24:mi'), TO_DATE('11:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 6, 2, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('12:00', 'hh24:mi'), TO_DATE('12:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 4, 2, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('14:00', 'hh24:mi'), TO_DATE('14:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 5, 2, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('15:00', 'hh24:mi'), TO_DATE('15:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 6, 2, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('16:00', 'hh24:mi'), TO_DATE('16:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+------------- 스피닝
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 7, 3, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('10:00', 'hh24:mi'), TO_DATE('10:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 8, 3, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('11:00', 'hh24:mi'), TO_DATE('11:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 9, 3, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('12:00', 'hh24:mi'), TO_DATE('12:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 7, 3, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('14:00', 'hh24:mi'), TO_DATE('14:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 8, 3, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('15:00', 'hh24:mi'), TO_DATE('15:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 9, 3, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('16:00', 'hh24:mi'), TO_DATE('16:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+------------- 수영
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 10, 4, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('10:00', 'hh24:mi'), TO_DATE('10:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 11, 4, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('11:00', 'hh24:mi'), TO_DATE('11:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 12, 4, '주중 오전 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('12:00', 'hh24:mi'), TO_DATE('12:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 10, 4, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('14:00', 'hh24:mi'), TO_DATE('14:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 11, 4, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('15:00', 'hh24:mi'), TO_DATE('15:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+INSERT INTO F_CLASS (cid, pid, crid, subName, 
+					 register_start, register_end, 
+					 start_date, end_date, 
+					 start_time, end_time, 
+					 limit)
+VALUES (SEQ_CLASS_CID.nextval, 12, 4, '주중 오후 반', 
+		TO_DATE('2017-02-01', 'YYYY-MM-DD'), TO_DATE('2017-02-08', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('2017-02-14', 'YYYY-MM-DD'), TO_DATE('2017-03-15', 'YYYY-MM-DD')-(1/24/60/60),
+		TO_DATE('16:00', 'hh24:mi'), TO_DATE('16:50', 'hh24:mi'),
+		20);
+INSERT INTO F_CLASSWEEK (cid, sun, mon, tue, wed, thu, fri, sat)
+VALUES (SEQ_CLASS_CID.currval, N, Y, N, Y, N, Y, N);
+
+
+-- 명세 데이터는 직접 입력하세요

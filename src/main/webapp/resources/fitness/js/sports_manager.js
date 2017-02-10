@@ -64,7 +64,7 @@ function sportsDataCheck() {
 	var sname = $('input[name=sname]');
 	
 	if(sname.val().length <= 0){
-		alert("강사명은 빈칸이 올 수 없습니다.");
+		alert("종목명은 빈칸이 올 수 없습니다.");
 		sname.focus();
 		return false;
 	} 

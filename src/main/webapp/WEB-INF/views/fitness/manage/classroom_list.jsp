@@ -17,17 +17,17 @@
 		<thead>
 			<tr>
 				<td colspan="2">
-					<form action="" method="get" onsubmit=""
-						 class="form-inline" name="searchForm">
-						<div class="input-group">
-							<input class="form-control" type="search" placeholder="검색">
-							<div class="input-group-btn">
-								<button type="submit" class="btn btn-info">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
+<!-- 					<form action="" method="get" onsubmit="" -->
+<!-- 						 class="form-inline" name="searchForm"> -->
+<!-- 						<div class="input-group"> -->
+<!-- 							<input class="form-control" type="search" placeholder="검색"> -->
+<!-- 							<div class="input-group-btn"> -->
+<!-- 								<button type="submit" class="btn btn-info"> -->
+<!-- 									<i class="glyphicon glyphicon-search"></i> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</form> -->
 					</td>
 					<td>
 						<div class="form-group pull-right">
