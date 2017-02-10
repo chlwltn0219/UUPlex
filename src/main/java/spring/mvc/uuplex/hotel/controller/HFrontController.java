@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
 import spring.mvc.uuplex.hotel.handler.ReservConfirmHandler;
+import spring.mvc.uuplex.hotel.handler.ReservDetailHandler;
 import spring.mvc.uuplex.hotel.handler.ReservFormHandler;
+import spring.mvc.uuplex.hotel.handler.ReservManageHandler;
+import spring.mvc.uuplex.hotel.handler.ReservProHandler;
 import spring.mvc.uuplex.hotel.handler.ReservationHandler;
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomDeleteProHandler;
@@ -162,6 +165,45 @@ public class HFrontController {
 		
 		model.addAttribute("req", req);
 		String viewPage = reservConfirmHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//예약완료
+	@Autowired
+	ReservProHandler reservProHandler;
+	@RequestMapping("/reservPro")
+	public String reservPro(HttpServletRequest req, Model model) {
+		System.out.println("reservPro()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservProHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//예약내역
+	@Autowired
+	ReservManageHandler reservManageHandler;
+	@RequestMapping("/reservManage")
+	public String reservManage(HttpServletRequest req, Model model) {
+		System.out.println("reservManage()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservManageHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//예약상세내역
+	@Autowired
+	ReservDetailHandler reservDetailHandler;
+	@RequestMapping("/reservDetail")
+	public String reservDetail(HttpServletRequest req, Model model) {
+		System.out.println("reservDetail()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservDetailHandler.process(model);
 		
 		return viewPage;
 	}

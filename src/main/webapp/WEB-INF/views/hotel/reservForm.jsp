@@ -1,9 +1,14 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/uuplex/resources/js/hotelRequest.js"></script>
 <html>
 <head>
+<script type="text/javascript" src="/uuplex/resources\js\jquery-1.12.4.js"></script>
+<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
+
 <style>
 form {
 	width:870px;
@@ -72,6 +77,7 @@ function loadPage() {
 		result.innerHTML = "상태: " + httpRequest.readyState;
 	}
 }
+
 </script>
 
 <c:if test="${memId == null}">
@@ -88,7 +94,7 @@ function loadPage() {
 			aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
-		<h4 class="modal-title" id="myModalLabel"><b> ${roomName} 객실  </b><small>&nbsp;&nbsp;&nbsp;예약정보를 입력하세요.</small></h4>
+		<h4 class="modal-title" id="myModalLabel"><b> ${roomName} 객실  </b><small>&nbsp;&nbsp;&nbsp;예약정보를 입력하세요.</small></h4><br>
 	</div>
 	<table class="table table-bordered" id="reservTable">
 		<tr>
@@ -97,7 +103,8 @@ function loadPage() {
 		<tr>
 			<td class="active">숙박날짜</td>
 			<td><label for="start"> 체크인 : </label>
-				<input type="date" name="checkIn"> &nbsp;
+				<input type="date" name="checkIn" min="<fmt:formatDate value="<%=new Date()%>" pattern="YYYY-MM-dd"/>"
+					max="<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 * 24)%>" pattern="YYYY-MM-dd" />"> &nbsp;
 				<label for="end"> 체크아웃 : </label>
 				<input type="date" name="checkOut">
 			</td>
@@ -181,7 +188,7 @@ function loadPage() {
 	</table>
 	<hr>
 	<div id="result" style="text-align:right">
-	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"> ${charge} 원 </font>
+	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"><input type="hidden" value="${charge}" name="totCharge"> ${charge} 원 </font>
 	</div>
 	
 	<div class="modal-footer">
