@@ -270,4 +270,30 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 
+	// 회원통계
+	
+	@Override
+	public int memberGenderWoman() {
+		int genderCount = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		genderCount = dao.memberGenderWoman();
+		
+		return genderCount;
+	}
+
+
+	@Override
+	public int memberGenderMan() {
+		int genderCount = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		genderCount = dao.memberGenderMan();
+		
+		return genderCount;
+	}
+
+
 }

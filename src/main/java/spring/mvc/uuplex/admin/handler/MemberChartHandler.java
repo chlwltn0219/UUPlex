@@ -21,7 +21,12 @@ public class MemberChartHandler implements CommandHandler {
 		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
-
+		
+		int memGenderWoman = dao.memberGenderWoman();
+		int memGenderMan = dao.memberGenderMan();
+		
+		model.addAttribute("memGenderWoman", memGenderWoman);
+		model.addAttribute("memGenderMan", memGenderMan);
 		
 		return "/main/admin/memberChart";
 	}

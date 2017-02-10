@@ -37,5 +37,11 @@ public interface AdminDAO {
 	public ArrayList<MtestDTO> reservlist_m_id_date(Map<String, Object> daoMap);
 	public ArrayList<HtestDTO> reservlist_h_id_date(Map<String, Object> daoMap);
 	
+	
+	// 회원통계
+	
+	public int memberGenderWoman(); // 여성 수
+	public int memberGenderMan(); // 남성 수
+	
 
 }

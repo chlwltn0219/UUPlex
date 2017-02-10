@@ -15,7 +15,7 @@
 			$('#catal').change(function(){
 				var log = document.reserve.catal.value;
 				var catal = $('#catal option:selected').val();
-				alert(catal);
+				/* alert(catal); */
 				reservlist(log);
 			});
 		});

@@ -30,6 +30,7 @@ public class DateSrcHandler implements CommandHandler{
 		String curdate = req.getParameter("curdate");
 		String log = req.getParameter("log");
 		
+		System.out.println("아이디 : " + req.getParameter("memId"));
 		if(req.getParameter("memId").equals("")){
 			
 			if(log.equals("영화")) {

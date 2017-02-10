@@ -96,7 +96,7 @@ function dateSrc() {
 	var memId = document.reserve.memId.value;
 	
 	if(memId == ""){
-		var params = "date=" + date + "&curdate=" + curdate + "&log=" + log;
+		var params = "date=" + date + "&curdate=" + curdate + "&log=" + log + "&memId=" + memId;
 	} else {
 		var params = "date=" + date + "&curdate=" + curdate + "&log=" + log + "&memId=" + memId;
 	}

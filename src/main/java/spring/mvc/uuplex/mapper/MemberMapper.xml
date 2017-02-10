@@ -93,4 +93,12 @@
 		SELECT * FROM h_reserv WHERE reservDay BETWEEN #{date} AND #{curdate} AND memId = #{memId}
 	</select>
 	
+	<select id="memberGenderWoman" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE gender = '여성'
+	</select>
+	
+	<select id="memberGenderMan" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE gender = '남성'
+	</select>
+	
 </mapper>   

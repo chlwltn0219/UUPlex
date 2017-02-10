@@ -6,18 +6,20 @@
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+    
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
+      
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Man',     11],
-          ['Woman',    6],
+          ['Man',   ${memGenderMan}],
+          ['Woman', ${memGenderWoman}],
         ]);
 
         var options = {
-          title: '성별분포'
+          title: 'Member Gender'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -71,7 +73,7 @@
               title: 'Member Grade',
               chartArea: {width: '50%'},
               hAxis: {
-                title: 'Total Population',
+                title: 'Total Member',
                 minValue: 0
               },
               vAxis: {
@@ -83,6 +85,30 @@
 
             chart.draw(data, options);
           }
+      
+      
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawBarChart);
+      function drawBarChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Age', 'Man', 'Woman'],
+          ['10대 이하', 1000, 400],
+          ['10대', 1170, 460],
+          ['20대', 660, 1120],
+          ['30대', 1030, 540],
+          ['40대', 367, 125],
+          ['50대', 205, 75],
+          ['60대 이상', 67, 36]
+        ]);
+
+        var options = {
+          title: 'Member Age',
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('columnchart_material'));
+
+        chart.draw(data, options);
+      }
       
     </script>
     <style>
@@ -102,21 +128,28 @@
   </head>
   <body>
   	<div class="container">
+  		<h2 style="margin: 0 0 0 530px;">회원통계</h2>
     
     <div class="jb-cell">
-    <h2>등급분포</h2>
+    <h3>등급분포</h3>
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
     </div>
     
   	<div class="jb-cell">
-  	<h2>성별분포</h2>
+  	<h3>성별분포</h3>
     <div id="piechart" style="width: 900px; height: 500px;" ></div>
     </div>
     
     <div class="jb-cell">
-    <h2>테스트</h2>
+    <h3>연령분포</h3>
+ 	<div id="columnchart_material" style="width: 900px; height: 700px;"></div>
+ 	</div>
+    
+    <div class="jb-cell">
+    <h3>테스트</h3>
  	<div id="chart2_div" style="width: 900px; height: 500px;"></div>
  	</div>
+    
  	</div>
   </body>
 </html>
