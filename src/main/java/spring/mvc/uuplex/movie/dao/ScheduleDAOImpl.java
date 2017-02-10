@@ -67,4 +67,12 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 		return list;
 	}
 
+	@Override
+	public List<ScheduleDTO> dateschedules(Map<String, String> map) {
+		List<ScheduleDTO> list = null;
+		ScheduleDAO dao = sqlSession.getMapper(ScheduleDAO.class);
+		list = dao.dateschedules(map);
+		return list;
+	}
+
 }
