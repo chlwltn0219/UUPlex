@@ -67,7 +67,7 @@
 				<li><a href="/uuplex/fitness/user/program">프로그램 안내</a></li>
 				<li><a href="/uuplex/fitness/user/teacher">강사 안내</a></li>
 				<li><a href="/uuplex/fitness/user/reserve">수강 신청</a></li>
-				<c:if test="${sessionScpoe.id != null}">
+				<c:if test="${sessionScope.id != null}">
 				<li><a href="/uuplex/fitness/user/statement">수강 내역/환불</a></li>
 				</c:if>
 				
