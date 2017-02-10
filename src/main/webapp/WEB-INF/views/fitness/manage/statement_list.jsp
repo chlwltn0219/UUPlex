@@ -22,8 +22,14 @@
 	<h3>명세 목록</h3>
 	
 	<div class="row chart">
-		<div class="col-sm-6" id="monthlySale"></div>
-		<div class="col-sm-6" id="dailySale"></div>
+		<div class="col-sm-6">
+			<h4>월간 수익</h4>
+			<div id="monthlySale"></div>
+		</div>
+		<div class="col-sm-6">
+			<h4>일간 수익</h4>
+			<div id="dailySale"></div>
+		</div>
 	</div>
 	<table class="table table-hover table-striped">
 		<thead>
