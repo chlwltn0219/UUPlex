@@ -50,13 +50,16 @@ h5{
 	text-align: center;
 }
 
+.title {
+	margin-bottom: 1em;
+}
 
 </style>
 </head>
 <body>
 <div class="container" >
 
-	<h1>강사 정보</h1>
+	<img class="title" src="${resources}/fitness/img/teacher.png">
 
   <div class="panel-group" id="accordion">
 	<c:forEach var="s" items="${sports}">

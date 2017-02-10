@@ -26,6 +26,10 @@
 	color:white;
 }
 
+.title {
+	margin-bottom: 1em;
+}
+
 
 
 </style>
@@ -33,8 +37,8 @@
 <body>
 <div class="container" >
 
-	<h1>프로그램안내</h1>
-
+	<img class="title" src="${resources}/fitness/img/program.png">
+	
   <div class="panel-group" id="accordion">
 	<c:forEach var="s" items="${sports}">
     <div class="panel">
@@ -51,9 +55,9 @@
         	<table class="table">
 				<thead>
 					<tr>
-						<th>프로그램명</th>
-						<th>강사명</th>
-						<th>프로그램정보</th>
+						<th width="50%" height="50">프로그램명</th>
+						<th width="15%" height="50">강사명</th>
+						<th width="35%" height="50">프로그램정보</th>
 					</tr>
 				</thead>
         
