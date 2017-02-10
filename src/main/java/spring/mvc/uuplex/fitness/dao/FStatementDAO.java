@@ -21,4 +21,7 @@ public interface FStatementDAO {
 	
 	int checkStatement(Map<String, Object> info);
 
+	List<Map<String, Object>> dailySales();
+	List<Map<String, Object>> monthlySales();
+	
 }

@@ -10,7 +10,7 @@ import spring.mvc.uuplex.fitness.dao.FSportsDAO;
 import spring.mvc.uuplex.fitness.dto.FSportsDTO;
 
 @Service
-public class FSportsAddHandler implements FCommandHandler{
+public class FSportsInputProHandler implements FCommandHandler{
 	
 	@Autowired
 	FSportsDAO dao;

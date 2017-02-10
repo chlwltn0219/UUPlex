@@ -25,21 +25,21 @@ function sportsModify(sid){
 	sendRequest(sportsModal, url, method, params);
 }
 
-//======================== Modify Pro
-function sportsModifyPro(){
-	var sid = document.sportsModifyForm.sid.value;
-	var sname = document.sportsModifyForm.sname.value;
-	var sinfo = document.sportsModifyForm.sinfo.value;
-	var activated = document.sportsModifyForm.activated.value;
-	
-	var url = "/uuplex/fitness/manage/sports/modifyPro";
-	var method = "POST";
-	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo + "&activated=" + activated;
-	
-	if(sportsDataCheck()){
-		sendRequest(sportsModal, url, method, params);
-	}
-}
+//======================== Modify Pro : 사용하지 않음
+//function sportsModifyPro(){
+//	var sid = document.sportsModifyForm.sid.value;
+//	var sname = document.sportsModifyForm.sname.value;
+//	var sinfo = document.sportsModifyForm.sinfo.value;
+//	var activated = document.sportsModifyForm.activated.value;
+//	
+//	var url = "/uuplex/fitness/manage/sports/modifyPro";
+//	var method = "POST";
+//	var params = "sid=" + sid + "&sname=" + sname + "&sinfo=" + sinfo + "&activated=" + activated;
+//	
+//	if(sportsDataCheck()){
+//		sendRequest(sportsModal, url, method, params);
+//	}
+//}
 
 //======================== Write Modal Dialog
 function sportsModal() {
@@ -59,12 +59,13 @@ function sportsModal() {
 	
 }
 
+//=============================== submit check
 function sportsDataCheck() {
 	
 	var sname = $('input[name=sname]');
 	
 	if(sname.val().length <= 0){
-		alert("강사명은 빈칸이 올 수 없습니다.");
+		alert("종목명은 빈칸이 올 수 없습니다.");
 		sname.focus();
 		return false;
 	} 

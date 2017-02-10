@@ -24,21 +24,21 @@
 			<tr>
 				<td colspan="2">
 				<!-- 검색 -->
-					<form action="" method="get" onsubmit=""
-						 class="form-inline" name="searchForm">
-						<div class="input-group">
+<!-- 					<form action="" method="get" onsubmit="" -->
+<!-- 						 class="form-inline" name="searchForm"> -->
+<!-- 						<div class="input-group"> -->
 <!-- 							<select class="form-control"> -->
 <!-- 								<option>코드</option> -->
 <!-- 								<option>종목 명</option> -->
 <!-- 							</select> -->
-							<input class="form-control" type="search" placeholder="검색 구현 필요">
-							<div class="input-group-btn">
-								<button type="submit" class="btn btn-info">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
+<!-- 							<input class="form-control" type="search" placeholder="검색 구현 필요"> -->
+<!-- 							<div class="input-group-btn"> -->
+<!-- 								<button type="submit" class="btn btn-info"> -->
+<!-- 									<i class="glyphicon glyphicon-search"></i> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</form> -->
 				<td>
 				<!-- 등록 -->
 					<div class="form-group pull-right">
@@ -72,10 +72,8 @@
 				</c:if>
 					<td>${dto.cid}</td>
 					<td>
-						<h4>
-							<a class="btn btn-link" onclick="classDetail(${dto.cid})"
-							data-toggle="modal" data-target="#modalPage">${dto.pname} <small>${dto.subname}</small></a>
-						</h4>
+						<h4><a class="btn btn-link" onclick="classDetail(${dto.cid})"
+							data-toggle="modal" data-target="#modalPage" style="font-size: 1.5em">${dto.pname} <small>: ${dto.subname}</small></a></h4>
 					</td>
 					<td>
 						<table class="inner-table">

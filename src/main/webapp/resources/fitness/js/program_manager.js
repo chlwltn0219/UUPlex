@@ -37,28 +37,28 @@ function suitableTeacher(){
 	sendRequest(teacherSelect, url, method, params);
 }
 
-//======================== Modify Pro
-function programModifyPro(){
-	var pid = document.programModifyForm.pid.value;
-	var pname = document.programModifyForm.pname.value;
-	var pinfo = document.programModifyForm.pinfo.value;
-	var activated = document.programModifyForm.activated.value;
-	
-	var sid = document.programModifyForm.sid.value;
-	var tid = document.programModifyForm.tid.value;
-	var price = document.programModifyForm.price.value;
-	var preparationCost = document.programModifyForm.preparationCost.value;
-	var preparation = document.programModifyForm.preparation.value;
-	
-	var url = "/uuplex/fitness/manage/program/modifyPro";
-	var method = "POST";
-	var params = "pid=" + pid + "&pname=" + pname + "&pinfo=" + pinfo + "&activated=" + activated +
-				 "&sid=" + sid + "&tid=" + tid + "&price=" + price + "&preparationCost=" + preparationCost + "&preparation=" + preparation ;
-	
-	if(progamDataCheck()){
-		sendRequest(programModal, url, method, params);
-	}
-}
+//======================== Modify Pro : 사용 안함
+//function programModifyPro(){
+//	var pid = document.programModifyForm.pid.value;
+//	var pname = document.programModifyForm.pname.value;
+//	var pinfo = document.programModifyForm.pinfo.value;
+//	var activated = document.programModifyForm.activated.value;
+//	
+//	var sid = document.programModifyForm.sid.value;
+//	var tid = document.programModifyForm.tid.value;
+//	var price = document.programModifyForm.price.value;
+//	var preparationCost = document.programModifyForm.preparationCost.value;
+//	var preparation = document.programModifyForm.preparation.value;
+//	
+//	var url = "/uuplex/fitness/manage/program/modifyPro";
+//	var method = "POST";
+//	var params = "pid=" + pid + "&pname=" + pname + "&pinfo=" + pinfo + "&activated=" + activated +
+//				 "&sid=" + sid + "&tid=" + tid + "&price=" + price + "&preparationCost=" + preparationCost + "&preparation=" + preparation ;
+//	
+//	if(progamDataCheck()){
+//		sendRequest(programModal, url, method, params);
+//	}
+//}
 
 //======================== Write Modal Dialog
 function programModal() {

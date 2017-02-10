@@ -13,33 +13,36 @@
 		width: 35%;
 		vertical-align: top; 
 	}
+	.title {
+		margin-bottom: 1em;
+	}
 </style>
 <title>개인 명세 목록</title>
 </head>
 <body>
 	<c:set var="now" value="<%= new java.util.Date()%>"/>
 	<div class="container">
-		<h3>명세 목록</h3>
+	<img class="title" src="${resources}/fitness/img/registerlist.png">
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>
 					<td colspan="3">
 					<!-- 검색 -->
-					<form action="" method="get" onsubmit=""
-						 class="form-inline" name="searchForm">
-						<div class="input-group">
+<!-- 					<form action="" method="get" onsubmit="" -->
+<!-- 						 class="form-inline" name="searchForm"> -->
+<!-- 						<div class="input-group"> -->
 	<!-- 							<select class="form-control"> -->
 	<!-- 								<option>코드</option> -->
 	<!-- 								<option>종목 명</option> -->
 	<!-- 							</select> -->
-							<input class="form-control" type="search" placeholder="검색 구현 필요">
-							<div class="input-group-btn">
-								<button type="submit" class="btn btn-info">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
+<!-- 							<input class="form-control" type="search" placeholder="검색 구현 필요"> -->
+<!-- 							<div class="input-group-btn"> -->
+<!-- 								<button type="submit" class="btn btn-info"> -->
+<!-- 									<i class="glyphicon glyphicon-search"></i> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</form> -->
 				</tr>
 				<tr>
 					<th>#</th>

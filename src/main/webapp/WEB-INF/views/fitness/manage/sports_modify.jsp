@@ -9,7 +9,7 @@
 				<h4 class="modal-title">종목 내용</h4>
 			</div>
 			
-			<form action = "modifyPro" name="sportsModifyForm" onsubmit="return default">
+			<form action = "modifyPro" name="sportsModifyForm" onsubmit="return sportsDataCheck()">
 				<div class="modal-body">
 					<table class="table">
 						<tr>
@@ -72,7 +72,7 @@
 					<input type="reset" class="btn btn-warning" 
 						value="초기화">
 					<input type="button" class="btn btn-default" 
-						value="취소" onclick="sportsDetail(${dto.sid});">
+						value="취소" onclick="sportsDetail(${dto.sid})">
 				</div>
 			</form>
 		</div>

@@ -11,14 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.fitness.handler.FClassDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputFormHandler;
-import spring.mvc.uuplex.fitness.handler.FClassInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
-import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FDailySalesHandler;
 import spring.mvc.uuplex.fitness.handler.FManagerStatementListHandler;
+import spring.mvc.uuplex.fitness.handler.FMonthlySalesHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInfoListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
@@ -32,8 +34,8 @@ import spring.mvc.uuplex.fitness.handler.FReservableProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveFormHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveProHandler;
-import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
+import spring.mvc.uuplex.fitness.handler.FSportsInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherDetailHandler;
@@ -53,7 +55,7 @@ public class FFrontController{
    @Autowired
    FSportsListHandler sportsListHandler;
    @Autowired
-   FSportsAddHandler sportsAddHandler;
+   FSportsInputProHandler sportsAddHandler;
    @Autowired
    FSportsDetailHandler sportsDetailHandler;
    @Autowired
@@ -75,7 +77,7 @@ public class FFrontController{
    @Autowired
    FClassroomListHandler cListHandler;
    @Autowired
-   FClassroomInputHandler cinputHandler;
+   FClassroomInputProHandler cinputHandler;
    @Autowired
    FClassroomDetailHandler cDetailHandler;
    @Autowired
@@ -99,7 +101,7 @@ public class FFrontController{
    @Autowired
    FClassInputFormHandler classInputFormHandler;
    @Autowired
-   FClassInputHandler classInputHandler; 
+   FClassInputProHandler classInputHandler; 
    @Autowired
    FClassModifyHandler classModifyHandler; 
    
@@ -128,6 +130,11 @@ public class FFrontController{
    FTeacherInfoListHandler teacherInfoListHandler;
    @Autowired
    FProgramInfoListHandler programInfoListHandler;
+   
+   @Autowired
+   FDailySalesHandler dailySalesHandler;
+   @Autowired
+   FMonthlySalesHandler monthlySalesHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -454,6 +461,22 @@ public class FFrontController{
       viewPage = managerStatementListHandler.process(model);
       return viewPage;
    }
+   
+   @RequestMapping("/manage/statement/dailySales")
+   public String dailySales(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = dailySalesHandler.process(model);
+      return viewPage;
+   }
+   
+   @RequestMapping("/manage/statement/monthlySales")
+   public String monthSales(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = monthlySalesHandler.process(model);
+      return viewPage;
+   }
 
    // 源�吏꾩슦 : �뵾�듃�땲�뒪 - 醫낅ぉ �젙蹂� �닔�젙
    @RequestMapping("/user/teacher")
@@ -551,6 +574,5 @@ public class FFrontController{
       viewPage = refundProHandler.process(model);
       return viewPage;
    }
-
    
 }

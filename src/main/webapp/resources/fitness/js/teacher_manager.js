@@ -31,29 +31,27 @@ function teacherModify(tid) {
 	sendRequest(teacherModal, url, method, params);
 }
 
-//=====================================Modify Pro
-
-function teacherModifyPro() {
-	var tid = document.tModifyForm.tid.value;
-	var tname = document.tModifyForm.tname.value;
-	var tinfo = document.tModifyForm.tinfo.value;
-	var activated = document.tModifyForm.activated.value;
-	var initPic = document.tModifyForm.initPic.value;
-	var sid = document.tModifyForm.sid.value;
-	
-	var url = "/uuplex/fitness/manage/teacher/modifyPro"
-	var method = "POST"
-	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + 
-				 "&activated=" + activated + "&initPic=" + initPic + "&sid=" + sid;
-	
-	if(teacherDataCheck()){
-		sendRequest(teacherModal, url, method, params);
-	}
-
-}
+//=====================================Modify Pro : 사용 안함
+//function teacherModifyPro() {
+//	var tid = document.tModifyForm.tid.value;
+//	var tname = document.tModifyForm.tname.value;
+//	var tinfo = document.tModifyForm.tinfo.value;
+//	var activated = document.tModifyForm.activated.value;
+//	var initPic = document.tModifyForm.initPic.value;
+//	var sid = document.tModifyForm.sid.value;
+//	
+//	var url = "/uuplex/fitness/manage/teacher/modifyPro"
+//	var method = "POST"
+//	var params = "tid=" + tid + "&tname=" + tname + "&tinfo=" + tinfo + 
+//				 "&activated=" + activated + "&initPic=" + initPic + "&sid=" + sid;
+//	
+//	if(teacherDataCheck()){
+//		sendRequest(teacherModal, url, method, params);
+//	}
+//
+//}
 
 //=====================================Write Modal Dialog
-
 function teacherModal() {
 
 	var modal = document.getElementById("dialog");

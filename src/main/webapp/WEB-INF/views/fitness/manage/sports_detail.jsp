@@ -50,7 +50,7 @@
 			<div class="modal-footer">
 				<input type="button" class="btn btn-primary" 
 					value="수정" onclick="sportsModify(${dto.sid})">
-				<button class="btn btn-default" data-dismiss="modal" onclick="location.reload();">닫기</button>
+				<button class="btn btn-default" data-dismiss="modal">닫기</button>
 			</div>
 		</div>
 

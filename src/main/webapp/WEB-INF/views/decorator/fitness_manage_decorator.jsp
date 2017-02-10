@@ -26,7 +26,7 @@
 </head>
 <body>
 	<div class="container">
-		<div class="hidden-xs inner-menu">
+		<div class="inner-menu">
 			<ul class="nav nav-tabs">
 				<li><a href="/uuplex/fitness/manage/sports/list">종목 관리</a></li>
 				<li><a href="/uuplex/fitness/manage/teacher/list">강사 관리</a></li>
