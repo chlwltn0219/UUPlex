@@ -14,7 +14,7 @@
 		vertical-align: top; 
 	}
 	.title {
-		margin-bottom: 1em;
+		margin-bottom: 2em;
 	}
 </style>
 <title>개인 명세 목록</title>
