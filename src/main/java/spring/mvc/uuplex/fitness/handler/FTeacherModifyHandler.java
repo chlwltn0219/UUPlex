@@ -21,9 +21,7 @@ public class FTeacherModifyHandler implements FCommandHandler{
 
 	@Autowired
 	FTeacherDAO dao;
-	
-
-	
+		
 	@Autowired
 	ServletContext content;
 	
@@ -77,7 +75,7 @@ public class FTeacherModifyHandler implements FCommandHandler{
 				
 			model.addAttribute("tid", tid);
 
-			
+			System.out.println(cnt + "dga");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

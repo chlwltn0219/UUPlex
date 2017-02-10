@@ -17,7 +17,8 @@ public class FProgramModifyHandler implements FCommandHandler{
 	
 	@Override
 	public String process(Model model) {
-		String viewPage = null;
+		
+		String viewPage = "fitness/manage/program_modifyPro";
 		FProgramDTO dto = new FProgramDTO();
 		
 		int pid = 0;
@@ -57,7 +58,8 @@ public class FProgramModifyHandler implements FCommandHandler{
 			dto.setPreparationCost(preparationCost);
 			dto.setPreparation(preparation);
 			
-			dao.modifyProgram(dto);
+			int cnt = dao.modifyProgram(dto);
+			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}

@@ -192,8 +192,8 @@ public class FFrontController{
    @RequestMapping("/manage/sports/modifyPro")
    public String sportsModifyPro(HttpServletRequest req, Model model){
       model.addAttribute("req", req);
-      sportsModifyHandler.process(model);
-      String viewPage = sportsDetail(req, model); 
+
+      String viewPage = sportsModifyHandler.process(model);
       return viewPage;
    }
    
@@ -381,8 +381,8 @@ public class FFrontController{
    @RequestMapping("/manage/class/modifyPro")
    public String classModifyPro(HttpServletRequest req, Model model){
       model.addAttribute("req", req);
-      classModifyHandler.process(model);
-      String viewPage = classDetailHandler.process(model); 
+      
+      String viewPage = classModifyHandler.process(model); 
       return viewPage;
    }
    
@@ -442,8 +442,8 @@ public class FFrontController{
    @RequestMapping("/manage/program/modifyPro")
    public String programModifyPro(HttpServletRequest req, Model model){
       model.addAttribute("req", req);
-      programModifyHandler.process(model);
-      String viewPage = programDetail(req, model); 
+      
+      String viewPage = programModifyHandler.process(model);
       return viewPage;
    }
    

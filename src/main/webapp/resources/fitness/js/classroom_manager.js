@@ -46,7 +46,7 @@ function classroomModifyPro() {
 	
 	if(classroomDataCheck()){
 		sendRequest(classroomModal, url, method, params);
-		window.location.reload();
+/*		window.location.reload();*/
 	}
 
 }
