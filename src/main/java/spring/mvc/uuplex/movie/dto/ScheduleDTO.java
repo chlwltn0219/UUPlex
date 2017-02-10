@@ -5,7 +5,8 @@ import java.util.Date;
 
 public class ScheduleDTO {
 	
-	Timestamp showtime;      
+	Timestamp showtime;   
+	Date endtime; 
 	int movie_num; 
 	int theater_num;
 	int runtime;
@@ -14,8 +15,18 @@ public class ScheduleDTO {
 	int day;
 	int schedule_num; 
 	String MPAARating;
+	int seatcnt;
 	
 	
+	public int getSeatcnt() {
+		return seatcnt;
+	}
+	public Date getEndtime() {
+		return endtime;
+	}
+	public void setSeatcnt(int seatcnt) {
+		this.seatcnt = seatcnt;
+	}
 	public String getMPAARating() {
 		return MPAARating;
 	}
@@ -42,6 +53,7 @@ public class ScheduleDTO {
 		this.day =between*141+5;
 		
 		this.time=(showtime.getHours()-9)*60+showtime.getMinutes();
+		this.endtime = new Date(showtime.getTime() + 1000*60*runtime);
 	}
 	public int getMovie_num() {
 		return movie_num;

@@ -34,9 +34,15 @@
 	
 	<!-- 상영 시간표 반환 -->
 	<select id="schedules" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.ScheduleDTO">
-		SELECT s.*, m.title1, M.RUNTIME, m.MPAARating FROM m_Schedule s, m_movie_info m
-		WHERE S.MOVIE_NUM=M.MOVIE_NUM and S.SHOWTIME&gt;=#{date} and S.SHOWTIME&lt;#{end}
+		SELECT s.*, m.title1, M.RUNTIME, m.MPAARating, T.SEATCNT FROM m_Schedule s, m_movie_info m, m_theater t
+		WHERE S.MOVIE_NUM=M.MOVIE_NUM and S.THEATER_NUM=t.THEATER_NUM and S.SHOWTIME&gt;=#{date} and S.SHOWTIME&lt;#{end}
 		ORDER BY M.TITLE1 , S.THEATER_NUM , S.SHOWTIME
+	</select>
+	
+	<select id="dateschedules" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.ScheduleDTO">
+		SELECT s.*, M.RUNTIME, T.SEATCNT FROM m_Schedule s, m_movie_info m, m_theater t 
+		WHERE S.MOVIE_NUM=M.MOVIE_NUM and S.THEATER_NUM=t.THEATER_NUM and S.SHOWTIME&gt;=#{date} and S.SHOWTIME&lt;#{end} and M.MOVIE_NUM = #{movie_num}
+		ORDER BY S.THEATER_NUM , S.SHOWTIME
 	</select>
 	
 </mapper>

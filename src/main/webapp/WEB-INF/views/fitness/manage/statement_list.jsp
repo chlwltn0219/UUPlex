@@ -6,21 +6,30 @@
 <html>
 <head>
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
-<script type="text/javascript" src="${resources}/fitness/js/class_manager.js"></script>
+<script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="${resources}/fitness/js/statement_chart.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
 	table.inner-table th {
 		width: 35%;
 		vertical-align: top; 
 	}
+	
 </style>
 <title>명세 목록</title>
 </head>
 <body>
 	<h3>명세 목록</h3>
 	
-	<div class="row">
-		<pre>그래프를 넣어주세요		총계를 넣어주세요</pre>
+	<div class="row chart">
+		<div class="col-sm-6">
+			<h4>월간 수익</h4>
+			<div id="monthlySale"></div>
+		</div>
+		<div class="col-sm-6">
+			<h4>일간 수익</h4>
+			<div id="dailySale"></div>
+		</div>
 	</div>
 	<table class="table table-hover table-striped">
 		<thead>
