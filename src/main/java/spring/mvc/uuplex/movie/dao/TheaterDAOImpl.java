@@ -64,4 +64,12 @@ public class TheaterDAOImpl implements TheaterDAO{
 		return cnt;
 	}
 
+	@Override
+	public TheaterDTO Theater(int schedule_num) {
+		TheaterDTO dto = null;
+		TheaterDAO dao = sqlSession.getMapper(TheaterDAO.class);
+		dto = dao.Theater(schedule_num);
+		return dto;
+	}
+
 }

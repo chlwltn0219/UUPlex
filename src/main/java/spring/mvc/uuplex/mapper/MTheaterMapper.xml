@@ -41,4 +41,9 @@
 		 WHERE theater_num = #{theater_num}
 	</update>
 	
+	<!-- 상영관정보 불러오기 -->
+	<select id="Theater" parameterType="int" resultType="spring.mvc.uuplex.movie.dto.TheaterDTO">
+		 SELECT * FROM m_Theater WHERE THEATER_NUM = (select THEATER_NUM FROM M_SCHEDULE WHERE schedule_num=#{schedule_num})
+	</select>
+	
 </mapper>
