@@ -67,10 +67,12 @@
 				<li><a href="/uuplex/fitness/user/program">프로그램 안내</a></li>
 				<li><a href="/uuplex/fitness/user/teacher">강사 안내</a></li>
 				<li><a href="/uuplex/fitness/user/reserve">수강 신청</a></li>
+				<c:if test="${sessionScpoe.id != null}">
 				<li><a href="/uuplex/fitness/user/statement">수강 내역/환불</a></li>
+				</c:if>
 				
 <!-- 				관리자 메뉴 -->
-				<c:if test="${sessionScope.idCode == 101}">
+				<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 104}">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 관리자 페이지 <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
@@ -79,7 +81,7 @@
 						<li><a href="/uuplex/fitness/manage/program/list">프로그램 관리</a></li>
 						<li><a href="/uuplex/fitness/manage/classroom/list">강의실 관리</a></li>
 						<li><a href="/uuplex/fitness/manage/class/list">시간표 관리</a></li>
-						<li><a href="#">명세 내역</a></li>
+						<li><a href="/uuplex/fitness/manage/statement/list">명세 내역</a></li>
 					</ul>
 				</li>
 				</c:if>
@@ -96,8 +98,7 @@
 	</div>	
 	
 	<!-- 관리자 메뉴 -->
-	
-	<c:if test="${sessionScope.idCode == 101}">
+	<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 104}">
 	<div class="dropup">
 	  <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
 	    <img class="img-circle" src="${resources}/fitness/img/manage.png" alt="manage">

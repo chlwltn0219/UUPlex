@@ -97,7 +97,7 @@
 									data-toggle="modal" data-target="#modalPage"
 									onclick="reserveForm(${c.cid})"> 신청하기 </button>
 							</c:if>
-							<c:if test="${c.people >= c.limit || c.register_end < now}">
+							<c:if test="${(c.people >= c.limit && c.register_start < now && c.register_end > now) || c.register_end < now}">
 								<button class="btn btn-danger disabled"> 종료됨 </button>
 							</c:if>
 						</td>

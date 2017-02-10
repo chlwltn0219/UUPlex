@@ -10,7 +10,7 @@
 		<h4 class="modal-title">강의실</h4>
 	</div>
 	
-	<form action="modifyPro" name="classroomModifyForm" onsubmit="return default">
+	<form action="modifyPro" name="classroomModifyForm" onsubmit="return classroomDataCheck()">
 		<div class="modal-body">
 			<table class="table">
 				<tr>

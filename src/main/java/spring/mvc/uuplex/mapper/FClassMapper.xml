@@ -26,7 +26,7 @@
 			  		          ON t.tid = p.tid
 			  		       INNER JOIN F_SPORTS s
 			  		          ON s.sid = p.sid
-			  			   ORDER BY c.register_end DESC ) a )
+			  			   ORDER BY c.register_end DESC, cid DESC ) a )
 		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	
