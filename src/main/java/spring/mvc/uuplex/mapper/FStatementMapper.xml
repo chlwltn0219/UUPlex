@@ -103,5 +103,33 @@
 		 WHERE cid = #{cid}
 		   AND memid = #{memid}
 	</select>
+	
+	<select id="dailySales" resultType="Map">
+		SELECT TO_CHAR(d.DAY, 'YY-MM-DD') AS DAY, NVL(st.SALE, 0) AS SALE
+		  FROM ( SELECT TRUNC(SYSDATE,'MM')+LEVEL-1 AS DAY 
+				   FROM DUAL
+			    CONNECT BY TRUNC(SYSDATE,'MM')+LEVEL-1 &lt;= LAST_DAY(SYSDATE) ) d
+				   LEFT OUTER JOIN ( SELECT SUM(price) AS SALE, TRUNC(reg_date, 'DD') AS DAY
+				   					   FROM F_STATEMENT
+				  					  WHERE TRUNC(reg_date, 'DD') BETWEEN TRUNC(SYSDATE, 'MM')
+																		AND SYSDATE
+				  					   GROUP BY TRUNC(reg_date, 'DD') ) st
+					 ON d.DAY = st.DAY
+			ORDER BY d.DAY
+	</select>
+	
+	<select id="monthlySales" resultType="Map">
+		SELECT TO_CHAR(m.MONTH, 'YY-MM') AS MONTH, NVL(st.SALE, 0) AS SALE
+		  FROM ( SELECT ADD_MONTHS(TRUNC(SYSDATE, 'MM'),-LEVEL+1) AS MONTH
+				   FROM dual
+				CONNECT BY ADD_MONTHS(TRUNC(SYSDATE, 'MM'),-LEVEL+1) &gt;= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -5) ) m
+				   LEFT JOIN ( SELECT SUM(price) AS SALE, TRUNC(reg_date, 'MM') AS MONTH
+								 FROM F_STATEMENT
+								 WHERE reg_date BETWEEN TRUNC(ADD_MONTHS(SYSDATE, -5), 'MM')
+								   AND SYSDATE 
+								 GROUP BY TRUNC(reg_date, 'MM') ) st 
+					      ON m.MONTH = st.MONTH 
+					   ORDER BY MONTH
+	</select>
 
 </mapper>
