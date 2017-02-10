@@ -8,7 +8,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MemberDTO;
+import spring.mvc.uuplex.admin.dto.MtestDTO;
+import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO{
@@ -165,6 +168,105 @@ public class AdminDAOImpl implements AdminDAO{
 		cnt = dao.deleteMember(memId);
 		
 		return cnt;
+	}
+
+	
+	// 예약조회
+
+	@Override
+	public ArrayList<MtestDTO> reservlist_movie() {
+
+		ArrayList<MtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_movie();
+		
+		return dtos;
+	}
+	
+	
+	@Override
+	public ArrayList<HtestDTO> reservlist_hotel() {
+		ArrayList<HtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_hotel();
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<MtestDTO> reservlist_m_date(Map<String, Object> daoMap) {
+		ArrayList<MtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_m_date(daoMap);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<HtestDTO> reservlist_h_date(Map<String, Object> daoMap) {
+		ArrayList<HtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_h_date(daoMap);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<MtestDTO> reservlist_m_id(String memId) {
+		ArrayList<MtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_m_id(memId);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<HtestDTO> reservlist_h_id(String memId) {
+		ArrayList<HtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_h_id(memId);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<MtestDTO> reservlist_m_id_date(Map<String, Object> daoMap) {
+		ArrayList<MtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_m_id_date(daoMap);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<HtestDTO> reservlist_h_id_date(Map<String, Object> daoMap) {
+		ArrayList<HtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_h_id_date(daoMap);
+		
+		return dtos;
 	}
 
 

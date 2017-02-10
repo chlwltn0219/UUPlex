@@ -55,7 +55,9 @@
 			<%-- <textarea class="form-control" name="content" rows="20" readonly>${dto.content}</textarea> --%>
 			<div class="eventView">
 				<h3 align="center">${dto.content}</h3>
+				<c:if test="${dto.eventImg != '0'}">
 				<h1 align="center"><img width="500" height="1000" src="/images/${dto.eventImg}"></h1>
+				</c:if>
 			</div>
 		</div>
 	</div>	
@@ -65,6 +67,7 @@
       		<input type="button" class="btn btn-default" value="목록보기" onclick="window.location='event?pageNum=${pageNum}&shopCode=${shopCode}'">
       		<c:if test="${idCode == 101}">
       			<a data-toggle="modal" class="btn btn-default" data-target="#BoardModal" href="noneSM/eventModify?num=${dto.eventNum}&pageNum=${pageNum}&shopCode=${shopCode}">수정하기</a>
+      			<a data-toggle="modal" class="btn btn-default" data-target="#BoardModal" href="noneSM/eventDel?num=${dto.eventNum}&pageNum=${pageNum}&shopCode=${shopCode}">삭제하기</a>
       		</c:if>
     	</div>
   	</div>	

@@ -6,20 +6,24 @@
 <mapper namespace="spring.mvc.uuplex.admin.dao.BoardNoticeDAO"> 
 
 	<select id="getCount" resultType="int">
-		SELECT count(*) FROM notice_board
+		SELECT count(*) FROM notice_board WHERE important='0'
 	</select>
 	
 	<select id="getSubCount" parameterType="int" resultType="int">
-		SELECT count(*) FROM notice_board WHERE shopCode = #{shopCode}
+		SELECT count(*) FROM notice_board WHERE shopCode = #{shopCode} AND important='0'
+	</select>
+	
+	<select id="getCountNoti" resultType="int">
+		SELECT count(*) FROM notice_board WHERE important='공지'
 	</select>
 
 	<select id="getArticles" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.BoardNoticeDTO">
 		SELECT * FROM (SELECT shopCode, notiNum, memId, notiPasswd, subject, content, readCnt, 
 						      ref, ref_step, ref_level, noti_date, ip, important, rownum rnum
 						FROM ( SELECT * FROM notice_board
-							   ORDER BY ref DESC, ref_step ASC )
+							   ORDER BY ref DESC, ref_step ASC ) WHERE important='0'
 					  )
-				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end} ORDER BY noti_date DESC
 	</select>
 	
 	
@@ -27,9 +31,28 @@
 		SELECT * FROM (SELECT shopCode, notiNum, memId, notiPasswd, subject, content, readCnt, 
 						      ref, ref_step, ref_level, noti_date, ip, important, rownum rnum
 						FROM ( SELECT * FROM notice_board WHERE shopCode = #{shopCode}
-							   ORDER BY ref DESC, ref_step ASC )
+							   ORDER BY ref DESC, ref_step ASC ) WHERE important='0'
 					  )
-				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+				WHERE rnum &gt;= #{start} AND rnum &lt;= #{end} ORDER BY noti_date DESC
+	</select>
+	
+	<select id="getArticlesNoti" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.BoardNoticeDTO">
+		SELECT * FROM (SELECT shopCode, notiNum, memId, notiPasswd, subject, content, readCnt, 
+						      ref, ref_step, ref_level, noti_date, ip, important, rownum rnum
+						FROM ( SELECT * FROM notice_board
+							   ORDER BY ref DESC, ref_step ASC ) 
+					  )
+				WHERE important='공지' ORDER BY noti_date DESC
+	</select>
+	
+	
+	<select id="getArticlesSubNoti" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.BoardNoticeDTO">
+		SELECT * FROM (SELECT shopCode, notiNum, memId, notiPasswd, subject, content, readCnt, 
+						      ref, ref_step, ref_level, noti_date, ip, important, rownum rnum
+						FROM ( SELECT * FROM notice_board WHERE shopCode = #{shopCode}
+							   ORDER BY ref DESC, ref_step ASC ) 
+					  )
+				WHERE important='공지' ORDER BY noti_date DESC
 	</select>
 	
 	
@@ -53,6 +76,14 @@
 	<delete id="delNotice" parameterType="int">
 		DELETE FROM notice_board WHERE notiNum= #{num}
 	</delete>
+	
+	<update id="addReadCnt" parameterType="int">
+		UPDATE notice_board SET readCnt = readCnt + 1 WHERE notiNum= #{num}
+	</update>
+	
+	<update id="NoticeModify" parameterType="spring.mvc.uuplex.admin.dto.BoardNoticeDTO">
+		UPDATE notice_board SET shopCode=#{shopCode}, notiPasswd=${notiPasswd}, subject=#{subject}, content=#{content}, important=#{important} WHERE notiNum=#{notiNum}
+	</update>
 
 </mapper>
     

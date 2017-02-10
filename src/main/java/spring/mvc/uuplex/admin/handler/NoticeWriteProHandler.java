@@ -26,6 +26,7 @@ public class NoticeWriteProHandler implements CommandHandler {
 		
 		int shopCode = 100;
 		String code = req.getParameter("shopCode");
+		System.out.println("code = " + code);
 		if(code.equals("영화")) {
 			shopCode = 101;
 		} else if (code.equals("호텔")) {

@@ -3,7 +3,9 @@ package spring.mvc.uuplex.admin.dao;
 import java.util.ArrayList;
 import java.util.Map;
 
+import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MemberDTO;
+import spring.mvc.uuplex.admin.dto.MtestDTO;
 
 public interface AdminDAO {
 		
@@ -21,6 +23,19 @@ public interface AdminDAO {
 	public int deleteMember(String memId); // È¸¿øÅ»Åð
 	
 	public int upgrade(Map<String, Object> daoMap); // µî¾÷
+	
+	
+	public ArrayList<MtestDTO> reservlist_movie();
+	public ArrayList<HtestDTO> reservlist_hotel();
+	
+	public ArrayList<MtestDTO> reservlist_m_id(String memId);
+	public ArrayList<HtestDTO> reservlist_h_id(String memId);
+	
+	public ArrayList<MtestDTO> reservlist_m_date(Map<String, Object> daoMap);
+	public ArrayList<HtestDTO> reservlist_h_date(Map<String, Object> daoMap);
+	
+	public ArrayList<MtestDTO> reservlist_m_id_date(Map<String, Object> daoMap);
+	public ArrayList<HtestDTO> reservlist_h_id_date(Map<String, Object> daoMap);
 	
 
 }

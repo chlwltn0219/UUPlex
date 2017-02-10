@@ -64,9 +64,7 @@ public class BoardEventDAOImpl implements BoardEventDAO {
 	public int EventInsert(BoardEventDTO dto) {
 		int cnt = 0;
 		int num = dto.getEventNum();
-		System.out.println("num2 : " + num);
 		int ref = dto.getRef();
-		System.out.println("ref : " + ref);
 		int ref_step = dto.getRef_step();
 		int ref_level = dto.getRef_level();
 		
@@ -135,6 +133,23 @@ public class BoardEventDAOImpl implements BoardEventDAO {
 		pwd = dao.pwdChk(num);
 		
 		return pwd;
+	}
+
+	@Override
+	public void addReadCnt(int num) {
+		BoardEventDAO dao = this.sqlsession.getMapper(BoardEventDAO.class); 
+		dao.addReadCnt(num);
+		
+	}
+
+	@Override
+	public int eventDel(int num) {
+		int cnt = 0;
+		
+		BoardEventDAO dao = this.sqlsession.getMapper(BoardEventDAO.class); 
+		cnt = dao.eventDel(num);
+		
+		return cnt;
 	}
 	
 }

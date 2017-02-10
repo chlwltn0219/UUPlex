@@ -51,10 +51,14 @@ public class EventWriteProHandler implements CommandHandler {
 			if (file.hasMoreElements()) {
 				str = (String) file.nextElement();
 				fileName = multi.getFilesystemName(str);
-			}	
+			} 
+			
+			if (fileName == null) {
+				fileName = "0";
+			}
 		
 		int shopCode = 100;
-		System.out.println(multi.getParameter("shopCode"));
+
 		String code = multi.getParameter("shopCode");
 		if(code.equals("¿µÈ­")) {
 			shopCode = 101;
@@ -80,8 +84,6 @@ public class EventWriteProHandler implements CommandHandler {
 		
 		dto.setEvent_date(new Timestamp(System.currentTimeMillis()));
 		dto.setIp(req.getRemoteAddr());
-		
-		System.out.println("num1 : " + Integer.parseInt(multi.getParameter("num")));
 		
 		int cnt = dao.EventInsert(dto);
 		

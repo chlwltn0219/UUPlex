@@ -95,15 +95,12 @@
                <th width="10%">Regdate</th>
                <th width="5%">Count</th>
             </tr>   
-            
-     <c:if test="${cnt > 0}">  
      
-    	 <c:forEach var="dto" items="${dtos}">
+       <c:forEach var="dto" items="${dtosNoti}">
     	 
      	    <c:if test="${dto.important == '공지'}">
         	<tr>
-        	   <td>${number}
-               	  <c:set var="number" value="${number - 1}" />
+        	   <td>공지 
                </td>
                
                <td colspan="3">
@@ -118,9 +115,9 @@
 			   
                  <a href="contentNotiForm?num=${dto.notiNum}&pageNum=${pageNum}&number=${number + 1}&shopCode=${shopCode}" style="color:red">
                  
-                 <c:if test="${dto.shopCode==101}"><img src="${resources}/board/notice.png" border="0" width="30" height="18"> [영화]</c:if>
-                 <c:if test="${dto.shopCode==102}"><img src="${resources}/board/notice.png" border="0" width="30" height="18"> [호텔]</c:if>
-                 <c:if test="${dto.shopCode==103}"><img src="${resources}/board/notice.png" border="0" width="30" height="18"> [휘트니스]</c:if>
+                 <c:if test="${dto.shopCode==101}"><img src="${resources}/board/notice.png" border="0" width="30" height="17"> [영화]</c:if>
+                 <c:if test="${dto.shopCode==102}"><img src="${resources}/board/notice.png" border="0" width="30" height="17"> [호텔]</c:if>
+                 <c:if test="${dto.shopCode==103}"><img src="${resources}/board/notice.png" border="0" width="30" height="17"> [휘트니스]</c:if>
                  
                  ${dto.subject}</a>
                
@@ -139,7 +136,9 @@
         	</tr>
         	</c:if>
         	
-        </c:forEach>
+        </c:forEach>  
+            
+     <c:if test="${cnt > 0}">  
           
         <c:forEach var="dto" items="${dtos}">
           	<c:if test="${dto.important != '공지'}">
@@ -181,6 +180,7 @@
             </tr>
          	</c:if>
          </c:forEach>
+               
      </c:if>
            
          </tbody>
