@@ -70,7 +70,6 @@
 				<c:if test="${sessionScope.id != null}">
 				<li><a href="/uuplex/fitness/user/statement">수강 내역/환불</a></li>
 				</c:if>
-				
 <!-- 				관리자 메뉴 -->
 				<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 104}">
 				<li class="dropdown">

@@ -25,7 +25,7 @@
 				<tr>
 					<th>선택삭제</th>
 					<th>객실번호</th>
-					<th>객실이름</th>
+					<th>객실명</th>
 					<th>메인이미지</th>
 					<th>상세이미지1</th>
 					<th>상세이미지2</th>
@@ -69,10 +69,10 @@
 			<!-- Button trigger modal -->
 			<br> <br>
 			<center>
-				<button type="button" class="btn btn-default" data-toggle="modal"
+				<button type="button" class="btn btn-default btn-lg" data-toggle="modal"
 					data-target="#myModal">객실등록</button>
-				<button type="submit" class="btn btn-default">객실삭제</button>
-				<input class="btn btn-default" type="button" value="메인으로"
+				<button type="submit" class="btn btn-default btn-lg">객실삭제</button>
+				<input class="btn btn-default btn-lg" type="button" value="메인으로"
 			onclick="location.href='/uuplex/hotel'">
 			</center>
 		</form>
@@ -88,7 +88,7 @@
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
-							<h4 class="modal-title" id="myModalLabel">객실정보를 입력하세요.</h4>
+							<h4 class="modal-title" id="myModalLabel">객실등록 <small> (정보를 입력하세요.)</small></h4>
 						</div>
 						<div class="modal-body">
 
@@ -159,7 +159,7 @@
 
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
+							<button type="button" class="btn btn-default btn-lg"
 								data-dismiss="modal">닫기</button>
 							<button type="submit" class="btn btn-default">등록</button>
 						</div>

@@ -78,5 +78,21 @@ public class FStatementDAOImpl implements FStatementDAO{
 		cnt = dao.checkStatement(info);
 		return cnt;
 	}
-
+	
+	@Override
+	public List<Map<String, Object>> dailySales() {		
+		List<Map<String, Object>> list = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		list = dao.dailySales();
+		return list;
+	}
+	
+	@Override
+	public List<Map<String, Object>> monthlySales() {	
+		List<Map<String, Object>> list = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		list = dao.monthlySales();
+		return list;
+	}
+	
 }

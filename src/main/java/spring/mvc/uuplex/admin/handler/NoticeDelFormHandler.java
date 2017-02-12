@@ -12,9 +12,6 @@ import spring.mvc.uuplex.admin.dao.BoardNoticeDAO;
 
 @Service("noticeDelFormHandler")
 public class NoticeDelFormHandler implements CommandHandler {
-
-	@Autowired
-	BoardNoticeDAO dao;
 	
 	@Override
 	public String process(Model model) {

@@ -634,7 +634,7 @@
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
 								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6653929</span><br><br>
-								<img src="/uuplex/resources/main_images/movie3.png" width="400px">
+								<img src="/uuplex/resources/main_images/movie6.png" width="400px">
 							</p>
 						</div>
 					</div>
@@ -683,9 +683,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 11:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 9866756</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 9866756</span><br><br>
+							    <img src="/uuplex/resources/main_images/h201.png" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="2.02" data-category="2">
@@ -693,9 +693,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 11:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 4539810</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 4539810</span><br><br>
+								<img src="/uuplex/resources/main_images/h202.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="2.03" data-category="2">
@@ -703,9 +703,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8865001</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8865001</span><br><br>
+							    <img src="/uuplex/resources/main_images/h203.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="2.04" data-category="2">
@@ -713,9 +713,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 11:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6738982</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6738982</span><br><br>
+								<img src="/uuplex/resources/main_images/h204.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="2.05" data-category="2">
@@ -723,9 +723,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 9:00AM &mdash; 11:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7846729</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7846729</span><br><br>
+								<img src="/uuplex/resources/main_images/h205.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="2.06" data-category="2">
@@ -763,9 +763,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8867298</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8867298</span><br><br>
+								<img src="/uuplex/resources/main_images/h201.png" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="3.02" data-category="3">
@@ -773,9 +773,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7756989</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7756989</span><br><br>
+								<img src="/uuplex/resources/main_images/h202.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="3.03" data-category="3">
@@ -783,9 +783,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8809098</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8809098</span><br><br>
+								<img src="/uuplex/resources/main_images/h203.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="3.04" data-category="3">
@@ -793,9 +793,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 3365784</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 3365784</span><br><br>
+								<img src="/uuplex/resources/main_images/h204.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="3.05" data-category="3">
@@ -803,9 +803,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 4523213</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 4523213</span><br><br>
+								<img src="/uuplex/resources/main_images/h205.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/hotel3.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="3.06" data-category="3">
@@ -833,9 +833,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 11:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6743987</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6743987</span><br><br>
+								<img src="/uuplex/resources/main_images/pool.png" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/fit2.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="4.02" data-category="4">
@@ -843,10 +843,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 13:00PM &mdash; 03:00AM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 2289786</span>
-							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/fit2.png" width="400px"></p>
-							<p class="content__desc">Book tickets <a href="http://tympanus.net/Development/SeatPreview/">here</a>.</p>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 2289786</span><br><br>
+								<img src="/uuplex/resources/main_images/health.jpg" width="400px">
+							</p>	
 						</div>
 					</div>
 					<div class="content__item" data-space="4.03" data-category="4">
@@ -854,9 +853,9 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 10:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 9987879</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 9987879</span><br><br>
+								<img src="/uuplex/resources/main_images/health.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/fit2.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="4.04" data-category="4">
@@ -864,19 +863,19 @@
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 11:00PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6658940</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6658940</span><br><br>
+								<img src="/uuplex/resources/main_images/health.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/fit2.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="4.05" data-category="4">
-						<h3 class="content__item-title">에어로빅</h3>
+						<h3 class="content__item-title">스쿼시</h3>
 						<div class="content__item-details">
 							<p class="content__meta">
 								<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 11:30PM</span> 
-								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7843676</span>
+								<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7843676</span><br><br>
+								<img src="/uuplex/resources/main_images/squash.jpg" width="400px">
 							</p>
-							<p class="content__desc"><img src="/uuplex/resources/main_images/fit2.png" width="400px"></p>
 						</div>
 					</div>
 					<div class="content__item" data-space="4.06" data-category="4">
@@ -938,7 +937,7 @@
 					<li class="list__item" data-level="4" data-category="4" data-space="4.02"><a href="#" class="list__link">헬스장</a></li>
 					<li class="list__item" data-level="4" data-category="4" data-space="4.03"><a href="#" class="list__link">필라테스</a></li>
 					<li class="list__item" data-level="4" data-category="4" data-space="4.04"><a href="#" class="list__link">요가</a></li>
-					<li class="list__item" data-level="4" data-category="4" data-space="4.05"><a href="#" class="list__link">에어로빅</a></li>
+					<li class="list__item" data-level="4" data-category="4" data-space="4.05"><a href="#" class="list__link">스쿼시</a></li>
 				</ul>
 			</aside>
 			<!-- /spaces-list -->

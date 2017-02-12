@@ -63,5 +63,5 @@ function reservChk() {
 		alert("카드 만기일을 선택하세요.")
 		return false;
 	}	
-}
 
+}

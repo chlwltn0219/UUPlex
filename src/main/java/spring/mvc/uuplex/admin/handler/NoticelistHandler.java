@@ -74,7 +74,9 @@ public class NoticelistHandler implements CommandHandler {
 				daoMap.put("end", end);
 				
 				ArrayList<BoardNoticeDTO> dtos = dao.getArticles(daoMap);
+				ArrayList<BoardNoticeDTO> dtosNoti = dao.getArticlesNoti(daoMap);
 				model.addAttribute("dtos", dtos);
+				model.addAttribute("dtosNoti", dtosNoti);
 				model.addAttribute("shopCode", shopCode);
 			}
 			
@@ -86,7 +88,9 @@ public class NoticelistHandler implements CommandHandler {
 				daoMap.put("shopCode", shopCode);
 				
 				ArrayList<BoardNoticeDTO> dtos = dao.getArticlesSub(daoMap);
+				ArrayList<BoardNoticeDTO> dtosNoti = dao.getArticlesSubNoti(daoMap);
 				model.addAttribute("dtos", dtos);
+				model.addAttribute("dtosNoti", dtosNoti);
 				model.addAttribute("shopCode", shopCode);
 			}
 			

@@ -60,4 +60,63 @@
 		DELETE FROM uu_member WHERE memId = #{memId}
 	</delete>
 	
+	<select id="reservlist_movie" resultType="spring.mvc.uuplex.admin.dto.MtestDTO">
+		SELECT * FROM m_reserv
+	</select>
+	
+	<select id="reservlist_hotel" resultType="spring.mvc.uuplex.admin.dto.HtestDTO">
+		SELECT * FROM h_reserv
+	</select>
+	
+	<select id="reservlist_m_date" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.MtestDTO">
+		SELECT * FROM m_reserv WHERE reserve_date BETWEEN #{date} AND #{curdate}
+	</select>
+	
+	<select id="reservlist_h_date" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.HtestDTO">
+		SELECT * FROM h_reserv WHERE reservDay BETWEEN #{date} AND #{curdate}
+	</select>
+	
+	
+	<select id="reservlist_m_id" resultType="spring.mvc.uuplex.admin.dto.MtestDTO">
+		SELECT * FROM m_reserv WHERE memId = #{memId}
+	</select>
+	
+	<select id="reservlist_h_id" resultType="spring.mvc.uuplex.admin.dto.HtestDTO">
+		SELECT * FROM h_reserv WHERE memId = #{memId}
+	</select>
+	
+	<select id="reservlist_m_id_date" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.MtestDTO">
+		SELECT * FROM m_reserv WHERE reserve_date BETWEEN #{date} AND #{curdate} AND memId = #{memId}
+	</select>
+	
+	<select id="reservlist_h_id_date" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.HtestDTO">
+		SELECT * FROM h_reserv WHERE reservDay BETWEEN #{date} AND #{curdate} AND memId = #{memId}
+	</select>
+	
+	<select id="memberGenderWoman" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE gender = '여성'
+	</select>
+	
+	<select id="memberGenderMan" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE gender = '남성'
+	</select>
+	
+	<select id="gradeCount1" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE grade = '일반회원'
+	</select>
+	
+	<select id="gradeCount2" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE grade = 'Green회원'
+	</select>
+	
+	<select id="gradeCount3" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE grade = 'Gold회원'
+	</select>
+	
+	<select id="gradeCount4" resultType="int">
+		SELECT COUNT(*) FROM uu_member WHERE grade = 'Vip회원'
+	</select>
+	
+	
+	
 </mapper>   

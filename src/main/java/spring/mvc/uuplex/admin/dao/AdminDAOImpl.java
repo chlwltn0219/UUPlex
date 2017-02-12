@@ -8,7 +8,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MemberDTO;
+import spring.mvc.uuplex.admin.dto.MtestDTO;
+import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO{
@@ -165,6 +168,179 @@ public class AdminDAOImpl implements AdminDAO{
 		cnt = dao.deleteMember(memId);
 		
 		return cnt;
+	}
+
+	
+	// 예약조회
+
+	@Override
+	public ArrayList<MtestDTO> reservlist_movie() {
+
+		ArrayList<MtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_movie();
+		
+		return dtos;
+	}
+	
+	
+	@Override
+	public ArrayList<HtestDTO> reservlist_hotel() {
+		ArrayList<HtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_hotel();
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<MtestDTO> reservlist_m_date(Map<String, Object> daoMap) {
+		ArrayList<MtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_m_date(daoMap);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<HtestDTO> reservlist_h_date(Map<String, Object> daoMap) {
+		ArrayList<HtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_h_date(daoMap);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<MtestDTO> reservlist_m_id(String memId) {
+		ArrayList<MtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_m_id(memId);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<HtestDTO> reservlist_h_id(String memId) {
+		ArrayList<HtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_h_id(memId);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<MtestDTO> reservlist_m_id_date(Map<String, Object> daoMap) {
+		ArrayList<MtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_m_id_date(daoMap);
+		
+		return dtos;
+	}
+
+
+	@Override
+	public ArrayList<HtestDTO> reservlist_h_id_date(Map<String, Object> daoMap) {
+		ArrayList<HtestDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_h_id_date(daoMap);
+		
+		return dtos;
+	}
+
+
+	// 회원통계
+	
+	@Override
+	public int memberGenderWoman() {
+		int genderCount = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		genderCount = dao.memberGenderWoman();
+		
+		return genderCount;
+	}
+
+
+	@Override
+	public int memberGenderMan() {
+		int genderCount = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		genderCount = dao.memberGenderMan();
+		
+		return genderCount;
+	}
+
+
+	@Override
+	public int gradeCount1() {
+		int gradeCount1 = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount1 = dao.gradeCount1();
+		
+		return gradeCount1;
+	}
+
+
+	@Override
+	public int gradeCount2() {
+		int gradeCount2 = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount2 = dao.gradeCount2();
+		
+		return gradeCount2;
+	}
+
+
+	@Override
+	public int gradeCount3() {
+		int gradeCount3 = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount3 = dao.gradeCount3();
+		
+		return gradeCount3;
+	}
+
+
+	@Override
+	public int gradeCount4() {
+		int gradeCount4 = 0;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount4 = dao.gradeCount3();
+		
+		return gradeCount4;
 	}
 
 

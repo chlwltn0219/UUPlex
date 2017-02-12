@@ -22,8 +22,7 @@ public class ReserveListHandler implements CommandHandler {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		
-		
-		return "/main/admin/reserveList";
+		return "/main/admin/reserveList2";
 	}
 
 }

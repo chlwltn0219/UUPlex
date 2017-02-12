@@ -1,9 +1,8 @@
 package spring.mvc.uuplex.hotel.dto;
 public class ReservDTO {
 	private int reservNum;
+	private String memId;
 	private int roomNum;
-	private int id;
-	private String email;
 	private int shopCode;
 	private String roomName;
 	private String reservDay;
@@ -30,6 +29,13 @@ public class ReservDTO {
 	public void setReservNum(int reservNum) {
 		this.reservNum = reservNum;
 	}
+
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
 	
 	public int getRoomNum() {
 		return roomNum;
@@ -38,20 +44,6 @@ public class ReservDTO {
 		this.roomNum = roomNum;
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
- 
 	public int getShopCode() {
 		return shopCode;
 	}

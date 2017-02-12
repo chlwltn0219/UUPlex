@@ -17,6 +17,9 @@ public interface BoardEventDAO {
 	
 	public String pwdChk(int num); // 글 비밀번호 확인
 	public int eventModify(BoardEventDTO dto); // 글 수정
+	public int eventDel(int num); // 글 삭제
+	
+	public void addReadCnt(int num); // 조회수 증가
 	
 	public int getMaxNum(); // 글작성 - 답변글이 아닌경우
 

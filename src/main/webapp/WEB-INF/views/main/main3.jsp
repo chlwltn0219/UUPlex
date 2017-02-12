@@ -13,6 +13,8 @@
     <meta name="keywords" content="clipPath, svg, effect, layout, expansion, images, grid, polygon" />
     <meta name="author" content="Claudio Calautti for Codrops" />
 	<link href="${resources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="/uuplex/resources/main_script/mainCss/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/uuplex/resources/main_script/mainCss/font-awesome.min.css" />

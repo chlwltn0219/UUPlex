@@ -31,7 +31,7 @@ public class ContentFormHandler implements CommandHandler {
 		BoardDTO dto = dao.getQnA(num);
 		
 		if(!req.getRemoteAddr().equals(dto.getIp())) {
-			
+			dao.addReadCnt(num);
 		}
 		
 		System.out.println(req.getSession().getAttribute("idCode"));
