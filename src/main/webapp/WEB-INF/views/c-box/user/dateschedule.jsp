@@ -3,7 +3,7 @@
 <%@ include file="../setting.jsp"%>
 
 <style>
-img{
+a img{
 	width: 15px;
 	height: 15px;
 }
