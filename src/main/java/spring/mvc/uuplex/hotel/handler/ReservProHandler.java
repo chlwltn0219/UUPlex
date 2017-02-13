@@ -42,6 +42,7 @@ public class ReservProHandler implements HCommandHandler {
 			dto.setBreakfast(req.getParameter("breakfast"));
 			dto.setFirstName(req.getParameter("firstName"));
 			dto.setLastName(req.getParameter("lastName"));
+			dto.setEmail(req.getParameter("email"));
 			dto.setCountry(req.getParameter("country"));
 			dto.setCard(req.getParameter("card"));
 			dto.setCardNum(req.getParameter("cardNum"));
