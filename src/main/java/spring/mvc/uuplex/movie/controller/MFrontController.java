@@ -18,8 +18,10 @@ import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
 import spring.mvc.uuplex.movie.handler.DeleteTheaterHandler;
+import spring.mvc.uuplex.movie.handler.GenderAgeRateHandler;
 import spring.mvc.uuplex.movie.handler.GetRankingHandler;
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
+import spring.mvc.uuplex.movie.handler.MainRankingHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ManageTheaterHandler;
@@ -29,6 +31,7 @@ import spring.mvc.uuplex.movie.handler.ModifyTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MovieDetailHandler;
 import spring.mvc.uuplex.movie.handler.MovieListHandler;
 import spring.mvc.uuplex.movie.handler.MovieScheduleHandler;
+import spring.mvc.uuplex.movie.handler.OrderByDateHandler;
 import spring.mvc.uuplex.movie.handler.RatingOrderHandler;
 import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
@@ -39,16 +42,20 @@ import spring.mvc.uuplex.movie.handler.ScreenQuaterHandler;
 @RequestMapping("/c-box")
 public class MFrontController {
 
+	@Autowired
+	MainRankingHandler mainRankingHandler;
+	
    @RequestMapping("")
-   public String list() {
+   public String list(HttpServletRequest req, Model model) {
       System.out.println("c-box main");
-
-      String viewPage = "c-box/Movie_main";
+      
+      model.addAttribute("req", req);
+      String viewPage = mainRankingHandler.process(model);
 
       return viewPage;
    }
 
-   // �쑀�쁺�썝 : �쁺�솕 �벑濡�
+   // 영화정보 추가폼
    @RequestMapping("/manage/movie/inputForm")
    public String movieInputForm() {
       System.out.println("movie_input");
@@ -57,7 +64,7 @@ public class MFrontController {
       return viewPage;
    }
 
-   // �쑀�쁺�썝 : �쁺�솕 �벑濡�
+   // 영화정보 추가
    @Autowired
    AddMovieInfoHandler addMovieInfoHandler;
 
@@ -75,6 +82,7 @@ public class MFrontController {
       return viewPage;
    }
 
+   // 영화정보 추가 처리
    @RequestMapping("/addMoviePro")
    public String addMovieInfoPro() {
       System.out.println("addMoviePro");
@@ -428,5 +436,30 @@ public class MFrontController {
 		 return "c-box/Movie_main";
 	}
 	
+	//유영원 : 최신 개봉작 영화 리스트
+	@Autowired
+	OrderByDateHandler orderByDateHandler;
+	@RequestMapping("/orderByDate")
+	public String orderByDate(HttpServletRequest req, Model model) {
+		System.out.println("orderByDate");
+		                     
+		model.addAttribute("req", req);
+		String viewPage = orderByDateHandler.process(model);
+		                     
+		return viewPage;
+	}
+	
+	//유영원 : 영화별 성별/연령별 예매율
+	@Autowired
+	GenderAgeRateHandler genderAgeRateHandler;
+	@RequestMapping("/genderAgeRate")
+	public String genderAgeRate(HttpServletRequest req, Model model) {
+		System.out.println("orderByDate");
+			                     
+		model.addAttribute("req", req);
+		String viewPage = genderAgeRateHandler.process(model);
+			                     
+		return viewPage;
+	}
 }
 

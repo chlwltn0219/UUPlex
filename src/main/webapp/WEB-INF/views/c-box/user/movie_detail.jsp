@@ -43,9 +43,7 @@
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 
 <script src="${js}jquery-1.11.3.min.js"></script>
-<script>
 
-</script>
 </head>
 
 <body>

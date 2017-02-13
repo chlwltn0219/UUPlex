@@ -3,8 +3,8 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
 <%@ include file="../setting.jsp"%> 
-<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script src="${js}jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 	
@@ -19,9 +19,36 @@ $('#myTab a[href="#profile"]').tab('show'); // Select tab by name
 $('#myTab a:first').tab('show'); // Select first tab
 $('#myTab a:last').tab('show'); // Select last tab
 $('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed) 
-</script>
-<script type="text/javascript">
 
+//======================== Detail Modal
+function genderAgeRate(movie_num) {
+   var url = "/uuplex/c-box/genderAgeRate";
+   var method = "GET";
+   var params = "movie_num=" + movie_num;
+   sendRequest(graphModal, url, method, params);
+}
+
+//======================== Write Modal Dialog
+function graphModal() {
+   
+   var graph = document.getElementById("dialog");
+   
+   if(httpRequest.readyState == 4 ) {
+      if(httpRequest.status == 200) {
+         //응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
+    	  graph.innerHTML = httpRequest.responseText;
+         
+      } else {
+    	  graph.innerHTML = httpRequest.status + "에러 발생";
+      }
+   } else {
+	   graph.innerHTML = "상태 : " + httpRequest.readyState;
+   }
+   
+}
+</script>
+
+<script type="text/javascript">
 //구글 차트
 google.charts.load("current", {
 	packages : [ "corechart" ]
@@ -43,7 +70,7 @@ function drawChart() {
 		 	</c:forEach>
 		 ]);  
 	  */
-	 alert("dd");
+	
 	   
 	   //방법2
 	   var data = new google.visualization.DataTable();
@@ -146,9 +173,13 @@ function drawChart3() {
 		</c:forEach> 
 		
 	var options = {
-		title : '3위 영화',
+		title : '전체',
 		pieHole : 0.4,
+		label: 'none',
+		pieSliceText: 'none',
+		legend:'none'
 		
+
 	    
 	};
 
@@ -158,6 +189,41 @@ function drawChart3() {
 	
 }
 /* 예매율 3위 끝 */
+ 
+/* 성별 예매 분포 시작 */
+google.load('visualization', '1', {'packages':['corechart'], "callback": drawChart});
+/* google.charts.setOnLoadCallback(drawChart4); */
+
+function drawChart4() {
+	   
+	   //방법2
+	   var data = new google.visualization.DataTable();
+
+	   data.addColumn('string','title');
+	   data.addColumn('number','rate');
+		data.addRows([
+				['여자',  ${(gender/dto.cnt)*100}],
+				['남자',  100-${(gender/dto.cnt)*100}]
+			]);
+		
+		
+	var options = {
+		title : '전체',
+		pieHole : 0.4,
+		label: 'none',
+		pieSliceText: 'none',
+		legend:'none'
+		
+
+	    
+	};
+
+	var chart = new google.visualization.PieChart(
+			document.getElementById('donutchart4'));
+	chart.draw(data, options);
+	
+}
+/* 성별 예매 분포 끝 */
 </script>
 <script type="text/javascript">
 google.charts.load("current", {packages:['corechart']});
@@ -209,7 +275,7 @@ function drawChart4() {
                      role: "annotation" }]);
 
   var options = {
-    title: "최근 1년 매출 현황 (전년 동월 1일 부터 금년 전월 말일까지)",
+    title: "최근 1년 매출 현황 (전년 동월 1일 부터 전월 말일까지)",
     width: 1200,
     height: 400,
     bar: {groupWidth: "95%"},
@@ -220,7 +286,7 @@ function drawChart4() {
 }
 
 
-    </script>
+</script>
 <script type="text/javascript">
 function getSQresult(){
 	   var url = "/uuplex/c-box/manage/reserve/screenQuater";
@@ -273,7 +339,7 @@ function screenQ() {
 				<li role="presentation"><a href="#messages"
 					aria-controls="messages" role="tab" data-toggle="tab">스크린 쿼터</a></li>
 				<li role="presentation"><a href="#settings"
-					aria-controls="settings" role="tab" data-toggle="tab">...</a></li>
+					aria-controls="settings" role="tab" data-toggle="tab">예매내역 조회</a></li>
 			</ul>
 
 			<!-- Tab panes -->
@@ -285,7 +351,7 @@ function screenQ() {
 				 <div class="donutchart" id="donutchart3" style="width: 380px; height: 400px;"></div> 
 				 
 				 <div>
-				 	<div>최근 7일 관객 수 : ${reserveCnt}</div>
+				 	<div style="font-size: 20px;"><b>최근 7일 관객 수 : ${reserveCnt}</b></div><br>
 				 	
 				 	<table class="table" id="table">
 				 		<tr>
@@ -293,8 +359,9 @@ function screenQ() {
 				 			<th>영화명</th>
 				 			<th>예매율</th>
 				 			<th>개봉일</th>
-				 			<th>성별</th>
-				 			<th>연령별</th>
+				 			<th>세부 통계</th>
+				 			<th>그래프</th>
+				 			
 				 		</tr>
 				 		<c:forEach items="${dtos}" var="dto">
 							<tr>
@@ -306,10 +373,13 @@ function screenQ() {
 								</td>
 								<td>${dto.releaseDate}</td>
 								
-								<td><input type="button" class="btn" name="deleteButton" value="성별"
-										onclick="window.location='/uuplex/c-box/manage/movie/delete?movie_num=${dto.movie_num}'"></td>
-								<td><input type="button" class="btn" name="deleteButton" value="연령별"
-										onclick="window.location='/uuplex/c-box/manage/movie/delete?movie_num=${dto.movie_num}'"></td>		
+								<td>
+								<input type="button" class="btn btn-default" value="성별/연령별" data-toggle="modal" data-target="#modalPage" 
+								onclick="genderAgeRate(${dto.movie_num})">
+								
+								</td>
+								<td>
+								</td>		
 							</tr>
 						</c:forEach>
 				 		
@@ -355,10 +425,21 @@ function screenQ() {
 					</form>
 					<div id="result"></div>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="settings">...</div>
+				<div role="tabpanel" class="tab-pane" id="settings">기간별, 영화별  예매내역 조회, 이번달 매출</div>
 			</div>
 
 		</div>
 	</div>
+	
+	
+	<div class="modal fade" id="modalPage" role="dialog">
+			<div class="modal-dialog modal-lg" >
+				<div id="dialog">
+					<div id="gender">
+					</div>
+				</div>
+			</div>
+			
+		</div>
 </div>
 
