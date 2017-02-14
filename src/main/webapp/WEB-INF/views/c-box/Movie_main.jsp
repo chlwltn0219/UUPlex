@@ -240,25 +240,27 @@ embed {
 	</div>
 
 	<jsp:include page="${contentPage}" />
+	
+	<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 102}">
 
-	<img id="setting" src="${img}etc/setting.png">
-
-	<div class="mmanagermenu">
-		<table class="table table-hover text-center">
-			<tr>
-				<td><a href="/uuplex/c-box/manage_movie">영화관리</a></td>
-			</tr>
-			<tr>
-				<td><a href="/uuplex/c-box/manage_schedule">상영일정관리</a></td>
-			</tr>
-			<tr>
-				<td><a href="/uuplex/c-box/manage_theater">상영관 관리</a></td>
-			</tr>
-			<tr>
-				<td><a href="/uuplex/c-box/manage_reserve">예매관리</a></td>
-			</tr>
-		</table>
-
-	</div>
+	<img id="setting" src="${img}etc/setting.png">	
+		<div class="mmanagermenu">
+			<table class="table table-hover text-center">
+				<tr>
+					<td><a href="/uuplex/c-box/manage_movie">영화관리</a></td>
+				</tr>
+				<tr>
+					<td><a href="/uuplex/c-box/manage_schedule">상영일정관리</a></td>
+				</tr>
+				<tr>
+					<td><a href="/uuplex/c-box/manage_theater">상영관 관리</a></td>
+				</tr>
+				<tr>
+					<td><a href="/uuplex/c-box/manage_reserve">예매관리</a></td>
+				</tr>
+			</table>
+	
+		</div>
+	</c:if>
 </body>
 </html>

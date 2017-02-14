@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 
 import spring.mvc.uuplex.movie.dao.ScheduleDAO;
 import spring.mvc.uuplex.movie.dao.TheaterDAO;
+import spring.mvc.uuplex.movie.dto.ScheduleDTO;
 import spring.mvc.uuplex.movie.dto.TheaterDTO;
 @Service
 public class TicketHandler implements MCommandHandler {
@@ -32,6 +33,9 @@ public class TicketHandler implements MCommandHandler {
 		String[] row = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
 		
 		model.addAttribute("row", row);
+		ScheduleDTO scheduleInfo = sdao.getScheduleinfo(schedule_num);
+		
+		model.addAttribute("scheduleInfo", scheduleInfo);
 		
 		return "c-box/Movie_main";
 	}

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
+import spring.mvc.uuplex.hotel.handler.ReservCancelHandler;
 import spring.mvc.uuplex.hotel.handler.ReservConfirmHandler;
 import spring.mvc.uuplex.hotel.handler.ReservDetailHandler;
 import spring.mvc.uuplex.hotel.handler.ReservFormHandler;
@@ -206,5 +207,25 @@ public class HFrontController {
 		String viewPage = reservDetailHandler.process(model);
 		
 		return viewPage;
+	}
+	
+	//객실삭제
+	@Autowired
+	ReservCancelHandler reservCancelHandler;
+	@RequestMapping("/reservCancel")
+	public String reservCancel(HttpServletRequest req, Model model) {
+		System.out.println("reservCancel()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservCancelHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//달력
+	@RequestMapping("/adminCalendar")
+	public String calendar(Model model) {
+		System.out.println("adminCalendar()");
+		return "/hotel/adminCalendar";
 	}
 }

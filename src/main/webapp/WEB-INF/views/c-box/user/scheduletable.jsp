@@ -18,8 +18,9 @@
 			<span class="glyphicon glyphicon-chevron-right"
 				onclick="date(${date+1});"></span>
 		</h2>
+		
 
-		<c:if test="${dtos!=null}">
+		<c:if test="${fn:length(dtos) > 0}">
 			<table class="timetable">
 				<c:forEach items="${dtos}" var="dto" varStatus="status">
 					<c:if
@@ -59,6 +60,6 @@
 			</table>
 		</c:if>
 
-		<c:if test="${dtos==null}">
+		<c:if test="${fn:length(dtos) == 0}">
 			<h1>상영스케줄이 없습니다.</h1>
 		</c:if>

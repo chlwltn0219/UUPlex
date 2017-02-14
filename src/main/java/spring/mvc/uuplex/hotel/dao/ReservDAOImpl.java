@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import spring.mvc.uuplex.admin.dto.MemberDTO;
 import spring.mvc.uuplex.hotel.dto.ReservDTO;
 @Repository
 public class ReservDAOImpl implements ReservDAO {
@@ -48,6 +49,12 @@ public class ReservDAOImpl implements ReservDAO {
 		
 		return dto;
 	}
-	
 
+	//예약취소
+	@Override
+	public void cancel(int roomNum) {
+		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
+		dao.cancel(roomNum);
+	}
+	
 }
