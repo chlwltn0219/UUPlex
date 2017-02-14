@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MemberDTO;
 import spring.mvc.uuplex.admin.dto.MtestDTO;
+import spring.mvc.uuplex.fitness.dto.FStatementDTO;
 import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
 @Repository
@@ -196,6 +197,18 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return dtos;
 	}
+	
+	
+	@Override
+	public ArrayList<FStatementDTO> reservlist_fitness() {
+		ArrayList<FStatementDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_fitness();
+		
+		return dtos;
+	}
 
 
 	@Override
@@ -217,6 +230,18 @@ public class AdminDAOImpl implements AdminDAO{
 		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
 		
 		dtos = dao.reservlist_h_date(daoMap);
+		
+		return dtos;
+	}
+	
+	
+	@Override
+	public ArrayList<FStatementDTO> reservlist_f_date(Map<String, Object> daoMap) {
+		ArrayList<FStatementDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_f_date(daoMap);
 		
 		return dtos;
 	}
@@ -244,6 +269,18 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return dtos;
 	}
+	
+	
+	@Override
+	public ArrayList<FStatementDTO> reservlist_f_id(String memId) {
+		ArrayList<FStatementDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_f_id(memId);
+		
+		return dtos;
+	}
 
 
 	@Override
@@ -259,6 +296,18 @@ public class AdminDAOImpl implements AdminDAO{
 
 
 	@Override
+	public ArrayList<FStatementDTO> reservlist_f_id_date(Map<String, Object> daoMap) {
+		ArrayList<FStatementDTO> dtos = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		dtos = dao.reservlist_f_id_date(daoMap);
+		
+		return dtos;
+	}
+
+	
+	@Override
 	public ArrayList<HtestDTO> reservlist_h_id_date(Map<String, Object> daoMap) {
 		ArrayList<HtestDTO> dtos = null;
 		
@@ -268,7 +317,6 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return dtos;
 	}
-
 
 	// 회원통계
 	

@@ -8,7 +8,7 @@
     <insert id="reservation" parameterType="spring.mvc.uuplex.hotel.dto.ReservDTO">
     	INSERT INTO h_reserv(reservNum, roomName, memId, shopCode, reservDay, checkIn, checkOut, day, capacity, extraBed, extraBedcnt,
     	 laundry, breakfast, firstName, lastName, country, email, card, cardNum, cardEndM, totCharge) 
-    	VALUES(reservNum.nextval, #{roomName}, #{memId}, 102, sysdate, #{checkIn}, #{checkOut}, #{day}, #{capacity}, #{extraBed}, #{extraBedcnt},
+    	VALUES(#{reservNum}, #{roomName}, #{memId}, 102, sysdate, #{checkIn}, #{checkOut}, #{day}, #{capacity}, #{extraBed}, #{extraBedcnt},
     	 #{laundry}, #{breakfast}, #{firstName}, #{lastName}, #{country}, #{email}, #{card}, #{cardNum}, #{cardEndM}, #{totCharge})
     </insert>
 	
@@ -22,8 +22,29 @@
 		SELECT * FROM h_reserv WHERE reservNum = #{reservNum}
 	</select>
 	
-  <!-- 객실삭제 -->
+  <!-- 예약삭제 -->
 	<delete id="cancel" parameterType="int">
 		DELETE FROM h_reserv WHERE reservNum=#{reservNum}
 	</delete>
+	
+  <!-- (관리자)예약내역조회 -->
+    <!-- <select id="adminCalendar" parameterType="String" resultType="spring.mvc.uuplex.hotel.dto.ReservDTO">
+		SELECT * FROM h_reserv WHERE checkIn = #{checkIn}
+	</select> -->
+	
+	<!-- (관리자)예약내역조회 -->
+	<select id="adminCalendar" parameterType="String" resultType="spring.mvc.uuplex.hotel.dto.ReservDTO">
+		SELECT * FROM h_reserv r, h_calendar c WHERE r.reservNum = c.reservNum AND reservDate=#{checkIn}
+	</select>
+	
+	<!-- 예약 번호 받아오기 -->
+	<select id="getReservNum" resultType="int">
+		SELECT reservNum.nextval from dual
+	</select>
+	
+	<!-- 예약(숙박일계산) -->
+	<insert id="reserveDay" parameterType="Map">
+		INSERT INTO h_calendar VALUES(#{reserveNum}, #{roomName}, #{resDate})
+	</insert>
+	
 </mapper>

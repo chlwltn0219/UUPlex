@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import spring.mvc.uuplex.admin.dao.AdminDAO;
 import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MtestDTO;
+import spring.mvc.uuplex.fitness.dto.FStatementDTO;
 
 @Service("idSrcHandler")
 public class IdSrcHandler implements CommandHandler{
@@ -44,16 +45,19 @@ public class IdSrcHandler implements CommandHandler{
 			model.addAttribute("log", log);
 			
 		} else if(log.equals("»÷∆Æ¥œΩ∫")) {
-			
+			ArrayList<FStatementDTO> fdtos = dao.reservlist_fitness();
+			model.addAttribute("fdtos", fdtos);
+			model.addAttribute("log", log);
 			
 		} else {
-			
-			
+					
 			ArrayList<MtestDTO> mdtos = dao.reservlist_m_id(memId);
 			ArrayList<HtestDTO> hdtos = dao.reservlist_h_id(memId);
+			ArrayList<FStatementDTO> fdtos = dao.reservlist_f_id(memId);
 			
 			model.addAttribute("mdtos", mdtos);
 			model.addAttribute("hdtos", hdtos);
+			model.addAttribute("fdtos", fdtos);
 			model.addAttribute("log", log);
 			
 		}
