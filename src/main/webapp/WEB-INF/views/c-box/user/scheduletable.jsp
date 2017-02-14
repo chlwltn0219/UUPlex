@@ -18,9 +18,8 @@
 			<span class="glyphicon glyphicon-chevron-right"
 				onclick="date(${date+1});"></span>
 		</h2>
-		
 
-		<c:if test="${fn:length(dtos) > 0}">
+		<c:if test="${dtos!=null}">
 			<table class="timetable">
 				<c:forEach items="${dtos}" var="dto" varStatus="status">
 					<c:if
@@ -53,7 +52,7 @@
 							<span class="showtime">
 								<fmt:formatDate value="${dto.showtime}" pattern="HH:mm" />
 							</span>
-							<span class="seat">166/${dto.seatcnt}</span>
+							<span class="seat">${dto.seatcnt-dto.ed}/${dto.seatcnt}</span>
 						</p>
 					</div>
 				</c:forEach>

@@ -12,9 +12,16 @@ public class ReserveDTO {
 	int price;
 	int cnt;
 	String seat_num;
+	int schedule_num;
 	
 	
 	
+	public int getSchedule_num() {
+		return schedule_num;
+	}
+	public void setSchedule_num(int schedule_num) {
+		this.schedule_num = schedule_num;
+	}
 	public String getSeat_num() {
 		return seat_num;
 	}

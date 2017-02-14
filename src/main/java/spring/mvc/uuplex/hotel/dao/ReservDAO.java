@@ -6,8 +6,8 @@ import spring.mvc.uuplex.hotel.dto.ReservDTO;
 
 public interface ReservDAO {
 	
-	public int reservation(ReservDTO dto);  //¿¹¾à¿Ï·á
-	public ArrayList<ReservDTO> reservList(String memId);  //¿¹¾à³»¿ªÁ¶È¸
-	public ReservDTO detail(int reservNum);	//¿¹¾à³»¿ª»ó¼¼
-	public void cancel(int roomNum);  //¿¹¾àÃë¼Ò
+	public int reservation(ReservDTO dto);  //ï¿½ï¿½ï¿½ï¿½Ï·ï¿½
+	public ArrayList<ReservDTO> reservList(String memId);  //ï¿½ï¿½ï¿½à³»ï¿½ï¿½ï¿½ï¿½È¸
+	public ReservDTO detail(int reservNum);	//ï¿½ï¿½ï¿½à³»ï¿½ï¿½ï¿½ï¿½
+	public void cancel(int roomNum);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }

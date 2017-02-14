@@ -17,7 +17,16 @@ public class ScheduleDTO {
 	String MPAARating;
 	int seatcnt;
 	String poster;
+	int ed;
 	
+	
+	
+	public int getEd() {
+		return ed;
+	}
+	public void setEd(int ed) {
+		this.ed = ed;
+	}
 	public String getPoster() {
 		return poster;
 	}

@@ -10,6 +10,9 @@
 		for (var j = 0; j < $(".seatarrange").length; j++) {
 			for (var i = 0; i < 240; i++) {
 				$(".seatarrange").eq(j).find(".seat").eq(i).addClass(seatclass[$(".seatarrange").eq(j).find(".seat").eq(i).val()]);
+				if($(".seatarrange").eq(j).find(".seat").eq(i).val()==3){
+					$(".seatarrange").eq(j).find(".seat").eq(i).removeClass('seat');
+				}
 			}
 		}
 
@@ -262,7 +265,7 @@
 		</div>
 		<div style="padding: 0 20px;">
 			선택하신 상영관/시간
-			<br>${theater.theater_num}관 (총 ${theater.seatCnt}석) <fmt:formatDate value="${scheduleInfo.showtime}" pattern="HH:mm" />~<fmt:formatDate value="${scheduleInfo.endtime}" pattern="HH:mm" />
+			<br>1층 ${theater.theater_num}관 (총 ${theater.seatCnt}석) <fmt:formatDate value="${scheduleInfo.showtime}" pattern="HH:mm" />~<fmt:formatDate value="${scheduleInfo.endtime}" pattern="HH:mm" />
 			<br><br>
 		</div>
 	</div>
@@ -277,14 +280,20 @@
 				<th>${row}</th>
 				<c:forEach items="${theater.seats}" var="seat" begin="${begin}"
 					varStatus="status" end="${end}">
-					<td><c:if test="${seat!=0}">
+					<td><c:if test="${seat!=0 && seat!=3}">
 							<button type="button" class="seat btn btn-sm" value="${seat}"
 								style="width: 20px; height: 20px; margin: 1px; font-weight: bold; padding: 0;" disabled="disabled">
 								${status.count}</button>
 								<input type="hidden" value="${row}${status.count}">
 						</c:if> <c:if test="${seat==0}">
 							&nbsp;&nbsp;&nbsp;&nbsp;
-						</c:if></td>
+						</c:if>
+						<c:if test="${seat==3}">
+							<button type="button" class="btn btn-sm" style="width: 20px; height: 20px; margin: 1px; font-weight: bold; padding: 0;" disabled="disabled">
+								${status.count}</button>
+								<input type="hidden" value="${row}${status.count}">
+						</c:if>
+					</td>
 				</c:forEach>
 				<c:set var="begin" value="${begin+20}" />
 				<c:set var="end" value="${end+20}" />

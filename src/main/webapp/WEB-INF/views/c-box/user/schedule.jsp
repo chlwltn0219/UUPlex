@@ -169,14 +169,14 @@ th {
 							<span class="showtime">
 								<fmt:formatDate value="${dto.showtime}" pattern="HH:mm" />
 							</span>
-							<span class="seat">166/${dto.seatcnt}</span>
+							<span class="seat">${dto.seatcnt-dto.ed}/${dto.seatcnt}</span>
 						</p>
 					</div>
 				</c:forEach>
 			</table>
 		</c:if>
 
-		<c:if test="${dtos==null}">
+		<c:if test="${fn:length(dtos) == 0}">
 			<h1>상영스케줄이 없습니다.</h1>
 		</c:if>
 	</div>

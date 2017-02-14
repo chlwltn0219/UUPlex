@@ -227,7 +227,14 @@ embed {
 						onclick="location.href='/uuplex/c-box/user/movie_list'"></td>
 					<td><input type="button" value="이벤트"
 						onclick="location.href='/uuplex/c-box/user/schedule_list'"></td>
-					<td><input type="button" value="로그인" data-toggle="modal" data-target="#loginModal" href="/uuplex/noneSM/loginForm"></td>
+					<td>
+						<c:if test="${sessionScope.id==null}">
+							<input type="button" value="로그인" data-toggle="modal" data-target="#loginModal" href="/uuplex/noneSM/loginForm">
+						</c:if>
+						<c:if test="${sessionScope.id!=null}">
+							<input type="button" value="로그아웃" onclick="location.href='/uuplex/logout'">
+						</c:if>
+					</td>
 				</tr>
 			</table>
 		</div>

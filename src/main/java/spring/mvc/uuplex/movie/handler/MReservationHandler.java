@@ -45,13 +45,13 @@ public class MReservationHandler implements MCommandHandler {
 		rdto.setPrice(price);
 		rdto.setReserve_date(new Timestamp(System.currentTimeMillis()));
 		rdto.setSeat_num(seat_num);
-		
-		System.out.println(rdto);
+		rdto.setSchedule_num(schedule_num);
 		
 		int status = dao.addReserve(rdto);
 		
 		model.addAttribute("cnt",status);
 		model.addAttribute("dto",rdto);
+		model.addAttribute("sdto",sdto);
 		
 		return "c-box/Movie_main";
 	}

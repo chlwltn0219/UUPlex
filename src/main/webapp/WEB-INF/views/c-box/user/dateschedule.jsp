@@ -30,7 +30,7 @@ cursor: pointer;
 					<fmt:formatDate value="${dto.showtime}" pattern="HH:mm" />
 					</span>
 					<span>
-					&nbsp;${dto.seatcnt}석
+					&nbsp;${dto.seatcnt-dto.ed}석
 					<fmt:formatDate value="${dto.showtime}" var="showtime" pattern="H" />
 					<c:if test="${showtime<11}"><img src="${img}etc/sun.png"></c:if>
 					<c:if test="${showtime>=23}"><img src="${img}etc/moon.png"></c:if>

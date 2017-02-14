@@ -1,5 +1,7 @@
 package spring.mvc.uuplex.movie.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,5 +22,13 @@ public class ReserveDAOImpl implements ReserveDAO{
 		cnt = dao.addReserve(rdto);
 		
 		return cnt;
+	}
+
+	@Override
+	public List<ReserveDTO> reservations(int schedule_num) {
+		List<ReserveDTO> reservation = null;
+		ReserveDAO dao = sqlSession.getMapper(ReserveDAO.class);
+		reservation = dao.reservations(schedule_num);
+		return reservation;
 	}
 }
