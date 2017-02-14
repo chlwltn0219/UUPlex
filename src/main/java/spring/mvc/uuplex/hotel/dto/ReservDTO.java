@@ -16,6 +16,7 @@ public class ReservDTO {
 	private String breakfast;
 	private String firstName;
 	private String lastName;
+	private String email;
 	private String country;
 	private String card;
 	private String cardNum;
@@ -140,6 +141,12 @@ public class ReservDTO {
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public String getCard() {

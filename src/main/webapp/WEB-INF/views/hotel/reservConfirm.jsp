@@ -118,12 +118,15 @@ function window.onload() {
          	<mark>${dto.firstName} ${dto.lastName}</mark>
          	<input type="hidden" name="firstName" value="${dto.firstName}">
          	<input type="hidden" name="lastName" value="${dto.lastName}">
-         	<input type="hidden" name=country value="${dto.country}">
+         	<input type="hidden" name="country" value="${dto.country}">
          </td>
       </tr>
         <tr>
            <td>이메일</td>
-           <td> <mark>${email}</mark> </td>
+           <td>
+           	<mark>${email}</mark>
+           	<input type="hidden" name="email" value="${email}">
+           </td>
         </tr>
         
       <tr>

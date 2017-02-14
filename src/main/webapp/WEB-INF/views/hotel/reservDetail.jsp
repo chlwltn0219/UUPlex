@@ -11,6 +11,9 @@
 form {
 	width:870px;
 }
+#reservTable {
+	text-align:center;
+}
 #result {
 	margin-right:50px;
 }
@@ -19,16 +22,26 @@ form {
 </head>
 <body>
 <script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
-
+<script type="text/javascript">
+function cancelConfirm() {
+    var a = confirm("예약번호 [" + document.reservCancel.reservNum.value + "]번 내역을 정말로 취소하시겠습니까?");
+    
+    if(a == true) {
+		window.location='reservCancel?reservNum=${dto.reservNum}';
+    } else {
+    	window.location="reservManage";
+    }
+}
+</script>
 <div class="container">
-<form action="reservCancel" method="post" name="reservCancel" onsubmit="return cancelChk();">
+<form action="reservCancel" method="post" name="reservCancel">
 <input type="hidden" name="roomName" value="${roomName}">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
 			aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
-		<h4 class="modal-title" id="myModalLabel">예약내역 상세정보</h4>
+		<br><h3 class="modal-title" id="myModalLabel">예약내역 상세정보</h3><br>
 	</div>
 	<div class="modal-body">
 
@@ -37,26 +50,33 @@ form {
 	         <th colspan="2" class="warning" style="text-align:center;"><h5>숙박정보</h5></th>
 	      </tr>
 	      <tr>
-	         <td width="50%">객실명</td>
+	         <td width="50%"><mark>예약번호</mark></td>
+	         <td>
+	         	${dto.reservNum}번
+	         	<input type="hidden" name="reservNum" value="${dto.reservNum}">
+	         </td>
+	      </tr>
+	      <tr>
+	         <td><mark>객실명</mark></td>
 	         <td>${dto.roomName}</td>
 	      </tr>
 	      <tr>
-	         <td>숙박날짜</td>
+	         <td><mark>숙박날짜</mark></td>
 	         <td>
 	         	<label for="start"> 체크인 : </label> ${dto.checkIn}<br>
 	            <label for="end"> 체크아웃 : </label> ${dto.checkOut}  
 	         </td>
 	      </tr>
 	      <tr>
-	         <td>숙박기간</td>
+	         <td><mark>숙박기간</mark></td>
 	         <td>${dto.day}박</td>
 	      </tr>
 	      <tr>
-	         <td>입실인원</td>
+	         <td><mark>입실인원</mark></td>
 	         <td>${dto.capacity}명</td>
 	      </tr>
 	      <tr>
-	         <td>추가 옵션</td>
+	         <td><mark>추가 옵션</mark></td>
 	         <td>
 	         <c:if test="${dto.extraBed == null}">
 	         <c:if test="${dto.laundry == null}">
@@ -81,27 +101,27 @@ form {
 	         <th colspan="2" class="warning" style="text-align:center"><h5>예약자정보</h5></th>
 	      </tr>
 	      <tr>
-	         <td>성명<small>(영문)</small></td>
+	         <td><mark>성명<small>(영문)</small></mark></td>
 	         <td>${dto.firstName} ${dto.lastName}</td>
 	      </tr>
 	        <tr>
-	           <td>이메일</td>
-	           <td>${email}</td>
+	           <td><mark>이메일</mark></td>
+	           <td>${dto.email}</td>
 	        </tr>
 	        
 	      <tr>
 	         <th colspan="2" class="warning" style="text-align:center"><h5>결제정보</h5></th>
 	      </tr>
 	      <tr>
-	         <td>카드종류</td>
+	         <td><mark>카드종류</mark></td>
 	         <td>${dto.card}</td>
 	      </tr>
 	      <tr>
-	         <td>카드번호</td>
+	         <td><mark>카드번호</mark></td>
 	         <td>${dto.cardNum}</td>
 	      </tr>
 	      <tr>
-	         <td>만기일</td>
+	         <td><mark>만기일</mark></td>
 	         <td>${dto.cardEndM}</td>
 	      </tr>
 	   </table>
@@ -113,9 +133,10 @@ form {
 	</div>
 
 	<div class="modal-footer">
-		<button type="submit" class="btn btn-default btn-lg">예약취소</button>
+		<button type="button" class="btn btn-default btn-lg" onclick="cancelConfirm();">예약취소</button>
+		
 		<button type="button" class="btn btn-default btn-lg"
-			data-dismiss="modal" onclick="window.location.reload()">닫기</button>
+			data-dismiss="modal" onclick="window.location.reload();">닫기</button>
 	</div>
 	
 </form>
