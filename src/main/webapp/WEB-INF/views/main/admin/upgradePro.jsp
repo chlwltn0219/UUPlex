@@ -13,7 +13,7 @@
 <c:if test="${cnt != 0}">
 	<script type="text/javascript">
 		alert("등업이 완료되었습니다.");
-		window.location="memberList";
+		window.location="memberList?grade=전체";
 	</script>
 	
 </c:if>

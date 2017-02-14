@@ -227,7 +227,7 @@ embed {
 						onclick="location.href='/uuplex/c-box/user/movie_list'"></td>
 					<td><input type="button" value="이벤트"
 						onclick="location.href='/uuplex/c-box/user/schedule_list'"></td>
-					<td><input type="button" value="로그인"></td>
+					<td><input type="button" value="로그인" data-toggle="modal" data-target="#loginModal" href="/uuplex/noneSM/loginForm"></td>
 				</tr>
 			</table>
 		</div>

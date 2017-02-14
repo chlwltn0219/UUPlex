@@ -10,10 +10,21 @@
 <html lang="ko">
 <head>
 
+	<link href="${resources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 	<style>
 		.aa {
-			width:300px;
-			height:300px;
+			width:400px;
+			height:20px;
+			margin: 30px;
+		}
+		
+		.jb-cell {
+			align:center;
+			width: 450px;
+	  		margin: 20px 0px 0px 10px;
+	  		padding: 30px 0px 0px 0px;
+	  		border: 3px solid #cccccc;
 		}
 	</style>
 	
@@ -21,69 +32,39 @@
 	
 </head>    
 
+
 <c:if test="${cnt != 1}">
 
-<div class="aa">
+<div class="container">
+<h3 align="center"> 아이디 중복 체크</h3>
 
-<h4>${memId}는 사용 가능한 아이디 입니다.</h4> <br>
+<div class="jb-cell" align="center">
 
+  <h4><a style="color:blue">${memId}</a>는 사용 가능한 아이디 입니다.</h4> <br><br>
 
- <!-- Modal -->
- <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">ID 중복 체크</h4>
-        </div>
-        <div class="modal-body">
-          <p>${memId}는 사용 가능한 아이디 입니다.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div> 
-  </div>
-  <!-- Modal end-->   
-  
-  
-  <button type="button" onclick="setId()">close</button>
+</div>
+ 
+<div class="aa" align="center"> 
+  <button type="button" class="btn btn-default" onclick="setId()">close</button>
+</div>  
  </div> 
 </c:if>  
 
 
 <c:if test="${cnt == 1}">
 
-<div class="aa">
+<div class="container">
+<h3 align="center"> 아이디 중복 체크</h3>
+<div class="jb-cell" align="center">
 
- <h4>${memId}는 이미 등록된 아이디 입니다.</h4>
+ <h4><a style="color:red">${memId}</a>는 이미 등록된 아이디 입니다.</h4>
  <h4>다른 ID를 입력하세요.</h4>
- <!-- Modal -->
- <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">ID 중복 체크</h4>
-        </div>
-        <div class="modal-body">
-          <p>${memId}는 이미 등록된 아이디 입니다.</p>
-          <p>다른 ID를 입력하세요.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div> 
-  </div>
-  <!-- Modal end-->   
+ <br><br>
   
-   <button type="button" onclick="self.close()">close</button>
+</div>
+<div class="aa" align="center"> 
+ <button type="button" class="btn btn-default" onclick="self.close()">close</button>
+</div>   
  </div> 
   
 </c:if>  

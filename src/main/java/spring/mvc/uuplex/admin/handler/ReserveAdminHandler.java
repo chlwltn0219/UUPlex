@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import spring.mvc.uuplex.admin.dao.AdminDAO;
 import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MtestDTO;
+import spring.mvc.uuplex.fitness.dto.FStatementDTO;
 import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
 @Service("reserveAdminHandler")
@@ -43,20 +44,24 @@ public class ReserveAdminHandler implements CommandHandler{
 			model.addAttribute("log", log);
 			
 		} else if(log.equals("»÷∆Æ¥œΩ∫")) {
-			
+			ArrayList<FStatementDTO> fdtos = dao.reservlist_fitness();
+			model.addAttribute("fdtos", fdtos);
+			model.addAttribute("log", log);
 			
 		} else {
 			
 			ArrayList<MtestDTO> mdtos = dao.reservlist_movie();
 			ArrayList<HtestDTO> hdtos = dao.reservlist_hotel();
+			ArrayList<FStatementDTO> fdtos = dao.reservlist_fitness();
 			model.addAttribute("mdtos", mdtos);
 			model.addAttribute("hdtos", hdtos);
+			model.addAttribute("fdtos", fdtos);
 			model.addAttribute("log", log);
 			System.out.println("1111111111");
 		}
 		
 		
-		return "/main/reserve/reservlistid";
+		return "/main/reserve/reservlist";
 		
 	}
 

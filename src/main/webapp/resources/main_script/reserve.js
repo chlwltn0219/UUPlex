@@ -7,7 +7,7 @@ function dateCnt(count) {
 	var curday = curdt.getDate() < 10 ? '0' + (curdt.getDate()) : (curdt.getDate()); // 일
 	var curmonth = curdt.getMonth() + 1 < 10 ? '0'+ (curdt.getMonth() + 1) : (curdt.getMonth() + 1); // 월
 	var curyear = curdt.getFullYear(); // 년
-	
+
 	var curdate = curyear + "-" + curmonth + "-" + curday; // 현재 날짜
 	
 	// 카운트
@@ -94,6 +94,11 @@ function dateSrc() {
 	var curdate = document.reserve.curdate.value;
 	var log = document.reserve.catal.value;
 	var memId = document.reserve.memId.value;
+	
+	if(date > curdate) {
+		alert("날짜 선택이 잘못되었습니다.");
+		return false;
+	}
 	
 	if(memId == ""){
 		var params = "date=" + date + "&curdate=" + curdate + "&log=" + log + "&memId=" + memId;
