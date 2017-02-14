@@ -60,7 +60,7 @@
 						<tr>
 							<td colspan="2">
 								<input type="button" value="상세정보" data-toggle="modal" data-target="#modalPage" onclick="movieDetail(${dto.movie_num})">
-								<input type="button" value="예매하기">
+								<input type="button" value="예매하기" onclick="location.href='/uuplex/c-box/user/reserve/main?movie=${dto.movie_num}'">
 							</td>
 						</tr>
 					</table>

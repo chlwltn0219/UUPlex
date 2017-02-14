@@ -19,7 +19,7 @@ cursor: pointer;
 }
 </style>
 
-<c:if test="${dtos!=null}">
+<c:if test="${fn:length(dtos) > 0}">
 	<c:forEach items="${dtos}" var="dto" varStatus="status">
 			<c:if test="${status.index==0 || dtos[status.index].theater_num!=dtos[status.index-1].theater_num}">
 				<br><br>
@@ -39,6 +39,6 @@ cursor: pointer;
 		</c:forEach>
 </c:if>
 
-<c:if test="${dtos==null}">
+<c:if test="${fn:length(dtos) == 0}">
 	<h1>상영스케줄이 없습니다.</h1>
 </c:if>

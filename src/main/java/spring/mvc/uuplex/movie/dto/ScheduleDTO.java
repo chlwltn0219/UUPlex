@@ -16,14 +16,18 @@ public class ScheduleDTO {
 	int schedule_num; 
 	String MPAARating;
 	int seatcnt;
+	String poster;
 	
-	
+	public String getPoster() {
+		return poster;
+	}
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
 	public int getSeatcnt() {
 		return seatcnt;
 	}
-	public Date getEndtime() {
-		return endtime;
-	}
+	
 	public void setSeatcnt(int seatcnt) {
 		this.seatcnt = seatcnt;
 	}
@@ -53,7 +57,6 @@ public class ScheduleDTO {
 		this.day =between*141+5;
 		
 		this.time=(showtime.getHours()-9)*60+showtime.getMinutes();
-		this.endtime = new Date(showtime.getTime() + 1000*60*runtime);
 	}
 	public int getMovie_num() {
 		return movie_num;
@@ -72,6 +75,10 @@ public class ScheduleDTO {
 	}
 	public void setRuntime(int runtime) {
 		this.runtime = runtime;
+		
+		endtime = new Date(showtime.getTime() + 1000*60*runtime);
+		setEndtime(endtime);
+		
 	}
 	public String getTitle1() {
 		return title1;
@@ -85,5 +92,13 @@ public class ScheduleDTO {
 	public int getDay() {
 		return day;
 	}		
+	
+	public void setEndtime(Date endtime) {
+		this.endtime = endtime;
+	}
+	
+	public Date getEndtime() {
+		return endtime;
+	}
 	
 }

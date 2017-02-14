@@ -63,27 +63,32 @@ tr{
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script>
 	$(function(){
+		
+		var movie_num = 0;
+		
+		movie_num = $(".active").children().find("input").val();
+		
 		$(".optionDta").click(function(){
 			$(this).addClass('active');
 			$(".option").children().not(this).attr('class','optionDta');
 			
-			var movie_num = $(this).children().find("input").val();
+			movie_num = $(this).children().find("input").val();
+		});
+		
+		$(".selectdate").click(function(){
+			$(this).addClass('active');
+			$(".date").children(".selectdate").not(this).attr('class','selectdate');
 			
-			$(".selectdate").click(function(){
-				$(this).addClass('active');
-				$(".date").children(".selectdate").not(this).attr('class','selectdate');
-				
-				var date = $(".selectdate").index(this);
-				var url = "/uuplex/c-box/dateschedule";
-				var method = "GET";
+			var date = $(".selectdate").index(this);
+			var url = "/uuplex/c-box/dateschedule";
+			var method = "GET";
+			var params = "date="+date+"&movie_num="+movie_num;
+			sendRequest(request, url, method, params);
+			
+			$(".optionDta").click(function(){
+				var movie_num = $(this).children().find("input").val();
 				var params = "date="+date+"&movie_num="+movie_num;
 				sendRequest(request, url, method, params);
-				
-				$(".optionDta").click(function(){
-					var movie_num = $(this).children().find("input").val();
-					var params = "date="+date+"&movie_num="+movie_num;
-					sendRequest(request, url, method, params);
-				});
 			});
 		});
 	});
@@ -119,6 +124,16 @@ tr{
 						<div class="option">
 
 								<c:forEach var="dto" items="${dtos}">
+								<c:if test="${dto.movie_num==param.movie}">
+									<div class="optionDta active">
+										<div class="optionLine">
+											<img id="rate" src="${img}mpaa_rating/${dto.MPAARating}.png">
+											&nbsp;${dto.title1}
+											<input type="hidden" value="${dto.movie_num}">
+										</div>
+									</div>
+								</c:if>
+								<c:if test="${dto.movie_num!=param.movie}">
 									<div class="optionDta">
 										<div class="optionLine">
 											<img id="rate" src="${img}mpaa_rating/${dto.MPAARating}.png">
@@ -126,6 +141,7 @@ tr{
 											<input type="hidden" value="${dto.movie_num}">
 										</div>
 									</div>
+								</c:if>
 								</c:forEach>
 							</div>
 					</td>
@@ -142,7 +158,7 @@ tr{
 						<span class="selectdate"><fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 * 5)%>" pattern="E dd" /></span>	
 					</div>		
 					</td>
-					<td id="result">
+					<td id="result" style="padding: 30px;">
 						<center>영화와 날짜를 선택해주세요.</center>
 					</td>
 				</tr>

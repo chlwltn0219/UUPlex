@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.mvc.uuplex.movie.handler.MReservationHandler;
 import spring.mvc.uuplex.movie.handler.AddMovieInfoHandler;
 import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
@@ -457,5 +458,20 @@ public class MFrontController {
 
 		return viewPage;
 	}
+	
+	// 박주은 : 예약페이지
+		@Autowired
+		MReservationHandler reservationHandler;
+
+		@RequestMapping("/reservation")
+		public String reservation(HttpServletRequest req, Model model) {
+			System.out.println("reservation");
+
+			model.addAttribute("req", req);
+			model.addAttribute("contentPage", "user/reservation.jsp");
+			String viewPage = reservationHandler.process(model);
+
+			return viewPage;
+		}
 	
 }
