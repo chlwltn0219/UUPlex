@@ -1,5 +1,9 @@
 package spring.mvc.uuplex.hotel.handler;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -29,9 +33,12 @@ public class ReservProHandler implements HCommandHandler {
 			String memId = (String) req.getSession().getAttribute("id");
 			// 1단계. dto 바구니 생성
 			ReservDTO dto = new ReservDTO();
+			int reserveNum = dao.getReservNum();
+			String roomName = req.getParameter("roomName");
 
 			// 2단계. dto 바구니에 담는다.
-			dto.setRoomName(req.getParameter("roomName"));
+			dto.setReservNum(reserveNum);
+			dto.setRoomName(roomName);
 			dto.setMemId(memId);
 			dto.setCheckIn(req.getParameter("checkIn"));
 			dto.setCheckOut(req.getParameter("checkOut"));
@@ -50,6 +57,45 @@ public class ReservProHandler implements HCommandHandler {
 			dto.setTotCharge(Integer.parseInt(req.getParameter("totCharge")));
 
 			int cnt = dao.reservation(dto);
+			
+			
+			// 예약 날짜 등록
+			String date = req.getParameter("checkIn");
+			SimpleDateFormat trans = new SimpleDateFormat("yyyy-MM-dd");
+			try {
+				
+				Map<String, Object> daoMap = new HashMap<String, Object>();
+				
+				int dayCnt = Integer.parseInt(req.getParameter("day"));
+				Date dt = trans.parse(date);
+				
+				for(int i=0;i<dayCnt;i++) {				
+				
+					int da = dt.getDate(); // 일 
+					String day = String.valueOf(da);
+					day = da < 10 ? "0" + day : day;
+					
+					int mon = dt.getMonth() + 1; // 월 
+					String month = String.valueOf(mon);
+					month = mon < 10 ? "0" + month : month; 
+					
+					int year = dt.getYear() + 1900;
+					String resDate = year + "-" + month + "-" + day;
+					System.out.println("date : " + resDate);
+				
+					daoMap.put("resDate", resDate);
+					daoMap.put("reserveNum", reserveNum);
+					daoMap.put("roomName", roomName);
+					
+					dao.reserveDay(daoMap);
+					
+					dt.setDate(da+1);
+				}
+				
+			} catch (ParseException e) {
+				e.printStackTrace();
+				System.out.println("날짜계산 실패");
+			}
 
 			model.addAttribute("cnt", cnt);
 

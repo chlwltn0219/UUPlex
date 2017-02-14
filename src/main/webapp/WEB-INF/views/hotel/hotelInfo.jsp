@@ -47,15 +47,15 @@ pre {
 				<th>SUITE</th>
 			</tr>
 			<tr>
-				<th>일 ~ 목</th>
+				<th>상시</th>
 				<td>100,000원</td>
-				<td>100,000원</td>
+				<td>200,000원</td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<th>금,토 / 공휴일</th>
 				<td>150,000원</td>
 				<td>200,000원</td>
-			</tr>
+			</tr> -->
 			<tr class="active">
 				<th colspan="3"><h4>이용시간</h4></th>
 			</tr>

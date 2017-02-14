@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/uuplex/resources/js/hotelRequest.js"></script>
+<script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
 <style>
 @charset "utf-8";
 
@@ -78,13 +80,20 @@ a:hover {
 	margin-left: 0px;
 }
 
-table {
+#calTable {
 	border-collapse: collapse;
 	border-cellpadding: cellpadding;
 	height: 500px;
 	width: 500px;
 	align: center;
 	border: 0;
+}
+
+#listTable {
+	width: 500px;
+	align: center;
+	border: 0;
+	text-align: center;
 }
 </style>
 <title>달력</title>
@@ -110,6 +119,8 @@ table {
 		}
 		form.submit();
 	}
+	
+	
 </script>
 </head>
 <body>
@@ -121,7 +132,7 @@ table {
 		int date = cr.get(Calendar.DATE);
 
 		//오늘 날짜
-		String today = year + ":" + (month + 1) + ":" + date;
+		String today = year + "-" + (month + 1) + "-" + date;
 
 		//선택한 연도 / 월
 		String input_year = request.getParameter("year");
@@ -155,7 +166,9 @@ table {
 			<form method="post" action="adminCalendar" name="change">
 				<h3>예약내역 확인</h3>
 				<br><br>
-				<table id="" cellpadding="2" cellspacing="0" border="1" align="center">
+				<div class="row">
+				<div class="col-md-6">
+				<table id="calTable" cellpadding="2" cellspacing="0" border="1" align="center">
 					<tr>
 						<td colspan="2" align="center"><input type="button" value="◁"
 							onClick="monthDown(this.form)"></td>
@@ -207,9 +220,12 @@ table {
 								String bgcolor = (today.equals(year + ":" + (month + 1) + ":" + i)) ? "#CCCCCC" : "#FFFFFF";
 								String color = (count % 7 == 0 || count % 7 == 6) ? "red" : "black";
 								count++;
+								
+							String checkIn = year + "-" + (month+1) + "-" + i; 	
 						%>
 						<td align="center" bgcolor="<%=bgcolor%>"><font color=<%=color%>><a
-								href="/uuplex/hotel/calendarList"><%=i%></a></font></td>
+								<%-- href="adminCalendarView?checkIn=<%=checkIn%>"><%=i%></a></font></td> --%>
+								onclick="dateCheck('<%=checkIn%>')"><%=i%></a></font></td>
 						<%
 							if (count % 7 == 0 && i < endDate) {
 						%>
@@ -227,6 +243,29 @@ count++;
 %>
 					</tr>
 				</table>
+				</div>
+				<div id="result">
+				<div class="col-md-6">
+				<table id="listTable" border="1px solid #8e8e8e;">
+					<tr>
+						<th style="text-align: center; height:40px;">예약번호</th>
+						<th style="text-align: center;">객실명</th>
+						<th style="text-align: center;">성명(영문)</th>
+						<th style="text-align: center;">이메일</th>
+						<th style="text-align: center;">상세보기</th>
+					</tr>
+					<tr>
+						<td colspan="5" style="height:40px;">날짜를 선택해 주세요.</td>
+					</tr>
+				</table>
+				</div>
+				</div>
+				</div>
+	<br><br><br>
+	<center>
+	<input class="btn btn-default btn-lg" type="button" value="메인으로"
+			onclick="location.href='/uuplex/hotel'">
+	</center>
 			</form>
 		</div>
 	</div>

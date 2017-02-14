@@ -38,7 +38,7 @@
 					</tr>
 					<c:forEach var="dto" items="${dtos}">
 					<tr>
-						<td>${dto.reservNum}
+						<td>${dto.reservNum}</td>
 						<td>${dto.reservDay}</td>
 						<td><a data-toggle="modal" class="btn btn-default" data-target="#modal" href="./reservDetail?reservNum=${dto.reservNum}">${dto.roomName}</a></td>
 						<td>${dto.checkIn}</td>

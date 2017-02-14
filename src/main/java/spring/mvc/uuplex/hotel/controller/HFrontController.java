@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.mvc.uuplex.hotel.handler.AdminCalDetailHandler;
+import spring.mvc.uuplex.hotel.handler.AdminCalendarViewHandler;
+import spring.mvc.uuplex.hotel.handler.AdminCancelHandler;
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
 import spring.mvc.uuplex.hotel.handler.ReservCancelHandler;
 import spring.mvc.uuplex.hotel.handler.ReservConfirmHandler;
@@ -209,7 +212,7 @@ public class HFrontController {
 		return viewPage;
 	}
 	
-	//객실삭제
+	//예약취소
 	@Autowired
 	ReservCancelHandler reservCancelHandler;
 	@RequestMapping("/reservCancel")
@@ -227,5 +230,44 @@ public class HFrontController {
 	public String calendar(Model model) {
 		System.out.println("adminCalendar()");
 		return "/hotel/adminCalendar";
+	}
+	
+	//(관리자)예약내역조회
+	@Autowired
+	AdminCalendarViewHandler adminCalendarViewHandler;
+	@RequestMapping("/adminCalendarView")
+	public String adminCalendarView(HttpServletRequest req, Model model) {
+		System.out.println("adminCalendarView()");
+		
+		model.addAttribute("req", req);
+		String viewPage = adminCalendarViewHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//(관리자)예약상세내역
+	@Autowired
+	AdminCalDetailHandler adminCalDetailHandler;
+	@RequestMapping("/adminCalDetail")
+	public String adminCalDetail(HttpServletRequest req, Model model) {
+		System.out.println("adminCalDetail()");
+		
+		model.addAttribute("req", req);
+		String viewPage = adminCalDetailHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//(관리자)예약취소
+	@Autowired
+	AdminCancelHandler adminCancelHandler;
+	@RequestMapping("/adminCancel")
+	public String adminCancel(HttpServletRequest req, Model model) {
+		System.out.println("adminCancel()");
+		
+		model.addAttribute("req", req);
+		String viewPage = adminCancelHandler.process(model);
+		
+		return viewPage;
 	}
 }
