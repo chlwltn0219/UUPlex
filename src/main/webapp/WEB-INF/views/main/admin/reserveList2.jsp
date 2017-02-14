@@ -81,8 +81,8 @@
   			<input class="btn btn-default" type="button" value="15일" style="height:30px" onclick="dateCnt(15)">
   			<input class="btn btn-default" type="button" value="1개월" style="height:30px" onclick="dateCnt(30)">
   			<a id="result">
-  			<input id="result" class="btn btn-default" type="date" style="height:30px"> -
-  			<input id="result" class="btn btn-default" type="date" style="height:30px">
+  			<input id="result" class="btn btn-default" name="date" type="date" style="height:30px"> -
+  			<input id="result" class="btn btn-default" name="curdate" type="date" style="height:30px">
   			</a>
   			<input class="btn btn-default" type="button" value="검색" style="height:30px" onclick="dateSrc()">
   			<input class="btn btn-default" type="button" value="검색 초기화" style="height:30px" onclick="callreset()">

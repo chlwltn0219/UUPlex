@@ -156,6 +156,7 @@
                         <li><a href="/uuplex/reserveList">예약관리</a></li>
                         <li class="divider"></li>
                         <li><a href="/uuplex/memberChart">회원통계</a></li>
+                        <li><a href="/uuplex/calculate">매장정산</a></li>
                         <li class="divider"></li>
                         <li><a href="">영화관 관리</a></li>
                         <li><a href="">호텔 관리</a></li>

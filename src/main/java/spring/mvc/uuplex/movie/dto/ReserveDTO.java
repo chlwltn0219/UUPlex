@@ -1,0 +1,75 @@
+package spring.mvc.uuplex.movie.dto;
+
+import java.sql.Timestamp;
+
+public class ReserveDTO {
+
+	int reserve_num;
+	String memId;
+	int movie_num;
+	int theater_num;
+	Timestamp reserve_date;
+	int price;
+	int cnt;
+	String seat_num;
+	
+	
+	
+	public String getSeat_num() {
+		return seat_num;
+	}
+	public void setSeat_num(String seat_num) {
+		this.seat_num = seat_num;
+	}
+	public int getReserve_num() {
+		return reserve_num;
+	}
+	public void setReserve_num(int reserve_num) {
+		this.reserve_num = reserve_num;
+	}
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	public int getMovie_num() {
+		return movie_num;
+	}
+	public void setMovie_num(int movie_num) {
+		this.movie_num = movie_num;
+	}
+	public int getTheater_num() {
+		return theater_num;
+	}
+	public void setTheater_num(int theater_num) {
+		this.theater_num = theater_num;
+	}
+	public Timestamp getReserve_date() {
+		return reserve_date;
+	}
+	public void setReserve_date(Timestamp reserve_date) {
+		this.reserve_date = reserve_date;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+	
+	@Override
+	public String toString() {
+		return memId + "=="+price +"=="+cnt+"=="+seat_num+"=="+movie_num+"=="+theater_num;
+	}
+	
+	
+	
+
+}

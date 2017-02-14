@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import spring.mvc.uuplex.admin.dao.AdminDAO;
 import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MtestDTO;
+import spring.mvc.uuplex.fitness.dto.FStatementDTO;
 
 @Service("dateSrcHandler")
 public class DateSrcHandler implements CommandHandler{
@@ -56,7 +57,14 @@ public class DateSrcHandler implements CommandHandler{
 				model.addAttribute("log", log);
 				
 			} else if(log.equals("»÷∆Æ¥œΩ∫")) {
+				Map<String, Object> daoMap = new HashMap<String, Object>();
+				daoMap.put("date", date);
+				daoMap.put("curdate", curdate);
 				
+				ArrayList<FStatementDTO> fdtos = dao.reservlist_f_date(daoMap);
+				
+				model.addAttribute("fdtos", fdtos);
+				model.addAttribute("log", log);
 				
 			} else {
 				
@@ -66,9 +74,11 @@ public class DateSrcHandler implements CommandHandler{
 				
 				ArrayList<MtestDTO> mdtos = dao.reservlist_m_date(daoMap);
 				ArrayList<HtestDTO> hdtos = dao.reservlist_h_date(daoMap);
+				ArrayList<FStatementDTO> fdtos = dao.reservlist_f_date(daoMap);
 				
 				model.addAttribute("mdtos", mdtos);
 				model.addAttribute("hdtos", hdtos);
+				model.addAttribute("fdtos", fdtos);
 				model.addAttribute("log", log);
 				
 			}
@@ -102,7 +112,15 @@ public class DateSrcHandler implements CommandHandler{
 				model.addAttribute("log", log);
 				
 			} else if(log.equals("»÷∆Æ¥œΩ∫")) {
+				Map<String, Object> daoMap = new HashMap<String, Object>();
+				daoMap.put("date", date);
+				daoMap.put("curdate", curdate);
+				daoMap.put("memId", memId);
 				
+				ArrayList<FStatementDTO> fdtos = dao.reservlist_f_id_date(daoMap);
+				
+				model.addAttribute("fdtos", fdtos);
+				model.addAttribute("log", log);
 				
 			} else {
 				
@@ -113,19 +131,17 @@ public class DateSrcHandler implements CommandHandler{
 				
 				ArrayList<MtestDTO> mdtos = dao.reservlist_m_id_date(daoMap);
 				ArrayList<HtestDTO> hdtos = dao.reservlist_h_id_date(daoMap);
-				
+				ArrayList<FStatementDTO> fdtos = dao.reservlist_f_id_date(daoMap);
+
 				model.addAttribute("mdtos", mdtos);
 				model.addAttribute("hdtos", hdtos);
+				model.addAttribute("fdtos", fdtos);
 				model.addAttribute("log", log);
 				
 			}
 			
 		}
-		
-		
-		
-		
-		
+	
 		return "/main/reserve/reservlistdate";
 		
 	}

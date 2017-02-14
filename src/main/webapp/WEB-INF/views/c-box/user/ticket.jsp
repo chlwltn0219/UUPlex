@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp"%>
+<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script>
 	$(function() {
 
@@ -8,86 +9,137 @@
 
 		for (var j = 0; j < $(".seatarrange").length; j++) {
 			for (var i = 0; i < 240; i++) {
-				$(".seatarrange").eq(j).find(".seat").eq(i).addClass(
-						seatclass[$(".seatarrange").eq(j).find(".seat").eq(i)
-								.val()]);
+				$(".seatarrange").eq(j).find(".seat").eq(i).addClass(seatclass[$(".seatarrange").eq(j).find(".seat").eq(i).val()]);
 			}
 		}
 
 		$(".type .cnt:nth-child(1)").addClass('cntactive');
 		
+		var cnt = 0;
+		var rad = 0;
+		var cur = 0;
+		var holiday = 0;
 		
+		/* 공휴일 여부 알아내기 */
 		
-		var cnt =0;
+		var starttime='${scheduleInfo.showtime.getHours()}';
+		
+		$.ajax({
+			type : 'GET',
+			url : 'https://apis.sktelecom.com/v1/eventday/days?year=2017&month=${scheduleInfo.showtime.getMonth()+1}&day=${scheduleInfo.showtime.getDate()}&type=h' ,
+			beforeSend : function(xhr){
+			xhr.setRequestHeader('TDCProjectKey', '6443f874-738d-4ce8-bfd3-5e6258b2b57d');
+			xhr.setRequestHeader('Accept', 'application/json');
+			},
+			    error: function(xhr, status, error){ 
+			         
+			    },
+			success : function(data) {
+			console.log(data);
+			holiday = data.results.length;
+			}
+		});		
+
+		var price = '';
+		
+		if (starttime<11 ||starttime>=23) {
+			price = [6000, 6000, 5000 ];
+		} else{
+			if (holiday != 0 || '<fmt:formatDate value="${scheduleInfo.showtime}" pattern="E"/>' == '일' || '<fmt:formatDate value="${scheduleInfo.showtime}" pattern="E"/>' == '토') {
+				price = [10000, 8000, 5000 ];
+			}else{
+				price = [9000, 7000, 5000 ];
+			}
+		}
+		
+		/* ===================================================== */
+
 		$(".cnt").click(function() {
 			$(this).addClass('cntactive');
 			$(this).nextAll(".cntactive").removeClass('cntactive');
 			$(this).prevAll(".cntactive").removeClass('cntactive');
-			
+
+			$(".rad").attr('checked', false);
+			$(".seat").removeClass('active');
+			$(".seat").attr('disabled', true);
+
 			cnt = $("td .cntactive").prevAll().length;
-			
+
 			$(".rad").attr('disabled', true);
-			
-			if(cnt>=1){
+
+			if (cnt >= 1) {
 				$(".rad").eq(0).attr('disabled', false);
-				
-			} 
-			if(cnt>=2){
+			}
+			if (cnt >= 2) {
 				$(".rad").eq(1).attr('disabled', false);
 			}
-			if(cnt>=3){
+			if (cnt >= 3) {
 				$(".rad").eq(2).attr('disabled', false);
 			}
-			if(cnt>=4){
+			if (cnt >= 4) {
 				$(".rad").attr('disabled', false);
 			}
-			
-			if(cnt>8){
+
+			if (cnt > 8) {
 				alert("8명까지 선택가능합니다.");
 				$(".cntactive").removeClass('cntactive');
 				$(".type .cnt:nth-child(1)").addClass('cntactive');
 				$(".rad").attr('disabled', true);
 			}
-			
-			var rad =0;
-			var cur = 0;
-			
-			$(".rad").click(function() {
-				$("button").attr('disabled', false);
-				rad = $(this).val()-1;
-				
-				
-				$("button").hover( function () {
-				
-					cur = $("button").index(this);
-				
-					$("button:gt("+cur+"):lt("+rad+")").addClass("btnhover");
-				}, 
-				function () { 
-					$("button").removeClass("btnhover"); 
-				});
-				
-				
-				$("button").click(function() {
-					$(this).toggleClass('active');
-					$("button:gt("+cur+"):lt("+rad+")").toggleClass('active');
-					
-					if($(".active").length>=cnt){
-						$("button").not(".active").attr('disabled',true);
-					}else{
-						$("button").attr('disabled',false);
-					}
-					var seatnum = '';
-					
-					for(var i = 0; i<$(".active").length; i++){
-						seatnum +=	(i==0) ? $(".active").eq(i).next().val() : ", "+$(".active").eq(i).next().val();	
-					}
-					
-					$(".seatnum").text(seatnum);
-					
-				});		
-			});			
 		});
+
+		$(".rad").click(function() {
+			$(".seat").attr('disabled', false);
+			rad = $(this).val() - 1;
+		});
+
+		$(".seat").hover(function() {
+
+			cur = $(".seat").index(this);
+
+			$(".seat:gt(" + cur + "):lt(" + rad + ")").addClass("btnhover");
+		}, function() {
+			$(".seat").removeClass("btnhover");
+		});
+
+		$(".seat").click(
+				function() {
+					cur = $(".seat").index(this);
+					$(this).toggleClass('active');
+					$(".seat:gt(" + cur + "):lt(" + rad + ")").toggleClass(
+							'active');
+
+					if ($(".active").length >= cnt) {
+						$(".seat").not(".active").attr('disabled', true);
+					} else {
+						$(".seat").attr('disabled', false);
+					}
+
+					$(".ticketcnt").val(cnt);
+
+					var seatnum = '';
+
+					for (var i = 0; i < $(".active").length; i++) {
+						seatnum += (i == 0) ? $(".active").eq(i).next().val()
+								: "/" + $(".active").eq(i).next().val();
+					}
+
+					$(".seatnum").val(seatnum);
+					
+					var total=0;
+					
+					for(var i=0; i<$(".cntactive").length; i++){
+						
+						if($(".cntactive").eq(i).text()!=0){
+							$(".seattype").text($(".cntactive").eq(i).parent().prev().text());
+							$(".price").text($(".cntactive").eq(i).text()+' X '+price[i]);
+							
+							total += $(".cntactive").eq(i).text()*price[i];
+						}
+					}
+					
+					$(".total").val(total);
+				});
 	});
 </script>
 <style>
@@ -131,7 +183,7 @@
 	margin-top: 20px;
 	background-color: #191919;
 	width: 100%;
-	padding: 15px 100px;
+	padding: 15px 70px;
 	height: 180px;
 }
 
@@ -210,7 +262,7 @@
 		</div>
 		<div style="padding: 0 20px;">
 			선택하신 상영관/시간
-			<br>${theater.theater_num}관 (총 ${theater.seatCnt}석)
+			<br>${theater.theater_num}관 (총 ${theater.seatCnt}석) <fmt:formatDate value="${scheduleInfo.showtime}" pattern="HH:mm" />~<fmt:formatDate value="${scheduleInfo.endtime}" pattern="HH:mm" />
 			<br><br>
 		</div>
 	</div>
@@ -240,24 +292,33 @@
 		</c:forEach>
 	</table>
 
-	<div class="ticketinfo">
-		<div style="padding-right: 20px; border-right: 2px solid #dddddd; width: 300px;">
-			<img style="float:left;" src="${resources}/c-box/img/movie_poster/얼라이드.jpg" width="100px" height="150px">
+	<form class="ticketinfo" action="/uuplex/c-box/reserve_payment" method="post">
+		<div style="padding-right: 20px; border-right: 2px solid #dddddd; width: 260px;">
+			<img style="float:left;" src="/uuplexImg/c-box/${scheduleInfo.poster}" width="100px" height="150px">
                      <div style="float:left; padding:5px; margin:15px;">
-                     	${movie.title1}<br>
+                     	${scheduleInfo.title1}<br>
                      	2D<br>
-                     	${movie.mmaprating}
+                     	${scheduleInfo.MPAARating}
                      </div>
 		</div>
-		<div style="padding: 0 20px; border-right: 2px solid #dddddd; width: 300px;">
+		<div style="padding: 0 20px; border-right: 2px solid #dddddd; width: 220px;">
 		<br>
-			일시<br><br>
-			상영관<br><br>
-			인원<br><br>
+			일시 : <fmt:formatDate value="${scheduleInfo.showtime}" pattern="YYYY.MM.dd(E) HH:mm" /><br><br>
+			상영관 : 1층 ${scheduleInfo.theater_num}관<br><br>
+			인원 : <input type="text" style="background-color: rgba(0,0,0,0); color: #ffffff; border: none; width: 50px;" class="ticketcnt" name="ticketcnt"><br><br>
 		</div>
-		<div style="padding: 0 20px; width: 210px;"><br><br>좌석명<br><br>좌석번호 <span class="seatnum"></span><br><br></div>
-		<div style="background-color: #D30404; border-radius: 10%; width: 150px; padding: 10px; font-size: 20px; cursor: pointer; float: right; border: 2px solid #EB3232; text-align: center;">
-			<span class="glyphicon glyphicon-arrow-right" style="font-size: 50px; width: 130px; padding-top: 15px;"></span>결제선택
+		<div style="padding: 0 20px; width: 180px; border-right: 2px solid #dddddd;"><br><br>좌석명 Standard석<br><br>좌석번호
+			<textarea class="seatnum" name="seatnum" style="color: #ffffff; background-color: rgba(0,0,0,0); border: none; width: 140px;" readonly="readonly"></textarea><br><br>
 		</div>
-	</div>
+		<div style="padding: 0 20px; width: 200px;"><br>
+		<span class="seattype"></span><span class="price" style="width: 120px; text-align: right;"></span><br>
+		총금액<input type="text" style="background-color: rgba(0,0,0,0); color: #ffffff; border: none; width: 120px; text-align: right;" name="total" class="total">
+		</div>
+		<div style="background-color: #D30404; border-radius: 10%; width: 150px; font-size: 20px; cursor: pointer; float: right; border: 2px solid #EB3232; text-align: center;">
+			<button type="submit" style="background-color: rgba(0,0,0,0); color: #ffffff; border: none; width: 100%; height: 100%;">
+				<span class="glyphicon glyphicon-arrow-right" style="font-size: 50px; width: 130px;"></span>결제선택
+			</button>
+		</div>
+		<input type="hidden" name="schedule_num" value="${scheduleInfo.schedule_num}">
+	</form>
 </div>

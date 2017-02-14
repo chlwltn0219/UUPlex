@@ -39,7 +39,7 @@
     <label for="inputEmail3" class="col-sm-2 control-label">아이디</label> 
     <div class="col-sm-8">
       <input type="text" name="memId" class="form-control" id="memId" placeholder="아이디를 입력하세요">
-      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="confirmId()">중복확인</button>
+      <button type="button" class="btn btn-default" onclick="confirmId()">중복확인</button>
     </div>
   </div>	
   
@@ -142,7 +142,7 @@
     </div>
   </div>
 </form>
-
+	<%@ include file="/admin_Modal/input_modal.jsp" %>
 </div>
 </body>
 </html>

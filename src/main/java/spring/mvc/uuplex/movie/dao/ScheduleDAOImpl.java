@@ -9,13 +9,13 @@ import org.springframework.stereotype.Repository;
 
 import spring.mvc.uuplex.movie.dto.ScheduleDTO;
 
-@Repository //ÀúÀå¼Ò ¿ªÇÒ
+@Repository //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 public class ScheduleDAOImpl implements ScheduleDAO{
 
 	@Autowired
-	private SqlSession sqlSession; //servlet-context.xml¿¡ ÀÖ´Â°Å ºÒ·¯¿Â´Ù.
+	private SqlSession sqlSession; //servlet-context.xmlï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½Ò·ï¿½ï¿½Â´ï¿½.
 	
-	//¿µÈ­Á¤º¸Ãß°¡
+	//ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½
 	@Override
 	public int addSchedule(ScheduleDTO dto) {
 		int cnt = 0;
@@ -73,6 +73,14 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 		ScheduleDAO dao = sqlSession.getMapper(ScheduleDAO.class);
 		list = dao.dateschedules(map);
 		return list;
+	}
+
+	@Override
+	public ScheduleDTO getScheduleinfo(int schedule_num) {
+		ScheduleDTO scheduleinfo = null;
+		ScheduleDAO dao = sqlSession.getMapper(ScheduleDAO.class);
+		scheduleinfo = dao.getScheduleinfo(schedule_num);
+		return scheduleinfo;
 	}
 
 }

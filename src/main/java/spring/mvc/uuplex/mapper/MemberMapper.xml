@@ -68,12 +68,47 @@
 		SELECT * FROM h_reserv
 	</select>
 	
+	<select id="reservlist_fitness" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum AS rnum 
+				   FROM ( SELECT s.*,
+				   				 c.subname,
+				   				 p.pname,
+				   				 t.tname
+			  		     	FROM F_STATEMENT s 
+			  		       INNER JOIN F_CLASS c
+			  		          ON c.cid = s.cid
+			  		       INNER JOIN F_PROGRAM p
+			  		          ON p.pid = c.pid
+			  		       INNER JOIN F_TEACHER t
+			  		          ON t.tid = p.tid 
+			  			   ORDER BY s.stid DESC) a )	  			   
+	</select>
+	
 	<select id="reservlist_m_date" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.MtestDTO">
 		SELECT * FROM m_reserv WHERE reserve_date BETWEEN #{date} AND #{curdate}
 	</select>
 	
 	<select id="reservlist_h_date" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.HtestDTO">
 		SELECT * FROM h_reserv WHERE reservDay BETWEEN #{date} AND #{curdate}
+	</select>
+	
+	<select id="reservlist_f_date" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum AS rnum 
+				   FROM ( SELECT s.*,
+				   				 c.subname, c.start_date,
+				   				 p.pname,
+				   				 t.tname
+			  		     	FROM F_STATEMENT s 
+			  		       INNER JOIN F_CLASS c
+			  		          ON c.cid = s.cid
+			  		       INNER JOIN F_PROGRAM p
+			  		          ON p.pid = c.pid
+			  		       INNER JOIN F_TEACHER t
+			  		          ON t.tid = p.tid 
+			  			   ORDER BY s.stid DESC) a )
+		 WHERE reg_date BETWEEN #{date} AND #{curdate}	  			   
 	</select>
 	
 	
@@ -85,12 +120,49 @@
 		SELECT * FROM h_reserv WHERE memId = #{memId}
 	</select>
 	
+	<select id="reservlist_f_id" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum AS rnum 
+				   FROM ( SELECT s.*,
+				   				 c.subname, c.start_date,
+				   				 p.pname,
+				   				 t.tname
+			  		     	FROM F_STATEMENT s 
+			  		       INNER JOIN F_CLASS c
+			  		          ON c.cid = s.cid
+			  		       INNER JOIN F_PROGRAM p
+			  		          ON p.pid = c.pid
+			  		       INNER JOIN F_TEACHER t
+			  		          ON t.tid = p.tid 
+		 				   WHERE memid = #{memId}
+			  			   ORDER BY s.stid DESC) a )
+	</select>
+	
 	<select id="reservlist_m_id_date" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.MtestDTO">
 		SELECT * FROM m_reserv WHERE reserve_date BETWEEN #{date} AND #{curdate} AND memId = #{memId}
 	</select>
 	
 	<select id="reservlist_h_id_date" parameterType="Map" resultType="spring.mvc.uuplex.admin.dto.HtestDTO">
 		SELECT * FROM h_reserv WHERE reservDay BETWEEN #{date} AND #{curdate} AND memId = #{memId}
+	</select>
+	
+	<select id="reservlist_f_id_date" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT *
+		  FROM ( SELECT a.* , rownum AS rnum 
+				   FROM ( SELECT s.*,
+				   				 c.subname, c.start_date,
+				   				 p.pname,
+				   				 t.tname
+			  		     	FROM F_STATEMENT s 
+			  		       INNER JOIN F_CLASS c
+			  		          ON c.cid = s.cid
+			  		       INNER JOIN F_PROGRAM p
+			  		          ON p.pid = c.pid
+			  		       INNER JOIN F_TEACHER t
+			  		          ON t.tid = p.tid 
+		 				   WHERE memid = #{memId}
+			  			   ORDER BY s.stid DESC) a )
+		 WHERE reg_date BETWEEN #{date} AND #{curdate}	  			   
 	</select>
 	
 	<select id="memberGenderWoman" resultType="int">
@@ -116,6 +188,8 @@
 	<select id="gradeCount4" resultType="int">
 		SELECT COUNT(*) FROM uu_member WHERE grade = 'Vip회원'
 	</select>
+	
+	
 	
 	
 	

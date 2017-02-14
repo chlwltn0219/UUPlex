@@ -105,7 +105,7 @@
 								
 								<p>BEST Movie</p>
 								<p>C-Box는 여러분들에게 최상의 서비스로 찾아갑니다.</p>
-								<img width="500" height="300" src="/uuplex/resources/main_images/movie3.png"> <br><br>
+								<img width="500" height="300" src="/uuplex/resources/main_images/movie6.png"> <br><br>
 								<button type="button" class="btn btn-danger" onclick="window.location='/uuplex/c-box'">바로가기</button>
 							
 							</div>
@@ -168,7 +168,7 @@
 								</div>
 								<p>BEST Hotel</p>
 								<p>최고의 룸서비스로 찾아갑니다.</p>
-								<img width="500" height="300" src="/uuplex/resources/main_images/hotel3.png"><br><br>
+								<img width="500" height="300" src="/uuplex/resources/main_images/h201.png"><br><br>
 								<button type="button" class="btn btn-warning" onclick="window.location='/uuplex/hotel'">바로가기</button>
 							</div>
 						</div>
