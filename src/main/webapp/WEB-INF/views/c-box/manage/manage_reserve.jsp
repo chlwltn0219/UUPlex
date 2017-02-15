@@ -260,6 +260,7 @@ function getSQresult(){
 	   var method = "GET";
 	   var params = "year=" + document.yearform.year.value;
 	   
+	   
 	   sendRequest(screenQ, url, method, params);
 	   
 	}
@@ -374,16 +375,16 @@ function screenQ() {
 							<option selected value="">
 								<fmt:formatDate value="<%=new Date()%>" pattern="yyyy"/>
 							</option>
-							<option value="<%=new Date(cal.getTimeInMillis())%>">
+							<option value="<fmt:formatDate value="<%=new Date(cal.getTimeInMillis())%>" pattern="yyyy"/>">
 								<fmt:formatDate value="<%=new Date(cal.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
-							<option value="<%=new Date(cal2.getTimeInMillis())%>">
+							<option value="<fmt:formatDate value="<%=new Date(cal2.getTimeInMillis())%>" pattern="yyyy"/>">
 								<fmt:formatDate value="<%=new Date(cal2.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
-							<option value="<%=new Date(cal3.getTimeInMillis())%>">
+							<option value="<fmt:formatDate value="<%=new Date(cal3.getTimeInMillis())%>" pattern="yyyy"/>">
 								<fmt:formatDate value="<%=new Date(cal3.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
-							<option value="<%=new Date(cal4.getTimeInMillis())%>">
+							<option value="<fmt:formatDate value="<%=new Date(cal4.getTimeInMillis())%>" pattern="yyyy"/>">
 								<fmt:formatDate value="<%=new Date(cal4.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
 						</select>
