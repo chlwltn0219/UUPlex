@@ -13,6 +13,7 @@
 			url: '/uuplex/fitness/manage/statement/dailySales',
 			async: false,
 			success: function(data) {
+				alert(data);
             	drawDailyChart(data);
               }
          });

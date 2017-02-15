@@ -68,6 +68,12 @@
 					<td><input type="checkbox" name="genre" value="재난">재난</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox" name="genre" value="드라마">드라마</td>
+					<td><input type="checkbox" name="genre" value="음악">음악</td>
+					<td><input type="checkbox" name="genre" value="퀴어">퀴어</td>
+					<td><input type="checkbox" name="genre" value="범죄">범죄</td>
+				</tr>
+				<tr>
 					<th>MPAARating</th>
 					<td colspan="4">
 						<select name="MPAARating">
@@ -78,6 +84,25 @@
 							<option value="청소년 관람불가">청소년 관람불가</option>
 						</select>
 					</td>
+				</tr>
+				<tr>
+					<th  rowspan="3">Country</th>
+					<td><input type="checkbox" name="country" value="한국">한국</td>
+					<td><input type="checkbox" name="country" value="미국">미국</td>
+					<td><input type="checkbox" name="country" value="일본">일본</td>
+					<td><input type="checkbox" name="country" value="중국">중국</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="country" value="홍콩">홍콩</td>
+					<td><input type="checkbox" name="country" value="프랑스">프랑스</td>
+					<td><input type="checkbox" name="country" value="영국">영국</td>
+					<td><input type="checkbox" name="country" value="독일">독일</td>
+				</tr>	
+				<tr>
+					<td><input type="checkbox" name="country" value="인도">인도</td>
+					<td><input type="checkbox" name="country" value="스웨덴">스웨덴</td>
+					<td><input type="checkbox" name="country" value="아일랜드">아일랜드</td>
+					<td><input type="checkbox" name="country" value="기타">기타</td>
 				</tr>
 				<tr>
 					<th>ProductionYear</th>

@@ -77,6 +77,16 @@ public class ModifyMovieProHandler implements MCommandHandler {
 			}
 
 			String MPAARating = multi.getParameter("MPAARating");
+			
+			String[] countries = multi.getParameterValues("country");
+
+			String country = "";
+
+			for (int i = 0; i < countries.length; i++) {
+
+				country = country + (i == 0 ? countries[i] : ", " + countries[i]);
+			}
+			
 			int productionYear = Integer.parseInt(multi.getParameter("productionYear"));
 			int runTime = Integer.parseInt(multi.getParameter("runTime"));
 			String trailer = multi.getParameter("trailer");
@@ -110,6 +120,7 @@ public class ModifyMovieProHandler implements MCommandHandler {
 			dto.setTrailer(trailer);
 			dto.setStatus(status);
 			dto.setSynopsis(synopsis);
+			dto.setCountry(country);
 
 		} catch (IOException e) {
 			e.printStackTrace();
