@@ -9,7 +9,7 @@
 <body>
 	<script type="text/javascript">
 			alert("객실이 등록되었습니다.");
-			window.location='roomList?roomNum=${roomNum}';
+			window.location='roomList';
 		</script>
 </body>
 </html>

@@ -18,7 +18,7 @@ form {
 	margin-right:50px;
 }
 </style>
-
+<title>UU HOTEL</title>
 </head>
 <body>
 <script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
