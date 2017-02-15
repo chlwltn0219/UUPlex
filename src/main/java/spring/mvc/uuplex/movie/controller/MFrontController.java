@@ -14,6 +14,7 @@ import spring.mvc.uuplex.movie.handler.AddReviewHandler;
 import spring.mvc.uuplex.movie.handler.AddScheduleHandler;
 import spring.mvc.uuplex.movie.handler.AddTheaterHandler;
 import spring.mvc.uuplex.movie.handler.ChucheonCntHandler;
+import spring.mvc.uuplex.movie.handler.DateScheduleHandler;
 import spring.mvc.uuplex.movie.handler.DeleteMovieHandler;
 import spring.mvc.uuplex.movie.handler.DeleteReviewHandler;
 import spring.mvc.uuplex.movie.handler.DeleteScheduleHandler;
@@ -38,6 +39,7 @@ import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
 import spring.mvc.uuplex.movie.handler.ScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ScreenQuaterHandler;
+import spring.mvc.uuplex.movie.handler.TicketHandler;
 
 @Controller
 @RequestMapping("/c-box")
@@ -270,19 +272,33 @@ public class MFrontController {
       return viewPage;
    }
 
-   // 諛뺤＜�� : �긽�쁺�떆媛꾪몴
-   @Autowired
-   ScheduleHandler scheduleHandler;
+// 박주은 : 상영시간표
+	@Autowired
+	ScheduleHandler scheduleHandler;
 
-   @RequestMapping("/schedule")
-   public String getschedule(HttpServletRequest req, Model model) {
-      System.out.println("Schedule");
+	@RequestMapping(value = { "/", "schedule", "schedulechange" })
+	public String getschedule(HttpServletRequest req, Model model) {
+		System.out.println("Schedule");
 
-      model.addAttribute("req", req);
+		model.addAttribute("req", req);
 
-      String viewPage = scheduleHandler.process(model);
-      return viewPage;
-   }
+		String viewPage = scheduleHandler.process(model);
+		return viewPage;
+	}
+	
+	// 박주은 : 영화, 날짜별 상영일정
+		@Autowired
+		DateScheduleHandler datescheduleHandler;
+
+		@RequestMapping("/dateschedule")
+		public String getDateschedule(HttpServletRequest req, Model model) {
+			System.out.println("Schedule");
+
+			model.addAttribute("req", req);
+
+			String viewPage = datescheduleHandler.process(model);
+			return viewPage;
+		}
    
    //유영원 : 관리자 영화 정보 수정 
    @Autowired
@@ -474,21 +490,36 @@ public class MFrontController {
 				                     
 		return viewPage;
 	}
+	
+	// 박주은 : 고객 예매 페이지
+		@Autowired
+		TicketHandler ticketHandler;
+
+		@RequestMapping("/ticket")
+		public String ticket(HttpServletRequest req, Model model) {
+			System.out.println("ticket");
+
+			model.addAttribute("req", req);
+			model.addAttribute("contentPage", "user/ticket.jsp");
+			String viewPage = ticketHandler.process(model);
+
+			return viewPage;
+		}
 
 
 	// 박주은 : 예약페이지
-	@Autowired
-	MReservationHandler reservationHandler;
+		@Autowired
+		MReservationHandler reservationHandler;
 
-	@RequestMapping("/reservation")
-	public String reservation(HttpServletRequest req, Model model) {
-		System.out.println("reservation");
+		@RequestMapping("/reservation")
+		public String reservation(HttpServletRequest req, Model model) {
+			System.out.println("reservation");
 
-		model.addAttribute("req", req);
-		model.addAttribute("contentPage", "user/reservation.jsp");
-		String viewPage = reservationHandler.process(model);
+			model.addAttribute("req", req);
+			model.addAttribute("contentPage", "user/reservation.jsp");
+			String viewPage = reservationHandler.process(model);
 
-		return viewPage;
-	}
+			return viewPage;
+		}
 	
 }
