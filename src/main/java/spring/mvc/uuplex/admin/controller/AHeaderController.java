@@ -13,6 +13,7 @@ import spring.mvc.uuplex.admin.handler.LogoutProHandler;
 import spring.mvc.uuplex.admin.handler.MemInfoHandler;
 import spring.mvc.uuplex.admin.handler.MemModifyFormHandler;
 import spring.mvc.uuplex.admin.handler.MemModifyProHandler;
+import spring.mvc.uuplex.admin.handler.MemReserveHandler;
 
 @Controller
 public class AHeaderController {
@@ -104,6 +105,21 @@ public class AHeaderController {
 		model.addAttribute("req", req);
 		
 		String viewPage = memModifyFormHandler.process(model);
+
+		return viewPage;
+	}
+	
+	
+	@Autowired
+	MemReserveHandler memReserveHandler;
+	@RequestMapping("/memReserve")
+	public String memReserve(HttpServletRequest req, Model model) {
+		
+		System.out.println("내정보수정 페이지");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = memReserveHandler.process(model);
 
 		return viewPage;
 	}
