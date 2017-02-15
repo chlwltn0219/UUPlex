@@ -22,14 +22,18 @@ public class GenderAgeRateHandler implements MCommandHandler{
 		
 		HttpServletRequest req = (HttpServletRequest)model.asMap().get("req");
 		int movie_num = 0;
+		int total = 0;
 		List<AgeRangeDTO> dtos = null;
 		int gender = 0;
 		
 		try {
 			movie_num = Integer.parseInt(req.getParameter("movie_num"));
+			total = Integer.parseInt(req.getParameter("total"));
+			
+			model.addAttribute("total",total);
 			//연령별 예매
 			dtos = dao.ageRange(movie_num);		
-			model.addAttribute("age", dtos);
+			model.addAttribute("dtos", dtos);
 			//성별 예매
 			gender = dao.womanCnt(movie_num);
 			model.addAttribute("gender", gender);
@@ -39,8 +43,7 @@ public class GenderAgeRateHandler implements MCommandHandler{
 		}
 		
 		
-		
-		return "c-box/manage/genderAgeRate";
+		return "c-box/manage/genderAgeRate_json";
 	}
 
 }

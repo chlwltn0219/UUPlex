@@ -43,6 +43,7 @@
   
   <mapping path="/hotel/reservForm" exclue="true"/>
   <mapping path="/hotel/calculation" exclue="true"/>
+  <mapping path="/hotel/reservDetail" exclue="true"/>
   
   <mapping path="/fitness/teacher/suitable" exclue="true"/>
   
@@ -74,6 +75,7 @@
   <mapping path="/fitness/user/reserve/program" exclue="true"/>
   <mapping path="/fitness/user/reserve/class" exclue="true"/>
   <mapping path="/fitness/user/reserve/detail" exclue="true"/>
+  <mapping path="/fitness/user/statement/refund" exclue="true"/>
   
   <mapping path="/c-box/movie_detail" exclue="true"/>
   <mapping path="/c-box/orderByDate" exclue="true"/>
@@ -83,6 +85,9 @@
   <mapping path="/c-box/manage/schedule/inputForm" exclue="true"/>
   <mapping path="/c-box/manage/reserve/screenQuater" exclue="true"/>
   <mapping path="/c-box/user/review/list" exclue="true"/>
+  <mapping path="/c-box/schedulechange" exclue="true"/>
   <mapping path="/c-box/user/review/ratingOrder" exclue="true"/>
+  <mapping path="/c-box/dateschedule" exclue="true"/>
+  
   
 </sitemesh>

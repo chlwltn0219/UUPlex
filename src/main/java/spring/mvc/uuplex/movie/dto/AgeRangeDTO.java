@@ -2,14 +2,14 @@ package spring.mvc.uuplex.movie.dto;
 
 public class AgeRangeDTO {
 	
-	int range;
+	String rng;
 	int num;
 	
-	public int getRange() {
-		return range;
+	public String getRng() {
+		return rng;
 	}
-	public void setRange(int range) {
-		this.range = range;
+	public void setRng(String rng) {
+		this.rng = rng;
 	}
 	public int getNumber() {
 		return num;

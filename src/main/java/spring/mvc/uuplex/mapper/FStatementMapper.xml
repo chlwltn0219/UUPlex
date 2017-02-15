@@ -67,18 +67,69 @@
 	<!-- 강의 신청 -->
 	<insert id="reserveInput" parameterType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
 		INSERT INTO F_STATEMENT (stid, cid, memid, price)
-		VALUES (SEQ_STATEMENTID.nextval, #{cid}, #{memid}, #{price})
+		VALUES (SEQ_STATEMENT_STID.nextval, #{cid}, #{memid}, #{price})
 	</insert>
 	
 	<!-- 강의 환불 : 강의 시작일 전에 만 환불 가능 -->
-	<delete id="refund" parameterType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
-		DELETE FROM F_STATEMENT
-		WHERE cid = #{cid}
+	<delete id="refundPro" parameterType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		DELETE FROM F_STATEMENT s
+		WHERE stid = #{stid}
 		  AND memid = #{memid}
 		  AND SYSDATE &lt; ( SELECT start_date
-		  					   FROM F_CLASS
-		  					  WHERE cid = #{cid} )
+		  					   FROM F_CLASS c
+		  					  WHERE c.cid = s.cid )
 	</delete>
 
+	<select id="refundForm" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FStatementDTO">
+		SELECT st.stid,
+			   st.memid,
+			   p.pname,
+			   c.subname,
+			   t.tname
+		  FROM F_STATEMENT st
+		 INNER JOIN F_CLASS c
+		    ON c.cid = st.cid
+		 INNER JOIN F_PROGRAM p
+		    ON p.pid = c.pid
+		 INNER JOIN F_TEACHER t
+		    ON t.tid = p.tid
+		 WHERE stid = #{stid}
+		   AND memid = #{memid}
+	</select>
 	
+	<select id="checkStatement" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		  FROM F_STATEMENT
+		 WHERE cid = #{cid}
+		   AND memid = #{memid}
+	</select>
+	
+	<select id="dailySales" resultType="Map">
+		SELECT TO_CHAR(d.DAY, 'YY-MM-DD') AS DAY, NVL(st.SALE, 0) AS SALE
+		  FROM ( SELECT TRUNC(SYSDATE,'DD')-30+LEVEL AS DAY 
+				   FROM DUAL
+			    CONNECT BY TRUNC(SYSDATE,'DD')-30+LEVEL &lt;= TRUNC(SYSDATE,'DD') ) d
+				   LEFT OUTER JOIN ( SELECT SUM(price) AS SALE, TRUNC(reg_date, 'DD') AS DAY
+				   					   FROM F_STATEMENT
+				  					  WHERE TRUNC(reg_date, 'DD') BETWEEN TRUNC(SYSDATE,'DD')-30
+																	  AND SYSDATE
+				  					   GROUP BY TRUNC(reg_date, 'DD') ) st
+					 ON d.DAY = st.DAY
+			ORDER BY d.DAY
+	</select>
+	
+	<select id="monthlySales" resultType="Map">
+		SELECT TO_CHAR(m.MONTH, 'YY-MM') AS MONTH, NVL(st.SALE, 0) AS SALE
+		  FROM ( SELECT ADD_MONTHS(TRUNC(SYSDATE, 'MM'),-LEVEL+1) AS MONTH
+				   FROM dual
+				CONNECT BY ADD_MONTHS(TRUNC(SYSDATE, 'MM'),-LEVEL+1) &gt;= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -5) ) m
+				   LEFT JOIN ( SELECT SUM(price) AS SALE, TRUNC(reg_date, 'MM') AS MONTH
+								 FROM F_STATEMENT
+								 WHERE reg_date BETWEEN TRUNC(ADD_MONTHS(SYSDATE, -5), 'MM')
+								   AND SYSDATE 
+								 GROUP BY TRUNC(reg_date, 'MM') ) st 
+					      ON m.MONTH = st.MONTH 
+					   ORDER BY MONTH
+	</select>
+
 </mapper>

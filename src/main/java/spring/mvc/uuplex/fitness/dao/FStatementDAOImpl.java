@@ -24,10 +24,10 @@ public class FStatementDAOImpl implements FStatementDAO{
 	}
 	
 	@Override
-	public int refund(FStatementDTO dto) {
+	public int refundPro(FStatementDTO dto) {
 		int cnt = 0;
 		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
-		cnt = dao.refund(dto);
+		cnt = dao.refundPro(dto);
 		return cnt;
 	}
 
@@ -62,5 +62,37 @@ public class FStatementDAOImpl implements FStatementDAO{
 		list = dao.userStatementList(rangeMap);
 		return list;
 	}
-
+	
+	@Override
+	public FStatementDTO refundForm(Map<String, Object> info) {		
+		FStatementDTO dto = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		dto = dao.refundForm(info);
+		return dto;
+	}
+	
+	@Override
+	public int checkStatement(Map<String, Object> info) {		
+		int cnt = 0;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		cnt = dao.checkStatement(info);
+		return cnt;
+	}
+	
+	@Override
+	public List<Map<String, Object>> dailySales() {		
+		List<Map<String, Object>> list = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		list = dao.dailySales();
+		return list;
+	}
+	
+	@Override
+	public List<Map<String, Object>> monthlySales() {	
+		List<Map<String, Object>> list = null;
+		FStatementDAO dao = sqlSession.getMapper(FStatementDAO.class);
+		list = dao.monthlySales();
+		return list;
+	}
+	
 }

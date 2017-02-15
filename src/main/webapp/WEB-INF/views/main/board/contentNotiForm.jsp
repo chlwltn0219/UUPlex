@@ -53,6 +53,7 @@
     	<div class="col-sm-offset-2 col-sm-8">
       		<input type="button" class="btn btn-default" value="목록보기" onclick="window.location='notice?pageNum=${pageNum}&shopCode=${shopCode}'">
       		<c:if test="${idCode == 101}">
+      		<a data-toggle="modal" class="btn btn-default" data-target="#BoardModal" href="noneSM/noticeModify?num=${dto.notiNum}&pageNum=${pageNum}&shopCode=${shopCode}">글수정</a>
       		<a data-toggle="modal" class="btn btn-default" data-target="#BoardModal" href="noneSM/noticeDel?num=${dto.notiNum}&pageNum=${pageNum}&shopCode=${shopCode}">글삭제</a>
       		</c:if>
     	</div>

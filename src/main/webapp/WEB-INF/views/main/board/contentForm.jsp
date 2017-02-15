@@ -52,11 +52,21 @@
 	<div class="form-group" align="center">
     	<div class="col-sm-offset-2 col-sm-8">
       		<input type="button" class="btn btn-default" value="목록보기" onclick="window.location='qna?pageNum=${pageNum}&shopCode=${shopCode}'">
+
       		<c:if test="${idCode==101}">
-      		<input type="button" class="btn btn-default" value="답글쓰기" onclick="window.location='qnAWriteForm?num=${dto.qnaNum}&ref=${dto.qnaNum}&ref_step=${dto.ref_step}&ref_level=${dto.ref_level}&shopCode=${shopCode}'">
+      			<input type="button" class="btn btn-default" value="답글쓰기" onclick="window.location='qnAWriteForm?num=${dto.qnaNum}&ref=${dto.ref}&ref_step=${dto.ref_step}&ref_level=${dto.ref_level}&shopCode=${shopCode}'">
       		</c:if>
+      		
+      		<c:if test="${sessionScope.id == dto.memId}">
+      			<a data-toggle="modal" class="btn btn-default" data-target="#BoardModal" href="noneSM/qnAModifyForm?num=${dto.qnaNum}&shopCode=${shopCode}&pageNum=${pageNum}">수정하기</a>
+      			<a data-toggle="modal" class="btn btn-default" data-target="#BoardModal" href="noneSM/qnADelForm?num=${dto.qnaNum}&shopCode=${shopCode}&ref_step=${dto.ref_step}">삭제하기</a>
+      		</c:if>
+      		
     	</div>
   	</div>	
+
+  	<%@ include file="/admin_Modal/Board_modal.jsp" %>
+
 
 </form>	
 </div>

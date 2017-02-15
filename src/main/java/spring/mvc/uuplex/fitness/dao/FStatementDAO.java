@@ -15,6 +15,13 @@ public interface FStatementDAO {
 	
 	int reserveInput(FStatementDTO dto);
 	
-	int refund(FStatementDTO dto);
+	FStatementDTO refundForm(Map<String, Object> info);
+	
+	int refundPro(FStatementDTO dto);
+	
+	int checkStatement(Map<String, Object> info);
 
+	List<Map<String, Object>> dailySales();
+	List<Map<String, Object>> monthlySales();
+	
 }

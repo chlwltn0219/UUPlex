@@ -10,7 +10,7 @@ import spring.mvc.uuplex.fitness.dao.FClassroomDAO;
 import spring.mvc.uuplex.fitness.dto.FClassroomDTO;
 
 @Service
-public class FClassroomInputHandler implements FCommandHandler{
+public class FClassroomInputProHandler implements FCommandHandler{
 
 	
 	@Autowired

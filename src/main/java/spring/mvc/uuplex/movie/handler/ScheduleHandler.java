@@ -30,25 +30,28 @@ public class ScheduleHandler implements MCommandHandler {
 		List<ScheduleDTO> dtos = null;
 		String viewPage = "/c-box/Movie_main";
 		
+		model.addAttribute("date",req.getParameter("date"));
+		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = dateFormat.format(new Date());
 		SimpleDateFormat endFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String end = endFormat.format(new Date(new Date().getTime() + 60 * 60 * 24 * 1000));
+		model.addAttribute("contentPage", "user/schedule.jsp");
+		
+		
 		
 		if(req.getParameter("date")!=null){
-			date = req.getParameter("date");
-			end = date.substring(0,7)+(Integer.parseInt(date.substring(8))+1);
-		}
-		
+			date = req.getParameter("date").equals("0") ? dateFormat.format(new Date()) : endFormat.format(new Date(new Date().getTime() + 60 * 60 * 24 * 1000 * Integer.parseInt(req.getParameter("date"))));
+			end = endFormat.format(new Date(new Date().getTime() + 60 * 60 * 24 * 1000 * (Integer.parseInt(req.getParameter("date"))+1)));
+			viewPage = "/c-box/user/scheduletable";
+		}		
 
 		Map<String, String> Map = new HashMap<String, String>();
 		Map.put("date", date);
 		Map.put("end", end);
 		
 		dtos = dao.schedules(Map);
-
 		model.addAttribute("dtos", dtos);
-		model.addAttribute("contentPage", "user/schedule.jsp");
 
 		return viewPage;
 	}

@@ -50,69 +50,64 @@ h5{
 	text-align: center;
 }
 
+.title {
+	margin-bottom: 1em;
+}
 
 </style>
 </head>
 <body>
 <div class="container" >
 
-	<h1>강사 정보</h1>
+	<img class="title" src="${resources}/fitness/img/teacher.png">
 
-  <div class="panel-group" id="accordion">
+	<div class="panel-group" id="accordion">
 	<c:forEach var="s" items="${sports}">
-    <div class="panel">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#s${s.sid}">${s.sname}</a>
-        </h4>
-      </div>
-      <div id="s${s.sid}" class="panel-collapse collapse">
-        <div class="panel-body">
-<!--         <div style="width: 990px; margin: 0 auto;"> -->
-
-        	<c:set var="i" value="${0}"/>
-        	<c:forEach items="${dtos}" var="t" varStatus="status">
-        	<c:if test="${s.sid == t.sid}">
-        		<c:set var="i" value="${i+1}"/>
-        	
-        		<c:if test="${i%3==1}"> 
-        			<div class="row">
-        		</c:if>
-        		
-					<div class="content col-sm-4">
-						<div class="image">
-							<img src="/teacherImg/${t.tpicture}" width="100%" height="100%" alt="Avatar">
-						</div>
-						<div class="text">
-							<h5><b>${t.tname}</b></h5>	
-							<br>					
-							<b>강사 이력</b>
-							<br>				
-							${t.tinfo}
-						</div>
-					</div>
-				
-        		<c:if test="${i%3==0}"> 
-        			</div>
-        		</c:if>
-				
-			</c:if>
+		<div class="panel">
+			<div class="panel-heading">
+			<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#s${s.sid}">${s.sname}</a></h4>
+			</div>
 			
-       		<c:if test="${i%3!=0 && status.isLast()}"> 
-       			</div>
-       		</c:if>
-       </c:forEach>
-
-	</div>
-	</div>
-	</div>	
-	
-        
-	<hr style="display: none;">
+			<div id="s${s.sid}" class="panel-collapse collapse">
+				<div class="panel-body">
+				<c:set var="i" value="${0}"/>
+				<c:forEach items="${dtos}" var="t" varStatus="status">
+				<c:if test="${s.sid == t.sid}">
+					<c:set var="i" value="${i+1}"/>
+        	
+					<c:if test="${i%3==1}"> 
+					<div class="row">
+					</c:if>
+					
+						<div class="content col-sm-4">
+							<div class="image">
+								<img src="/teacherImg/${t.tpicture}" width="100%" height="100%" alt="Avatar">
+							</div>
+							<div class="text">
+								<h5><b>${t.tname}</b></h5>	
+								<br>					
+								<b>강사 이력</b>
+								<br>				
+								${t.tinfo}
+							</div>
+						</div>
+						
+	        		<c:if test="${i%3==0}"> 
+	        		</div>
+	        		</c:if>
+					</c:if>
+			
+		       		<c:if test="${i%3!=0 && status.isLast()}"> 
+		       		</div>
+		       		</c:if>
+				</c:forEach>
+				</div>
+			</div>
+		</div>
 	</c:forEach>  
-    </div>
- 
+	</div>	
 </div>
+ 
 </body>
 </html>
 

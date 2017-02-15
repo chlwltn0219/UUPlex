@@ -449,16 +449,28 @@ public class MFrontController {
 		return viewPage;
 	}
 	
-	//유영원 : 영화별 성별/연령별 예매율
-	@Autowired
-	GenderAgeRateHandler genderAgeRateHandler;
+	//유영원 : 영화별 상세 예매분포 페이지
+	
 	@RequestMapping("/genderAgeRate")
 	public String genderAgeRate(HttpServletRequest req, Model model) {
 		System.out.println("orderByDate");
 			                     
 		model.addAttribute("req", req);
-		String viewPage = genderAgeRateHandler.process(model);
+		String viewPage = "/c-box/manage/genderAgeRate";
 			                     
+		return viewPage;
+	}
+	
+	//유영원 : 영화별 상세 분포 차트 데이터 json
+	@Autowired
+	GenderAgeRateHandler genderAgeRateHandler;
+	@RequestMapping("/genderAgeRate_json")
+	public String genderAgeRate_json(HttpServletRequest req, Model model) {
+		System.out.println("orderByDate");
+				                     
+		model.addAttribute("req", req);
+		String viewPage = genderAgeRateHandler.process(model);
+				                     
 		return viewPage;
 	}
 }

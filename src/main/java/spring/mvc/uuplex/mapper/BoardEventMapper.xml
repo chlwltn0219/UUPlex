@@ -53,6 +53,14 @@
 	<update id="eventModify" parameterType="spring.mvc.uuplex.admin.dto.BoardEventDTO">
 		UPDATE event_board SET shopCode=#{shopCode}, eventPasswd=${eventPasswd}, subject=#{subject}, eventImg=#{eventImg}, content=#{content} WHERE eventNum=#{eventNum}
 	</update>
+	
+	<update id="addReadCnt" parameterType="int">
+		UPDATE event_board SET readCnt = readCnt + 1 WHERE eventNum= #{num}
+	</update>
+	
+	<delete id="eventDel" parameterType="int">
+		DELETE FROM event_board WHERE eventNum= #{num}
+	</delete>
 
 </mapper>
     

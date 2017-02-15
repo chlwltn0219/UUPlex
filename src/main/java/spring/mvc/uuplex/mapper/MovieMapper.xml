@@ -85,7 +85,7 @@
 		starring = #{starring}, genre = #{genre}, MPAARating = #{MPAARating}, 
 		productionYear = #{productionYear}, runTime = #{runTime}, releaseDate = #{releaseDate},
 		poster = #{poster}, movie_img1 = #{movie_img1}, movie_img2 = #{movie_img2}, trailer = #{trailer},
-		status = #{status}, synopsis = #{synopsis} where movie_num = #{movie_num}
+		status = #{status}, synopsis = #{synopsis}, country= #{country} where movie_num = #{movie_num}
 
 	</update>
 	

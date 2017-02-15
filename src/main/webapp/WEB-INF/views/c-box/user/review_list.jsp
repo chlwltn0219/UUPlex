@@ -65,13 +65,7 @@
 		
 		<tbody>
 			
-			<c:if test="${dtos==null}">
-				<tr>
-					<h3>
-						<center>영화가 아직 준비되지 않았습니다.</center>
-					</h3>
-				</tr>
-			</c:if>
+			
 			
 			<c:if test="${dtos!=null}">
 			<c:forEach items="${dtos}" var="dto">

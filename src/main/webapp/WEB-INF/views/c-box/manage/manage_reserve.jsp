@@ -3,7 +3,8 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
 <%@ include file="../setting.jsp"%> 
-<script src="${js}jquery-1.11.3.min.js"></script>
+<script src="${resources}/c-box/js/manage_reserve.js"></script>
+<%-- <script src="${js}jquery-1.11.3.min.js"></script> --%>
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
@@ -21,31 +22,31 @@ $('#myTab a:last').tab('show'); // Select last tab
 $('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed) 
 
 //======================== Detail Modal
-function genderAgeRate(movie_num) {
-   var url = "/uuplex/c-box/genderAgeRate";
-   var method = "GET";
-   var params = "movie_num=" + movie_num;
-   sendRequest(graphModal, url, method, params);
-}
+// function genderAgeRate(movie_num) {
+//    var url = "/uuplex/c-box/genderAgeRate";
+//    var method = "GET";
+//    var params = "movie_num=" + movie_num;
+//    sendRequest(graphModal, url, method, params);
+// }
 
 //======================== Write Modal Dialog
-function graphModal() {
+// function graphModal() {
    
-   var graph = document.getElementById("dialog");
+//    var graph = document.getElementById("dialog");
    
-   if(httpRequest.readyState == 4 ) {
-      if(httpRequest.status == 200) {
-         //응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
-    	  graph.innerHTML = httpRequest.responseText;
+//    if(httpRequest.readyState == 4 ) {
+//       if(httpRequest.status == 200) {
+//          //응답 결과가 HTML이면 responseText로 받고, XML이면 resonseXML로 받는다
+//     	  graph.innerHTML = httpRequest.responseText;
          
-      } else {
-    	  graph.innerHTML = httpRequest.status + "에러 발생";
-      }
-   } else {
-	   graph.innerHTML = "상태 : " + httpRequest.readyState;
-   }
+//       } else {
+//     	  graph.innerHTML = httpRequest.status + "에러 발생";
+//       }
+//    } else {
+// 	   graph.innerHTML = "상태 : " + httpRequest.readyState;
+//    }
    
-}
+// }
 </script>
 
 <script type="text/javascript">
@@ -190,40 +191,6 @@ function drawChart3() {
 }
 /* 예매율 3위 끝 */
  
-/* 성별 예매 분포 시작 */
-google.load('visualization', '1', {'packages':['corechart'], "callback": drawChart});
-/* google.charts.setOnLoadCallback(drawChart4); */
-
-function drawChart4() {
-	   
-	   //방법2
-	   var data = new google.visualization.DataTable();
-
-	   data.addColumn('string','title');
-	   data.addColumn('number','rate');
-		data.addRows([
-				['여자',  ${(gender/dto.cnt)*100}],
-				['남자',  100-${(gender/dto.cnt)*100}]
-			]);
-		
-		
-	var options = {
-		title : '전체',
-		pieHole : 0.4,
-		label: 'none',
-		pieSliceText: 'none',
-		legend:'none'
-		
-
-	    
-	};
-
-	var chart = new google.visualization.PieChart(
-			document.getElementById('donutchart4'));
-	chart.draw(data, options);
-	
-}
-/* 성별 예매 분포 끝 */
 </script>
 <script type="text/javascript">
 google.charts.load("current", {packages:['corechart']});
@@ -360,7 +327,7 @@ function screenQ() {
 				 			<th>예매율</th>
 				 			<th>개봉일</th>
 				 			<th>세부 통계</th>
-				 			<th>그래프</th>
+				 			
 				 			
 				 		</tr>
 				 		<c:forEach items="${dtos}" var="dto">
@@ -375,11 +342,10 @@ function screenQ() {
 								
 								<td>
 								<input type="button" class="btn btn-default" value="성별/연령별" data-toggle="modal" data-target="#modalPage" 
-								onclick="genderAgeRate(${dto.movie_num})">
+								onclick="genderAgeRate(${dto.movie_num},${dto.cnt})">
 								
 								</td>
-								<td>
-								</td>		
+										
 							</tr>
 						</c:forEach>
 				 		
@@ -435,7 +401,7 @@ function screenQ() {
 	<div class="modal fade" id="modalPage" role="dialog">
 			<div class="modal-dialog modal-lg" >
 				<div id="dialog">
-					<div id="gender">
+					<div id="donutchart5">
 					</div>
 				</div>
 			</div>

@@ -24,21 +24,21 @@
 			<tr>
 				<td colspan="2">
 				<!-- 검색 -->
-					<form action="" method="get" onsubmit=""
-						 class="form-inline" name="searchForm">
-						<div class="input-group">
+<!-- 					<form action="" method="get" onsubmit="" -->
+<!-- 						 class="form-inline" name="searchForm"> -->
+<!-- 						<div class="input-group"> -->
 <!-- 							<select class="form-control"> -->
 <!-- 								<option>코드</option> -->
 <!-- 								<option>종목 명</option> -->
 <!-- 							</select> -->
-							<input class="form-control" type="search" placeholder="검색 구현 필요">
-							<div class="input-group-btn">
-								<button type="submit" class="btn btn-info">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
+<!-- 							<input class="form-control" type="search" placeholder="검색 구현 필요"> -->
+<!-- 							<div class="input-group-btn"> -->
+<!-- 								<button type="submit" class="btn btn-info"> -->
+<!-- 									<i class="glyphicon glyphicon-search"></i> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</form> -->
 				<td>
 				<!-- 등록 -->
 					<div class="form-group pull-right">
@@ -72,10 +72,8 @@
 				</c:if>
 					<td>${dto.cid}</td>
 					<td>
-						<h4>
-							<a class="btn btn-link" onclick="classDetail(${dto.cid})"
-							data-toggle="modal" data-target="#modalPage">${dto.pname} <small>${dto.subname}</small></a>
-						</h4>
+						<h4><a class="btn btn-link" onclick="classDetail(${dto.cid})"
+							data-toggle="modal" data-target="#modalPage" style="font-size: 1.5em">${dto.pname} <small>: ${dto.subname}</small></a></h4>
 					</td>
 					<td>
 						<table class="inner-table">
@@ -93,13 +91,13 @@
 									${fn:substring(dto.register_start,0,10)}<br> 
 									~ ${fn:substring(dto.register_end,0,10)} 
 								<c:if test="${now < dto.register_start}">
-									<span class="label label-warning">예정</span>
+									<h4 style="display:inline;"><span class="label label-warning">예정</span></h4>
 								</c:if>
 								<c:if test="${now >= dto.register_start && now <= dto.register_end}">
-									<span class="label label-success">진행중</span>
+									<h4 style="display:inline;"><span class="label label-success">진행중</span></h4>
 								</c:if>
 								<c:if test="${now > dto.register_end}">
-									<span class="label label-danger">종료</span>
+									<h4 style="display:inline;"><span class="label label-danger">종료</span></h4>
 								</c:if>
 							</tr>
 							<tr>
@@ -109,13 +107,13 @@
 									${fn:substring(dto.start_date,0,10)}<br> 
 									~ ${fn:substring(dto.end_date,0,10)} 
 									<c:if test="${now < dto.start_date}">
-										<span class="label label-warning">예정</span>
+										<h4 style="display:inline;"><span class="label label-warning">예정</span></h4>
 									</c:if>
 									<c:if test="${now >= dto.start_date && now <= dto.end_date}">
-										<span class="label label-success">진행중</span>
+										<h4 style="display:inline;"><span class="label label-success">진행중</span></h4>
 									</c:if>
 									<c:if test="${now > dto.end_date}">
-										<span class="label label-danger">종료</span>
+										<h4 style="display:inline;"><span class="label label-danger">종료</span></h4>
 									</c:if>
 								</td>
 							</tr>

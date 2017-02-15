@@ -194,7 +194,7 @@
          <div class="reviewList">
             <div class="option">
       
-               <a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a>
+              <%--  <a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a> --%>
             </div>
 
             <div id="review">

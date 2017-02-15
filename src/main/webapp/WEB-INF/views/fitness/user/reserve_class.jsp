@@ -33,7 +33,7 @@
 							<table style="width: 100%">
 								<tr>
 									<th>정원</th>
-									<td>${c.current_people} / ${c.limit} 명</td>
+									<td>${c.people} / ${c.limit} 명</td>
 								</tr>
 								<tr style="border-bottom: 1px solid #dddddd ">
 									<th>가격</th>
@@ -92,12 +92,12 @@
 							<c:if test="${c.register_start > now}">
 								<button class="btn btn-warning disabled"> 신청 대기 </button>
 							</c:if>
-							<c:if test="${c.current_people < c.limit && c.register_start <= now && c.register_end >= now }">
+							<c:if test="${c.people < c.limit && c.register_start <= now && c.register_end >= now }">
 								<button class="btn btn-success"  
 									data-toggle="modal" data-target="#modalPage"
 									onclick="reserveForm(${c.cid})"> 신청하기 </button>
 							</c:if>
-							<c:if test="${c.current_people >= c.limit || c.register_end < now}">
+							<c:if test="${(c.people >= c.limit && c.register_start < now && c.register_end > now) || c.register_end < now}">
 								<button class="btn btn-danger disabled"> 종료됨 </button>
 							</c:if>
 						</td>

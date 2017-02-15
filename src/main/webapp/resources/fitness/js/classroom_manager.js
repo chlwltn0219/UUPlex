@@ -31,24 +31,24 @@ function classroomModify(crid) {
 	sendRequest(classroomModal, url, method, params);
 }
 
-//=====================================Modify Pro
-
-function classroomModifyPro() {
-	var crid = document.classroomModifyForm.crid.value;
-	var crname = document.classroomModifyForm.crname.value;
-	var activated = document.classroomModifyForm.activated.value;
-	
-	var url = "/uuplex/fitness/manage/classroom/modifyPro"
-		
-	var method = "POST"
-	var params = "crid=" + crid + "&crname=" + crname + 
-				 "&activated=" + activated ;
-	
-	sendRequest(classroomModal, url, method, params);
-	
-	window.location.reload();
-
-}
+//=====================================Modify Pro : 사용 안함
+//function classroomModifyPro() {
+//	var crid = document.classroomModifyForm.crid.value;
+//	var crname = document.classroomModifyForm.crname.value;
+//	var activated = document.classroomModifyForm.activated.value;
+//	
+//	var url = "/uuplex/fitness/manage/classroom/modifyPro"
+//		
+//	var method = "POST"
+//	var params = "crid=" + crid + "&crname=" + crname + 
+//				 "&activated=" + activated ;
+//	
+//	if(classroomDataCheck()){
+//		sendRequest(classroomModal, url, method, params);
+///*		window.location.reload();*/
+//	}
+//
+//}
 
 //=====================================Write Modal Dialog
 
@@ -66,4 +66,18 @@ function classroomModal() {
 	} else {
 		modal.innerHTML="상태 : " + httpRequest.readyState;
 	}
+}
+
+
+function classroomDataCheck() {
+	
+	var subname = $('input[name=crname]');
+	
+	if(subname.val().length <= 0){
+		alert("부제목은 빈칸이 올 수 없습니다.");
+		subname.focus();
+		return false;
+	}
+
+	return true;
 }

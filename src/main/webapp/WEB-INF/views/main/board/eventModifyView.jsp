@@ -34,7 +34,6 @@
 	
 	<input type="hidden" name="num" value="${num}">
 	<input type="hidden" name="pageNum" value="${pageNum}">
-	<input type="hidden" name="shopCode" value="${shopCode}">
 	
 	<div class="form-group">
     	<label for="boardSubject" class="col-sm-2 control-label">작성자</label>

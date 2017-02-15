@@ -14,13 +14,16 @@
 	<!-- 피트니스 프로그램 리스트 반환 -->
 	<select id="programList" parameterType="Map" resultType="spring.mvc.uuplex.fitness.dto.FProgramDTO">
 		SELECT *
-		  FROM ( SELECT p.* , rownum AS rnum 
-				   FROM ( SELECT pid, pname,
-				   				(SELECT sname FROM F_SPORTS s WHERE s.sid=i.sid) AS sname, 
-				   				(SELECT tname FROM F_TEACHER t WHERE t.tid=i.tid) AS tname, 
-				   				activated 
-			  		     	FROM F_PROGRAM i
-			  			   ORDER BY activated DESC, pid DESC ) p )
+		  FROM ( SELECT a.* , rownum AS rnum 
+				   FROM ( SELECT p.pid, p.pname, p.activated, 
+				   				 s.sname, 
+				   				 t.tname
+			  		     	FROM F_PROGRAM p
+			  		       INNER JOIN F_SPORTS s
+			  		          ON s.sid = p.sid
+			  		       INNER JOIN F_TEACHER t
+			  		          ON t.tid = p.tid
+			  			   ORDER BY p.activated DESC, p.pid DESC) a )
 		 WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	

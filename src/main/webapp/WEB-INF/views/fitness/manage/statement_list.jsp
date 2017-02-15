@@ -6,42 +6,51 @@
 <html>
 <head>
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
-<script type="text/javascript" src="${resources}/fitness/js/class_manager.js"></script>
+<script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="${resources}/fitness/js/statement_chart.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
 	table.inner-table th {
 		width: 35%;
 		vertical-align: top; 
 	}
+	
 </style>
 <title>명세 목록</title>
 </head>
 <body>
 	<h3>명세 목록</h3>
 	
-	<div class="row">
-		<pre>그래프를 넣어주세요		총계를 넣어주세요</pre>
+	<div class="row chart">
+		<div class="col-sm-6">
+			<h4>월간 수익</h4>
+			<div id="monthlySale"></div>
+		</div>
+		<div class="col-sm-6">
+			<h4>일간 수익</h4>
+			<div id="dailySale"></div>
+		</div>
 	</div>
 	<table class="table table-hover table-striped">
 		<thead>
 			<tr>
 				<td colspan="3">
 				<!-- 검색 -->
-				<form action="" method="get" onsubmit=""
-					 class="form-inline" name="searchForm">
-					<div class="input-group">
+<!-- 				<form action="" method="get" onsubmit="" -->
+<!-- 					 class="form-inline" name="searchForm"> -->
+<!-- 					<div class="input-group"> -->
 <!-- 							<select class="form-control"> -->
 <!-- 								<option>코드</option> -->
 <!-- 								<option>종목 명</option> -->
 <!-- 							</select> -->
-						<input class="form-control" type="search" placeholder="검색 구현 필요">
-						<div class="input-group-btn">
-							<button type="submit" class="btn btn-info">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
-						</div>
-					</div>
-				</form>
+<!-- 						<input class="form-control" type="search" placeholder="검색 구현 필요"> -->
+<!-- 						<div class="input-group-btn"> -->
+<!-- 							<button type="submit" class="btn btn-info"> -->
+<!-- 								<i class="glyphicon glyphicon-search"></i> -->
+<!-- 							</button> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</form> -->
 			</tr>
 			<tr>
 				<th>#</th>
@@ -89,7 +98,7 @@
 				<td colspan="5" align="center">
 					<c:if test="${prev == true}">
 						<ul class="pager"> 
-							<li><a href="/uuplex/fitness/manage/class/list?page=${startPage-1}">&lt; prev</a></li>
+							<li><a href="/uuplex/fitness/manage/statement/list?page=${startPage-1}">&lt; prev</a></li>
 						</ul>
 					</c:if>
 				
@@ -100,14 +109,14 @@
 								<li class="active"><a>${page}</a></li>
 							</c:if>
 							<c:if test="${status.current != nowPage}">
-								<li><a href="/uuplex/fitness/manage/class/list?page=${page}">${page}</a></li>
+								<li><a href="/uuplex/fitness/manage/statement/list?page=${page}">${page}</a></li>
 							</c:if>
 						</c:forEach>
 					</ul>
 					
 					<c:if test="${next == true}">
 						<ul class="pager"> 
-							<li><a href="/uuplex/fitness/manage/class/list?page=${endPage+1}">next &gt;</a></li>
+							<li><a href="/uuplex/fitness/manage/statement/list?page=${endPage+1}">next &gt;</a></li>
 						</ul>
 					</c:if>
 					

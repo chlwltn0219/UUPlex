@@ -11,27 +11,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.mvc.uuplex.fitness.handler.FClassDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FClassInputFormHandler;
-import spring.mvc.uuplex.fitness.handler.FClassInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomDetailHandler;
-import spring.mvc.uuplex.fitness.handler.FClassroomInputHandler;
+import spring.mvc.uuplex.fitness.handler.FClassroomInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomListHandler;
 import spring.mvc.uuplex.fitness.handler.FClassroomModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FDailySalesHandler;
 import spring.mvc.uuplex.fitness.handler.FManagerStatementListHandler;
+import spring.mvc.uuplex.fitness.handler.FMonthlySalesHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInfoListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputFormHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FProgramModifyHandler;
+import spring.mvc.uuplex.fitness.handler.FRefundFormHandler;
+import spring.mvc.uuplex.fitness.handler.FRefundProHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableClassListHandler;
 import spring.mvc.uuplex.fitness.handler.FReservableProgramListHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveDetailHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveFormHandler;
 import spring.mvc.uuplex.fitness.handler.FReserveProHandler;
-import spring.mvc.uuplex.fitness.handler.FSportsAddHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsDetailHandler;
+import spring.mvc.uuplex.fitness.handler.FSportsInputProHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsListHandler;
 import spring.mvc.uuplex.fitness.handler.FSportsModifyHandler;
 import spring.mvc.uuplex.fitness.handler.FTeacherDetailHandler;
@@ -51,7 +55,7 @@ public class FFrontController{
    @Autowired
    FSportsListHandler sportsListHandler;
    @Autowired
-   FSportsAddHandler sportsAddHandler;
+   FSportsInputProHandler sportsAddHandler;
    @Autowired
    FSportsDetailHandler sportsDetailHandler;
    @Autowired
@@ -73,7 +77,7 @@ public class FFrontController{
    @Autowired
    FClassroomListHandler cListHandler;
    @Autowired
-   FClassroomInputHandler cinputHandler;
+   FClassroomInputProHandler cinputHandler;
    @Autowired
    FClassroomDetailHandler cDetailHandler;
    @Autowired
@@ -97,7 +101,7 @@ public class FFrontController{
    @Autowired
    FClassInputFormHandler classInputFormHandler;
    @Autowired
-   FClassInputHandler classInputHandler; 
+   FClassInputProHandler classInputHandler; 
    @Autowired
    FClassModifyHandler classModifyHandler; 
    
@@ -116,11 +120,21 @@ public class FFrontController{
    FReserveDetailHandler reserveDetailHandler;
    
    @Autowired
+   FRefundFormHandler refundFormHandler;
+   @Autowired
+   FRefundProHandler refundProHandler; 
+   
+   @Autowired
    FUserStatementListHandler userStatementListHandler;
    @Autowired
    FTeacherInfoListHandler teacherInfoListHandler;
    @Autowired
    FProgramInfoListHandler programInfoListHandler;
+   
+   @Autowired
+   FDailySalesHandler dailySalesHandler;
+   @Autowired
+   FMonthlySalesHandler monthlySalesHandler;
 
    // �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕: �뜝�룞�삕�듃�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕
    @RequestMapping("")
@@ -185,8 +199,8 @@ public class FFrontController{
    @RequestMapping("/manage/sports/modifyPro")
    public String sportsModifyPro(HttpServletRequest req, Model model){
       model.addAttribute("req", req);
-      sportsModifyHandler.process(model);
-      String viewPage = sportsDetail(req, model); 
+
+      String viewPage = sportsModifyHandler.process(model);
       return viewPage;
    }
    
@@ -374,8 +388,8 @@ public class FFrontController{
    @RequestMapping("/manage/class/modifyPro")
    public String classModifyPro(HttpServletRequest req, Model model){
       model.addAttribute("req", req);
-      classModifyHandler.process(model);
-      String viewPage = classDetailHandler.process(model); 
+      
+      String viewPage = classModifyHandler.process(model); 
       return viewPage;
    }
    
@@ -435,8 +449,8 @@ public class FFrontController{
    @RequestMapping("/manage/program/modifyPro")
    public String programModifyPro(HttpServletRequest req, Model model){
       model.addAttribute("req", req);
-      programModifyHandler.process(model);
-      String viewPage = programDetail(req, model); 
+      
+      String viewPage = programModifyHandler.process(model);
       return viewPage;
    }
    
@@ -445,6 +459,22 @@ public class FFrontController{
 	   String viewPage = null; 
       model.addAttribute("req", req);
       viewPage = managerStatementListHandler.process(model);
+      return viewPage;
+   }
+   
+   @RequestMapping("/manage/statement/dailySales")
+   public String dailySales(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = dailySalesHandler.process(model);
+      return viewPage;
+   }
+   
+   @RequestMapping("/manage/statement/monthlySales")
+   public String monthSales(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = monthlySalesHandler.process(model);
       return viewPage;
    }
 
@@ -526,6 +556,22 @@ public class FFrontController{
       model.addAttribute("req", req);
       viewPage = userStatementListHandler.process(model);
 
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/statement/refund")
+   public String refundCheck(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = refundFormHandler.process(model);
+      return viewPage;
+   }
+   
+   @RequestMapping("/user/statement/refundPro")
+   public String refundPro(HttpServletRequest req, Model model){
+      String viewPage = null;
+      model.addAttribute("req", req);
+      viewPage = refundProHandler.process(model);
       return viewPage;
    }
    

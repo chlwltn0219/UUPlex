@@ -23,6 +23,7 @@ public class MainRankingHandler implements MCommandHandler{
 		
 		model.addAttribute("dtos", dtos);
 		
+		
 		return "c-box/Movie_main";
 	}
 
