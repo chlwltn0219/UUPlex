@@ -28,6 +28,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	vertical-align: baseline;
 }
 
+/* 상단바 고정 */
 header {
 	background-image: url("resources/hotelImages/hotel_background.png");
 	background-size: 800px;
@@ -83,6 +84,7 @@ header .hit_menu li:first-child a {
 header .hit_menu li:last-child a {
 	border-radius: 10px 0 0 10px;
 }
+/* 상단바 고정 */
 
 #content {
 	background: url("${resources}/hotelImages/dice.jpg") repeat;
