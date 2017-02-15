@@ -87,7 +87,7 @@
 		  , COUNT(*) OVER (PARTITION BY rng) num
 		FROM 
 		(select m.age,m.memid
-		from m_reserv r, member m
+		from m_reserv r, uu_member m
 		where r.memId = m.memId AND 
 		r.reserve_date BETWEEN sysdate-7 and sysdate AND
 		movie_num = #{movie_num})
@@ -110,7 +110,7 @@
 	<select id="womanCnt" parameterType="int" resultType="int">
 		
 		select COUNT(gender) as gender
-		from m_reserv r, member m
+		from m_reserv r, uu_member m
 		where r.memId = m.memId AND 
 		r.reserve_date BETWEEN sysdate-7 and sysdate AND
 		m.gender = '여자' AND
