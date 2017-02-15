@@ -114,7 +114,7 @@ div.carousel img {
 <body>
 	<header>
 		<div class="logo">
-			<img src="${resources}/hotelImages/hotellogo.png" width="150px;">
+			<img src="${resources}/hotelImages/hotellogo.png" width="150px;" onclick="location.href='hotel'">
 		</div>
 		<div class="hit_menu">
 			<ul>
@@ -123,7 +123,7 @@ div.carousel img {
 					<li><a href="hotel/roomList">객실관리</a></li>
 					<li><a href="hotel/hotelInfo">호텔안내</a></li>
 				</c:if>
-				<c:if test="${sessionScope.idCode != 101 || sessionScope.idCode != 103 }">
+				<c:if test="${sessionScope.idCode != 101 && sessionScope.idCode != 103 }">
 					<li><a href="hotel/reservManage">예약내역</a></li>
 					<li><a href="hotel/reservation">객실예약</a></li>
 					<li><a href="hotel/hotelInfo">호텔안내</a></li>

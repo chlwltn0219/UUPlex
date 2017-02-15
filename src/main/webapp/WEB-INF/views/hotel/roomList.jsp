@@ -88,7 +88,7 @@ function deleteChk() {
 <body>
 <header>
 		<div class="logo">
-			<img src="${resources}/hotelImages/hotellogo.png" width="150px;">
+			<img src="${resources}/hotelImages/hotellogo.png" width="150px;" onclick="location.href='/uuplex/hotel'">
 		</div>
 		<div class="hit_menu">
 			<ul>
