@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import spring.mvc.uuplex.movie.dao.ReserveDAO;
 import spring.mvc.uuplex.movie.dao.ScheduleDAO;
+import spring.mvc.uuplex.movie.dto.ReserveDTO;
 import spring.mvc.uuplex.movie.dto.ScheduleDTO;
 
 @Service
@@ -20,6 +22,9 @@ public class ScheduleHandler implements MCommandHandler {
 
 	@Autowired
 	ScheduleDAO dao;
+	
+	@Autowired
+	ReserveDAO rdao;
 
 	@Override
 	public String process(Model model) {
@@ -51,6 +56,21 @@ public class ScheduleHandler implements MCommandHandler {
 		Map.put("end", end);
 		
 		dtos = dao.schedules(Map);
+		
+		for(int j=0; j<dtos.size(); j++){
+			List<ReserveDTO> reserve = null;
+			reserve = rdao.reservations(dtos.get(j).getSchedule_num());
+			
+			int ed = 0;
+			
+			for(int i = 0; i<reserve.size(); i++){
+				
+				String[] array = reserve.get(i).getSeat_num().split("/");
+				ed += array.length;				
+			}
+			dtos.get(j).setEd(ed);
+		}
+		
 		model.addAttribute("dtos", dtos);
 
 		return viewPage;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.mvc.uuplex.admin.handler.CalculateHandler;
 import spring.mvc.uuplex.admin.handler.DateSrcHandler;
 import spring.mvc.uuplex.admin.handler.IdSrcHandler;
 import spring.mvc.uuplex.admin.handler.MemberChartHandler;
@@ -155,6 +156,20 @@ public class AAdminController {
 		model.addAttribute("req", req);
 		
 		String viewPage = memberChartHandler.process(model);
+
+		return viewPage;
+	}
+	
+	@Autowired
+	CalculateHandler calculateHandler;
+	@RequestMapping("/calculate")
+	public String calculate(HttpServletRequest req, Model model) {
+		
+		System.out.println("매장 정산");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = calculateHandler.process(model);
 
 		return viewPage;
 	}

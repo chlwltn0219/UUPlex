@@ -31,12 +31,12 @@
 					<th>상영관</th>
 					<td><select class="form-control select" name="theater_num" required="required">
 							<option value="">상영관을 선택하세요</option>
-							<c:forEach begin="1" end="${theatercount}" varStatus="status">
+							<c:forEach items="${theaters}" var="theater" varStatus="status">
 								<c:if test="${theater_num==status.count}">
-									<option value="${status.count}" selected="selected">${status.count}</option>
+									<option value="${theater.theater_num}" selected="selected">${status.count}</option>
 								</c:if>
 								<c:if test="${theater_num!=status.count}">
-								<option value="${status.count}">${status.count}</option>
+								<option value="${theater.theater_num}">${status.count}</option>
 								</c:if>
 							</c:forEach>
 					</select></td>

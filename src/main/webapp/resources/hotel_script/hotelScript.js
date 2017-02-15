@@ -65,3 +65,27 @@ function reservChk() {
 	}	
 
 }
+
+
+function dateCheck(checkIn) {
+	var params = "checkIn=" + checkIn;
+	//sendRequest(callback, url, method, params) {} 호출
+	sendRequest(dateCheckCall, "adminCalendarView", "GET", params); 
+}
+
+//콜백함수
+function dateCheckCall() {
+	var result = document.getElementById("result");
+	if(httpRequest.readyState == 4) {
+		if(httpRequest.status == 200) {
+			/* 응답결과가 HTML이면 responseText로 받고, XML이면 responseXML로 받는다.
+			color.jsp가 div에 html로 응답한다. */
+			result.innerHTML = "";
+			result.innerHTML = httpRequest.responseText;
+		} else {
+			result.innerHTML = "에러발생";
+		}
+	} else {
+		result.innerHTML = "상태: " + httpRequest.readyState;
+	}
+}

@@ -34,6 +34,56 @@
    padding: 10px 0;
 }
 
+.option{
+		text-align:right;
+		margin-bottom:6px; 
+		font-size: 15px
+	
+	}
+
+	.reviewId{
+		float:left;
+		margin-right:8px;
+		margin-top: 6px;
+		
+		
+	}
+	.reviewContents{
+		float:left;
+		margin-right:8px;
+		margin-top: 8px;
+		
+		
+	}
+	.like{
+		background: white;
+		border: 1px solid #E8D9FF;	
+		width: 100px;
+		height: 100px;	
+		margin: 0px; 
+		padding: 0px;
+		text-align: center;
+		
+	
+	}
+	.like:hover{
+		background: #E8D9FF;
+		border: 1px solid #E8D9FF;
+		width: 100px;
+		height: 100px;	
+		margin: 0px; 
+		padding: 0px;
+		text-align: center;
+	
+	}
+	.chucheon{
+		height:10px; 
+		font-size: 17px; 
+		margin-top:0; 
+		padding-bottom:20px; 
+		margin-bottom:20px;
+	}
+
 </style>
 
 <link type="text/css" rel="stylesheet"
@@ -164,7 +214,7 @@
 
                <table class="table">
                   <tr>
-                     <th>memId</th>
+                     <th width="200px;" style="text-align: center;">${sessionScope.id}</th>
                      <td class="star-input"><span class="input"> <!-- <input type="radio" name="rating" value=1 id="p1"> -->
                            <input type="radio" name="rating" value=1 id="p1"> <label
                            for="p1">괜히봤어요</label> <input type="radio" name="rating"
@@ -178,10 +228,10 @@
                            <!--                               <output for="rating"> -->
                            평점을 입력해주세요
                         </output></td>
-                     <td><textarea placeholder="로그인 후 이용가능한 서비스입니다."
-                           style="width: 250px; height: 80px" name="review_content"
+                     <td width="300px"><textarea placeholder="로그인 후 이용가능한 서비스입니다."
+                           style="width: 100%; height: 80px" name="review_content"
                            required></textarea></td>
-                     <td><input class="btn" type="submit" value="등록"></td>
+                     <td width="100px;"><input style="width: 100%; height : 80px;; background-color: #eeeeee; border: none;"type="submit" value="등록"></td>
                   </tr>
 
                </table>
@@ -195,6 +245,8 @@
             <div class="option">
       
               <%--  <a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a> --%>
+            
+            <a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a>
             </div>
 
             <div id="review">
@@ -244,13 +296,12 @@
                                     <%-- <c:if test="${id == sessionScope.memId}"> --%>
                                     <input type="button" class="btn btn-primary" value="글삭제"
                                        onclick="window.location='/uuplex/c-box/user/review/delete?review_num=${dto.review_num}'">
-                                    <%-- </c:if> --%>
 
                                  </div>
                               </td>
                               <td style="width: 100px" rowspan="2">
                                  <div class="like" style="font-size: 30px;">
-                                    <div id="chucheonCnt" style="margin-top: 20px; margin-bottom: 0">0</div>
+                                 <div id="chucheonCnt" style="margin-top: 20px; margin-bottom: 0;">0</div>
                                     <div class="chucheon"><a onclick="chucheon(${dto.review_num});">추천</a></div>
                                  </div>
 
@@ -279,9 +330,8 @@
                <tfoot>
                   <tr>
                      <td align="center"><c:if test="${prev == true}">
-                           <ul class="pager">
-                              <li><a onclick="reopen(${dto.movie_num},${startPage-1})">&lt;
-                                    prev</a></li>
+                     <ul class="pager">
+                     <li><a onclick="reopen(${dto.movie_num},${startPage-1})">&lt;prev</a></li>
                            </ul>
                         </c:if>
 
@@ -289,12 +339,11 @@
                            <c:forEach begin="${startPage}" end="${endPage}" var="page"
                               varStatus="status">
                               <c:if test="${status.current == nowPage}">
-                                 <li class="active">
-                                 <a onclick="pageChange(${dto.movie_num},${page}); changeclass(${page}); ">${page}</a></li>
+                              <li class="active">
+                              <a onclick="pageChange(${dto.movie_num},${page}); changeclass(${page}); ">${page}</a></li>
                               </c:if>
                               <c:if test="${status.current != nowPage}">
-                                 <%-- <li><a href="/uuplex/c-box/movie_detail?page=${page}">${page}</a></li> --%>
-                                 <li><a
+                              <li><a
                                     onclick="pageChange(${dto.movie_num},${page}); changeclass(${page});">${page}</a></li>
                               </c:if>
                            </c:forEach>

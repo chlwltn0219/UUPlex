@@ -27,8 +27,7 @@ public class AddReviewHandler implements MCommandHandler{
 		ReviewDTO dto = new ReviewDTO();
 		
 		
-		/*String memId = (String) req.getSession().getAttribute("memId");*/
-		String memId = "memId";
+		String memId = (String) req.getSession().getAttribute("id");
 		dto.setMemId(memId);
 		
 		dto.setMovie_num(Integer.parseInt(req.getParameter("movie_num")));

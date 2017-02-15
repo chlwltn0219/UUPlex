@@ -1,6 +1,7 @@
 package spring.mvc.uuplex.hotel.dao;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,6 @@ public class ReservDAOImpl implements ReservDAO {
 	//예약내역조회
 	@Override
 	public ArrayList<ReservDTO> reservList(String memId) {
-		// TODO Auto-generated method stub
 		ArrayList<ReservDTO> dtos = null;
 		
 		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
@@ -55,6 +55,35 @@ public class ReservDAOImpl implements ReservDAO {
 	public void cancel(int roomNum) {
 		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
 		dao.cancel(roomNum);
+	}
+
+	//(관리자)예약내역조회
+	@Override
+	public ArrayList<ReservDTO> adminCalendar(String checkIn) {
+		ArrayList<ReservDTO> dtos = null;
+		
+		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
+		dtos = dao.adminCalendar(checkIn);
+		
+		return dtos;
+	}
+
+	//예약(숙박일계산)
+	@Override
+	public void reserveDay(Map<String, Object> daoMap) {
+		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
+		dao.reserveDay(daoMap);
+		
+	}
+
+	//예약 번호 받아오기
+	@Override
+	public int getReservNum() {
+		int reserveNum = 0;
+		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
+		reserveNum = dao.getReservNum();
+		
+		return reserveNum;
 	}
 	
 }

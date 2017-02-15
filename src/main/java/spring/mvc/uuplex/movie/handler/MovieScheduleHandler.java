@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import spring.mvc.uuplex.movie.dao.MovieDAO;
 import spring.mvc.uuplex.movie.dao.TheaterDAO;
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
+import spring.mvc.uuplex.movie.dto.TheaterDTO;
 
 @Service
 public class MovieScheduleHandler implements MCommandHandler {
@@ -45,9 +46,9 @@ public class MovieScheduleHandler implements MCommandHandler {
 			System.out.println(time);
 
 			mdtos = mdao.getScreening();
-			int theatercount = tdao.TheatersCount();
+			List<TheaterDTO> theaters = tdao.TheatersList();
+			model.addAttribute("theaters",theaters);
 			
-			model.addAttribute("theatercount",theatercount);
 			model.addAttribute("mdtos", mdtos);
 			model.addAttribute("theater_num", theater_num);
 			model.addAttribute("date", date);

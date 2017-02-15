@@ -74,6 +74,35 @@
 	
 	</c:forEach>
 	</c:if>
+	
+	
+	<c:if test="${log == '휘트니스'}">
+	 <tr>
+	 	<th colspan="7" style="background-color:#f0f0f0">휘트니스</th>
+	 </tr>
+	 
+	 <tr>
+		<th>등록번호</th>
+		<th>아이디</th>
+		<th>프로그램</th>
+		<th>강사</th>
+		<th>신청일</th>		
+		<th>가격</th>			
+		<th>환불</th>			
+	  </tr>
+	 
+	 <c:forEach var="dto" items="${fdtos}">
+	  <tr>
+		<th>${dto.stid}</th>
+		<th>${dto.memid}</th>
+		<th>${dto.pname} - ${dto.subname}</th>
+		<th>${dto.tname}</th>
+		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.reg_date}" /></th>		
+		<th>${dto.price}</th>		
+		<th><button class="btn btn-default">환불</button></th>		
+	  </tr>
+	</c:forEach>
+	</c:if>
 	</table>
 	
 	
@@ -138,6 +167,34 @@
 		<th>${dto.day}</th>		
 		<th>${dto.capacity}</th>		
 		<th>${dto.totCharge}</th>				
+	  </tr>
+	</c:forEach>
+	</table>
+	
+	<table class="table table-condensed">
+	 <tr>
+	 	<th colspan="7" style="background-color:#f0f0f0">휘트니스</th>
+	 </tr>
+	 
+	 <tr>
+		<th>등록번호</th>
+		<th>아이디</th>
+		<th>프로그램</th>
+		<th>강사</th>
+		<th>신청일</th>		
+		<th>가격</th>			
+		<th>환불</th>			
+	  </tr>
+	 
+	 <c:forEach var="dto" items="${fdtos}">
+	  <tr>
+		<th>${dto.stid}</th>
+		<th>${dto.memid}</th>
+		<th>${dto.pname} - ${dto.subname}</th>
+		<th>${dto.tname}</th>
+		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.reg_date}" /></th>		
+		<th>${dto.price}</th>		
+		<th><button class="btn btn-default">환불</button></th>		
 	  </tr>
 	</c:forEach>
 	</table>
