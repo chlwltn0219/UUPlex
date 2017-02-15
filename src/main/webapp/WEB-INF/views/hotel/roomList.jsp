@@ -153,6 +153,8 @@ function deleteChk() {
 					</tr>
 				</c:forEach>
 			</table>
+			
+			<hr>
 
 			<!-- Button trigger modal -->
 			<br> <br>

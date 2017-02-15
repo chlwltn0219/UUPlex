@@ -97,7 +97,7 @@
 	
 	<table class="table table-condensed">
 	 <tr>
-	 	<th colspan="7" style="background-color:#f0f0f0">휘트니스</th>
+	 	<th colspan="6" style="background-color:#f0f0f0">휘트니스</th>
 	 </tr>
 	 
 	 <tr>
@@ -107,7 +107,7 @@
 		<th>강사</th>
 		<th>신청일</th>		
 		<th>가격</th>			
-		<th>환불</th>			
+		<!-- <th>환불</th> -->			
 	  </tr>
 	 
 	 <c:forEach var="dto" items="${fdtos}">
@@ -118,7 +118,7 @@
 		<th>${dto.tname}</th>
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.reg_date}" /></th>		
 		<th>${dto.price}</th>		
-		<th><button class="btn btn-default">환불</button></th>		
+		<!-- <th><button class="btn btn-default">환불</button></th> -->		
 	  </tr>
 	</c:forEach>
 	

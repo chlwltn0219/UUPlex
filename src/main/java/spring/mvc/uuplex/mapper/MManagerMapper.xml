@@ -51,6 +51,7 @@
 		and i.country = '한국')
 		where dayCnt LIKE #{year}||'%'
 		group by theater
+		order by theater asc
 		
 	</select>
 	

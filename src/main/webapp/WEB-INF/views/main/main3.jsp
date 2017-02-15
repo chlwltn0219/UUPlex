@@ -244,7 +244,7 @@
 									<span class="meta__date"></span>
 								</div>
 								<p>층별 안내도</p>
-								<img width="500" height="300" src="/uuplex/resources/main_images/1.png"><br><br>
+								<img width="500" height="300" src="/uuplex/resources/main_images/intro.png"><br><br>
 								<button type="button" class="btn btn-info" onclick="window.location='/uuplex/floor'">바로가기</button>
 							</div>
 						</div>
@@ -285,11 +285,11 @@
 		<section class="content content--related">
 			<p>If you enjoyed this demo you might also like:</p>
 			<a class="media-item" href="">
-				<img class="media-item__img" src="img/related/GridItemAnimation.jpg">
+				<!-- <img class="media-item__img" src="img/related/GridItemAnimation.jpg"> -->
 				<h3 class="media-item__title">Grid Item Animation Layout</h3>
 			</a>
 			<a class="media-item" href="">
-				<img class="media-item__img" src="img/related/ThumbnailGridExpandingPreview.jpg">
+				<!-- <img class="media-item__img" src="img/related/ThumbnailGridExpandingPreview.jpg"> -->
 				<h3 class="media-item__title">Thumbnail Grid with Expanding Preview</h3>
 			</a>
 		</section>

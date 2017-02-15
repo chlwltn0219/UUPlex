@@ -7,7 +7,7 @@
 <style>
 .moviedetail, .reviewList ,.pageNum{
    width: 850px;
-   padding: 40px;
+   padding:  20px 40px;
 }
 
 .moviedetail td {
@@ -35,54 +35,54 @@
 }
 
 .option{
-		text-align:right;
-		margin-bottom:6px; 
-		font-size: 15px
-	
-	}
+      text-align:right;
+      margin-bottom:6px; 
+      font-size: 15px
+   
+   }
 
-	.reviewId{
-		float:left;
-		margin-right:8px;
-		margin-top: 6px;
-		
-		
-	}
-	.reviewContents{
-		float:left;
-		margin-right:8px;
-		margin-top: 8px;
-		
-		
-	}
-	.like{
-		background: white;
-		border: 1px solid #E8D9FF;	
-		width: 100px;
-		height: 100px;	
-		margin: 0px; 
-		padding: 0px;
-		text-align: center;
-		
-	
-	}
-	.like:hover{
-		background: #E8D9FF;
-		border: 1px solid #E8D9FF;
-		width: 100px;
-		height: 100px;	
-		margin: 0px; 
-		padding: 0px;
-		text-align: center;
-	
-	}
-	.chucheon{
-		height:10px; 
-		font-size: 17px; 
-		margin-top:0; 
-		padding-bottom:20px; 
-		margin-bottom:20px;
-	}
+   .reviewId{
+      float:left;
+      margin-right:8px;
+      margin-top: 6px;
+      
+      
+   }
+   .reviewContents{
+      float:left;
+      margin-right:8px;
+      margin-top: 8px;
+      
+      
+   }
+   .like{
+      background: white;
+      border: 1px solid #E8D9FF;   
+      width: 100px;
+      height: 100px;   
+      margin: 0px; 
+      padding: 0px;
+      text-align: center;
+      
+   
+   }
+   .like:hover{
+      background: #EEEEEE;
+      border: 1px solid #E8D9FF;
+      width: 100px;
+      height: 100px;   
+      margin: 0px; 
+      padding: 0px;
+      text-align: center;
+   
+   }
+   .chucheon{
+      height:10px; 
+      font-size: 17px; 
+      margin-top:0; 
+      padding-bottom:20px; 
+      margin-bottom:20px;
+   }
 
 </style>
 
@@ -93,9 +93,7 @@
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 
 <script src="${js}jquery-1.11.3.min.js"></script>
-<script>
 
-</script>
 </head>
 
 <body>
@@ -115,12 +113,14 @@
                      src="${img}mpaa_rating/${dto.MPAARating}.png">${dto.title1}
 
 
-
+               <c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 102}">
                      <div class="form-group pull-right">
 
                         <input type="button" class="btn btn-primary" value="수정하기"
                            onclick="movieModify(${dto.movie_num});">
-                     </div></th>
+                     </div>
+                     </c:if>
+                     </th>
                </tr>
                <tr>
                   <td>${dto.title2}</td>
@@ -143,7 +143,7 @@
                <tr>
                   <td><b>러닝타임</b> : ${dto.runTime}분</td>
                </tr>
-				<tr>
+            <tr>
                   <td><b>국가</b> : ${dto.country}</td>
                </tr>
                <tr>
@@ -151,8 +151,8 @@
                   <div style="width:200px; float:left; margin-top:7px">
                   <c:if test="${total == null}">0</c:if>
                      <c:if test="${total != null}">${total}</c:if>
-                     	명의 관객이 평가해주셨습니다
-                    	
+                        명의 관객이 평가해주셨습니다
+                       
                   <b>평점</b> :
                   <c:choose>
                         <c:when test="${avg <= 1.5}">
@@ -214,29 +214,31 @@
                <input type="hidden" name="movie_num" value="${dto.movie_num}">
                <input type="hidden" name="memId" value="memId">
 
-               <table class="table">
-                  <tr>
-                     <th width="200px;" style="text-align: center;">${sessionScope.id}</th>
-                     <td class="star-input"><span class="input"> <!-- <input type="radio" name="rating" value=1 id="p1"> -->
-                           <input type="radio" name="rating" value=1 id="p1"> <label
-                           for="p1">괜히봤어요</label> <input type="radio" name="rating"
-                           value=2 id="p2"> <label for="p2">기대하진 말아요</label> <input
-                           type="radio" name="rating" value=3 id="p3"> <label
-                           for="p3">무난했어요</label> <input type="radio" name="rating"
-                           value=4 id="p4"> <label for="p4">기대해도 좋아요!</label> <input
-                           type="radio" name="rating" value=5 id="p5"> <label
-                           for="p5">정말 멋진 영화였어요!</label>
-                     </span><br> <output for="rating" id="outText">
-                           <!--                               <output for="rating"> -->
-                           평점을 입력해주세요
-                        </output></td>
-                     <td width="300px"><textarea placeholder="로그인 후 이용가능한 서비스입니다."
-                           style="width: 100%; height: 80px" name="review_content"
-                           required></textarea></td>
-                     <td width="100px;"><input style="width: 100%; height : 80px;; background-color: #eeeeee; border: none;"type="submit" value="등록"></td>
-                  </tr>
-
-               </table>
+            <c:if test="${sessionScope.id != null}">
+                  <table class="table">
+                     <tr>
+                        <th width="200px;" style="text-align: center;">${sessionScope.id}</th>
+                        <td class="star-input"><span class="input"> <!-- <input type="radio" name="rating" value=1 id="p1"> -->
+                              <input type="radio" name="rating" value=1 id="p1"> <label
+                              for="p1">괜히봤어요</label> <input type="radio" name="rating"
+                              value=2 id="p2"> <label for="p2">기대하진 말아요</label> <input
+                              type="radio" name="rating" value=3 id="p3"> <label
+                              for="p3">무난했어요</label> <input type="radio" name="rating"
+                              value=4 id="p4"> <label for="p4">기대해도 좋아요!</label> <input
+                              type="radio" name="rating" value=5 id="p5"> <label
+                              for="p5">정말 멋진 영화였어요!</label>
+                        </span><br> <output for="rating" id="outText">
+                              <!--                               <output for="rating"> -->
+                              평점을 입력해주세요
+                           </output></td>
+                        <td width="300px"><textarea placeholder="로그인 후 이용가능한 서비스입니다."
+                              style="width: 100%; height: 80px" name="review_content"
+                              required></textarea></td>
+                        <td width="100px;"><input style="width: 100%; height : 80px;; background-color: #eeeeee; border: none;"type="submit" value="등록"></td>
+                     </tr>
+   
+                  </table>
+               </c:if>
             </form>
 
 
@@ -245,8 +247,9 @@
          <!--  리뷰 리스트  -->
          <div class="reviewList">
             <div class="option">
+      
+              <%--  <a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a> --%>
             
-            <a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a>
             </div>
 
             <div id="review">
@@ -293,10 +296,10 @@
                                  <div class="form-group pull-right">
 
                                     <!-- 본인이 작성한 글일 경우에만 삭제가능 -->
-                                    <%-- <c:if test="${id == sessionScope.memId}"> --%>
+                                    <c:if test="${dto.memId == sessionScope.id}"> 
                                     <input type="button" class="btn btn-primary" value="글삭제"
                                        onclick="window.location='/uuplex/c-box/user/review/delete?review_num=${dto.review_num}'">
-
+                           </c:if>
                                  </div>
                               </td>
                               <td style="width: 100px" rowspan="2">
@@ -309,7 +312,7 @@
 
                            </tr>
                            <tr>
-                              <td style="font-size: 20px; background-color: #E8D9FF">
+                              <td style="font-size: 20px; background-color: #EEEEEE">
                                  ${dto.review_content}<br>
                               </td>
 
