@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
@@ -14,13 +13,25 @@
 }
 
 </style>
+<script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
+<script>
+function deleteChk() {
+	if($('input:checkbox:checked').length==0) {
+		alert("삭제할 객실을 선택하세요.");
+		return false;
+	} else {
+		alert("해당 객실을 삭제하시겠습니까?");
+	}
+}
+
+</script>
 
 </head>
 <body>
 	<div id="content">
 		<h3>객실목록</h3>
 		<br> <br>
-		<form action="roomDeletePro" method="post">
+		<form action="roomDeletePro" method="post" name="roomDeletePro" onsubmit="return deleteChk();">
 			<table class="table table-hover" id="listTable">
 				<tr>
 					<th>선택삭제</th>
@@ -42,7 +53,7 @@
 				</tr>
 				<c:forEach var="dto" items="${dtos}">
 					<tr>
-						<td><input type="checkbox" name="checkbox"
+						<td><input type="checkbox" name="checkbox" class="chk"
 							value="${dto.roomNum}"></td>
 						<td>${dto.roomNum}</td>
 						<td>${dto.roomName}</td>
@@ -78,7 +89,7 @@
 		</form>
 		
 		<!-- Modal -->
-		<form action="roomAddPro" method="post" enctype="multipart/form-data" onsubmit="return addCheck()">
+		<form action="roomAddPro" method="post" enctype="multipart/form-data" name="roomAddPro" onsubmit="return addCheck()">
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -153,7 +164,7 @@
 								</tr> -->
 								<tr>
 									<th>이용요금</th>
-									<td><input class="input" type="text" name="charge"></td>
+									<td><input class="input" type="text" name="charge" placeholder="',' 없이 숫자로만 입력"></td>
 								</tr>
 							</table>
 
@@ -161,7 +172,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default btn-lg"
 								data-dismiss="modal">닫기</button>
-							<button type="submit" class="btn btn-default">등록</button>
+							<button type="submit" class="btn btn-default btn-lg">등록</button>
 						</div>
 					</div>
 				</div>
