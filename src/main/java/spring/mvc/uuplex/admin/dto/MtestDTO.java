@@ -9,7 +9,7 @@ public class MtestDTO {
 	private int movie_num;
 	private int theater_num;
 	private int schedule_num;
-	private String seat;
+	private String seat_num;
 	private Timestamp reserve_date;
 	private int price;
 	private int cnt;
@@ -44,11 +44,11 @@ public class MtestDTO {
 	public void setSchedule_num(int schedule_num) {
 		this.schedule_num = schedule_num;
 	}
-	public String getSeat() {
-		return seat;
+	public String getSeat_num() {
+		return seat_num;
 	}
-	public void setSeat(String seat) {
-		this.seat = seat;
+	public void setSeat_num(String seat_num) {
+		this.seat_num = seat_num;
 	}
 	public Timestamp getReserve_date() {
 		return reserve_date;

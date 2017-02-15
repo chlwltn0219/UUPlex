@@ -93,9 +93,7 @@
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 
 <script src="${js}jquery-1.11.3.min.js"></script>
-<script>
 
-</script>
 </head>
 
 <body>
@@ -245,6 +243,8 @@
          <!--  리뷰 리스트  -->
          <div class="reviewList">
             <div class="option">
+      
+              <%--  <a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a> --%>
             
             <a onclick="dateOrder(${dto.movie_num})">최신순</a> | <a>추천순</a> | <a onclick="ratingOrder(${dto.movie_num})">평점순</a>
             </div>

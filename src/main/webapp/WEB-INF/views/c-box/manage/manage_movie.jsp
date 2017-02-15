@@ -7,8 +7,8 @@
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 
 
-
 <div class="container">
+
 	<h3>영화 관리</h3>
 
 	<table class="table table-hover">
