@@ -12,7 +12,6 @@
 	<table class="table">
 		
 		<tbody>
-			
 			<c:if test="${dtos!=null}">
 			<c:forEach items="${dtos}" var="dto">
 				<tr style="border-bottom: none">

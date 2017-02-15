@@ -114,7 +114,7 @@ $(document).ready(function () {
       			
       			<th><a data-toggle="modal" data-target="#upgradeModal" href="noneSM/upgrade?memId=${dto.memId}">회원등급변경</a></th>
       			
-      			<th><input type="button" class="btn btn-default" value="예약현황"></th>  
+      			<th><a data-toggle="modal" data-target="#modal" class="btn btn-default" href="noneSM/reserveView?memId=${dto.memId}">예약현황</a></th>  
       			
       		</tr>
       		

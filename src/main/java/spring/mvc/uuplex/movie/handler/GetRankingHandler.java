@@ -11,20 +11,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.uuplex.movie.dao.MovieDAO;
-import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
+import spring.mvc.uuplex.movie.dao.ManagerDAO;
+import spring.mvc.uuplex.movie.dto.RankingDTO;
 import spring.mvc.uuplex.movie.dto.SalesDTO;
 
 @Service
 public class GetRankingHandler implements MCommandHandler{
 
 	@Autowired
-	MovieDAO dao;
+	ManagerDAO dao;
 	
 	@Override
 	public String process(Model model){
 		
-		List<MovieInfoDTO> dtos = null;
+		List<RankingDTO> dtos = null;
 		dtos = dao.getRanking();//예매율 구하기
 		
 		int reserveCnt = 0;
@@ -57,8 +57,6 @@ public class GetRankingHandler implements MCommandHandler{
 		list = dao.getSales(rangeMap); //최근 1년 동안의 월별 매출
 		
 		model.addAttribute("list",list);
-		
-		
 		
 		
 		return "c-box/Movie_main";

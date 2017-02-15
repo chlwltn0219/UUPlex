@@ -85,7 +85,7 @@
 		starring = #{starring}, genre = #{genre}, MPAARating = #{MPAARating}, 
 		productionYear = #{productionYear}, runTime = #{runTime}, releaseDate = #{releaseDate},
 		poster = #{poster}, movie_img1 = #{movie_img1}, movie_img2 = #{movie_img2}, trailer = #{trailer},
-		status = #{status}, synopsis = #{synopsis} where movie_num = #{movie_num}
+		status = #{status}, synopsis = #{synopsis}, country= #{country} where movie_num = #{movie_num}
 
 	</update>
 	
@@ -117,49 +117,7 @@
 		WHERE rnum BETWEEN #{start} AND #{end} ORDER BY rating DESC
 	</select>
 	
-	<!--  예매 순위 리스트 -->
-	<select id="getRanking" resultType="spring.mvc.uuplex.movie.dto.RankingDTO">
-
-		select rownum as rank_num, movie_num, title1, releaseDate, cnt
-		from (select r.movie_num, m.title1, m.releaseDate, sum(r.cnt) as cnt
-		from m_reserv r,m_movie_info m
-		where r.movie_num = m.movie_num AND
-		r.reserve_date BETWEEN sysdate-7 and sysdate
-		group by r.movie_num, m.title1, m.releaseDate
-		order by sum(r.cnt) desc)
-    
-	</select>
 	
-	<!--  전체 예매 수량 -->
-	<select id="reserveCnt" resultType="int">
-		select NVL(total,0) FROM
-		(select sum(cnt) as total from m_reserv 
-		where reserve_date BETWEEN sysdate-7 and sysdate)
-		
-	</select> 
-		
-	<!--  월별 매출 실적 -->
-	<select id="getSales" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.SalesDTO">
-		select year_month||'/01' as year_month, sum(price) as sales
-		from(
-		select SUBSTR(reserve_date,1,5) as year_month ,price
-		from m_reserv
-		WHERE reserve_date between #{startDate} and #{endDate})
-		group by year_month
-		order by year_month
-	</select>
-	
-	<!-- 스크린 쿼터  -->
-	<select id="getScreenQuota" parameterType="String" resultType="spring.mvc.uuplex.movie.dto.ScreenQuotaDTO">
-		SELECT theater, count(dayCnt) AS dayCnt
-		from(
-		select DISTINCT s.theater_num AS theater, '20'||SUBSTR(s.showtime,1,8) AS dayCnt, i.country 
-		from m_movie_info i, m_schedule s
-		where i.movie_num = s.movie_num 
-		and i.country = '한국')
-		where dayCnt LIKE #{year}||'%'
-		group by theater
-	</select>
 	
 	
 </mapper>

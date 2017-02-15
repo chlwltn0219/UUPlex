@@ -34,7 +34,7 @@
 		<th>${dto.movie_num}</th>
 		<th>${dto.theater_num}</th>		
 		<th>${dto.schedule_num}</th>		
-		<th>${dto.seat}</th>	
+		<th>${dto.seat_num}</th>	
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd HH:mm" value="${dto.reserve_date}" /></th>		
 		<th>${dto.cnt}</th>		
 		<th>${dto.price}</th>		
@@ -50,7 +50,7 @@
 	 <tr>
 		<th>예약번호</th>
 		<th>아이디</th>
-		<th>방번호</th>
+		<th>객실명</th>
 		<th>예약일</th>		
 		<th>체크인</th>		
 		<th>체크아웃</th>				
@@ -131,7 +131,7 @@
 			<th>${dto.movie_num}</th>
 			<th>${dto.theater_num}</th>		
 			<th>${dto.schedule_num}</th>		
-			<th>${dto.seat}</th>	
+			<th>${dto.seat_num}</th>	
 			<th><fmt:formatDate type="both" pattern="yyyy-MM-dd HH:mm" value="${dto.reserve_date}" /></th>		
 			<th>${dto.cnt}</th>		
 			<th>${dto.price}</th>		
@@ -147,7 +147,7 @@
 	 <tr>
 		<th>예약번호</th>
 		<th>아이디</th>
-		<th>방번호</th>
+		<th>객실명</th>
 		<th>예약일</th>		
 		<th>체크인</th>		
 		<th>체크아웃</th>				

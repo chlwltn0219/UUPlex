@@ -132,12 +132,12 @@
                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" 
                            data-toggle="dropdown" role="button" aria-expanded="false"> 
-                           마이페이지 <span class="caret"></span>
+                         	  마이페이지 <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                            <li><a href="/uuplex/memInfo">나의회원정보</a></li>
                            <li class="divider"></li>
-                           <li><a href="">예약확인</a></li>
+                           <li><a href="/uuplex/memReserve">예약확인</a></li>
                         </ul>
                      </li>
                      <li><a href="/uuplex/logout">로그아웃</a></li>

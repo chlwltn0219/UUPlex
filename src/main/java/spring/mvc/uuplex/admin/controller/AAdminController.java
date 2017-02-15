@@ -15,6 +15,7 @@ import spring.mvc.uuplex.admin.handler.MemberListHandler;
 import spring.mvc.uuplex.admin.handler.MemberViewHandler;
 import spring.mvc.uuplex.admin.handler.ReserveAdminHandler;
 import spring.mvc.uuplex.admin.handler.ReserveListHandler;
+import spring.mvc.uuplex.admin.handler.ReserveViewHandler;
 import spring.mvc.uuplex.admin.handler.UpgradeHandler;
 import spring.mvc.uuplex.admin.handler.UpgradeProHandler;
 
@@ -170,6 +171,21 @@ public class AAdminController {
 		model.addAttribute("req", req);
 		
 		String viewPage = calculateHandler.process(model);
+
+		return viewPage;
+	}
+	
+	
+	@Autowired
+	ReserveViewHandler reserveViewHandler;
+	@RequestMapping("/noneSM/reserveView")
+	public String reserveView(HttpServletRequest req, Model model) {
+		
+		System.out.println("예약 현황");
+		
+		model.addAttribute("req", req);
+		
+		String viewPage = reserveViewHandler.process(model);
 
 		return viewPage;
 	}
