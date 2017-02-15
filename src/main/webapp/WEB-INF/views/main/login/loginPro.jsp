@@ -15,6 +15,27 @@
 		</script>
 	</c:if>
 	
+	<c:if test="${idCode == 102}">
+		<script type="text/javascript">
+			alert("[영화관리자] 님 로그인하셨습니다.");
+			location.href = document.referrer;
+		</script>
+	</c:if>
+	
+	<c:if test="${idCode == 103}">
+		<script type="text/javascript">
+			alert("[호텔관리자] 님 로그인하셨습니다.");
+			location.href = document.referrer;
+		</script>
+	</c:if>
+	
+	<c:if test="${idCode == 104}">
+		<script type="text/javascript">
+			alert("[휘트니스관리자] 님 로그인하셨습니다.");
+			location.href = document.referrer;
+		</script>
+	</c:if>
+	
 	<c:if test="${idCode == 105}">
 		<script type="text/javascript">
 			alert("로그인 되었습니다. ${id} 님 반갑습니다.");

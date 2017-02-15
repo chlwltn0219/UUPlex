@@ -59,6 +59,24 @@
 				<a href="/uuplex/logout">로그아웃</a>
 				<a href="/uuplex/notice?shopCode=100">고객센터</a>
 			</c:if>  
+			
+			<c:if test="${idCode == 102}">
+				<a href="/uuplex/c-box">영화관</a>
+				<a href="/uuplex/logout">로그아웃</a>
+				<a href="/uuplex/notice?shopCode=100">고객센터</a>
+			</c:if>  
+			
+			<c:if test="${idCode == 103}">
+				<a href="/uuplex/hotel">호텔</a>
+				<a href="/uuplex/logout">로그아웃</a>
+				<a href="/uuplex/notice?shopCode=100">고객센터</a>
+			</c:if>  
+			
+			<c:if test="${idCode == 104}">
+				<a href="/uuplex/fitness">휘트니스</a>
+				<a href="/uuplex/logout">로그아웃</a>
+				<a href="/uuplex/notice?shopCode=100">고객센터</a>
+			</c:if>  
                 
             </nav>
             <br>
