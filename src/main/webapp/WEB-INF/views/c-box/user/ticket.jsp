@@ -289,7 +289,7 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						</c:if>
 						<c:if test="${seat==3}">
-							<button type="button" class="btn btn-sm" style="width: 20px; height: 20px; margin: 1px; font-weight: bold; padding: 0;" disabled="disabled">
+							<button type="button" class="btn btn-sm btn-danger active" style="width: 20px; height: 20px; margin: 1px; font-weight: bold; padding: 0;" disabled="disabled">
 								${status.count}</button>
 								<input type="hidden" value="${row}${status.count}">
 						</c:if>
