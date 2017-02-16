@@ -27,7 +27,7 @@ public class FProgramInfoListHandler implements FCommandHandler{
 		String viewPage = "/fitness/user/program_list";
 
 		dto = dao.pInfo();	
-		sList = sdao.sInfo();
+		sList = sdao.sportsActivatedList();
 		model.addAttribute("dto", dto);		
 		model.addAttribute("sports", sList);
 		return viewPage;

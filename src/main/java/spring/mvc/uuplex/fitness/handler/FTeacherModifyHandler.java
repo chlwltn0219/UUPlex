@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import spring.mvc.uuplex.fitness.dao.FProgramDAO;
 import spring.mvc.uuplex.fitness.dao.FTeacherDAO;
 import spring.mvc.uuplex.fitness.dto.FTeacherDTO;
 
@@ -21,6 +22,8 @@ public class FTeacherModifyHandler implements FCommandHandler{
 
 	@Autowired
 	FTeacherDAO dao;
+	@Autowired
+	FProgramDAO pDao;
 		
 	@Autowired
 	ServletContext content;
@@ -69,9 +72,11 @@ public class FTeacherModifyHandler implements FCommandHandler{
 			dto.setActivated(activated);
 			dto.setSid(sid);
 			
-			System.out.println(tpicture);
+			int cnt = dao.teacherModify(dto);
 			
-			int cnt = dao.teacherModify(dto);	
+			if(activated.equals("N")){
+				int pCnt = pDao.deactivateProgram(tid);
+			}
 				
 			model.addAttribute("tid", tid);
 
