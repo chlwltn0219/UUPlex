@@ -90,6 +90,12 @@
 								<h5 align="right">${fn:substring(classInfo.start_time, 11, 16)} ~ ${fn:substring(classInfo.end_time, 11, 16)}</h5>
 							</td>
 						</tr>
+						<tr>
+							<th>환불 안내</th>
+							<td>
+								<h4 align="right"> ~ ${fn:substring(classInfo.start_date, 0, 10)} 이전 까지</h4>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
