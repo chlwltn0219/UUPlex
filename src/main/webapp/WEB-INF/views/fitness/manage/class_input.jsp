@@ -41,7 +41,7 @@
 				<div class="form-group">
 					<label>정원</label>
 					<input type="number" class="form-control" 
-							name="limit" placeholder="총 정원" min="0" value="0" required>
+							name="limit" placeholder="총 정원" min="1" value="1" required>
 				</div>
 				<div class="form-group">
 					<label>접수 기간</label>
