@@ -106,13 +106,13 @@
 	
 	<select id="dailySales" resultType="Map">
 		SELECT TO_CHAR(d.DAY, 'YY-MM-DD') AS DAY, NVL(st.SALE, 0) AS SALE
-		  FROM ( SELECT TRUNC(SYSDATE,'MM')+LEVEL-1 AS DAY 
+		  FROM ( SELECT TRUNC(SYSDATE,'DD')-30+LEVEL AS DAY 
 				   FROM DUAL
-			    CONNECT BY TRUNC(SYSDATE,'MM')+LEVEL-1 &lt;= LAST_DAY(SYSDATE) ) d
+			    CONNECT BY TRUNC(SYSDATE,'DD')-30+LEVEL &lt;= TRUNC(SYSDATE,'DD') ) d
 				   LEFT OUTER JOIN ( SELECT SUM(price) AS SALE, TRUNC(reg_date, 'DD') AS DAY
 				   					   FROM F_STATEMENT
-				  					  WHERE TRUNC(reg_date, 'DD') BETWEEN TRUNC(SYSDATE, 'MM')
-																		AND SYSDATE
+				  					  WHERE TRUNC(reg_date, 'DD') BETWEEN TRUNC(SYSDATE,'DD')-30
+																	  AND SYSDATE
 				  					   GROUP BY TRUNC(reg_date, 'DD') ) st
 					 ON d.DAY = st.DAY
 			ORDER BY d.DAY

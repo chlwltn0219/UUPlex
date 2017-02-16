@@ -109,7 +109,8 @@ function confirmId() {
 		
 	} 
 		
-		window.open("confirmId?memId=" + document.inputform.memId.value, "confirm", "left=700px, top=100px, width=500px, height=500px");
+		/*window.location="confirmId?memId=" + document.inputform.memId.value;*/
+		window.open("confirmId?memId=" + document.inputform.memId.value, "confirm", "left=700px, top=100px, width=500px, height=300px");
 	
 }
 

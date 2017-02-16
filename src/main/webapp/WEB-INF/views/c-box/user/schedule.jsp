@@ -30,6 +30,16 @@
 			}
 		}
 	}
+	
+	function chkid(id, schedule_num) {
+		if(id==' '){
+			alert("로그인 후 이용가능합니다");
+			
+		} else {
+			location.href="/uuplex/c-box/ticket?schedule_num="+schedule_num;
+		}
+		
+	}
 </script>
 
 <style>
@@ -159,7 +169,7 @@ th {
 								<td>
 						</c:if>
 					</c:if>
-					<div class="time" onclick="location.href='/uuplex/c-box/ticket?schedule_num=${dto.schedule_num}'">
+					<div class="time" onclick="chkid('${sessionScope.id} ' , '${dto.schedule_num}');">
 						<p class="time_info ">
 							<span class="type">
 								<fmt:formatDate value="${dto.showtime}" var="showtime" pattern="H" />
@@ -169,14 +179,14 @@ th {
 							<span class="showtime">
 								<fmt:formatDate value="${dto.showtime}" pattern="HH:mm" />
 							</span>
-							<span class="seat">166/${dto.seatcnt}</span>
+							<span class="seat">${dto.seatcnt-dto.ed}/${dto.seatcnt}</span>
 						</p>
 					</div>
 				</c:forEach>
 			</table>
 		</c:if>
 
-		<c:if test="${dtos==null}">
+		<c:if test="${fn:length(dtos) == 0}">
 			<h1>상영스케줄이 없습니다.</h1>
 		</c:if>
 	</div>

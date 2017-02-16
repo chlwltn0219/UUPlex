@@ -1,5 +1,7 @@
 package spring.mvc.uuplex.movie.dto;
 
+import java.util.Arrays;
+
 public class TheaterDTO {
 	
 	int theater_num;
@@ -32,10 +34,15 @@ public class TheaterDTO {
 	public void setSeat_arrange(String seat_arrange) {
 		this.seat_arrange = seat_arrange;
 		this.seats = getSeat_arrange().split("");
+		
 	}
 	
 	public String[] getSeats(){
 		return seats;
+	}
+	
+	public void setSeats(int num , String type) {
+		this.seats[num]=type;
 	}
 
 }

@@ -27,10 +27,6 @@ function movieModify(movie_num){
    
 }
 
-//======================== Modify Pro
-function movieModifyPro(){
-   
-}
 
 //======================== Write Modal Dialog
 function movieModal() {

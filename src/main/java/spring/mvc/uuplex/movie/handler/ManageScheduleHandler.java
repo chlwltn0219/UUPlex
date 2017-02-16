@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import spring.mvc.uuplex.movie.dao.ScheduleDAO;
 import spring.mvc.uuplex.movie.dao.TheaterDAO;
 import spring.mvc.uuplex.movie.dto.ScheduleDTO;
+import spring.mvc.uuplex.movie.dto.TheaterDTO;
 
 @Service
 public class ManageScheduleHandler implements MCommandHandler {
@@ -24,8 +25,8 @@ public class ManageScheduleHandler implements MCommandHandler {
 	public String process(Model model) {
 
 		List<ScheduleDTO> dtos = null;
-		int theatercount = tdao.TheatersCount();
-		model.addAttribute("theatercount",theatercount);
+		List<TheaterDTO> theaters = tdao.TheatersList();
+		model.addAttribute("theaters",theaters);
 
 		
 		String viewPage = "/c-box/Movie_main";

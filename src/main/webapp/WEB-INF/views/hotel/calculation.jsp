@@ -10,5 +10,5 @@
 	totCharge = Integer.parseInt(request.getParameter("charge"));
 %>
 
-총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"> <%=totCharge%>원 </font>
+총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"> <input type="hidden" value="<%=totCharge%>" name="totCharge"><%=totCharge%> 원 </font>
 

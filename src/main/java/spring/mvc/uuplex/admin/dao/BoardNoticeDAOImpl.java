@@ -47,8 +47,19 @@ public class BoardNoticeDAOImpl implements BoardNoticeDAO {
 		
 		return dtos;
 	}
-
 	
+	
+	@Override
+	public ArrayList<BoardNoticeDTO> getArticlesNoti(Map<String, Integer> daoMap) {
+		ArrayList<BoardNoticeDTO> dtos = null;
+		
+		BoardNoticeDAO dao = this.sqlsession.getMapper(BoardNoticeDAO.class);
+		dtos = dao.getArticlesNoti(daoMap);
+		
+		
+		return dtos;
+	}
+
 	
 	public int getMaxNum() {
 		int maxNum = 0;
@@ -118,6 +129,18 @@ public class BoardNoticeDAOImpl implements BoardNoticeDAO {
 	}
 	
 	@Override
+	public ArrayList<BoardNoticeDTO> getArticlesSubNoti(Map<String, Integer> daoMap) {
+		
+		ArrayList<BoardNoticeDTO> dtos = null;
+		
+		BoardNoticeDAO dao = this.sqlsession.getMapper(BoardNoticeDAO.class);
+		dtos = dao.getArticlesSubNoti(daoMap);
+		
+		
+		return dtos;
+	}
+	
+	@Override
 	public String pwdChk(int num) {
 		String pwd = "";
 		
@@ -136,5 +159,22 @@ public class BoardNoticeDAOImpl implements BoardNoticeDAO {
 		
 		return cnt;
 	}
+
+	@Override
+	public void addReadCnt(int num) {
+		BoardNoticeDAO dao = this.sqlsession.getMapper(BoardNoticeDAO.class); 
+		dao.addReadCnt(num);	
+	}
+
+	@Override
+	public int NoticeModify(BoardNoticeDTO dto) {
+		int cnt = 0;
+		
+		BoardNoticeDAO dao = this.sqlsession.getMapper(BoardNoticeDAO.class); 
+		cnt = dao.NoticeModify(dto);
+		
+		return cnt;
+	}
+
 	
 }

@@ -5,58 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>리뷰 리스트</title>
-<style>
-	.option{
-		text-align:right;
-		margin-bottom:6px; 
-		font-size: 15px
-	
-	}
-
-	.reviewId{
-		float:left;
-		margin-right:8px;
-		margin-top: 6px;
-		
-		
-	}
-	.reviewContents{
-		float:left;
-		margin-right:8px;
-		margin-top: 8px;
-		
-		
-	}
-	.like{
-		background: white;
-		border: 1px solid #E8D9FF;	
-		width: 100px;
-		height: 100px;	
-		margin: 0px; 
-		padding: 0px;
-		text-align: center;
-		
-	
-	}
-	.like:hover{
-		background: #E8D9FF;
-		border: 1px solid #E8D9FF;
-		width: 100px;
-		height: 100px;	
-		margin: 0px; 
-		padding: 0px;
-		text-align: center;
-	
-	}
-	.chucheon{
-		height:10px; 
-		font-size: 17px; 
-		margin-top:0; 
-		padding-bottom:20px; 
-		margin-bottom:20px;
-	}
-</style>
 <script type="text/javascript" src="${resources}/c-box/js/review.js"></script>
 </head>
 <body>
@@ -64,14 +12,6 @@
 	<table class="table">
 		
 		<tbody>
-			
-			<c:if test="${dtos==null}">
-				<tr>
-					<h3>
-						<center>영화가 아직 준비되지 않았습니다.</center>
-					</h3>
-				</tr>
-			</c:if>
 			
 			<c:if test="${dtos!=null}">
 			<c:forEach items="${dtos}" var="dto">
@@ -103,24 +43,24 @@
 						<div class="form-group pull-right">
 
 						<!-- 본인이 작성한 글일 경우에만 삭제가능 -->
-						<%-- <c:if test="${id == sessionScope.memId}"> --%>
+						<c:if test="${dto.memId == sessionScope.id}"> 
 						<input type="button" class="btn btn-primary" value="글삭제"
 							onclick="window.location='/uuplex/c-box/user/review/delete?review_num=${dto.review_num}'" >
-						<%-- </c:if> --%>
+						</c:if>
 						
 					</div>
 					</td>
 					<td style="width:100px" rowspan="2">
 						<div class="like" style="font-size: 30px;">
 							<div style="margin-top:20px; margin-bottom:0">0</div>
-							<a><div class="chucheon" >추천</div></a>
+							<a class="chucheon">추천</a>
 						</div>
 					
 					</td>
 					
 				</tr>
 				<tr>	
-					<td  style="font-size:20px;background-color:#E8D9FF">
+					<td  style="font-size:20px; background-color:#eeeeee;">
 						${dto.review_content}<br>
 					</td>
 					

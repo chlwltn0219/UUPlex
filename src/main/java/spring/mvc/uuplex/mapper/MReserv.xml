@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+<mapper namespace="spring.mvc.uuplex.movie.dao.ReserveDAO" >
+
+	<!-- 예약 추가  -->
+	<insert id="addReserve" parameterType="spring.mvc.uuplex.movie.dto.ReserveDTO">
+		insert into m_reserv VALUES(m_reserv_seq.nextval, #{memId}, #{movie_num}, #{theater_num}, #{reserve_date}, #{price}, #{cnt}, #{seat_num},  #{schedule_num})
+	</insert>
+	
+	<!-- 스케줄별 예약리스트 -->
+	<select id="reservations" parameterType="int" resultType="spring.mvc.uuplex.movie.dto.ReserveDTO">
+		SELECT * FROM m_reserv where schedule_num = #{schedule_num}
+	</select>
+</mapper>

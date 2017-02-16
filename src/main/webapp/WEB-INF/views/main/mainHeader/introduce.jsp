@@ -58,7 +58,7 @@
 				오피스 2개 동이 있는 타임스퀘어는 쇼핑/문화/웨딩&컨벤션 /엔터테인먼트/푸드/피트니스/호텔/비즈니스를 해결할 수 있습니다.
 			</td>
 			<td>
-				<img alt="" src="${resources}/main_images/hotel3.png" width="500px" height="300px">
+				<img alt="" src="${resources}/main_images/intro.png" width="500px" height="300px">
 			</td>
 		</tr>
 

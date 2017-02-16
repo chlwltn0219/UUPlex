@@ -31,7 +31,7 @@ public class ContentNotiFormHandler implements CommandHandler {
 		BoardNoticeDTO dto = dao.getNotice(num);
 		
 		if(!req.getRemoteAddr().equals(dto.getIp())) {
-			
+			dao.addReadCnt(num);
 		}
 		
 		System.out.println(req.getSession().getAttribute("idCode"));

@@ -13,6 +13,8 @@
     <meta name="keywords" content="clipPath, svg, effect, layout, expansion, images, grid, polygon" />
     <meta name="author" content="Claudio Calautti for Codrops" />
 	<link href="${resources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="${resources}/bootstrap/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="/uuplex/resources/main_script/mainCss/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/uuplex/resources/main_script/mainCss/font-awesome.min.css" />
@@ -54,6 +56,24 @@
 			
 			<c:if test="${idCode == 101}">
 				<a href="/uuplex/memberList?grade=전체">회원관리</a>
+				<a href="/uuplex/logout">로그아웃</a>
+				<a href="/uuplex/notice?shopCode=100">고객센터</a>
+			</c:if>  
+			
+			<c:if test="${idCode == 102}">
+				<a href="/uuplex/c-box">영화관 관리</a>
+				<a href="/uuplex/logout">로그아웃</a>
+				<a href="/uuplex/notice?shopCode=100">고객센터</a>
+			</c:if>  
+			
+			<c:if test="${idCode == 103}">
+				<a href="/uuplex/hotel">호텔 관리</a>
+				<a href="/uuplex/logout">로그아웃</a>
+				<a href="/uuplex/notice?shopCode=100">고객센터</a>
+			</c:if>  
+			
+			<c:if test="${idCode == 104}">
+				<a href="/uuplex/fitness">휘트니스 관리</a>
 				<a href="/uuplex/logout">로그아웃</a>
 				<a href="/uuplex/notice?shopCode=100">고객센터</a>
 			</c:if>  
@@ -103,7 +123,7 @@
 								
 								<p>BEST Movie</p>
 								<p>C-Box는 여러분들에게 최상의 서비스로 찾아갑니다.</p>
-								<img width="500" height="300" src="/uuplex/resources/main_images/movie3.png"> <br><br>
+								<img width="500" height="300" src="/uuplex/resources/main_images/movie6.png"> <br><br>
 								<button type="button" class="btn btn-danger" onclick="window.location='/uuplex/c-box'">바로가기</button>
 							
 							</div>
@@ -166,7 +186,7 @@
 								</div>
 								<p>BEST Hotel</p>
 								<p>최고의 룸서비스로 찾아갑니다.</p>
-								<img width="500" height="300" src="/uuplex/resources/main_images/hotel3.png"><br><br>
+								<img width="500" height="300" src="/uuplex/resources/main_images/h201.png"><br><br>
 								<button type="button" class="btn btn-warning" onclick="window.location='/uuplex/hotel'">바로가기</button>
 							</div>
 						</div>
@@ -224,7 +244,7 @@
 									<span class="meta__date"></span>
 								</div>
 								<p>층별 안내도</p>
-								<img width="500" height="300" src="/uuplex/resources/main_images/1.png"><br><br>
+								<img width="500" height="300" src="/uuplex/resources/main_images/intro.png"><br><br>
 								<button type="button" class="btn btn-info" onclick="window.location='/uuplex/floor'">바로가기</button>
 							</div>
 						</div>
@@ -265,11 +285,11 @@
 		<section class="content content--related">
 			<p>If you enjoyed this demo you might also like:</p>
 			<a class="media-item" href="">
-				<img class="media-item__img" src="img/related/GridItemAnimation.jpg">
+				<!-- <img class="media-item__img" src="img/related/GridItemAnimation.jpg"> -->
 				<h3 class="media-item__title">Grid Item Animation Layout</h3>
 			</a>
 			<a class="media-item" href="">
-				<img class="media-item__img" src="img/related/ThumbnailGridExpandingPreview.jpg">
+				<!-- <img class="media-item__img" src="img/related/ThumbnailGridExpandingPreview.jpg"> -->
 				<h3 class="media-item__title">Thumbnail Grid with Expanding Preview</h3>
 			</a>
 		</section>

@@ -7,15 +7,15 @@
 <script type="text/javascript" src="${resources}/c-box/js/movieinfo.js"></script>
 
 
-
 <div class="container">
+
 	<h3>영화 관리</h3>
 
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td colspan="3">
-					<!-- 검색 -->
+				<!-- <td colspan="3">
+					검색
 					<form action="" method="get" onsubmit="" class="form-inline"
 						name="searchForm">
 						<div class="input-group">
@@ -27,9 +27,9 @@
 							</div>
 						</div>
 					</form>
-				<td style="text-align: center;">
+				<td style="text-align: center;"> -->
 					<!-- 등록 -->
-					<div class="form-group pull-right">
+					<div class="form-group pull-left">
 
 						<input type="button" class="btn btn-primary" value="등록하기"
 							onclick="movieInput();" data-toggle="modal"

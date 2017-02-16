@@ -118,7 +118,7 @@ thead td {
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<c:forEach begin="1" end="${theatercount}" varStatus="status">
+			<c:forEach items="${theaters}" var="theater" varStatus="status">
 				<li role="presentation"><a href="#${status.count}"
 					aria-controls="${status.count}" role="tab" data-toggle="tab">${status.count}관</a></li>
 			</c:forEach>
@@ -556,10 +556,10 @@ thead td {
 						
 						<!-- Tab panes -->
 						<div class="tab-content">
-						<c:forEach begin="1" end="${theatercount}" varStatus="status">
+						<c:forEach items="${theaters}" var="theater" varStatus="status">
 							<div role="tabpanel" class="tab-pane" id="${status.count}">
 							<c:forEach items="${dtos}" var="sdto">
-								<c:if test="${sdto.theater_num==status.count}">
+								<c:if test="${sdto.theater_num==theater.theater_num}">
 								
 									<div class="sche"
 										style="left: ${sdto.day}px; top: ${sdto.time}px; height: ${sdto.runtime}px;">

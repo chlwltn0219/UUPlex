@@ -40,5 +40,5 @@
     <select id="reserView" parameterType="String" resultType="spring.mvc.uuplex.admin.dto.MemberDTO">
 		SELECT * FROM uu_member WHERE memId=#{memId}
 	</select>
- 	
-    </mapper>
+
+</mapper>

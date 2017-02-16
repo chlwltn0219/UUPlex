@@ -7,9 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.mvc.uuplex.hotel.handler.AdminCalDetailHandler;
+import spring.mvc.uuplex.hotel.handler.AdminCalendarViewHandler;
+import spring.mvc.uuplex.hotel.handler.AdminCancelHandler;
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
+import spring.mvc.uuplex.hotel.handler.ReservCancelHandler;
 import spring.mvc.uuplex.hotel.handler.ReservConfirmHandler;
+import spring.mvc.uuplex.hotel.handler.ReservDetailHandler;
 import spring.mvc.uuplex.hotel.handler.ReservFormHandler;
+import spring.mvc.uuplex.hotel.handler.ReservManageHandler;
+import spring.mvc.uuplex.hotel.handler.ReservProHandler;
 import spring.mvc.uuplex.hotel.handler.ReservationHandler;
 import spring.mvc.uuplex.hotel.handler.RoomAddProHandler;
 import spring.mvc.uuplex.hotel.handler.RoomDeleteProHandler;
@@ -162,6 +169,104 @@ public class HFrontController {
 		
 		model.addAttribute("req", req);
 		String viewPage = reservConfirmHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//예약완료
+	@Autowired
+	ReservProHandler reservProHandler;
+	@RequestMapping("/reservPro")
+	public String reservPro(HttpServletRequest req, Model model) {
+		System.out.println("reservPro()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservProHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//예약내역
+	@Autowired
+	ReservManageHandler reservManageHandler;
+	@RequestMapping("/reservManage")
+	public String reservManage(HttpServletRequest req, Model model) {
+		System.out.println("reservManage()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservManageHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//예약상세내역
+	@Autowired
+	ReservDetailHandler reservDetailHandler;
+	@RequestMapping("/reservDetail")
+	public String reservDetail(HttpServletRequest req, Model model) {
+		System.out.println("reservDetail()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservDetailHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//예약취소
+	@Autowired
+	ReservCancelHandler reservCancelHandler;
+	@RequestMapping("/reservCancel")
+	public String reservCancel(HttpServletRequest req, Model model) {
+		System.out.println("reservCancel()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservCancelHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//달력
+	@RequestMapping("/adminCalendar")
+	public String calendar(Model model) {
+		System.out.println("adminCalendar()");
+		return "/hotel/adminCalendar";
+	}
+	
+	//(관리자)예약내역조회
+	@Autowired
+	AdminCalendarViewHandler adminCalendarViewHandler;
+	@RequestMapping("/adminCalendarView")
+	public String adminCalendarView(HttpServletRequest req, Model model) {
+		System.out.println("adminCalendarView()");
+		
+		model.addAttribute("req", req);
+		String viewPage = adminCalendarViewHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//(관리자)예약상세내역
+	@Autowired
+	AdminCalDetailHandler adminCalDetailHandler;
+	@RequestMapping("/adminCalDetail")
+	public String adminCalDetail(HttpServletRequest req, Model model) {
+		System.out.println("adminCalDetail()");
+		
+		model.addAttribute("req", req);
+		String viewPage = adminCalDetailHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	//(관리자)예약취소
+	@Autowired
+	AdminCancelHandler adminCancelHandler;
+	@RequestMapping("/adminCancel")
+	public String adminCancel(HttpServletRequest req, Model model) {
+		System.out.println("adminCancel()");
+		
+		model.addAttribute("req", req);
+		String viewPage = adminCancelHandler.process(model);
 		
 		return viewPage;
 	}
