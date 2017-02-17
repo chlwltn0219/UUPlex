@@ -5,8 +5,63 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>UU HOTEL</title>
 <style>
+header {
+	background-image: url("/uuplex/resources/hotelImages/hotel_background.png");
+	background-size: 800px;
+	color: #030066;
+}
+
+header li {
+	float: left;
+	list-style: none;
+	margin-left: 50px;
+	font-size: .9em;
+}
+
+header a {
+	color: #cccccc;
+	text-decoration: none;
+}
+
+header .logo {
+	padding: 50px 50px 0 400px;
+	align: left;
+}
+
+header .hit_menu {
+	overflow: hidden;
+	padding: 5px;
+}
+
+header .hit_menu ul {
+	overflow: hidden;
+	width: 1200px;
+	margin: 0 auto 3px;
+}
+
+header .hit_menu li {
+	float: right;
+	margin: 0;
+	text-align: center;
+}
+
+header .hit_menu a {
+	display: block;
+	color: #BDBDBD;
+	font-size: 1.1em;
+	padding: 10px 30px;
+	border: 1px solid #cccccc;
+}
+
+header .hit_menu li:first-child a {
+	border-radius: 0 10px 10px 0;
+}
+
+header .hit_menu li:last-child a {
+	border-radius: 10px 0 0 10px;
+}
 #content {
 	width: 1200px;
 	margin: 100px;
@@ -23,6 +78,25 @@ pre {
 </style>
 </head>
 <body>
+<header>
+		<div class="logo">
+			<img src="${resources}/hotelImages/hotellogo.png" width="150px;" onclick="location.href='/uuplex/hotel'">
+		</div>
+		<div class="hit_menu">
+			<ul>
+				<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 103}">
+					<li><a href="adminCalendar">예약관리</a></li>
+					<li><a href="roomList">객실관리</a></li>
+					<li><a href="hotelInfo">호텔안내</a></li>
+				</c:if>
+				<c:if test="${idCode != 101}">
+					<li><a href="reservManage">예약내역</a></li>
+					<li><a href="reservation">객실예약</a></li>
+					<li><a href="hotelInfo">호텔안내</a></li>
+				</c:if>
+			</ul>
+		</div>
+</header>
 <div class="container">
 <div id="content">
 	<div id="title">

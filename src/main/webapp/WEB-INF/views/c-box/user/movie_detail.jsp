@@ -35,54 +35,54 @@
 }
 
 .option{
-		text-align:right;
-		margin-bottom:6px; 
-		font-size: 15px
-	
-	}
+      text-align:right;
+      margin-bottom:6px; 
+      font-size: 15px
+   
+   }
 
-	.reviewId{
-		float:left;
-		margin-right:8px;
-		margin-top: 6px;
-		
-		
-	}
-	.reviewContents{
-		float:left;
-		margin-right:8px;
-		margin-top: 8px;
-		
-		
-	}
-	.like{
-		background: white;
-		border: 1px solid #E8D9FF;	
-		width: 100px;
-		height: 100px;	
-		margin: 0px; 
-		padding: 0px;
-		text-align: center;
-		
-	
-	}
-	.like:hover{
-		background: #E8D9FF;
-		border: 1px solid #E8D9FF;
-		width: 100px;
-		height: 100px;	
-		margin: 0px; 
-		padding: 0px;
-		text-align: center;
-	
-	}
-	.chucheon{
-		height:10px; 
-		font-size: 17px; 
-		margin-top:0; 
-		padding-bottom:20px; 
-		margin-bottom:20px;
-	}
+   .reviewId{
+      float:left;
+      margin-right:8px;
+      margin-top: 6px;
+      
+      
+   }
+   .reviewContents{
+      float:left;
+      margin-right:8px;
+      margin-top: 8px;
+      
+      
+   }
+   .like{
+      background: white;
+      border: 1px solid #E8D9FF;   
+      width: 100px;
+      height: 100px;   
+      margin: 0px; 
+      padding: 0px;
+      text-align: center;
+      
+   
+   }
+   .like:hover{
+      background: #EEEEEE;
+      border: 1px solid #E8D9FF;
+      width: 100px;
+      height: 100px;   
+      margin: 0px; 
+      padding: 0px;
+      text-align: center;
+   
+   }
+   .chucheon{
+      height:10px; 
+      font-size: 17px; 
+      margin-top:0; 
+      padding-bottom:20px; 
+      margin-bottom:20px;
+   }
 
 </style>
 
@@ -113,7 +113,7 @@
                      src="${img}mpaa_rating/${dto.MPAARating}.png">${dto.title1}
 
 
-					<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 102}">
+               <c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 102}">
                      <div class="form-group pull-right">
 
                         <input type="button" class="btn btn-primary" value="수정하기"
@@ -143,7 +143,7 @@
                <tr>
                   <td><b>러닝타임</b> : ${dto.runTime}분</td>
                </tr>
-				<tr>
+            <tr>
                   <td><b>국가</b> : ${dto.country}</td>
                </tr>
                <tr>
@@ -151,8 +151,8 @@
                   <div style="width:200px; float:left; margin-top:7px">
                   <c:if test="${total == null}">0</c:if>
                      <c:if test="${total != null}">${total}</c:if>
-                     	명의 관객이 평가해주셨습니다
-                    	
+                        명의 관객이 평가해주셨습니다
+                       
                   <b>평점</b> :
                   <c:choose>
                         <c:when test="${avg <= 1.5}">
@@ -236,9 +236,9 @@
 	                           required></textarea></td>
 	                     <td width="100px;"><input style="width: 100%; height : 80px;; background-color: #eeeeee; border: none;"type="submit" value="등록"></td>
 	                  </tr>
-	
-	               </table>
-               </c:if>
+					</table>
+					</c:if>
+	        
             </form>
 
 
@@ -296,12 +296,14 @@
                                  <div class="form-group pull-right">
 
                                     <!-- 본인이 작성한 글일 경우에만 삭제가능 -->
-                                    <c:if test="${id == sessionScope.memId}"> 
+                                    
+                                    <c:if test="${dto.memId == sessionScope.id}"> 
                                     <input type="button" class="btn btn-primary" value="글삭제"
                                        onclick="window.location='/uuplex/c-box/user/review/delete?review_num=${dto.review_num}'">
-									</c:if>
+                           			</c:if>
                                  </div>
                               </td>
+                              
                               <td style="width: 100px" rowspan="2">
                                  <div class="like" style="font-size: 30px;">
                                  <div id="chucheonCnt" style="margin-top: 20px; margin-bottom: 0;">0</div>

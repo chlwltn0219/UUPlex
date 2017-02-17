@@ -12,6 +12,7 @@
 	<table class="table">
 		
 		<tbody>
+			
 			<c:if test="${dtos!=null}">
 			<c:forEach items="${dtos}" var="dto">
 				<tr style="border-bottom: none">
@@ -42,10 +43,10 @@
 						<div class="form-group pull-right">
 
 						<!-- 본인이 작성한 글일 경우에만 삭제가능 -->
-						<%-- <c:if test="${id == sessionScope.memId}"> --%>
+						<c:if test="${dto.memId == sessionScope.id}"> 
 						<input type="button" class="btn btn-primary" value="글삭제"
 							onclick="window.location='/uuplex/c-box/user/review/delete?review_num=${dto.review_num}'" >
-						<%-- </c:if> --%>
+						</c:if>
 						
 					</div>
 					</td>
@@ -59,7 +60,7 @@
 					
 				</tr>
 				<tr>	
-					<td  style="font-size:20px;background-color:#E8D9FF">
+					<td  style="font-size:20px; background-color:#eeeeee;">
 						${dto.review_content}<br>
 					</td>
 					

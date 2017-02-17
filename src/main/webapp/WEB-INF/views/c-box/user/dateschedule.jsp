@@ -25,7 +25,7 @@ cursor: pointer;
 				<br><br>
 				<p>${dto.theater_num}관 (${dto.seatcnt}석)</p>
 			</c:if>
-			<a style="width:110px; margin: 3px; display:inline-block;" onclick="location.href='/uuplex/c-box/ticket?schedule_num=${dto.schedule_num}'">
+			<a style="width:110px; margin: 3px; display:inline-block;" onclick="chkid('${sessionScope.id} ' , '${dto.schedule_num}');">
 				<span style="border: 1px solid #aaaaaa; padding: 3px 0 0 3px;">
 					<fmt:formatDate value="${dto.showtime}" pattern="HH:mm" />
 					</span>

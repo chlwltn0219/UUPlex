@@ -42,7 +42,7 @@
 								<td>
 						</c:if>
 					</c:if>
-					<div class="time" onclick="location.href='/uuplex/c-box/ticket?schedule_num=${dto.schedule_num}'">
+					<div class="time" onclick="chkid('${sessionScope.id} ' , '${dto.schedule_num}');">
 						<p class="time_info ">
 							<span class="type">
 								<fmt:formatDate value="${dto.showtime}" var="showtime" pattern="H" />

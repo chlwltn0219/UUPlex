@@ -19,7 +19,6 @@ DROP SEQUENCE SEQ_PROGRAM_PID;
 DROP SEQUENCE SEQ_classroom_crid;
 DROP SEQUENCE SEQ_TEACHER_TID;
 DROP SEQUENCE SEQ_SPORTS_SID;
-
 -------------------------
 -- Create Sequences
 -------------------------
@@ -60,6 +59,7 @@ INCREMENT BY 1
 NOCYCLE
 MINVALUE 1;
 
+
 -------------------------
 -- Create Tables
 -------------------------
@@ -82,9 +82,9 @@ CONSTRAINT f_sports_activated_fk FOREIGN KEY (activated)
 );
 -- 강사 테이블
 CREATE TABLE f_teacher(
-  tid             NUMBER(5),
+  tid             NUMBER,
   tname           VARCHAR2(100) NOT NULL,
-  sid             NUMBER(5),
+  sid             NUMBER,
   tinfo           VARCHAR2(300),
   tpicture        VARCHAR2(100),
   reg_date        TIMESTAMP DEFAULT SYSDATE,
@@ -95,9 +95,9 @@ CREATE TABLE f_teacher(
 );
 -- 강의실 테이블
 CREATE TABLE f_classroom(
-  shopcode        NUMBER,
+  shopcode        NUMBER(10),
   crid            NUMBER,
-  crname          VARCHAR2(300),
+  crname          VARCHAR2(100),
   activated       VARCHAR2(1) DEFAULT 'Y',
   CONSTRAINT f_f_classroom_crid_pk PRIMARY KEY(crid),
   CONSTRAINT f_f_classroom_activated_fk FOREIGN KEY(activated) references BOOLEAN(value),
@@ -232,6 +232,7 @@ VALUES (SEQ_TEACHER_TID.nextval, '박보검', 4, 'Y', 'no_picture.jpg');
 INSERT INTO f_teacher (tid, tname, sid, activated, tpicture)
 VALUES (SEQ_TEACHER_TID.nextval, '송중기', 4, 'Y', 'no_picture.jpg');
 commit;
+
 -- 강의실 데이터
 INSERT INTO f_classroom (shopcode, crid, crname, activated)
 VALUES (103, SEQ_classroom_crid.nextval, '요가실', 'Y');
@@ -244,6 +245,7 @@ VALUES (103, SEQ_classroom_crid.nextval, '수영장', 'Y');
 INSERT INTO f_classroom (shopcode, crid, crname, activated)
 VALUES (103, SEQ_classroom_crid.nextval, '다목적실', 'Y');
 COMMIT;
+
 -- 프로그램 데이터
 INSERT INTO F_PROGRAM (pid, pname, sid, tid, price)
 VALUES (SEQ_PROGRAM_PID.nextval, '요가 초급', 1, 1, 50000);
@@ -605,6 +607,7 @@ VALUES (SEQ_STATEMENT_STID.nextval, 12, 'bb', SYSDATE - 19,
 		  WHERE pid = (SELECT pid 
 						 FROM F_CLASS 
 					    WHERE cid = 12)));
+						
 INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
 VALUES (SEQ_STATEMENT_STID.nextval, 11, 'cc', SYSDATE - 18,
 		(SELECT price 
@@ -742,3 +745,5 @@ VALUES (SEQ_STATEMENT_STID.nextval, 10, 'aa', SYSDATE - 17,
 		  WHERE pid = (SELECT pid 
 						 FROM F_CLASS 
 					    WHERE cid = 10)));
+
+COMMIT;

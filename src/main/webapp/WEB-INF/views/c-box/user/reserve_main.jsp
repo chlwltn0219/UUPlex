@@ -107,6 +107,16 @@ tr{
 		}
 	}
 	
+	function chkid(id, schedule_num) {
+		if(id==' '){
+			alert("로그인 후 이용가능합니다");
+			
+		} else {
+			location.href="/uuplex/c-box/ticket?schedule_num="+schedule_num;
+		}
+		
+	}
+	
 	
 </script>
 <div class="container">

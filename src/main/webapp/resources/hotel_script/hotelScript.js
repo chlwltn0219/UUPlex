@@ -4,16 +4,25 @@ function addCheck() {
 		document.roomAddPro.roomName.focus();
 		return false;
 	} else if(!document.roomAddPro.mainImg.value) {
-		alert("이미지를 선택하세요.");
+		alert("메인이미지를 선택하세요.");
 		return false;
-	} else if(!document.roomAddPro.roomType.value) {
-		alert("객실규모를 선택하세요.");
+	} else if(!document.roomAddPro.detail_1.value) {
+		alert("상세이미지1 을 선택하세요.");
 		return false;
-	} else if(!document.roomAddPro.bed.value) {
-		alert("침대유형을 선택하세요.");
+	} else if(!document.roomAddPro.detail_2.value) {
+		alert("상세이미지2 를 선택하세요.");
 		return false;
-	} else if(!document.roomAddPro.hotelView.value) {
-		alert("전망형태를 선택하세요.");
+	} else if(!document.roomAddPro.detail_3.value) {
+		alert("상세이미지3 을 선택하세요.");
+		return false;
+	} else if(!document.roomAddPro.detail_4.value) {
+		alert("상세이미지4 를 선택하세요.");
+		return false;
+	} else if(!document.roomAddPro.detail_5.value) {
+		alert("상세이미지5 를 선택하세요.");
+		return false;
+	} else if(!document.roomAddPro.intro.value) {
+		alert("객실소개를 입력하세요.");
 		return false;
 	} else if(!document.roomAddPro.charge.value) {
 		alert("이용요금을 입력하세요.");
