@@ -75,9 +75,9 @@
 			</div>    	
 		</c:if>
 		
-		<label for="boardSubject" class="col-sm-5 control-label">공지</label>
+		<label for="boardSubject" class="col-sm-4 control-label">중요</label>
     		<div class="col-sm-1">
-				<input type="checkbox" name="important" class="form-control" value="공지">
+				<input type="checkbox" name="important" class="form-control" style="height:25px" value="공지">
 			</div>
 	</div>	
 	

@@ -63,10 +63,9 @@
 
             var data = google.visualization.arrayToDataTable([
               ['Grade', 'MemberCount',],
-              ['일반회원', 17],
-              ['Green회원', 8],
-              ['Gold회원', 5],
-              ['VIP회원', 3],
+              <c:forEach var="dto" items="${gradeCount}">
+	              ['${dto.grade}', ${dto.cnt}],
+              </c:forEach>
             ]);
 
             var options = {
@@ -114,8 +113,7 @@
     </script>
     <style>
     	.container {
-    		margin:50px 0 0 350px;
-    		width:1500px;
+    		margin-left:350px;
     	}
     	
     	.jb-cell {
@@ -129,15 +127,58 @@
   </head>
   <body>
   	<div class="container">
+  		<br><br>
   		<h2 style="margin: 0 0 0 530px;">회원통계</h2>
     
     <div class="jb-cell">
-    <h3>등급분포</h3>
+    <h3>등급분포</h3> <br>
+    
+    <table class="table table-condensed" style="table-layout:fixed">
+    	<tr>
+	 		<th colspan="5" style="background-color:#f0f0f0">등급분포</th>
+	 	</tr>
+    	<tr>
+    		<th>회원등급</th>
+    		<c:forEach var="dto" items="${gradeCount}">
+    			<th style="text-align:center">${dto.grade}</th>
+    		</c:forEach>
+    	</tr>
+    	<tr>
+    		<th>회원 수</th>
+    		<c:forEach var="dto" items="${gradeCount}">
+    			<th style="text-align:center">${dto.cnt}명</th>
+    		</c:forEach>
+    	</tr>
+    	<tr>
+    		<th colspan="5"></th>
+    	</tr>
+    </table>
+    
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
     </div>
     
   	<div class="jb-cell">
-  	<h3>성별분포</h3>
+  	<h3>성별분포</h3> <br>
+  	
+  	<table class="table table-condensed">
+    	<tr>
+	 		<th colspan="5" style="background-color:#f0f0f0">성별분포</th>
+	 	</tr>
+    	<tr>
+    		<th>성별</th>
+    		<th>남성</th>
+    		<th>여성</th>
+    	</tr>
+    	<tr>
+    		<th>회원 수</th>
+    		<th>${memGenderMan}명</th>
+    		<th>${memGenderWoman}명</th>
+    	</tr>
+    	<tr>
+    		<th colspan="5"></th>
+    	</tr>
+    </table>
+  	
     <div id="piechart" style="width: 900px; height: 500px;" ></div>
     </div>
     

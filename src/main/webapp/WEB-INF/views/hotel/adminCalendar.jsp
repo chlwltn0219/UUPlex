@@ -300,7 +300,7 @@ a:hover {
 								
 							String checkIn = year + "-" + (month+1) + "-" + i; 	
 						%>
-						<td align="center" bgcolor="<%=bgcolor%>"><font color=<%=color%>><a
+						<td align="center" bgcolor="<%=bgcolor%>"><font color=<%=color%>><a href="#"
 								<%-- href="adminCalendarView?checkIn=<%=checkIn%>"><%=i%></a></font></td> --%>
 								onclick="dateCheck('<%=checkIn%>')"><%=i%></a></font></td>
 						<%

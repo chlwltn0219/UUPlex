@@ -8,11 +8,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import spring.mvc.uuplex.admin.dto.CalculateDTO;
+import spring.mvc.uuplex.admin.dto.GenderDTO;
 import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MemberDTO;
 import spring.mvc.uuplex.admin.dto.MtestDTO;
 import spring.mvc.uuplex.fitness.dto.FStatementDTO;
-import spring.mvc.uuplex.hotel.dto.HotelDTO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO{
@@ -345,51 +346,76 @@ public class AdminDAOImpl implements AdminDAO{
 
 
 	@Override
-	public int gradeCount1() {
-		int gradeCount1 = 0;
+	public int m_DayCalculate() {
+		int movieDayCal = 0;
 		
 		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
 		
-		gradeCount1 = dao.gradeCount1();
+		movieDayCal = dao.m_DayCalculate();
 		
-		return gradeCount1;
+		return movieDayCal;
 	}
 
 
 	@Override
-	public int gradeCount2() {
-		int gradeCount2 = 0;
+	public int h_DayCalculate() {
+		int hotelDayCal = 0;
 		
 		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
 		
-		gradeCount2 = dao.gradeCount2();
+		hotelDayCal = dao.h_DayCalculate();
 		
-		return gradeCount2;
+		return hotelDayCal;
 	}
 
 
 	@Override
-	public int gradeCount3() {
-		int gradeCount3 = 0;
+	public int f_DayCalculate() {
+		int fitnessDayCal = 0;
 		
 		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
 		
-		gradeCount3 = dao.gradeCount3();
+		fitnessDayCal = dao.f_DayCalculate();
 		
-		return gradeCount3;
+		return fitnessDayCal;
 	}
 
 
 	@Override
-	public int gradeCount4() {
-		int gradeCount4 = 0;
+	public String todayDate() {
+		String todayDate="";
 		
 		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
 		
-		gradeCount4 = dao.gradeCount3();
+		todayDate = dao.todayDate();
 		
-		return gradeCount4;
+		return todayDate;
 	}
+
+
+	@Override
+	public ArrayList<CalculateDTO> monthCalculate() {
+		ArrayList<CalculateDTO> monthCal = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		monthCal = dao.monthCalculate();
+		
+		return monthCal;
+	}
+
+
+	@Override
+	public ArrayList<GenderDTO> gradeCount() {
+		ArrayList<GenderDTO> gradeCount = null;
+		
+		AdminDAO dao = this.sqlsession.getMapper(AdminDAO.class);
+		
+		gradeCount = dao.gradeCount();
+		
+		return gradeCount;
+	}
+
 
 
 }

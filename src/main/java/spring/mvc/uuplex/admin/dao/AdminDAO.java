@@ -3,6 +3,8 @@ package spring.mvc.uuplex.admin.dao;
 import java.util.ArrayList;
 import java.util.Map;
 
+import spring.mvc.uuplex.admin.dto.CalculateDTO;
+import spring.mvc.uuplex.admin.dto.GenderDTO;
 import spring.mvc.uuplex.admin.dto.HtestDTO;
 import spring.mvc.uuplex.admin.dto.MemberDTO;
 import spring.mvc.uuplex.admin.dto.MtestDTO;
@@ -46,10 +48,17 @@ public interface AdminDAO {
 	// 회원통계
 	public int memberGenderWoman(); // 여성 수
 	public int memberGenderMan(); // 남성 수
-	public int gradeCount1(); // 일반회원 수
-	public int gradeCount2(); // Green회원 수
-	public int gradeCount3(); // Gold회원 수
-	public int gradeCount4(); // VIP회원 수
+	public ArrayList<GenderDTO> gradeCount();// 등급별 회원 수
+	
+	// 매장정산
+	public String todayDate(); // 오늘 날짜
+	
+	public int m_DayCalculate(); // 영화 일일 매출
+	public int h_DayCalculate(); // 호텔 일일 매출
+	public int f_DayCalculate(); // 휘트니스 일일 매출
+	
+	
+	public ArrayList<CalculateDTO> monthCalculate(); // 월별 매출
 	
 
 }

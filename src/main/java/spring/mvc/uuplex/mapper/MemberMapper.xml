@@ -173,24 +173,55 @@
 		SELECT COUNT(*) FROM uu_member WHERE gender = '남성'
 	</select>
 	
-	<select id="gradeCount1" resultType="int">
-		SELECT COUNT(*) FROM uu_member WHERE grade = '일반회원'
-	</select>
-	
-	<select id="gradeCount2" resultType="int">
-		SELECT COUNT(*) FROM uu_member WHERE grade = 'Green회원'
-	</select>
-	
-	<select id="gradeCount3" resultType="int">
-		SELECT COUNT(*) FROM uu_member WHERE grade = 'Gold회원'
-	</select>
-	
-	<select id="gradeCount4" resultType="int">
-		SELECT COUNT(*) FROM uu_member WHERE grade = 'Vip회원'
+	<select id="gradeCount" resultType="spring.mvc.uuplex.admin.dto.GenderDTO">
+		select grade, COUNT(*) AS cnt from uu_member where grade!='관리자' group by grade order by cnt DESC
 	</select>
 	
 	
+	<select id="todayDate" resultType="String">
+		SELECT SYSDATE FROM DUAL
+	</select>
 	
+	<select id="m_DayCalculate" resultType="int">
+		SELECT SUM(price) 
+		  FROM m_reserv WHERE reserve_date 
+	   BETWEEN '2017-02-15 00:00:00' AND '2017-02-15 23:59:59'
+	</select>
+	
+	<select id="h_DayCalculate" resultType="int">
+		SELECT SUM(totcharge) 
+		  FROM h_reserv WHERE reservDay 
+	   BETWEEN '2017-02-15 00:00:00' AND '2017-02-15 23:59:59'
+	</select>
+	
+	<select id="f_DayCalculate" resultType="int">
+		SELECT SUM(price) 
+		  FROM F_STATEMENT WHERE reg_date 
+	   BETWEEN '2017-02-15 00:00:00' AND '2017-02-15 23:59:59'
+	</select>
+	
+	
+	<select id="monthCalculate" resultType="spring.mvc.uuplex.admin.dto.CalculateDTO">
+	  SELECT m.m_monthCal AS monthCal, m.m_totPrice, h.h_totPrice, f.f_totPrice 
+	    FROM 
+	        (SELECT to_char(reserve_date,'YYYY-MM') AS m_monthCal, SUM(price) AS m_totPrice 
+	           FROM m_reserv 
+	           WHERE to_char(reserve_date, 'YYYY-MM') 
+	           BETWEEN '2016-11' and '2017-02' 
+	           GROUP BY to_char(reserve_date,'YYYY-MM') 
+	           ORDER BY to_char(reserve_date,'YYYY-MM') asc) m,
+	        (SELECT to_char(reservDay,'YYYY-MM') AS h_monthCal, SUM(totcharge) AS h_totPrice 
+	           FROM h_reserv where to_char(reservDay, 'YYYY-MM') 
+	           BETWEEN '2016-11' and '2017-02' 
+	           GROUP BY to_char(reservDay,'YYYY-MM') 
+	           order BY to_char(reservDay,'YYYY-MM') asc) h,
+	        (SELECT to_char(reg_date,'YYYY-MM') AS f_monthCal, SUM(price) AS f_totPrice 
+	           FROM F_STATEMENT where to_char(reg_date, 'YYYY-MM') 
+	           BETWEEN '2016-11' and '2017-02' 
+	           GROUP BY to_char(reg_date,'YYYY-MM') 
+	           ORDER BY to_char(reg_date,'YYYY-MM') asc) f
+	    WHERE h.h_monthCal = f.f_monthCal AND f.f_monthCal = m.m_monthCal 
+	</select>
 	
 	
 </mapper>   
