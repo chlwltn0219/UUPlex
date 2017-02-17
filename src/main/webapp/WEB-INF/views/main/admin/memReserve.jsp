@@ -10,6 +10,10 @@
 	.reserve {
 		margin: 20px;
 	}
+	
+	th {
+		text-align:center;
+	}
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,7 +29,7 @@
 	
 	<table class="table table-condensed">
 		 <tr>
-		 	<th colspan="9" style="background-color:#f0f0f0">영화</th>
+		 	<th colspan="9" style="background-color:#f0f0f0; text-align:left;">영화</th>
 		 </tr>
 		 <tr>
 			<th>예매번호</th>
@@ -49,7 +53,7 @@
 			<th>${dto.seat_num}</th>	
 			<th><fmt:formatDate type="both" pattern="yyyy-MM-dd HH:mm" value="${dto.reserve_date}" /></th>		
 			<th>${dto.cnt}</th>		
-			<th>${dto.price}</th>		
+			<th><fmt:formatNumber value="${dto.price}" pattern="#,###.##"/>원</th>		
 		  </tr>
 		</c:forEach>
 		
@@ -64,7 +68,7 @@
 	
 	<table class="table table-condensed">
 	 <tr>
-	 	<th colspan="9" style="background-color:#f0f0f0">호텔</th>
+	 	<th colspan="9" style="background-color:#f0f0f0; text-align:left;">호텔</th>
 	 </tr>
 	 <tr>
 		<th>예약번호</th>
@@ -87,8 +91,8 @@
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.checkIn}" /></th>		
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.checkOut}" /></th>		
 		<th>${dto.day}</th>		
-		<th>${dto.capacity}</th>		
-		<th>${dto.totCharge}</th>				
+		<th>${dto.capacity}</th>
+		<th><fmt:formatNumber value="${dto.totCharge}" pattern="#,###.##"/>원</th>		
 	  </tr>
 	</c:forEach>
 	
@@ -99,7 +103,7 @@
 	
 	<table class="table table-condensed">
 	 <tr>
-	 	<th colspan="6" style="background-color:#f0f0f0">휘트니스</th>
+	 	<th colspan="6" style="background-color:#f0f0f0; text-align:left;">휘트니스</th>
 	 </tr>
 	 
 	 <tr>
@@ -119,7 +123,7 @@
 		<th>${dto.pname} - ${dto.subname}</th>
 		<th>${dto.tname}</th>
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.reg_date}" /></th>		
-		<th>${dto.price}</th>		
+		<th><fmt:formatNumber value="${dto.price}" pattern="#,###.##"/>원</th>		
 		<!-- <th><button class="btn btn-default">환불</button></th> -->		
 	  </tr>
 	</c:forEach>

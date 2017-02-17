@@ -100,7 +100,7 @@
     	 
      	    <c:if test="${dto.important == '공지'}">
         	<tr>
-        	   <td>공지 
+        	   <td>중요 
                </td>
                
                <td colspan="3">

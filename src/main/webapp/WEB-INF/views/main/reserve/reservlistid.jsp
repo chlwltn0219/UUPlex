@@ -37,7 +37,7 @@
 		<th>${dto.seat_num}</th>	
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd HH:mm" value="${dto.reserve_date}" /></th>		
 		<th>${dto.cnt}</th>		
-		<th>${dto.price}</th>		
+		<th><fmt:formatNumber value="${dto.price}" pattern="#,###.##"/>원</th>		
 	  </tr>
 	
 	</c:forEach>
@@ -69,7 +69,7 @@
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.checkOut}" /></th>		
 		<th>${dto.day}</th>		
 		<th>${dto.capacity}</th>		
-		<th>${dto.totCharge}</th>				
+		<th><fmt:formatNumber value="${dto.totCharge}" pattern="#,###.##"/>원</th>				
 	  </tr>
 	
 	</c:forEach>
@@ -98,7 +98,7 @@
 		<th>${dto.pname} - ${dto.subname}</th>
 		<th>${dto.tname}</th>
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.reg_date}" /></th>		
-		<th>${dto.price}</th>		
+		<th><fmt:formatNumber value="${dto.price}" pattern="#,###.##"/>원</th>		
 		<!-- <th><button class="btn btn-default">환불</button></th> -->		
 	  </tr>
 	</c:forEach>
@@ -134,7 +134,7 @@
 			<th>${dto.seat_num}</th>	
 			<th><fmt:formatDate type="both" pattern="yyyy-MM-dd HH:mm" value="${dto.reserve_date}" /></th>		
 			<th>${dto.cnt}</th>		
-			<th>${dto.price}</th>		
+			<th><fmt:formatNumber value="${dto.price}" pattern="#,###.##"/>원</th>		
 		  </tr>
 		</c:forEach>
 	</table>
@@ -166,7 +166,7 @@
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.checkOut}" /></th>		
 		<th>${dto.day}</th>		
 		<th>${dto.capacity}</th>		
-		<th>${dto.totCharge}</th>				
+		<th><fmt:formatNumber value="${dto.totCharge}" pattern="#,###.##"/>원</th>				
 	  </tr>
 	</c:forEach>
 	</table>
@@ -193,7 +193,7 @@
 		<th>${dto.pname} - ${dto.subname}</th>
 		<th>${dto.tname}</th>
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.reg_date}" /></th>		
-		<th>${dto.price}</th>		
+		<th><fmt:formatNumber value="${dto.price}" pattern="#,###.##"/>원</th>		
 		<!-- <th><button class="btn btn-default">환불</button></th> -->		
 	  </tr>
 	</c:forEach>

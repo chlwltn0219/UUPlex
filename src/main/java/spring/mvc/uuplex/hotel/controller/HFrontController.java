@@ -82,7 +82,7 @@ public class HFrontController {
 	@RequestMapping("/hotelInfo")
 	public String roomInfo(Model model) {
 		System.out.println("hotelInfo()");
-		return "/hotel/hotelInfo";
+		return "/uuplex/hotel/hotelInfo";
 	}
 	
 	//°´½Çµî·Ï
