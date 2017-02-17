@@ -8,7 +8,6 @@
 </head>
 <body>
 	<c:if test="${wcnt != 0 && ccnt != 0}">
-		<h1>수정 완료 되었습니다.</h1>
 		<script type="text/javascript">
 			alert("수정되었습니다");
 			window.location = "/uuplex/fitness/manage/class/list";
@@ -16,7 +15,6 @@
 	</c:if>
 	
 	<c:if test="${wcnt == 0 || ccnt == 0}">
-		<h1>수정 실패하였습니다.</h1>
 		<script type="text/javascript">
 			alert("수정 실패하였습니다");
 			window.location = "/uuplex/fitness/manage/class/list";

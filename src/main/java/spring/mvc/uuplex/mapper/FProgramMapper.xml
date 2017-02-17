@@ -71,6 +71,7 @@
   		   ON p.tid = t.tid
   		WHERE p.activated='Y'
   		  AND p.sid = #{sid}
+  		  AND t.activated = 'Y'
   		ORDER BY p.pname
 	</select>
 	
@@ -82,4 +83,10 @@
     	AND   p.tid = t.tid
      ORDER BY p.pid      	  
 	</select>
+	
+	<update id="deactivateProgram" parameterType="int">
+		UPDATE F_PROGRAM
+		   SET activated='N'
+		 WHERE tid = #{tid}
+	</update>
 </mapper>
