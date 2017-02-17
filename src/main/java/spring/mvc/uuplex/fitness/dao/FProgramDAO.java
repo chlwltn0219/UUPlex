@@ -25,4 +25,6 @@ public interface FProgramDAO {
 	
 	List<FProgramDTO> pInfo();
 	
+	int deactivateProgram (int tid);
+	
 }

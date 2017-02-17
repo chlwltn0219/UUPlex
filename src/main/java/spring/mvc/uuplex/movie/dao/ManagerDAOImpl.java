@@ -85,6 +85,14 @@ public class ManagerDAOImpl implements ManagerDAO{
 		return cnt;
 	}
 
+	@Override
+	public int getReservIdCnt(int movie_num) {
+		int cnt = 0;
+		ManagerDAO dao = sqlSession.getMapper(ManagerDAO.class);
+		cnt = dao.getReservIdCnt(movie_num);
+		return cnt;
+	}
+
 	
 	
 

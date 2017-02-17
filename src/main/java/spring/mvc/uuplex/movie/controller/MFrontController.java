@@ -484,10 +484,10 @@ public class MFrontController {
 	@RequestMapping("/genderAgeRate_json")
 	public String genderAgeRate_json(HttpServletRequest req, Model model) {
 		System.out.println("orderByDate");
-				                     
+				                    
 		model.addAttribute("req", req);
 		String viewPage = genderAgeRateHandler.process(model);
-				                     
+				          
 		return viewPage;
 	}
 	

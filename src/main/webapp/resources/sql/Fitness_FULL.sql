@@ -745,5 +745,466 @@ VALUES (SEQ_STATEMENT_STID.nextval, 10, 'aa', SYSDATE - 17,
 		  WHERE pid = (SELECT pid 
 						 FROM F_CLASS 
 					    WHERE cid = 10)));
+						
+
+
+
+
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 13, 'aa', SYSDATE - 41,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 13)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 12, 'bb', SYSDATE - 39,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 12)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 11, 'cc', SYSDATE - 38,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 11)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 1, 'juenus', SYSDATE - 37,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 1)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 14, 'foreverU', SYSDATE - 36,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 14)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 1, 'aa', SYSDATE - 35,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 1)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 2, 'bb', SYSDATE - 33,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 2)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 3, 'cc', SYSDATE - 31,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 3)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 5, 'juenus', SYSDATE - 29,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 5)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 6, 'foreverU', SYSDATE - 26,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 6)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 6, 'aa', SYSDATE - 22,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 6)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 7, 'bb', SYSDATE - 20,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 7)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'cc', SYSDATE - 20,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'juenus', SYSDATE - 65,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'foreverU', SYSDATE - 70,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'aa', SYSDATE - 75,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'bb', SYSDATE - 80,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 9, 'cc', SYSDATE - 85,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 9)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'juenus', SYSDATE - 90,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 10)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'foreverU', SYSDATE - 87,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 10)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'aa', SYSDATE - 77,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 10)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 13, 'aa', SYSDATE - 61,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 13)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 12, 'bb', SYSDATE - 59,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 12)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 11, 'cc', SYSDATE - 58,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 11)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 1, 'juenus', SYSDATE - 57,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 1)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 14, 'foreverU', SYSDATE - 56,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 14)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 1, 'aa', SYSDATE - 55,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 1)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 2, 'bb', SYSDATE - 53,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 2)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 3, 'cc', SYSDATE - 51,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 3)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 5, 'juenus', SYSDATE - 49,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 5)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 6, 'foreverU', SYSDATE - 86,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 6)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 6, 'aa', SYSDATE - 82,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 6)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 7, 'bb', SYSDATE - 40,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 7)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'cc', SYSDATE - 40,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'juenus', SYSDATE - 45,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'foreverU', SYSDATE - 60,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'aa', SYSDATE - 55,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'bb', SYSDATE - 60,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 9, 'cc', SYSDATE - 65,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 9)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'juenus', SYSDATE - 70,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 10)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'foreverU', SYSDATE - 67,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 10)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'aa', SYSDATE - 57,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 50)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 13, 'aa', SYSDATE - 91,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 13)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 12, 'bb', SYSDATE - 89,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 12)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 11, 'cc', SYSDATE - 88,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 11)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 1, 'juenus', SYSDATE - 87,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 1)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 14, 'foreverU', SYSDATE - 86,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 14)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 1, 'aa', SYSDATE - 85,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 1)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 2, 'bb', SYSDATE - 83,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 2)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 3, 'cc', SYSDATE - 81,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 3)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 5, 'juenus', SYSDATE - 89,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 5)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 6, 'foreverU', SYSDATE - 86,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 6)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 6, 'aa', SYSDATE - 82,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 6)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 7, 'bb', SYSDATE - 80,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 7)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'cc', SYSDATE - 80,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'juenus', SYSDATE - 85,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'foreverU', SYSDATE - 90,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+						
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'aa', SYSDATE - 95,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 8, 'bb', SYSDATE - 100,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 8)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 9, 'cc', SYSDATE - 125,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 9)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'juenus', SYSDATE - 130,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 10)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'foreverU', SYSDATE - 127,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 10)));
+INSERT INTO F_STATEMENT(stid, cid, memid, reg_date ,price)
+VALUES (SEQ_STATEMENT_STID.nextval, 10, 'aa', SYSDATE - 117,
+		(SELECT price 
+		   FROM F_PROGRAM 
+		  WHERE pid = (SELECT pid 
+						 FROM F_CLASS 
+					    WHERE cid = 10)));
 
 COMMIT;

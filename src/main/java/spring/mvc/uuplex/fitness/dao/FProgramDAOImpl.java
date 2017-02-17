@@ -82,4 +82,12 @@ public class FProgramDAOImpl implements FProgramDAO{
 		return list;
 	}
 	
+	@Override
+	public int deactivateProgram(int tid) {
+		int cnt = 0;
+		FProgramDAO dao = sqlSession.getMapper(FProgramDAO.class);
+		cnt = dao.deactivateProgram(tid);
+		return cnt;
+	}
+	
 }

@@ -29,6 +29,7 @@ function teacherModify(tid) {
 	var params = "tid=" + tid; 
 	
 	sendRequest(teacherModal, url, method, params);
+	
 }
 
 //=====================================Modify Pro : 사용 안함
@@ -72,12 +73,23 @@ function teacherModal() {
 function teacherDataCheck() {
 	
 	var tname = $('input[name=tname]');
+	var activated = $('input[name=activated]:checked');
 	
 	if(tname.val().length <= 0){
 		alert("강사명은 빈칸이 올 수 없습니다.");
 		tname.focus();
 		return false;
-	} 
+	} else if (activated.val() == 'N') {
+		var check = confirm(
+				'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*주의*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n' + 
+				'강사를 퇴사 시키면 해당 강사의 개설된 모든 프로그램이 비활성화 됩니다. ' + 
+			    '비활성화된 강좌는 강사를 재직으로 바꾸더라도 자동으로 복구되지 않습니다. \n' +
+			    '*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n' +
+			    '해당 강사를 퇴직 시키시겠습니까?');
+		if(!check){
+			return false;
+		}
+	}
 
 	return true;
 }

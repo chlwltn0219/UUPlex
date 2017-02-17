@@ -11,10 +11,10 @@ public class AgeRangeDTO {
 	public void setRng(String rng) {
 		this.rng = rng;
 	}
-	public int getNumber() {
+	public int getNum() {
 		return num;
 	}
-	public void setNumber(int num) {
+	public void setNum(int num) {
 		this.num = num;
 	}
 	

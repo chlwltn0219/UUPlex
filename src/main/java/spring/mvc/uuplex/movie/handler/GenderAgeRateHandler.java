@@ -28,12 +28,21 @@ public class GenderAgeRateHandler implements MCommandHandler{
 		
 		try {
 			movie_num = Integer.parseInt(req.getParameter("movie_num"));
-			total = Integer.parseInt(req.getParameter("total"));
 			
-			model.addAttribute("total",total);
+			
 			//연령별 예매
 			dtos = dao.ageRange(movie_num);		
 			model.addAttribute("dtos", dtos);
+			
+			/*System.out.println(dtos.get(0).getNum());
+			System.out.println(dtos.get(0).getRng());*/
+			
+			//영화별 예매  수(티켓 수량은 고려하지 않음)
+			total = dao.getReservIdCnt(movie_num);
+			model.addAttribute("total",total);
+			
+			
+			
 			//성별 예매
 			gender = dao.womanCnt(movie_num);
 			model.addAttribute("gender", gender);

@@ -9,7 +9,6 @@
 <body>
 
 	<c:if test="${cnt != 0}">
-		<h1>수정 완료 되었습니다.</h1>
 		<script type="text/javascript">
 			alert("수정 되었습니다");
 			window.location = "/uuplex/fitness/manage/program/list";
@@ -17,7 +16,6 @@
 	</c:if>
 
 	<c:if test="${cnt == 0}">
-		<h1>수정 실패하였습니다.</h1>
 		<script type="text/javascript">
 		alert("수정 실패 하였습니다.");
 		window.location = "/uuplex/fitness/manage/program/list";

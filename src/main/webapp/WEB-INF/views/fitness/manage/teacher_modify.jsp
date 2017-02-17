@@ -44,8 +44,13 @@
           		<td>
 					<select class="form-control" name="sid">
 						<c:forEach items="${sports}" var="s">
-					  <option value="${s.sid}">${s.sname}</option>
-					  </c:forEach>
+						<c:if test="${dto.sid != s.sid}">
+						<option value="${s.sid}">${s.sname}</option>
+						</c:if>
+						<c:if test="${dto.sid == s.sid}">
+						<option value="${s.sid}" selected>${s.sname}</option>
+						</c:if>
+						</c:forEach>
 					</select>  
           		</td>
      <!--      		<input type="hidden" name="sid" value="$dto.tid"> -->

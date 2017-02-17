@@ -14,7 +14,7 @@
 		vertical-align: top; 
 	}
 	.title {
-		margin-bottom: 1em;
+		margin-bottom: 2em;
 	}
 </style>
 <title>개인 명세 목록</title>
@@ -27,6 +27,9 @@
 			<thead>
 				<tr>
 					<td colspan="3">
+						<h4><small>환불은</small> "강의 시작일 전까지 가능"<small>합니다.</small></h4>
+					</td>
+<!-- 					<td colspan="3"> -->
 					<!-- 검색 -->
 <!-- 					<form action="" method="get" onsubmit="" -->
 <!-- 						 class="form-inline" name="searchForm"> -->
@@ -70,6 +73,10 @@
 								<tr>
 									<th>신청일</th>
 									<td>${fn:substring(dto.reg_date, 0, 10)}</td>
+								</tr>
+								<tr>
+									<th>환불 가능일</th>
+									<td> ~ ${fn:substring(dto.start_date, 0, 10)} 이전 까지</td>
 								</tr>
 								<tr>
 									<th>가격</th>
