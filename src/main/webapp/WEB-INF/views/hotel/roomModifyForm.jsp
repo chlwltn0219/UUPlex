@@ -80,12 +80,12 @@ header .hit_menu li:last-child a {
 		</div>
 		<div class="hit_menu">
 			<ul>
-				<c:if test="${idCode == 101}">
+				<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 103}">
 					<li><a href="adminCalendar">예약관리</a></li>
 					<li><a href="roomList">객실관리</a></li>
 					<li><a href="hotelInfo">호텔안내</a></li>
 				</c:if>
-				<c:if test="${idCode != 101}">
+				<c:if test="${sessionScope.idCode != 101 && sessionScope.idCode != 103 }">
 					<li><a href="reservManage">예약내역</a></li>
 					<li><a href="reservation">객실예약</a></li>
 					<li><a href="hotelInfo">호텔안내</a></li>

@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spring.mvc.uuplex.hotel.handler.AdminCalDetailHandler;
 import spring.mvc.uuplex.hotel.handler.AdminCalendarViewHandler;
 import spring.mvc.uuplex.hotel.handler.AdminCancelHandler;
+import spring.mvc.uuplex.hotel.handler.ChargeCountHandler;
 import spring.mvc.uuplex.hotel.handler.HCommandHandler;
 import spring.mvc.uuplex.hotel.handler.ReservCancelHandler;
 import spring.mvc.uuplex.hotel.handler.ReservConfirmHandler;
 import spring.mvc.uuplex.hotel.handler.ReservDetailHandler;
+import spring.mvc.uuplex.hotel.handler.ReservFormCalHandler;
 import spring.mvc.uuplex.hotel.handler.ReservFormHandler;
 import spring.mvc.uuplex.hotel.handler.ReservManageHandler;
 import spring.mvc.uuplex.hotel.handler.ReservProHandler;
@@ -160,6 +162,12 @@ public class HFrontController {
 		return "/hotel/calculation";
 	}
 	
+	@RequestMapping("/optionSelect")
+	public String optionSelect(Model model) {
+		System.out.println("optionSelect()");
+		return "/hotel/optionSelect";
+	}
+	
 	//예약전확인
 	@Autowired
 	ReservConfirmHandler reservConfirmHandler;
@@ -225,14 +233,14 @@ public class HFrontController {
 		return viewPage;
 	}
 	
-	//달력
+	//(관리자)달력
 	@RequestMapping("/adminCalendar")
 	public String calendar(Model model) {
 		System.out.println("adminCalendar()");
 		return "/hotel/adminCalendar";
 	}
 	
-	//(관리자)예약내역조회
+	//(관리자)달력 예약내역조회
 	@Autowired
 	AdminCalendarViewHandler adminCalendarViewHandler;
 	@RequestMapping("/adminCalendarView")
@@ -270,4 +278,31 @@ public class HFrontController {
 		
 		return viewPage;
 	}
+	
+	//(이용자)달력 예약내역조회
+	@Autowired
+	ReservFormCalHandler reservFormCalHandler;
+	@RequestMapping("/reservFormCal")
+	public String reservFormCal(HttpServletRequest req, Model model) {
+		System.out.println("reservFormCal()");
+		
+		model.addAttribute("req", req);
+		String viewPage = reservFormCalHandler.process(model);
+		
+		return viewPage;
+	}
+	
+	
+	//(이용자)일수별 가격 체크
+		@Autowired
+		ChargeCountHandler chargeCountHandler;
+		@RequestMapping("/chargeCount")
+		public String chargeCount(HttpServletRequest req, Model model) {
+			System.out.println("chargeCount()");
+			
+			model.addAttribute("req", req);
+			String viewPage = chargeCountHandler.process(model);
+			
+			return viewPage;
+		}
 }

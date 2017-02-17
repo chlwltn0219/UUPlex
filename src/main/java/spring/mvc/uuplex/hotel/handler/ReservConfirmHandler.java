@@ -29,10 +29,6 @@ public class ReservConfirmHandler implements HCommandHandler {
 		
 		int staydate = (int) (checkOut.getTime()-checkIn.getTime())/(60 * 60 * 24 * 1000);
 		
-		System.out.println(staydate+"¿œ");
-		
-		System.out.println(checkIn +"====="+ checkOut);
-		
 		dto.setCheckIn(req.getParameter("checkIn"));
 		dto.setCheckOut(req.getParameter("checkOut"));
 		dto.setDay(staydate);

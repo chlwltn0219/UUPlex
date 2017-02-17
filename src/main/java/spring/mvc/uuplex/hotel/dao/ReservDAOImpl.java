@@ -52,9 +52,15 @@ public class ReservDAOImpl implements ReservDAO {
 
 	//예약취소
 	@Override
-	public void cancel(int roomNum) {
+	public void cancel(int reservNum) {
 		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
-		dao.cancel(roomNum);
+		dao.cancel(reservNum);
+	}
+	@Override
+	public void calcancel(int reservNum) {
+		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
+		dao.calcancel(reservNum);
+		
 	}
 
 	//(관리자)예약내역조회
@@ -85,5 +91,17 @@ public class ReservDAOImpl implements ReservDAO {
 		
 		return reserveNum;
 	}
+
+	//(이용자)예약내역조회
+	@Override
+	public int reservFormCal(Map<String, Object> daoMap) {
+		int reservNum = 0;
+		
+		ReservDAO dao = this.sqlsession.getMapper(ReservDAO.class);
+		reservNum = dao.reservFormCal(daoMap);
+		
+		return reservNum;
+	}
+
 	
 }

@@ -26,11 +26,9 @@
 	<delete id="cancel" parameterType="int">
 		DELETE FROM h_reserv WHERE reservNum=#{reservNum}
 	</delete>
-	
-  <!-- (관리자)예약내역조회 -->
-    <!-- <select id="adminCalendar" parameterType="String" resultType="spring.mvc.uuplex.hotel.dto.ReservDTO">
-		SELECT * FROM h_reserv WHERE checkIn = #{checkIn}
-	</select> -->
+	<delete id="calcancel" parameterType="int">
+		DELETE FROM h_calendar WHERE reservNum=#{reservNum}
+	</delete>
 	
 	<!-- (관리자)예약내역조회 -->
 	<select id="adminCalendar" parameterType="String" resultType="spring.mvc.uuplex.hotel.dto.ReservDTO">
@@ -46,5 +44,10 @@
 	<insert id="reserveDay" parameterType="Map">
 		INSERT INTO h_calendar VALUES(#{reserveNum}, #{roomName}, #{resDate})
 	</insert>
+	
+	<!-- (이용자)예약내역조회 -->
+	<select id="reservFormCal" parameterType="Map" resultType="int">
+		SELECT COUNT(*) FROM h_reserv r, h_calendar c WHERE r.roomName = c.roomName AND c.roomName=#{roomName} AND (reservDate=#{checkIn} OR reservDate=#{checkOut}) 
+	</select>
 	
 </mapper>

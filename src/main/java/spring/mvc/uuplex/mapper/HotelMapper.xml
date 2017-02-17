@@ -15,7 +15,7 @@
     
   <!-- 객실목록 -->
     <select id="list" resultType="spring.mvc.uuplex.hotel.dto.HotelDTO">
-		SELECT * FROM h_room
+		SELECT * FROM h_room ORDER BY roomNum DESC
 	</select>
     
   <!-- 수정내역 -->
