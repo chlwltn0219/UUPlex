@@ -27,5 +27,7 @@ public interface ManagerDAO {
 	public List<AgeRangeDTO> ageRange(int movie_num);			//연령별 예매수
 	
 	public int womanCnt(int movie_num);							//성별 예매수
+	
+	public int getReservIdCnt(int movie_num);					//영화별 예매 내역 수(티켓수량 고려안함)
 }
 

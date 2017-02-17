@@ -260,6 +260,7 @@ function getSQresult(){
 	   var method = "GET";
 	   var params = "year=" + document.yearform.year.value;
 	   
+	   
 	   sendRequest(screenQ, url, method, params);
 	   
 	}
@@ -342,7 +343,7 @@ function screenQ() {
 								
 								<td>
 								<input type="button" class="btn btn-default" value="성별/연령별" data-toggle="modal" data-target="#modalPage" 
-								onclick="genderAgeRate(${dto.movie_num},${dto.cnt})">
+								onclick="genderAgeRate(${dto.movie_num})">
 								
 								</td>
 										
@@ -374,16 +375,16 @@ function screenQ() {
 							<option selected value="">
 								<fmt:formatDate value="<%=new Date()%>" pattern="yyyy"/>
 							</option>
-							<option value="<%=new Date(cal.getTimeInMillis())%>">
+							<option value="<fmt:formatDate value="<%=new Date(cal.getTimeInMillis())%>" pattern="yyyy"/>">
 								<fmt:formatDate value="<%=new Date(cal.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
-							<option value="<%=new Date(cal2.getTimeInMillis())%>">
+							<option value="<fmt:formatDate value="<%=new Date(cal2.getTimeInMillis())%>" pattern="yyyy"/>">
 								<fmt:formatDate value="<%=new Date(cal2.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
-							<option value="<%=new Date(cal3.getTimeInMillis())%>">
+							<option value="<fmt:formatDate value="<%=new Date(cal3.getTimeInMillis())%>" pattern="yyyy"/>">
 								<fmt:formatDate value="<%=new Date(cal3.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
-							<option value="<%=new Date(cal4.getTimeInMillis())%>">
+							<option value="<fmt:formatDate value="<%=new Date(cal4.getTimeInMillis())%>" pattern="yyyy"/>">
 								<fmt:formatDate value="<%=new Date(cal4.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
 						</select>
@@ -391,7 +392,11 @@ function screenQ() {
 					</form>
 					<div id="result"></div>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="settings">기간별, 영화별  예매내역 조회, 이번달 매출</div>
+				<div role="tabpanel" class="tab-pane" id="settings">
+				
+				
+				
+				</div>
 			</div>
 
 		</div>
@@ -401,8 +406,8 @@ function screenQ() {
 	<div class="modal fade" id="modalPage" role="dialog">
 			<div class="modal-dialog modal-lg" >
 				<div id="dialog">
-					<div id="donutchart5">
-					</div>
+					<div id="donutchart5"></div>
+					<div id="donutchart6"></div>
 				</div>
 			</div>
 			

@@ -4,16 +4,16 @@ import java.sql.Timestamp;
 
 public class FStatementDTO {
 	
-	int stid;
-	int cid;
-	int price;
-	String memid;
-	Timestamp reg_date;
+	private int stid;
+	private int cid;
+	private int price;
+	private String memid;
+	private Timestamp reg_date;
 	
-	String subname;
-	String pname;
-	String tname;
-	Timestamp start_date;
+	private String subname;
+	private String pname;
+	private String tname;
+	private Timestamp start_date;
 	
 	public int getStid() {
 		return stid;

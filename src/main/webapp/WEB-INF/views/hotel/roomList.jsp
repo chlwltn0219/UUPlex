@@ -154,6 +154,10 @@ function deleteChk() {
 				</c:forEach>
 			</table>
 			
+<<<<<<< HEAD
+=======
+			<hr>
+>>>>>>> 2fd49fee02768bec63a8d71f7f70b49fe6057d0c
 
 			<!-- Button trigger modal -->
 			<hr> <br> <br>

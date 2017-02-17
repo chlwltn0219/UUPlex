@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<h1>[error404페이지]</h1>
+	<i class="fa fa-exclamation-triangle" aria-hidden="true"></i><h1>error404</h1>
 	<br><br>
 	<h2><b>요청한 페이지는 존재하지 않습니다.</b></h2>
 	<br><br>

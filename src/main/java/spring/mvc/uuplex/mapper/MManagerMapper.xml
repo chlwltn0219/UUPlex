@@ -51,6 +51,7 @@
 		and i.country = '한국')
 		where dayCnt LIKE #{year}||'%'
 		group by theater
+		order by theater asc
 		
 	</select>
 	
@@ -83,26 +84,24 @@
 	
 	<!-- 연령별 예매 -->
 	<select id="ageRange" parameterType="int" resultType="spring.mvc.uuplex.movie.dto.AgeRangeDTO">
-		SELECT DISTINCT rng
-		  , COUNT(*) OVER (PARTITION BY rng) num
-		FROM 
-		(select m.age,m.memid
-		from m_reserv r, uu_member m
-		where r.memId = m.memId AND 
-		r.reserve_date BETWEEN sysdate-7 and sysdate AND
-		movie_num = #{movie_num})
-		INNER JOIN (
-		  select '20-29' rng, 20 rng_start, 29 rng_stop from dual
-		  union (
-		  select '30-39', 30, 39 from dual
-		  ) union (
-		  select '40-49', 40, 49 from dual
-		  ) union (
-		  select '50-59', 50, 59 from dual
-		  ) union (
-		  select '60+', 60, null from dual
-		)) ON age BETWEEN nvl(rng_start, age) AND nvl(rng_stop, age)
-		ORDER BY rng
+		SELECT a.rng AS rng, NVL(mr.cnt, 0) AS num
+		FROM
+		(select '10대' rng, 10 rng_start from dual union all
+						  select '20대', 20 from dual union all
+		                  select '30대', 30 from dual union all
+		                  select '40대', 40 from dual union all
+		                  select '50대', 50 from dual union all
+		                  select '60대+', 60 from dual ) a
+		            LEFT OUTER JOIN 
+		(SELECT TRUNC(m.age/10)*10 AS age, COUNT(*) As cnt
+		  FROM  m_reserv r
+		                              INNER JOIN uu_member m
+		                                 ON r.memid = m.memid
+		                                AND r.movie_num = #{movie_num}
+		 WHERE r.reserve_date BETWEEN sysdate-7 AND sysdate                              
+		 GROUP BY TRUNC(m.age/10)*10)mr
+		 ON mr.age = a.rng_start
+		 ORDER BY rng_start 
 	
 	</select>
 	
@@ -114,6 +113,17 @@
 		where r.memId = m.memId AND 
 		r.reserve_date BETWEEN sysdate-7 and sysdate AND
 		m.gender = '여성' AND
+		movie_num = #{movie_num}
+	
+	</select>
+	
+	<!-- 영화별 예매내역 수 (티켓수량 고려안함) -->
+	<select id="getReservIdCnt" parameterType="int" resultType="int">
+		
+		select COUNT(*) AS total
+		from m_reserv
+		where  
+		reserve_date BETWEEN sysdate-7 and sysdate AND
 		movie_num = #{movie_num}
 	
 	</select>

@@ -151,16 +151,16 @@
                      </a>
                      <ul class="dropdown-menu" role="menu">
                      	<li class="divider"></li>
-                        <li><a href="#">매장관리</a></li>
+                        <!-- <li><a href="#">매장관리</a></li> -->
                         <li><a href="/uuplex/memberList?grade=전체">회원관리</a></li>
                         <li><a href="/uuplex/reserveList">예약관리</a></li>
                         <li class="divider"></li>
                         <li><a href="/uuplex/memberChart">회원통계</a></li>
                         <li><a href="/uuplex/calculate">매장정산</a></li>
                         <li class="divider"></li>
-                        <li><a href="">영화관 관리</a></li>
-                        <li><a href="">호텔 관리</a></li>
-                        <li><a href="">휘트니스 관리</a></li>
+                        <li><a href="/uuplex/c-box">영화관 관리</a></li>
+                        <li><a href="/uuplex/hotel">호텔 관리</a></li>
+                        <li><a href="/uuplex/fitness">휘트니스 관리</a></li>
                      </ul>
                   </li>
                      <li><a href="/uuplex/logout">로그아웃</a></li>

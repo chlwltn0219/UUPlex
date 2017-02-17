@@ -104,6 +104,10 @@ function classDataCheck() {
 		alert("부제목은 빈칸이 올 수 없습니다.");
 		subname.focus();
 		return false;
+	} else if(limit.val() <= 0) {
+		alert("총 인원을 0명 보다 커야합니다.");
+		limit.focus();
+		return false;
 	} else if(people.val() != null){
 		if(people.val() > limit.val()) {
 			alert("총 인원을 현재 등록된 인원보다 작게 설정할 수 없습니다.");

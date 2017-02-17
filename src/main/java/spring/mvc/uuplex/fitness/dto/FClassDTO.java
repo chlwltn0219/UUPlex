@@ -32,7 +32,7 @@ public class FClassDTO {
 	private String crname;
 	
 	private int people;
-	int price;
+	private int price;
 	
 	public int getCid() {
 		return cid;
