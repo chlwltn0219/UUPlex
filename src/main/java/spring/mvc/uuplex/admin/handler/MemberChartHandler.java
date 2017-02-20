@@ -1,5 +1,6 @@
 package spring.mvc.uuplex.admin.handler;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import spring.mvc.uuplex.admin.dao.AdminDAO;
+import spring.mvc.uuplex.admin.dto.GenderDTO;
 
 @Service("memberChartHandler")
 public class MemberChartHandler implements CommandHandler {
@@ -24,17 +26,14 @@ public class MemberChartHandler implements CommandHandler {
 		
 		int memGenderWoman = dao.memberGenderWoman();
 		int memGenderMan = dao.memberGenderMan();
-		int gradeCount1 = dao.gradeCount1();
-		int gradeCount2 = dao.gradeCount2();
-		int gradeCount3 = dao.gradeCount3();
-		int gradeCount4 = dao.gradeCount4();
+		
+		ArrayList<GenderDTO> gradeCount = dao.gradeCount();
+	
 
 		model.addAttribute("memGenderWoman", memGenderWoman);
 		model.addAttribute("memGenderMan", memGenderMan);
-		model.addAttribute("gradeCount1", gradeCount1);
-		model.addAttribute("gradeCount2", gradeCount2);
-		model.addAttribute("gradeCount3", gradeCount3);
-		model.addAttribute("gradeCount4", gradeCount4);
+		model.addAttribute("gradeCount", gradeCount);
+
 		
 		return "/main/admin/memberChart";
 	}

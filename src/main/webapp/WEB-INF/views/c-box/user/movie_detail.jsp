@@ -214,31 +214,31 @@
                <input type="hidden" name="movie_num" value="${dto.movie_num}">
                <input type="hidden" name="memId" value="memId">
 
-            <c:if test="${sessionScope.id != null}">
-                  <table class="table">
-                     <tr>
-                        <th width="200px;" style="text-align: center;">${sessionScope.id}</th>
-                        <td class="star-input"><span class="input"> <!-- <input type="radio" name="rating" value=1 id="p1"> -->
-                              <input type="radio" name="rating" value=1 id="p1"> <label
-                              for="p1">괜히봤어요</label> <input type="radio" name="rating"
-                              value=2 id="p2"> <label for="p2">기대하진 말아요</label> <input
-                              type="radio" name="rating" value=3 id="p3"> <label
-                              for="p3">무난했어요</label> <input type="radio" name="rating"
-                              value=4 id="p4"> <label for="p4">기대해도 좋아요!</label> <input
-                              type="radio" name="rating" value=5 id="p5"> <label
-                              for="p5">정말 멋진 영화였어요!</label>
-                        </span><br> <output for="rating" id="outText">
-                              <!--                               <output for="rating"> -->
-                              평점을 입력해주세요
-                           </output></td>
-                        <td width="300px"><textarea placeholder="로그인 후 이용가능한 서비스입니다."
-                              style="width: 100%; height: 80px" name="review_content"
-                              required></textarea></td>
-                        <td width="100px;"><input style="width: 100%; height : 80px;; background-color: #eeeeee; border: none;"type="submit" value="등록"></td>
-                     </tr>
-   
-                  </table>
-               </c:if>
+				<c:if test="${sessionScope.id != null}">
+	               <table class="table">
+	                  <tr>
+	                     <th width="200px;" style="text-align: center;">${sessionScope.id}</th>
+	                     <td class="star-input"><span class="input"> <!-- <input type="radio" name="rating" value=1 id="p1"> -->
+	                           <input type="radio" name="rating" value=1 id="p1"> <label
+	                           for="p1">괜히봤어요</label> <input type="radio" name="rating"
+	                           value=2 id="p2"> <label for="p2">기대하진 말아요</label> <input
+	                           type="radio" name="rating" value=3 id="p3"> <label
+	                           for="p3">무난했어요</label> <input type="radio" name="rating"
+	                           value=4 id="p4"> <label for="p4">기대해도 좋아요!</label> <input
+	                           type="radio" name="rating" value=5 id="p5"> <label
+	                           for="p5">정말 멋진 영화였어요!</label>
+	                     </span><br> <output for="rating" id="outText">
+	                           <!--                               <output for="rating"> -->
+	                           평점을 입력해주세요
+	                        </output></td>
+	                     <td width="300px"><textarea placeholder="로그인 후 이용가능한 서비스입니다."
+	                           style="width: 100%; height: 80px" name="review_content"
+	                           required></textarea></td>
+	                     <td width="100px;"><input style="width: 100%; height : 80px;; background-color: #eeeeee; border: none;"type="submit" value="등록"></td>
+	                  </tr>
+					</table>
+					</c:if>
+	        
             </form>
 
 
@@ -296,12 +296,14 @@
                                  <div class="form-group pull-right">
 
                                     <!-- 본인이 작성한 글일 경우에만 삭제가능 -->
+                                    
                                     <c:if test="${dto.memId == sessionScope.id}"> 
                                     <input type="button" class="btn btn-primary" value="글삭제"
                                        onclick="window.location='/uuplex/c-box/user/review/delete?review_num=${dto.review_num}'">
-                           </c:if>
+                           			</c:if>
                                  </div>
                               </td>
+                              
                               <td style="width: 100px" rowspan="2">
                                  <div class="like" style="font-size: 30px;">
                                  <div id="chucheonCnt" style="margin-top: 20px; margin-bottom: 0;">0</div>
@@ -312,7 +314,7 @@
 
                            </tr>
                            <tr>
-                              <td style="font-size: 20px; background-color: #EEEEEE">
+                              <td style="font-size: 20px; background-color: #eeeeee">
                                  ${dto.review_content}<br>
                               </td>
 

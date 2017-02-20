@@ -17,12 +17,19 @@ form {
 #result {
 	margin-right:50px;
 }
+reservFormCal {
+	margin:5px;
+	text-align:center;
+}
 </style>
 
 </head>
 <body>
 <script src="/uuplex/resources/hotel_script/hotelScript.js"></script>
 <script type="text/javascript">
+
+
+
 //*popover
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover({container: "body"});
@@ -38,9 +45,59 @@ function load() {
 	var extraBedcnt	= document.getElementById("extraBedcnt");
 	var laundry = document.getElementById("laundry");
 	var breakfast = document.getElementById("breakfast");
-
-	var charge = ${charge};
 	
+	var option1 = "0";
+	var option = Number(option1);
+	
+	if(extraBed.checked && !extraBedcnt.value) {
+		alert("Extra bed 개수를 먼저 선택한 후 다시 체크해 주세요.");
+		return false;
+	} else if (extraBed.checked && extraBedcnt.value) {
+		option = option + (30000 * extraBedcnt.value);
+	} else if(!extraBed.checked) {
+		option = option;
+	}
+	
+	if(laundry.checked) {
+		option = option + 10000;
+	} else if(!laundry.checked) {
+		option = option;
+	}
+	
+	if(breakfast.checked) {
+		option = option + 30000;
+	} else if(!breakfast.checked) {
+		option = option;
+	}
+	
+	
+/* 	if(document.getElementById("totCharge").value != 0){
+		var charge1 = document.reservConfirm.totCharge2.value;
+		var charge2 = Number(charge1);
+		alert(document.getElementById("totCharge").value);
+		
+		if(extraBed.checked && !extraBedcnt.value) {
+			alert("Extra bed 개수를 먼저 선택한 후 다시 체크해 주세요.");
+			return false;
+		} else if (extraBed.checked && extraBedcnt.value) {
+			charge = charge2 + (30000 * extraBedcnt.value);
+		} else if(!extraBed.checked) {
+			charge = charge2;
+		}
+		
+		if(laundry.checked) {
+			charge = charge2 + 10000;
+		} else if(!laundry.checked) {
+			charge = charge2;
+		}
+		
+		if(breakfast.checked) {
+			charge = charge2 + 30000;
+		} else if(!breakfast.checked) {
+			charge = charge2;
+		}
+	} else if(document.getElementById("totCharge").value == 0) {
+		var charge = ${charge};
 	if(extraBed.checked && !extraBedcnt.value) {
 		alert("Extra bed 개수를 먼저 선택한 후 다시 체크해 주세요.");
 		return false;
@@ -62,19 +119,23 @@ function load() {
 		charge = charge;
 	}
 	
-	var params = "charge=" + charge;
+	} */
+	
+	var params = "option=" + option;
 	//sendRequest(callback, url, method, params) {} 호출
 	sendRequest(loadPage, "calculation", "GET", params); //url = calculation.jsp
 }
 
 //콜백함수
 function loadPage() {
-	var result = document.getElementById("result");
+	var result = document.getElementById("option");
+	var result2 = document.getElementById("option2");
 	if(httpRequest.readyState == 4) {
 		if(httpRequest.status == 200) {
 			/* 응답결과가 HTML이면 responseText로 받고, XML이면 responseXML로 받는다.
 			color.jsp가 div에 html로 응답한다. */
 			result.innerHTML = httpRequest.responseText;
+			result2.innerHTML = httpRequest.responseText;
 		} else {
 			result.innerHTML = "에러발생";
 		}
@@ -114,7 +175,12 @@ function loadPage() {
 				<input class="checkIn" type="date" name="checkIn" min="<fmt:formatDate value="<%=new Date()%>" pattern="YYYY-MM-dd"/>"
 					max="<fmt:formatDate value="<%=new Date(new Date().getYear(),new Date().getMonth()+3, new Date().getDate())%>" pattern="YYYY-MM-dd" />"> &nbsp;
 				<label for="end"> 체크아웃 :</label>
-				<input class="checkOut" type="date" name="checkOut">
+				<input class="checkOut" type="date" name="checkOut" onchange="chargeCount('${charge}')">&nbsp;&nbsp;
+				<button type="button" class="btn" onclick="reservCheck('${roomName}')">예약가능여부 확인</button>
+				<input type="hidden" name="reserveChk" value="0">
+				<div id="reservFormCal" style="float:right; margin:10px 50px 0px 0px;">
+				날짜를 선택해 주세요.
+				</div>
 			</td>
 		</tr>
 		<tr>
@@ -138,7 +204,10 @@ function loadPage() {
 			<br><br>
 			<input type="checkbox" name="breakfast" id="breakfast" onclick="load()"> 조식 &nbsp;&nbsp;
 			<button type="button" class="btn btn-xs btn-warning" data-toggle="popover" title="breakfast" data-content="30,000원 /1인">추가금액 확인</button>
+			<br><br><div id="option" style="float:right; margin-right:50px"><input type="hidden" name="option" value="0"></div>
+			<!-- <input type="button" class="btn btn-default" name="optionSelect" value="옵션확정" onclick="optionSel()"> -->
 			</td>
+			
 		</tr>
 		
 		<tr>
@@ -196,9 +265,10 @@ function loadPage() {
 	</table>
 	<hr>
 	<div id="result" style="text-align:right">
-	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"><input type="hidden" value="${charge}" name="totCharge"> ${charge} 원 </font>
+	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"><input type="hidden" id="totCharge" name="totCharge"> <fmt:formatNumber value="${charge}" pattern="#,###.##" />원 </font>
 	</div>
-	
+	<div id="option2" style="text-align:right; margin-right:50px"></div>
+	<br>
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-default btn-lg">다음단계</button>
 		<!-- <a data-toggle="modal" data-target="#reservModal" class="btn btn-default" href="./reservConfirm">다음단계</a> -->
