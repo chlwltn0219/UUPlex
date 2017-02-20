@@ -129,11 +129,13 @@ function load() {
 //콜백함수
 function loadPage() {
 	var result = document.getElementById("option");
+	var result2 = document.getElementById("option2");
 	if(httpRequest.readyState == 4) {
 		if(httpRequest.status == 200) {
 			/* 응답결과가 HTML이면 responseText로 받고, XML이면 responseXML로 받는다.
 			color.jsp가 div에 html로 응답한다. */
 			result.innerHTML = httpRequest.responseText;
+			result2.innerHTML = httpRequest.responseText;
 		} else {
 			result.innerHTML = "에러발생";
 		}
@@ -173,10 +175,10 @@ function loadPage() {
 				<input class="checkIn" type="date" name="checkIn" min="<fmt:formatDate value="<%=new Date()%>" pattern="YYYY-MM-dd"/>"
 					max="<fmt:formatDate value="<%=new Date(new Date().getYear(),new Date().getMonth()+3, new Date().getDate())%>" pattern="YYYY-MM-dd" />"> &nbsp;
 				<label for="end"> 체크아웃 :</label>
-				<input class="checkOut" type="date" name="checkOut" onblur="chargeCount('${charge}')">&nbsp;&nbsp;
+				<input class="checkOut" type="date" name="checkOut" onchange="chargeCount('${charge}')">&nbsp;&nbsp;
 				<button type="button" class="btn" onclick="reservCheck('${roomName}')">예약가능여부 확인</button>
 				<input type="hidden" name="reserveChk" value="0">
-				<div id="reservFormCal" style="float:right; margin:10px 50px 0px 0px; ">
+				<div id="reservFormCal" style="float:right; margin:10px 50px 0px 0px;">
 				날짜를 선택해 주세요.
 				</div>
 			</td>
@@ -202,8 +204,8 @@ function loadPage() {
 			<br><br>
 			<input type="checkbox" name="breakfast" id="breakfast" onclick="load()"> 조식 &nbsp;&nbsp;
 			<button type="button" class="btn btn-xs btn-warning" data-toggle="popover" title="breakfast" data-content="30,000원 /1인">추가금액 확인</button>
-			<div id="option"><input type="hidden" name="option"></div>
-			<input type="button" class="btn btn-default" name="optionSelect" value="옵션확정" onclick="optionSel()">
+			<br><br><div id="option" style="float:right; margin-right:50px"><input type="hidden" name="option" value="0"></div>
+			<!-- <input type="button" class="btn btn-default" name="optionSelect" value="옵션확정" onclick="optionSel()"> -->
 			</td>
 			
 		</tr>
@@ -265,7 +267,8 @@ function loadPage() {
 	<div id="result" style="text-align:right">
 	총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"><input type="hidden" id="totCharge" name="totCharge"> <fmt:formatNumber value="${charge}" pattern="#,###.##" />원 </font>
 	</div>
-	
+	<div id="option2" style="text-align:right; margin-right:50px"></div>
+	<br>
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-default btn-lg">다음단계</button>
 		<!-- <a data-toggle="modal" data-target="#reservModal" class="btn btn-default" href="./reservConfirm">다음단계</a> -->
