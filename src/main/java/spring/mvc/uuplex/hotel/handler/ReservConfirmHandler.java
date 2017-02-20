@@ -44,6 +44,10 @@ public class ReservConfirmHandler implements HCommandHandler {
 		if(!bedcnt.equals("")) {
 			dto.setExtraBedcnt(Integer.parseInt(req.getParameter("extraBedcnt")));			
 		}
+		
+		int totCharge = Integer.parseInt(req.getParameter("totCharge"));
+		int optionCharge = Integer.parseInt(req.getParameter("option"));
+		
 		dto.setLaundry(req.getParameter("laundry"));
 		dto.setBreakfast(req.getParameter("breakfast"));
 		dto.setFirstName(req.getParameter("firstName"));
@@ -52,7 +56,8 @@ public class ReservConfirmHandler implements HCommandHandler {
 		dto.setCard(req.getParameter("card"));
 		dto.setCardNum(req.getParameter("cardNum"));
 		dto.setCardEndM(req.getParameter("cardEndM"));
-		dto.setTotCharge(Integer.parseInt(req.getParameter("totCharge")));
+		/*dto.setTotCharge(Integer.parseInt(req.getParameter("totCharge")));*/
+		dto.setTotCharge(totCharge + optionCharge);
 		System.out.println(req.getParameter("totCharge"));
 		
 		model.addAttribute("dto", dto);

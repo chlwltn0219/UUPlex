@@ -89,6 +89,7 @@ function dateCheck(checkIn) {
 //콜백함수
 function dateCheckCall() {
 	var result = document.getElementById("result");
+	
 	if(httpRequest.readyState == 4) {
 		if(httpRequest.status == 200) {
 			/* 응답결과가 HTML이면 responseText로 받고, XML이면 responseXML로 받는다.
@@ -151,11 +152,15 @@ function chargeCount(charge) {
 //콜백함수
 function chargeCountCall() {
 	var result = document.getElementById("result");
+	var reservFormCal = document.getElementById("reservFormCal");
+	
 	if(httpRequest.readyState == 4) {
 		if(httpRequest.status == 200) {
 			/* 응답결과가 HTML이면 responseText로 받고, XML이면 responseXML로 받는다.
 			color.jsp가 div에 html로 응답한다. */
 			result.innerHTML = "";
+			
+			reservFormCal.innerHTML = "예약가능여부를 확인하세요";
 			result.innerHTML = httpRequest.responseText;
 		} else {
 			result.innerHTML = "에러발생";
