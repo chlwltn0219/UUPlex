@@ -63,14 +63,14 @@ header .hit_menu li:first-child a {
 header .hit_menu li:last-child a {
 	border-radius: 10px 0 0 10px;
 }
-   #content {
-       width: 900px;
-       margin: 100px;
-   }
-   #updateTable {
-   	width: 800px;
+#content {
+      width: 900px;
+      margin: 100px;
+}
+#updateTable {
+  	width: 800px;
 	margin-left: 50px;
-   }
+}
 </style>
 </head>
 <body>
@@ -93,6 +93,7 @@ header .hit_menu li:last-child a {
 			</ul>
 		</div>
 </header>
+<div class="container">
 <div id="content">
 	<h3>객실정보 수정</h3><br>
 	<form action="roomModifyPro" method="post" name="roomModifyPro" enctype="multipart/form-data" onsubmit="return modifyChk()">
@@ -200,6 +201,7 @@ header .hit_menu li:last-child a {
 		<input class="btn btn-default" type="button" value="취소"
 			onclick="location.href='roomList'"></center>
 	</form>
+	</div>
 	</div>
 </body>
 </html>

@@ -176,7 +176,7 @@ function loadPage() {
 				<input class="checkOut" type="date" name="checkOut" onblur="chargeCount('${charge}')">&nbsp;&nbsp;
 				<button type="button" class="btn" onclick="reservCheck('${roomName}')">예약가능여부 확인</button>
 				<input type="hidden" name="reserveChk" value="0">
-				<div id="reservFormCal" style="float:right; margin:10px 50px 0px 0px; ">
+				<div id="reservFormCal" style="float:right; margin:10px 50px 0px 0px;">
 				날짜를 선택해 주세요.
 				</div>
 			</td>
@@ -202,8 +202,8 @@ function loadPage() {
 			<br><br>
 			<input type="checkbox" name="breakfast" id="breakfast" onclick="load()"> 조식 &nbsp;&nbsp;
 			<button type="button" class="btn btn-xs btn-warning" data-toggle="popover" title="breakfast" data-content="30,000원 /1인">추가금액 확인</button>
-			<div id="option"><input type="hidden" name="option"></div>
-			<input type="button" class="btn btn-default" name="optionSelect" value="옵션확정" onclick="optionSel()">
+			<div id="option" style="float:right; margin:10px 50px 0px 0px;"><input type="hidden" name="option">추가금액 : &nbsp;&nbsp;&nbsp; <font size="3em"> 0 원</font></div>
+			<input type="button" class="btn" name="optionSelect" style="margin-left:300px;" value="옵션확정" onclick="optionSel()">
 			</td>
 			
 		</tr>
