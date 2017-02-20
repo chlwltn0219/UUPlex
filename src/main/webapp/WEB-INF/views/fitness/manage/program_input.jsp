@@ -43,12 +43,12 @@
 				</div>
 				<div class="form-group">
 					<label>개인 준비물</label>
-					<textarea class="form-control" rows="10" name="preparation" 
+					<textarea class="form-control" rows="5" name="preparation" 
 							placeholder="개인 준비물 목록"></textarea>
 				</div>
 				<div class="form-group">
 					<label>프로그램 정보</label>
-					<textarea class="form-control" rows="10" name="pinfo" 
+					<textarea class="form-control" rows="5" name="pinfo" 
 							placeholder="프로그램 정보"></textarea>
 				</div>
 	    	</div>

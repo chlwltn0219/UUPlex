@@ -102,7 +102,7 @@
 							value="수정">
 			<input type="reset" class="btn btn-warning" 
 							value="초기화">
-        	<input type="button" class="btn btn-primary" 
+        	<input type="button" class="btn btn-default" 
 							value="취소" onclick="teacherDetail(${dto.tid})">
         </div>
       </div>
