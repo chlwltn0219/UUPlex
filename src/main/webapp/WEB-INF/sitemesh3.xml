@@ -88,6 +88,8 @@
   <mapping path="/c-box/manage/movie/inputForm" exclue="true"/>
   <mapping path="/c-box/manage/schedule/inputForm" exclue="true"/>
   <mapping path="/c-box/manage/reserve/screenQuater" exclue="true"/>
+  <mapping path="/c-box/manage/dateCnt" exclue="true"/>
+  <mapping path="/c-box/manage/searchOption" exclue="true"/>
   <mapping path="/c-box/user/review/list" exclue="true"/>
   <mapping path="/c-box/schedulechange" exclue="true"/>
   <mapping path="/c-box/user/review/ratingOrder" exclue="true"/>

@@ -39,6 +39,7 @@ import spring.mvc.uuplex.movie.handler.ReserveMainHandler;
 import spring.mvc.uuplex.movie.handler.ReviewListHandler;
 import spring.mvc.uuplex.movie.handler.ScheduleHandler;
 import spring.mvc.uuplex.movie.handler.ScreenQuaterHandler;
+import spring.mvc.uuplex.movie.handler.SearchOptionHandler;
 import spring.mvc.uuplex.movie.handler.TicketHandler;
 
 @Controller
@@ -521,5 +522,31 @@ public class MFrontController {
 
 			return viewPage;
 		}
+	
+	//유영원 기간별 예약/매출 검색 >기간 지정
+	@RequestMapping("/manage/dateCnt")
+	public String dateCnt(Model model) {
+			
+		System.out.println("dateCnt");
+
+		return "/c-box/manage/dateCnt";
+	}	
+	
+	//유영원 기간별 예약/매출 검색 >카테고리별 검색
+	@Autowired
+	SearchOptionHandler searchOptionHandler;
+	
+	@RequestMapping("/manage/searchOption")
+	public String SearchOption(HttpServletRequest req,Model model) {
+				
+		System.out.println("SearchOption");
+		
+		model.addAttribute("req", req);
+		String viewPage = searchOptionHandler.process(model);
+
+
+		return viewPage;
+	}	
+		
 	
 }

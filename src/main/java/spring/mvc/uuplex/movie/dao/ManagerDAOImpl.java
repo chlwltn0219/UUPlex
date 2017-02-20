@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import spring.mvc.uuplex.movie.dto.AgeRangeDTO;
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.movie.dto.RankingDTO;
+import spring.mvc.uuplex.movie.dto.ReserveDTO;
 import spring.mvc.uuplex.movie.dto.SalesDTO;
 import spring.mvc.uuplex.movie.dto.ScreenQuotaDTO;
 
@@ -91,6 +92,30 @@ public class ManagerDAOImpl implements ManagerDAO{
 		ManagerDAO dao = sqlSession.getMapper(ManagerDAO.class);
 		cnt = dao.getReservIdCnt(movie_num);
 		return cnt;
+	}
+
+	@Override
+	public List<ReserveDTO> searchAll(Map<String, Object> daoMap) {
+		List<ReserveDTO> list = null;
+		ManagerDAO dao = sqlSession.getMapper(ManagerDAO.class);
+		list = dao.searchAll(daoMap);
+		return list;
+	}
+
+	@Override
+	public List<ReserveDTO> searchTitle(Map<String, Object> daoMap) {
+		List<ReserveDTO> list = null;
+		ManagerDAO dao = sqlSession.getMapper(ManagerDAO.class);
+		list = dao.searchTitle(daoMap);
+		return list;
+	}
+
+	@Override
+	public List<ReserveDTO> searchDirector(Map<String, Object> daoMap) {
+		List<ReserveDTO> list = null;
+		ManagerDAO dao = sqlSession.getMapper(ManagerDAO.class);
+		list = dao.searchDirector(daoMap);
+		return list;
 	}
 
 	

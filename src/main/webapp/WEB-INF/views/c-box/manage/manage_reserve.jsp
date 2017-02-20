@@ -8,6 +8,7 @@
 <script type="text/javascript" src="${resources}/js/Ajax.js"></script>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="${js}checkDetails.js"></script>
 	
 <script type="text/javascript">
 //메뉴 탭
@@ -313,13 +314,14 @@ function screenQ() {
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane fade in active" id="home">
-					
+					<%-- <h3 style="background-color: #eeeeee;margin:0;height:40px; padding:5px">&nbsp;&nbsp;&nbsp;예매순위 &nbsp;&nbsp;&nbsp;<font style="color:#C92800; font-size: 20px">최근 7일 관객 수 : ${reserveCnt}명</font></h3> --%>
+				 	<h3 style="margin-top: 20px">&nbsp;&nbsp;&nbsp; 예매순위<font style="color:#C92800; font-size: 18px">&nbsp;&nbsp;&nbsp;관객 수 : ${reserveCnt}명&nbsp;&nbsp;(최근 7일 기준) </font></h3>
 				 <div class="donutchart" id="donutchart" style="width: 380px; height: 400px;"></div> 
 				 <div class="donutchart" id="donutchart2" style="width: 380px; height: 400px;"></div> 
 				 <div class="donutchart" id="donutchart3" style="width: 380px; height: 400px;"></div> 
 				 
 				 <div>
-				 	<div style="font-size: 20px;"><b>최근 7일 관객 수 : ${reserveCnt}</b></div><br>
+				 	<div style="font-size: 20px;"></div><br>
 				 	
 				 	<table class="table" id="table">
 				 		<tr>
@@ -356,13 +358,14 @@ function screenQ() {
 				
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="profile">
-				
+					<h3 style="margin-top: 20px">&nbsp;&nbsp;&nbsp; 매출현황<font style="color:#C92800; font-size: 18px">&nbsp;&nbsp;&nbsp;(최근 1년 기준) </font></h3>
     				<div id="columnchart_values" style="width: 1170px; height: 800px;"></div>
 				
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="messages">
-				<h2>스크린 쿼터</h2>
-					<form action="" name="yearform">
+				<h3 style="margin-top: 20px">&nbsp;&nbsp;&nbsp; 스크린쿼터<font style="color:#C92800; font-size: 18px">&nbsp;&nbsp;&nbsp;영화 진흥법 시행령에 의거하여  각 상영관은 의무적으로 1년에 73일 이상 한국영화를 상영해야 합니다. </font></h3>
+					
+					<form style="margin: 40px"action="" name="yearform">
 						<select name="year">
 							<% Calendar cal = Calendar.getInstance();
 							cal.add(Calendar.YEAR, -1); %>
@@ -388,13 +391,15 @@ function screenQ() {
 								<fmt:formatDate value="<%=new Date(cal4.getTimeInMillis())%>" pattern="yyyy"/>
 							</option>
 						</select>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="button" class="btn" value="조회하기" onclick="getSQresult();">
 					</form>
+					
 					<div id="result"></div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="settings">
 				
-				
+				<jsp:include page="manage_check.jsp"></jsp:include>
 				
 				</div>
 			</div>
