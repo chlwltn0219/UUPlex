@@ -28,7 +28,7 @@
 				<c:if test="${fn:length(dtos) > 0}">
 				<c:forEach items="${dtos}" var="c">
 					<tr>
-						<td><h3>${c.pname}<small> : ${c.subname} - ${c.pname} </small></h3></td>
+						<td><h3>${c.pname}<small> : ${c.subname} - ${c.tname} </small></h3></td>
 						<td>
 							<table style="width: 100%">
 								<tr>

@@ -17,7 +17,7 @@
 				<div class="form-group">
 					<label>종목 정보</label>
 					<textarea class="form-control" rows="10" name="sinfo" 
-							placeholder="강사 정보 입력"></textarea>
+							placeholder="종목정보 입력"></textarea>
 				</div>
 	    	</div>
 	    	<div class="modal-footer">

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>영화 진흥법 시행령에 의거하여  각 상영관은 의무적으로 1년에 73일 이상 한국영화를 상영해야 합니다.</p>
+	
 	<table class="table">
 		<tr>
 			<th>상영관</th>

@@ -31,4 +31,21 @@ public class ReserveDAOImpl implements ReserveDAO{
 		reservation = dao.reservations(schedule_num);
 		return reservation;
 	}
+
+	@Override
+	public List<ReserveDTO> getReservList(String id) {
+		List<ReserveDTO> reservation = null;
+		ReserveDAO dao = sqlSession.getMapper(ReserveDAO.class);
+		reservation = dao.getReservList(id);
+		return reservation;
+	}
+
+	@Override
+	public int reservDelete(int reserve_num) {
+		int cnt = 0;
+		ReserveDAO dao = this.sqlSession.getMapper(ReserveDAO.class);
+		cnt = dao.reservDelete(reserve_num);
+		
+		return cnt;
+	}
 }

@@ -99,7 +99,7 @@ li {
 </style>
 
 <div class="container">
-	<form action="/uuplex/c-box/reservation" method="post">
+	<form action="/uuplex/c-box/reservationchk" method="post">
 	<input type="hidden" name="ticketcnt" value="${param.ticketcnt}">
 	<input type="hidden" name="seatnum" value="${param.seatnum}">
 	<input type="hidden" name="schedule_num" value="${param.schedule_num}">
