@@ -48,6 +48,9 @@
   <mapping path="/hotel/reservDetail" exclue="true"/>
   <mapping path="/hotel/adminCalendarView" exclue="true"/>
   <mapping path="/hotel/adminCalDetail" exclue="true"/>
+  <mapping path="/hotel/reservFormCal" exclue="true"/>
+  <mapping path="/hotel/chargeCount" exclue="true"/>
+  <mapping path="/hotel/optionSelect" exclue="true"/>
   
   <mapping path="/fitness/teacher/suitable" exclue="true"/>
   

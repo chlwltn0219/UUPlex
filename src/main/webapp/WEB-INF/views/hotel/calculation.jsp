@@ -6,9 +6,9 @@
 <fmt:requestEncoding value="UTF-8"/>
 
 <%
-	int totCharge = 0;
-	totCharge = Integer.parseInt(request.getParameter("charge"));
+	int option = 0;
+	option = Integer.parseInt(request.getParameter("option"));
 %>
 
-총 결제금액 : &nbsp;&nbsp;&nbsp; <font size="5em"> <input type="hidden" value="<%=totCharge%>" name="totCharge"><%=totCharge%> 원 </font>
+추가금액 : &nbsp;&nbsp;&nbsp; <font size="4em"> <input type="hidden" value="<%=option%>" name="option"><fmt:formatNumber value="<%=option%>" pattern="#,###.##" /> 원 </font>
 

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../setting.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <head>
 <title>UU HOTEL</title>
 <style>
@@ -109,12 +111,12 @@ function window.onload() {
 		</div>
 		<div class="hit_menu">
 			<ul>
-				<c:if test="${idCode == 101}">
+				<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 103}">
 					<li><a href="adminCalendar">예약관리</a></li>
 					<li><a href="roomList">객실관리</a></li>
 					<li><a href="hotelInfo">호텔안내</a></li>
 				</c:if>
-				<c:if test="${idCode != 101}">
+				<c:if test="${sessionScope.idCode != 101 && sessionScope.idCode != 103 }">
 					<li><a href="reservManage">예약내역</a></li>
 					<li><a href="reservation">객실예약</a></li>
 					<li><a href="hotelInfo">호텔안내</a></li>
@@ -235,7 +237,7 @@ function window.onload() {
    </table>
    <hr>
    <div id="result" style="text-align:right">
-   	<font size="5em">총 결제금액 : &nbsp;&nbsp;&nbsp; ${dto.totCharge} 원 </font>
+   	<font size="5em">총 결제금액 : &nbsp;&nbsp;&nbsp; <fmt:formatNumber value="${dto.totCharge}" pattern="#,###.##" /> 원 </font>
    	<input type="hidden" name="totCharge" value="${dto.totCharge}">
    </div>
    <br><br><br>

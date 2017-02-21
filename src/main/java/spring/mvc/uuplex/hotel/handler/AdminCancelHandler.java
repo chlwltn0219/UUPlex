@@ -23,6 +23,7 @@ public class AdminCancelHandler implements HCommandHandler {
 		
 			int num = Integer.parseInt(req.getParameter("reservNum"));
 			dao.cancel(num);
+			dao.calcancel(num);
 		
 		return "/hotel/adminCancel";
 	}

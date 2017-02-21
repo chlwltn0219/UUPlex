@@ -366,7 +366,7 @@ function screenQ() {
 				<h3 style="margin-top: 20px">&nbsp;&nbsp;&nbsp; 스크린쿼터<font style="color:#C92800; font-size: 18px">&nbsp;&nbsp;&nbsp;영화 진흥법 시행령에 의거하여  각 상영관은 의무적으로 1년에 73일 이상 한국영화를 상영해야 합니다. </font></h3>
 					
 					<form style="margin: 40px"action="" name="yearform">
-						<select name="year">
+						<select name="year" style="width:100px">
 							<% Calendar cal = Calendar.getInstance();
 							cal.add(Calendar.YEAR, -1); %>
 							<% Calendar cal2 = Calendar.getInstance();

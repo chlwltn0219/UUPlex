@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../../setting.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <html>
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     google.charts.load('current', {packages: ['corechart', 'bar']});
     google.charts.setOnLoadCallback(drawBasic);
@@ -14,9 +17,9 @@
 
           var data = google.visualization.arrayToDataTable([
             ['Shop', 'Calculate',],
-            ['영화관', 210000],
-            ['호텔', 130000],
-            ['휘트니스', 165000],
+            ['영화관', ${movieDayCal}],
+            ['호텔', ${hotelDayCal}],
+            ['휘트니스', ${fitnessDayCal}],
           ]);
 
           var options = {
@@ -67,16 +70,20 @@
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ['Month', '영화', '호텔', '휘트니스'],
-        ['2016-10',  3510000,      1580000,		2650000],
-        ['2016-11',  2350000,      4520000,		3650000],
-        ['2016-12',  6230000,      2890000,		4356000],
-        ['2017-01',  7210000,      3620000,		5720000]
+        
+        <c:forEach var="dto" items="${monthCal}">
+        
+        
+        ['${dto.monthCal}',  ${dto.m_totPrice},  ${dto.h_totPrice},  ${dto.f_totPrice}],
+    
+        
+        </c:forEach>
       ]);
 
       var options = {
         title: 'Month Calculate',
-        curveType: 'function',
-        legend: { position: 'bottom' }
+        legend: { position: 'bottom' },
+        vAxis: {minValue: 0}   
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -87,8 +94,7 @@
     </script>
     <style>
     	.container {
-    		margin:50px 0 0 350px;
-    		width:1500px;
+    		margin-left:350px;
     	}
     	
     	.jb-cell {
@@ -102,28 +108,29 @@
   </head>
   <body>
   	<div class="container">
+  		<br><br>
   		<h2 style="margin: 0 0 0 530px;">매장정산</h2>
     
     <div class="jb-cell">
     <h3>일일매출</h3>
     
-    <table class="table table-condensed">
+    <table class="table table-condensed" style="table-layout:fixed">
     	<tr>
-	 		<th colspan="5" style="background-color:#f0f0f0">일일매출</th>
+	 		<th colspan="5" style="background-color:#f0f0f0">금일매출</th>
 	 	</tr>
     	<tr>
-    		<th>Date</th>
-    		<th>영화관</th>
-    		<th>호텔</th>
-    		<th>휘트니스</th>
-    		<th>합계</th>
+    		<th>현재시간</th>
+    		<th style="text-align:center">영화관</th>
+    		<th style="text-align:center">호텔</th>
+    		<th style="text-align:center">휘트니스</th>
+    		<th style="text-align:center">합계</th>
     	</tr>
     	<tr>
-    		<th>2017-02-15</th>
-    		<th>210,000원</th>
-    		<th>130,000원</th>
-    		<th>165,000원</th>
-    		<th>505,000원</th>
+    		<th>${todayDate}</th>
+    		<th style="text-align:center"><fmt:formatNumber value="${movieDayCal}" pattern="#,###.##"/>원</th>
+    		<th style="text-align:center"><fmt:formatNumber value="${hotelDayCal}" pattern="#,###.##"/>원</th>
+    		<th style="text-align:center"><fmt:formatNumber value="${fitnessDayCal}" pattern="#,###.##"/>원</th>
+    		<th style="text-align:center"><fmt:formatNumber value="${movieDayCal + hotelDayCal + fitnessDayCal}" pattern="#,###.##"/>원</th>
     	</tr>
     	<tr>
     		<th colspan="5"></th>
@@ -137,48 +144,28 @@
    <div class="jb-cell">
     <h3>월별매출</h3>
     
-    <table class="table table-condensed">
+    <table class="table table-condensed" style="table-layout:fixed">
     	<tr>
 	 		<th colspan="5" style="background-color:#f0f0f0">월별매출</th>
 	 	</tr>
     	<tr>
     		<th>Month</th>
-    		<th>영화관</th>
-    		<th>호텔</th>
-    		<th>휘트니스</th>
-    		<th>합계</th>
-    	</tr>
-    	<tr>
-    		<th>2016-10</th>
-    		<th>3,510,000원</th>
-    		<th>1,580,000원</th>
-    		<th>2,650,000원</th>
-    		<th>7,740,000원</th>
+    		<th style="text-align:center">영화관</th>
+    		<th style="text-align:center">호텔</th>
+    		<th style="text-align:center">휘트니스</th>
+    		<th style="text-align:center">합계</th>
     	</tr>
     	
+    	<c:forEach var="dto" items="${monthCal}">
     	<tr>
-    		<th>2016-11</th>
-    		<th>2,350,000원</th>
-    		<th>4,520,000원</th>
-    		<th>3,650,000원</th>
-    		<th>10,520,000원</th>
+    		<th>${dto.monthCal}</th>
+    		<th style="text-align:center"><fmt:formatNumber value="${dto.m_totPrice}" pattern="#,###.##"/>원</th>
+    		<th style="text-align:center"><fmt:formatNumber value="${dto.h_totPrice}" pattern="#,###.##"/>원</th>
+    		<th style="text-align:center"><fmt:formatNumber value="${dto.f_totPrice}" pattern="#,###.##"/>원</th>
+    		<th style="text-align:center"><fmt:formatNumber value="${dto.m_totPrice + dto.h_totPrice + dto.f_totPrice}" pattern="#,###.##"/>원</th>
     	</tr>
     	
-    	<tr>
-    		<th>2016-12</th>
-    		<th>6,230,000원</th>
-    		<th>2,890,000원</th>
-    		<th>4,356,000원</th>
-    		<th>18,526,000원</th>
-    	</tr>
-    	
-    	<tr>
-    		<th>2017-01</th>
-    		<th>7,210,000원</th>
-    		<th>3,620,000원</th>
-    		<th>5,720,000원</th>
-    		<th>16,550,000원</th>
-    	</tr>
+    	</c:forEach>
     	
     	<tr>
     		<th colspan="5"></th>

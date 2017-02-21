@@ -38,7 +38,7 @@
 		  </tr>
 	
 		<c:forEach var="dto" items="${mdtos}">
-		  <tr>
+		  <tr class="bg-warning">
 			<th>${dto.reserve_num}</th>
 			<th>${dto.memId}</th>
 			<th>${dto.movie_num}</th>
@@ -47,7 +47,7 @@
 			<th>${dto.seat_num}</th>	
 			<th><fmt:formatDate type="both" pattern="yyyy-MM-dd HH:mm" value="${dto.reserve_date}" /></th>		
 			<th>${dto.cnt}</th>		
-			<th>${dto.price}</th>		
+			<th><fmt:formatNumber value="${dto.price}" pattern="#,###.##"/>원</th>		
 		  </tr>
 		</c:forEach>
 		
@@ -77,7 +77,7 @@
 	  </tr>
 
 	<c:forEach var="dto" items="${hdtos}">
-	  <tr>
+	  <tr class="bg-success">
 		<th>${dto.reservNum}</th>
 		<th>${dto.memId}</th>
 		<th>${dto.roomName}</th>
@@ -86,7 +86,7 @@
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.checkOut}" /></th>		
 		<th>${dto.day}</th>		
 		<th>${dto.capacity}</th>		
-		<th>${dto.totCharge}</th>				
+		<th><fmt:formatNumber value="${dto.totCharge}" pattern="#,###.##"/>원</th>				
 	  </tr>
 	</c:forEach>
 	
@@ -111,13 +111,13 @@
 	  </tr>
 	 
 	 <c:forEach var="dto" items="${fdtos}">
-	  <tr>
+	  <tr class="bg-info">
 		<th>${dto.stid}</th>
 		<th>${dto.memid}</th>
 		<th>${dto.pname} - ${dto.subname}</th>
 		<th>${dto.tname}</th>
 		<th><fmt:formatDate type="both" pattern="yyyy-MM-dd" value="${dto.reg_date}" /></th>		
-		<th>${dto.price}</th>		
+		<th><fmt:formatNumber value="${dto.price}" pattern="#,###.##"/>원</th>		
 		<!-- <th><button class="btn btn-default">환불</button></th> -->		
 	  </tr>
 	</c:forEach>

@@ -81,7 +81,7 @@
             </nav>
             <br>
             <div class="btn-group" align="right">
-					  <a data-toggle="dropdown" aria-expanded="false">
+					  <a href="#" data-toggle="dropdown" aria-expanded="false">
 					    	바로가기 <span class="caret"></span>
 					  </a>
 					  <ul class="dropdown-menu" role="menu">

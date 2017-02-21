@@ -85,19 +85,19 @@ header .hit_menu li:last-child a {
 		</div>
 		<div class="hit_menu">
 			<ul>
-				<c:if test="${idCode == 101}">
-					<li><a href="hotel/adminCalendar">예약관리</a></li>
-					<li><a href="hotel/roomList">객실관리</a></li>
-					<li><a href="hotel/hotelInfo">호텔안내</a></li>
+				<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 103}">
+					<li><a href="adminCalendar">예약관리</a></li>
+					<li><a href="roomList">객실관리</a></li>
+					<li><a href="hotelInfo">호텔안내</a></li>
 				</c:if>
-				<c:if test="${idCode != 101}">
-					<li><a href="hotel/reservManage">예약내역</a></li>
-					<li><a href="hotel/reservation">객실예약</a></li>
-					<li><a href="hotel/hotelInfo">호텔안내</a></li>
+				<c:if test="${sessionScope.idCode != 101 && sessionScope.idCode != 103 }">
+					<li><a href="reservManage">예약내역</a></li>
+					<li><a href="reservation">객실예약</a></li>
+					<li><a href="hotelInfo">호텔안내</a></li>
 				</c:if>
 			</ul>
 		</div>
-	</header>
+</header>
 	<div class="container">
 		<div id="content">
 			<h3>예약내역 <small> (상세내역을 확인하시려면 객실명을 클릭하세요.)</small></h3><br><br>

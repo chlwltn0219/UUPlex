@@ -188,12 +188,12 @@ a:hover {
 		</div>
 		<div class="hit_menu">
 			<ul>
-				<c:if test="${idCode == 101}">
+				<c:if test="${sessionScope.idCode == 101 || sessionScope.idCode == 103}">
 					<li><a href="adminCalendar">예약관리</a></li>
 					<li><a href="roomList">객실관리</a></li>
 					<li><a href="hotelInfo">호텔안내</a></li>
 				</c:if>
-				<c:if test="${idCode != 101}">
+				<c:if test="${sessionScope.idCode != 101 && sessionScope.idCode != 103 }">
 					<li><a href="reservManage">예약내역</a></li>
 					<li><a href="reservation">객실예약</a></li>
 					<li><a href="hotelInfo">호텔안내</a></li>
@@ -300,7 +300,7 @@ a:hover {
 								
 							String checkIn = year + "-" + (month+1) + "-" + i; 	
 						%>
-						<td align="center" bgcolor="<%=bgcolor%>"><font color=<%=color%>><a
+						<td align="center" bgcolor="<%=bgcolor%>"><font color=<%=color%>><a href="#"
 								<%-- href="adminCalendarView?checkIn=<%=checkIn%>"><%=i%></a></font></td> --%>
 								onclick="dateCheck('<%=checkIn%>')"><%=i%></a></font></td>
 						<%

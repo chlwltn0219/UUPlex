@@ -22,7 +22,7 @@ public class QnAlistHandler implements CommandHandler {
 	@Override
 	public String process(Model model) {
 		
-		int pageSize = 5;	   //한페이지당 출력할 글 개수
+		int pageSize = 8;	   //한페이지당 출력할 글 개수
 		int pageBlock = 3;	   //출력할 페이지 개수
 		
 		int cnt = 0;		   //글 개수

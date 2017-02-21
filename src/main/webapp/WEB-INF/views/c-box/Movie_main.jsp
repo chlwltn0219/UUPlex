@@ -29,15 +29,14 @@ body {
 }
 
 .logo {
-	width: 200px;
-	margin: 0 45%;
+	width: 250px;
 }
 
 .btn_div {
 	width: 250px;
 	position: absolute;
 	top: 190px;
-	right: 300px;
+	left: 70%;
 	z-index: 1;
 }
 
