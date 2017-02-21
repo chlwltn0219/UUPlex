@@ -7,6 +7,7 @@ import java.util.Map;
 import spring.mvc.uuplex.movie.dto.AgeRangeDTO;
 import spring.mvc.uuplex.movie.dto.MovieInfoDTO;
 import spring.mvc.uuplex.movie.dto.RankingDTO;
+import spring.mvc.uuplex.movie.dto.ReserveDTO;
 import spring.mvc.uuplex.movie.dto.SalesDTO;
 import spring.mvc.uuplex.movie.dto.ScreenQuotaDTO;
 
@@ -29,5 +30,11 @@ public interface ManagerDAO {
 	public int womanCnt(int movie_num);							//성별 예매수
 	
 	public int getReservIdCnt(int movie_num);					//영화별 예매 내역 수(티켓수량 고려안함)
+	
+	public List<ReserveDTO> searchAll(Map<String, Object> daoMap);		//전체 예약 내역 검색
+	
+	public List<ReserveDTO> searchTitle(Map<String, Object> daoMap);		//영화제목으로 예약내역 검색
+	
+	public List<ReserveDTO> searchDirector(Map<String, Object> daoMap);		//감독이름으로 예약 내역 검색
 }
 

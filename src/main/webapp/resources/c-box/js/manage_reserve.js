@@ -111,7 +111,12 @@ function drawChart6(data) {
 		   rate2 = 0;
 	   }else{
 		   var rate1 = (item.num/tot)*100;
-		   rate2 = rate1.toString().substr(0, 2); 
+		   
+		   if(rate1 == 100){
+			   rate2 = rate1.toString().substr(0, 3); 
+		   }else{
+			   rate2 = rate1.toString().substr(0, 2); 
+		   }
 		   rate2=rate2*1;
 	   }
 	   

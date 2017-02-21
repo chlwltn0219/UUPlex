@@ -147,11 +147,11 @@
                   <td><b>국가</b> : ${dto.country}</td>
                </tr>
                <tr>
-                  <td>
-                  <div style="width:200px; float:left; margin-top:7px">
+                  <td >
+                  <div style="width:220px; float:left; margin-top:7px">
                   <c:if test="${total == null}">0</c:if>
                      <c:if test="${total != null}">${total}</c:if>
-                        명의 관객이 평가해주셨습니다
+                        명의 관객이 평가해주셨습니다 &nbsp;&nbsp;&nbsp;
                        
                   <b>평점</b> :
                   <c:choose>
@@ -304,13 +304,13 @@
                                  </div>
                               </td>
                               
-                              <td style="width: 100px" rowspan="2">
+                              <%-- <td style="width: 100px" rowspan="2">
                                  <div class="like" style="font-size: 30px;">
                                  <div id="chucheonCnt" style="margin-top: 20px; margin-bottom: 0;">0</div>
                                     <div class="chucheon"><a onclick="chucheon(${dto.review_num});">추천</a></div>
                                  </div>
 
-                              </td>
+                              </td> --%>
 
                            </tr>
                            <tr>
