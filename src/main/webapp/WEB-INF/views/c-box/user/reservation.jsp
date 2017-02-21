@@ -32,11 +32,17 @@ padding: auto 5px;
 						onclick="reserveDetail(${dto.reserve_num})" data-toggle="modal"
 						data-target="#modalPage">${dto.title1}</a></td>
 					<td>${dto.theater_num}</td>
-					<td>${dto.showtime}</td>
+					<td><fmt:formatDate value="${dto.showtime}" pattern="YYYY.MM.dd(E) HH:mm" /></td>
 					<td>${dto.seat_num}</td>
+					<jsp:useBean id="now" class="java.util.Date" />
+					<fmt:formatDate value="${now}" pattern="yyyyMMddHHmm" var="today" />
+					<fmt:formatDate value="${dto.showtime}" pattern="yyyyMMddHHmm" var="showtime" />
 					
-					<td><input type="button" class="btn btn-danger" name="deleteButton" value="예약취소"
-							onclick="window.location='/uuplex/c-box/user/reservation/delete?reserve_num=${dto.reserve_num}'"></td>
+					<td>
+					<c:if test="${(dto.showtime.time-now.time)/1000/60>15}">
+						<input type="button" class="btn btn-danger" name="deleteButton" value="예매취소" onclick="window.location='/uuplex/c-box/user/reservation/delete?reserve_num=${dto.reserve_num}'">
+					</c:if></td>
+							
 				</tr>
 			</c:forEach>
 		</tbody>
