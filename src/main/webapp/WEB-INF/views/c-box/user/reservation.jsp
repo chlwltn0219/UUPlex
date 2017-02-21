@@ -1,31 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ include file="../setting.jsp"%>
+	pageEncoding="UTF-8"%>
+<%@ include file="../setting.jsp"%>
+
+<script type="text/javascript" src="${resources}/js/Ajax.js"></script>
+<style>
+.reserve th, .reserve td{
+text-align: center;
+padding: auto 5px;
+}
+</style>
 
 <div class="container">
-<br><br><br><br>
 
-<h2><center>예약 확인</center></h2>
-<br>
-<table class="table center-block" style="width: 260px;">
-	<tr>
-		<th>영화명</th>
-		<td>${sdto.title1}</td>
-	</tr>
-	<tr>
-		<th>상영관</th>
-		<td>1층 ${dto.theater_num}관</td>
-	</tr>
-	<tr>
-		<th>일시</th>
-		<td><fmt:formatDate value="${sdto.showtime}" pattern="YYYY.MM.dd(E) HH:mm" /></td>
-	</tr>
-	<tr>
-		<th>좌석</th>
-		<td>${dto.seat_num}</td>
-	</tr>
-	<tr>
-		<td colspan="2"><button class="btn" type="button" onclick="location.href='/uuplex/c-box'">메인으로</button></td>
-	</tr>
-</table>
+	<h3>영화 관리</h3>
+
+	<table class="table table-hover reserve">
+		<thead>
+			<tr>
+				<th colspan="2"">영화명</th>
+				<th>상영관</th>
+				<th>일시</th>
+				<th>좌석</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${dtos}" var="dto">
+				<tr>
+					<td><img id="poster" src="/uuplexImg/c-box/${dto.poster}" width="100px"></td>
+					<td width="50px"><a class="btn btn-link"
+						onclick="reserveDetail(${dto.reserve_num})" data-toggle="modal"
+						data-target="#modalPage">${dto.title1}</a></td>
+					<td>${dto.theater_num}</td>
+					<td>${dto.showtime}</td>
+					<td>${dto.seat_num}</td>
+					
+					<td><input type="button" class="btn btn-danger" name="deleteButton" value="예약취소"
+							onclick="window.location='/uuplex/c-box/user/reservation/delete?reserve_num=${dto.reserve_num}'"></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+		
+	</table>
+
+	<div class="modal fade" id="modalPage" role="dialog">
+		<div class="modal-dialog modal-lg" id="dialog"></div>
+	</div>
+
 </div>
+

@@ -14,7 +14,29 @@ public class ReserveDTO {
 	String seat_num;
 	int schedule_num;
 	
+	String title1;
+	String poster;
+	Timestamp showtime;
 	
+	
+	public String getTitle1() {
+		return title1;
+	}
+	public void setTitle1(String title1) {
+		this.title1 = title1;
+	}
+	public String getPoster() {
+		return poster;
+	}
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+	public Timestamp getShowtime() {
+		return showtime;
+	}
+	public void setShowtime(Timestamp showtime) {
+		this.showtime = showtime;
+	}
 	
 	public int getSchedule_num() {
 		return schedule_num;
