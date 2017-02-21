@@ -23,6 +23,8 @@ import spring.mvc.uuplex.movie.handler.GenderAgeRateHandler;
 import spring.mvc.uuplex.movie.handler.GetRankingHandler;
 import spring.mvc.uuplex.movie.handler.GetTheaterHandler;
 import spring.mvc.uuplex.movie.handler.MReservationHandler;
+import spring.mvc.uuplex.movie.handler.MReserveDeleteHandler;
+import spring.mvc.uuplex.movie.handler.MReserveListHandler;
 import spring.mvc.uuplex.movie.handler.MainRankingHandler;
 import spring.mvc.uuplex.movie.handler.ManageMovieHandler;
 import spring.mvc.uuplex.movie.handler.ManageScheduleHandler;
@@ -512,16 +514,47 @@ public class MFrontController {
 		@Autowired
 		MReservationHandler reservationHandler;
 
-		@RequestMapping("/reservation")
+		@RequestMapping("/reservationchk")
 		public String reservation(HttpServletRequest req, Model model) {
 			System.out.println("reservation");
 
 			model.addAttribute("req", req);
-			model.addAttribute("contentPage", "user/reservation.jsp");
+			model.addAttribute("contentPage", "user/reservationchk.jsp");
 			String viewPage = reservationHandler.process(model);
 
 			return viewPage;
 		}
+		
+		@Autowired
+		MReserveListHandler reserveListHandler;
+
+		@RequestMapping("/user/reservation")
+		public String reserveList(HttpServletRequest req, Model model) {
+			System.out.println("reserveList");
+
+			model.addAttribute("req", req);
+			model.addAttribute("contentPage", "user/reservation.jsp");
+			String viewPage = reserveListHandler.process(model);
+
+			return viewPage;
+		}
+		
+		@Autowired
+		MReserveDeleteHandler reserveDeleteHandler;
+
+		@RequestMapping("/user/reservation/delete")
+		public String reserveDelete(HttpServletRequest req, Model model) {
+			System.out.println("reserveList");
+
+			model.addAttribute("req", req);
+			model.addAttribute("contentPage", "user/reservation.jsp");
+			String viewPage = reserveDeleteHandler.process(model);
+
+			return viewPage;
+		}
+		
+		
+		
 	
 	//유영원 기간별 예약/매출 검색 >기간 지정
 	@RequestMapping("/manage/dateCnt")

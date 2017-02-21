@@ -219,7 +219,7 @@ embed {
 			<img class="logo center-block" src="${img}etc/c-box_logo.png"
 				onclick="location.href='/uuplex/c-box'">
 		</div>
-		<div class="menu">
+		<div class="menu" align="center">
 			<table>
 				<tr>
 					<td><input type="button" value="영화"
@@ -227,13 +227,21 @@ embed {
 					<td><input type="button" value="예매조회"
 						onclick="location.href='/uuplex/c-box/user/schedule_list'"></td>
 					<td>
+					
+					
 						<c:if test="${sessionScope.id==null}">
+						<td>
 							<input type="button" value="로그인" data-toggle="modal" data-target="#loginModal" href="/uuplex/noneSM/loginForm">
+							</td>
 						</c:if>
 						<c:if test="${sessionScope.id!=null}">
+						<td><input type="button" value="예매조회"
+						onclick="location.href='/uuplex/c-box/user/reservation'"></td>
+						<td>
 							<input type="button" value="로그아웃" onclick="location.href='/uuplex/logout'">
+							</td>
 						</c:if>
-					</td>
+					
 				</tr>
 			</table>
 		</div>
