@@ -67,32 +67,6 @@ public class SearchOptionHandler implements MCommandHandler{
 					
 					model.addAttribute("dtos", dtos);
 					model.addAttribute("log", log);
-					
-				/*} else if(log.equals("영화제목+감독")) {
-					Map<String, Object> daoMap = new HashMap<String, Object>();
-					daoMap.put("date", date);
-					daoMap.put("curdate", curdate);
-					
-					ArrayList<ReserveDTO> fdtos = dao.reservlist_TD_date(daoMap);
-					
-					model.addAttribute("fdtos", fdtos);
-					model.addAttribute("log", log);	
-					
-				} else {
-					
-					Map<String, Object> daoMap = new HashMap<String, Object>();
-					daoMap.put("date", date);
-					daoMap.put("curdate", curdate);
-					
-					ArrayList<MtestDTO> mdtos = dao.reservlist_m_date(daoMap);
-					ArrayList<HtestDTO> hdtos = dao.reservlist_h_date(daoMap);
-					ArrayList<FStatementDTO> fdtos = dao.reservlist_f_date(daoMap);
-					*/
-					/*model.addAttribute("mdtos", mdtos);
-					model.addAttribute("hdtos", hdtos);
-					model.addAttribute("fdtos", fdtos);
-					model.addAttribute("log", log);
-					*/
 				
 					
 				}
