@@ -35,17 +35,17 @@
       function drawVisualization() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
-         ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-         ['2004/05',  165,      938,         522,             998,           450,      614.6],
-         ['2005/06',  135,      1120,        599,             1268,          288,      682],
-         ['2006/07',  157,      1167,        587,             807,           397,      623],
-         ['2007/08',  139,      1110,        615,             968,           215,      609.4],
-         ['2008/09',  136,      691,         629,             1026,          366,      569.6]
+         ['Month', '10대', '20대', '30대', '40대', '50대 이상', 'Average'],
+         ['2016/10',  165000,      938000,         522000,             998000,           450000,      614000],
+         ['2016/11',  135000,      1120000,        599000,             1268000,          288000,      682000],
+         ['2016/12',  157000,      1167000,        587000,             807000,           397000,      623000],
+         ['2017/01',  139000,      1110000,        615000,             968000,           215000,      609000],
+         ['2017/02',  136000,      691000,         629000,             1026000,          366000,      569000]
      	]);
 
 	    var options = {
-	      title : 'Monthly Coffee Production by Country',
-	      vAxis: {title: 'Cups'},
+	      title : '월별 연령별 매출액',
+	      vAxis: {title: 'Calculate'},
 	      hAxis: {title: 'Month'},
 	      seriesType: 'bars',
 	      series: {5: {type: 'line'}}
@@ -92,13 +92,13 @@
       function drawBarChart() {
         var data = google.visualization.arrayToDataTable([
           ['Age', 'Man', 'Woman'],
-          ['10대 이하', 1000, 400],
-          ['10대', 1170, 460],
-          ['20대', 660, 1120],
-          ['30대', 1030, 540],
-          ['40대', 367, 125],
-          ['50대', 205, 75],
-          ['60대 이상', 67, 36]
+          ['10대 이하', 10, 4],
+          ['10대', 52, 47],
+          ['20대', 66, 112],
+          ['30대', 103, 54],
+          ['40대', 36, 12],
+          ['50대', 20, 7],
+          ['60대 이상', 6, 5]
         ]);
 
         var options = {
@@ -188,7 +188,7 @@
  	</div>
     
     <div class="jb-cell">
-    <h3>테스트</h3>
+    <h3>연령대별 매출액</h3>
  	<div id="chart2_div" style="width: 900px; height: 500px;"></div>
  	</div>
     

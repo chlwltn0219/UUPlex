@@ -11,12 +11,10 @@
 </head>
 <body>
 
-	<h1>[error500페이지]</h1>
-	<h2>요청 처리 과정에서 에러가 발생하였습니다.<br>
-		빠른 시간내에 문제를 해결하도록 하겠습니다.<p></h2>
+	<img width="50%" src="/uuplex/resources/main_images/error500.png">
 		
-	에러 타입 : <%= exception.getClass().getName() %>
-	에러 메시지 : <%= exception.getMessage() %>
+<%-- 에러 타입 : <%= exception.getClass().getName() %>
+	에러 메시지 : <%= exception.getMessage() %> --%>
 			
 </body>
 </html>
