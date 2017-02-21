@@ -9,6 +9,13 @@ text-align: center;
 padding: auto 5px;
 }
 </style>
+<script>
+function deletechk(reserve_num) {	
+	if (confirm("예매를 취소하시겠습니까?")) {
+		window.location="/uuplex/c-box/user/reservation/delete?reserve_num="+reserve_num;
+	}
+}
+</script>
 
 <div class="container">
 
@@ -40,7 +47,7 @@ padding: auto 5px;
 					
 					<td>
 					<c:if test="${(dto.showtime.time-now.time)/1000/60>15}">
-						<input type="button" class="btn btn-danger" name="deleteButton" value="예매취소" onclick="window.location='/uuplex/c-box/user/reservation/delete?reserve_num=${dto.reserve_num}'">
+						<input type="button" class="btn btn-danger" name="deleteButton" value="예매취소" onclick="deletechk(${dto.reserve_num});">
 					</c:if></td>
 							
 				</tr>

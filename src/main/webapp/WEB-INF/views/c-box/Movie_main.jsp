@@ -223,11 +223,7 @@ embed {
 			<table>
 				<tr>
 					<td><input type="button" value="영화"
-						onclick="location.href='/uuplex/c-box/user/movie_list'"></td>
-					<td><input type="button" value="예매조회"
-						onclick="location.href='/uuplex/c-box/user/schedule_list'"></td>
-					<td>
-					
+						onclick="location.href='/uuplex/c-box/user/movie_list'"></td>	
 					
 						<c:if test="${sessionScope.id==null}">
 						<td>

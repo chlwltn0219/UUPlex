@@ -13,9 +13,37 @@ public class ReserveDTO {
 	int cnt;
 	String seat_num;
 	int schedule_num;
-	String title1;
-	String director;
 	
+	String director;
+	String title1;
+	String poster;
+	Timestamp showtime;
+	
+	
+	public String getTitle1() {
+		return title1;
+	}
+	public void setTitle1(String title1) {
+		this.title1 = title1;
+	}
+	public String getPoster() {
+		return poster;
+	}
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
+	}
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+	public Timestamp getShowtime() {
+		return showtime;
+	}
+	public void setShowtime(Timestamp showtime) {
+		this.showtime = showtime;
+	}
 	
 	public int getSchedule_num() {
 		return schedule_num;
@@ -71,19 +99,11 @@ public class ReserveDTO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-	public String getTitle1() {
-		return title1;
-	}
-	public void setTitle1(String title1) {
-		this.title1 = title1;
-	}
-	public String getDirector() {
-		return director;
-	}
-	public void setDirector(String director) {
-		this.director = director;
-	}
 	
+	@Override
+	public String toString() {
+		return memId + "=="+price +"=="+cnt+"=="+seat_num+"=="+movie_num+"=="+theater_num;
+	}
 	
 	
 	
