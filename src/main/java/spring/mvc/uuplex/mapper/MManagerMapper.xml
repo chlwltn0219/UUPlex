@@ -127,4 +127,44 @@
 		movie_num = #{movie_num}
 	
 	</select>
+	
+	<!-- 전체 예약 내역 기간별로 검색 -->
+	<select id="searchAll" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.ReserveDTO">
+		
+		select 
+		reserve_num, memId, r.movie_num as movie_num, theater_num, reserve_date, price, cnt, seat_num, schedule_num,
+		 m.title1 AS title1, m.director AS director
+		from m_reserv r, m_movie_info m
+		where r.movie_num = m.movie_num AND
+		reserve_date BETWEEN #{date} and #{curdate}
+	
+	</select>
+	
+	<!-- 영화제목 검색으로 예약 내역 기간별로 검색 -->
+	<select id="searchTitle" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.ReserveDTO">
+		
+		select 
+		reserve_num, memId, r.movie_num as movie_num, theater_num, reserve_date, price, cnt, seat_num, schedule_num,
+		 m.title1 AS title1, m.director AS director
+		from m_reserv r, m_movie_info m
+		where r.movie_num = m.movie_num AND
+		reserve_date BETWEEN #{date} and #{curdate} AND
+    	title1 LIKE '%'||#{search}||'%'
+	
+	</select>
+	
+	<!-- 감독이름 검색으로 예약 내역 기간별로 검색 -->
+	<select id="searchDirector" parameterType="Map" resultType="spring.mvc.uuplex.movie.dto.ReserveDTO">
+		
+		select 
+		reserve_num, memId, r.movie_num as movie_num, theater_num, reserve_date, price, cnt, seat_num, schedule_num,
+		 m.title1 AS title1, m.director AS director
+		from m_reserv r, m_movie_info m
+		where r.movie_num = m.movie_num AND
+		reserve_date BETWEEN #{date} and #{curdate} AND
+    	director LIKE '%'||#{search}||'%'
+	
+	</select>
+	
+	
 </mapper>

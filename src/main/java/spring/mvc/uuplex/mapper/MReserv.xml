@@ -15,4 +15,16 @@
 	<select id="reservations" parameterType="int" resultType="spring.mvc.uuplex.movie.dto.ReserveDTO">
 		SELECT * FROM m_reserv where schedule_num = #{schedule_num}
 	</select>
+	
+	<!-- 회원 예약리스트 -->
+	<select id="getReservList" parameterType="String" resultType="spring.mvc.uuplex.movie.dto.ReserveDTO">
+		SELECT R.*, S.SHOWTIME, S.THEATER_NUM, M.TITLE1, M.POSTER FROM m_reserv r, m_schedule s, M_MOVIE_INFO m 
+		where r.schedule_num=s.schedule_num and S.MOVIE_NUM=M.MOVIE_NUM and r.memId = #{id}
+		ORDER BY S.SHOWTIME DESC
+	</select>
+	
+	<!-- 예약 삭제  -->
+	<delete id="reservDelete" parameterType="int">
+		DELETE FROM M_RESERV WHERE RESERVE_NUM=#{reserve_num}
+	</delete>
 </mapper>
